@@ -1,0 +1,250 @@
+--@path Generic=/devOps/model/devOps.ecore
+--@path CircleCI=/CircleCI/model/circleCI_metamodel.ecore
+
+module Generic2CircleCI;
+
+create OUT: CircleCI from IN: Generic;
+
+
+-- Step rule
+rule TransformStep {
+    from
+        g : Generic!Command
+    to
+        c : CircleCI!Step (
+            name <- '',
+			tool_framework <- g.tool,
+            parameters <- g.parameters,
+            when_attribute <- c.when_attribute
+        )
+}
+
+
+-- Job rule
+rule TransformJob {
+    from
+        g : Generic!Job
+    to
+        c : CircleCI!Job (
+            name <- g.Name1,
+            execution_env <- c.execution_env,
+            environment <- g.environment,
+			store_artifacts <- g.input,
+			when_unless <- g.ifthenelse,
+			step <- g.command
+        )
+}
+
+
+-- Pipeline rule
+rule TransformPipeline {
+    from
+        g : Generic!Pipeline
+    to
+        c : CircleCI!Pipeline (
+            version <- '',
+			orb <- c.orb,
+			command <- c.command,
+			job <- g.job,
+			workflow <- c.workflow
+        )
+}
+
+-- When_Unless rule
+rule TransformWhen_Unless {
+    from
+        g : Generic!IfThenElse
+    to
+        c : CircleCI!When_Unless (
+            condition <- g.Condition,
+			when_step <- g._if,
+			unless_step <- g._else
+        )
+}
+
+-- Dummy rule for When_Attribute class
+rule DefineDummyWhenAttribute {
+    from
+        -- Absence of When_Attribute class in the source model
+		_ : Generic!IfThenElse
+    to
+        dummyWhenAttribute : CircleCI!When_Attribute (
+            when_type <- 'on_success'
+        )
+}
+
+-- Tool rule
+rule TransformTool {
+    from
+        g : Generic!Tool_Framework
+    to
+        c : CircleCI!Tool_Framework (
+            name <- g.Name5
+        )
+}
+
+-- Parameter rule
+rule TransformParameters {
+    from
+        g : Generic!Parameters
+    to
+        c : CircleCI!Parameters (
+            parameter <- g.Parameter
+        )
+}
+
+-- Dummy rule for Workflow class
+rule DefineDummyWorkflow {
+    from
+        -- Absence of Workflow class in the source model
+		_ : Generic!Parameters
+    to
+        c : CircleCI!Workflow (
+            name <- '',
+            version <- '',
+			when_unless <- c.when_unless,
+			trigger <- c.trigger,
+			branch <- c.branch
+        )
+}
+
+-- Dummy rule for Trigger class
+rule DefineDummyTrigger {
+    from
+        -- Absence of Trigger class in the source model
+		_ : Generic!Parameters
+    to
+        dummyTrigger : CircleCI!Trigger (
+            cron <- ''
+        )
+}
+
+-- Dummy rule for Branch class
+rule DefineDummyBranch {
+    from
+        -- Absence of Branch class in the source model
+		_ : Generic!Parameters
+    to
+        dummyBranch : CircleCI!Branch (
+            name <- 'DummyBranch',
+            branch_type <- 'only'
+        )
+}
+
+
+-- Store_Artifact rule
+rule TransformStore_Artifact {
+    from
+        _ : Generic!Artifact
+    to
+        c : CircleCI!Store_Artifact (
+            path <- '',
+            destination <- ''
+        )
+}
+
+-- Dummy rule for Orb class
+rule DefineDummyOrb {
+    from
+        -- Absence of Orb class in the source model
+		_ : Generic!Parameters
+    to
+        dummyCommand : CircleCI!Orb (
+            key <- '',
+            value <- ''
+        )
+}
+
+-- Dummy rule for Command class
+rule DefineDummyCommand {
+    from
+        -- Absence of Command class in the source model
+		_ : Generic!Parameters
+    to
+        c : CircleCI!Command (
+            name <- 'DummyCommand',
+            description <- 'DummyDescription',
+            step <- c.step,
+            command_params <- c.command_params
+        )
+}
+
+-- Dummy rule for Command_Params class
+rule DefineDummyCommand_Params {
+    from
+        -- Absence of Command_Params class in the source model
+		_ : Generic!Parameters
+    to
+        dummyCommand_Params : CircleCI!Command_Params (
+            type <- '',
+            default <- ''
+        )
+}
+
+-- Environment rule
+rule TransformEnvironment {
+    from
+        g : Generic!Environment
+    to
+        c : CircleCI!Environment (
+            key <- g.Key,
+            value <- g.Value
+        )
+}
+
+
+-- Dummy rule for Docker class
+rule DefineDummyDocker {
+    from
+        -- Absence of Docker class in the source model
+		_ : Generic!Parameters
+    to
+        c : CircleCI!Docker (
+            name <- 'DummyDocker',
+            environment <- c.environment,
+            step <- c.step,
+            image <- 'DummyImage'
+        )
+}
+
+-- Dummy rule for Linux class
+rule DefineDummyLinux {
+    from
+        -- Absence of Linux class in the source model
+		_ : Generic!Parameters
+    to
+        c : CircleCI!Linux (
+            name <- 'DummyLinux',
+            environment <- c.environment,
+            step <- c.step,
+            image <- 'DummyImage'
+        )
+}
+
+-- Dummy rule for MacOs class
+rule DefineDummyMacOs {
+    from
+        -- Absence of MacOs class in the source model
+		_ : Generic!Parameters
+    to
+        c : CircleCI!MacOs (
+            name <- 'DummyMacOs',
+            environment <- c.environment,
+            step <- c.step,
+            xcode <- 'DummyXcode'
+        )
+}
+
+-- Dummy rule for WindowsOrb class
+rule DefineDummyWindowsOrb {
+    from
+        -- Absence of WindowsOrb class in the source model
+		_ : Generic!Parameters
+    to
+        c : CircleCI!WindowsOrb (
+            name <- 'DummyWindowsOrb',
+            environment <- c.environment,
+            step <- c.step,
+            executor <- 'DummyExecutor'
+        )
+}

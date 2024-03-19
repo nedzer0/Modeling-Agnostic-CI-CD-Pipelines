@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devOps:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:devOps="http://www.example.org/devOps"
+    Name0="CircleCI1Job">
+  <job Name1="Job1">
+    <command
+        Description="">
+      <tool
+          Name5="echo"/>
+    </command>
+  </job>
+</devOps:Pipeline>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jenkins_metamodel:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jenkins_metamodel="http://www.example.org/jenkins_metamodel">
+  <environment
+      key="CC"
+      value="'clang'"/>
+  <stage name="Example">
+    <step>
+      <command
+          name="echo"/>
+      <step_parameter
+          parameter="'Hello World'"/>
+    </step>
+    <input message="&quot;Should we continue?&quot;"
+        ok="&quot;Yes, we should.&quot;"
+        submitter="&quot;alice,bob&quot;">
+      <parameter_directive
+          param_type="string">
+        <param_value
+            key="name"
+            value="'PERSON'"/>
+        <param_value
+            key="description"
+            value="'Who should I say hello to?'"/>
+      </parameter_directive>
+    </input>
+    <when xsi:type="jenkins_metamodel:Branch"
+        pattern="&quot;release-\\d+&quot;"
+        comparator="&quot;REGEXP&quot;"/>
+    <when xsi:type="jenkins_metamodel:When_Env"
+        name="DEPLOY_TO"
+        value="production"/>
+  </stage>
+  <stage name="Stage2">
+    <stage name="SubStage"
+        failFast="true"
+        parallel="true">
+      <step>
+        <command
+            name="echo"/>
+        <step_parameter
+            parameter="'this is a test'"/>
+      </step>
+      <environment
+          key="SERVICE_CREDS"
+          value="credentials('my-predefined-username-password')"/>
+      <environment
+          key="AN_ACCESS_KEY"
+          value="credentials('my-predefined-secret-text')"/>
+      <tool
+          tool="jdk"
+          tool_name="jdk-17"/>
+    </stage>
+    <stage name="SubStage2">
+      <post
+          condition="failure">
+        <step>
+          <command
+              name="echo"/>
+          <step_parameter
+              parameter="'I will always say Hello again!'"/>
+        </step>
+      </post>
+      <step>
+        <command
+            name="mvn"/>
+        <step_parameter
+            parameter="1.2.3"/>
+      </step>
+      <when
+          xsi:type="jenkins_metamodel:Not">
+        <when
+            xsi:type="jenkins_metamodel:Branch"
+            pattern="branchTest"/>
+      </when>
+    </stage>
+  </stage>
+  <post>
+    <step>
+      <command
+          name="echo"/>
+      <step_parameter
+          parameter="'Hello World'"/>
+    </step>
+  </post>
+  <parameter_directive
+      param_type="string">
+    <param_value
+        key="defaultValue"
+        value="'Mr Jenkins'"/>
+    <param_value
+        key="name"
+        value="'PERSON'"/>
+  </parameter_directive>
+  <trigger timer="H */4 * * 1-5"/>
+  <tool tool="maven"
+      tool_name="apache-maven-3.0.1"/>
+  <agent xsi:type="jenkins_metamodel:Any"/>
+  <agent xsi:type="jenkins_metamodel:Docker"
+      label="my-defined-label"
+      args="-v /tmp:/tmp"
+      image="maven:3.9.3-eclipse-temurin-17"/>
+</jenkins_metamodel:Pipeline>

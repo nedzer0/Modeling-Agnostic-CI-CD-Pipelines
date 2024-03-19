@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<travisCI_metamodel:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:travisCI_metamodel="http://www.example.org/travisCI_metamodel">
+  <install name="npm install bundle"/>
+  <job name="job1"
+      fast_finish="true"
+      stage_type="DEPLOY">
+    <service
+        name="serv"/>
+    <environment
+        key="KEY1"
+        value="value2"/>
+    <if condition="true"/>
+    <language
+        name="node_js"
+        version="14"/>
+    <script>
+      <parameters
+          parameter="install bundlerssas"/>
+      <tool_framework
+          name="npm"/>
+    </script>
+    <script>
+      <tool_framework
+          name="echo"/>
+    </script>
+  </job>
+  <job name="job2"
+      job_type="EXCLUDE">
+    <artifact
+        name="art1"/>
+    <deploy
+        xsi:type="travisCI_metamodel:GitHub"
+        provider="releases"
+        api_key="token"
+        skip_cleanup="true"
+        file="file1">
+      <on key="tags"
+          value="true"/>
+      <on key="branch"
+          value="main"/>
+      <script>
+        <tool_framework
+            name="install x"/>
+      </script>
+    </deploy>
+    <deploy
+        xsi:type="travisCI_metamodel:Heroku"
+        provider="heroku"
+        api_key="key"
+        app="app1">
+      <script>
+        <tool_framework
+            name="echo hello"/>
+      </script>
+    </deploy>
+  </job>
+  <language
+      name="python"
+      version="3.8"/>
+  <pipeline_environment
+      key="DB"
+      value="123"
+      env_type="JOBS"/>
+  <pipeline_environment
+      key="S_KEY"
+      value="SECRET"
+      env_type="JOBS"/>
+  <pipeline_environment
+      key="pass"
+      value="123"
+      env_type="GLOBAL"/>
+  <branch name="main"/>
+  <branch name="branch1"
+      branch_type="BLOCKLIST"/>
+  <stage name="stage1">
+    <if condition="branch = 2"/>
+  </stage>
+  <stage name="stage2"/>
+  <service name="service1"/>
+  <allow_failure
+      key="rvm"
+      value="1.9.3">
+    <if condition="branch = main"/>
+    <environment
+        key="KEY"
+        value="VAL"/>
+  </allow_failure>
+</travisCI_metamodel:Pipeline>

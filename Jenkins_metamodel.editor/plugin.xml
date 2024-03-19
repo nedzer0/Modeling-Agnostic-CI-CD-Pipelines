@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated jenkins_metamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jenkins_metamodel.presentation.Jenkins_metamodelModelWizardID"
+            name="%_UI_Jenkins_metamodelModelWizard_label"
+            class="jenkins_metamodel.presentation.Jenkins_metamodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Jenkins_metamodelModelFile.gif">
+         <description>%_UI_Jenkins_metamodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated jenkins_metamodel -->
+      <editor
+            id="jenkins_metamodel.presentation.Jenkins_metamodelEditorID"
+            name="%_UI_Jenkins_metamodelEditor_label"
+            icon="icons/full/obj16/Jenkins_metamodelModelFile.gif"
+            extensions="jenkins_metamodel"
+            class="jenkins_metamodel.presentation.Jenkins_metamodelEditor"
+            contributorClass="jenkins_metamodel.presentation.Jenkins_metamodelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

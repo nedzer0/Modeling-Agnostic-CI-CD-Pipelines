@@ -1,0 +1,366 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/jenkins_metamodel')]
+
+
+[template public generateElement(aPipeline : Pipeline)]
+[comment @main/]
+[file ('Jenkins' + '.yml', false, 'UTF-8')]
+pipeline {
+    [generateAgents(aPipeline)/]
+    [generateTriggers(aPipeline)/]
+    [generateParameterDirective(aPipeline)/]
+    [generateEnvironment(aPipeline)/]
+    [generateTools(aPipeline)/]
+    [generateStages(aPipeline)/]
+    [generatePosts(aPipeline)/]
+}
+[/file]
+[/template]
+
+[template public generateAgents(aPipeline: Pipeline)]
+[for (a: Agent | aPipeline.agent)]
+[generateAgent(a)/]
+[/for]
+[/template]
+
+[template public generateAgent(aAgent: Agent)]
+[if (aAgent.oclIsKindOf(Any))]
+agent any
+[/if]
+[if (aAgent.oclIsKindOf(None))]
+agent none
+[/if]
+[if (aAgent.oclIsKindOf(Node))]
+[generateNodeAgent(oclAsType(Node))/]
+[/if]
+[if (aAgent.oclIsKindOf(Docker))]
+[generateDockerAgent(oclAsType(Docker))/]
+[/if]
+[if (aAgent.oclIsKindOf(Dockerfile))]
+[generateDockerfileAgent(oclAsType(Dockerfile))/]
+[/if]
+[/template]
+
+[template public generateNodeAgent(aNode: Node)]
+agent {
+    node {
+        label '[aNode.label/]'
+    }
+}
+[/template]
+
+[template public generateDockerAgent(aDocker: Docker)]
+agent {
+    docker {
+        image '[aDocker.image/]'
+        [if (aDocker.label->notEmpty())]
+        label '[aDocker.label/]'
+        [/if]
+        [if (aDocker.args->notEmpty())]
+        args '[aDocker.args/]'
+        [/if]
+        [if (aDocker.registryUrl->notEmpty())]
+        registryUrl '[aDocker.registryUrl/]'
+        [/if]
+        [if (aDocker.registryCredentialsId->notEmpty())]
+        registryCredentialsId '[aDocker.registryCredentialsId/]'
+        [/if]
+    }
+}
+[/template]
+
+
+[template public generateDockerfileAgent(aDockerfile: Dockerfile)]
+agent {
+    dockerfile {
+        filename [aDockerfile.filename/]
+        [if (aDockerfile.dir->notEmpty())]
+        dir '[aDockerfile.dir/]'
+        [/if]
+        [if (aDockerfile.label->notEmpty())]
+        label '[aDockerfile.label/]'
+        [/if]
+        [if (aDockerfile.additionalBuildArgs->notEmpty())]
+        additionalBuildArgs '[aDockerfile.additionalBuildArgs/]'
+        [/if]
+        [if (aDockerfile.args->notEmpty())]
+        args '[aDockerfile.args/]'
+        [/if]
+        [if (aDockerfile.registryUrl->notEmpty())]
+        registryUrl '[aDockerfile.registryUrl/]'
+        [/if]
+        [if (aDockerfile.registryCredentialsId->notEmpty())]
+        registryCredentialsId '[aDockerfile.registryCredentialsId/]'
+        [/if]
+    }
+}
+[/template]
+
+
+[template public generateTriggers(aPipeline: Pipeline)]
+[if (aPipeline.trigger->notEmpty())]
+triggers {
+    [for (t: Trigger | aPipeline.trigger)] 
+    [generateTrigger(t)/]
+    [/for]
+}
+[/if]
+[/template]
+
+[template public generateTrigger(aTrigger: Trigger)]
+[aTrigger.trigger_type.toString()/]('[aTrigger.timer/]')
+[/template]
+
+
+[template public generateParameterDirective(aPipeline: Pipeline)]
+[if (aPipeline.parameter_directive->notEmpty())]
+parameters {
+    [aPipeline.parameter_directive.param_type/]([for (p: Param_Value | aPipeline.parameter_directive.param_value)][generateParamKeyValue(p)/][if (not (p = aPipeline.parameter_directive.param_value->last()))], [/if][/for])
+}
+[/if]
+[/template]
+
+[template public generateParamKeyValue(aParam_Value : Param_Value)]
+[aParam_Value.key/]: '[aParam_Value.value/]'
+[/template]
+
+
+[template public generateEnvironment(aPipeline: Pipeline)]
+[if (aPipeline.environment->notEmpty()) ]
+environment {
+[for (e: Environment | aPipeline.environment)]
+    [generateKeyValue(e)/]
+[/for]
+}
+[/if]
+[/template]
+
+
+[template public generateKeyValue(aEnv : Environment)]
+[aEnv.key/] = [aEnv.value/]
+[/template]
+
+
+[template public generateTools(aPipeline: Pipeline)]
+[if (aPipeline.tool->notEmpty())]
+tools {
+[for (t: Tool | aPipeline.tool)]
+    [t.tool/] [t.tool_name/]
+[/for]
+}
+[/if]
+[/template]
+
+
+[template public generateStages(aPipeline : Pipeline)]
+stages {
+[for (s: Stage | aPipeline.stage)]
+    [generateStage(s)/]
+[/for]
+}
+[/template]
+
+
+[template public generateStage(aStage : Stage)]
+stage('[aStage.name/]') {
+    [generateStageAgent(aStage)/]
+    [generateStageEnv(aStage)/]
+    [generateInput(aStage)/]
+    [generateWhens(aStage)/]
+    [generateStageTools(aStage)/]
+    [generateStagePosts(aStage)/]
+    [generateSteps(aStage)/]
+    [if (aStage.failFast)]failFast true[/if]
+    [generateRescursiveStage(aStage)/]
+}
+[/template]
+
+
+[template public generateStageAgent(aStage : Stage)]
+[for (a: Agent | aStage.agent)]
+[generateAgent(a)/]
+[/for]
+[/template]
+
+[template public generateStageEnv(aStage : Stage)]
+[if (aStage.environment->notEmpty())]
+environment {
+[for (e: Environment | aStage.environment)]
+    [generateKeyValue(e)/]
+[/for]
+}
+[/if]
+[/template]
+
+
+[template public generateInput(aStage : Stage)]
+[if (aStage.input->notEmpty())]
+input {
+    message [aStage.input.message/]
+    [if (aStage.input.id->notEmpty())]
+    id '[aStage.input.id/]'
+    [/if]
+    [if (aStage.input.ok->notEmpty())]
+    ok '[aStage.input.ok/]'
+    [/if]
+    [if (aStage.input.submitter->notEmpty())]
+    submitter '[aStage.input.submitter/]'
+    [/if]
+    [if (aStage.input.submitterParameter->notEmpty())]
+    submitterParameter '[aStage.input.submitterParameter/]'
+    [/if]
+    [if (aStage.input.parameter_directive->notEmpty())]
+    parameters {
+    [aStage.input.parameter_directive.param_type/]([for (p: Param_Value | aStage.input.parameter_directive.param_value)][generateParamKeyValue(p)/][if (not (p = aStage.input.parameter_directive.param_value->last()))], [/if][/for])
+    }
+    [/if]
+}
+[/if]
+[/template]
+
+
+[template public generateStageTools(aStage : Stage)]
+[if (aStage.tool->notEmpty()) ]
+tools {
+[for (t: Tool | aStage.tool)]
+    [t.tool/] [t.tool_name/]
+[/for]
+}
+[/if]
+[/template]
+
+
+[template public generateStagePosts(aStage : Stage)]
+[if (aStage._post->notEmpty()) ]
+post {
+[for (t: Tool | aStage.tool)]
+    [t.tool/] [t.tool_name/]
+[/for]
+}
+[/if]
+[/template]
+
+
+[template public generateWhens(aStage : Stage)]
+[if (aStage.when->notEmpty())]
+when {
+[for (w: When | aStage.when)]
+    [generateWhen(w)/]
+[/for]
+}
+[/if]
+[/template]
+
+[template public generateWhen(aWhen : When)]
+[if (aWhen.oclIsKindOf(Branch))]
+branch pattern: [oclAsType(Branch).pattern/][if (oclAsType(Branch).comparator->notEmpty())], comparator: [oclAsType(Branch).comparator/][/if]
+[/if]
+[if (aWhen.oclIsKindOf(BuildingTag))]
+buildingTag()
+[/if]
+[if (aWhen.oclIsKindOf(Changelog))]
+changelog pattern: [oclAsType(Changelog).expression/]
+[/if]
+[if (aWhen.oclIsKindOf(ChangeSet))]
+changeset pattern: [oclAsType(ChangeSet).pattern/][if (oclAsType(ChangeSet).comparator->notEmpty())], comparator: [oclAsType(ChangeSet).comparator/][/if]
+[/if]
+[if (aWhen.oclIsKindOf(ChangeRequest))]
+changeRequest [oclAsType(ChangeRequest).attribute/]: [oclAsType(ChangeRequest).value/][if (oclAsType(ChangeRequest).comparator->notEmpty())], comparator: [oclAsType(ChangeRequest).comparator/][/if]
+[/if]
+[if (aWhen.oclIsKindOf(Not))]
+not {
+  [for (w: When | oclAsType(Not).when)]
+    [generateWhen(w)/]
+  [/for]
+}
+[/if]
+[if (aWhen.oclIsKindOf(AnyOf))]
+anyOf {
+  [for (w: When | oclAsType(AnyOf).when)]
+    [generateWhen(w)/]
+  [/for]
+}
+[/if]
+[if (aWhen.oclIsKindOf(AllOf))]
+allOf {
+  [for (w: When | oclAsType(AllOf).when)]
+    [generateWhen(w)/]
+  [/for]
+}
+[/if]
+[if (aWhen.oclIsKindOf(Equals))]
+equals expected: [oclAsType(Equals).expected_val/], actual: [oclAsType(Equals).actual_val/]
+[/if]
+[if (aWhen.oclIsKindOf(Expression))]
+expression { return [oclAsType(Expression).expression/] }
+[/if]
+[if (aWhen.oclIsKindOf(Tag))]
+tag pattern: [oclAsType(Tag).pattern/][if (oclAsType(Tag).comparator->notEmpty())], comparator: [oclAsType(Tag).comparator/][/if]
+[/if]
+[if (aWhen.oclIsKindOf(When_Env))]
+environment name: [oclAsType(When_Env).name/], value: [oclAsType(When_Env).value/]
+[/if]
+[if (aWhen.oclIsKindOf(TriggeredBy))]
+triggeredBy [oclAsType(TriggeredBy).parameter/]
+[/if]
+[/template]
+
+[template public generateSteps(aStage : Stage)]
+[if (aStage.stage->isEmpty())]
+steps {
+[for (s: Step | aStage.step)]
+    [generateStep(s)/]
+[/for]
+}
+[/if]
+[/template]
+
+
+[template public generateStep(aStep: Step)]
+[aStep.command.name/][generateStepParameters(aStep)/]
+[/template]
+
+[template public generateStepParameters(aStep: Step)]
+[for (sp: Step_Parameter | aStep.step_parameter)] [sp.parameter/] [/for]
+[/template]
+
+
+
+[template public generatePosts(aPipeline : Pipeline)]
+[if (aPipeline._post->notEmpty())]
+post {
+    [aPipeline._post.condition.toString()/] {
+        [for (p: Post | aPipeline._post)] [generatePostSteps(p)/] [/for]
+    }
+}
+[/if]
+[/template]
+
+[template public generatePostSteps(aPost : Post)]
+steps {
+[for (s: Step | aPost.step)]
+    [generateStep(s)/]
+[/for]
+}
+[/template]
+
+
+[template public generateRescursiveStage(aStage : Stage)]
+[if (aStage.stage->notEmpty())]
+[if (aStage.stage->exists(s | s.parallel = true))]
+parallel {
+  [for (s: Stage | aStage.stage->select(s | s.parallel = true))]
+    [generateStage(s)/]
+  [/for]
+}
+[/if]
+[if (aStage.stage->exists(s | s.parallel = false))]
+stages {
+  [for (s: Stage | aStage.stage->select(s | s.parallel = false))]
+    [generateStage(s)/]
+  [/for]
+}
+[/if]
+[/if]
+[/template]
+

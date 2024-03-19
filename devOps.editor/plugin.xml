@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated devOps -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="devOps.presentation.DevOpsModelWizardID"
+            name="%_UI_DevOpsModelWizard_label"
+            class="devOps.presentation.DevOpsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DevOpsModelFile.gif">
+         <description>%_UI_DevOpsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated devOps -->
+      <editor
+            id="devOps.presentation.DevOpsEditorID"
+            name="%_UI_DevOpsEditor_label"
+            icon="icons/full/obj16/DevOpsModelFile.gif"
+            extensions="devops"
+            class="devOps.presentation.DevOpsEditor"
+            contributorClass="devOps.presentation.DevOpsActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

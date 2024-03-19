@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devOps:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:devOps="http://www.example.org/devOps"
+    Name0="Jenkins">
+  <when Trigger="cron"
+      Timer="H */4 * * 1-5"/>
+  <job Name1="Build">
+    <tool_framework_job
+        Name5="docker"/>
+    <command>
+      <tool
+          Name5="echo"/>
+      <parameters
+          Parameter="&quot;Building&quot;"/>
+    </command>
+    <input Name3="&quot;Should we continue?&quot;"/>
+    <environment
+        Key="AN_ACCESS_KEY"
+        Value="credentials('my-predefined-secret-text')"/>
+  </job>
+  <job Name1="Test">
+    <ifthenelse
+        Condition="branch &quot;production&quot;">
+      <if>
+        <tool
+            Name5="echo"/>
+        <parameters
+            Parameter="&quot;Deploying&quot;"/>
+      </if>
+      <if>
+        <tool
+            Name5="echo"/>
+        <parameters
+            Parameter="&quot;test script&quot;"/>
+      </if>
+    </ifthenelse>
+  </job>
+  <pipeline_tool_framework
+      Name5="any"/>
+  <pipeline_environment
+      Key="CC"
+      Value="&quot;clang&quot;"/>
+</devOps:Pipeline>

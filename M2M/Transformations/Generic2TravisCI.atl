@@ -1,0 +1,250 @@
+--@path Generic=/devOps/model/devOps.ecore
+--@path TravisCI=/TravisCI_metamodel/model/travisCI_metamodel.ecore
+
+module Generic2TravisCI;
+
+create OUT: TravisCI from IN: Generic;
+
+
+-- Pipeline rule
+rule TransformPipeline {
+    from
+        g : Generic!Pipeline
+    to
+        t : TravisCI!Pipeline (
+        	branch <- g.when,
+            install <- ,
+			pipeline_environment <- g.pipeline_environment,
+			language <- ,
+			job <- g.job,
+			service <- ,
+			allow_failure <- ,
+			_if <- ,
+			stage <- 
+        )
+}
+
+
+-- Environment rule
+rule TransformEnvironment {
+    from
+        g : Generic!Environment
+    to
+        t : TravisCI!Environment (
+            key <- g.Key,
+            value <- g.Value,
+			env_type <- 'DEFAULT'
+        )
+}
+
+-- Script rule
+rule TransformScript {
+    from
+        g : Generic!Command
+    to
+        t : TravisCI!Script (
+            tool_framework <- g.tool,
+            parameters <- g.parameters
+        )
+}
+
+-- Tool_Framework rule
+rule TransformTool_Framework {
+    from
+        g : Generic!Tool_Framework
+    to
+        t : TravisCI!Tool_Framework (
+            name <- g.Name5
+        )
+}
+
+-- Parameters rule
+rule TransformParameters {
+    from
+        g : Generic!Parameters
+    to
+        t : TravisCI!Parameters (
+            parameter <- g.Parameter
+        )
+}
+
+-- Job rule
+rule TransformJob {
+    from
+        g : Generic!Job
+    to
+        t : TravisCI!Job (
+            name <- g.Name1,
+			fast_finish <- false,
+			stage_type <- 'NONE',
+			-- stage_type <- TravisCI!STAGE_TYPE::NONE
+			job_type <- 'INCLUDE',
+			-- job_type <- TravisCI!JOB_TYPE::INCLUDE
+			language <- ,
+			service <- ,
+			artifact <- g.input,
+            environment <- g.environment,
+            deploy <- ,
+            script <- g.command,
+            if <- g.ifthenelse
+        )
+}
+
+
+-- If rule
+rule TransformIf {
+    from
+        g : Generic!IfThenElse
+    to
+        t : TravisCI!If (
+            condition <- g.Condition
+        )
+}
+
+
+-- Artifact rule
+rule TransformArtifact {
+    from
+        g : Generic!Artifact
+    to
+        t : TravisCI!Artifact (
+            name <- g.Name3
+        )
+}
+
+
+-- Dummy rule for Allow_Failure class
+rule TransformAllow_Failure {
+    from
+        g : Generic!Job
+    to
+        t : TravisCI!Allow_Failure (
+            key <- '',
+            value <- '',
+            _if <- ,
+			environment <- 
+        )
+}
+
+-- Dummy rule for Branch class
+rule TransformBranch {
+    from
+        g : Generic!Pipeline
+    to
+        t : TravisCI!Branch (
+            name <- '',
+            --branch_type <- TravisCI!BRANCH_TYPE::SAFELIST
+			branch_type <- 'SAFELIST'
+        )
+}
+
+-- Dummy rule for Install class
+rule TransformInstall {
+    from
+        g : Generic!Pipeline
+    to
+        t : TravisCI!Install (
+            name <- ''
+        )
+}
+
+-- Dummy rule for Stage class
+rule TransformStage {
+    from
+        g : Generic!Job
+    to
+        t : TravisCI!Stage (
+            name <- '',
+            _if <- 
+        )
+}
+
+-- Dummy rule for Service class
+rule TransformService {
+    from
+        g : Generic!Job
+    to
+        t : TravisCI!Service (
+            name <- ''
+        )
+}
+
+-- Dummy rule for Language class
+rule TransformLanguage {
+    from
+        g : Generic!Job
+    to
+        t : TravisCI!Language (
+            name <- '',
+			version <- ''
+        )
+}
+
+-- Dummy rule for On class
+rule TransformOn {
+    from
+        g : Generic!Job
+    to
+        t : TravisCI!On (
+            key <- '',
+            value <- ''
+        )
+}
+
+-- Dummy rule for Rubygems class
+rule TransformRubygems {
+    from
+        g : Generic!Job
+    to
+        t : TravisCI!Rubygems (
+            provider <- '',
+            api_key <- '',
+			skip_cleanup <- false,
+			gem <- '',
+			on <-
+        )
+}
+
+
+-- Dummy rule for Npm class
+rule TransformNpm {
+    from
+        g : Generic!Job
+    to
+        t : TravisCI!Npm (
+            provider <- '',
+            api_key <- '',
+			skip_cleanup <- false,
+			on <-
+        )
+}
+
+
+-- Dummy rule for Heroku class
+rule TransformHeroku {
+    from
+        g : Generic!Job
+    to
+        t : TravisCI!Heroku (
+            provider <- '',
+            api_key <- '',
+			skip_cleanup <- false,
+			app <- '',
+			on <-
+        )
+}
+
+
+-- Dummy rule for GitHub class
+rule TransformGitHub {
+    from
+        g : Generic!Job
+    to
+        t : TravisCI!GitHub (
+            provider <- '',
+            api_key <- '',
+			skip_cleanup <- false,
+			file <- '',
+			on <-
+        )
+}

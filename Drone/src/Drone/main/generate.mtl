@@ -1,0 +1,117 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/devOps')]
+
+
+[template public generateElement(aPipeline : Pipeline)]
+[comment @main/]
+[file (aPipeline.Name0 + '.yml', false, 'UTF-8')]
+---
+kind: pipeline
+type: docker
+name: [aPipeline.Name0/]
+
+[generateJobs(aPipeline)/]
+[generateWhen(aPipeline)/]
+[/file]
+[/template]
+
+
+[template public generateJobEnvironment(aJob : Job)]
+[if (aJob.environment->notEmpty()) ]
+environment:
+[for (e: Environment | aJob.environment)]
+  [generateKeyValue(e)/]
+[/for]
+[/if]
+[/template]
+
+[template public generateKeyValue(aEnv : Environment)]
+[aEnv.Key/]: [aEnv.Value/]
+[/template]
+
+
+[template public generateIfStatements(aJob: Job)]
+[if (not aJob.ifthenelse->isEmpty())]
+[for (i: IfThenElse | aJob.ifthenelse)]
+  [generateIfThenELse(i)/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generateIfThenELse(aIfThenElse: IfThenElse)]
+when:
+  [aIfThenElse.Condition/]:
+  [for (c: Command | aIfThenElse._if)]
+  [generateCommand(c)/]
+  [/for]
+[/template]
+
+
+[template public generateToolFrameworkJob(aJob : Job)]
+[if (aJob.tool_framework_job->notEmpty())]
+image: [aJob.tool_framework_job.Name5/]
+[/if]
+[/template]
+
+
+[template public generateJobs(aPipeline : Pipeline)]
+[if (not aPipeline.job->isEmpty()) ]
+steps:
+[for (j: Job | aPipeline.job)]
+  [generateJob(j)/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generateJob(aJob : Job)]
+- name: [aJob.Name1/]
+  [generateToolFrameworkJob(aJob)/]
+  [generateJobEnvironment(aJob)/]
+  [generateFailure(aJob)/]
+  [generateSteps(aJob)/]
+[generateIfStatements(aJob)/]
+  [generateParallelism(aJob)/]
+[/template]
+
+
+[template public generateSteps(aJob: Job)]
+commands:
+[for (c: Command | aJob.command)]
+  [generateCommand(c)/]
+[/for]
+[/template]
+
+
+
+[template public generateCommand(aCommand: Command)]
+- [aCommand.tool.Name5/][generateParameters(aCommand)/]
+[/template]
+
+[template public generateParameters(aCommand: Command)]
+[for (p: Parameters | aCommand.parameters)] [p.Parameter/] [/for]
+[/template]
+
+[template public generateFailure(aJob: Job)]
+[if (aJob.Allow_faillure)]
+failure: "fail-fast"
+[/if]
+[/template]
+
+
+[template public generateParallelism(aJob: Job)]
+depends_on: 
+- job_name
+[/template]
+
+[template public generateWhen(aPipeline: Pipeline)]
+[if (aPipeline.when->notEmpty()) ]
+trigger:
+  event:
+  [for (w: When | aPipeline.when)]
+  - [aPipeline.when.Trigger/]
+  [/for]
+[/if]
+[/template]
+

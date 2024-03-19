@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devOps:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:devOps="http://www.example.org/devOps"
+    Name0="a">
+  <job Name1="test"
+      Description1="test output">
+    <command
+        Description="Save data to artifact">
+      <tool
+          Name5="echo"/>
+      <parameters
+          Parameter="&quot;Data for artifact&quot;"/>
+      <parameters
+          Parameter="> artifact.txt"/>
+    </command>
+  </job>
+</devOps:Pipeline>

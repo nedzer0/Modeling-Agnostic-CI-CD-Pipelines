@@ -1,0 +1,137 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/devOps')]
+
+
+[template public generateElement(aPipeline : Pipeline)]
+[comment @main/]
+[file (aPipeline.Name0 + '.yml', false, 'UTF-8')]
+['name: ' + aPipeline.Name0/]:
+
+[generateEnvironment(aPipeline)/]
+[generateWhen(aPipeline)/]
+[generateJobs(aPipeline)/]
+[/file]
+[/template]
+
+[template public generateWhen(aPipeline: Pipeline)]
+[generateTriggers(aPipeline)/]
+[/template]
+
+[template public generateTriggers(aPipeline: Pipeline)]
+[if (aPipeline.when->notEmpty()) ]
+on: [ '[' /]  [for (w: When | aPipeline.when)] [w.Trigger/][/for] [ ']' /]
+[/if]
+[/template]
+
+
+[template public generateEnvironment(aPipeline: Pipeline)]
+[if (aPipeline.pipeline_environment->notEmpty()) ]
+env:
+[for (e: Environment | aPipeline.pipeline_environment)]
+	[generateKeyValue(e)/]
+[/for]
+[/if]
+[/template]
+
+[template public generateKeyValue(aEnv : Environment)]
+[aEnv.Key/] : [aEnv.Value/]
+[/template]
+
+[template public generateWith(aJob : Job)]
+[if (aJob.environment->notEmpty()) ]
+with:
+[for (e: Environment | aJob.environment)]
+	[generateKeyValue(e)/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generateToolFrameworkJob(aJob : Job)]
+[for (t: Tool_Framework | aJob.tool_framework_job)]
+runs-on: [t.Name5/]
+[/for]
+[/template]
+
+[template public generateInput(aJob : Job)]
+[if (not aJob.input->isEmpty())]
+input:
+[for (i: Artifact | aJob.input)]
+	[i.Name3/]
+[/for]
+[/if]
+[/template]
+
+[template public generateOutput(aJob : Job)]
+[if aJob.output->notEmpty()]
+output:
+[for (i: Artifact | aJob.output)]
+	[i.Name3/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generateIfStatements(aJob: Job)]
+[if (not aJob.ifthenelse->isEmpty())]
+[for (i: IfThenElse | aJob.ifthenelse)]
+	[generateIfThenELse(i)/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generateIfThenELse(aIfThenElse: IfThenElse)]
+if: [aIfThenElse.Condition/]
+steps:
+[for (c: Command | aIfThenElse._if)]
+	[generateCommand(c)/]
+[/for]
+[if (not aIfThenElse._else->isEmpty())]
+else: 
+steps:
+[for (c: Command | aIfThenElse._else)]
+	[generateCommand(c)/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generateJobs(aPipeline : Pipeline)]
+[if (not aPipeline.job->isEmpty()) ]
+jobs:
+[for (j: Job | aPipeline.job)]
+	[generateJob(j)/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generateJob(aJob : Job)]
+[aJob.Name1/]:
+	[generateToolFrameworkJob(aJob)/]
+	[generateIfStatements(aJob)/]
+	[generateSteps(aJob)/]
+	[generateInput(aJob)/]
+	[generateOutput(aJob)/]
+	[generateWith(aJob)/]
+[/template]
+
+
+[template public generateSteps(aJob: Job)]
+steps:
+[for (c: Command | aJob.command)]
+	[generateCommand(c)/]
+[/for]
+[/template]
+
+
+
+[template public generateCommand(aCommand: Command)]
+- name: [aCommand.Description/]
+  run: [aCommand.tool.Name5/] [generateParameters(aCommand)/]
+[/template]
+
+[template public generateParameters(aCommand: Command)]
+[for (p: Parameters | aCommand.parameters)] [p.Parameter/] [/for]
+[/template]

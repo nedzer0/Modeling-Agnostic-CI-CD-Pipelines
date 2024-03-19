@@ -1,0 +1,115 @@
+version: 3.4
+
+orbs:
+  orbKey: OrbValue
+
+commands:
+  Name:
+    description: Not a description
+    parameters: 
+      to:
+        type: string
+        default: default message
+    steps:
+      - run:
+          name: stepNamee
+          command: |
+      	    echo print this hello 
+          
+
+executors:
+  executor_name:
+    docker:
+      - image: docker_imagee
+  linuxNameExecutor:
+    machine:
+      image: LinuxImage
+
+jobs:
+  job1:
+    executor_name:
+      docker:
+        - image: docker_imagee
+      
+      steps:
+        - run: |
+            npm install test 
+            tool2  
+      
+      environment:
+        ENV: VALUE1
+      
+    
+    environment:
+      keykey: valval
+    
+    parallelism: 2
+    
+    steps:
+      - run:
+          
+          command: |
+      	    echo hello world 
+          
+      
+    
+    
+  job2:
+    linuxNameExecutor:
+      machine:
+        image: LinuxImage
+      
+      steps:
+            yoyo
+      
+      
+    
+    
+    
+    steps:
+        - when:
+      	  condition: if branch = master
+      	  steps:
+              - run:
+                  
+                  command: |
+              	    echoecho asdfafaf 
+                  
+      
+      - when:
+    	  condition: if branch = master
+    	  steps:
+            - run:
+                
+                command: |
+            	    echoecho asdfafaf 
+                
+    
+    - store_artifacts:
+        path:
+    	  - C://folder
+        destination: myPC
+    
+
+workflows:
+  version: 2.0
+  workflow_Name: my_workflow
+    triggers:
+      - schedule:
+          cron: "0-0----0"
+          filters:
+            branches:
+              only:
+                - master
+                - branch1
+              ignore:
+                - branch2
+          
+    
+    when:
+      condition: conditionExpert = 0
+    
+    jobs:
+	  - job1
+	  - job2
+

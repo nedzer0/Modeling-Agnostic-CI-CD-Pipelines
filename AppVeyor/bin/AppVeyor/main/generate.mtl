@@ -1,0 +1,140 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/devOps')]
+
+
+[template public generateElement(aPipeline : Pipeline)]
+[comment @main/]
+[file (aPipeline.Name0 + '.yml', false, 'UTF-8')]
+version: 1.0.{build}
+
+[generateWhen(aPipeline)/]
+[generateToolFramework(aPipeline)/]
+[generateEnvironment(aPipeline)/]
+[generateJobs(aPipeline)/]
+[generateArtifacts(aPipeline)/]
+[/file]
+[/template]
+
+
+[template public generateWhen(aPipeline: Pipeline)]
+[generateTriggers(aPipeline)/]
+[/template]
+
+[template public generateTriggers(aPipeline: Pipeline)]
+[if (not aPipeline.when->isEmpty()) ]
+branches: 
+  only:
+    [for (w: When | aPipeline.when)]
+    - [w.Trigger/]
+    [/for]
+[/if]
+[/template]
+
+
+[template public generateEnvironment(aPipeline: Pipeline)]
+[if (not (aPipeline.pipeline_environment->isEmpty()))]
+environment:
+[for (e: Environment | aPipeline.pipeline_environment)]
+  - [generateKeyValue(e)/]
+[/for]
+
+  [generateJobsToolFramework(aPipeline)/]
+[/if]
+[/template]
+
+
+[template public generateJobsToolFramework(aPipeline: Pipeline)]
+[if (aPipeline.job.tool_framework_job->notEmpty())]
+matrix:
+[for (j: Job | aPipeline.job)]
+[if (j.tool_framework_job->notEmpty())]
+  - job_name: [j.Name1/]
+    appveyor_build_worker_image: [j.tool_framework_job.Name5/]
+[/if]
+[/for]
+[/if]
+[/template]
+
+[template public generateKeyValue(aEnv : Environment)]
+[aEnv.Key/]: [aEnv.Value/]
+[/template]
+
+[template public generateToolFramework(aPipeline: Pipeline)]
+[if (not (aPipeline.pipeline_tool_framework->isEmpty()))]
+[if (aPipeline.pipeline_tool_framework->size() = 1)]
+image: [aPipeline.pipeline_tool_framework.Name5/]
+[/if]
+[if (aPipeline.pipeline_tool_framework->size() > 1)]
+image:
+[for (t: Tool_Framework | aPipeline.pipeline_tool_framework)]
+  - [t.Name5/]
+[/for]
+[/if]
+[/if]
+[/template]
+
+
+[template public generateJobEnvironment(aJob : Job)]
+[if (aJob.environment->notEmpty())]
+environment:
+[for (e: Environment | aJob.environment)]
+  [generateKeyValue(e)/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generateArtifacts(aPipeline : Pipeline)]
+artifacts:
+[for (i: Artifact | aPipeline.job.input)]
+  - path: [i.Name3/]
+[/for] 
+[/template]
+
+
+[template public generateJobs(aPipeline : Pipeline)]
+[if (not aPipeline.job->isEmpty()) ]
+[if (aPipeline.parallel->notEmpty())]
+parallel: true
+[/if]
+
+for:
+[for (j: Job | aPipeline.job)]
+[generateJob(j)/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generateJob(aJob : Job)]
+
+  -
+    matrix:
+      only:
+        - job_name: [aJob.Name1/]
+        
+        [generateJobEnvironment(aJob)/]
+        [if (aJob.Allow_faillure)]
+        allow_failures:
+        - <condition>: <value>
+        [/if]
+
+    [generateSteps(aJob)/]
+[/template]
+
+
+[template public generateSteps(aJob: Job)]
+script:
+[for (c: Command | aJob.command)]
+[generateCommand(c)/]
+[/for]
+[/template]
+
+
+[template public generateCommand(aCommand: Command)]
+- [aCommand.tool.Name5/]: [generateParameters(aCommand)/]
+[/template]
+
+[template public generateParameters(aCommand: Command)]
+[for (p: Parameters | aCommand.parameters)] [p.Parameter/] [/for]
+[/template]

@@ -1,0 +1,86 @@
+language: python
+python:
+  - '3.8'
+
+install:
+  - npm install bundle
+
+env:
+
+  global:
+    - pass=123
+
+  jobs:
+    - DB=123
+    - S_KEY=SECRET
+
+branches:
+only:
+  - main
+
+except:
+  - branch1
+
+
+services: 
+  - service1
+
+stages:
+  - stage1
+  - stage2
+if: invalid
+
+jobs:
+  fast_finish: true
+  allow_failures:
+    - rvm: 1.9.3
+    env:
+      KEY=VAL
+    if: branch = main
+  
+  include:
+    stage: DEPLOY
+    name: job1
+    node_js: '14'
+    
+    env:
+      - KEY1=value2
+    
+    services:
+      - serv
+    
+    if: true
+    
+    script:
+      - npm install bundlerssas 
+      - echo
+    
+    
+    
+  exclude:
+    name: job2
+    
+    
+    
+    
+    script:
+    
+    deploy:
+      provider: releases
+      api_key: token
+      file: file1
+      skip_cleanup: true
+      on: 
+        tags: true
+        branch: main
+      
+      provider: heroku
+      app: app1
+      api_key: key
+      
+    
+    artifacts:
+      paths:
+        - art1
+    
+

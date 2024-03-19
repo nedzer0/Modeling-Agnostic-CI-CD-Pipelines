@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated circleCI_metamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="circleCI_metamodel.presentation.CircleCI_metamodelModelWizardID"
+            name="%_UI_CircleCI_metamodelModelWizard_label"
+            class="circleCI_metamodel.presentation.CircleCI_metamodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CircleCI_metamodelModelFile.gif">
+         <description>%_UI_CircleCI_metamodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated circleCI_metamodel -->
+      <editor
+            id="circleCI_metamodel.presentation.CircleCI_metamodelEditorID"
+            name="%_UI_CircleCI_metamodelEditor_label"
+            icon="icons/full/obj16/CircleCI_metamodelModelFile.gif"
+            extensions="circleci_metamodel"
+            class="circleCI_metamodel.presentation.CircleCI_metamodelEditor"
+            contributorClass="circleCI_metamodel.presentation.CircleCI_metamodelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

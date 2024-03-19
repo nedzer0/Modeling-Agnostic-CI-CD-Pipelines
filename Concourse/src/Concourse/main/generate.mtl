@@ -1,0 +1,120 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/devOps')]
+
+
+[template public generateElement(aPipeline : Pipeline)]
+[comment @main/]
+[file (aPipeline.Name0 + '.yml', false, 'UTF-8')]
+---
+[generateWhen(aPipeline)/]
+[generateToolFramework(aPipeline)/]
+[generateJobs(aPipeline)/]
+[/file]
+[/template]
+
+
+[template public generateWhen(aPipeline: Pipeline)]
+[if (aPipeline.when->notEmpty())]
+trigger: true
+[/if]
+[/template]
+
+
+[template public generateJobEnvironment(aJob : Job)]
+[if (not (aJob.environment->isEmpty())) ]
+params:
+[for (e: Environment | aJob.environment)]
+  [generateKeyValue(e)/]
+[/for]
+[/if]
+[/template]
+
+[template public generateKeyValue(aEnv : Environment)]
+[aEnv.Key/]: [aEnv.Value/]
+[/template]
+
+
+[template public generateToolFramework(aPipeline : Pipeline)]
+[if (aPipeline.pipeline_tool_framework->notEmpty())]
+resources:
+[for (t: Tool_Framework | aPipeline.pipeline_tool_framework)]
+- name: [t.Name5/]
+  type: git
+  source:
+    uri: https...
+    branch: main
+[/for]
+[/if]
+[/template]
+
+[template public generateInput(aJob : Job)]
+[if (not aJob.input->isEmpty())]
+inputs:
+[for (i: Artifact | aJob.input)]
+- name: [i.Name3/]
+[/for]
+[/if]
+[/template]
+
+[template public generateOutput(aJob : Job)]
+[if aJob.output->notEmpty()]
+outputs:
+[for (i: Artifact | aJob.output)]
+- name: [i.Name3/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generateToolFrameworkJob(aJob : Job)]
+[if aJob.tool_framework_job->notEmpty()]
+platform: [aJob.tool_framework_job.Name5/]
+[/if]
+[/template]
+
+
+[template public generateJobs(aPipeline : Pipeline)]
+jobs:
+[for (j: Job | aPipeline.job)]
+  [generateJob(j)/]
+[/for]
+[/template]
+
+
+[template public generateJob(aJob : Job)]
+- name: [aJob.Name1/]
+  plan:
+    [generateToolFrameworkJob(aJob)/]
+
+    image_resource:
+    type: docker-image
+    source:
+      repository: alpine
+
+    [generateInput(aJob)/]
+    [generateOutput(aJob)/]
+    [generateJobEnvironment(aJob)/]
+    [generateSteps(aJob)/]
+[/template]
+
+
+[template public generateSteps(aJob: Job)]
+run:
+  path: sh
+  args:
+[for (c: Command | aJob.command)]
+  [generateCommand(c)/]
+[/for]
+[/template]
+
+
+
+[template public generateCommand(aCommand: Command)]
+- [aCommand.tool.Name5/] [generateParameters(aCommand)/]
+[/template]
+
+[template public generateParameters(aCommand: Command)]
+[if (aCommand.parameters->notEmpty())]
+[for (p: Parameters | aCommand.parameters)][p.Parameter/] [/for]
+[/if]
+[/template]

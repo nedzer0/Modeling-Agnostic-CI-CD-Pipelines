@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devOps:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:devOps="http://www.example.org/devOps"
+    Name0="CircleCIJobsIf">
+  <job Name1="build"
+      Description1="">
+    <tool_framework_job
+        Name5="cimg/base:2023.11"/>
+    <command
+        Description="Unit Tests">
+      <tool
+          Name5="npm install"/>
+    </command>
+    <environment
+        Key="SECRET_KEY"
+        Value="mysecretkey123"/>
+  </job>
+  <job Name1="test">
+    <ifthenelse
+        Condition="&lt;&lt; parameters.preinstall-foo >>">
+      <if>
+        <tool
+            Name5="echo"/>
+        <parameters
+            Parameter="&quot;preinstall&quot;"/>
+      </if>
+      <else>
+        <tool
+            Name5="echo"/>
+        <parameters
+            Parameter="&quot;dont preinstall&quot;"/>
+      </else>
+    </ifthenelse>
+  </job>
+  <job Name1="verifyConditional">
+    <command
+        Description="verify">
+      <tool
+          Name5="nothing"/>
+    </command>
+  </job>
+</devOps:Pipeline>

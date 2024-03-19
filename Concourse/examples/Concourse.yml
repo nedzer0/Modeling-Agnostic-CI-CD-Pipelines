@@ -1,0 +1,55 @@
+---
+trigger: true
+
+resources:
+- name: booklit
+  type: git
+  source:
+    uri: https...
+    branch: main
+
+jobs:
+  - name: booklit
+    plan:
+      platform: linux
+      
+  
+      image_resource:
+      type: docker-image
+      source:
+        repository: alpine
+  
+      inputs:
+      - name: some-input
+      - name: some-input-2
+      
+      outputs:
+      - name: some-input
+      
+      params:
+        SOME_PARAM: some-default-value
+      
+      run:
+        path: sh
+        args:
+        - sh 
+        - echo whoami 
+      
+  - name: unit
+    plan:
+      
+  
+      image_resource:
+      type: docker-image
+      source:
+        repository: alpine
+  
+      
+      
+      
+      run:
+        path: sh
+        args:
+        - run build 
+      
+

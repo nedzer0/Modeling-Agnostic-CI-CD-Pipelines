@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jenkins_metamodel" nsURI="http://www.example.org/jenkins_metamodel"
+    nsPrefix="jenkins_metamodel">
+  <eClassifiers xsi:type="ecore:EClass" name="Pipeline">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environment" upperBound="-1"
+        eType="#//Environment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stage" lowerBound="1" upperBound="-1"
+        eType="#//Stage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="post" upperBound="-1" eType="#//Post"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_directive" upperBound="-1"
+        eType="#//Parameter_Directive" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" eType="#//Trigger"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tool" upperBound="-1" eType="#//Tool"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="agent" upperBound="-1"
+        eType="#//Agent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Command">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Step_Parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Environment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger_type" eType="#//TRIGGER_TYPE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Input">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ok" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="submitter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="submitterParameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_directive" upperBound="-1"
+        eType="#//Parameter_Directive" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TRIGGER_TYPE">
+    <eLiterals name="cron" value="1"/>
+    <eLiterals name="pollSCM"/>
+    <eLiterals name="upstream"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stage" upperBound="-1"
+        eType="#//Stage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="agent" upperBound="-1"
+        eType="#//Agent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="post" upperBound="-1" eType="#//Post"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="step" lowerBound="1" upperBound="-1"
+        eType="#//Step" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environment" upperBound="-1"
+        eType="#//Environment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tool" upperBound="-1" eType="#//Tool"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
+        eType="#//Input" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="when" upperBound="-1" eType="#//When"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="failFast" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parallel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Step">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="command" upperBound="-1"
+        eType="#//Command" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="step_parameter" upperBound="-1"
+        eType="#//Step_Parameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="When" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="CONDITION_TYPE">
+    <eLiterals name="expression" value="1"/>
+    <eLiterals name="on"/>
+    <eLiterals name="anyOf"/>
+    <eLiterals name="triggeredBy"/>
+    <eLiterals name="tag"/>
+    <eLiterals name="branch"/>
+    <eLiterals name="buildingTag"/>
+    <eLiterals name="changelog"/>
+    <eLiterals name="changeset"/>
+    <eLiterals name="changeRequest"/>
+    <eLiterals name="environment"/>
+    <eLiterals name="equals"/>
+    <eLiterals name="not"/>
+    <eLiterals name="allOf"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Agent" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resuseNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="args" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Any" eSuperTypes="#//Agent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="None" eSuperTypes="#//Agent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//Agent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Docker" eSuperTypes="#//Agent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryCredentialsId"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dockerfile" eSuperTypes="#//Agent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalBuildArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryCredentialsId"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Post">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="#//POST_TYPE"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="step" lowerBound="1" upperBound="-1"
+        eType="#//Step" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter_Directive">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="param_type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param_value" lowerBound="1"
+        upperBound="-1" eType="#//Param_Value" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Param_Value">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tool">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tool" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tool_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeSet" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Branch" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildingTag" eSuperTypes="#//When"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Changelog" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="When_Env" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Equals" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expected_val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actual_val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeRequest" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="when" lowerBound="1" upperBound="-1"
+        eType="#//When" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllOf" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="when" lowerBound="1" upperBound="-1"
+        eType="#//When" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnyOf" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="when" lowerBound="1" upperBound="-1"
+        eType="#//When" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TriggeredBy" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="POST_TYPE">
+    <eLiterals name="always" value="1"/>
+    <eLiterals name="changed"/>
+    <eLiterals name="fixed"/>
+    <eLiterals name="regression"/>
+    <eLiterals name="aborted"/>
+    <eLiterals name="failure"/>
+    <eLiterals name="success"/>
+    <eLiterals name="unstable"/>
+    <eLiterals name="unsuccessful"/>
+    <eLiterals name="cleanup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//When">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

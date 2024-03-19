@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<circleCI_metamodel:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:circleCI_metamodel="http://www.example.org/circleCI_metamodel"
+    version="3.4">
+  <orb key="orbKey"
+      value="OrbValue"/>
+  <command name="Name"
+      description="Not a description">
+    <step name="stepNamee">
+      <parameters
+          parameter="print this hello"/>
+      <tool_framework
+          name="echo"/>
+    </step>
+    <command_params
+        type="string"
+        default="default message"/>
+  </command>
+  <workflow
+      name="my_workflow"
+      version="2.0">
+    <trigger
+        cron="&quot;0-0----0&quot;"/>
+    <when_unless
+        condition="conditionExpert = 0"/>
+    <branch
+        name="master"/>
+    <branch
+        name="branch1"/>
+    <branch
+        name="branch2"
+        branch_type="ignore"/>
+  </workflow>
+  <job name="job1"
+      parallelism="2">
+    <execution_env
+        xsi:type="circleCI_metamodel:Docker"
+        name="executor_name"
+        image="docker_imagee">
+      <environment
+          key="ENV"
+          value="VALUE1"/>
+      <step>
+        <parameters
+            parameter="install test"/>
+        <tool_framework
+            name="npm"/>
+      </step>
+      <step>
+        <parameters/>
+        <when_attribute/>
+        <tool_framework
+            name="tool2"/>
+      </step>
+    </execution_env>
+    <environment
+        key="keykey"
+        value="valval"/>
+    <step>
+      <parameters
+          parameter="hello world"/>
+      <tool_framework
+          name="echo"/>
+    </step>
+  </job>
+  <job name="job2">
+    <store_artifact
+        path="C://folder"
+        destination="myPC"/>
+    <when_unless
+        condition="if branch = master">
+      <when_step>
+        <parameters
+            parameter="asdfafaf"/>
+        <tool_framework
+            name="echoecho"/>
+      </when_step>
+    </when_unless>
+    <execution_env
+        xsi:type="circleCI_metamodel:Linux"
+        name="linuxNameExecutor"
+        image="LinuxImage">
+      <step>
+        <tool_framework
+            name="yoyo"/>
+      </step>
+    </execution_env>
+  </job>
+</circleCI_metamodel:Pipeline>
