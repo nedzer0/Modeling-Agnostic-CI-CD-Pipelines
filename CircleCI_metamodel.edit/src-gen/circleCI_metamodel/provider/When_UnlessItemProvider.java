@@ -12,19 +12,11 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -33,8 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class When_UnlessItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class When_UnlessItemProvider extends StepItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -137,7 +128,7 @@ public class When_UnlessItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((When_Unless) object).getCondition();
+		String label = ((When_Unless) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_When_Unless_type")
 				: getString("_UI_When_Unless_type") + " " + label;
 	}
@@ -177,10 +168,70 @@ public class When_UnlessItemProvider extends ItemProviderAdapter implements IEdi
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__WHEN_STEP,
-				CircleCI_metamodelFactory.eINSTANCE.createStep()));
+				CircleCI_metamodelFactory.eINSTANCE.createRun()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__WHEN_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createRestoreCache()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__WHEN_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createPersistToWorkspace()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__WHEN_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createStoreArtifact()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__WHEN_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createStoreTestResults()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__WHEN_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createSetupRemoteDocker()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__WHEN_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createAddSSHKeys()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__WHEN_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createSaveCache()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__WHEN_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createAttachWorkspace()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__WHEN_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createWhen_Unless()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__WHEN_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createCheckout()));
 
 		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__UNLESS_STEP,
-				CircleCI_metamodelFactory.eINSTANCE.createStep()));
+				CircleCI_metamodelFactory.eINSTANCE.createRun()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__UNLESS_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createRestoreCache()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__UNLESS_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createPersistToWorkspace()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__UNLESS_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createStoreArtifact()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__UNLESS_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createStoreTestResults()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__UNLESS_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createSetupRemoteDocker()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__UNLESS_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createAddSSHKeys()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__UNLESS_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createSaveCache()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__UNLESS_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createAttachWorkspace()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__UNLESS_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createWhen_Unless()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WHEN_UNLESS__UNLESS_STEP,
+				CircleCI_metamodelFactory.eINSTANCE.createCheckout()));
 	}
 
 	/**
@@ -202,17 +253,6 @@ public class When_UnlessItemProvider extends ItemProviderAdapter implements IEdi
 					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return CircleCI_metamodelEditPlugin.INSTANCE;
 	}
 
 }

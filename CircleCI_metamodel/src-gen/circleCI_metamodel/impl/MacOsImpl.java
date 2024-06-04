@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class MacOsImpl extends Execution_EnvImpl implements MacOs {
+public class MacOsImpl extends ExecutorImpl implements MacOs {
 	/**
 	 * The default value of the '{@link #getXcode() <em>Xcode</em>}' attribute.
 	 * <!-- begin-user-doc -->

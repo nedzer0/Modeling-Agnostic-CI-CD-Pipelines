@@ -2,7 +2,6 @@
  */
 package circleCI_metamodel.provider;
 
-import circleCI_metamodel.CircleCI_metamodelFactory;
 import circleCI_metamodel.CircleCI_metamodelPackage;
 import circleCI_metamodel.Step;
 
@@ -13,8 +12,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -77,49 +74,6 @@ public class StepItemProvider extends ItemProviderAdapter implements IEditingDom
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.STEP__PARAMETERS);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.STEP__WHEN_ATTRIBUTE);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.STEP__TOOL_FRAMEWORK);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Step.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Step"));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -157,11 +111,6 @@ public class StepItemProvider extends ItemProviderAdapter implements IEditingDom
 		case CircleCI_metamodelPackage.STEP__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case CircleCI_metamodelPackage.STEP__PARAMETERS:
-		case CircleCI_metamodelPackage.STEP__WHEN_ATTRIBUTE:
-		case CircleCI_metamodelPackage.STEP__TOOL_FRAMEWORK:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -176,15 +125,6 @@ public class StepItemProvider extends ItemProviderAdapter implements IEditingDom
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.STEP__PARAMETERS,
-				CircleCI_metamodelFactory.eINSTANCE.createParameters()));
-
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.STEP__WHEN_ATTRIBUTE,
-				CircleCI_metamodelFactory.eINSTANCE.createWhen_Attribute()));
-
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.STEP__TOOL_FRAMEWORK,
-				CircleCI_metamodelFactory.eINSTANCE.createTool_Framework()));
 	}
 
 	/**

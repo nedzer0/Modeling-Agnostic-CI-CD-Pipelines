@@ -29,7 +29,7 @@ public interface Orb extends EObject {
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(String)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getOrb_Key()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getKey();
@@ -51,7 +51,7 @@ public interface Orb extends EObject {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getOrb_Value()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getValue();

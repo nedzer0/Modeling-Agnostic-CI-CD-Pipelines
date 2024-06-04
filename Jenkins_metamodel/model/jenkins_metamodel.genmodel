@@ -9,27 +9,6 @@
   <foreignModel>jenkins_metamodel.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Jenkins_metamodel" disposableProviderFactory="true" ecorePackage="jenkins_metamodel.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jenkins_metamodel.ecore#//TRIGGER_TYPE">
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//TRIGGER_TYPE/cron"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//TRIGGER_TYPE/pollSCM"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//TRIGGER_TYPE/upstream"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jenkins_metamodel.ecore#//CONDITION_TYPE">
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/expression"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/on"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/anyOf"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/triggeredBy"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/tag"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/branch"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/buildingTag"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/changelog"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/changeset"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/changeRequest"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/environment"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/equals"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/not"/>
-      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//CONDITION_TYPE/allOf"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="jenkins_metamodel.ecore#//POST_TYPE">
       <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//POST_TYPE/always"/>
       <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//POST_TYPE/changed"/>
@@ -42,134 +21,236 @@
       <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//POST_TYPE/unsuccessful"/>
       <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//POST_TYPE/cleanup"/>
     </genEnums>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Pipeline">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/environment"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/stage"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/post"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/parameter_directive"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/trigger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/tool"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/agent"/>
-    </genClasses>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jenkins_metamodel.ecore#//TOOL_TYPE">
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//TOOL_TYPE/maven"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//TOOL_TYPE/jdk"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//TOOL_TYPE/gradle"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jenkins_metamodel.ecore#//COMPARATOR_TYPE">
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//COMPARATOR_TYPE/none"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//COMPARATOR_TYPE/glob"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//COMPARATOR_TYPE/regexp"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//COMPARATOR_TYPE/equals"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jenkins_metamodel.ecore#//ATTRIBUTE_TYPE">
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//ATTRIBUTE_TYPE/target"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//ATTRIBUTE_TYPE/branch"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//ATTRIBUTE_TYPE/fork"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//ATTRIBUTE_TYPE/url"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//ATTRIBUTE_TYPE/title"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//ATTRIBUTE_TYPE/author"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//ATTRIBUTE_TYPE/authorDisplayName"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//ATTRIBUTE_TYPE/authorEmail"/>
+      <genEnumLiterals ecoreEnumLiteral="jenkins_metamodel.ecore#//ATTRIBUTE_TYPE/id"/>
+    </genEnums>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//BuildingTag"/>
     <genClasses ecoreClass="jenkins_metamodel.ecore#//Command">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Command/name"/>
     </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Step_Parameter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Step_Parameter/parameter"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Node/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Node/customWorkspace"/>
     </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Environment">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Environment/key"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Environment/value"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Trigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Trigger/trigger_type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Trigger/timer"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Input">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Input/message"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Input/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Input/ok"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Input/submitter"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Input/submitterParameter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Input/parameter_directive"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Stage">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Stage/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/stage"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/agent"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/post"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/step"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/environment"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/tool"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/input"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/when"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Stage/failFast"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Stage/parallel"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Step">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Step/command"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Step/step_parameter"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//When"/>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Agent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Agent/label"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Agent/resuseNode"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Agent/args"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="jenkins_metamodel.ecore#//Trigger"/>
     <genClasses ecoreClass="jenkins_metamodel.ecore#//Any"/>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//None"/>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Node"/>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Docker">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Docker/image"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Docker/registryUrl"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Docker/registryCredentialsId"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Dockerfile">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/filename"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/dir"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/additionalBuildArgs"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/registryUrl"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/registryCredentialsId"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Post">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Post/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Post/step"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="jenkins_metamodel.ecore#//Parameter_Directive">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Parameter_Directive/param_type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Parameter_Directive/param_value"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Param_Value">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Param_Value/key"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Param_Value/value"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Tool">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Tool/tool"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Tool/tool_name"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//ChangeSet">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//ChangeSet/pattern"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//ChangeSet/comparator"/>
-    </genClasses>
     <genClasses ecoreClass="jenkins_metamodel.ecore#//Branch">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Branch/pattern"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Branch/comparator"/>
     </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//BuildingTag"/>
     <genClasses ecoreClass="jenkins_metamodel.ecore#//Changelog">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Changelog/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//When_Env">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//When_Env/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//When_Env/value"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Equals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Equals/expected_val"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Equals/actual_val"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//ChangeRequest">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//ChangeRequest/attribute"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//ChangeRequest/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//ChangeRequest/comparator"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Not">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Not/when"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//Tag">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Tag/pattern"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Tag/comparator"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//AllOf">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//AllOf/when"/>
-    </genClasses>
-    <genClasses ecoreClass="jenkins_metamodel.ecore#//AnyOf">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//AnyOf/when"/>
     </genClasses>
     <genClasses ecoreClass="jenkins_metamodel.ecore#//TriggeredBy">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//TriggeredBy/parameter"/>
     </genClasses>
     <genClasses ecoreClass="jenkins_metamodel.ecore#//Expression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Expression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Step_Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Step_Parameter/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//ChangeSet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//ChangeSet/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//ChangeSet/comparator"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Not">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Not/when"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Step">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Step/commands"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Step/step_parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Post">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Post/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Post/steps"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//AnyOf">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//AnyOf/when"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Pipeline">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/environments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/stages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/post"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/parameter_directives"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/tools"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/agents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/triggers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Pipeline/options"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Tag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Tag/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Tag/comparator"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//When_Env">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//When_Env/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//When_Env/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jenkins_metamodel.ecore#//Parameter_Directive">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Parameter_Directive/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Parameter_Directive/name"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//AllOf">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//AllOf/when"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Equals">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Equals/expected_val"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Equals/actual_val"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//None"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//ChangeRequest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//ChangeRequest/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//ChangeRequest/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//ChangeRequest/comparator"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Dockerfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/dir"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/additionalBuildArgs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/registryUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/registryCredentialsId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/customWorkspace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/reuseNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/args"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Dockerfile/filename"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Docker">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Docker/registryUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Docker/registryCredentialsId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Docker/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Docker/alwaysPull"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Docker/customWorkspace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Docker/reuseNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Docker/args"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Docker/image"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Stage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/stages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/agents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/steps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/environments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/when"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Stage/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Stage/failFast"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Stage/parallel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/stage_options"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Stage/matrix"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jenkins_metamodel.ecore#//When"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Tool">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Tool/tool"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Tool/tool_name"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Environment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Environment/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Environment/value"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Input">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Input/parameter_directives"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Input/message"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Input/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Input/ok"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Input/submitter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Input/submitterParameter"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jenkins_metamodel.ecore#//Agent"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Cron">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Cron/timer"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//PollSCM">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//PollSCM/timer"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Upstream">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Upstream/jobs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Upstream/threshold"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jenkins_metamodel.ecore#//Option"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//BuildDiscarder">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//BuildDiscarder/numToKeepStr"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//CheckoutToSubdirectory">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//CheckoutToSubdirectory/directory"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//SkipStagesAfterUnstable"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//SkipDefaultCheckout"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Retry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Retry/retries"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//QuietPeriod">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//QuietPeriod/period"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//PreserveStashes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//PreserveStashes/buildCount"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Timeout">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Timeout/time"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Timeout/unit"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//ParallelsAlwaysFailFast"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Timestamps"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//DisableRestartFromStage"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//DisableResume"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//OverrideIndexTriggers">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//OverrideIndexTriggers/override"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//NewContainerPerStage"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//DisableConcurrentBuilds">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//DisableConcurrentBuilds/abort"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jenkins_metamodel.ecore#//StageOption"/>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//StringParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//StringParam/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//TextParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//TextParam/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//ChoiceParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//ChoiceParam/choices"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//PasswordParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//PasswordParam/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//BooleanParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//BooleanParam/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Matrix">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Matrix/axis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Matrix/stages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Matrix/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Matrix/when"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Matrix/environments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Matrix/agents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Matrix/tools"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Matrix/post"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jenkins_metamodel.ecore#//Matrix/stage_options"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Axis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Axis/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Axis/values"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Axis/exclude"/>
+    </genClasses>
+    <genClasses ecoreClass="jenkins_metamodel.ecore#//Label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jenkins_metamodel.ecore#//Label/label"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

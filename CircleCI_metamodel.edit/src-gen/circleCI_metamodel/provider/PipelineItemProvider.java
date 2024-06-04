@@ -57,6 +57,7 @@ public class PipelineItemProvider extends ItemProviderAdapter implements IEditin
 			super.getPropertyDescriptors(object);
 
 			addVersionPropertyDescriptor(object);
+			addSetupPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -78,6 +79,22 @@ public class PipelineItemProvider extends ItemProviderAdapter implements IEditin
 	}
 
 	/**
+	 * This adds a property descriptor for the Setup feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSetupPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Pipeline_setup_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Pipeline_setup_feature",
+								"_UI_Pipeline_type"),
+						CircleCI_metamodelPackage.Literals.PIPELINE__SETUP, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -89,10 +106,11 @@ public class PipelineItemProvider extends ItemProviderAdapter implements IEditin
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__ORB);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__COMMAND);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__ORBS);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__COMMANDS);
 			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__WORKFLOW);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__JOB);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__JOBS);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__EXECUTORS);
 		}
 		return childrenFeatures;
 	}
@@ -157,12 +175,14 @@ public class PipelineItemProvider extends ItemProviderAdapter implements IEditin
 
 		switch (notification.getFeatureID(Pipeline.class)) {
 		case CircleCI_metamodelPackage.PIPELINE__VERSION:
+		case CircleCI_metamodelPackage.PIPELINE__SETUP:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case CircleCI_metamodelPackage.PIPELINE__ORB:
-		case CircleCI_metamodelPackage.PIPELINE__COMMAND:
+		case CircleCI_metamodelPackage.PIPELINE__ORBS:
+		case CircleCI_metamodelPackage.PIPELINE__COMMANDS:
 		case CircleCI_metamodelPackage.PIPELINE__WORKFLOW:
-		case CircleCI_metamodelPackage.PIPELINE__JOB:
+		case CircleCI_metamodelPackage.PIPELINE__JOBS:
+		case CircleCI_metamodelPackage.PIPELINE__EXECUTORS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -180,17 +200,26 @@ public class PipelineItemProvider extends ItemProviderAdapter implements IEditin
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__ORB,
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__ORBS,
 				CircleCI_metamodelFactory.eINSTANCE.createOrb()));
 
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__COMMAND,
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__COMMANDS,
 				CircleCI_metamodelFactory.eINSTANCE.createCommand()));
 
 		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__WORKFLOW,
 				CircleCI_metamodelFactory.eINSTANCE.createWorkflow()));
 
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__JOB,
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__JOBS,
 				CircleCI_metamodelFactory.eINSTANCE.createJob()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__EXECUTORS,
+				CircleCI_metamodelFactory.eINSTANCE.createMachine()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__EXECUTORS,
+				CircleCI_metamodelFactory.eINSTANCE.createMacOs()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__EXECUTORS,
+				CircleCI_metamodelFactory.eINSTANCE.createDocker()));
 	}
 
 	/**

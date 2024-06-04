@@ -3,6 +3,7 @@
 package jenkins_metamodel.impl;
 
 import jenkins_metamodel.Jenkins_metamodelPackage;
+import jenkins_metamodel.TOOL_TYPE;
 import jenkins_metamodel.Tool;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -35,7 +36,7 @@ public class ToolImpl extends MinimalEObjectImpl.Container implements Tool {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TOOL_EDEFAULT = null;
+	protected static final TOOL_TYPE TOOL_EDEFAULT = TOOL_TYPE.MAVEN;
 
 	/**
 	 * The cached value of the '{@link #getTool() <em>Tool</em>}' attribute.
@@ -45,7 +46,7 @@ public class ToolImpl extends MinimalEObjectImpl.Container implements Tool {
 	 * @generated
 	 * @ordered
 	 */
-	protected String tool = TOOL_EDEFAULT;
+	protected TOOL_TYPE tool = TOOL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTool_name() <em>Tool name</em>}' attribute.
@@ -92,7 +93,7 @@ public class ToolImpl extends MinimalEObjectImpl.Container implements Tool {
 	 * @generated
 	 */
 	@Override
-	public String getTool() {
+	public TOOL_TYPE getTool() {
 		return tool;
 	}
 
@@ -102,9 +103,9 @@ public class ToolImpl extends MinimalEObjectImpl.Container implements Tool {
 	 * @generated
 	 */
 	@Override
-	public void setTool(String newTool) {
-		String oldTool = tool;
-		tool = newTool;
+	public void setTool(TOOL_TYPE newTool) {
+		TOOL_TYPE oldTool = tool;
+		tool = newTool == null ? TOOL_EDEFAULT : newTool;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Jenkins_metamodelPackage.TOOL__TOOL, oldTool, tool));
 	}
@@ -158,7 +159,7 @@ public class ToolImpl extends MinimalEObjectImpl.Container implements Tool {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case Jenkins_metamodelPackage.TOOL__TOOL:
-			setTool((String) newValue);
+			setTool((TOOL_TYPE) newValue);
 			return;
 		case Jenkins_metamodelPackage.TOOL__TOOL_NAME:
 			setTool_name((String) newValue);
@@ -194,7 +195,7 @@ public class ToolImpl extends MinimalEObjectImpl.Container implements Tool {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case Jenkins_metamodelPackage.TOOL__TOOL:
-			return TOOL_EDEFAULT == null ? tool != null : !TOOL_EDEFAULT.equals(tool);
+			return tool != TOOL_EDEFAULT;
 		case Jenkins_metamodelPackage.TOOL__TOOL_NAME:
 			return TOOL_NAME_EDEFAULT == null ? tool_name != null : !TOOL_NAME_EDEFAULT.equals(tool_name);
 		}

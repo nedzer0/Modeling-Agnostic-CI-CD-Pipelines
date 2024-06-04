@@ -23,25 +23,28 @@ package jenkins_metamodel;
 public interface ChangeRequest extends When {
 	/**
 	 * Returns the value of the '<em><b>Attribute</b></em>' attribute.
+	 * The literals are from the enumeration {@link jenkins_metamodel.ATTRIBUTE_TYPE}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute</em>' attribute.
-	 * @see #setAttribute(String)
+	 * @see jenkins_metamodel.ATTRIBUTE_TYPE
+	 * @see #setAttribute(ATTRIBUTE_TYPE)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getChangeRequest_Attribute()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	String getAttribute();
+	ATTRIBUTE_TYPE getAttribute();
 
 	/**
 	 * Sets the value of the '{@link jenkins_metamodel.ChangeRequest#getAttribute <em>Attribute</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Attribute</em>' attribute.
+	 * @see jenkins_metamodel.ATTRIBUTE_TYPE
 	 * @see #getAttribute()
 	 * @generated
 	 */
-	void setAttribute(String value);
+	void setAttribute(ATTRIBUTE_TYPE value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -50,7 +53,7 @@ public interface ChangeRequest extends When {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getChangeRequest_Value()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getValue();
@@ -67,24 +70,27 @@ public interface ChangeRequest extends When {
 
 	/**
 	 * Returns the value of the '<em><b>Comparator</b></em>' attribute.
+	 * The literals are from the enumeration {@link jenkins_metamodel.COMPARATOR_TYPE}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comparator</em>' attribute.
-	 * @see #setComparator(String)
+	 * @see jenkins_metamodel.COMPARATOR_TYPE
+	 * @see #setComparator(COMPARATOR_TYPE)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getChangeRequest_Comparator()
 	 * @model
 	 * @generated
 	 */
-	String getComparator();
+	COMPARATOR_TYPE getComparator();
 
 	/**
 	 * Sets the value of the '{@link jenkins_metamodel.ChangeRequest#getComparator <em>Comparator</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Comparator</em>' attribute.
+	 * @see jenkins_metamodel.COMPARATOR_TYPE
 	 * @see #getComparator()
 	 * @generated
 	 */
-	void setComparator(String value);
+	void setComparator(COMPARATOR_TYPE value);
 
 } // ChangeRequest

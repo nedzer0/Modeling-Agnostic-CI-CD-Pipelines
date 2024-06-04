@@ -1,0 +1,337 @@
+-- @path GHA=/GHA_metamodel/model/gHA_metamodel.ecore
+-- @path CICD=/CICD_metamodel/model/cICD_metamodel.ecore
+
+module CICD2GHA;
+create OUT : GHA from IN : CICD;
+
+rule Pipeline2Pipeline {
+	from
+		s : CICD!Pipeline
+	to
+		t : GHA!Pipeline(
+			name <- if s.name.oclIsUndefined() then
+						s.name
+					else
+						OclUndefined
+					endif,
+			run_name <- '',
+			envs <- s.pipeline_environment ->collect(env | thisModule.transformEnvironment(env)),
+			jobs <- s.jobs,
+			triggers <- if s.triggers->notEmpty() and (s.inputs->notEmpty() or s.output->notEmpty()) then
+							s.triggers->union(s.inputs)->union(s.output)->collect(trigger | 
+								if trigger.oclIsTypeOf(CICD!ScheduleTrigger) then
+									thisModule.transformScheduleTrigger(trigger)
+								else
+									Sequence{thisModule.CreateWorkflowDispatchTrigger(s.inputs, s.output)}
+								endif
+							)
+						else if s.triggers->isEmpty() and (s.inputs->notEmpty() or s.output->notEmpty()) then
+							Sequence{thisModule.CreateWorkflowDispatchTrigger(s.inputs, s.output)}
+						else
+							s.triggers->collect(trigger | thisModule.transformScheduleTrigger(trigger))
+						endif
+						endif							
+		)
+}
+
+lazy rule transformScheduleTrigger {
+	from
+		s : CICD!ScheduleTrigger
+	to
+		t : GHA!ScheduleTrigger(
+			cron <- s.timer
+		)
+}
+
+unique lazy rule CreateWorkflowDispatchTrigger {
+	from
+		inputs : Sequence(CICD!Input),
+		outputs : Sequence(CICD!Output)
+	to
+		workflowCallTrigger : GHA!WorkflowCallTrigger(
+			inputs <- inputs,
+			outputs <- outputs
+		)
+}
+
+rule transformInput {
+	from
+		s : CICD!Input
+	to
+		t : GHA!Input(
+			name <- s.name,
+			default <- if s.default.oclIsUndefined() then
+							s.default
+						else
+							OclUndefined
+						endif,
+			isRequired <- OclUndefined,
+			options <- if s.values->notEmpty() then 
+							s.values
+						else
+							OclUndefined
+						endif,
+			description <- if s.description.oclIsUndefined() then
+								s.description
+							else
+								OclUndefined
+							endif,
+			type <-
+				if s.type = #STRING then
+					#STRING
+				else if s.type = #NUMBER then
+					#NUMBER
+				else if s.type = #BOOLEAN then
+					#BOOLEAN
+				else if s.type = #CHOICE then
+					#CHOICE
+				else
+					#ENVIRONMENT
+				endif
+				endif
+				endif
+				endif
+		)
+}
+
+rule transformOutput {
+	from
+		s : CICD!Output
+	to
+		t : GHA!Output(
+			name <- s.name,
+			value <- s.value,
+			description <- ''
+		)
+}
+
+
+rule Job2Job {
+    from
+        s : CICD!Job
+    to
+        t : GHA!Job (
+            name <- s.name,
+			timeout_minutes <- 360,
+			continue_on_error <- if not s.allowFaillure.oclIsUndefined() then
+									s.allowFaillure->toString()
+								else
+									OclUndefined
+								endif,
+			outputs <- s.output,
+			container <- s.agents ->collect(agent | thisModule.DockerContainer2Container(agent.container)),
+            envs <- s.environments ->collect(env | thisModule.transformEnvironment(env)),
+			need <- if s.requireJobs->notEmpty() then 
+						thisModule.transformRequireJobs(s.requireJobs)
+					else
+						OclUndefined
+					endif,
+			strategy <- if not s.matrix.oclIsUndefined() then 
+							thisModule.Strategy2Matrix(s.matrix)
+						else
+							OclUndefined
+						endif,
+			if <- if not s.IfStep.oclIsUndefined() then
+						s.IfStep->collect(step |thisModule.transformIfStep(step))
+					else
+						OclUndefined
+					endif,
+			steps <- s.steps->collect(step | thisModule.transformStep(step)),
+			actions <- if s.artifacts->notEmpty() then
+							s.artifacts->collect(art | thisModule.tranformArtifact(art))
+						else
+							OclUndefined
+						endif
+        )
+}
+
+lazy rule transformRequireJobs {
+    from
+        s : String
+    to
+        t : GHA!Need (
+            jobs <- s
+        )
+}
+
+lazy rule Strategy2Matrix {
+    from
+        s : CICD!Matrix
+    to
+        t : GHA!Strategy (
+            fail_fast <- false,
+		    max_parallel <- OclUndefined,
+			configs <- if not s.configs.oclIsUndefined() then
+							s.configs->collect(config | thisModule.MatrixConfig2MatrixConfig(config))
+						else
+							OclUndefined
+						endif
+        )
+}
+
+lazy rule MatrixConfig2MatrixConfig {
+    from
+        s : CICD!MatrixConfig
+    to
+        t : GHA!MatrixConfig (
+            key <- s.name,
+			values <- s.values,
+			type <- s.type
+        )
+}
+
+lazy rule transformIfStep {
+    from
+        s : CICD!IfStep
+    to
+        t : GHA!If (
+			condition <- s.condition
+        )
+}
+
+lazy rule tranformArtifact {
+    from
+        s : CICD!Artifact
+    to
+        t : GHA!Artifact (
+        	uses <- if s.type = #UPLOAD then
+						'actions/upload-artifact@v4'
+					else
+						'actions/download-artifact@v4'
+					endif,
+            name <- if not s.name.oclIsUndefined() then
+						s.name
+					else
+						OclUndefined
+					endif,
+			paths <- s.path,
+			retention_days <- OclUndefined,
+			type <- s.type
+        )
+}
+
+lazy rule transformStep {
+    from
+        s : CICD!Step
+    to
+        t : GHA!Step (
+            name <- '',
+			continue_on_error <- false,
+			working_directory <- OclUndefined,
+			timeout_minutes <- OclUndefined,
+			shell <- '',
+			commands <- s.commands,
+			parameters <- s.parameters,
+			if <- if not s.IfStep.oclIsUndefined() then
+						thisModule.transformIfStep(s.IfStep)
+					else
+						OclUndefined
+					endif,
+			actions <- if s.cache->notEmpty() then
+							s.cache->collect(c | 
+								if c.mode = #STORE then
+									thisModule.Cache2SaveCache(c)
+								else
+									thisModule.Cache2RestoreCache(c)
+								endif
+							)
+						else
+							OclUndefined
+						endif
+        )
+}
+
+lazy rule Cache2SaveCache {
+    from
+        s : CICD!Cache
+    to
+        t : GHA!SaveCache (
+        	uses <- 'actions/cache/save@v4',
+			key <- s.key,
+			paths <- s.paths,
+        	upload_chunk_size <- OclUndefined
+        )
+}
+
+lazy rule Cache2RestoreCache {
+    from
+        s : CICD!Cache
+    to
+        t : GHA!RestoreCache (
+        	uses <- 'actions/cache/restore@v4',
+            key <- s.key,
+            paths <- s.paths,
+			restore_keys <- OclUndefined,
+			lookup_only <- false,
+			fail_on_cache_miss <- false
+        )
+}
+
+
+lazy rule transformEnvironment {
+    from
+        s : CICD!Environment
+    to
+        t : GHA!Env (
+            key <- s.key,
+            value <- s.value
+        )
+}
+
+lazy rule Agent2Service {
+    from
+        s : CICD!Agent
+    to
+        t : GHA!Service (
+            name <- s.labels->first(),
+			container <- thisModule.DockerContainer2Container(s.container)
+        )
+}
+
+lazy rule DockerContainer2Container {
+    from
+        s : CICD!DockerContainer
+    to
+        t : GHA!Container (
+            image <- s.image,
+			ports <- '',
+			volumes <- '',
+			options <- '',
+			credential <- if not (s.username->oclIsUndefined() and s.password->oclIsUndefined()) then 
+								thisModule.transformDockerAuth(s)
+							else
+								OclUndefined
+							endif,
+			envs <- s.environments ->collect(env | thisModule.transformEnvironment(env))
+        )
+}
+
+lazy rule transformDockerAuth {
+    from
+        s : CICD!DockerContainer
+    to
+        t : GHA!Credentials (
+            username <- s.username,
+			password <- s.password
+        )
+}
+
+
+rule transformCommand {
+    from
+        s : CICD!Command
+    to
+        t : GHA!Command (
+            name <- s.name
+        )
+}
+
+
+rule transformParameters {
+    from
+        s : CICD!Parameters
+    to
+        t : GHA!Parameter (
+            parameter <- s.parameter
+        )
+}

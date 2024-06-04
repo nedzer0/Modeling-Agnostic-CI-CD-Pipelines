@@ -6,7 +6,9 @@
 [comment @main/]
 [file ('CircleCI' + '.yml', false, 'UTF-8')]
 version: [aPipeline.version/]
-
+[if (aPipeline.setup) ]
+setup: [aPipeline.setup/]
+[/if]
 [generateOrbs(aPipeline)/]
 [generateCommands(aPipeline)/]
 [generateExecutors(aPipeline)/]
@@ -17,83 +19,138 @@ version: [aPipeline.version/]
 
 
 [template public generateOrbs(aPipeline : Pipeline)]
-[if (aPipeline.orb->notEmpty()) ]
+[if (aPipeline.orbs->notEmpty()) ]
 orbs:
-[for (o: Orb | aPipeline.orb)]
+[for (o: Orb | aPipeline.orbs)]
   [o.key/]: [o.value/]
 [/for]
 [/if]
 [/template]
 
 [template public generateCommands(aPipeline : Pipeline)]
-[if (aPipeline.command->notEmpty()) ]
+[if (aPipeline.commands->notEmpty()) ]
 commands:
-[if (aPipeline.command.name->notEmpty())]
-  [aPipeline.command.name/]:
-[/if]
-  [if (aPipeline.command.description->notEmpty())]
-    description: [aPipeline.command.description/]
+[for (c: Command | aPipeline.commands)]
+  [c.name/]:
+  [if (c.description->notEmpty())]
+    description: [c.description/]
   [/if]
-  [if (aPipeline.command.command_params->notEmpty())]
-    parameters: 
-      to:
-        type: [aPipeline.command.command_params.type/]
-        default: [aPipeline.command.command_params.default/]
+  [if (c.parameters->notEmpty())]
+    parameters:
+    [for (p: Parameter | c.parameters)]
+      [generateParameters(p)/]
+    [/for]
   [/if]
     steps:
-    [for (s: Step | aPipeline.command.step)]
+    [for (s: Step | c.steps)]
       [generateStep(s)/]
     [/for]
+[/for]
 [/if]
 [/template]
 
-[comment: Execution Environment for Docker, Windows, Linux and MacOs/]
+[template public generateParameters(param : Parameter)]
+[param.name/]:
+  type: [param.type.toString().toLowerCase()/]
+  default: [param.default/]
+[if (param.description->notEmpty())]
+  description: [param.description/]
+[/if]
+[if (param.enumValues->notEmpty())]
+  enum: ['['/][for (val: String | param.enumValues)][val/][if (not (val = param.enumValues->last()))], [/if][/for][']'/]
+[/if]
+[/template]
+
+[comment: Execution Environment for Docker, Machine and MacOs/]
 [template public generateExecutors(aPipeline : Pipeline)]
 executors:
-[for (e: Execution_Env | aPipeline.job.execution_env)]
+[for (e: Executor | aPipeline.executors)]
   [e.name/]:
-    [if (e.oclIsKindOf(Docker))]
-    [generateDockerExecEnv(oclAsType(Docker))/]
-    [/if]
-    [if (e.oclIsKindOf(WindowsOrb))]
-    [generateWinExecEnv(oclAsType(WindowsOrb))/]
-    [/if]
-    [if (e.oclIsKindOf(Linux))]
-    [generateLinuxExecEnv(oclAsType(Linux))/]
-    [/if]
-    [if (e.oclIsKindOf(MacOs))]
-    [generateMacExecEnv(oclAsType(MacOs))/]
-    [/if]
+    [generateExec(e)/]
 [/for]
 [/template]
 
-[template public generateDockerExecEnv(docker : Docker)]
+[template public generateExec(e : Executor)]
+resource_class: [e.resourceClass/]
+[if (e.shell->notEmpty())]
+shell: [shell/]
+[/if]
+[if (e.working_directory->notEmpty())]
+working_directory: [e.working_directory/]
+[/if]
+[if (e.environments->notEmpty())]
+environment:
+[for (env : Environment | e.environments)]
+  [generateEnvironment(env)/]
+[/for]
+[/if]
+[if (e.oclIsKindOf(Docker))]
 docker:
-  - image: [docker.image/]
-[/template]
-
-[template public generateWinExecEnv(win : WindowsOrb)]
-executor: [win.executor/]
-[/template]
-
-
-[template public generateLinuxExecEnv(linux : Linux)]
+  [generateDockerExecEnv(oclAsType(Docker))/]
+[/if]
+[if (e.oclIsKindOf(Machine))]
 machine:
-  image: [linux.image/]
+  [generateMachineExecEnv(oclAsType(Machine))/]
+[/if]
+[if (e.oclIsKindOf(MacOs))]
+macos:
+  [generateMacExecEnv(oclAsType(MacOs))/]
+[/if]
+[/template]
+
+[template public generateDockerExecEnv(docker : Docker)]
+- image: [docker.image/]
+[if (docker.entrypoint->notEmpty())]
+  entrypoint:
+    [for (ep: String | docker.entrypoint)][ep/][/for]
+[/if]
+[if (docker.command->notEmpty())]
+  command:
+  [for (c: String | docker.command)]
+    [c/]
+  [/for]
+[/if]
+[if (docker.user->notEmpty())]
+  user: [docker.user/]
+[/if]
+[if (docker.environments->notEmpty())]
+  environment:
+  [for (e: Environment | docker.environments)]
+    [generateEnvironment(e)/]
+  [/for]
+[/if]
+[if (docker.docker_auth->notEmpty())]
+  auth:
+  [for (d: Docker_Auth | docker.docker_auth)]
+    username: [d.username/]
+    password: [d.password/]
+  [/for]
+[/if]
+[if (docker.docker_aws_auth->notEmpty())]
+  aws_auth:
+    aws_access_key_id: [docker_aws_auth.aws_access_key_id/]
+    aws_secret_access_key: [docker_aws_auth.aws_secret_access_key/]
+[/if]
+[/template]
+
+
+[template public generateMachineExecEnv(machine : Machine)]
+image: [machine.image/]
+[if (machine.docker_layer_caching = true)]
+docker_layer_caching: [machine.docker_layer_caching/]
+[/if]
 [/template]
 
 
 [template public generateMacExecEnv(mac : MacOs)]
-macos:
-  xcode: [mac.xcode/]
+xcode: [mac.xcode/]
 [/template]
 
 
-
 [template public generateJobs(aPipeline : Pipeline)]
-[if (aPipeline.job->notEmpty()) ]
+[if (aPipeline.jobs->notEmpty()) ]
 jobs:
-[for (j: Job | aPipeline.job)]
+[for (j: Job | aPipeline.jobs)]
   [generateJob(j)/]
 [/for]
 [/if]
@@ -101,207 +158,261 @@ jobs:
 
 
 [template public generateJob(aJob : Job)]
-[if (aJob.name->notEmpty())]
 [aJob.name/]:
+[if (aJob.executors->notEmpty())]
+  [generateJobExecutors(aJob)/]
 [/if]
-[if (aJob.name->isEmpty())]
-build:
+  executor: [aJob.reuseExecutor/]
+[if (aJob.environments->notEmpty())]
+  environment:
+  [for (e: Environment | aJob.environments)]
+    [generateEnvironment(e)/]
+  [/for]
 [/if]
-  [generateJobExecutor(aJob)/]
-  [generateEnvironment(aJob)/]
   [generateParallelism(aJob)/]
+[if (aJob.parameters->notEmpty())]
+  parameters:
+  [for (p: Parameter | aJob.parameters)]
+    [generateParameters(p)/]
+  [/for]
+[/if]
   [generateSteps(aJob)/]
-  [generateWhen(aJob)/]
-  [generateArtifacts(aJob)/]
 [/template]
 
 
-[template public generateJobExecutor(aJob : Job)]
-[for (e: Execution_Env | aJob.execution_env)]
-[e.name/]:
-  [if (e.oclIsKindOf(Docker))]
-  [generateDockerExec(oclAsType(Docker))/]
-  [/if]
-  [if (e.oclIsKindOf(WindowsOrb))]
-  [generateWinExec(oclAsType(WindowsOrb))/]
-  [/if]
-  [if (e.oclIsKindOf(Linux))]
-  [generateLinuxExec(oclAsType(Linux))/]
-  [/if]
-  [if (e.oclIsKindOf(MacOs))]
-  [generateMacExec(oclAsType(MacOs))/]
-  [/if]
-  [generateExecEnvironment(aJob)/]
-[/for]
-[/template]
-
-[template public generateDockerExec(docker : Docker)]
-docker:
-  - image: [docker.image/]
-
-steps:
-  - run: ['|'/]
-[for (s: Step | docker.step)]
-  [generateExecutorSteps(s)/]
-[/for]
-[/template]
-
-[template public generateWinExec(win : WindowsOrb)]
-executor: [win.executor/]
-
-steps:
-[for (s: Step | win.step)]
-  [generateExecutorSteps(s)/]
-[/for]
-[/template]
-
-
-[template public generateLinuxExec(linux : Linux)]
-machine:
-  image: [linux.image/]
-
-steps:
-[for (s: Step | linux.step)]
-  [generateExecutorSteps(s)/]
-[/for]
-[/template]
-
-[template public generateMacExec(mac : MacOs)]
-macos:
-  xcode: [mac.xcode/]
-
-steps:
-[for (s: Step | mac.step)]
-  [generateExecutorSteps(s)/]
-[/for]
-[/template]
-
-
-[template public generateExecutorSteps(aStep: Step)]
-    [aStep.tool_framework.name/][generateParameters(aStep)/]
-[/template]
-
-[template public generateExecEnvironment(aJob : Job)]
-[if (aJob.execution_env.environment->notEmpty()) ]
-environment:
-[for (e: Environment | aJob.execution_env.environment)]
-  [generateKeyValue(e)/]
-[/for]
-[/if]
-[/template]
-
-
-[template public generateEnvironment(aJob : Job)]
-[if (aJob.environment->notEmpty()) ]
-environment:
-[for (e: Environment | aJob.environment)]
-  [generateKeyValue(e)/]
-[/for]
-[/if]
-[/template]
-
-[template public generateKeyValue(aEnv : Environment)]
+[template public generateEnvironment(aEnv : Environment)]
 [aEnv.key/]: [aEnv.value/]
 [/template]
 
 
+[template public generateJobExecutors(aJob : Job)]
+[for (e: Executor | aJob.executors)]
+[e.name/]:
+  [generateExec(e)/]
+[/for]
+[/template]
+
+
 [template public generateParallelism(aJob : Job)]
-[if (aJob.parallelism <> 0) ]
+[if (aJob.parallelism > 1) ]
 parallelism: [aJob.parallelism/]
+[/if]
+[/template]
+
+
+[template public generateJobParams(aJob : Job)]
+[if (aJob.parameters->notEmpty())]
+parameters: 
+[for (p: Parameter | aJob.parameters)]
+  [p.name/]:
+    type: [p.type.toString().toLowerCase()/]
+    [if (p.default->notEmpty())]
+    default: [p.default/]
+    [/if]
+    [if (p.description->notEmpty())]
+    description: [p.description/]
+    [/if]
+    [if (p.default->notEmpty())]
+    default: [p.default/]
+    [/if]
+    [if (p.enumValues->notEmpty())]
+    enum: ['['/][for (val: String | p.enumValues)][val/][if (not (p = p.enumValues->last()))], [/if][/for][']'/]
+    [/if]
+[/for]
 [/if]
 [/template]
 
 
 [template public generateSteps(aJob: Job)]
 steps:
-[for (s: Step | aJob.step)]
+[for (s: Step | aJob.steps)]
   [generateStep(s)/]
 [/for]
-  [generateWhen(aJob)/]
 [/template]
-
-
 
 [template public generateStep(aStep: Step)]
+[if (aStep.oclIsKindOf(When_Unless))]
+[generateWhen_UnlessStep(oclAsType(When_Unless))/]
+[/if]
+[if (aStep.oclIsKindOf(Run))]
+[generateRunStep(oclAsType(Run))/]
+[/if]
+[if (aStep.oclIsKindOf(SaveCache))]
+[generateSaveCacheStep(oclAsType(SaveCache))/]
+[/if]
+[if (aStep.oclIsKindOf(AddSSHKeys))]
+[generateAddSSHKeysStep(oclAsType(AddSSHKeys))/]
+[/if]
+[if (aStep.oclIsKindOf(Checkout))]
+[generateCheckoutStep(oclAsType(Checkout))/]
+[/if]
+[if (aStep.oclIsKindOf(RestoreCache))]
+[generateRestoreCacheStep(oclAsType(RestoreCache))/]
+[/if]
+[if (aStep.oclIsKindOf(SetupRemoteDocker))]
+[generateSetupRemoteDockerStep(oclAsType(SetupRemoteDocker))/]
+[/if]
+[if (aStep.oclIsKindOf(StoreArtifact))]
+[generateStoreArtifactStep(oclAsType(StoreArtifact))/]
+[/if]
+[if (aStep.oclIsKindOf(AttachWorkspace))]
+[generateAttachWorkspaceStep(oclAsType(AttachWorkspace))/]
+[/if]
+[if (aStep.oclIsKindOf(PersistToWorkspace))]
+[generatePersistToWorkspaceStep(oclAsType(PersistToWorkspace))/]
+[/if]
+[if (aStep.oclIsKindOf(StoreTestResults))]
+[generateStoreTestResultsStep(oclAsType(StoreTestResults))/]
+[/if]
+[/template]
+
+[template public generateWhen_UnlessStep(aWhen_Unless: When_Unless)]
+- when:
+    condition: [aWhen_Unless.condition/]
+    steps:
+    [for (s: Step | aWhen_Unless.when_step)]
+      [generateStep(s)/]
+    [/for]
+[if (aWhen_Unless.unless_step->notEmpty())]
+- unless:
+    condition: [aWhen_Unless.condition/]
+    steps:
+    [for (s: Step | aWhen_Unless.unless_step)]
+      [generateStep(s)/]
+    [/for]
+[/if]
+[/template]
+
+[template public generateRunStep(aRun: Run)]
 - run:
-    [if (aStep.name->notEmpty())]name: [aStep.name/][/if]
-    command: ['|'/]
-	    [aStep.tool_framework.name/][generateParameters(aStep)/]
-    [generateWhenAttribute(aStep)/]
-[/template]
-
-[template public generateParameters(aStep: Step)]
-[for (p: Parameters | aStep.parameters)] [p.parameter/] [/for]
-[/template]
-
-[template public generateWhenAttribute(aStep: Step)]
-[if (aStep.when_attribute->notEmpty()) ]
-when: [aStep.when_attribute.when_type/]
-[/if]
-[/template]
-
-
-[template public generateWhen(aJob: Job)]
-[if (aJob.when_unless->notEmpty()) ]
-  - when:
-	  condition: [aJob.when_unless.condition/]
-	  steps:
-	  [for (s: Step | aJob.when_unless.when_step)]
-        [generateStep(s)/]
-      [/for]
-  [if (aJob.when_unless.unless_step->notEmpty())]
-  - unless:
-	  condition: [aJob.when_unless.condition/]
-	  steps:
-	  [for (s: Step | aJob.when_unless.unless_step)]
-        [generateStep(s)/]
-      [/for]
+  [if (aRun.name->notEmpty())]
+    name: [aRun.name/]
   [/if]
+    command: ['|'/]
+    [for (c: RunCommand | aRun.run_commands)]
+      [c.name/] [generateParameters(aRun)/]
+    [/for]
+  [if (aRun.when.toString() <> 'on_success')]
+    when: [aRun.when.toString()/]
+  [/if]
+  [if (aRun.background = true)]
+    background: true
+  [/if]
+  [if (aRun.working_directory->notEmpty())]
+    working_directory: [aRun.working_directory/]
+  [/if]
+  [if (aRun.no_output_timeout <> '10m')]
+    no_output_timeout: [aRun.no_output_timeout/]
+  [/if]
+  [if (aRun.shell->notEmpty())]
+    shell: [aRun.shell/]
+  [/if]
+  [if (aRun.environments->notEmpty())]
+    environment:
+    [for (e: Environment | aRun.environments)]
+      [generateEnvironment(e)/]
+    [/for]
 [/if]
 [/template]
 
+[template public generateSaveCacheStep(aSaveCache: SaveCache)]
+- save_cache:
+    paths: 
+    [for (path: String | aSaveCache.paths)] 
+      - [path/] 
+    [/for]
+    key: [aSaveCache.key/]
+    [if (aSaveCache.name->notEmpty())]name: [aSaveCache.name/][/if]
+    [if (aSaveCache.when.toString() <> 'on_success')]when: [aSaveCache.when.toString()/][/if]
+[/template]
 
-[template public generateArtifacts(aJob : Job)]
-[if (aJob.store_artifact->notEmpty())]
-- store_artifacts:
-    path:
-    [for (s: Store_Artifact | aJob.store_artifact)] 
-	  - [s.path/]
-	[/for]
-    [if (aJob.store_artifact.destination->notEmpty())]
-    destination: [aJob.store_artifact.destination/]
+[template public generateAddSSHKeysStep(aAddSSHKeys: AddSSHKeys)]
+- add_ssh_keys:
+  [if (aAddSSHKeys.fingerprints->notEmpty())]
+    fingerprints: 
+    [for (f: String | fingerprints)] 
+      - [f/]
+    [/for]
+  [/if]
+[/template]
+
+[template public generateCheckoutStep(aCheckout: Checkout)]
+- checkout
+[/template]
+
+[template public generateRestoreCacheStep(aRestoreCache: RestoreCache)]
+- restore_cache:
+    key: [aRestoreCache.key/]
+    keys: 
+    [for (key: String | aRestoreCache.keys)] 
+      - [key/] 
+    [/for]
+	[if (aRestoreCache.name->notEmpty())]
+    name: [aRestoreCache.name/]
     [/if]
-[/if]
 [/template]
 
+[template public generateSetupRemoteDockerStep(aSetupRemoteDocker: SetupRemoteDocker)]
+- setup_remote_docker:
+    [if (aSetupRemoteDocker.docker_layer_caching->notEmpty())]docker_layer_caching: [aSetupRemoteDocker.docker_layer_caching/][/if]
+    [if (aSetupRemoteDocker.version->notEmpty())]version: [aSetupRemoteDocker.version/][/if]
+[/template]
+
+[template public generateStoreArtifactStep(aStoreArtifact: StoreArtifact)]
+- store_artifacts:
+    path: [aStoreArtifact.path/]
+    [if (aStoreArtifact.destination->notEmpty())]
+    destination: [aStoreArtifact.destination/]
+    [/if]
+[/template]
+
+[template public generateAttachWorkspaceStep(aAttachWorkspace: AttachWorkspace)]
+- attach_workspace:
+    at: [aAttachWorkspace.at/]
+[/template]
+
+[template public generatePersistToWorkspaceStep(aPersistToWorkspace: PersistToWorkspace)]
+- persist_to_workspace:
+    root: [aPersistToWorkspace.root/]
+    paths: 
+    [for (path: String | aPersistToWorkspace.paths)] 
+      - [path/] 
+    [/for]
+[/template]
+
+[template public generateStoreTestResultsStep(aStoreTestResults: StoreTestResults)]
+- store_test_results:
+    path: [aStoreTestResults.path/]
+[/template]
+
+
+
+[template public generateParameters(aRun: Run)]
+[for (p: Parameters | aRun.parameters)] [p.parameter/] [/for]
+[/template]
 
 
 [template public generateWorkflows(aPipeline : Pipeline)]
-[if (aPipeline.job->notEmpty() and aPipeline.job->size() > 1) ]
+[if (aPipeline.workflow->notEmpty())]
 workflows:
   version: [aPipeline.workflow.version/]
-  [if (aPipeline.workflow.name->notEmpty()) ]
   workflow_Name: [aPipeline.workflow.name/]
-  [/if]
     [generateTriggers(aPipeline.workflow)/]
     [generateWorkflowWhen(aPipeline.workflow)/]
-    jobs:
-	[for (j: Job | aPipeline.job)]
-	  - [j.name/]
-	[/for]
+    [generateWorkflowJobs(aPipeline.workflow)/]
 [/if]
 [/template]
 
 
 [template public generateTriggers(aWorkflow: Workflow)]
-[if (aWorkflow.trigger->notEmpty() and aWorkflow.branch->notEmpty())]
+[if (aWorkflow.triggers->notEmpty() and aWorkflow.branches->notEmpty())]
 [generateAuxTriggers(aWorkflow)/]
-      [generateFilters(aWorkflow)/]
-[/if]
-[if (aWorkflow.trigger->isEmpty() and aWorkflow.branch->notEmpty())]
 [generateFilters(aWorkflow)/]
 [/if]
-[if (aWorkflow.trigger->notEmpty() and aWorkflow.branch->isEmpty())]
+[if (aWorkflow.triggers->isEmpty() and aWorkflow.branches->notEmpty())]
+[generateFilters(aWorkflow)/]
+[/if]
+[if (aWorkflow.triggers->notEmpty() and aWorkflow.branches->isEmpty())]
 [generateTriggers(aWorkflow)/]
 [/if]
 [/template]
@@ -311,12 +422,12 @@ workflows:
 filters:
   branches:
     only:
-    [for (b: Branch | aWorkflow.branch->select(branch | branch.branch_type.toString() = 'only'))]
+    [for (b: Branch | aWorkflow.branches->select(branch | branch.branch.toString() = 'only'))]
       - [b.name/]
     [/for]
-    [if (aWorkflow.branch->exists(branch | branch.branch_type.toString() = 'ignore'))]
+    [if (aWorkflow.branches->exists(branch | branch.branch.toString() = 'ignore'))]
     ignore:
-    [for (b: Branch | aWorkflow.branch->select(branch | branch.branch_type.toString() = 'ignore'))]
+    [for (b: Branch | aWorkflow.branches->select(branch | branch.branch.toString() = 'ignore'))]
       - [b.name/]
     [/for]
     [/if]
@@ -326,20 +437,82 @@ filters:
 [template public generateAuxTriggers(aWorkflow: Workflow)]
 triggers:
   - schedule:
-      cron: [aWorkflow.trigger.cron/]
+      cron: "[aWorkflow.triggers.cron/]"
 [/template]
 
 
 [template public generateWorkflowWhen(aWorkflow: Workflow)]
 [if (aWorkflow.when_unless->notEmpty())]
-when:
-  condition: [aWorkflow.when_unless.condition/]
+when: [aWorkflow.when_unless.condition/]
 [if (aWorkflow.when_unless.unless_step->notEmpty())]
-unless:
-  condition: [aWorkflow.when_unless.condition/]
+unless: [aWorkflow.when_unless.condition/]
 [/if]
 [/if]
 [/template]
 
 
+[template public generateWorkflowJobs(aWorkflow: Workflow)]
+jobs:
+[for (j: JobWorkflow | aWorkflow.jobworkflow)]
+  - [j.name/]
+    [if (j.approvalJob)]
+      type: approval
+    [/if]
+      [generateJobRequires(j)/]
+      [generateJobContexts(j)/]
+      [generateJobFilters(j)/]
+      [generateJobMatrix(j)/]
+[/for]
+[/template]
 
+
+[template public generateJobRequires(aJob: JobWorkflow)]
+[if (aJob.requires->notEmpty())]
+requires:
+[for (r: String | aJob.requires)]
+  - [r/]
+[/for]
+[/if]
+[/template]
+
+[template public generateJobContexts(aJob: JobWorkflow)]
+[if (aJob._context->notEmpty())]
+context:
+[for (r: String | aJob._context)]
+  - [r/]
+[/for]
+[/if]
+[/template]
+
+[template public generateJobFilters(aJob: JobWorkflow)]
+[if (aJob.branches->notEmpty())]
+filters:
+  branches:
+    only:
+    [for (b: Branch | aJob.branches->select(branch | branch.branch.toString() = 'only'))]
+      - [b.name/]
+    [/for]
+    [if (aJob.branches->exists(branch | branch.branch.toString() = 'ignore'))]
+    ignore:
+    [for (b: Branch | aJob.branches->select(branch | branch.branch.toString() = 'ignore'))]
+      - [b.name/]
+    [/for]
+    [/if]
+[/if]
+[/template]
+
+[template public generateJobMatrix(aJob: JobWorkflow)]
+[if (aJob.matrix->notEmpty())]
+matrix:
+  parameters:
+  [for (m: MatrixParams | aJob.matrix.matrix_params)]
+    [m.key/]: ['['/][for (val: String | m.values)][val/][if (not (val = m.values->last()))], [/if][/for][']'/]
+  [/for]
+[if (aJob.matrix.matrix_exclude->notEmpty())]
+  exclude:
+  [for (m: MatrixParams | aJob.matrix.matrix_exclude)]
+    [if (m = aJob.matrix.matrix_exclude->first())]- [m.key/]: [m.values/][/if][if not((m = aJob.matrix.matrix_exclude->first()))]  [m.key/]: [m.values/][/if]
+  [/for]
+[/if]
+[/if]
+[/template]

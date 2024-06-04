@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.jenkins
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.jenkins
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.jenkins; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: Jenkins_metamodel,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.34.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: org.xtext.example.jenkins,
+ org.xtext.example.jenkins.services,
+ org.xtext.example.jenkins.parser.antlr.lexer,
+ org.xtext.example.jenkins.parser.antlr,
+ org.xtext.example.jenkins.generator,
+ org.xtext.example.jenkins.serializer,
+ org.xtext.example.jenkins.scoping,
+ org.xtext.example.jenkins.parser.antlr.internal,
+ org.xtext.example.jenkins.validation,
+ org.xtext.example.jenkins.formatting2
+Import-Package: org.apache.log4j

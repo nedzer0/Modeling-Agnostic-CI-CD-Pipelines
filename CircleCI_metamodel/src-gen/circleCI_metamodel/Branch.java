@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link circleCI_metamodel.Branch#getName <em>Name</em>}</li>
- *   <li>{@link circleCI_metamodel.Branch#getBranch_type <em>Branch type</em>}</li>
+ *   <li>{@link circleCI_metamodel.Branch#getBranch <em>Branch</em>}</li>
  * </ul>
  *
  * @see circleCI_metamodel.CircleCI_metamodelPackage#getBranch()
@@ -29,7 +29,7 @@ public interface Branch extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getBranch_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -45,28 +45,28 @@ public interface Branch extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Branch type</b></em>' attribute.
+	 * Returns the value of the '<em><b>Branch</b></em>' attribute.
 	 * The literals are from the enumeration {@link circleCI_metamodel.BRANCH_TYPE}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Branch type</em>' attribute.
+	 * @return the value of the '<em>Branch</em>' attribute.
 	 * @see circleCI_metamodel.BRANCH_TYPE
-	 * @see #setBranch_type(BRANCH_TYPE)
-	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getBranch_Branch_type()
-	 * @model
+	 * @see #setBranch(BRANCH_TYPE)
+	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getBranch_Branch()
+	 * @model required="true"
 	 * @generated
 	 */
-	BRANCH_TYPE getBranch_type();
+	BRANCH_TYPE getBranch();
 
 	/**
-	 * Sets the value of the '{@link circleCI_metamodel.Branch#getBranch_type <em>Branch type</em>}' attribute.
+	 * Sets the value of the '{@link circleCI_metamodel.Branch#getBranch <em>Branch</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Branch type</em>' attribute.
+	 * @param value the new value of the '<em>Branch</em>' attribute.
 	 * @see circleCI_metamodel.BRANCH_TYPE
-	 * @see #getBranch_type()
+	 * @see #getBranch()
 	 * @generated
 	 */
-	void setBranch_type(BRANCH_TYPE value);
+	void setBranch(BRANCH_TYPE value);
 
 } // Branch

@@ -3,6 +3,7 @@
 package jenkins_metamodel.impl;
 
 import jenkins_metamodel.Branch;
+import jenkins_metamodel.COMPARATOR_TYPE;
 import jenkins_metamodel.Jenkins_metamodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -54,7 +55,7 @@ public class BranchImpl extends WhenImpl implements Branch {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String COMPARATOR_EDEFAULT = null;
+	protected static final COMPARATOR_TYPE COMPARATOR_EDEFAULT = COMPARATOR_TYPE.NONE;
 
 	/**
 	 * The cached value of the '{@link #getComparator() <em>Comparator</em>}' attribute.
@@ -64,7 +65,7 @@ public class BranchImpl extends WhenImpl implements Branch {
 	 * @generated
 	 * @ordered
 	 */
-	protected String comparator = COMPARATOR_EDEFAULT;
+	protected COMPARATOR_TYPE comparator = COMPARATOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,7 +116,7 @@ public class BranchImpl extends WhenImpl implements Branch {
 	 * @generated
 	 */
 	@Override
-	public String getComparator() {
+	public COMPARATOR_TYPE getComparator() {
 		return comparator;
 	}
 
@@ -125,9 +126,9 @@ public class BranchImpl extends WhenImpl implements Branch {
 	 * @generated
 	 */
 	@Override
-	public void setComparator(String newComparator) {
-		String oldComparator = comparator;
-		comparator = newComparator;
+	public void setComparator(COMPARATOR_TYPE newComparator) {
+		COMPARATOR_TYPE oldComparator = comparator;
+		comparator = newComparator == null ? COMPARATOR_EDEFAULT : newComparator;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Jenkins_metamodelPackage.BRANCH__COMPARATOR,
 					oldComparator, comparator));
@@ -161,7 +162,7 @@ public class BranchImpl extends WhenImpl implements Branch {
 			setPattern((String) newValue);
 			return;
 		case Jenkins_metamodelPackage.BRANCH__COMPARATOR:
-			setComparator((String) newValue);
+			setComparator((COMPARATOR_TYPE) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,7 +197,7 @@ public class BranchImpl extends WhenImpl implements Branch {
 		case Jenkins_metamodelPackage.BRANCH__PATTERN:
 			return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
 		case Jenkins_metamodelPackage.BRANCH__COMPARATOR:
-			return COMPARATOR_EDEFAULT == null ? comparator != null : !COMPARATOR_EDEFAULT.equals(comparator);
+			return comparator != COMPARATOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

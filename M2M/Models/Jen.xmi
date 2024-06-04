@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jenkins_metamodel:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jenkins_metamodel="http://www.example.org/jenkins_metamodel">
+  <environments
+      key="CC"
+      value="'clang'"/>
+  <stages name="MatrixJob"
+      failFast="true">
+    <steps>
+      <commands
+          name="Hello, ${PERSON}, nice to meet you."/>
+    </steps>
+    <matrix>
+      <axis
+          name="PLATFORM">
+        <values>linux</values>
+        <values>windows</values>
+      </axis>
+      <axis
+          name="ARCHITECTURE"
+          exclude="true">
+        <values>32-bit</values>
+      </axis>
+      <stages
+          name="build-and-test">
+        <steps>
+          <commands
+              name="echo"/>
+        </steps>
+      </stages>
+    </matrix>
+  </stages>
+  <stages name="ConditionalJob">
+    <steps>
+      <commands
+          name="echo test123"/>
+      <step_parameters
+          parameter="param4"/>
+    </steps>
+    <inputs
+        message="Should we continue?"/>
+    <when xsi:type="jenkins_metamodel:Expression"
+        expression="booleanExpression"/>
+  </stages>
+  <stages name="ParallelFailFast"
+      parallel="true">
+    <stages
+        name="recursiveJob">
+      <steps>
+        <commands
+            name="echo this is a test"/>
+      </steps>
+      <environments
+          key="SERVICE_CREDS"
+          value="credentials('my-predefined-username-password')"/>
+    </stages>
+    <stages
+        name="SubJob2">
+      <steps>
+        <commands
+            name="echo echo echo"/>
+      </steps>
+    </stages>
+    <environments
+        key="myEnv"
+        value="val10"/>
+  </stages>
+  <parameter_directives
+      xsi:type="jenkins_metamodel:StringParam"
+      name="PERSON"
+      defaultValue="Mr Jenkins"/>
+  <parameter_directives
+      xsi:type="jenkins_metamodel:BooleanParam"
+      description="Toogle this value"
+      name="TOOGLE"
+      defaultValue="true"/>
+  <agents xsi:type="jenkins_metamodel:Docker"
+      image="maven:3.9.3-eclipse-temurin-17"/>
+  <triggers
+      xsi:type="jenkins_metamodel:Cron"
+      timer="0 6 * * 1"/>
+</jenkins_metamodel:Pipeline>

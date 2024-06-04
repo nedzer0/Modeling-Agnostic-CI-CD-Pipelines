@@ -58,6 +58,7 @@ public class JobItemProvider extends ItemProviderAdapter implements IEditingDoma
 
 			addNamePropertyDescriptor(object);
 			addParallelismPropertyDescriptor(object);
+			addReuseExecutorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,6 +94,22 @@ public class JobItemProvider extends ItemProviderAdapter implements IEditingDoma
 	}
 
 	/**
+	 * This adds a property descriptor for the Reuse Executor feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReuseExecutorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Job_reuseExecutor_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Job_reuseExecutor_feature",
+								"_UI_Job_type"),
+						CircleCI_metamodelPackage.Literals.JOB__REUSE_EXECUTOR, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -104,11 +121,10 @@ public class JobItemProvider extends ItemProviderAdapter implements IEditingDoma
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.JOB__STORE_ARTIFACT);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.JOB__WHEN_UNLESS);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.JOB__EXECUTION_ENV);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.JOB__ENVIRONMENT);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.JOB__STEP);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.JOB__ENVIRONMENTS);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.JOB__STEPS);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.JOB__PARAMETERS);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.JOB__EXECUTORS);
 		}
 		return childrenFeatures;
 	}
@@ -174,13 +190,13 @@ public class JobItemProvider extends ItemProviderAdapter implements IEditingDoma
 		switch (notification.getFeatureID(Job.class)) {
 		case CircleCI_metamodelPackage.JOB__NAME:
 		case CircleCI_metamodelPackage.JOB__PARALLELISM:
+		case CircleCI_metamodelPackage.JOB__REUSE_EXECUTOR:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case CircleCI_metamodelPackage.JOB__STORE_ARTIFACT:
-		case CircleCI_metamodelPackage.JOB__WHEN_UNLESS:
-		case CircleCI_metamodelPackage.JOB__EXECUTION_ENV:
-		case CircleCI_metamodelPackage.JOB__ENVIRONMENT:
-		case CircleCI_metamodelPackage.JOB__STEP:
+		case CircleCI_metamodelPackage.JOB__ENVIRONMENTS:
+		case CircleCI_metamodelPackage.JOB__STEPS:
+		case CircleCI_metamodelPackage.JOB__PARAMETERS:
+		case CircleCI_metamodelPackage.JOB__EXECUTORS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -198,29 +214,53 @@ public class JobItemProvider extends ItemProviderAdapter implements IEditingDoma
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STORE_ARTIFACT,
-				CircleCI_metamodelFactory.eINSTANCE.createStore_Artifact()));
-
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__WHEN_UNLESS,
-				CircleCI_metamodelFactory.eINSTANCE.createWhen_Unless()));
-
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__EXECUTION_ENV,
-				CircleCI_metamodelFactory.eINSTANCE.createDocker()));
-
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__EXECUTION_ENV,
-				CircleCI_metamodelFactory.eINSTANCE.createLinux()));
-
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__EXECUTION_ENV,
-				CircleCI_metamodelFactory.eINSTANCE.createMacOs()));
-
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__EXECUTION_ENV,
-				CircleCI_metamodelFactory.eINSTANCE.createWindowsOrb()));
-
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__ENVIRONMENT,
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__ENVIRONMENTS,
 				CircleCI_metamodelFactory.eINSTANCE.createEnvironment()));
 
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEP,
-				CircleCI_metamodelFactory.eINSTANCE.createStep()));
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createRun()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createRestoreCache()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createPersistToWorkspace()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createStoreArtifact()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createStoreTestResults()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createSetupRemoteDocker()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createAddSSHKeys()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createSaveCache()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createAttachWorkspace()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createWhen_Unless()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createCheckout()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__PARAMETERS,
+				CircleCI_metamodelFactory.eINSTANCE.createParameter()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__EXECUTORS,
+				CircleCI_metamodelFactory.eINSTANCE.createMachine()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__EXECUTORS,
+				CircleCI_metamodelFactory.eINSTANCE.createMacOs()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.JOB__EXECUTORS,
+				CircleCI_metamodelFactory.eINSTANCE.createDocker()));
 	}
 
 	/**

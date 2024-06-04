@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated scientific -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.gemoc.agro.scientific.presentation.ScientificModelWizardID"
+            name="%_UI_ScientificModelWizard_label"
+            class="org.gemoc.agro.scientific.presentation.ScientificModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ScientificModelFile.gif">
+         <description>%_UI_ScientificModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated scientific -->
+      <editor
+            id="org.gemoc.agro.scientific.presentation.ScientificEditorID"
+            name="%_UI_ScientificEditor_label"
+            icon="icons/full/obj16/ScientificModelFile.gif"
+            extensions="scientific"
+            class="org.gemoc.agro.scientific.presentation.ScientificEditor"
+            contributorClass="org.gemoc.agro.scientific.presentation.ScientificActionBarContributor">
+      </editor>
+   </extension>
+   
+    <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.gemoc.agro.scientific.editor.contribution1"
+            objectClass="org.gemoc.agro.scientific.ExploitationAnalysis">
+         <menu
+               id="org.gemoc.agro.scientific.editor.menu1"
+               label="Resources Analyzer"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.gemoc.agro.scientific.editor.popup.actions.ComputeAnalysis"
+               enablesFor="1"
+               id="org.gemoc.agro.scientific.editor.newAction"
+               label="Biomass and irrigation analysis"
+               menubarPath="org.gemoc.agro.scientific.editor.menu1/group1">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

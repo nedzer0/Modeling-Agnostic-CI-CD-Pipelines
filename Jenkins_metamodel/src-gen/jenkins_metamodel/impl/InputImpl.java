@@ -30,17 +30,27 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link jenkins_metamodel.impl.InputImpl#getParameter_directives <em>Parameter directives</em>}</li>
  *   <li>{@link jenkins_metamodel.impl.InputImpl#getMessage <em>Message</em>}</li>
  *   <li>{@link jenkins_metamodel.impl.InputImpl#getId <em>Id</em>}</li>
  *   <li>{@link jenkins_metamodel.impl.InputImpl#getOk <em>Ok</em>}</li>
  *   <li>{@link jenkins_metamodel.impl.InputImpl#getSubmitter <em>Submitter</em>}</li>
  *   <li>{@link jenkins_metamodel.impl.InputImpl#getSubmitterParameter <em>Submitter Parameter</em>}</li>
- *   <li>{@link jenkins_metamodel.impl.InputImpl#getParameter_directive <em>Parameter directive</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class InputImpl extends MinimalEObjectImpl.Container implements Input {
+	/**
+	 * The cached value of the '{@link #getParameter_directives() <em>Parameter directives</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameter_directives()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter_Directive> parameter_directives;
+
 	/**
 	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -142,16 +152,6 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input {
 	protected String submitterParameter = SUBMITTER_PARAMETER_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParameter_directive() <em>Parameter directive</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameter_directive()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Parameter_Directive> parameter_directive;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -168,6 +168,20 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input {
 	@Override
 	protected EClass eStaticClass() {
 		return Jenkins_metamodelPackage.Literals.INPUT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Parameter_Directive> getParameter_directives() {
+		if (parameter_directives == null) {
+			parameter_directives = new EObjectContainmentEList<Parameter_Directive>(Parameter_Directive.class, this,
+					Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVES);
+		}
+		return parameter_directives;
 	}
 
 	/**
@@ -294,24 +308,10 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input {
 	 * @generated
 	 */
 	@Override
-	public EList<Parameter_Directive> getParameter_directive() {
-		if (parameter_directive == null) {
-			parameter_directive = new EObjectContainmentEList<Parameter_Directive>(Parameter_Directive.class, this,
-					Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVE);
-		}
-		return parameter_directive;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVE:
-			return ((InternalEList<?>) getParameter_directive()).basicRemove(otherEnd, msgs);
+		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVES:
+			return ((InternalEList<?>) getParameter_directives()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -324,6 +324,8 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVES:
+			return getParameter_directives();
 		case Jenkins_metamodelPackage.INPUT__MESSAGE:
 			return getMessage();
 		case Jenkins_metamodelPackage.INPUT__ID:
@@ -334,8 +336,6 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input {
 			return getSubmitter();
 		case Jenkins_metamodelPackage.INPUT__SUBMITTER_PARAMETER:
 			return getSubmitterParameter();
-		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVE:
-			return getParameter_directive();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -349,6 +349,10 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVES:
+			getParameter_directives().clear();
+			getParameter_directives().addAll((Collection<? extends Parameter_Directive>) newValue);
+			return;
 		case Jenkins_metamodelPackage.INPUT__MESSAGE:
 			setMessage((String) newValue);
 			return;
@@ -364,10 +368,6 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input {
 		case Jenkins_metamodelPackage.INPUT__SUBMITTER_PARAMETER:
 			setSubmitterParameter((String) newValue);
 			return;
-		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVE:
-			getParameter_directive().clear();
-			getParameter_directive().addAll((Collection<? extends Parameter_Directive>) newValue);
-			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -380,6 +380,9 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVES:
+			getParameter_directives().clear();
+			return;
 		case Jenkins_metamodelPackage.INPUT__MESSAGE:
 			setMessage(MESSAGE_EDEFAULT);
 			return;
@@ -395,9 +398,6 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input {
 		case Jenkins_metamodelPackage.INPUT__SUBMITTER_PARAMETER:
 			setSubmitterParameter(SUBMITTER_PARAMETER_EDEFAULT);
 			return;
-		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVE:
-			getParameter_directive().clear();
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -410,6 +410,8 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVES:
+			return parameter_directives != null && !parameter_directives.isEmpty();
 		case Jenkins_metamodelPackage.INPUT__MESSAGE:
 			return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
 		case Jenkins_metamodelPackage.INPUT__ID:
@@ -421,8 +423,6 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input {
 		case Jenkins_metamodelPackage.INPUT__SUBMITTER_PARAMETER:
 			return SUBMITTER_PARAMETER_EDEFAULT == null ? submitterParameter != null
 					: !SUBMITTER_PARAMETER_EDEFAULT.equals(submitterParameter);
-		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVE:
-			return parameter_directive != null && !parameter_directive.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

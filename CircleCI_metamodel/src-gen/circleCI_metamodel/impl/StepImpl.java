@@ -3,26 +3,14 @@
 package circleCI_metamodel.impl;
 
 import circleCI_metamodel.CircleCI_metamodelPackage;
-import circleCI_metamodel.Parameters;
 import circleCI_metamodel.Step;
-import circleCI_metamodel.Tool_Framework;
-import circleCI_metamodel.When_Attribute;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,25 +20,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link circleCI_metamodel.impl.StepImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.StepImpl#getName <em>Name</em>}</li>
- *   <li>{@link circleCI_metamodel.impl.StepImpl#getWhen_attribute <em>When attribute</em>}</li>
- *   <li>{@link circleCI_metamodel.impl.StepImpl#getTool_framework <em>Tool framework</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StepImpl extends MinimalEObjectImpl.Container implements Step {
-	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Parameters> parameters;
-
+public abstract class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,26 +47,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getWhen_attribute() <em>When attribute</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWhen_attribute()
-	 * @generated
-	 * @ordered
-	 */
-	protected When_Attribute when_attribute;
-
-	/**
-	 * The cached value of the '{@link #getTool_framework() <em>Tool framework</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTool_framework()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Tool_Framework> tool_framework;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -108,20 +63,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	@Override
 	protected EClass eStaticClass() {
 		return CircleCI_metamodelPackage.Literals.STEP;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Parameters> getParameters() {
-		if (parameters == null) {
-			parameters = new EObjectContainmentEList<Parameters>(Parameters.class, this,
-					CircleCI_metamodelPackage.STEP__PARAMETERS);
-		}
-		return parameters;
 	}
 
 	/**
@@ -153,100 +94,10 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	 * @generated
 	 */
 	@Override
-	public When_Attribute getWhen_attribute() {
-		return when_attribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetWhen_attribute(When_Attribute newWhen_attribute, NotificationChain msgs) {
-		When_Attribute oldWhen_attribute = when_attribute;
-		when_attribute = newWhen_attribute;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					CircleCI_metamodelPackage.STEP__WHEN_ATTRIBUTE, oldWhen_attribute, newWhen_attribute);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setWhen_attribute(When_Attribute newWhen_attribute) {
-		if (newWhen_attribute != when_attribute) {
-			NotificationChain msgs = null;
-			if (when_attribute != null)
-				msgs = ((InternalEObject) when_attribute).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - CircleCI_metamodelPackage.STEP__WHEN_ATTRIBUTE, null, msgs);
-			if (newWhen_attribute != null)
-				msgs = ((InternalEObject) newWhen_attribute).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - CircleCI_metamodelPackage.STEP__WHEN_ATTRIBUTE, null, msgs);
-			msgs = basicSetWhen_attribute(newWhen_attribute, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CircleCI_metamodelPackage.STEP__WHEN_ATTRIBUTE,
-					newWhen_attribute, newWhen_attribute));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Tool_Framework> getTool_framework() {
-		if (tool_framework == null) {
-			tool_framework = new EObjectContainmentEList<Tool_Framework>(Tool_Framework.class, this,
-					CircleCI_metamodelPackage.STEP__TOOL_FRAMEWORK);
-		}
-		return tool_framework;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case CircleCI_metamodelPackage.STEP__PARAMETERS:
-			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
-		case CircleCI_metamodelPackage.STEP__WHEN_ATTRIBUTE:
-			return basicSetWhen_attribute(null, msgs);
-		case CircleCI_metamodelPackage.STEP__TOOL_FRAMEWORK:
-			return ((InternalEList<?>) getTool_framework()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CircleCI_metamodelPackage.STEP__PARAMETERS:
-			return getParameters();
 		case CircleCI_metamodelPackage.STEP__NAME:
 			return getName();
-		case CircleCI_metamodelPackage.STEP__WHEN_ATTRIBUTE:
-			return getWhen_attribute();
-		case CircleCI_metamodelPackage.STEP__TOOL_FRAMEWORK:
-			return getTool_framework();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -256,23 +107,11 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CircleCI_metamodelPackage.STEP__PARAMETERS:
-			getParameters().clear();
-			getParameters().addAll((Collection<? extends Parameters>) newValue);
-			return;
 		case CircleCI_metamodelPackage.STEP__NAME:
 			setName((String) newValue);
-			return;
-		case CircleCI_metamodelPackage.STEP__WHEN_ATTRIBUTE:
-			setWhen_attribute((When_Attribute) newValue);
-			return;
-		case CircleCI_metamodelPackage.STEP__TOOL_FRAMEWORK:
-			getTool_framework().clear();
-			getTool_framework().addAll((Collection<? extends Tool_Framework>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -286,17 +125,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CircleCI_metamodelPackage.STEP__PARAMETERS:
-			getParameters().clear();
-			return;
 		case CircleCI_metamodelPackage.STEP__NAME:
 			setName(NAME_EDEFAULT);
-			return;
-		case CircleCI_metamodelPackage.STEP__WHEN_ATTRIBUTE:
-			setWhen_attribute((When_Attribute) null);
-			return;
-		case CircleCI_metamodelPackage.STEP__TOOL_FRAMEWORK:
-			getTool_framework().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -310,14 +140,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CircleCI_metamodelPackage.STEP__PARAMETERS:
-			return parameters != null && !parameters.isEmpty();
 		case CircleCI_metamodelPackage.STEP__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case CircleCI_metamodelPackage.STEP__WHEN_ATTRIBUTE:
-			return when_attribute != null;
-		case CircleCI_metamodelPackage.STEP__TOOL_FRAMEWORK:
-			return tool_framework != null && !tool_framework.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

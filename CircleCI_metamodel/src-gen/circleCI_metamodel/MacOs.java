@@ -18,7 +18,7 @@ package circleCI_metamodel;
  * @model
  * @generated
  */
-public interface MacOs extends Execution_Env {
+public interface MacOs extends Executor {
 	/**
 	 * Returns the value of the '<em><b>Xcode</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -26,7 +26,7 @@ public interface MacOs extends Execution_Env {
 	 * @return the value of the '<em>Xcode</em>' attribute.
 	 * @see #setXcode(String)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getMacOs_Xcode()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getXcode();

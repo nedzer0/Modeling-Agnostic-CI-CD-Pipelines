@@ -120,14 +120,14 @@ public class StageItemProvider extends ItemProviderAdapter implements IEditingDo
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__STAGE);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__AGENT);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__POST);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__STEP);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__ENVIRONMENT);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__TOOL);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__INPUT);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__STAGES);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__AGENTS);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__STEPS);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__ENVIRONMENTS);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__INPUTS);
 			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__WHEN);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__STAGE_OPTIONS);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STAGE__MATRIX);
 		}
 		return childrenFeatures;
 	}
@@ -196,14 +196,14 @@ public class StageItemProvider extends ItemProviderAdapter implements IEditingDo
 		case Jenkins_metamodelPackage.STAGE__PARALLEL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case Jenkins_metamodelPackage.STAGE__STAGE:
-		case Jenkins_metamodelPackage.STAGE__AGENT:
-		case Jenkins_metamodelPackage.STAGE__POST:
-		case Jenkins_metamodelPackage.STAGE__STEP:
-		case Jenkins_metamodelPackage.STAGE__ENVIRONMENT:
-		case Jenkins_metamodelPackage.STAGE__TOOL:
-		case Jenkins_metamodelPackage.STAGE__INPUT:
+		case Jenkins_metamodelPackage.STAGE__STAGES:
+		case Jenkins_metamodelPackage.STAGE__AGENTS:
+		case Jenkins_metamodelPackage.STAGE__STEPS:
+		case Jenkins_metamodelPackage.STAGE__ENVIRONMENTS:
+		case Jenkins_metamodelPackage.STAGE__INPUTS:
 		case Jenkins_metamodelPackage.STAGE__WHEN:
+		case Jenkins_metamodelPackage.STAGE__STAGE_OPTIONS:
+		case Jenkins_metamodelPackage.STAGE__MATRIX:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -221,53 +221,68 @@ public class StageItemProvider extends ItemProviderAdapter implements IEditingDo
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__STAGE,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__STAGES,
 				Jenkins_metamodelFactory.eINSTANCE.createStage()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__AGENT,
-				Jenkins_metamodelFactory.eINSTANCE.createAny()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__AGENT,
-				Jenkins_metamodelFactory.eINSTANCE.createNone()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__AGENT,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__AGENTS,
 				Jenkins_metamodelFactory.eINSTANCE.createNode()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__AGENT,
-				Jenkins_metamodelFactory.eINSTANCE.createDocker()));
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__AGENTS,
+				Jenkins_metamodelFactory.eINSTANCE.createAny()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__AGENT,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__AGENTS,
+				Jenkins_metamodelFactory.eINSTANCE.createNone()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__AGENTS,
 				Jenkins_metamodelFactory.eINSTANCE.createDockerfile()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__POST,
-				Jenkins_metamodelFactory.eINSTANCE.createPost()));
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__AGENTS,
+				Jenkins_metamodelFactory.eINSTANCE.createDocker()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__STEP,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__AGENTS,
+				Jenkins_metamodelFactory.eINSTANCE.createLabel()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__STEPS,
 				Jenkins_metamodelFactory.eINSTANCE.createStep()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__ENVIRONMENT,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__ENVIRONMENTS,
 				Jenkins_metamodelFactory.eINSTANCE.createEnvironment()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__TOOL,
-				Jenkins_metamodelFactory.eINSTANCE.createTool()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__INPUT,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__INPUTS,
 				Jenkins_metamodelFactory.eINSTANCE.createInput()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createChangeSet()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createBranch()));
 
 		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
 				Jenkins_metamodelFactory.eINSTANCE.createBuildingTag()));
 
 		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createBranch()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
 				Jenkins_metamodelFactory.eINSTANCE.createChangelog()));
 
 		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createTriggeredBy()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createExpression()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createChangeSet()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createNot()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createAnyOf()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createTag()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
 				Jenkins_metamodelFactory.eINSTANCE.createWhen_Env()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createAllOf()));
 
 		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
 				Jenkins_metamodelFactory.eINSTANCE.createEquals()));
@@ -275,23 +290,20 @@ public class StageItemProvider extends ItemProviderAdapter implements IEditingDo
 		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
 				Jenkins_metamodelFactory.eINSTANCE.createChangeRequest()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createNot()));
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__STAGE_OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createSkipDefaultCheckout()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createTag()));
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__STAGE_OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createRetry()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createAllOf()));
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__STAGE_OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createTimeout()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createAnyOf()));
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__STAGE_OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createTimestamps()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createTriggeredBy()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createExpression()));
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STAGE__MATRIX,
+				Jenkins_metamodelFactory.eINSTANCE.createMatrix()));
 	}
 
 	/**

@@ -15,13 +15,14 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link jenkins_metamodel.Pipeline#getEnvironment <em>Environment</em>}</li>
- *   <li>{@link jenkins_metamodel.Pipeline#getStage <em>Stage</em>}</li>
+ *   <li>{@link jenkins_metamodel.Pipeline#getEnvironments <em>Environments</em>}</li>
+ *   <li>{@link jenkins_metamodel.Pipeline#getStages <em>Stages</em>}</li>
  *   <li>{@link jenkins_metamodel.Pipeline#getPost <em>Post</em>}</li>
- *   <li>{@link jenkins_metamodel.Pipeline#getParameter_directive <em>Parameter directive</em>}</li>
- *   <li>{@link jenkins_metamodel.Pipeline#getTrigger <em>Trigger</em>}</li>
- *   <li>{@link jenkins_metamodel.Pipeline#getTool <em>Tool</em>}</li>
- *   <li>{@link jenkins_metamodel.Pipeline#getAgent <em>Agent</em>}</li>
+ *   <li>{@link jenkins_metamodel.Pipeline#getParameter_directives <em>Parameter directives</em>}</li>
+ *   <li>{@link jenkins_metamodel.Pipeline#getTools <em>Tools</em>}</li>
+ *   <li>{@link jenkins_metamodel.Pipeline#getAgents <em>Agents</em>}</li>
+ *   <li>{@link jenkins_metamodel.Pipeline#getTriggers <em>Triggers</em>}</li>
+ *   <li>{@link jenkins_metamodel.Pipeline#getOptions <em>Options</em>}</li>
  * </ul>
  *
  * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline()
@@ -30,28 +31,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Pipeline extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Environment</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Environments</b></em>' containment reference list.
 	 * The list contents are of type {@link jenkins_metamodel.Environment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Environment</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Environment()
+	 * @return the value of the '<em>Environments</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Environments()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Environment> getEnvironment();
+	EList<Environment> getEnvironments();
 
 	/**
-	 * Returns the value of the '<em><b>Stage</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Stages</b></em>' containment reference list.
 	 * The list contents are of type {@link jenkins_metamodel.Stage}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Stage</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Stage()
+	 * @return the value of the '<em>Stages</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Stages()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Stage> getStage();
+	EList<Stage> getStages();
 
 	/**
 	 * Returns the value of the '<em><b>Post</b></em>' containment reference list.
@@ -66,61 +67,63 @@ public interface Pipeline extends EObject {
 	EList<Post> getPost();
 
 	/**
-	 * Returns the value of the '<em><b>Parameter directive</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Parameter directives</b></em>' containment reference list.
 	 * The list contents are of type {@link jenkins_metamodel.Parameter_Directive}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter directive</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Parameter_directive()
+	 * @return the value of the '<em>Parameter directives</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Parameter_directives()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Parameter_Directive> getParameter_directive();
+	EList<Parameter_Directive> getParameter_directives();
 
 	/**
-	 * Returns the value of the '<em><b>Trigger</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Trigger</em>' containment reference.
-	 * @see #setTrigger(Trigger)
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Trigger()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Trigger getTrigger();
-
-	/**
-	 * Sets the value of the '{@link jenkins_metamodel.Pipeline#getTrigger <em>Trigger</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trigger</em>' containment reference.
-	 * @see #getTrigger()
-	 * @generated
-	 */
-	void setTrigger(Trigger value);
-
-	/**
-	 * Returns the value of the '<em><b>Tool</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Tools</b></em>' containment reference list.
 	 * The list contents are of type {@link jenkins_metamodel.Tool}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tool</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Tool()
+	 * @return the value of the '<em>Tools</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Tools()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Tool> getTool();
+	EList<Tool> getTools();
 
 	/**
-	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Agents</b></em>' containment reference list.
 	 * The list contents are of type {@link jenkins_metamodel.Agent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Agent</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Agent()
+	 * @return the value of the '<em>Agents</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Agents()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Agent> getAgents();
+
+	/**
+	 * Returns the value of the '<em><b>Triggers</b></em>' containment reference list.
+	 * The list contents are of type {@link jenkins_metamodel.Trigger}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Triggers</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Triggers()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Agent> getAgent();
+	EList<Trigger> getTriggers();
+
+	/**
+	 * Returns the value of the '<em><b>Options</b></em>' containment reference list.
+	 * The list contents are of type {@link jenkins_metamodel.Option}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Options</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPipeline_Options()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Option> getOptions();
 
 } // Pipeline

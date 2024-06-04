@@ -27,7 +27,7 @@ public interface When_Env extends When {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getWhen_Env_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -49,7 +49,7 @@ public interface When_Env extends When {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getWhen_Env_Value()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getValue();

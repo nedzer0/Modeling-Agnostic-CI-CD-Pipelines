@@ -1,115 +1,252 @@
-version: 3.4
-
+version: 2.1
 orbs:
-  orbKey: OrbValue
+  node: circleci/node@x.y
+  node: circleci/node@3.0
 
 commands:
-  Name:
-    description: Not a description
-    parameters: 
+  sayhello:
+    description: A very simple command for demonstration purposes
+    parameters:
       to:
-        type: string
-        default: default message
+        type: enum
+        default: docs
+        enum: [enum1, e2]
+      
     steps:
       - run:
-          name: stepNamee
+          name: 
           command: |
-      	    echo print this hello 
-          
+            echo  print this hello 
+          working_directory: .
+      
+      
+  npm-install:
+    parameters:
+      clean:
+        type: boolean
+        default: false
+        description: Perform a clean install
+      
+    steps:
+      - when:
+          condition: << parameters.clean >>
+          steps:
+            - run:
+                command: |
+                  npm clean-install 
+                working_directory: .
+            
+            
+      - unless:
+          condition: << parameters.clean >>
+          steps:
+            - run:
+                command: |
+                  npm install 
+                working_directory: .
+            
+            
+      
+      
+      - run:
+          command: |
+            npm install 
+          working_directory: .
+      
+      
 
 executors:
-  executor_name:
-    docker:
-      - image: docker_imagee
+  my-executor:
+    resource_class: macos.x86.medium.gen2*
+    working_directory: 
+    macos:
+      xcode: my-xcode
+    
   linuxNameExecutor:
+    resource_class: xlarge
+    shell: 'powershell.exe -ExecutionPolicy Bypass'
+    working_directory: 
     machine:
       image: LinuxImage
+      docker_layer_caching: true
+      
+    
+  executor_name:
+    resource_class: small
+    working_directory: 
+    environment:
+      ENV: VALUE1
+    docker:
+      - image: docker_imagee
+        command:
+          com1
+          com2
+        environment:
+          ENV: VALUE1
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+        aws_auth:
+          aws_access_key_id: oidc_role_arn
+          aws_secret_access_key: <your-iam-role-arn>
+      
+    
 
 jobs:
-  job1:
-    executor_name:
-      docker:
-        - image: docker_imagee
-      
-      steps:
-        - run: |
-            npm install test 
-            tool2  
-      
-      environment:
-        ENV: VALUE1
-      
-    
+  Build:
+    executor: my-executor
     environment:
-      keykey: valval
-    
+      MY-TEST-ENV: env_secret@78
     parallelism: 2
     
     steps:
       - run:
-          
+          name: Running tests
           command: |
-      	    echo hello world 
+            echo  hello world 
+          working_directory: ~/project
+          shell: /bin/sh
+      
+      
+      - save_cache:
+          paths: 
+            - node_modules/workspace-a 
+            - node_modules/workspace-c 
+          key: v1-{{ checksum "yarn.lock" }}
+          
           
       
-    
-    
-  job2:
-    linuxNameExecutor:
-      machine:
-        image: LinuxImage
-      
-      steps:
-            yoyo
+      - run:
+          command: |
+            mkdir -p /tmp/test-results 
+          working_directory: .
       
       
     
-    
+  Test:
+    executor: my-executor
     
     steps:
-        - when:
-      	  condition: if branch = master
-      	  steps:
-              - run:
-                  
-                  command: |
-              	    echoecho asdfafaf 
-                  
-      
       - when:
-    	  condition: if branch = master
-    	  steps:
+          condition: if branch = master
+          steps:
             - run:
-                
                 command: |
-            	    echoecho asdfafaf 
-                
+                  echo "preinstall" 
+                working_directory: .
+            
+            
+      - unless:
+          condition: if branch = master
+          steps:
+            - run:
+                command: |
+                  echo "don't preinstall" 
+                working_directory: .
+            
+            
+      
+      
+      - checkout
+      
+      - setup_remote_docker:
+          
+          version: 20.10.14
+      
+      - run:
+          command: |
+            echo "preinstall is << parameters.preinstall-foo >>" 
+          working_directory: .
+          environment:
+            SSH_TARGET: localhost
+            TEST_ENV: linux
+      
+      
+      - run:
+          command: |
+            set -xu 
+          working_directory: .
+      
+      
+      - run:
+          command: |
+            mkdir -p ${TEST_REPORTS} 
+          working_directory: .
+      
+      
     
-    - store_artifacts:
-        path:
-    	  - C://folder
-        destination: myPC
+  Executor Job:
+    test-exec:
+      resource_class: medium
+      working_directory: 
+      docker:
+        - image: mongo:2.6.8
+          command:
+            [--smallfiles]
+          auth:
+            username: mydockerhub-user
+            password: $DOCKERHUB_PASSWORD
+        
+      
+    
+    executor: my-executor
+    
+    steps:
+      - add_ssh_keys:
+          fingerprints: 
+            - "b7:35:a6:4e:9b:0d:6d:d4:78:1e:9a:97:2a:66:6b:be"
+            - "SHA256:NPj4IcXxqQEKGXOghi/QbG2sohoNfvZ30JwCcdSSNM0"
+      
+      
     
 
 workflows:
   version: 2.0
-  workflow_Name: my_workflow
+  workflow_Name: build-deploy
     triggers:
       - schedule:
-          cron: "0-0----0"
+          cron: "*/15 * * * *"
+    filters:
+      branches:
+        only:
+          - master
+          - branch1
+        ignore:
+          - branch2
+    
+    
+    when: conditionExpert = 0
+    
+    jobs:
+      - Build
+          
+          
           filters:
             branches:
               only:
-                - master
-                - branch1
+                - /server\/.*/
+          
+          
+      - Test
+          type: approval
+          requires:
+            - Build
+          
+          
+          filters:
+            branches:
+              only:
               ignore:
-                - branch2
+                - develop
+                - /feature-.*/
+          
+          matrix:
+            parameters:
+              version: [0.1, 0.2, 0.3]
+              platform: [macos, windows]
+            exclude:
+              - a: 3
+                b: 5
           
     
-    when:
-      condition: conditionExpert = 0
-    
-    jobs:
-	  - job1
-	  - job2
 

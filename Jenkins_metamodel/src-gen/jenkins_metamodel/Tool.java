@@ -24,25 +24,28 @@ import org.eclipse.emf.ecore.EObject;
 public interface Tool extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Tool</b></em>' attribute.
+	 * The literals are from the enumeration {@link jenkins_metamodel.TOOL_TYPE}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tool</em>' attribute.
-	 * @see #setTool(String)
+	 * @see jenkins_metamodel.TOOL_TYPE
+	 * @see #setTool(TOOL_TYPE)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getTool_Tool()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	String getTool();
+	TOOL_TYPE getTool();
 
 	/**
 	 * Sets the value of the '{@link jenkins_metamodel.Tool#getTool <em>Tool</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Tool</em>' attribute.
+	 * @see jenkins_metamodel.TOOL_TYPE
 	 * @see #getTool()
 	 * @generated
 	 */
-	void setTool(String value);
+	void setTool(TOOL_TYPE value);
 
 	/**
 	 * Returns the value of the '<em><b>Tool name</b></em>' attribute.
@@ -51,7 +54,7 @@ public interface Tool extends EObject {
 	 * @return the value of the '<em>Tool name</em>' attribute.
 	 * @see #setTool_name(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getTool_Tool_name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getTool_name();

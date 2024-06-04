@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated simulation -->
+      <package
+            uri="http://www.gemoc.org/agro/simulation"
+            class="org.gemoc.agro.simulation.SimulationPackage"
+            genModel="model/simulation.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="org.gemoc.agro.simulation.resource.ClimateDataResourceFactoryImpl"
+            type="csv">
+      </parser>
+   </extension>
+
+</plugin>

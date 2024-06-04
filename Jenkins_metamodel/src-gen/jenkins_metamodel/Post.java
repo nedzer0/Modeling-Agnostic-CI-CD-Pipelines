@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link jenkins_metamodel.Post#getCondition <em>Condition</em>}</li>
- *   <li>{@link jenkins_metamodel.Post#getStep <em>Step</em>}</li>
+ *   <li>{@link jenkins_metamodel.Post#getSteps <em>Steps</em>}</li>
  * </ul>
  *
  * @see jenkins_metamodel.Jenkins_metamodelPackage#getPost()
@@ -33,7 +33,7 @@ public interface Post extends EObject {
 	 * @see jenkins_metamodel.POST_TYPE
 	 * @see #setCondition(POST_TYPE)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPost_Condition()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	POST_TYPE getCondition();
@@ -50,15 +50,15 @@ public interface Post extends EObject {
 	void setCondition(POST_TYPE value);
 
 	/**
-	 * Returns the value of the '<em><b>Step</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Steps</b></em>' containment reference list.
 	 * The list contents are of type {@link jenkins_metamodel.Step}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Step</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPost_Step()
+	 * @return the value of the '<em>Steps</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getPost_Steps()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Step> getStep();
+	EList<Step> getSteps();
 
 } // Post

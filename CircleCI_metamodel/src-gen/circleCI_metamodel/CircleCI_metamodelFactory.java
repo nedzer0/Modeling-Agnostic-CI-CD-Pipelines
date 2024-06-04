@@ -22,40 +22,112 @@ public interface CircleCI_metamodelFactory extends EFactory {
 	CircleCI_metamodelFactory eINSTANCE = circleCI_metamodel.impl.CircleCI_metamodelFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Pipeline</em>'.
+	 * Returns a new object of class '<em>Run</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pipeline</em>'.
+	 * @return a new object of class '<em>Run</em>'.
 	 * @generated
 	 */
-	Pipeline createPipeline();
+	Run createRun();
 
 	/**
-	 * Returns a new object of class '<em>Step</em>'.
+	 * Returns a new object of class '<em>Docker Auth</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Step</em>'.
+	 * @return a new object of class '<em>Docker Auth</em>'.
 	 * @generated
 	 */
-	Step createStep();
+	Docker_Auth createDocker_Auth();
 
 	/**
-	 * Returns a new object of class '<em>Docker</em>'.
+	 * Returns a new object of class '<em>Restore Cache</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Docker</em>'.
+	 * @return a new object of class '<em>Restore Cache</em>'.
 	 * @generated
 	 */
-	Docker createDocker();
+	RestoreCache createRestoreCache();
 
 	/**
-	 * Returns a new object of class '<em>Linux</em>'.
+	 * Returns a new object of class '<em>Docker Aws Auths</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Linux</em>'.
+	 * @return a new object of class '<em>Docker Aws Auths</em>'.
 	 * @generated
 	 */
-	Linux createLinux();
+	Docker_Aws_Auths createDocker_Aws_Auths();
+
+	/**
+	 * Returns a new object of class '<em>Job</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Job</em>'.
+	 * @generated
+	 */
+	Job createJob();
+
+	/**
+	 * Returns a new object of class '<em>Machine</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Machine</em>'.
+	 * @generated
+	 */
+	Machine createMachine();
+
+	/**
+	 * Returns a new object of class '<em>Persist To Workspace</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Persist To Workspace</em>'.
+	 * @generated
+	 */
+	PersistToWorkspace createPersistToWorkspace();
+
+	/**
+	 * Returns a new object of class '<em>Store Artifact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Store Artifact</em>'.
+	 * @generated
+	 */
+	StoreArtifact createStoreArtifact();
+
+	/**
+	 * Returns a new object of class '<em>Store Test Results</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Store Test Results</em>'.
+	 * @generated
+	 */
+	StoreTestResults createStoreTestResults();
+
+	/**
+	 * Returns a new object of class '<em>Setup Remote Docker</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Setup Remote Docker</em>'.
+	 * @generated
+	 */
+	SetupRemoteDocker createSetupRemoteDocker();
+
+	/**
+	 * Returns a new object of class '<em>Parameters</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameters</em>'.
+	 * @generated
+	 */
+	Parameters createParameters();
+
+	/**
+	 * Returns a new object of class '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter</em>'.
+	 * @generated
+	 */
+	Parameter createParameter();
 
 	/**
 	 * Returns a new object of class '<em>Mac Os</em>'.
@@ -65,33 +137,6 @@ public interface CircleCI_metamodelFactory extends EFactory {
 	 * @generated
 	 */
 	MacOs createMacOs();
-
-	/**
-	 * Returns a new object of class '<em>Windows Orb</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Windows Orb</em>'.
-	 * @generated
-	 */
-	WindowsOrb createWindowsOrb();
-
-	/**
-	 * Returns a new object of class '<em>Orb</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Orb</em>'.
-	 * @generated
-	 */
-	Orb createOrb();
-
-	/**
-	 * Returns a new object of class '<em>Command</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Command</em>'.
-	 * @generated
-	 */
-	Command createCommand();
 
 	/**
 	 * Returns a new object of class '<em>Workflow</em>'.
@@ -112,22 +157,40 @@ public interface CircleCI_metamodelFactory extends EFactory {
 	Environment createEnvironment();
 
 	/**
-	 * Returns a new object of class '<em>Parameters</em>'.
+	 * Returns a new object of class '<em>Docker</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameters</em>'.
+	 * @return a new object of class '<em>Docker</em>'.
 	 * @generated
 	 */
-	Parameters createParameters();
+	Docker createDocker();
 
 	/**
-	 * Returns a new object of class '<em>Tool Framework</em>'.
+	 * Returns a new object of class '<em>Add SSH Keys</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Tool Framework</em>'.
+	 * @return a new object of class '<em>Add SSH Keys</em>'.
 	 * @generated
 	 */
-	Tool_Framework createTool_Framework();
+	AddSSHKeys createAddSSHKeys();
+
+	/**
+	 * Returns a new object of class '<em>Save Cache</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Save Cache</em>'.
+	 * @generated
+	 */
+	SaveCache createSaveCache();
+
+	/**
+	 * Returns a new object of class '<em>Attach Workspace</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Attach Workspace</em>'.
+	 * @generated
+	 */
+	AttachWorkspace createAttachWorkspace();
 
 	/**
 	 * Returns a new object of class '<em>When Unless</em>'.
@@ -139,13 +202,22 @@ public interface CircleCI_metamodelFactory extends EFactory {
 	When_Unless createWhen_Unless();
 
 	/**
-	 * Returns a new object of class '<em>When Attribute</em>'.
+	 * Returns a new object of class '<em>Branch</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>When Attribute</em>'.
+	 * @return a new object of class '<em>Branch</em>'.
 	 * @generated
 	 */
-	When_Attribute createWhen_Attribute();
+	Branch createBranch();
+
+	/**
+	 * Returns a new object of class '<em>Run Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Run Command</em>'.
+	 * @generated
+	 */
+	RunCommand createRunCommand();
 
 	/**
 	 * Returns a new object of class '<em>Trigger</em>'.
@@ -157,40 +229,67 @@ public interface CircleCI_metamodelFactory extends EFactory {
 	Trigger createTrigger();
 
 	/**
-	 * Returns a new object of class '<em>Branch</em>'.
+	 * Returns a new object of class '<em>Checkout</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Branch</em>'.
+	 * @return a new object of class '<em>Checkout</em>'.
 	 * @generated
 	 */
-	Branch createBranch();
+	Checkout createCheckout();
 
 	/**
-	 * Returns a new object of class '<em>Job</em>'.
+	 * Returns a new object of class '<em>Pipeline</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Job</em>'.
+	 * @return a new object of class '<em>Pipeline</em>'.
 	 * @generated
 	 */
-	Job createJob();
+	Pipeline createPipeline();
 
 	/**
-	 * Returns a new object of class '<em>Store Artifact</em>'.
+	 * Returns a new object of class '<em>Orb</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Store Artifact</em>'.
+	 * @return a new object of class '<em>Orb</em>'.
 	 * @generated
 	 */
-	Store_Artifact createStore_Artifact();
+	Orb createOrb();
 
 	/**
-	 * Returns a new object of class '<em>Command Params</em>'.
+	 * Returns a new object of class '<em>Command</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Command Params</em>'.
+	 * @return a new object of class '<em>Command</em>'.
 	 * @generated
 	 */
-	Command_Params createCommand_Params();
+	Command createCommand();
+
+	/**
+	 * Returns a new object of class '<em>Matrix</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Matrix</em>'.
+	 * @generated
+	 */
+	Matrix createMatrix();
+
+	/**
+	 * Returns a new object of class '<em>Job Workflow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Job Workflow</em>'.
+	 * @generated
+	 */
+	JobWorkflow createJobWorkflow();
+
+	/**
+	 * Returns a new object of class '<em>Matrix Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Matrix Params</em>'.
+	 * @generated
+	 */
+	MatrixParams createMatrixParams();
 
 	/**
 	 * Returns the package supported by this factory.

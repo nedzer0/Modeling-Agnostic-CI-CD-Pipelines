@@ -15,17 +15,17 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link jenkins_metamodel.Stage#getName <em>Name</em>}</li>
- *   <li>{@link jenkins_metamodel.Stage#getStage <em>Stage</em>}</li>
- *   <li>{@link jenkins_metamodel.Stage#getAgent <em>Agent</em>}</li>
- *   <li>{@link jenkins_metamodel.Stage#getPost <em>Post</em>}</li>
- *   <li>{@link jenkins_metamodel.Stage#getStep <em>Step</em>}</li>
- *   <li>{@link jenkins_metamodel.Stage#getEnvironment <em>Environment</em>}</li>
- *   <li>{@link jenkins_metamodel.Stage#getTool <em>Tool</em>}</li>
- *   <li>{@link jenkins_metamodel.Stage#getInput <em>Input</em>}</li>
+ *   <li>{@link jenkins_metamodel.Stage#getStages <em>Stages</em>}</li>
+ *   <li>{@link jenkins_metamodel.Stage#getAgents <em>Agents</em>}</li>
+ *   <li>{@link jenkins_metamodel.Stage#getSteps <em>Steps</em>}</li>
+ *   <li>{@link jenkins_metamodel.Stage#getEnvironments <em>Environments</em>}</li>
+ *   <li>{@link jenkins_metamodel.Stage#getInputs <em>Inputs</em>}</li>
  *   <li>{@link jenkins_metamodel.Stage#getWhen <em>When</em>}</li>
+ *   <li>{@link jenkins_metamodel.Stage#getName <em>Name</em>}</li>
  *   <li>{@link jenkins_metamodel.Stage#isFailFast <em>Fail Fast</em>}</li>
  *   <li>{@link jenkins_metamodel.Stage#isParallel <em>Parallel</em>}</li>
+ *   <li>{@link jenkins_metamodel.Stage#getStage_options <em>Stage options</em>}</li>
+ *   <li>{@link jenkins_metamodel.Stage#getMatrix <em>Matrix</em>}</li>
  * </ul>
  *
  * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage()
@@ -34,13 +34,85 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Stage extends EObject {
 	/**
+	 * Returns the value of the '<em><b>Stages</b></em>' containment reference list.
+	 * The list contents are of type {@link jenkins_metamodel.Stage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Stages</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Stages()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Stage> getStages();
+
+	/**
+	 * Returns the value of the '<em><b>Agents</b></em>' containment reference list.
+	 * The list contents are of type {@link jenkins_metamodel.Agent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Agents</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Agents()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Agent> getAgents();
+
+	/**
+	 * Returns the value of the '<em><b>Steps</b></em>' containment reference list.
+	 * The list contents are of type {@link jenkins_metamodel.Step}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Steps</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Steps()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Step> getSteps();
+
+	/**
+	 * Returns the value of the '<em><b>Environments</b></em>' containment reference list.
+	 * The list contents are of type {@link jenkins_metamodel.Environment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Environments</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Environments()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Environment> getEnvironments();
+
+	/**
+	 * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
+	 * The list contents are of type {@link jenkins_metamodel.Input}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inputs</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Inputs()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Input> getInputs();
+
+	/**
+	 * Returns the value of the '<em><b>When</b></em>' containment reference list.
+	 * The list contents are of type {@link jenkins_metamodel.When}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>When</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_When()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<When> getWhen();
+
+	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -54,102 +126,6 @@ public interface Stage extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Stage</b></em>' containment reference list.
-	 * The list contents are of type {@link jenkins_metamodel.Stage}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Stage</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Stage()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Stage> getStage();
-
-	/**
-	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.
-	 * The list contents are of type {@link jenkins_metamodel.Agent}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Agent</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Agent()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Agent> getAgent();
-
-	/**
-	 * Returns the value of the '<em><b>Post</b></em>' containment reference list.
-	 * The list contents are of type {@link jenkins_metamodel.Post}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Post</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Post()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Post> getPost();
-
-	/**
-	 * Returns the value of the '<em><b>Step</b></em>' containment reference list.
-	 * The list contents are of type {@link jenkins_metamodel.Step}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Step</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Step()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<Step> getStep();
-
-	/**
-	 * Returns the value of the '<em><b>Environment</b></em>' containment reference list.
-	 * The list contents are of type {@link jenkins_metamodel.Environment}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Environment</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Environment()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Environment> getEnvironment();
-
-	/**
-	 * Returns the value of the '<em><b>Tool</b></em>' containment reference list.
-	 * The list contents are of type {@link jenkins_metamodel.Tool}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tool</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Tool()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Tool> getTool();
-
-	/**
-	 * Returns the value of the '<em><b>Input</b></em>' containment reference list.
-	 * The list contents are of type {@link jenkins_metamodel.Input}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Input()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Input> getInput();
-
-	/**
-	 * Returns the value of the '<em><b>When</b></em>' containment reference list.
-	 * The list contents are of type {@link jenkins_metamodel.When}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>When</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_When()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<When> getWhen();
 
 	/**
 	 * Returns the value of the '<em><b>Fail Fast</b></em>' attribute.
@@ -194,5 +170,39 @@ public interface Stage extends EObject {
 	 * @generated
 	 */
 	void setParallel(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Stage options</b></em>' containment reference list.
+	 * The list contents are of type {@link jenkins_metamodel.StageOption}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Stage options</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Stage_options()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<StageOption> getStage_options();
+
+	/**
+	 * Returns the value of the '<em><b>Matrix</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Matrix</em>' containment reference.
+	 * @see #setMatrix(Matrix)
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getStage_Matrix()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Matrix getMatrix();
+
+	/**
+	 * Sets the value of the '{@link jenkins_metamodel.Stage#getMatrix <em>Matrix</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Matrix</em>' containment reference.
+	 * @see #getMatrix()
+	 * @generated
+	 */
+	void setMatrix(Matrix value);
 
 } // Stage

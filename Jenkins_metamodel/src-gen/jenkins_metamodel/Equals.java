@@ -27,7 +27,7 @@ public interface Equals extends When {
 	 * @return the value of the '<em>Expected val</em>' attribute.
 	 * @see #setExpected_val(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getEquals_Expected_val()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getExpected_val();
@@ -49,7 +49,7 @@ public interface Equals extends When {
 	 * @return the value of the '<em>Actual val</em>' attribute.
 	 * @see #setActual_val(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getEquals_Actual_val()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getActual_val();

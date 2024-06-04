@@ -44,26 +44,16 @@ public class DockerItemProvider extends AgentItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addImagePropertyDescriptor(object);
 			addRegistryUrlPropertyDescriptor(object);
 			addRegistryCredentialsIdPropertyDescriptor(object);
+			addLabelPropertyDescriptor(object);
+			addAlwaysPullPropertyDescriptor(object);
+			addCustomWorkspacePropertyDescriptor(object);
+			addReuseNodePropertyDescriptor(object);
+			addArgsPropertyDescriptor(object);
+			addImagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Image feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addImagePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Docker_image_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Docker_image_feature", "_UI_Docker_type"),
-						Jenkins_metamodelPackage.Literals.DOCKER__IMAGE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -99,6 +89,99 @@ public class DockerItemProvider extends AgentItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Docker_label_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Docker_label_feature", "_UI_Docker_type"),
+						Jenkins_metamodelPackage.Literals.DOCKER__LABEL, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Always Pull feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAlwaysPullPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Docker_alwaysPull_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Docker_alwaysPull_feature",
+								"_UI_Docker_type"),
+						Jenkins_metamodelPackage.Literals.DOCKER__ALWAYS_PULL, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Custom Workspace feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCustomWorkspacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Docker_customWorkspace_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Docker_customWorkspace_feature",
+								"_UI_Docker_type"),
+						Jenkins_metamodelPackage.Literals.DOCKER__CUSTOM_WORKSPACE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Reuse Node feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReuseNodePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Docker_reuseNode_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Docker_reuseNode_feature",
+								"_UI_Docker_type"),
+						Jenkins_metamodelPackage.Literals.DOCKER__REUSE_NODE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Args feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArgsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Docker_args_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Docker_args_feature", "_UI_Docker_type"),
+						Jenkins_metamodelPackage.Literals.DOCKER__ARGS, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Image feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addImagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Docker_image_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Docker_image_feature", "_UI_Docker_type"),
+						Jenkins_metamodelPackage.Literals.DOCKER__IMAGE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns Docker.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -127,7 +210,7 @@ public class DockerItemProvider extends AgentItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Docker) object).getLabel();
+		String label = ((Docker) object).getRegistryUrl();
 		return label == null || label.length() == 0 ? getString("_UI_Docker_type")
 				: getString("_UI_Docker_type") + " " + label;
 	}
@@ -144,9 +227,14 @@ public class DockerItemProvider extends AgentItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Docker.class)) {
-		case Jenkins_metamodelPackage.DOCKER__IMAGE:
 		case Jenkins_metamodelPackage.DOCKER__REGISTRY_URL:
 		case Jenkins_metamodelPackage.DOCKER__REGISTRY_CREDENTIALS_ID:
+		case Jenkins_metamodelPackage.DOCKER__LABEL:
+		case Jenkins_metamodelPackage.DOCKER__ALWAYS_PULL:
+		case Jenkins_metamodelPackage.DOCKER__CUSTOM_WORKSPACE:
+		case Jenkins_metamodelPackage.DOCKER__REUSE_NODE:
+		case Jenkins_metamodelPackage.DOCKER__ARGS:
+		case Jenkins_metamodelPackage.DOCKER__IMAGE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

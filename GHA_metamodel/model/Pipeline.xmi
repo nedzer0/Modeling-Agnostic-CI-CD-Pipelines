@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gHA_metamodel:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gHA_metamodel="http://www.example.org/gHA_metamodel">
+  <triggers
+      xsi:type="gHA_metamodel:ScheduleTrigger"
+      cron="0 * * * *"/>
+  <triggers
+      xsi:type="gHA_metamodel:ScheduleTrigger"
+      cron="*/15 * * * *"/>
+  <triggers
+      xsi:type="gHA_metamodel:WorkflowCallTrigger">
+    <inputs
+        name="username"
+        description="'A username passed from the caller workflow'"
+        default="'john-doe'"/>
+    <outputs
+        name="workflow_output1"
+        value="${{ jobs.my_job.outputs.job_output1 }}"
+        description=""/>
+    <outputs
+        name="workflow_output2"
+        value="${{ jobs.my_job.outputs.job_output2 }}"
+        description="&quot;The second job output&quot;"/>
+    <secrets
+        key="description"
+        value="'A token passed from the caller workflow'"
+        required="true"
+        name="access-token"/>
+  </triggers>
+  <triggers
+      xsi:type="gHA_metamodel:PushTrigger">
+    <branches
+        name="main"/>
+    <branches
+        name="'mona/octocat'"
+        ignore="true"/>
+    <branches
+        name="'releases/**-alpha'"
+        ignore="true"/>
+    <tags name="v2"/>
+    <tags name="v1.*"
+        ignore="true"/>
+    <paths name="path1"/>
+  </triggers>
+  <triggers
+      xsi:type="gHA_metamodel:StandardEventTrigger">
+    <activityType>edited</activityType>
+  </triggers>
+  <jobs name="job1"
+      timeout_minutes="120">
+    <steps name="Print a greeting"
+        working_directory="./temp">
+      <commands
+          name="npm install"/>
+    </steps>
+    <concurrency
+        group="${{ github.workflow }}-${{ github.ref }}"
+        cancel_in_progress="true"/>
+    <defaultsetting
+        shell="bash"
+        workingDirectory="./mydomain"/>
+    <permissions/>
+    <actions
+        xsi:type="gHA_metamodel:Artifact"
+        uses="actions/upload-artifact@v4"
+        name="my-artifact"
+        retention_days="5">
+      <paths>my_file.txt</paths>
+    </actions>
+    <secrets
+        key="access-token"
+        value="${{ secrets.PERSONAL_ACCESS_TOKEN }}"
+        name="my-little-secret"/>
+    <runner
+        group="ubuntu-runners">
+      <labels>self-hosted</labels>
+      <labels>linux</labels>
+    </runner>
+  </jobs>
+  <jobs name="StrategyJob">
+    <steps name="Run my action"
+        shell="bash">
+      <commands
+          name="echo this is great"/>
+    </steps>
+    <strategy>
+      <configs
+          key="version">
+        <values>10</values>
+        <values>12</values>
+      </configs>
+      <configs
+          key="os">
+        <values>windows</values>
+      </configs>
+      <configs
+          key="color"
+          type="INCLUDE">
+        <values>green</values>
+      </configs>
+      <configs
+          key="animal"
+          type="INCLUDE">
+        <values>lion</values>
+      </configs>
+      <configs
+          key="color"
+          type="EXCLUDE">
+        <values>yellow</values>
+      </configs>
+    </strategy>
+    <environment
+        name="production_environment"/>
+    <envs key="FIRST_NAME"
+        value="Mona"/>
+    <services
+        name="nginx">
+      <container
+          image="${{ options.nginx == true &amp;&amp; 'nginx' || '' }}">
+        <volumes>my_docker_volume:/volume_mount</volumes>
+        <volumes>/data/my_data</volumes>
+      </container>
+    </services>
+    <actions
+        uses="actions/checkout@v3"/>
+  </jobs>
+  <jobs name="ConditionalJob"
+      continue_on_error="${{ matrix.experimental }}">
+    <steps>
+      <commands
+          name="npm install java"/>
+      <actions
+          uses="actions/hello_world@main">
+        <with
+            key="first_name"
+            value="Mia"/>
+        <with
+            key="middle_name"
+            value="The"/>
+        <with_inputPair
+            args="The ${{ github.event_name }} event triggered this step."
+            entrypoint="/bin/echo"/>
+      </actions>
+    </steps>
+    <if condition="${{ ! startsWith(github.ref, 'refs/tags/') }}"/>
+    <need>
+      <jobs>job1</jobs>
+    </need>
+    <outputs
+        name="out1"
+        value="${{ steps.step1.outputs.test }}"/>
+    <actions
+        xsi:type="gHA_metamodel:RestoreCache"
+        uses="actions/cache/restore@v3"
+        key="${{ runner.os }}-${{ hashFiles('**/lockfiles') }}">
+      <paths>path/to/dependencies</paths>
+    </actions>
+    <container
+        image="node:18">
+      <credential
+          username="${{ github.actor }}"
+          password="${{ secrets.github_token }}"/>
+      <envs
+          key="NODE_ENV"
+          value="development"/>
+    </container>
+  </jobs>
+  <permissions
+      permission="write"
+      writeAll="true"/>
+  <concurrency
+      group="${{ github.workflow }}-${{ github.ref }}"/>
+  <envs key="my-env"
+      value="1and2"/>
+  <defaultsetting
+      shell="bash"
+      workingDirectory="./scripts"/>
+</gHA_metamodel:Pipeline>

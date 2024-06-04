@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -153,7 +154,7 @@ public class InputItemProvider extends ItemProviderAdapter implements IEditingDo
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.INPUT__PARAMETER_DIRECTIVE);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.INPUT__PARAMETER_DIRECTIVES);
 		}
 		return childrenFeatures;
 	}
@@ -224,7 +225,7 @@ public class InputItemProvider extends ItemProviderAdapter implements IEditingDo
 		case Jenkins_metamodelPackage.INPUT__SUBMITTER_PARAMETER:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVE:
+		case Jenkins_metamodelPackage.INPUT__PARAMETER_DIRECTIVES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -242,8 +243,20 @@ public class InputItemProvider extends ItemProviderAdapter implements IEditingDo
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.INPUT__PARAMETER_DIRECTIVE,
-				Jenkins_metamodelFactory.eINSTANCE.createParameter_Directive()));
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.INPUT__PARAMETER_DIRECTIVES,
+				Jenkins_metamodelFactory.eINSTANCE.createStringParam()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.INPUT__PARAMETER_DIRECTIVES,
+				Jenkins_metamodelFactory.eINSTANCE.createTextParam()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.INPUT__PARAMETER_DIRECTIVES,
+				Jenkins_metamodelFactory.eINSTANCE.createChoiceParam()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.INPUT__PARAMETER_DIRECTIVES,
+				Jenkins_metamodelFactory.eINSTANCE.createPasswordParam()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.INPUT__PARAMETER_DIRECTIVES,
+				Jenkins_metamodelFactory.eINSTANCE.createBooleanParam()));
 	}
 
 	/**

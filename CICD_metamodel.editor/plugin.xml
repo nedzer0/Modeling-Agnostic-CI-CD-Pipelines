@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated cICD_metamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="cICD_metamodel.presentation.CICD_metamodelModelWizardID"
+            name="%_UI_CICD_metamodelModelWizard_label"
+            class="cICD_metamodel.presentation.CICD_metamodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CICD_metamodelModelFile.gif">
+         <description>%_UI_CICD_metamodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated cICD_metamodel -->
+      <editor
+            id="cICD_metamodel.presentation.CICD_metamodelEditorID"
+            name="%_UI_CICD_metamodelEditor_label"
+            icon="icons/full/obj16/CICD_metamodelModelFile.gif"
+            extensions="cicd_metamodel"
+            class="cICD_metamodel.presentation.CICD_metamodelEditor"
+            contributorClass="cICD_metamodel.presentation.CICD_metamodelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

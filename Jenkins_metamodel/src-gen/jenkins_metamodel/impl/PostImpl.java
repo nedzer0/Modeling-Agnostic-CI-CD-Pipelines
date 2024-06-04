@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link jenkins_metamodel.impl.PostImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link jenkins_metamodel.impl.PostImpl#getStep <em>Step</em>}</li>
+ *   <li>{@link jenkins_metamodel.impl.PostImpl#getSteps <em>Steps</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,14 +59,14 @@ public class PostImpl extends MinimalEObjectImpl.Container implements Post {
 	protected POST_TYPE condition = CONDITION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStep() <em>Step</em>}' containment reference list.
+	 * The cached value of the '{@link #getSteps() <em>Steps</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStep()
+	 * @see #getSteps()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Step> step;
+	protected EList<Step> steps;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,11 +117,11 @@ public class PostImpl extends MinimalEObjectImpl.Container implements Post {
 	 * @generated
 	 */
 	@Override
-	public EList<Step> getStep() {
-		if (step == null) {
-			step = new EObjectContainmentEList<Step>(Step.class, this, Jenkins_metamodelPackage.POST__STEP);
+	public EList<Step> getSteps() {
+		if (steps == null) {
+			steps = new EObjectContainmentEList<Step>(Step.class, this, Jenkins_metamodelPackage.POST__STEPS);
 		}
-		return step;
+		return steps;
 	}
 
 	/**
@@ -132,8 +132,8 @@ public class PostImpl extends MinimalEObjectImpl.Container implements Post {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case Jenkins_metamodelPackage.POST__STEP:
-			return ((InternalEList<?>) getStep()).basicRemove(otherEnd, msgs);
+		case Jenkins_metamodelPackage.POST__STEPS:
+			return ((InternalEList<?>) getSteps()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -148,8 +148,8 @@ public class PostImpl extends MinimalEObjectImpl.Container implements Post {
 		switch (featureID) {
 		case Jenkins_metamodelPackage.POST__CONDITION:
 			return getCondition();
-		case Jenkins_metamodelPackage.POST__STEP:
-			return getStep();
+		case Jenkins_metamodelPackage.POST__STEPS:
+			return getSteps();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -166,9 +166,9 @@ public class PostImpl extends MinimalEObjectImpl.Container implements Post {
 		case Jenkins_metamodelPackage.POST__CONDITION:
 			setCondition((POST_TYPE) newValue);
 			return;
-		case Jenkins_metamodelPackage.POST__STEP:
-			getStep().clear();
-			getStep().addAll((Collection<? extends Step>) newValue);
+		case Jenkins_metamodelPackage.POST__STEPS:
+			getSteps().clear();
+			getSteps().addAll((Collection<? extends Step>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -185,8 +185,8 @@ public class PostImpl extends MinimalEObjectImpl.Container implements Post {
 		case Jenkins_metamodelPackage.POST__CONDITION:
 			setCondition(CONDITION_EDEFAULT);
 			return;
-		case Jenkins_metamodelPackage.POST__STEP:
-			getStep().clear();
+		case Jenkins_metamodelPackage.POST__STEPS:
+			getSteps().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -202,8 +202,8 @@ public class PostImpl extends MinimalEObjectImpl.Container implements Post {
 		switch (featureID) {
 		case Jenkins_metamodelPackage.POST__CONDITION:
 			return condition != CONDITION_EDEFAULT;
-		case Jenkins_metamodelPackage.POST__STEP:
-			return step != null && !step.isEmpty();
+		case Jenkins_metamodelPackage.POST__STEPS:
+			return steps != null && !steps.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

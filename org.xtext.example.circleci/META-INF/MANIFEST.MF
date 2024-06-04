@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.circleci
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.circleci
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.circleci; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: CircleCI_metamodel,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.34.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: org.xtext.example.circleci.validation,
+ org.xtext.example.circleci.formatting2,
+ org.xtext.example.circleci.scoping,
+ org.xtext.example.circleci.parser.antlr.internal,
+ org.xtext.example.circleci.generator,
+ org.xtext.example.circleci,
+ org.xtext.example.circleci.parser.antlr,
+ org.xtext.example.circleci.serializer,
+ org.xtext.example.circleci.parser.antlr.lexer,
+ org.xtext.example.circleci.services
+Import-Package: org.apache.log4j

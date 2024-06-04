@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -30,34 +29,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link circleCI_metamodel.impl.When_UnlessImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.When_UnlessImpl#getWhen_step <em>When step</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.When_UnlessImpl#getUnless_step <em>Unless step</em>}</li>
+ *   <li>{@link circleCI_metamodel.impl.When_UnlessImpl#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class When_UnlessImpl extends MinimalEObjectImpl.Container implements When_Unless {
-	/**
-	 * The default value of the '{@link #getCondition() <em>Condition</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCondition()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CONDITION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCondition()
-	 * @generated
-	 * @ordered
-	 */
-	protected String condition = CONDITION_EDEFAULT;
-
+public class When_UnlessImpl extends StepImpl implements When_Unless {
 	/**
 	 * The cached value of the '{@link #getWhen_step() <em>When step</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -79,6 +58,26 @@ public class When_UnlessImpl extends MinimalEObjectImpl.Container implements Whe
 	protected EList<Step> unless_step;
 
 	/**
+	 * The default value of the '{@link #getCondition() <em>Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONDITION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected String condition = CONDITION_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -95,30 +94,6 @@ public class When_UnlessImpl extends MinimalEObjectImpl.Container implements Whe
 	@Override
 	protected EClass eStaticClass() {
 		return CircleCI_metamodelPackage.Literals.WHEN_UNLESS;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCondition() {
-		return condition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCondition(String newCondition) {
-		String oldCondition = condition;
-		condition = newCondition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CircleCI_metamodelPackage.WHEN_UNLESS__CONDITION,
-					oldCondition, condition));
 	}
 
 	/**
@@ -155,6 +130,30 @@ public class When_UnlessImpl extends MinimalEObjectImpl.Container implements Whe
 	 * @generated
 	 */
 	@Override
+	public String getCondition() {
+		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCondition(String newCondition) {
+		String oldCondition = condition;
+		condition = newCondition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CircleCI_metamodelPackage.WHEN_UNLESS__CONDITION,
+					oldCondition, condition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case CircleCI_metamodelPackage.WHEN_UNLESS__WHEN_STEP:
@@ -173,12 +172,12 @@ public class When_UnlessImpl extends MinimalEObjectImpl.Container implements Whe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CircleCI_metamodelPackage.WHEN_UNLESS__CONDITION:
-			return getCondition();
 		case CircleCI_metamodelPackage.WHEN_UNLESS__WHEN_STEP:
 			return getWhen_step();
 		case CircleCI_metamodelPackage.WHEN_UNLESS__UNLESS_STEP:
 			return getUnless_step();
+		case CircleCI_metamodelPackage.WHEN_UNLESS__CONDITION:
+			return getCondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -192,9 +191,6 @@ public class When_UnlessImpl extends MinimalEObjectImpl.Container implements Whe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CircleCI_metamodelPackage.WHEN_UNLESS__CONDITION:
-			setCondition((String) newValue);
-			return;
 		case CircleCI_metamodelPackage.WHEN_UNLESS__WHEN_STEP:
 			getWhen_step().clear();
 			getWhen_step().addAll((Collection<? extends Step>) newValue);
@@ -202,6 +198,9 @@ public class When_UnlessImpl extends MinimalEObjectImpl.Container implements Whe
 		case CircleCI_metamodelPackage.WHEN_UNLESS__UNLESS_STEP:
 			getUnless_step().clear();
 			getUnless_step().addAll((Collection<? extends Step>) newValue);
+			return;
+		case CircleCI_metamodelPackage.WHEN_UNLESS__CONDITION:
+			setCondition((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -215,14 +214,14 @@ public class When_UnlessImpl extends MinimalEObjectImpl.Container implements Whe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CircleCI_metamodelPackage.WHEN_UNLESS__CONDITION:
-			setCondition(CONDITION_EDEFAULT);
-			return;
 		case CircleCI_metamodelPackage.WHEN_UNLESS__WHEN_STEP:
 			getWhen_step().clear();
 			return;
 		case CircleCI_metamodelPackage.WHEN_UNLESS__UNLESS_STEP:
 			getUnless_step().clear();
+			return;
+		case CircleCI_metamodelPackage.WHEN_UNLESS__CONDITION:
+			setCondition(CONDITION_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -236,12 +235,12 @@ public class When_UnlessImpl extends MinimalEObjectImpl.Container implements Whe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CircleCI_metamodelPackage.WHEN_UNLESS__CONDITION:
-			return CONDITION_EDEFAULT == null ? condition != null : !CONDITION_EDEFAULT.equals(condition);
 		case CircleCI_metamodelPackage.WHEN_UNLESS__WHEN_STEP:
 			return when_step != null && !when_step.isEmpty();
 		case CircleCI_metamodelPackage.WHEN_UNLESS__UNLESS_STEP:
 			return unless_step != null && !unless_step.isEmpty();
+		case CircleCI_metamodelPackage.WHEN_UNLESS__CONDITION:
+			return CONDITION_EDEFAULT == null ? condition != null : !CONDITION_EDEFAULT.equals(condition);
 		}
 		return super.eIsSet(featureID);
 	}

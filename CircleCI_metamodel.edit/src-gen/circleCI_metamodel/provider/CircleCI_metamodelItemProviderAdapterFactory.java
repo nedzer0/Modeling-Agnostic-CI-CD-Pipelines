@@ -73,95 +73,279 @@ public class CircleCI_metamodelItemProviderAdapterFactory extends CircleCI_metam
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Pipeline} instances.
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Run} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PipelineItemProvider pipelineItemProvider;
+	protected RunItemProvider runItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Pipeline}.
+	 * This creates an adapter for a {@link circleCI_metamodel.Run}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPipelineAdapter() {
-		if (pipelineItemProvider == null) {
-			pipelineItemProvider = new PipelineItemProvider(this);
+	public Adapter createRunAdapter() {
+		if (runItemProvider == null) {
+			runItemProvider = new RunItemProvider(this);
 		}
 
-		return pipelineItemProvider;
+		return runItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Step} instances.
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Docker_Auth} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StepItemProvider stepItemProvider;
+	protected Docker_AuthItemProvider docker_AuthItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Step}.
+	 * This creates an adapter for a {@link circleCI_metamodel.Docker_Auth}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createStepAdapter() {
-		if (stepItemProvider == null) {
-			stepItemProvider = new StepItemProvider(this);
+	public Adapter createDocker_AuthAdapter() {
+		if (docker_AuthItemProvider == null) {
+			docker_AuthItemProvider = new Docker_AuthItemProvider(this);
 		}
 
-		return stepItemProvider;
+		return docker_AuthItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Docker} instances.
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.RestoreCache} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DockerItemProvider dockerItemProvider;
+	protected RestoreCacheItemProvider restoreCacheItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Docker}.
+	 * This creates an adapter for a {@link circleCI_metamodel.RestoreCache}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDockerAdapter() {
-		if (dockerItemProvider == null) {
-			dockerItemProvider = new DockerItemProvider(this);
+	public Adapter createRestoreCacheAdapter() {
+		if (restoreCacheItemProvider == null) {
+			restoreCacheItemProvider = new RestoreCacheItemProvider(this);
 		}
 
-		return dockerItemProvider;
+		return restoreCacheItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Linux} instances.
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Docker_Aws_Auths} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LinuxItemProvider linuxItemProvider;
+	protected Docker_Aws_AuthsItemProvider docker_Aws_AuthsItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Linux}.
+	 * This creates an adapter for a {@link circleCI_metamodel.Docker_Aws_Auths}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLinuxAdapter() {
-		if (linuxItemProvider == null) {
-			linuxItemProvider = new LinuxItemProvider(this);
+	public Adapter createDocker_Aws_AuthsAdapter() {
+		if (docker_Aws_AuthsItemProvider == null) {
+			docker_Aws_AuthsItemProvider = new Docker_Aws_AuthsItemProvider(this);
 		}
 
-		return linuxItemProvider;
+		return docker_Aws_AuthsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Job} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JobItemProvider jobItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.Job}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJobAdapter() {
+		if (jobItemProvider == null) {
+			jobItemProvider = new JobItemProvider(this);
+		}
+
+		return jobItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Machine} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MachineItemProvider machineItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.Machine}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMachineAdapter() {
+		if (machineItemProvider == null) {
+			machineItemProvider = new MachineItemProvider(this);
+		}
+
+		return machineItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.PersistToWorkspace} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PersistToWorkspaceItemProvider persistToWorkspaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.PersistToWorkspace}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPersistToWorkspaceAdapter() {
+		if (persistToWorkspaceItemProvider == null) {
+			persistToWorkspaceItemProvider = new PersistToWorkspaceItemProvider(this);
+		}
+
+		return persistToWorkspaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.StoreArtifact} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StoreArtifactItemProvider storeArtifactItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.StoreArtifact}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStoreArtifactAdapter() {
+		if (storeArtifactItemProvider == null) {
+			storeArtifactItemProvider = new StoreArtifactItemProvider(this);
+		}
+
+		return storeArtifactItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.StoreTestResults} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StoreTestResultsItemProvider storeTestResultsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.StoreTestResults}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStoreTestResultsAdapter() {
+		if (storeTestResultsItemProvider == null) {
+			storeTestResultsItemProvider = new StoreTestResultsItemProvider(this);
+		}
+
+		return storeTestResultsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.SetupRemoteDocker} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetupRemoteDockerItemProvider setupRemoteDockerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.SetupRemoteDocker}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetupRemoteDockerAdapter() {
+		if (setupRemoteDockerItemProvider == null) {
+			setupRemoteDockerItemProvider = new SetupRemoteDockerItemProvider(this);
+		}
+
+		return setupRemoteDockerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Parameters} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParametersItemProvider parametersItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.Parameters}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParametersAdapter() {
+		if (parametersItemProvider == null) {
+			parametersItemProvider = new ParametersItemProvider(this);
+		}
+
+		return parametersItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Parameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterItemProvider parameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterAdapter() {
+		if (parameterItemProvider == null) {
+			parameterItemProvider = new ParameterItemProvider(this);
+		}
+
+		return parameterItemProvider;
 	}
 
 	/**
@@ -185,75 +369,6 @@ public class CircleCI_metamodelItemProviderAdapterFactory extends CircleCI_metam
 		}
 
 		return macOsItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.WindowsOrb} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected WindowsOrbItemProvider windowsOrbItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.WindowsOrb}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createWindowsOrbAdapter() {
-		if (windowsOrbItemProvider == null) {
-			windowsOrbItemProvider = new WindowsOrbItemProvider(this);
-		}
-
-		return windowsOrbItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Orb} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OrbItemProvider orbItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Orb}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOrbAdapter() {
-		if (orbItemProvider == null) {
-			orbItemProvider = new OrbItemProvider(this);
-		}
-
-		return orbItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Command} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CommandItemProvider commandItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Command}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCommandAdapter() {
-		if (commandItemProvider == null) {
-			commandItemProvider = new CommandItemProvider(this);
-		}
-
-		return commandItemProvider;
 	}
 
 	/**
@@ -303,49 +418,95 @@ public class CircleCI_metamodelItemProviderAdapterFactory extends CircleCI_metam
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Parameters} instances.
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Docker} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParametersItemProvider parametersItemProvider;
+	protected DockerItemProvider dockerItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Parameters}.
+	 * This creates an adapter for a {@link circleCI_metamodel.Docker}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParametersAdapter() {
-		if (parametersItemProvider == null) {
-			parametersItemProvider = new ParametersItemProvider(this);
+	public Adapter createDockerAdapter() {
+		if (dockerItemProvider == null) {
+			dockerItemProvider = new DockerItemProvider(this);
 		}
 
-		return parametersItemProvider;
+		return dockerItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Tool_Framework} instances.
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.AddSSHKeys} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Tool_FrameworkItemProvider tool_FrameworkItemProvider;
+	protected AddSSHKeysItemProvider addSSHKeysItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Tool_Framework}.
+	 * This creates an adapter for a {@link circleCI_metamodel.AddSSHKeys}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTool_FrameworkAdapter() {
-		if (tool_FrameworkItemProvider == null) {
-			tool_FrameworkItemProvider = new Tool_FrameworkItemProvider(this);
+	public Adapter createAddSSHKeysAdapter() {
+		if (addSSHKeysItemProvider == null) {
+			addSSHKeysItemProvider = new AddSSHKeysItemProvider(this);
 		}
 
-		return tool_FrameworkItemProvider;
+		return addSSHKeysItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.SaveCache} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SaveCacheItemProvider saveCacheItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.SaveCache}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSaveCacheAdapter() {
+		if (saveCacheItemProvider == null) {
+			saveCacheItemProvider = new SaveCacheItemProvider(this);
+		}
+
+		return saveCacheItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.AttachWorkspace} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AttachWorkspaceItemProvider attachWorkspaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.AttachWorkspace}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAttachWorkspaceAdapter() {
+		if (attachWorkspaceItemProvider == null) {
+			attachWorkspaceItemProvider = new AttachWorkspaceItemProvider(this);
+		}
+
+		return attachWorkspaceItemProvider;
 	}
 
 	/**
@@ -372,26 +533,49 @@ public class CircleCI_metamodelItemProviderAdapterFactory extends CircleCI_metam
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.When_Attribute} instances.
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Branch} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected When_AttributeItemProvider when_AttributeItemProvider;
+	protected BranchItemProvider branchItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.When_Attribute}.
+	 * This creates an adapter for a {@link circleCI_metamodel.Branch}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createWhen_AttributeAdapter() {
-		if (when_AttributeItemProvider == null) {
-			when_AttributeItemProvider = new When_AttributeItemProvider(this);
+	public Adapter createBranchAdapter() {
+		if (branchItemProvider == null) {
+			branchItemProvider = new BranchItemProvider(this);
 		}
 
-		return when_AttributeItemProvider;
+		return branchItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.RunCommand} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RunCommandItemProvider runCommandItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.RunCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRunCommandAdapter() {
+		if (runCommandItemProvider == null) {
+			runCommandItemProvider = new RunCommandItemProvider(this);
+		}
+
+		return runCommandItemProvider;
 	}
 
 	/**
@@ -418,95 +602,164 @@ public class CircleCI_metamodelItemProviderAdapterFactory extends CircleCI_metam
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Branch} instances.
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Checkout} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BranchItemProvider branchItemProvider;
+	protected CheckoutItemProvider checkoutItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Branch}.
+	 * This creates an adapter for a {@link circleCI_metamodel.Checkout}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createBranchAdapter() {
-		if (branchItemProvider == null) {
-			branchItemProvider = new BranchItemProvider(this);
+	public Adapter createCheckoutAdapter() {
+		if (checkoutItemProvider == null) {
+			checkoutItemProvider = new CheckoutItemProvider(this);
 		}
 
-		return branchItemProvider;
+		return checkoutItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Job} instances.
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Pipeline} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected JobItemProvider jobItemProvider;
+	protected PipelineItemProvider pipelineItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Job}.
+	 * This creates an adapter for a {@link circleCI_metamodel.Pipeline}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createJobAdapter() {
-		if (jobItemProvider == null) {
-			jobItemProvider = new JobItemProvider(this);
+	public Adapter createPipelineAdapter() {
+		if (pipelineItemProvider == null) {
+			pipelineItemProvider = new PipelineItemProvider(this);
 		}
 
-		return jobItemProvider;
+		return pipelineItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Store_Artifact} instances.
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Orb} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Store_ArtifactItemProvider store_ArtifactItemProvider;
+	protected OrbItemProvider orbItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Store_Artifact}.
+	 * This creates an adapter for a {@link circleCI_metamodel.Orb}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createStore_ArtifactAdapter() {
-		if (store_ArtifactItemProvider == null) {
-			store_ArtifactItemProvider = new Store_ArtifactItemProvider(this);
+	public Adapter createOrbAdapter() {
+		if (orbItemProvider == null) {
+			orbItemProvider = new OrbItemProvider(this);
 		}
 
-		return store_ArtifactItemProvider;
+		return orbItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Command_Params} instances.
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Command} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Command_ParamsItemProvider command_ParamsItemProvider;
+	protected CommandItemProvider commandItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link circleCI_metamodel.Command_Params}.
+	 * This creates an adapter for a {@link circleCI_metamodel.Command}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCommand_ParamsAdapter() {
-		if (command_ParamsItemProvider == null) {
-			command_ParamsItemProvider = new Command_ParamsItemProvider(this);
+	public Adapter createCommandAdapter() {
+		if (commandItemProvider == null) {
+			commandItemProvider = new CommandItemProvider(this);
 		}
 
-		return command_ParamsItemProvider;
+		return commandItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.Matrix} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MatrixItemProvider matrixItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.Matrix}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMatrixAdapter() {
+		if (matrixItemProvider == null) {
+			matrixItemProvider = new MatrixItemProvider(this);
+		}
+
+		return matrixItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.JobWorkflow} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JobWorkflowItemProvider jobWorkflowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.JobWorkflow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJobWorkflowAdapter() {
+		if (jobWorkflowItemProvider == null) {
+			jobWorkflowItemProvider = new JobWorkflowItemProvider(this);
+		}
+
+		return jobWorkflowItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link circleCI_metamodel.MatrixParams} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MatrixParamsItemProvider matrixParamsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link circleCI_metamodel.MatrixParams}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMatrixParamsAdapter() {
+		if (matrixParamsItemProvider == null) {
+			matrixParamsItemProvider = new MatrixParamsItemProvider(this);
+		}
+
+		return matrixParamsItemProvider;
 	}
 
 	/**
@@ -614,44 +867,66 @@ public class CircleCI_metamodelItemProviderAdapterFactory extends CircleCI_metam
 	 */
 	@Override
 	public void dispose() {
-		if (pipelineItemProvider != null)
-			pipelineItemProvider.dispose();
-		if (stepItemProvider != null)
-			stepItemProvider.dispose();
-		if (dockerItemProvider != null)
-			dockerItemProvider.dispose();
-		if (linuxItemProvider != null)
-			linuxItemProvider.dispose();
+		if (runItemProvider != null)
+			runItemProvider.dispose();
+		if (docker_AuthItemProvider != null)
+			docker_AuthItemProvider.dispose();
+		if (restoreCacheItemProvider != null)
+			restoreCacheItemProvider.dispose();
+		if (docker_Aws_AuthsItemProvider != null)
+			docker_Aws_AuthsItemProvider.dispose();
+		if (jobItemProvider != null)
+			jobItemProvider.dispose();
+		if (machineItemProvider != null)
+			machineItemProvider.dispose();
+		if (persistToWorkspaceItemProvider != null)
+			persistToWorkspaceItemProvider.dispose();
+		if (storeArtifactItemProvider != null)
+			storeArtifactItemProvider.dispose();
+		if (storeTestResultsItemProvider != null)
+			storeTestResultsItemProvider.dispose();
+		if (setupRemoteDockerItemProvider != null)
+			setupRemoteDockerItemProvider.dispose();
+		if (parametersItemProvider != null)
+			parametersItemProvider.dispose();
+		if (parameterItemProvider != null)
+			parameterItemProvider.dispose();
 		if (macOsItemProvider != null)
 			macOsItemProvider.dispose();
-		if (windowsOrbItemProvider != null)
-			windowsOrbItemProvider.dispose();
-		if (orbItemProvider != null)
-			orbItemProvider.dispose();
-		if (commandItemProvider != null)
-			commandItemProvider.dispose();
 		if (workflowItemProvider != null)
 			workflowItemProvider.dispose();
 		if (environmentItemProvider != null)
 			environmentItemProvider.dispose();
-		if (parametersItemProvider != null)
-			parametersItemProvider.dispose();
-		if (tool_FrameworkItemProvider != null)
-			tool_FrameworkItemProvider.dispose();
+		if (dockerItemProvider != null)
+			dockerItemProvider.dispose();
+		if (addSSHKeysItemProvider != null)
+			addSSHKeysItemProvider.dispose();
+		if (saveCacheItemProvider != null)
+			saveCacheItemProvider.dispose();
+		if (attachWorkspaceItemProvider != null)
+			attachWorkspaceItemProvider.dispose();
 		if (when_UnlessItemProvider != null)
 			when_UnlessItemProvider.dispose();
-		if (when_AttributeItemProvider != null)
-			when_AttributeItemProvider.dispose();
-		if (triggerItemProvider != null)
-			triggerItemProvider.dispose();
 		if (branchItemProvider != null)
 			branchItemProvider.dispose();
-		if (jobItemProvider != null)
-			jobItemProvider.dispose();
-		if (store_ArtifactItemProvider != null)
-			store_ArtifactItemProvider.dispose();
-		if (command_ParamsItemProvider != null)
-			command_ParamsItemProvider.dispose();
+		if (runCommandItemProvider != null)
+			runCommandItemProvider.dispose();
+		if (triggerItemProvider != null)
+			triggerItemProvider.dispose();
+		if (checkoutItemProvider != null)
+			checkoutItemProvider.dispose();
+		if (pipelineItemProvider != null)
+			pipelineItemProvider.dispose();
+		if (orbItemProvider != null)
+			orbItemProvider.dispose();
+		if (commandItemProvider != null)
+			commandItemProvider.dispose();
+		if (matrixItemProvider != null)
+			matrixItemProvider.dispose();
+		if (jobWorkflowItemProvider != null)
+			jobWorkflowItemProvider.dispose();
+		if (matrixParamsItemProvider != null)
+			matrixParamsItemProvider.dispose();
 	}
 
 }

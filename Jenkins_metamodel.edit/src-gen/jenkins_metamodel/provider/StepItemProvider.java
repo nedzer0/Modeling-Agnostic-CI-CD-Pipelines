@@ -70,8 +70,8 @@ public class StepItemProvider extends ItemProviderAdapter implements IEditingDom
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STEP__COMMAND);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STEP__STEP_PARAMETER);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STEP__COMMANDS);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.STEP__STEP_PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -133,8 +133,8 @@ public class StepItemProvider extends ItemProviderAdapter implements IEditingDom
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Step.class)) {
-		case Jenkins_metamodelPackage.STEP__COMMAND:
-		case Jenkins_metamodelPackage.STEP__STEP_PARAMETER:
+		case Jenkins_metamodelPackage.STEP__COMMANDS:
+		case Jenkins_metamodelPackage.STEP__STEP_PARAMETERS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -152,10 +152,10 @@ public class StepItemProvider extends ItemProviderAdapter implements IEditingDom
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STEP__COMMAND,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STEP__COMMANDS,
 				Jenkins_metamodelFactory.eINSTANCE.createCommand()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STEP__STEP_PARAMETER,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.STEP__STEP_PARAMETERS,
 				Jenkins_metamodelFactory.eINSTANCE.createStep_Parameter()));
 	}
 

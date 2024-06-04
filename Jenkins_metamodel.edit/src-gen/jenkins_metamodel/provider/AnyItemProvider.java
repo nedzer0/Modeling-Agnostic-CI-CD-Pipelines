@@ -5,8 +5,6 @@ package jenkins_metamodel.provider;
 import java.util.Collection;
 import java.util.List;
 
-import jenkins_metamodel.Any;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -73,9 +71,7 @@ public class AnyItemProvider extends AgentItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Any) object).getLabel();
-		return label == null || label.length() == 0 ? getString("_UI_Any_type")
-				: getString("_UI_Any_type") + " " + label;
+		return getString("_UI_Any_type");
 	}
 
 	/**

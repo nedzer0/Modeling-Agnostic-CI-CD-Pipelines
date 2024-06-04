@@ -5,12 +5,16 @@ package jenkins_metamodel.provider;
 import java.util.Collection;
 import java.util.List;
 
+import jenkins_metamodel.Jenkins_metamodelPackage;
 import jenkins_metamodel.Node;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link jenkins_metamodel.Node} object.
@@ -40,8 +44,41 @@ public class NodeItemProvider extends AgentItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addLabelPropertyDescriptor(object);
+			addCustomWorkspacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Node_label_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Node_label_feature", "_UI_Node_type"),
+						Jenkins_metamodelPackage.Literals.NODE__LABEL, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Custom Workspace feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCustomWorkspacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Node_customWorkspace_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Node_customWorkspace_feature",
+								"_UI_Node_type"),
+						Jenkins_metamodelPackage.Literals.NODE__CUSTOM_WORKSPACE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -88,6 +125,13 @@ public class NodeItemProvider extends AgentItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Node.class)) {
+		case Jenkins_metamodelPackage.NODE__LABEL:
+		case Jenkins_metamodelPackage.NODE__CUSTOM_WORKSPACE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

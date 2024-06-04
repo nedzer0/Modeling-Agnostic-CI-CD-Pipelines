@@ -4,13 +4,16 @@ package jenkins_metamodel.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import jenkins_metamodel.Jenkins_metamodelFactory;
 import jenkins_metamodel.Jenkins_metamodelPackage;
 import jenkins_metamodel.Not;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -139,43 +142,43 @@ public class NotItemProvider extends WhenItemProvider {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createChangeSet()));
+				Jenkins_metamodelFactory.eINSTANCE.createBuildingTag()));
 
 		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
 				Jenkins_metamodelFactory.eINSTANCE.createBranch()));
 
 		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createBuildingTag()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
 				Jenkins_metamodelFactory.eINSTANCE.createChangelog()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createWhen_Env()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createEquals()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createChangeRequest()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createNot()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createAllOf()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
-				Jenkins_metamodelFactory.eINSTANCE.createAnyOf()));
 
 		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
 				Jenkins_metamodelFactory.eINSTANCE.createTriggeredBy()));
 
 		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
 				Jenkins_metamodelFactory.eINSTANCE.createExpression()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createChangeSet()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createNot()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createAnyOf()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createTag()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createWhen_Env()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createAllOf()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createEquals()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.NOT__WHEN,
+				Jenkins_metamodelFactory.eINSTANCE.createChangeRequest()));
 	}
 
 }

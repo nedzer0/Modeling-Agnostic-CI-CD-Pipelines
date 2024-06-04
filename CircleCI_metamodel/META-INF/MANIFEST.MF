@@ -12,5 +12,6 @@ Export-Package: circleCI_metamodel,
  circleCI_metamodel.impl,
  circleCI_metamodel.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.ocl.pivot;visibility:=reexport,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy

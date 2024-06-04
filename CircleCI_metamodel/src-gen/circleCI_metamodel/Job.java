@@ -15,13 +15,13 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link circleCI_metamodel.Job#getEnvironments <em>Environments</em>}</li>
+ *   <li>{@link circleCI_metamodel.Job#getSteps <em>Steps</em>}</li>
+ *   <li>{@link circleCI_metamodel.Job#getParameters <em>Parameters</em>}</li>
  *   <li>{@link circleCI_metamodel.Job#getName <em>Name</em>}</li>
  *   <li>{@link circleCI_metamodel.Job#getParallelism <em>Parallelism</em>}</li>
- *   <li>{@link circleCI_metamodel.Job#getStore_artifact <em>Store artifact</em>}</li>
- *   <li>{@link circleCI_metamodel.Job#getWhen_unless <em>When unless</em>}</li>
- *   <li>{@link circleCI_metamodel.Job#getExecution_env <em>Execution env</em>}</li>
- *   <li>{@link circleCI_metamodel.Job#getEnvironment <em>Environment</em>}</li>
- *   <li>{@link circleCI_metamodel.Job#getStep <em>Step</em>}</li>
+ *   <li>{@link circleCI_metamodel.Job#getReuseExecutor <em>Reuse Executor</em>}</li>
+ *   <li>{@link circleCI_metamodel.Job#getExecutors <em>Executors</em>}</li>
  * </ul>
  *
  * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob()
@@ -30,13 +30,49 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Job extends EObject {
 	/**
+	 * Returns the value of the '<em><b>Environments</b></em>' containment reference list.
+	 * The list contents are of type {@link circleCI_metamodel.Environment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Environments</em>' containment reference list.
+	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_Environments()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Environment> getEnvironments();
+
+	/**
+	 * Returns the value of the '<em><b>Steps</b></em>' containment reference list.
+	 * The list contents are of type {@link circleCI_metamodel.Step}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Steps</em>' containment reference list.
+	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_Steps()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Step> getSteps();
+
+	/**
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link circleCI_metamodel.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_Parameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Parameter> getParameters();
+
+	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -74,83 +110,37 @@ public interface Job extends EObject {
 	void setParallelism(short value);
 
 	/**
-	 * Returns the value of the '<em><b>Store artifact</b></em>' containment reference list.
-	 * The list contents are of type {@link circleCI_metamodel.Store_Artifact}.
+	 * Returns the value of the '<em><b>Reuse Executor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Store artifact</em>' containment reference list.
-	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_Store_artifact()
+	 * @return the value of the '<em>Reuse Executor</em>' attribute.
+	 * @see #setReuseExecutor(String)
+	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_ReuseExecutor()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getReuseExecutor();
+
+	/**
+	 * Sets the value of the '{@link circleCI_metamodel.Job#getReuseExecutor <em>Reuse Executor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reuse Executor</em>' attribute.
+	 * @see #getReuseExecutor()
+	 * @generated
+	 */
+	void setReuseExecutor(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Executors</b></em>' containment reference list.
+	 * The list contents are of type {@link circleCI_metamodel.Executor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Executors</em>' containment reference list.
+	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_Executors()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Store_Artifact> getStore_artifact();
-
-	/**
-	 * Returns the value of the '<em><b>When unless</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>When unless</em>' containment reference.
-	 * @see #setWhen_unless(When_Unless)
-	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_When_unless()
-	 * @model containment="true"
-	 * @generated
-	 */
-	When_Unless getWhen_unless();
-
-	/**
-	 * Sets the value of the '{@link circleCI_metamodel.Job#getWhen_unless <em>When unless</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>When unless</em>' containment reference.
-	 * @see #getWhen_unless()
-	 * @generated
-	 */
-	void setWhen_unless(When_Unless value);
-
-	/**
-	 * Returns the value of the '<em><b>Execution env</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Execution env</em>' containment reference.
-	 * @see #setExecution_env(Execution_Env)
-	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_Execution_env()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Execution_Env getExecution_env();
-
-	/**
-	 * Sets the value of the '{@link circleCI_metamodel.Job#getExecution_env <em>Execution env</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Execution env</em>' containment reference.
-	 * @see #getExecution_env()
-	 * @generated
-	 */
-	void setExecution_env(Execution_Env value);
-
-	/**
-	 * Returns the value of the '<em><b>Environment</b></em>' containment reference list.
-	 * The list contents are of type {@link circleCI_metamodel.Environment}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Environment</em>' containment reference list.
-	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_Environment()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Environment> getEnvironment();
-
-	/**
-	 * Returns the value of the '<em><b>Step</b></em>' containment reference list.
-	 * The list contents are of type {@link circleCI_metamodel.Step}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Step</em>' containment reference list.
-	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_Step()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Step> getStep();
+	EList<Executor> getExecutors();
 
 } // Job

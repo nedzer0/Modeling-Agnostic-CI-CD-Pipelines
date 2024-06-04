@@ -28,7 +28,7 @@ public interface Command extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getCommand_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

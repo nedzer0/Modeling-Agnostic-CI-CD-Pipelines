@@ -73,26 +73,26 @@ public class Jenkins_metamodelItemProviderAdapterFactory extends Jenkins_metamod
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Pipeline} instances.
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.BuildingTag} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PipelineItemProvider pipelineItemProvider;
+	protected BuildingTagItemProvider buildingTagItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Pipeline}.
+	 * This creates an adapter for a {@link jenkins_metamodel.BuildingTag}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPipelineAdapter() {
-		if (pipelineItemProvider == null) {
-			pipelineItemProvider = new PipelineItemProvider(this);
+	public Adapter createBuildingTagAdapter() {
+		if (buildingTagItemProvider == null) {
+			buildingTagItemProvider = new BuildingTagItemProvider(this);
 		}
 
-		return pipelineItemProvider;
+		return buildingTagItemProvider;
 	}
 
 	/**
@@ -119,141 +119,26 @@ public class Jenkins_metamodelItemProviderAdapterFactory extends Jenkins_metamod
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Step_Parameter} instances.
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Node} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Step_ParameterItemProvider step_ParameterItemProvider;
+	protected NodeItemProvider nodeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Step_Parameter}.
+	 * This creates an adapter for a {@link jenkins_metamodel.Node}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createStep_ParameterAdapter() {
-		if (step_ParameterItemProvider == null) {
-			step_ParameterItemProvider = new Step_ParameterItemProvider(this);
+	public Adapter createNodeAdapter() {
+		if (nodeItemProvider == null) {
+			nodeItemProvider = new NodeItemProvider(this);
 		}
 
-		return step_ParameterItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Environment} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EnvironmentItemProvider environmentItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Environment}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEnvironmentAdapter() {
-		if (environmentItemProvider == null) {
-			environmentItemProvider = new EnvironmentItemProvider(this);
-		}
-
-		return environmentItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Trigger} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TriggerItemProvider triggerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Trigger}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTriggerAdapter() {
-		if (triggerItemProvider == null) {
-			triggerItemProvider = new TriggerItemProvider(this);
-		}
-
-		return triggerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Input} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InputItemProvider inputItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Input}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInputAdapter() {
-		if (inputItemProvider == null) {
-			inputItemProvider = new InputItemProvider(this);
-		}
-
-		return inputItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Stage} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StageItemProvider stageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Stage}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStageAdapter() {
-		if (stageItemProvider == null) {
-			stageItemProvider = new StageItemProvider(this);
-		}
-
-		return stageItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Step} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StepItemProvider stepItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Step}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStepAdapter() {
-		if (stepItemProvider == null) {
-			stepItemProvider = new StepItemProvider(this);
-		}
-
-		return stepItemProvider;
+		return nodeItemProvider;
 	}
 
 	/**
@@ -280,213 +165,6 @@ public class Jenkins_metamodelItemProviderAdapterFactory extends Jenkins_metamod
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.None} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NoneItemProvider noneItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.None}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNoneAdapter() {
-		if (noneItemProvider == null) {
-			noneItemProvider = new NoneItemProvider(this);
-		}
-
-		return noneItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Node} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NodeItemProvider nodeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Node}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNodeAdapter() {
-		if (nodeItemProvider == null) {
-			nodeItemProvider = new NodeItemProvider(this);
-		}
-
-		return nodeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Docker} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DockerItemProvider dockerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Docker}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDockerAdapter() {
-		if (dockerItemProvider == null) {
-			dockerItemProvider = new DockerItemProvider(this);
-		}
-
-		return dockerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Dockerfile} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DockerfileItemProvider dockerfileItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Dockerfile}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDockerfileAdapter() {
-		if (dockerfileItemProvider == null) {
-			dockerfileItemProvider = new DockerfileItemProvider(this);
-		}
-
-		return dockerfileItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Post} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PostItemProvider postItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Post}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPostAdapter() {
-		if (postItemProvider == null) {
-			postItemProvider = new PostItemProvider(this);
-		}
-
-		return postItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Parameter_Directive} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Parameter_DirectiveItemProvider parameter_DirectiveItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Parameter_Directive}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameter_DirectiveAdapter() {
-		if (parameter_DirectiveItemProvider == null) {
-			parameter_DirectiveItemProvider = new Parameter_DirectiveItemProvider(this);
-		}
-
-		return parameter_DirectiveItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Param_Value} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Param_ValueItemProvider param_ValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Param_Value}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParam_ValueAdapter() {
-		if (param_ValueItemProvider == null) {
-			param_ValueItemProvider = new Param_ValueItemProvider(this);
-		}
-
-		return param_ValueItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Tool} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ToolItemProvider toolItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Tool}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createToolAdapter() {
-		if (toolItemProvider == null) {
-			toolItemProvider = new ToolItemProvider(this);
-		}
-
-		return toolItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.ChangeSet} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChangeSetItemProvider changeSetItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.ChangeSet}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createChangeSetAdapter() {
-		if (changeSetItemProvider == null) {
-			changeSetItemProvider = new ChangeSetItemProvider(this);
-		}
-
-		return changeSetItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Branch} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -510,29 +188,6 @@ public class Jenkins_metamodelItemProviderAdapterFactory extends Jenkins_metamod
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.BuildingTag} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BuildingTagItemProvider buildingTagItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.BuildingTag}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBuildingTagAdapter() {
-		if (buildingTagItemProvider == null) {
-			buildingTagItemProvider = new BuildingTagItemProvider(this);
-		}
-
-		return buildingTagItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Changelog} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -553,167 +208,6 @@ public class Jenkins_metamodelItemProviderAdapterFactory extends Jenkins_metamod
 		}
 
 		return changelogItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.When_Env} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected When_EnvItemProvider when_EnvItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.When_Env}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createWhen_EnvAdapter() {
-		if (when_EnvItemProvider == null) {
-			when_EnvItemProvider = new When_EnvItemProvider(this);
-		}
-
-		return when_EnvItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Equals} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EqualsItemProvider equalsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Equals}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEqualsAdapter() {
-		if (equalsItemProvider == null) {
-			equalsItemProvider = new EqualsItemProvider(this);
-		}
-
-		return equalsItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.ChangeRequest} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChangeRequestItemProvider changeRequestItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.ChangeRequest}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createChangeRequestAdapter() {
-		if (changeRequestItemProvider == null) {
-			changeRequestItemProvider = new ChangeRequestItemProvider(this);
-		}
-
-		return changeRequestItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Not} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NotItemProvider notItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Not}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNotAdapter() {
-		if (notItemProvider == null) {
-			notItemProvider = new NotItemProvider(this);
-		}
-
-		return notItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Tag} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TagItemProvider tagItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.Tag}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTagAdapter() {
-		if (tagItemProvider == null) {
-			tagItemProvider = new TagItemProvider(this);
-		}
-
-		return tagItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.AllOf} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AllOfItemProvider allOfItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.AllOf}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAllOfAdapter() {
-		if (allOfItemProvider == null) {
-			allOfItemProvider = new AllOfItemProvider(this);
-		}
-
-		return allOfItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.AnyOf} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AnyOfItemProvider anyOfItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jenkins_metamodel.AnyOf}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAnyOfAdapter() {
-		if (anyOfItemProvider == null) {
-			anyOfItemProvider = new AnyOfItemProvider(this);
-		}
-
-		return anyOfItemProvider;
 	}
 
 	/**
@@ -760,6 +254,1041 @@ public class Jenkins_metamodelItemProviderAdapterFactory extends Jenkins_metamod
 		}
 
 		return expressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Step_Parameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Step_ParameterItemProvider step_ParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Step_Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStep_ParameterAdapter() {
+		if (step_ParameterItemProvider == null) {
+			step_ParameterItemProvider = new Step_ParameterItemProvider(this);
+		}
+
+		return step_ParameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.ChangeSet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChangeSetItemProvider changeSetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.ChangeSet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChangeSetAdapter() {
+		if (changeSetItemProvider == null) {
+			changeSetItemProvider = new ChangeSetItemProvider(this);
+		}
+
+		return changeSetItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Not} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NotItemProvider notItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Not}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNotAdapter() {
+		if (notItemProvider == null) {
+			notItemProvider = new NotItemProvider(this);
+		}
+
+		return notItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Step} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StepItemProvider stepItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Step}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStepAdapter() {
+		if (stepItemProvider == null) {
+			stepItemProvider = new StepItemProvider(this);
+		}
+
+		return stepItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Post} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PostItemProvider postItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Post}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPostAdapter() {
+		if (postItemProvider == null) {
+			postItemProvider = new PostItemProvider(this);
+		}
+
+		return postItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.AnyOf} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnyOfItemProvider anyOfItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.AnyOf}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnyOfAdapter() {
+		if (anyOfItemProvider == null) {
+			anyOfItemProvider = new AnyOfItemProvider(this);
+		}
+
+		return anyOfItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Pipeline} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PipelineItemProvider pipelineItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Pipeline}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPipelineAdapter() {
+		if (pipelineItemProvider == null) {
+			pipelineItemProvider = new PipelineItemProvider(this);
+		}
+
+		return pipelineItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Tag} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TagItemProvider tagItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Tag}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTagAdapter() {
+		if (tagItemProvider == null) {
+			tagItemProvider = new TagItemProvider(this);
+		}
+
+		return tagItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.When_Env} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected When_EnvItemProvider when_EnvItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.When_Env}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWhen_EnvAdapter() {
+		if (when_EnvItemProvider == null) {
+			when_EnvItemProvider = new When_EnvItemProvider(this);
+		}
+
+		return when_EnvItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.AllOf} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AllOfItemProvider allOfItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.AllOf}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAllOfAdapter() {
+		if (allOfItemProvider == null) {
+			allOfItemProvider = new AllOfItemProvider(this);
+		}
+
+		return allOfItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Equals} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EqualsItemProvider equalsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Equals}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEqualsAdapter() {
+		if (equalsItemProvider == null) {
+			equalsItemProvider = new EqualsItemProvider(this);
+		}
+
+		return equalsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.None} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NoneItemProvider noneItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.None}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNoneAdapter() {
+		if (noneItemProvider == null) {
+			noneItemProvider = new NoneItemProvider(this);
+		}
+
+		return noneItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.ChangeRequest} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChangeRequestItemProvider changeRequestItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.ChangeRequest}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChangeRequestAdapter() {
+		if (changeRequestItemProvider == null) {
+			changeRequestItemProvider = new ChangeRequestItemProvider(this);
+		}
+
+		return changeRequestItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Dockerfile} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DockerfileItemProvider dockerfileItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Dockerfile}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDockerfileAdapter() {
+		if (dockerfileItemProvider == null) {
+			dockerfileItemProvider = new DockerfileItemProvider(this);
+		}
+
+		return dockerfileItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Docker} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DockerItemProvider dockerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Docker}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDockerAdapter() {
+		if (dockerItemProvider == null) {
+			dockerItemProvider = new DockerItemProvider(this);
+		}
+
+		return dockerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Stage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StageItemProvider stageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Stage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStageAdapter() {
+		if (stageItemProvider == null) {
+			stageItemProvider = new StageItemProvider(this);
+		}
+
+		return stageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Tool} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ToolItemProvider toolItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Tool}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createToolAdapter() {
+		if (toolItemProvider == null) {
+			toolItemProvider = new ToolItemProvider(this);
+		}
+
+		return toolItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Environment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnvironmentItemProvider environmentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Environment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnvironmentAdapter() {
+		if (environmentItemProvider == null) {
+			environmentItemProvider = new EnvironmentItemProvider(this);
+		}
+
+		return environmentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Input} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InputItemProvider inputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Input}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInputAdapter() {
+		if (inputItemProvider == null) {
+			inputItemProvider = new InputItemProvider(this);
+		}
+
+		return inputItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Cron} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CronItemProvider cronItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Cron}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCronAdapter() {
+		if (cronItemProvider == null) {
+			cronItemProvider = new CronItemProvider(this);
+		}
+
+		return cronItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.PollSCM} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PollSCMItemProvider pollSCMItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.PollSCM}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPollSCMAdapter() {
+		if (pollSCMItemProvider == null) {
+			pollSCMItemProvider = new PollSCMItemProvider(this);
+		}
+
+		return pollSCMItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Upstream} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UpstreamItemProvider upstreamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Upstream}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUpstreamAdapter() {
+		if (upstreamItemProvider == null) {
+			upstreamItemProvider = new UpstreamItemProvider(this);
+		}
+
+		return upstreamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.BuildDiscarder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BuildDiscarderItemProvider buildDiscarderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.BuildDiscarder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBuildDiscarderAdapter() {
+		if (buildDiscarderItemProvider == null) {
+			buildDiscarderItemProvider = new BuildDiscarderItemProvider(this);
+		}
+
+		return buildDiscarderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.CheckoutToSubdirectory} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CheckoutToSubdirectoryItemProvider checkoutToSubdirectoryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.CheckoutToSubdirectory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCheckoutToSubdirectoryAdapter() {
+		if (checkoutToSubdirectoryItemProvider == null) {
+			checkoutToSubdirectoryItemProvider = new CheckoutToSubdirectoryItemProvider(this);
+		}
+
+		return checkoutToSubdirectoryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.SkipStagesAfterUnstable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SkipStagesAfterUnstableItemProvider skipStagesAfterUnstableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.SkipStagesAfterUnstable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSkipStagesAfterUnstableAdapter() {
+		if (skipStagesAfterUnstableItemProvider == null) {
+			skipStagesAfterUnstableItemProvider = new SkipStagesAfterUnstableItemProvider(this);
+		}
+
+		return skipStagesAfterUnstableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.SkipDefaultCheckout} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SkipDefaultCheckoutItemProvider skipDefaultCheckoutItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.SkipDefaultCheckout}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSkipDefaultCheckoutAdapter() {
+		if (skipDefaultCheckoutItemProvider == null) {
+			skipDefaultCheckoutItemProvider = new SkipDefaultCheckoutItemProvider(this);
+		}
+
+		return skipDefaultCheckoutItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Retry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RetryItemProvider retryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Retry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRetryAdapter() {
+		if (retryItemProvider == null) {
+			retryItemProvider = new RetryItemProvider(this);
+		}
+
+		return retryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.QuietPeriod} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QuietPeriodItemProvider quietPeriodItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.QuietPeriod}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQuietPeriodAdapter() {
+		if (quietPeriodItemProvider == null) {
+			quietPeriodItemProvider = new QuietPeriodItemProvider(this);
+		}
+
+		return quietPeriodItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.PreserveStashes} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PreserveStashesItemProvider preserveStashesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.PreserveStashes}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPreserveStashesAdapter() {
+		if (preserveStashesItemProvider == null) {
+			preserveStashesItemProvider = new PreserveStashesItemProvider(this);
+		}
+
+		return preserveStashesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Timeout} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TimeoutItemProvider timeoutItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Timeout}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTimeoutAdapter() {
+		if (timeoutItemProvider == null) {
+			timeoutItemProvider = new TimeoutItemProvider(this);
+		}
+
+		return timeoutItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.ParallelsAlwaysFailFast} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParallelsAlwaysFailFastItemProvider parallelsAlwaysFailFastItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.ParallelsAlwaysFailFast}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParallelsAlwaysFailFastAdapter() {
+		if (parallelsAlwaysFailFastItemProvider == null) {
+			parallelsAlwaysFailFastItemProvider = new ParallelsAlwaysFailFastItemProvider(this);
+		}
+
+		return parallelsAlwaysFailFastItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Timestamps} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TimestampsItemProvider timestampsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Timestamps}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTimestampsAdapter() {
+		if (timestampsItemProvider == null) {
+			timestampsItemProvider = new TimestampsItemProvider(this);
+		}
+
+		return timestampsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.DisableRestartFromStage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DisableRestartFromStageItemProvider disableRestartFromStageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.DisableRestartFromStage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDisableRestartFromStageAdapter() {
+		if (disableRestartFromStageItemProvider == null) {
+			disableRestartFromStageItemProvider = new DisableRestartFromStageItemProvider(this);
+		}
+
+		return disableRestartFromStageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.DisableResume} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DisableResumeItemProvider disableResumeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.DisableResume}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDisableResumeAdapter() {
+		if (disableResumeItemProvider == null) {
+			disableResumeItemProvider = new DisableResumeItemProvider(this);
+		}
+
+		return disableResumeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.OverrideIndexTriggers} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OverrideIndexTriggersItemProvider overrideIndexTriggersItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.OverrideIndexTriggers}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOverrideIndexTriggersAdapter() {
+		if (overrideIndexTriggersItemProvider == null) {
+			overrideIndexTriggersItemProvider = new OverrideIndexTriggersItemProvider(this);
+		}
+
+		return overrideIndexTriggersItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.NewContainerPerStage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NewContainerPerStageItemProvider newContainerPerStageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.NewContainerPerStage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNewContainerPerStageAdapter() {
+		if (newContainerPerStageItemProvider == null) {
+			newContainerPerStageItemProvider = new NewContainerPerStageItemProvider(this);
+		}
+
+		return newContainerPerStageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.DisableConcurrentBuilds} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DisableConcurrentBuildsItemProvider disableConcurrentBuildsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.DisableConcurrentBuilds}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDisableConcurrentBuildsAdapter() {
+		if (disableConcurrentBuildsItemProvider == null) {
+			disableConcurrentBuildsItemProvider = new DisableConcurrentBuildsItemProvider(this);
+		}
+
+		return disableConcurrentBuildsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.StringParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringParamItemProvider stringParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.StringParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringParamAdapter() {
+		if (stringParamItemProvider == null) {
+			stringParamItemProvider = new StringParamItemProvider(this);
+		}
+
+		return stringParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.TextParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextParamItemProvider textParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.TextParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextParamAdapter() {
+		if (textParamItemProvider == null) {
+			textParamItemProvider = new TextParamItemProvider(this);
+		}
+
+		return textParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.ChoiceParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChoiceParamItemProvider choiceParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.ChoiceParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChoiceParamAdapter() {
+		if (choiceParamItemProvider == null) {
+			choiceParamItemProvider = new ChoiceParamItemProvider(this);
+		}
+
+		return choiceParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.PasswordParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PasswordParamItemProvider passwordParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.PasswordParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPasswordParamAdapter() {
+		if (passwordParamItemProvider == null) {
+			passwordParamItemProvider = new PasswordParamItemProvider(this);
+		}
+
+		return passwordParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.BooleanParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BooleanParamItemProvider booleanParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.BooleanParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBooleanParamAdapter() {
+		if (booleanParamItemProvider == null) {
+			booleanParamItemProvider = new BooleanParamItemProvider(this);
+		}
+
+		return booleanParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Matrix} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MatrixItemProvider matrixItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Matrix}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMatrixAdapter() {
+		if (matrixItemProvider == null) {
+			matrixItemProvider = new MatrixItemProvider(this);
+		}
+
+		return matrixItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Axis} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AxisItemProvider axisItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Axis}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAxisAdapter() {
+		if (axisItemProvider == null) {
+			axisItemProvider = new AxisItemProvider(this);
+		}
+
+		return axisItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jenkins_metamodel.Label} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LabelItemProvider labelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jenkins_metamodel.Label}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLabelAdapter() {
+		if (labelItemProvider == null) {
+			labelItemProvider = new LabelItemProvider(this);
+		}
+
+		return labelItemProvider;
 	}
 
 	/**
@@ -867,66 +1396,112 @@ public class Jenkins_metamodelItemProviderAdapterFactory extends Jenkins_metamod
 	 */
 	@Override
 	public void dispose() {
-		if (pipelineItemProvider != null)
-			pipelineItemProvider.dispose();
-		if (commandItemProvider != null)
-			commandItemProvider.dispose();
-		if (step_ParameterItemProvider != null)
-			step_ParameterItemProvider.dispose();
-		if (environmentItemProvider != null)
-			environmentItemProvider.dispose();
-		if (triggerItemProvider != null)
-			triggerItemProvider.dispose();
-		if (inputItemProvider != null)
-			inputItemProvider.dispose();
-		if (stageItemProvider != null)
-			stageItemProvider.dispose();
-		if (stepItemProvider != null)
-			stepItemProvider.dispose();
-		if (anyItemProvider != null)
-			anyItemProvider.dispose();
-		if (noneItemProvider != null)
-			noneItemProvider.dispose();
-		if (nodeItemProvider != null)
-			nodeItemProvider.dispose();
-		if (dockerItemProvider != null)
-			dockerItemProvider.dispose();
-		if (dockerfileItemProvider != null)
-			dockerfileItemProvider.dispose();
-		if (postItemProvider != null)
-			postItemProvider.dispose();
-		if (parameter_DirectiveItemProvider != null)
-			parameter_DirectiveItemProvider.dispose();
-		if (param_ValueItemProvider != null)
-			param_ValueItemProvider.dispose();
-		if (toolItemProvider != null)
-			toolItemProvider.dispose();
-		if (changeSetItemProvider != null)
-			changeSetItemProvider.dispose();
-		if (branchItemProvider != null)
-			branchItemProvider.dispose();
 		if (buildingTagItemProvider != null)
 			buildingTagItemProvider.dispose();
+		if (commandItemProvider != null)
+			commandItemProvider.dispose();
+		if (nodeItemProvider != null)
+			nodeItemProvider.dispose();
+		if (anyItemProvider != null)
+			anyItemProvider.dispose();
+		if (branchItemProvider != null)
+			branchItemProvider.dispose();
 		if (changelogItemProvider != null)
 			changelogItemProvider.dispose();
-		if (when_EnvItemProvider != null)
-			when_EnvItemProvider.dispose();
-		if (equalsItemProvider != null)
-			equalsItemProvider.dispose();
-		if (changeRequestItemProvider != null)
-			changeRequestItemProvider.dispose();
-		if (notItemProvider != null)
-			notItemProvider.dispose();
-		if (tagItemProvider != null)
-			tagItemProvider.dispose();
-		if (allOfItemProvider != null)
-			allOfItemProvider.dispose();
-		if (anyOfItemProvider != null)
-			anyOfItemProvider.dispose();
 		if (triggeredByItemProvider != null)
 			triggeredByItemProvider.dispose();
 		if (expressionItemProvider != null)
 			expressionItemProvider.dispose();
+		if (step_ParameterItemProvider != null)
+			step_ParameterItemProvider.dispose();
+		if (changeSetItemProvider != null)
+			changeSetItemProvider.dispose();
+		if (notItemProvider != null)
+			notItemProvider.dispose();
+		if (stepItemProvider != null)
+			stepItemProvider.dispose();
+		if (postItemProvider != null)
+			postItemProvider.dispose();
+		if (anyOfItemProvider != null)
+			anyOfItemProvider.dispose();
+		if (pipelineItemProvider != null)
+			pipelineItemProvider.dispose();
+		if (tagItemProvider != null)
+			tagItemProvider.dispose();
+		if (when_EnvItemProvider != null)
+			when_EnvItemProvider.dispose();
+		if (allOfItemProvider != null)
+			allOfItemProvider.dispose();
+		if (equalsItemProvider != null)
+			equalsItemProvider.dispose();
+		if (noneItemProvider != null)
+			noneItemProvider.dispose();
+		if (changeRequestItemProvider != null)
+			changeRequestItemProvider.dispose();
+		if (dockerfileItemProvider != null)
+			dockerfileItemProvider.dispose();
+		if (dockerItemProvider != null)
+			dockerItemProvider.dispose();
+		if (stageItemProvider != null)
+			stageItemProvider.dispose();
+		if (toolItemProvider != null)
+			toolItemProvider.dispose();
+		if (environmentItemProvider != null)
+			environmentItemProvider.dispose();
+		if (inputItemProvider != null)
+			inputItemProvider.dispose();
+		if (cronItemProvider != null)
+			cronItemProvider.dispose();
+		if (pollSCMItemProvider != null)
+			pollSCMItemProvider.dispose();
+		if (upstreamItemProvider != null)
+			upstreamItemProvider.dispose();
+		if (buildDiscarderItemProvider != null)
+			buildDiscarderItemProvider.dispose();
+		if (checkoutToSubdirectoryItemProvider != null)
+			checkoutToSubdirectoryItemProvider.dispose();
+		if (skipStagesAfterUnstableItemProvider != null)
+			skipStagesAfterUnstableItemProvider.dispose();
+		if (skipDefaultCheckoutItemProvider != null)
+			skipDefaultCheckoutItemProvider.dispose();
+		if (retryItemProvider != null)
+			retryItemProvider.dispose();
+		if (quietPeriodItemProvider != null)
+			quietPeriodItemProvider.dispose();
+		if (preserveStashesItemProvider != null)
+			preserveStashesItemProvider.dispose();
+		if (timeoutItemProvider != null)
+			timeoutItemProvider.dispose();
+		if (parallelsAlwaysFailFastItemProvider != null)
+			parallelsAlwaysFailFastItemProvider.dispose();
+		if (timestampsItemProvider != null)
+			timestampsItemProvider.dispose();
+		if (disableRestartFromStageItemProvider != null)
+			disableRestartFromStageItemProvider.dispose();
+		if (disableResumeItemProvider != null)
+			disableResumeItemProvider.dispose();
+		if (overrideIndexTriggersItemProvider != null)
+			overrideIndexTriggersItemProvider.dispose();
+		if (newContainerPerStageItemProvider != null)
+			newContainerPerStageItemProvider.dispose();
+		if (disableConcurrentBuildsItemProvider != null)
+			disableConcurrentBuildsItemProvider.dispose();
+		if (stringParamItemProvider != null)
+			stringParamItemProvider.dispose();
+		if (textParamItemProvider != null)
+			textParamItemProvider.dispose();
+		if (choiceParamItemProvider != null)
+			choiceParamItemProvider.dispose();
+		if (passwordParamItemProvider != null)
+			passwordParamItemProvider.dispose();
+		if (booleanParamItemProvider != null)
+			booleanParamItemProvider.dispose();
+		if (matrixItemProvider != null)
+			matrixItemProvider.dispose();
+		if (axisItemProvider != null)
+			axisItemProvider.dispose();
+		if (labelItemProvider != null)
+			labelItemProvider.dispose();
 	}
 
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.exploitation"
+            id="org.gemoc.agro.generator.ui.popupMenus.contribution.IFile">
+         <menu id="org.gemoc.agro.generator.menu" label="Farming" path="additionsAcceleo">
+               <groupMarker name="acceleo"/> 
+         </menu>
+         <action
+               class="org.gemoc.agro.generator.ui.popupMenus.AcceleoGenerateGeneratorAction"
+               enablesFor="+"
+               id="org.gemoc.agro.generator.ui.popupMenus.acceleoGenerateGeneratorAction"
+               icon="icons/default.gif"
+               label="Generate HTML Description"
+               menubarPath="org.gemoc.agro.generator.menu/acceleo"/>
+      </objectContribution>
+   </extension>
+   
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.simulation"
+            id="org.gemoc.agro.generator.ui.popupMenus.contribution.simulation.IFile">
+         <menu id="org.gemoc.agro.generator.menu" label="Farming" path="additionsAcceleo">
+               <groupMarker name="acceleo"/> 
+         </menu>
+         <action
+               class="org.gemoc.agro.generator.ui.popupMenus.AcceleoGenerateGeneratorAction"
+               enablesFor="+"
+               id="org.gemoc.agro.generator.ui.popupMenus.acceleoGenerateGeneratorAction"
+               icon="icons/default.gif"
+               label="Generate HTML Description"
+               menubarPath="org.gemoc.agro.generator.menu/acceleo"/>
+      </objectContribution>
+   </extension>
+</plugin>

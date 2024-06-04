@@ -27,7 +27,7 @@ public interface Branch extends When {
 	 * @return the value of the '<em>Pattern</em>' attribute.
 	 * @see #setPattern(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getBranch_Pattern()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getPattern();
@@ -44,24 +44,27 @@ public interface Branch extends When {
 
 	/**
 	 * Returns the value of the '<em><b>Comparator</b></em>' attribute.
+	 * The literals are from the enumeration {@link jenkins_metamodel.COMPARATOR_TYPE}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comparator</em>' attribute.
-	 * @see #setComparator(String)
+	 * @see jenkins_metamodel.COMPARATOR_TYPE
+	 * @see #setComparator(COMPARATOR_TYPE)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getBranch_Comparator()
 	 * @model
 	 * @generated
 	 */
-	String getComparator();
+	COMPARATOR_TYPE getComparator();
 
 	/**
 	 * Sets the value of the '{@link jenkins_metamodel.Branch#getComparator <em>Comparator</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Comparator</em>' attribute.
+	 * @see jenkins_metamodel.COMPARATOR_TYPE
 	 * @see #getComparator()
 	 * @generated
 	 */
-	void setComparator(String value);
+	void setComparator(COMPARATOR_TYPE value);
 
 } // Branch

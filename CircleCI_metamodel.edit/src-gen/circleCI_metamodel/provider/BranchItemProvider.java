@@ -54,7 +54,7 @@ public class BranchItemProvider extends ItemProviderAdapter implements IEditingD
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addBranch_typePropertyDescriptor(object);
+			addBranchPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,18 +75,17 @@ public class BranchItemProvider extends ItemProviderAdapter implements IEditingD
 	}
 
 	/**
-	 * This adds a property descriptor for the Branch type feature.
+	 * This adds a property descriptor for the Branch feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBranch_typePropertyDescriptor(Object object) {
+	protected void addBranchPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Branch_branch_type_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Branch_branch_type_feature",
-								"_UI_Branch_type"),
-						CircleCI_metamodelPackage.Literals.BRANCH__BRANCH_TYPE, true, false, false,
+						getResourceLocator(), getString("_UI_Branch_branch_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Branch_branch_feature", "_UI_Branch_type"),
+						CircleCI_metamodelPackage.Literals.BRANCH__BRANCH, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -137,7 +136,7 @@ public class BranchItemProvider extends ItemProviderAdapter implements IEditingD
 
 		switch (notification.getFeatureID(Branch.class)) {
 		case CircleCI_metamodelPackage.BRANCH__NAME:
-		case CircleCI_metamodelPackage.BRANCH__BRANCH_TYPE:
+		case CircleCI_metamodelPackage.BRANCH__BRANCH:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

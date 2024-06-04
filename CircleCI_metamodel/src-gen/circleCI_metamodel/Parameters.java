@@ -28,7 +28,7 @@ public interface Parameters extends EObject {
 	 * @return the value of the '<em>Parameter</em>' attribute.
 	 * @see #setParameter(String)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getParameters_Parameter()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getParameter();

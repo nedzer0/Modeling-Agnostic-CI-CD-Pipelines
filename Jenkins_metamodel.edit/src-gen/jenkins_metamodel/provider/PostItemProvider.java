@@ -89,7 +89,7 @@ public class PostItemProvider extends ItemProviderAdapter implements IEditingDom
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.POST__STEP);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.POST__STEPS);
 		}
 		return childrenFeatures;
 	}
@@ -157,7 +157,7 @@ public class PostItemProvider extends ItemProviderAdapter implements IEditingDom
 		case Jenkins_metamodelPackage.POST__CONDITION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case Jenkins_metamodelPackage.POST__STEP:
+		case Jenkins_metamodelPackage.POST__STEPS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -175,7 +175,7 @@ public class PostItemProvider extends ItemProviderAdapter implements IEditingDom
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.POST__STEP,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.POST__STEPS,
 				Jenkins_metamodelFactory.eINSTANCE.createStep()));
 	}
 

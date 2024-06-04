@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.cicd.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.cicd.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.cicd.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.xtext.example.cicd,
+ CICD_metamodel,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: org.xtext.example.cicd.ide.contentassist.antlr,
+ org.xtext.example.cicd.ide.contentassist.antlr.lexer,
+ org.xtext.example.cicd.ide.contentassist.antlr.internal

@@ -1,0 +1,418 @@
+-- @path Jenkins=/Jenkins_metamodel/model/jenkins_metamodel.ecore
+-- @path CICD=/CICD_metamodel/model/cICD_metamodel.ecore
+
+module CICD2Jenkins;
+create OUT : Jenkins from IN : CICD;
+
+rule Pipeline2Pipeline {
+	from
+		s : CICD!Pipeline
+	to
+		t : Jenkins!Pipeline(
+			environments <- s.pipeline_environment ->collect(env | thisModule.transformEnvironment(env)),
+			stages <- s.jobs->collect(job | thisModule.Job2Stage(job)),
+			triggers <- s.triggers->collect(trigger | thisModule.transformScheduleTrigger(trigger)),
+			agents <- if s.agents.oclIsUndefined() then 
+						thisModule.CreateAnyAgent('') 
+					else 
+						s.agents->collect(agent | 
+							if agent.container.oclIsUndefined() then
+								thisModule.Agent2Node(agent)
+							else
+								thisModule.DockerContainer2Docker(agent.container, agent.labels->first())
+							endif
+						)
+					endif,
+			parameter_directives <- if s.inputs->notEmpty() then
+										s.inputs->collect(input | 
+											if input.type = #STRING then
+												thisModule.Input2StringParam(input)
+											else if input.type = #TEXT then
+												thisModule.Input2TextParam(input)
+											else if input.type = #BOOLEAN then
+												thisModule.Input2BooleanParam(input)
+											else if input.type = #CHOICE then
+												thisModule.Input2ChoiceParam(input)
+											else if input.type = #PASSWORD then
+												thisModule.Input2PasswordParam(input)
+											else
+												OclUndefined
+											endif
+											endif
+											endif
+											endif
+											endif
+										)
+									else
+										OclUndefined
+									endif
+		)
+}
+
+lazy rule CreateAnyAgent {
+	from
+		blank : String
+	to
+		agent : Jenkins!Any()
+}
+
+lazy rule Agent2Node {
+	from
+		s : CICD!Agent(
+			s.container.oclIsUndefined()
+		)
+	to
+		t : Jenkins!Node(
+			label <- 
+				if s.labels->notEmpty() then
+					s.labels->first()
+				else
+					OclUndefined
+				endif,
+			customWorkspace <- OclUndefined
+		)
+}
+
+
+lazy rule DockerContainer2Docker {
+	from
+		s : CICD!DockerContainer,
+		dockerLabel : String
+	to
+		t : Jenkins!Docker(
+			image <- s.image,
+			label <- dockerLabel,
+			alwaysPull <- false,
+			registryUrl <- OclUndefined,
+			registryCredentialsId <- OclUndefined,
+			customWorkspace <- OclUndefined,
+			reuseNode <- OclUndefined,
+			args <- OclUndefined
+		)
+}
+
+lazy rule transformScheduleTrigger {
+	from
+		s : CICD!ScheduleTrigger
+	to
+		t : Jenkins!Cron(
+			timer <- s.timer
+		)
+}
+
+lazy rule Input2StringParam {
+	from
+		s : CICD!Input
+	to
+		t : Jenkins!StringParam(
+			name <- s.name,
+			description <- if not s.description.oclIsUndefined() then
+								s.description
+							else
+								OclUndefined
+							endif,
+			defaultValue <- s.default
+		)
+}
+
+lazy rule Input2BooleanParam {
+	from
+		s : CICD!Input
+	to
+		t : Jenkins!BooleanParam(
+			name <- s.name,
+			description <- if not s.description.oclIsUndefined() then
+								s.description
+							else
+								OclUndefined
+							endif,
+			defaultValue <- if not s.default.oclIsUndefined() then
+								if s.default = 'true' then
+									true
+								else
+									false
+								endif
+							else
+								OclUndefined
+							endif								
+		)
+}
+
+lazy rule Input2TextParam {
+	from
+		s : CICD!Input
+	to
+		t : Jenkins!TextParam(
+			name <- s.name,
+			description <- if not s.description.oclIsUndefined() then
+								s.description
+							else
+								OclUndefined
+							endif,
+			defaultValue <- s.default
+		)
+}
+
+lazy rule Input2ChoiceParam {
+	from
+		s : CICD!Input
+	to
+		t : Jenkins!ChoiceParam(
+			name <- s.name,
+			description <- if not s.description.oclIsUndefined() then
+								s.description
+							else
+								OclUndefined
+							endif,
+			defaultValue <- s.values
+		)
+}
+
+lazy rule Input2PasswordParam {
+	from
+		s : CICD!Input
+	to
+		t : Jenkins!PasswordParam(
+			name <- s.name,
+			description <- if not s.description.oclIsUndefined() then
+								s.description
+							else
+								OclUndefined
+							endif,
+			defaultValue <- s.default
+		)
+}
+
+lazy rule Job2Stage {
+    from
+        s : CICD!Job
+    to
+        t : Jenkins!Stage (
+            name <- s.name,
+			failFast <- s.allowFaillure,
+			parallel <- if not s.parallel.oclIsUndefined() then
+							if s.parallel = 'true' then
+								true
+							else
+								false
+							endif
+						else
+							OclUndefined
+						endif,
+			agents <- if s.agents.oclIsUndefined() then 
+						thisModule.CreateAnyAgent('') 
+					else 
+						s.agents->collect(agent | 
+							if agent.container.oclIsUndefined() then
+								thisModule.Agent2Node(agent)
+							else
+								thisModule.DockerContainer2Docker(agent.container, agent.labels->first())
+							endif
+						)
+					endif,
+			inputs <- if s.artifacts->notEmpty() then
+							s.artifacts->collect(art | thisModule.Artifact2Input(art))
+						else
+							OclUndefined
+						endif,
+            environments <- s.environments ->collect(env | thisModule.transformEnvironment(env)),
+			matrix <- if not s.matrix.oclIsUndefined() then 
+							thisModule.transformMatrix(s.matrix)
+						else
+							OclUndefined
+						endif,
+			steps <- s.steps->collect(step | thisModule.transformStep(step)),
+			when <- if s.IfStep->notEmpty() then
+						s.IfStep->collect(step |thisModule.IfStep2Expression(step))
+					else
+						OclUndefined
+					endif,
+			stages <- if s.jobs->notEmpty() then
+							s.jobs->collect(job |thisModule.Job2Stage(job))
+					else
+						OclUndefined
+					endif
+        )
+}
+
+lazy rule Artifact2Input {
+    from
+        s : CICD!Artifact
+    to
+        t : Jenkins!Input (
+            message <- if not s.message.oclIsUndefined() then
+							s.message
+						else
+							OclUndefined
+						endif,
+			id <- OclUndefined,
+			ok <- OclUndefined,
+			submitter <- OclUndefined,
+			submitterParameter <- OclUndefined
+        )
+}
+
+lazy rule transformMatrix {
+    from
+        s : CICD!Matrix
+    to
+        t : Jenkins!Matrix (
+			axis <- if not s.configs.oclIsUndefined() then
+							s.configs->collect(config | thisModule.MatrixConfig2Axis(config))
+						else
+							OclUndefined
+						endif,
+			stages <- if s.jobs->notEmpty() then
+							s.jobs->collect(job | thisModule.Job2Stage(job))
+					else
+						OclUndefined
+					endif,
+			when <- if s.steps->notEmpty() then
+						s.steps->collect(step | if step.environments->notEmpty() then
+											step.environments->collect(env | thisModule.Env2WhenEnv(env))
+											else
+												OclUndefined
+											endif
+						)
+					else
+						OclUndefined
+					endif
+        )
+}
+
+lazy rule MatrixConfig2Axis {
+    from
+        s : CICD!MatrixConfig
+    to
+        t : Jenkins!Axis (
+            name <- s.name,
+			values <- s.values,
+			exclude <- if (s.type = #INCLUDE or s.type = #DEFAULT) then
+							false
+						else
+							true
+						endif
+        )
+}
+
+lazy rule IfStep2Expression {
+    from
+        s : CICD!IfStep
+    to
+        t : Jenkins!Expression (
+			expression <- s.condition
+        )
+}
+
+lazy rule Env2WhenEnv {
+    from
+        s : CICD!Environment
+    to
+        t : Jenkins!When_Env (
+			name <- s.key,
+			value <- s.value
+        )
+}
+
+lazy rule tranformArtifact {
+    from
+        s : CICD!Artifact
+    to
+        t : Jenkins!Artifact (
+        	uses <- if s.type = #UPLOAD then
+						'actions/upload-artifact@v4'
+					else
+						'actions/download-artifact@v4'
+					endif,
+            name <- if not s.name.oclIsUndefined() then
+						s.name
+					else
+						OclUndefined
+					endif,
+			paths <- s.path,
+			retention_days <- OclUndefined,
+			type <- s.type
+        )
+}
+
+lazy rule transformStep {
+    from
+        s : CICD!Step
+    to
+        t : Jenkins!Step (
+			commands <- s.commands,
+			step_parameters <- s.parameters,
+			if <- if not s.IfStep.oclIsUndefined() then
+						thisModule.transformIfStep(s.IfStep)
+					else
+						OclUndefined
+					endif,
+			actions <- if s.cache->notEmpty() then
+							s.cache->collect(c | 
+								if c.mode = #STORE then
+									thisModule.Cache2SaveCache(c)
+								else
+									thisModule.Cache2RestoreCache(c)
+								endif
+							)
+						else
+							OclUndefined
+						endif
+        )
+}
+
+lazy rule Cache2SaveCache {
+    from
+        s : CICD!Cache
+    to
+        t : Jenkins!SaveCache (
+        	uses <- 'actions/cache/save@v4',
+			key <- s.key,
+			paths <- s.paths,
+        	upload_chunk_size <- OclUndefined
+        )
+}
+
+lazy rule Cache2RestoreCache {
+    from
+        s : CICD!Cache
+    to
+        t : Jenkins!RestoreCache (
+        	uses <- 'actions/cache/restore@v4',
+            key <- s.key,
+            paths <- s.paths,
+			restore_keys <- OclUndefined,
+			lookup_only <- false,
+			fail_on_cache_miss <- false
+        )
+}
+
+
+lazy rule transformEnvironment {
+    from
+        s : CICD!Environment
+    to
+        t : Jenkins!Environment (
+            key <- s.key,
+            value <- s.value
+        )
+}
+
+rule transformCommand {
+    from
+        s : CICD!Command
+    to
+        t : Jenkins!Command (
+            name <- s.name
+        )
+}
+
+
+rule transformParameters {
+    from
+        s : CICD!Parameters
+    to
+        t : Jenkins!Step_Parameter (
+            parameter <- s.parameter
+        )
+}

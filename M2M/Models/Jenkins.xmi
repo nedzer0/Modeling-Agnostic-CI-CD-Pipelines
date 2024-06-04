@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:jenkins_metamodel="http://www.example.org/jenkins_metamodel">
-  <jenkins_metamodel:Environment key="AN_ACCESS_KEY" value="credentials('my-predefined-secret-text')"/>
-  <jenkins_metamodel:Pipeline>
-    <environment key="CC" value="&quot;clang&quot;"/>
-    <stage name="Build"/>
-    <stage name="Test"/>
-  </jenkins_metamodel:Pipeline>
-</xmi:XMI>

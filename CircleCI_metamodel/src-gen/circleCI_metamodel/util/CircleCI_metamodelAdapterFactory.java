@@ -67,48 +67,73 @@ public class CircleCI_metamodelAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected CircleCI_metamodelSwitch<Adapter> modelSwitch = new CircleCI_metamodelSwitch<Adapter>() {
 		@Override
-		public Adapter casePipeline(Pipeline object) {
-			return createPipelineAdapter();
-		}
-
-		@Override
 		public Adapter caseStep(Step object) {
 			return createStepAdapter();
 		}
 
 		@Override
-		public Adapter caseExecution_Env(Execution_Env object) {
-			return createExecution_EnvAdapter();
+		public Adapter caseRun(Run object) {
+			return createRunAdapter();
 		}
 
 		@Override
-		public Adapter caseDocker(Docker object) {
-			return createDockerAdapter();
+		public Adapter caseDocker_Auth(Docker_Auth object) {
+			return createDocker_AuthAdapter();
 		}
 
 		@Override
-		public Adapter caseLinux(Linux object) {
-			return createLinuxAdapter();
+		public Adapter caseRestoreCache(RestoreCache object) {
+			return createRestoreCacheAdapter();
+		}
+
+		@Override
+		public Adapter caseDocker_Aws_Auths(Docker_Aws_Auths object) {
+			return createDocker_Aws_AuthsAdapter();
+		}
+
+		@Override
+		public Adapter caseJob(Job object) {
+			return createJobAdapter();
+		}
+
+		@Override
+		public Adapter caseMachine(Machine object) {
+			return createMachineAdapter();
+		}
+
+		@Override
+		public Adapter casePersistToWorkspace(PersistToWorkspace object) {
+			return createPersistToWorkspaceAdapter();
+		}
+
+		@Override
+		public Adapter caseStoreArtifact(StoreArtifact object) {
+			return createStoreArtifactAdapter();
+		}
+
+		@Override
+		public Adapter caseStoreTestResults(StoreTestResults object) {
+			return createStoreTestResultsAdapter();
+		}
+
+		@Override
+		public Adapter caseSetupRemoteDocker(SetupRemoteDocker object) {
+			return createSetupRemoteDockerAdapter();
+		}
+
+		@Override
+		public Adapter caseParameters(Parameters object) {
+			return createParametersAdapter();
+		}
+
+		@Override
+		public Adapter caseParameter(Parameter object) {
+			return createParameterAdapter();
 		}
 
 		@Override
 		public Adapter caseMacOs(MacOs object) {
 			return createMacOsAdapter();
-		}
-
-		@Override
-		public Adapter caseWindowsOrb(WindowsOrb object) {
-			return createWindowsOrbAdapter();
-		}
-
-		@Override
-		public Adapter caseOrb(Orb object) {
-			return createOrbAdapter();
-		}
-
-		@Override
-		public Adapter caseCommand(Command object) {
-			return createCommandAdapter();
 		}
 
 		@Override
@@ -122,13 +147,23 @@ public class CircleCI_metamodelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseParameters(Parameters object) {
-			return createParametersAdapter();
+		public Adapter caseDocker(Docker object) {
+			return createDockerAdapter();
 		}
 
 		@Override
-		public Adapter caseTool_Framework(Tool_Framework object) {
-			return createTool_FrameworkAdapter();
+		public Adapter caseAddSSHKeys(AddSSHKeys object) {
+			return createAddSSHKeysAdapter();
+		}
+
+		@Override
+		public Adapter caseSaveCache(SaveCache object) {
+			return createSaveCacheAdapter();
+		}
+
+		@Override
+		public Adapter caseAttachWorkspace(AttachWorkspace object) {
+			return createAttachWorkspaceAdapter();
 		}
 
 		@Override
@@ -137,8 +172,13 @@ public class CircleCI_metamodelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseWhen_Attribute(When_Attribute object) {
-			return createWhen_AttributeAdapter();
+		public Adapter caseBranch(Branch object) {
+			return createBranchAdapter();
+		}
+
+		@Override
+		public Adapter caseRunCommand(RunCommand object) {
+			return createRunCommandAdapter();
 		}
 
 		@Override
@@ -147,23 +187,43 @@ public class CircleCI_metamodelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseBranch(Branch object) {
-			return createBranchAdapter();
+		public Adapter caseCheckout(Checkout object) {
+			return createCheckoutAdapter();
 		}
 
 		@Override
-		public Adapter caseJob(Job object) {
-			return createJobAdapter();
+		public Adapter caseExecutor(Executor object) {
+			return createExecutorAdapter();
 		}
 
 		@Override
-		public Adapter caseStore_Artifact(Store_Artifact object) {
-			return createStore_ArtifactAdapter();
+		public Adapter casePipeline(Pipeline object) {
+			return createPipelineAdapter();
 		}
 
 		@Override
-		public Adapter caseCommand_Params(Command_Params object) {
-			return createCommand_ParamsAdapter();
+		public Adapter caseOrb(Orb object) {
+			return createOrbAdapter();
+		}
+
+		@Override
+		public Adapter caseCommand(Command object) {
+			return createCommandAdapter();
+		}
+
+		@Override
+		public Adapter caseMatrix(Matrix object) {
+			return createMatrixAdapter();
+		}
+
+		@Override
+		public Adapter caseJobWorkflow(JobWorkflow object) {
+			return createJobWorkflowAdapter();
+		}
+
+		@Override
+		public Adapter caseMatrixParams(MatrixParams object) {
+			return createMatrixParamsAdapter();
 		}
 
 		@Override
@@ -186,20 +246,6 @@ public class CircleCI_metamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Pipeline <em>Pipeline</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see circleCI_metamodel.Pipeline
-	 * @generated
-	 */
-	public Adapter createPipelineAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Step <em>Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -214,44 +260,170 @@ public class CircleCI_metamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Execution_Env <em>Execution Env</em>}'.
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Run <em>Run</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see circleCI_metamodel.Execution_Env
+	 * @see circleCI_metamodel.Run
 	 * @generated
 	 */
-	public Adapter createExecution_EnvAdapter() {
+	public Adapter createRunAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Docker <em>Docker</em>}'.
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Docker_Auth <em>Docker Auth</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see circleCI_metamodel.Docker
+	 * @see circleCI_metamodel.Docker_Auth
 	 * @generated
 	 */
-	public Adapter createDockerAdapter() {
+	public Adapter createDocker_AuthAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Linux <em>Linux</em>}'.
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.RestoreCache <em>Restore Cache</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see circleCI_metamodel.Linux
+	 * @see circleCI_metamodel.RestoreCache
 	 * @generated
 	 */
-	public Adapter createLinuxAdapter() {
+	public Adapter createRestoreCacheAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Docker_Aws_Auths <em>Docker Aws Auths</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.Docker_Aws_Auths
+	 * @generated
+	 */
+	public Adapter createDocker_Aws_AuthsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Job <em>Job</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.Job
+	 * @generated
+	 */
+	public Adapter createJobAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Machine <em>Machine</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.Machine
+	 * @generated
+	 */
+	public Adapter createMachineAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.PersistToWorkspace <em>Persist To Workspace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.PersistToWorkspace
+	 * @generated
+	 */
+	public Adapter createPersistToWorkspaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.StoreArtifact <em>Store Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.StoreArtifact
+	 * @generated
+	 */
+	public Adapter createStoreArtifactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.StoreTestResults <em>Store Test Results</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.StoreTestResults
+	 * @generated
+	 */
+	public Adapter createStoreTestResultsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.SetupRemoteDocker <em>Setup Remote Docker</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.SetupRemoteDocker
+	 * @generated
+	 */
+	public Adapter createSetupRemoteDockerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Parameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.Parameters
+	 * @generated
+	 */
+	public Adapter createParametersAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.Parameter
+	 * @generated
+	 */
+	public Adapter createParameterAdapter() {
 		return null;
 	}
 
@@ -266,48 +438,6 @@ public class CircleCI_metamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMacOsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.WindowsOrb <em>Windows Orb</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see circleCI_metamodel.WindowsOrb
-	 * @generated
-	 */
-	public Adapter createWindowsOrbAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Orb <em>Orb</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see circleCI_metamodel.Orb
-	 * @generated
-	 */
-	public Adapter createOrbAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Command <em>Command</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see circleCI_metamodel.Command
-	 * @generated
-	 */
-	public Adapter createCommandAdapter() {
 		return null;
 	}
 
@@ -340,30 +470,58 @@ public class CircleCI_metamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Parameters <em>Parameters</em>}'.
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Docker <em>Docker</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see circleCI_metamodel.Parameters
+	 * @see circleCI_metamodel.Docker
 	 * @generated
 	 */
-	public Adapter createParametersAdapter() {
+	public Adapter createDockerAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Tool_Framework <em>Tool Framework</em>}'.
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.AddSSHKeys <em>Add SSH Keys</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see circleCI_metamodel.Tool_Framework
+	 * @see circleCI_metamodel.AddSSHKeys
 	 * @generated
 	 */
-	public Adapter createTool_FrameworkAdapter() {
+	public Adapter createAddSSHKeysAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.SaveCache <em>Save Cache</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.SaveCache
+	 * @generated
+	 */
+	public Adapter createSaveCacheAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.AttachWorkspace <em>Attach Workspace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.AttachWorkspace
+	 * @generated
+	 */
+	public Adapter createAttachWorkspaceAdapter() {
 		return null;
 	}
 
@@ -382,16 +540,30 @@ public class CircleCI_metamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.When_Attribute <em>When Attribute</em>}'.
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Branch <em>Branch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see circleCI_metamodel.When_Attribute
+	 * @see circleCI_metamodel.Branch
 	 * @generated
 	 */
-	public Adapter createWhen_AttributeAdapter() {
+	public Adapter createBranchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.RunCommand <em>Run Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.RunCommand
+	 * @generated
+	 */
+	public Adapter createRunCommandAdapter() {
 		return null;
 	}
 
@@ -410,58 +582,114 @@ public class CircleCI_metamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Branch <em>Branch</em>}'.
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Checkout <em>Checkout</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see circleCI_metamodel.Branch
+	 * @see circleCI_metamodel.Checkout
 	 * @generated
 	 */
-	public Adapter createBranchAdapter() {
+	public Adapter createCheckoutAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Job <em>Job</em>}'.
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Executor <em>Executor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see circleCI_metamodel.Job
+	 * @see circleCI_metamodel.Executor
 	 * @generated
 	 */
-	public Adapter createJobAdapter() {
+	public Adapter createExecutorAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Store_Artifact <em>Store Artifact</em>}'.
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Pipeline <em>Pipeline</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see circleCI_metamodel.Store_Artifact
+	 * @see circleCI_metamodel.Pipeline
 	 * @generated
 	 */
-	public Adapter createStore_ArtifactAdapter() {
+	public Adapter createPipelineAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Command_Params <em>Command Params</em>}'.
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Orb <em>Orb</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see circleCI_metamodel.Command_Params
+	 * @see circleCI_metamodel.Orb
 	 * @generated
 	 */
-	public Adapter createCommand_ParamsAdapter() {
+	public Adapter createOrbAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Command <em>Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.Command
+	 * @generated
+	 */
+	public Adapter createCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.Matrix <em>Matrix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.Matrix
+	 * @generated
+	 */
+	public Adapter createMatrixAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.JobWorkflow <em>Job Workflow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.JobWorkflow
+	 * @generated
+	 */
+	public Adapter createJobWorkflowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link circleCI_metamodel.MatrixParams <em>Matrix Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see circleCI_metamodel.MatrixParams
+	 * @generated
+	 */
+	public Adapter createMatrixParamsAdapter() {
 		return null;
 	}
 

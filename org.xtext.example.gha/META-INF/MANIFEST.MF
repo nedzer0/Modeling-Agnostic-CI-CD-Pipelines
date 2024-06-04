@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.gha
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.gha
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.gha; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: GHA_metamodel,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.34.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: org.xtext.example.gha.scoping,
+ org.xtext.example.gha.validation,
+ org.xtext.example.gha.parser.antlr.lexer,
+ org.xtext.example.gha.parser.antlr.internal,
+ org.xtext.example.gha.formatting2,
+ org.xtext.example.gha.services,
+ org.xtext.example.gha.serializer,
+ org.xtext.example.gha.generator,
+ org.xtext.example.gha.parser.antlr,
+ org.xtext.example.gha
+Import-Package: org.apache.log4j

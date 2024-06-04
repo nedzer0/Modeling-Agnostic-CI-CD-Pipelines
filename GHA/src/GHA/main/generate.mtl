@@ -1,0 +1,662 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/gHA_metamodel')]
+
+
+[template public generateElement(aPipeline : Pipeline)]
+[comment @main/]
+[file ('GitHub Actions' + '.yml', false, 'UTF-8')]
+[if (aPipeline.name->notEmpty())]
+['name: ' + aPipeline.name/]:
+[/if]
+[if (aPipeline.run_name->notEmpty())]
+['run-name: ' + aPipeline.run_name/]:
+[/if]
+[if (envs->notEmpty())]
+env:
+[for (e: Env | envs)]
+  [generateEnv(e)/]
+[/for]
+[/if]
+[if (permissions->notEmpty())]
+[if (permissions->exists(p | p.disableAll = true))]
+permissions: {}
+[elseif (permissions->exists(p | p.readAll = true))]
+permissions: read-all
+[elseif (permissions->exists(p | p.writeAll = true))]
+permissions: write-all
+[/if]
+[if (permissions->forAll(p | p.writeAll = false and p.disableAll = false and p.readAll = false))]
+permissions:
+[/if]
+[for (p: Permission | permissions->select(p | p.writeAll = false and p.disableAll = false and p.readAll = false))]
+  [generatePermissions(p)/]
+[/for]
+[/if]
+[if (defaultsetting->notEmpty())]
+defaults: 
+[for (default: DefaultSetting | defaultsetting)]
+  [generateDefaults(default)/]
+[/for]
+[/if]
+[if (aPipeline.concurrency->notEmpty())]
+concurrency:
+  [generateConcurrency(aPipeline.concurrency)/]
+[/if]
+[generateTriggers(aPipeline)/]
+[generateJobs(aPipeline)/]
+[/file]
+[/template]
+
+[template public generateEnv(aEnv: Env)]
+[aEnv.key/]: [aEnv.value/]
+[/template]
+
+
+[template public generatePermissions(per: Permission)]
+[per.scope/]: [per.permission/]
+[/template]
+
+
+[template public generateDefaults(default: DefaultSetting)]
+run:
+  shell: [shell/]
+  working-directory: [workingDirectory/]
+[/template]
+
+[template public generateConcurrency(concurrency: Concurrency)]
+group: [group/]
+cancel-in-progress: [cancel_in_progress/]
+[/template]
+
+
+[template public generateTriggers(aPipeline: Pipeline)]
+[if (aPipeline.triggers->notEmpty())]
+on:
+[if (triggers->exists(t | t.oclIsTypeOf(StandardEventTrigger)))]
+[for (trigger: Trigger | triggers->select(t | t.oclIsTypeOf(StandardEventTrigger)))]
+  [generateStandardEventTrigger(trigger.oclAsType(StandardEventTrigger))/]
+[/for]
+[elseif (triggers->exists(t | t.oclIsTypeOf(WorkflowRunTrigger)))]
+  workflow_run:
+  [for (trigger: Trigger | triggers->select(t | t.oclIsTypeOf(WorkflowRunTrigger)))]
+    [generateWorkflowRunTrigger(trigger.oclAsType(WorkflowRunTrigger))/]
+  [/for]
+[elseif (triggers->exists(t | t.oclIsTypeOf(PullTrigger)))]
+  pull_request:
+  [for (trigger: Trigger | triggers->select(t | t.oclIsTypeOf(PullTrigger)))]
+    [generatePullRequestTrigger(trigger.oclAsType(PullTrigger))/]
+  [/for]
+[elseif (triggers->exists(t | t.oclIsTypeOf(PullTargetTrigger)))]
+  pull_request_target:
+  [for (trigger: Trigger | triggers->select(t | t.oclIsTypeOf(PullTargetTrigger)))]
+    [generatePullRequestTargetTrigger(trigger.oclAsType(PullTargetTrigger))/]
+  [/for]
+[elseif (triggers->exists(t | t.oclIsTypeOf(PushTrigger)))]
+  push:
+  [for (trigger: Trigger | triggers->select(t | t.oclIsTypeOf(PushTrigger)))]
+    [generatePushTrigger(trigger.oclAsType(PushTrigger))/]
+  [/for]
+[elseif (triggers->exists(t | t.oclIsTypeOf(ScheduleTrigger)))]
+  schedule:
+  [for (trigger: Trigger | triggers->select(t | t.oclIsTypeOf(ScheduleTrigger)))]
+    [generateScheduleTrigger(trigger.oclAsType(ScheduleTrigger))/]
+  [/for]
+[elseif (triggers->exists(t | t.oclIsTypeOf(WorkflowCallTrigger)))]
+  workflow_call:
+  [for (trigger: Trigger | triggers->select(t | t.oclIsTypeOf(WorkflowCallTrigger)))]
+    [generateWorkflowCallTrigger(trigger.oclAsType(WorkflowCallTrigger))/]
+  [/for]
+[elseif (triggers->exists(t | t.oclIsTypeOf(WorkflowDispatchTrigger)))]
+  workflow_dispatch:
+  [for (trigger: Trigger | triggers->select(t | t.oclIsTypeOf(WorkflowDispatchTrigger)))]
+    [generateWorkflowDispatchTrigger(trigger.oclAsType(WorkflowDispatchTrigger))/]
+  [/for]
+[/if]
+[/if]
+[/template]
+
+
+[template public generateStandardEventTrigger(trigger : StandardEventTrigger)]
+[event.toString().toLowerCase()/]:
+  [generateActivityTypesList(activityType)/]
+[/template]
+
+[template public generateWorkflowRunTrigger(trigger : WorkflowRunTrigger)]
+workflows: ['['/][trigger.workflow/][']'/]
+types: ['['/][trigger.type/][']'/]
+[if (branches->notEmpty())]
+[generateBranches(branches)/]
+[/if]
+[/template]
+
+[template public generatePullRequestTrigger(trigger : PullTrigger)]
+[if (activityType->notEmpty())]
+[generateActivityTypesList(activityType)/]
+[/if]
+[if (branches->notEmpty())]
+[generateBranches(branches)/]
+[/if]
+[if (paths->notEmpty())]
+[generatePaths(paths)/]
+[/if]
+[/template]
+
+[template public generatePullRequestTargetTrigger(trigger : PullTargetTrigger)]
+[if (activityType->notEmpty())]
+[generateActivityTypesList(activityType)/]
+[/if]
+[if (branches->notEmpty())]
+[generateBranches(branches)/]
+[/if]
+[if (paths->notEmpty())]
+[generatePaths(paths)/]
+[/if]
+[/template]
+
+[template public generatePushTrigger(trigger : PushTrigger)]
+[if (branches->notEmpty())]
+[generateBranches(branches)/]
+[/if]
+[if (paths->notEmpty())]
+[generatePaths(paths)/]
+[/if]
+[if (tags->notEmpty())]
+[if (tags->exists(b | b.ignore = false))]
+tags:
+[for (b: Tag | tags->select(b | b.ignore = false))]
+  - [b.name/]
+[/for]
+[/if]
+[if (tags->exists(b | b.ignore = true))] 
+tags-ignore:
+[for (b: Tag | tags->select(b | b.ignore = true))]
+  - [b.name/]
+[/for]
+[/if]
+[/if]
+[/template]
+
+[template public generateScheduleTrigger(trigger : ScheduleTrigger)]
+- cron: [trigger.cron/]
+[/template]
+
+[template public generateWorkflowCallTrigger(trigger : WorkflowCallTrigger)]
+[if (inputs->notEmpty())]
+inputs:
+[for (input : Input | inputs)]
+  [generateInput(input)/]
+[/for]
+[/if]
+[if (outputs->notEmpty())]
+outputs:
+[for (output : Output | outputs)]
+  [generateOutput(output)/]
+[/for]
+[/if]
+[if (secrets->notEmpty())]
+secrets:
+[for (secret : Secret | secrets)]
+  [generateSecret(secret)/]
+[/for]
+[/if]
+[/template]
+
+[template public generateWorkflowDispatchTrigger(trigger : WorkflowDispatchTrigger)]
+[if (inputs->notEmpty())]
+inputs:
+[for (input : Input | inputs)]
+  [generateInput(input)/]
+[/for]
+[/if]
+[/template]
+
+[template public generateActivityTypesList(activityTypes : OrderedSet(WEBHOOK_ACTIVITY_TYPES))]
+types: ['['/][for (activityType : WEBHOOK_ACTIVITY_TYPES | activityTypes)][activityType/][if (not (activityType = activityTypes->last()))], [/if][/for][']'/]
+[/template]
+
+
+[template public generateBranches(branches : OrderedSet(Branch))]
+[if (branches->exists(b | b.ignore = false))]
+branches:
+[for (b: Branch | branches->select(b | b.ignore = false))]
+  - [b.name/]
+[/for]
+[/if]
+[if (branches->exists(b | b.ignore = true))]
+branches-ignore:
+[for (b: Branch | branches->select(b | b.ignore = true))]
+  - [b.name/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generatePaths(paths : OrderedSet(Path))]
+[if (paths->exists(b | b.ignore = false))]
+paths:
+[for (b: Path | paths->select(b | b.ignore = false))]
+  - [b.name/]
+[/for]
+[/if]
+[if (paths->exists(b | b.ignore = true))]
+paths-ignore:
+[for (b: Path | paths->select(b | b.ignore = true))]
+  - [b.name/]
+[/for]
+[/if]
+[/template]
+
+
+[template public generateInput(input : Input)]
+[name/]:
+[if (description->notEmpty())]
+  description: [description/]
+[/if]
+[if (default->notEmpty())]
+  default: [default/]
+[/if]
+[if (isRequired = true)]
+  required: [isRequired/]
+[/if]
+  type: [type/]
+[if (options->notEmpty())]
+  options:
+  [for (option : String | options)]
+    - [option/]
+  [/for]
+[/if]
+[/template]
+
+[template public generateOutput(output : Output)]
+[if (description->isEmpty())]
+[name/]: [value/]
+[elseif (description->notEmpty())]
+[name/]:
+  description: [description/]
+  value: [value/]
+[/if]
+[/template]
+
+[template public generateSecret(secret : Secret)]
+[name/]:
+  [key/]: [value/]
+[if (required = true)]
+  required: [required/]
+[/if]
+[/template]
+
+[template public generateJobs(aPipeline : Pipeline)]
+jobs:
+[for (j: Job | aPipeline.jobs)]
+  [generateJob(j)/]
+[/for]
+[/template]
+
+
+[template public generateJob(aJob : Job)]
+[name/]:
+[if (permissions->notEmpty())]
+[if (permissions->exists(p | p.disableAll = true))]
+  permissions: {}
+[elseif (permissions->exists(p | p.readAll = true))]
+  permissions: read-all
+[elseif (permissions->exists(p | p.writeAll = true))]
+  permissions: write-all
+[/if]
+[if (permissions->forAll(p | p.writeAll = false and p.disableAll = false and p.readAll = false))]
+  permissions:
+[/if]
+  [for (p: Permission | permissions->select(p | p.writeAll = false and p.disableAll = false and p.readAll = false))]
+    [generatePermissions(p)/]
+  [/for]
+[/if]
+[if (need->notEmpty())]
+[if (need.jobs->size() = 1)]
+  needs: [need.jobs/]
+[elseif (need.jobs->size() > 1)]
+  needs: ['['/][need.jobs/][']'/]
+[/if]
+[/if]
+[if (_if->notEmpty())]
+  if: [_if.condition/]
+[/if]
+[if (runner->notEmpty())]
+  [generateRunsOn(runner)/]
+[/if]
+  [generateEnvironment(environment)/]
+[if (concurrency->notEmpty())]
+  concurrency:
+    [generateConcurrency(concurrency)/]
+[/if]
+[if (outputs->notEmpty())]
+  outputs:
+  [for (output : Output | outputs)]
+    [generateOutput(output)/]
+  [/for]
+[/if]
+[if (envs->notEmpty())]
+  env:
+  [for (env: Env | envs)]
+    [generateEnv(env)/]
+  [/for]
+[/if]
+[if (defaultsetting->notEmpty())]
+  defaults: 
+  [for (default: DefaultSetting | defaultsetting)]
+    [generateDefaults(default)/]
+  [/for]
+[/if]
+[if (timeout_minutes->notEmpty())]
+  timeout-minutes: [timeout_minutes/]
+[/if]
+[if (continue_on_error = true)]
+  continue-on-error: [continue_on_error/]
+[/if]
+[if (container->notEmpty())]
+  container:
+    [generateContainer(container)/]
+[/if]
+[if (services->notEmpty())]
+  services:
+  [for (service : Service | services)]
+    [service.name/]:
+      [generateContainer(service.container)/]
+  [/for]
+[/if]
+[if (actions->notEmpty())]
+[for (a: Action | actions)]
+  [generateActions(a)/]
+[/for]
+[/if]
+[if (secrets->notEmpty())]
+  secrets:
+  [for (secret : Secret | secrets)]
+    [generateSecret(secret)/]
+  [/for]
+[/if]
+  [generateStrategy(strategy)/]
+  steps:
+  [for (step: Step | steps)]
+    [generateStep(step)/]
+  [/for]
+[/template]
+
+
+
+[template public generateRunsOn(runner : Runs_On)]
+[if (runner.group->isEmpty() and runner.labels->notEmpty())]
+runs-on: ['['/][for (label : String | runner.labels)][label/][if (not (label = runner.labels->last()))], [/if][/for][']'/]
+[/if]
+[if (runner.group->notEmpty() and runner.labels->isEmpty())]
+runs-on: 
+  group: [runner.group/]
+[/if]
+[if (runner.group->notEmpty() and runner.labels->notEmpty())]
+runs-on:
+  group: [runner.group/]
+  labels: ['['/][for (label : String | runner.labels)][label/][if (not (label = runner.labels->last()))], [/if][/for][']'/]
+[/if]
+[/template]
+
+
+[template public generateEnvironment(env : Environment)]
+[if (env->notEmpty())]
+[if (env.url->isEmpty())]
+environment: [env.name/]
+[elseif (env.url->notEmpty())]
+environment: 
+  name: [env.name/]
+  url: [env.url/]
+[/if]
+[/if]
+[/template]
+
+
+[template public generateContainer(container : Container)]
+image: [image/]
+[if (credential->notEmpty())]
+credentials:
+  username: [credential.username/]
+  password: [credential.password/]
+[/if]
+[if (envs->notEmpty())]
+env:
+[for (e: Env | envs)]
+  [generateEnv(e)/]
+[/for]
+[/if]
+[if (ports->notEmpty())]
+ports:
+[for (port : String | ports)]
+  - [port/]
+[/for]
+[/if]
+[if (volumes->notEmpty())]
+volumes:
+[for (volume : String | volumes)]
+  - [volume/]
+[/for]
+[/if]
+[if (options->notEmpty())]
+options: [options/]
+[/if]
+[/template]
+
+
+[template public generateStrategy(s : Strategy)]
+[if (s->notEmpty())]
+strategy:
+[if (fail_fast = true)]
+  fail-fast: [fail_fast/]
+[/if]
+[if (max_parallel <> 0)]
+  max-parallel: [max_parallel/]
+[/if]
+[if (configs->notEmpty())]
+[if (configs->exists(matrix | matrix.type.toString() = 'DEFAULT'))]
+  matrix:
+  [for (matrix: MatrixConfig | configs->select(matrix | matrix.type.toString() = 'DEFAULT'))]
+    [matrix.key/]: ['['/][matrix.values/][']'/]
+  [/for]
+[/if]
+  [if (configs->exists(matrix | matrix.type.toString() = 'INCLUDE'))]
+    include:
+    [for (matrix: MatrixConfig | configs->select(matrix | matrix.type.toString() = 'INCLUDE'))]
+      - [matrix.key/]: [matrix.values->first()/]
+    [/for]
+  [/if]
+  [if (configs->exists(matrix | matrix.type.toString() = 'EXCLUDE'))]
+    exclude:
+    [for (matrix: MatrixConfig | configs->select(matrix | matrix.type.toString() = 'EXCLUDE'))]
+      - [matrix.key/]: [matrix.values->first()/]
+    [/for]
+  [/if]
+[/if]
+[/if]
+[/template]
+
+
+[template public generateStep(step: Step)]
+[if (name->notEmpty())]
+- name: [name/]
+  [generateAuxStep(step)/]
+[/if]
+[if (name->isEmpty())]
+[generateAuxStep(step)/]
+[/if]
+[/template]
+
+[template public generateAuxStep(step: Step)]
+[if (_if->notEmpty())]
+if: [_if.condition/]
+[/if]
+[if (actions->notEmpty())]
+[for (a: Action | actions)]
+[generateActions(a)/]
+[/for]
+[/if]
+[if (working_directory->notEmpty())]
+working-directory: [working_directory/]
+[/if]
+[if (shell->notEmpty())]
+shell: [shell/]
+[/if]
+[if (envs->notEmpty())]
+env:
+[for (env: Env | envs)]
+  [generateEnv(env)/]
+[/for]
+[/if]
+[if (continue_on_error->notEmpty())]
+continue-on-error: [continue_on_error/]
+[/if]
+[if (timeout_minutes->notEmpty())]
+timeout-minutes: [timeout_minutes/]
+[/if]
+run:
+[for (c: Command | commands)]
+  [c.name/]
+[/for]
+[/template]
+
+
+[template public generateActions(action: Action)]
+[if ((not action.oclIsKindOf(Artifact)) and not (action.oclIsKindOf(RestoreCache)) and (not action.oclIsKindOf(SaveCache)) and (not action.oclIsKindOf(Docker)))]
+[generateAction(action)/]
+[/if]
+[if (action.oclIsKindOf(Artifact))]
+[generateArtifacts(oclAsType(Artifact))/]
+[/if]
+[if (action.oclIsKindOf(RestoreCache))]
+[generateRestoreCache(oclAsType(RestoreCache))/]
+[/if]
+[if (action.oclIsKindOf(SaveCache))]
+[generateSaveCache(oclAsType(SaveCache))/]
+[/if]
+[if (action.oclIsKindOf(Docker))]
+[generateDocker(oclAsType(Docker))/]
+[/if]
+[/template]
+
+[template public generateAction(action: Action)]
+uses: [action.uses/]
+[if (with->notEmpty() and with_inputPair->notEmpty())]
+with:
+[/if]
+[if (with->notEmpty())]
+[if (with_inputPair->isEmpty())]
+with:
+[/if]
+[for (input: InputParams | with)]
+  [input.key/]: [input.value/]
+[/for]
+[/if]
+[if (with_inputPair->notEmpty())]
+[if (with->isEmpty())]
+with:
+[/if]
+[if (with_inputPair.entrypoint->notEmpty())]
+  entrypoint: [with_inputPair.entrypoint/]
+[/if]
+[if (with_inputPair.args->notEmpty())]
+  args: [with_inputPair.args/]
+[/if]
+[/if]
+[/template]
+
+[template public generateArtifacts(artifact: Artifact)]
+[if (artifact.type.toString() = 'upload')]
+- uses: ['actions/upload-artifact@v4'/]
+[/if]
+[if (artifact.type.toString() = 'download')]
+- uses: ['actions/download-artifact@v4'/]
+[/if]
+  with:
+  [if (artifact.name->notEmpty())]
+    name: [artifact.name/]
+  [/if]
+    path: |
+    [for (p: String | paths)]
+      [p/]
+    [/for]
+  [if (artifact.name->notEmpty())]
+    retention-days: [artifact.retention_days/]
+[/if]
+[/template]
+
+
+[template public generateRestoreCache(cache: RestoreCache)]
+uses: ['actions/cache/restore@v4'/]
+with:
+  path: |
+  [for (p: String | paths)]
+    [p/]
+  [/for]
+  key: [key/]
+[if (restore_keys->notEmpty())]
+  restore-keys: |
+  [for (r: String | restore_keys)]
+    [r/]
+  [/for]
+[/if]
+[if (lookup_only = true)]
+  lookup-only: [lookup_only/]
+[/if]
+[if (fail_on_cache_miss = true)]
+  fail-on-cache-miss: [fail_on_cache_miss/]
+[/if]
+[/template]
+
+[template public generateSaveCache(cache: SaveCache)]
+uses: ['actions/cache/save@v4'/]
+with:
+  path: |
+  [for (p: String | paths)]
+    [p/]
+  [/for]
+  key: [key/]
+[if (upload_chunk_size->notEmpty())]
+  upload-chunk-size: [upload_chunk_size/]
+[/if]
+[/template]
+
+
+[template public generateDocker(docker: Docker)]
+uses: [docker.uses/]
+with:
+  image: [image/]
+[if (args->notEmpty())]
+  args: |
+  [for (arg: String | args)]
+    [arg/]
+  [/for]
+[/if]
+[if (pre_entrypoint->notEmpty())]
+  pre-entrypoint: [pre_entrypoint/]
+[/if]
+[if (entrypoint->notEmpty())]
+  entrypoint: [entrypoint/]
+[/if]
+[if (post_entrypoint->notEmpty())]
+  post-entrypoint: [post_entrypoint/]
+[/if]
+[if (envs->notEmpty())]
+  env:
+  [for (env: Env | envs)]
+    [generateEnv(env)/]
+  [/for]
+[/if]
+[/template]
+
+
+[template public generateCommand(aStep: Step)]
+[for (c: Command | commands)]
+  [c.name/] [generateParameters(aStep)/]
+[/for]
+[/template]
+
+[template public generateParameters(aStep: Step)]
+[for (p: Parameter | parameters)] [p.parameter/] [/for]
+[/template]
+
+

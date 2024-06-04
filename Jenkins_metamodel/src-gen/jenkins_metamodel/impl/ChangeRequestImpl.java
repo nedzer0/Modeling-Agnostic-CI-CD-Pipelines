@@ -2,6 +2,8 @@
  */
 package jenkins_metamodel.impl;
 
+import jenkins_metamodel.ATTRIBUTE_TYPE;
+import jenkins_metamodel.COMPARATOR_TYPE;
 import jenkins_metamodel.ChangeRequest;
 import jenkins_metamodel.Jenkins_metamodelPackage;
 
@@ -35,7 +37,7 @@ public class ChangeRequestImpl extends WhenImpl implements ChangeRequest {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ATTRIBUTE_EDEFAULT = null;
+	protected static final ATTRIBUTE_TYPE ATTRIBUTE_EDEFAULT = ATTRIBUTE_TYPE.TARGET;
 
 	/**
 	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.
@@ -45,7 +47,7 @@ public class ChangeRequestImpl extends WhenImpl implements ChangeRequest {
 	 * @generated
 	 * @ordered
 	 */
-	protected String attribute = ATTRIBUTE_EDEFAULT;
+	protected ATTRIBUTE_TYPE attribute = ATTRIBUTE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -75,7 +77,7 @@ public class ChangeRequestImpl extends WhenImpl implements ChangeRequest {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String COMPARATOR_EDEFAULT = null;
+	protected static final COMPARATOR_TYPE COMPARATOR_EDEFAULT = COMPARATOR_TYPE.NONE;
 
 	/**
 	 * The cached value of the '{@link #getComparator() <em>Comparator</em>}' attribute.
@@ -85,7 +87,7 @@ public class ChangeRequestImpl extends WhenImpl implements ChangeRequest {
 	 * @generated
 	 * @ordered
 	 */
-	protected String comparator = COMPARATOR_EDEFAULT;
+	protected COMPARATOR_TYPE comparator = COMPARATOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,7 +114,7 @@ public class ChangeRequestImpl extends WhenImpl implements ChangeRequest {
 	 * @generated
 	 */
 	@Override
-	public String getAttribute() {
+	public ATTRIBUTE_TYPE getAttribute() {
 		return attribute;
 	}
 
@@ -122,9 +124,9 @@ public class ChangeRequestImpl extends WhenImpl implements ChangeRequest {
 	 * @generated
 	 */
 	@Override
-	public void setAttribute(String newAttribute) {
-		String oldAttribute = attribute;
-		attribute = newAttribute;
+	public void setAttribute(ATTRIBUTE_TYPE newAttribute) {
+		ATTRIBUTE_TYPE oldAttribute = attribute;
+		attribute = newAttribute == null ? ATTRIBUTE_EDEFAULT : newAttribute;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Jenkins_metamodelPackage.CHANGE_REQUEST__ATTRIBUTE,
 					oldAttribute, attribute));
@@ -160,7 +162,7 @@ public class ChangeRequestImpl extends WhenImpl implements ChangeRequest {
 	 * @generated
 	 */
 	@Override
-	public String getComparator() {
+	public COMPARATOR_TYPE getComparator() {
 		return comparator;
 	}
 
@@ -170,9 +172,9 @@ public class ChangeRequestImpl extends WhenImpl implements ChangeRequest {
 	 * @generated
 	 */
 	@Override
-	public void setComparator(String newComparator) {
-		String oldComparator = comparator;
-		comparator = newComparator;
+	public void setComparator(COMPARATOR_TYPE newComparator) {
+		COMPARATOR_TYPE oldComparator = comparator;
+		comparator = newComparator == null ? COMPARATOR_EDEFAULT : newComparator;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Jenkins_metamodelPackage.CHANGE_REQUEST__COMPARATOR,
 					oldComparator, comparator));
@@ -205,13 +207,13 @@ public class ChangeRequestImpl extends WhenImpl implements ChangeRequest {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case Jenkins_metamodelPackage.CHANGE_REQUEST__ATTRIBUTE:
-			setAttribute((String) newValue);
+			setAttribute((ATTRIBUTE_TYPE) newValue);
 			return;
 		case Jenkins_metamodelPackage.CHANGE_REQUEST__VALUE:
 			setValue((String) newValue);
 			return;
 		case Jenkins_metamodelPackage.CHANGE_REQUEST__COMPARATOR:
-			setComparator((String) newValue);
+			setComparator((COMPARATOR_TYPE) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -247,11 +249,11 @@ public class ChangeRequestImpl extends WhenImpl implements ChangeRequest {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case Jenkins_metamodelPackage.CHANGE_REQUEST__ATTRIBUTE:
-			return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals(attribute);
+			return attribute != ATTRIBUTE_EDEFAULT;
 		case Jenkins_metamodelPackage.CHANGE_REQUEST__VALUE:
 			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		case Jenkins_metamodelPackage.CHANGE_REQUEST__COMPARATOR:
-			return COMPARATOR_EDEFAULT == null ? comparator != null : !COMPARATOR_EDEFAULT.equals(comparator);
+			return comparator != COMPARATOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

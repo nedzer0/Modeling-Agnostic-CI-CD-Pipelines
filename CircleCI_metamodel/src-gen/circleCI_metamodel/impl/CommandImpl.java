@@ -4,7 +4,7 @@ package circleCI_metamodel.impl;
 
 import circleCI_metamodel.CircleCI_metamodelPackage;
 import circleCI_metamodel.Command;
-import circleCI_metamodel.Command_Params;
+import circleCI_metamodel.Parameter;
 import circleCI_metamodel.Step;
 
 import java.util.Collection;
@@ -31,15 +31,35 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link circleCI_metamodel.impl.CommandImpl#getSteps <em>Steps</em>}</li>
+ *   <li>{@link circleCI_metamodel.impl.CommandImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.CommandImpl#getName <em>Name</em>}</li>
- *   <li>{@link circleCI_metamodel.impl.CommandImpl#getStep <em>Step</em>}</li>
- *   <li>{@link circleCI_metamodel.impl.CommandImpl#getCommand_params <em>Command params</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.CommandImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CommandImpl extends MinimalEObjectImpl.Container implements Command {
+	/**
+	 * The cached value of the '{@link #getSteps() <em>Steps</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSteps()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Step> steps;
+
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> parameters;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -59,26 +79,6 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getStep() <em>Step</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStep()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Step> step;
-
-	/**
-	 * The cached value of the '{@link #getCommand_params() <em>Command params</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCommand_params()
-	 * @generated
-	 * @ordered
-	 */
-	protected Command_Params command_params;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -117,6 +117,33 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
 	@Override
 	protected EClass eStaticClass() {
 		return CircleCI_metamodelPackage.Literals.COMMAND;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Step> getSteps() {
+		if (steps == null) {
+			steps = new EObjectContainmentEList<Step>(Step.class, this, CircleCI_metamodelPackage.COMMAND__STEPS);
+		}
+		return steps;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Parameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this,
+					CircleCI_metamodelPackage.COMMAND__PARAMETERS);
+		}
+		return parameters;
 	}
 
 	/**
@@ -173,77 +200,12 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
 	 * @generated
 	 */
 	@Override
-	public EList<Step> getStep() {
-		if (step == null) {
-			step = new EObjectContainmentEList<Step>(Step.class, this, CircleCI_metamodelPackage.COMMAND__STEP);
-		}
-		return step;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Command_Params getCommand_params() {
-		return command_params;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCommand_params(Command_Params newCommand_params, NotificationChain msgs) {
-		Command_Params oldCommand_params = command_params;
-		command_params = newCommand_params;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					CircleCI_metamodelPackage.COMMAND__COMMAND_PARAMS, oldCommand_params, newCommand_params);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCommand_params(Command_Params newCommand_params) {
-		if (newCommand_params != command_params) {
-			NotificationChain msgs = null;
-			if (command_params != null)
-				msgs = ((InternalEObject) command_params).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - CircleCI_metamodelPackage.COMMAND__COMMAND_PARAMS, null, msgs);
-			if (newCommand_params != null)
-				msgs = ((InternalEObject) newCommand_params).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - CircleCI_metamodelPackage.COMMAND__COMMAND_PARAMS, null, msgs);
-			msgs = basicSetCommand_params(newCommand_params, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CircleCI_metamodelPackage.COMMAND__COMMAND_PARAMS,
-					newCommand_params, newCommand_params));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CircleCI_metamodelPackage.COMMAND__STEP:
-			return ((InternalEList<?>) getStep()).basicRemove(otherEnd, msgs);
-		case CircleCI_metamodelPackage.COMMAND__COMMAND_PARAMS:
-			return basicSetCommand_params(null, msgs);
+		case CircleCI_metamodelPackage.COMMAND__STEPS:
+			return ((InternalEList<?>) getSteps()).basicRemove(otherEnd, msgs);
+		case CircleCI_metamodelPackage.COMMAND__PARAMETERS:
+			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -256,12 +218,12 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case CircleCI_metamodelPackage.COMMAND__STEPS:
+			return getSteps();
+		case CircleCI_metamodelPackage.COMMAND__PARAMETERS:
+			return getParameters();
 		case CircleCI_metamodelPackage.COMMAND__NAME:
 			return getName();
-		case CircleCI_metamodelPackage.COMMAND__STEP:
-			return getStep();
-		case CircleCI_metamodelPackage.COMMAND__COMMAND_PARAMS:
-			return getCommand_params();
 		case CircleCI_metamodelPackage.COMMAND__DESCRIPTION:
 			return getDescription();
 		}
@@ -277,15 +239,16 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case CircleCI_metamodelPackage.COMMAND__STEPS:
+			getSteps().clear();
+			getSteps().addAll((Collection<? extends Step>) newValue);
+			return;
+		case CircleCI_metamodelPackage.COMMAND__PARAMETERS:
+			getParameters().clear();
+			getParameters().addAll((Collection<? extends Parameter>) newValue);
+			return;
 		case CircleCI_metamodelPackage.COMMAND__NAME:
 			setName((String) newValue);
-			return;
-		case CircleCI_metamodelPackage.COMMAND__STEP:
-			getStep().clear();
-			getStep().addAll((Collection<? extends Step>) newValue);
-			return;
-		case CircleCI_metamodelPackage.COMMAND__COMMAND_PARAMS:
-			setCommand_params((Command_Params) newValue);
 			return;
 		case CircleCI_metamodelPackage.COMMAND__DESCRIPTION:
 			setDescription((String) newValue);
@@ -302,14 +265,14 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case CircleCI_metamodelPackage.COMMAND__STEPS:
+			getSteps().clear();
+			return;
+		case CircleCI_metamodelPackage.COMMAND__PARAMETERS:
+			getParameters().clear();
+			return;
 		case CircleCI_metamodelPackage.COMMAND__NAME:
 			setName(NAME_EDEFAULT);
-			return;
-		case CircleCI_metamodelPackage.COMMAND__STEP:
-			getStep().clear();
-			return;
-		case CircleCI_metamodelPackage.COMMAND__COMMAND_PARAMS:
-			setCommand_params((Command_Params) null);
 			return;
 		case CircleCI_metamodelPackage.COMMAND__DESCRIPTION:
 			setDescription(DESCRIPTION_EDEFAULT);
@@ -326,12 +289,12 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case CircleCI_metamodelPackage.COMMAND__STEPS:
+			return steps != null && !steps.isEmpty();
+		case CircleCI_metamodelPackage.COMMAND__PARAMETERS:
+			return parameters != null && !parameters.isEmpty();
 		case CircleCI_metamodelPackage.COMMAND__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case CircleCI_metamodelPackage.COMMAND__STEP:
-			return step != null && !step.isEmpty();
-		case CircleCI_metamodelPackage.COMMAND__COMMAND_PARAMS:
-			return command_params != null;
 		case CircleCI_metamodelPackage.COMMAND__DESCRIPTION:
 			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}

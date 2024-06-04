@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated gHA_metamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="gHA_metamodel.presentation.GHA_metamodelModelWizardID"
+            name="%_UI_GHA_metamodelModelWizard_label"
+            class="gHA_metamodel.presentation.GHA_metamodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GHA_metamodelModelFile.gif">
+         <description>%_UI_GHA_metamodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated gHA_metamodel -->
+      <editor
+            id="gHA_metamodel.presentation.GHA_metamodelEditorID"
+            name="%_UI_GHA_metamodelEditor_label"
+            icon="icons/full/obj16/GHA_metamodelModelFile.gif"
+            extensions="gha_metamodel"
+            class="gHA_metamodel.presentation.GHA_metamodelEditor"
+            contributorClass="gHA_metamodel.presentation.GHA_metamodelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

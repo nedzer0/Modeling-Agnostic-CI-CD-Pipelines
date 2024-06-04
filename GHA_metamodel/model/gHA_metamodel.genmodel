@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/GHA_metamodel/src-gen" creationIcons="false" editDirectory="/GHA_metamodel.edit/src-gen"
+    editorDirectory="/GHA_metamodel.editor/src-gen" modelPluginID="GHA_metamodel"
+    modelName="GHA_metamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>gHA_metamodel.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="GHA_metamodel" disposableProviderFactory="true" ecorePackage="gHA_metamodel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gHA_metamodel.ecore#//EVENTS">
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/BRANCH_PROTECTION_RULE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/CHECK_RUN"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/CHECK_SUITE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/CREATE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/DELETE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/DEPLOYMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/DEPLOYMENT_STATUS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/DISCUSSION"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/DISCUSSION_COMMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/FORK"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/GOLLUM"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/ISSUE_COMMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/ISSUES"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/LABEL"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/MERGE_GROUP"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/MILESTONE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PAGE_BUILD"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PROJECT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PROJECT_CARD"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PROJECT_COLUMN"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PUBLIC"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PULL_REQUEST_REVIEW"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PULL_REQUEST_REVIEW_COMMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/REGISTRY_PACKAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/RELEASE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/REPOSITORY_DISPATCH"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/STATUS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/WATCH"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/BRANCH_PROTECTION_CONFIGURATION"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/CODE_SCANNING_ALERT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/COMMIT_COMMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/CUSTOM_PROPERTY"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/CUSTOM_PROPERTY_VALUES"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/DEPENDABOT_ALERT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/DEPLOY_KEY"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/DEPLOYMENT_PROTECTION_RULE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/DEPLOYMENT_REVIEW"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/GITHUB_APP_AUTHORIZATION"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/INSTALLATION"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/INSTALLATION_REPOSITORIES"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/INSTALLATION_TARGET"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/MARKETPLACE_PURCHASE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/MEMBER"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/MEMBERSHIP"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/META"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/ORG_BLOCK"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/ORGANIZATION"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PACKAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PERSONAL_ACCESS_TOKEN_REQUEST"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PING"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PROJECTS_V2"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PROJECTS_V2_ITEM"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PULL_REQUEST"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PULL_REQUEST_REVIEW_THREAD"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/PUSH"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/REPOSITORY_ADVISORY"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/REPOSITORY"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/REPOSITORY_IMPORT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/REPOSITORY_RULESET"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/REPOSITORY_VULNERABILITY_ALERT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/SECRET_SCANNING_ALERT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/SECRET_SCANNING_ALERT_LOCATION"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/SECURITY_ADVISORY"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/SECURITY_AND_ANALYSIS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/SPONSORSHIP"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/STAR"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/TEAM_ADD"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/TEAM"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//EVENTS/WORKFLOW_JOB"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES">
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/ASSIGNED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/AUTO_MERGE_DISABLED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/AUTO_MERGE_ENABLED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/CLOSED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/CONVERTED_TO_DRAFT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/EDITED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/LABELED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/LOCKED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/OPENED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/READY_FOR_REVIEW"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REOPENED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REVIEW_REQUEST_REMOVED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REVIEW_REQUESTED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/SYNCHRONIZE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/UNASSIGNED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/UNLABELED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/UNLOCKED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/CREATED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/DELETED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/DISABLED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/ENABLED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/COMPLETED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REQUESTED_ACTION"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REREQUESTED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REQUESTED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/APPEARED_IN_BRANCH"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/CLOSED_BY_USER"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/FIXED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REOPENED_BY_USER"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/UPDATED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/AUTO_DISMISSED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/AUTO_REOPENED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/DISMISSED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REINTRODUCED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/APPROVED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REJECTED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/ANSWERED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/CATEGORY_CHANGED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/PINNED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/TRANSFERED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/UNANSWERED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/UNPINNED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/NEW_PERMISSIONS_ACCEPTED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/SUSPEND_UNSUSPEND"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/ADDED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REMOVED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/DEMILESTONED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/MILESTONED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/CANCELLED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/CHANGED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/PENDING_CHANGE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/PENDING_CHANGE_CANCELLED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/PURCHASED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/DENIED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/CHECKS_REQUESTED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/DESTROYED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/BLOCKED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/MEMBER_ADDED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/MEMBER_INVITED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/MEMBER_REMOVED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/RENAMED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/PUBLISHED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/MOVED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/ARCHIVED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/CONVERTED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REORDERED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/RESTORED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/DEQUEUED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/ENQUEUED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/SUBMITTED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/RESOLVED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/UNRESOLVED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/PRERELEASED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/RELEASED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/UNPUBLISHED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REPORTED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/PRIVATIZED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/PUBLICIZED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/TRANSFERRED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/UNARCHIVED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/DISMISS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REOPEN"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/RESOLVE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REVOKED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/VALIDATED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/WITHDRAWN"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/PENDING_CANCELLATION"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/PENDING_TIER_CHANGE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/TIER_CHANGED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/ADDED_TO_REPOSITORY"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/REMOVED_FROM_REPOSITORY"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/UNBLOCKED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/CREATE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/IN_PROGRESS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/QUEUED"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//WEBHOOK_ACTIVITY_TYPES/WAITING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gHA_metamodel.ecore#//PERMISSIONS">
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSIONS/READ"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSIONS/WRITE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSIONS/NONE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gHA_metamodel.ecore#//PERMISSION_SCOPES">
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/ACTIONS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/CHECKS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/CONTENTS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/DEPLOYMENTS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/DISCUSSIONS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/ID_TOKEN"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/ISSUES"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/PACKAGES"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/PAGES"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/PULL_REQUESTS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/REPOSITORY_PROJECTS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/SECURITY_EVENTS"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//PERMISSION_SCOPES/STATUSES"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gHA_metamodel.ecore#//INPUT_TYPES">
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//INPUT_TYPES/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//INPUT_TYPES/NUMBER"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//INPUT_TYPES/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//INPUT_TYPES/ENVIRONMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//INPUT_TYPES/CHOICE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gHA_metamodel.ecore#//ARTIFACT_TYPE">
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//ARTIFACT_TYPE/UPLOAD"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//ARTIFACT_TYPE/DOWNLOAD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gHA_metamodel.ecore#//MATRIX_CONFIG_TYPE">
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//MATRIX_CONFIG_TYPE/DEFAULT"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//MATRIX_CONFIG_TYPE/INCLUDE"/>
+      <genEnumLiterals ecoreEnumLiteral="gHA_metamodel.ecore#//MATRIX_CONFIG_TYPE/EXCLUDE"/>
+    </genEnums>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Pipeline">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Pipeline/triggers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Pipeline/jobs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Pipeline/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Pipeline/run_name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Pipeline/permissions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Pipeline/concurrency"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Pipeline/envs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Pipeline/defaultsetting"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Job">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/steps"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Job/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/if"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/strategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/concurrency"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/environment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/defaultsetting"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/permissions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/envs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/need"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/outputs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Job/timeout_minutes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Job/continue_on_error"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/services"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/secrets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/runner"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Job/container"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gHA_metamodel.ecore#//Trigger"/>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Step">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Step/commands"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Step/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Step/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Step/envs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Step/if"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Step/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Step/working_directory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Step/shell"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Step/continue_on_error"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Step/timeout_minutes"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Command">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Command/name"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Parameter/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Environment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Environment/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Environment/url"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Action/uses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Action/composite_action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Action/with"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Action/with_inputPair"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gHA_metamodel.ecore#//EventTrigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//EventTrigger/activityType"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//ScheduleTrigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//ScheduleTrigger/cron"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//PushTrigger">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//PushTrigger/branches"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//PushTrigger/tags"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//PushTrigger/paths"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Runs_On">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Runs_On/labels"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Runs_On/group"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Secret">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Secret/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Secret/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Secret/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Secret/name"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Need">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Need/jobs"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Strategy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Strategy/fail_fast"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Strategy/max_parallel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Strategy/configs"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Artifact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Artifact/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Artifact/paths"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Artifact/retention_days"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Artifact/type"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//If">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//If/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//MatrixConfig">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//MatrixConfig/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//MatrixConfig/values"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//MatrixConfig/type"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Concurrency">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Concurrency/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Concurrency/cancel_in_progress"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Credentials">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Credentials/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Credentials/password"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//DefaultSetting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//DefaultSetting/shell"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//DefaultSetting/workingDirectory"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Permission">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Permission/permission"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Permission/scope"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Permission/readAll"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Permission/writeAll"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Permission/disableAll"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Output">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Output/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Output/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Output/description"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Env">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Env/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Env/value"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Service">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Service/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Service/container"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//InputParams">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//InputParams/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//InputParams/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gHA_metamodel.ecore#//Cache">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Cache/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Cache/paths"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//PullTrigger">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//PullTrigger/branches"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//PullTrigger/paths"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//StandardEventTrigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//StandardEventTrigger/event"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Docker">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Docker/image"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Docker/pre_entrypoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Docker/envs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Docker/entrypoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Docker/post_entrypoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Docker/args"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gHA_metamodel.ecore#//InputTrigger">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//InputTrigger/inputs"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//WorkflowCallTrigger">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//WorkflowCallTrigger/outputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//WorkflowCallTrigger/secrets"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Input">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Input/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Input/isRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Input/options"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Input/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Input/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Input/default"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Container">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Container/image"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Container/ports"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Container/volumes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Container/options"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Container/credential"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//Container/envs"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//WorkflowDispatchTrigger"/>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//WorkflowRunTrigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//WorkflowRunTrigger/workflow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//WorkflowRunTrigger/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//WorkflowRunTrigger/branches"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Branch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Branch/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Branch/ignore"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Tag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Tag/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Tag/ignore"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//Path">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Path/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//Path/ignore"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//PullTargetTrigger">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//PullTargetTrigger/branches"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gHA_metamodel.ecore#//PullTargetTrigger/paths"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//RestoreCache">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//RestoreCache/restore_keys"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//RestoreCache/lookup_only"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//RestoreCache/fail_on_cache_miss"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//SaveCache">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//SaveCache/upload_chunk_size"/>
+    </genClasses>
+    <genClasses ecoreClass="gHA_metamodel.ecore#//InputPair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//InputPair/args"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gHA_metamodel.ecore#//InputPair/entrypoint"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cICD_metamodel:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:cICD_metamodel="http://www.example.org/cICD_metamodel"
+    name="my-pipeline">
+  <jobs name="Build"
+      parallel="2">
+    <steps>
+      <commands
+          name="echo"/>
+      <parameters
+          parameter="hello-world"/>
+      <cache
+          key="v1-{{ checksum &quot;yarn.lock&quot; }}">
+        <paths>node_modules/workspace-a</paths>
+        <paths>node_modules/workspace-c</paths>
+      </cache>
+    </steps>
+    <steps>
+      <commands
+          name="mkdir -p /tmp/test-results"/>
+    </steps>
+    <environments
+        key="MY-TEST-ENV"
+        value="env_secret@78"/>
+    <agents>
+      <container
+          image="maven:3.9.3-eclipse-temurin-17"/>
+      <labels>linux-1.3</labels>
+    </agents>
+  </jobs>
+  <jobs name="Test"
+      parallel="">
+    <steps>
+      <commands
+          name="bundle exec jekyll build --source jekyll --destination jekyll/_site/docs/"/>
+    </steps>
+    <IfStep
+        condition="branch = main">
+      <if_steps>
+        <commands
+            name="npm install java -v 1.4"/>
+      </if_steps>
+      <else_steps>
+        <commands
+            name="echo &quot;else step&quot;"/>
+      </else_steps>
+    </IfStep>
+    <requireJobs>Build</requireJobs>
+  </jobs>
+  <jobs name="Executor Job"
+      parallel="">
+    <steps>
+      <commands
+          name="git submodule sync"/>
+    </steps>
+    <artifacts
+        name="code-coverage-report"
+        message="">
+      <path>jekyll/_site/docs/</path>
+    </artifacts>
+    <matrix
+        name="test-matrix">
+      <configs
+          name="version">
+        <values>0.1</values>
+        <values>0.2</values>
+        <values>0.3</values>
+      </configs>
+      <configs
+          name="platform">
+        <values>windows</values>
+        <values>macos</values>
+      </configs>
+      <configs
+          name="aba"
+          type="EXCLUDE">
+        <values>1</values>
+        <values>5</values>
+        <values>8</values>
+      </configs>
+      <configs
+          name="os"
+          type="EXCLUDE">
+        <values>ubuntu</values>
+      </configs>
+    </matrix>
+  </jobs>
+  <triggers
+      timer="*/15 * * * *"/>
+  <agents>
+    <container
+        image="buildpack-deps:trusty"
+        username="$DOCKERHUB_PASSWORD"
+        password="mydockerhub-user">
+      <environments
+          key="ENV"
+          value="CI"/>
+    </container>
+    <labels>docker</labels>
+  </agents>
+  <agents>
+    <container
+        image="image2"/>
+    <labels>Apache-1.2</labels>
+  </agents>
+  <inputs name="Input"/>
+  <inputs type="BOOLEAN"
+      name="Input-v2"
+      default="true"/>
+</cICD_metamodel:Pipeline>

@@ -5,6 +5,7 @@ package jenkins_metamodel.provider;
 import java.util.Collection;
 import java.util.List;
 
+import jenkins_metamodel.ATTRIBUTE_TYPE;
 import jenkins_metamodel.ChangeRequest;
 import jenkins_metamodel.Jenkins_metamodelPackage;
 
@@ -128,7 +129,8 @@ public class ChangeRequestItemProvider extends WhenItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ChangeRequest) object).getAttribute();
+		ATTRIBUTE_TYPE labelValue = ((ChangeRequest) object).getAttribute();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ? getString("_UI_ChangeRequest_type")
 				: getString("_UI_ChangeRequest_type") + " " + label;
 	}

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cICD_metamodel:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:cICD_metamodel="http://www.example.org/cICD_metamodel"
+    name="my-pipeline">
+  <jobs name="AgentCacheJob">
+    <steps>
+      <commands
+          name="echo"/>
+      <parameters
+          parameter="hello-world"/>
+      <cache
+          key="v1-{{ checksum &quot;yarn.lock&quot; }}">
+        <paths>node_modules/workspace-a</paths>
+        <paths>/home/ubuntu/.m2</paths>
+        <keys>key1</keys>
+        <keys>key2</keys>
+      </cache>
+    </steps>
+    <environments
+        key="MY-TEST-ENV"
+        value="env_secret@78"/>
+    <agents>
+      <container
+          image="my-docker-image"
+          username="user24"
+          password="secret">
+        <environments
+            key="env-34"
+            value="hidden"/>
+      </container>
+      <labels>linux-1.3</labels>
+    </agents>
+  </jobs>
+  <jobs name="conditional-job"
+      parallel="">
+    <steps>
+      <commands
+          name="npm install java -v 1.4"/>
+    </steps>
+    <IfStep
+        condition="${{ ! startsWith(github.ref, 'refs/tags/') }}"/>
+    <requireJobs>AgentCacheJob</requireJobs>
+  </jobs>
+  <jobs name="ArtifactMatrixJob"
+      parallel="">
+    <steps>
+      <commands
+          name="echo This event is a pull request that had an assignee removed."/>
+      <IfStep
+          condition="${{ github.event_name == 'pull_request' &amp;&amp; github.event.action == 'unassigned' }}"/>
+    </steps>
+    <artifacts
+        name="code-coverage-report"
+        message="my-artifact@v10">
+      <path>jekyll/_site/docs/</path>
+    </artifacts>
+    <matrix
+        name="test-matrix">
+      <configs
+          name="version">
+        <values>0.1</values>
+        <values>0.2</values>
+        <values>0.3</values>
+      </configs>
+      <configs
+          name="platform">
+        <values>windows</values>
+        <values>macos</values>
+      </configs>
+      <configs
+          name="aba"
+          type="EXCLUDE">
+        <values>1</values>
+        <values>5</values>
+        <values>8</values>
+      </configs>
+      <configs
+          name="color"
+          type="INCLUDE">
+        <values>green</values>
+      </configs>
+      <configs
+          name="animal"
+          type="INCLUDE">
+        <values>cat</values>
+      </configs>
+      <configs
+          name="os"
+          type="EXCLUDE">
+        <values>ubuntu</values>
+      </configs>
+    </matrix>
+    <output
+        name="workflow_output2"
+        value="${{ jobs.my_job.outputs.job_output2 }}"/>
+  </jobs>
+  <pipeline_environment
+      key="FOO"
+      value="bar"/>
+  <triggers
+      timer="0 * * * *"/>
+  <inputs name="username"
+      default="'john-doe'"
+      description="'A username passed from the caller workflow'"/>
+  <inputs type="BOOLEAN"
+      name="perform_deploy"
+      default="true"/>
+  <output name="workflow_output1"
+      value="${{ jobs.my_job.outputs.job_output1 }}"/>
+</cICD_metamodel:Pipeline>

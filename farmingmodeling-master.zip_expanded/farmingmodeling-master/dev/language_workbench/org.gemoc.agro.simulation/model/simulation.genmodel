@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.gemoc.agro.simulation/src-gen" editDirectory="/org.gemoc.agro.simulation.edit/src-gen"
+    editorDirectory="/org.gemoc.agro.simulation.editor/src-gen" modelPluginID="org.gemoc.agro.simulation"
+    modelName="Simulation" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../org.gemoc.agro.activities/model/generated/ActivitiesDSL.genmodel#//activitiesDSL ../../org.gemoc.agro.exploitation/model/exploitation.genmodel#//exploitation"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>simulation.ecore</foreignModel>
+  <genPackages prefix="Simulation" basePackage="org.gemoc.agro" disposableProviderFactory="true"
+      ecorePackage="simulation.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="simulation.ecore#//FeedbackLevel">
+      <genEnumLiterals ecoreEnumLiteral="simulation.ecore#//FeedbackLevel/info"/>
+      <genEnumLiterals ecoreEnumLiteral="simulation.ecore#//FeedbackLevel/warning"/>
+      <genEnumLiterals ecoreEnumLiteral="simulation.ecore#//FeedbackLevel/error"/>
+    </genEnums>
+    <genClasses ecoreClass="simulation.ecore#//Schedule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Schedule/exploitation"/>
+      <genFeatures property="None" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//Schedule/workToDo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Schedule/climateData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/solverSearchSecondsSpentLimit"/>
+      <genFeatures property="None" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//Schedule/allocations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Schedule/currentDay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/hardScore"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/softScore"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/solutions"/>
+    </genClasses>
+    <genClasses ecoreClass="simulation.ecore#//ActivityWork">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/activity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/scheduledOn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/onSurface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/schedulingFeedback"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//ActivityWork/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="simulation.ecore#//Day">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/year"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/month"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/day"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/rain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/ray"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/ETp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/temperature"/>
+    </genClasses>
+    <genClasses ecoreClass="simulation.ecore#//ClimateData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//ClimateData/name"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference simulation.ecore#//ClimateData/days"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//ClimateData/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//ClimateData/end"/>
+    </genClasses>
+    <genClasses ecoreClass="simulation.ecore#//SchedulingFeedback">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//SchedulingFeedback/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//SchedulingFeedback/message"/>
+    </genClasses>
+    <genClasses ecoreClass="simulation.ecore#//ResourceAllocation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ResourceAllocation/work"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ResourceAllocation/resource"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ResourceAllocation/kind"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

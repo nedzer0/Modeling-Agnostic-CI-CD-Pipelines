@@ -374,11 +374,9 @@ public class Generate extends AbstractAcceleoGenerator {
          * 
          * To learn more about Package Registration, have a look at the Acceleo documentation (Help -> Help Contents).
          */
-        
         if (!isInWorkspace(CircleCI_metamodelPackage.class)) {
-	        // The normal package registration if your metamodel is in a plugin.
-	        resourceSet.getPackageRegistry().put(CircleCI_metamodelPackage.eNS_URI, CircleCI_metamodelPackage.eINSTANCE);
-	    }
+        	resourceSet.getPackageRegistry().put(CircleCI_metamodelPackage.eNS_URI, CircleCI_metamodelPackage.eINSTANCE);
+        }
     }
 
     /**

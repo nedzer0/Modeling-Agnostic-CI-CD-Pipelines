@@ -1,0 +1,131 @@
+env:
+  my-env: 1and2
+permissions: write-all
+defaults: 
+  run:
+    shell: bash
+    working-directory: ./scripts
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+on:
+  branch_protection_rule:
+    types: [edited]
+
+jobs:
+  job1:
+    permissions:
+      actions: read
+    runs-on:
+      group: ubuntu-runners
+      labels: [self-hosted, linux]
+    
+    
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    defaults: 
+      run:
+        shell: bash
+        working-directory: ./mydomain
+    timeout-minutes: 120
+    - uses: actions/upload-artifact@v4
+      with:
+        name: my-artifact
+        path: |
+          my_file.txt
+        retention-days: 5
+    
+    
+    secrets:
+      my-little-secret:
+        access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      
+    
+    steps:
+      - name: Print a greeting
+        working-directory: ./temp
+        continue-on-error: false
+        timeout-minutes: 0
+        run:
+          npm install
+        
+      
+  
+  StrategyJob:
+    environment: production_environment
+    
+    env:
+      FIRST_NAME: Mona
+    timeout-minutes: 360
+    services:
+      nginx:
+        image: ${{ options.nginx == true && 'nginx' || '' }}
+        volumes:
+          - my_docker_volume:/volume_mount
+          - /data/my_data
+        
+    uses: actions/checkout@v3
+    
+    
+    strategy:
+      matrix:
+        version: [1012]
+        os: [windows]
+        include:
+          - color: green
+          - animal: lion
+        exclude:
+          - color: yellow
+    
+    steps:
+      - name: Run my action
+        shell: bash
+        continue-on-error: false
+        timeout-minutes: 0
+        run:
+          echo this is great
+        
+      
+  
+  ConditionalJob:
+    needs: job1
+    if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
+    
+    outputs:
+      out1: ${{ steps.step1.outputs.test }}
+      
+    timeout-minutes: 360
+    container:
+      image: node:18
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
+      env:
+        NODE_ENV: development
+      
+    uses: actions/cache/restore@v4
+    with:
+      path: |
+        path/to/dependencies
+      key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+    
+    
+    
+    steps:
+      uses: actions/hello_world@main
+      with:
+        first_name: Mia
+        middle_name: The
+        entrypoint: /bin/echo
+        args: The ${{ github.event_name }} event triggered this step.
+      
+      
+      continue-on-error: false
+      timeout-minutes: 0
+      run:
+        npm install java
+      
+      
+  
+

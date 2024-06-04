@@ -4,103 +4,159 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:jenkins_metamodel="http://www.example.org/jenkins_metamodel">
-  <environment
+  <environments
       key="CC"
       value="'clang'"/>
-  <stage name="Example">
-    <step>
-      <command
+  <stages name="Example">
+    <steps>
+      <commands
           name="echo"/>
-      <step_parameter
+      <step_parameters
           parameter="'Hello World'"/>
-    </step>
-    <input message="&quot;Should we continue?&quot;"
+    </steps>
+    <inputs
+        message="&quot;Should we continue?&quot;"
         ok="&quot;Yes, we should.&quot;"
         submitter="&quot;alice,bob&quot;">
-      <parameter_directive
-          param_type="string">
-        <param_value
-            key="name"
-            value="'PERSON'"/>
-        <param_value
-            key="description"
-            value="'Who should I say hello to?'"/>
-      </parameter_directive>
-    </input>
-    <when xsi:type="jenkins_metamodel:Branch"
-        pattern="&quot;release-\\d+&quot;"
-        comparator="&quot;REGEXP&quot;"/>
-    <when xsi:type="jenkins_metamodel:When_Env"
-        name="DEPLOY_TO"
-        value="production"/>
-  </stage>
-  <stage name="Stage2">
-    <stage name="SubStage"
+      <parameter_directives
+          xsi:type="jenkins_metamodel:ChoiceParam"
+          name="CHOICES">
+        <choices>one</choices>
+        <choices>two</choices>
+        <choices>three</choices>
+      </parameter_directives>
+    </inputs>
+  </stages>
+  <stages name="Stage2"
+      failFast="true">
+    <stages
+        name="SubStage"
         failFast="true"
         parallel="true">
-      <step>
-        <command
+      <steps>
+        <commands
             name="echo"/>
-        <step_parameter
+        <step_parameters
             parameter="'this is a test'"/>
-      </step>
-      <environment
+      </steps>
+      <environments
           key="SERVICE_CREDS"
           value="credentials('my-predefined-username-password')"/>
-      <environment
+      <environments
           key="AN_ACCESS_KEY"
           value="credentials('my-predefined-secret-text')"/>
-      <tool
-          tool="jdk"
-          tool_name="jdk-17"/>
-    </stage>
-    <stage name="SubStage2">
-      <post
-          condition="failure">
-        <step>
-          <command
-              name="echo"/>
-          <step_parameter
-              parameter="'I will always say Hello again!'"/>
-        </step>
-      </post>
-      <step>
-        <command
+    </stages>
+    <stages
+        name="SubStage2"
+        parallel="true">
+      <agents
+          xsi:type="jenkins_metamodel:Dockerfile"
+          dir="build"
+          additionalBuildArgs="--build-arg version=1.0.2"
+          registryUrl="https://myregistry.com/"
+          registryCredentialsId="myPredefinedCredentialsInJenkins"
+          label="my-defined-label"
+          args="-v /tmp:/tmp"
+          filename="Dockerfile.build"/>
+      <steps>
+        <commands
             name="mvn"/>
-        <step_parameter
+        <step_parameters
             parameter="1.2.3"/>
-      </step>
+      </steps>
+    </stages>
+  </stages>
+  <stages name="MatrixStage">
+    <steps>
+      <commands
+          name="echo echo"/>
+      <step_parameters
+          parameter="read my script"/>
+    </steps>
+    <inputs
+        message="message2"
+        id="input1"
+        ok="&quot;Yes, we should.&quot;"
+        submitter="&quot;alice,bob&quot;"/>
+    <when xsi:type="jenkins_metamodel:ChangeRequest"
+        value="master"
+        comparator="regexp"/>
+    <stage_options
+        xsi:type="jenkins_metamodel:Timeout"
+        time="1"
+        unit="HOURS"/>
+    <matrix>
+      <axis
+          name="PLATFORM">
+        <values>linux</values>
+        <values>mac</values>
+        <values>windows</values>
+      </axis>
+      <axis
+          name="BROWSER">
+        <values>chrome</values>
+      </axis>
+      <axis
+          name="ARCHITECTURE"
+          exclude="true">
+        <values>32-bit</values>
+      </axis>
+      <stages
+          name="build"
+          failFast="true">
+        <steps>
+          <commands
+              name="command2"/>
+        </steps>
+      </stages>
       <when
-          xsi:type="jenkins_metamodel:Not">
+          xsi:type="jenkins_metamodel:AnyOf">
         <when
-            xsi:type="jenkins_metamodel:Branch"
-            pattern="branchTest"/>
+            xsi:type="jenkins_metamodel:Expression"
+            expression="params.PLATFORM_FILTER == 'all'"/>
+        <when
+            xsi:type="jenkins_metamodel:Expression"
+            expression="params.PLATFORM_FILTER == env.PLATFORM"/>
       </when>
-    </stage>
-  </stage>
+      <agents
+          xsi:type="jenkins_metamodel:Label"
+          label="&quot;${PLATFORM}-agent&quot;"/>
+    </matrix>
+  </stages>
   <post>
-    <step>
-      <command
+    <steps>
+      <commands
           name="echo"/>
-      <step_parameter
+      <step_parameters
           parameter="'Hello World'"/>
-    </step>
+    </steps>
   </post>
-  <parameter_directive
-      param_type="string">
-    <param_value
-        key="defaultValue"
-        value="'Mr Jenkins'"/>
-    <param_value
-        key="name"
-        value="'PERSON'"/>
-  </parameter_directive>
-  <trigger timer="H */4 * * 1-5"/>
-  <tool tool="maven"
-      tool_name="apache-maven-3.0.1"/>
-  <agent xsi:type="jenkins_metamodel:Any"/>
-  <agent xsi:type="jenkins_metamodel:Docker"
+  <parameter_directives
+      xsi:type="jenkins_metamodel:StringParam"
+      name="DEPLOY_ENV"
+      defaultValue="staging"/>
+  <parameter_directives
+      xsi:type="jenkins_metamodel:TextParam"
+      description="descrp"
+      name="DEPLOY_TEXT"
+      defaultValue="One\nTwo\nThree\n"/>
+  <tools tool_name="apache-maven-3.0.1"/>
+  <agents xsi:type="jenkins_metamodel:Any"/>
+  <agents xsi:type="jenkins_metamodel:Docker"
       label="my-defined-label"
       args="-v /tmp:/tmp"
       image="maven:3.9.3-eclipse-temurin-17"/>
+  <triggers
+      xsi:type="jenkins_metamodel:Cron"
+      timer="0 6 * * 1"/>
+  <triggers
+      xsi:type="jenkins_metamodel:Upstream"
+      threshold="treshold1.2">
+    <jobs>Example</jobs>
+    <jobs>Stage2</jobs>
+  </triggers>
+  <options xsi:type="jenkins_metamodel:Retry"
+      retries="3"/>
+  <options xsi:type="jenkins_metamodel:PreserveStashes"
+      buildCount="5"/>
 </jenkins_metamodel:Pipeline>

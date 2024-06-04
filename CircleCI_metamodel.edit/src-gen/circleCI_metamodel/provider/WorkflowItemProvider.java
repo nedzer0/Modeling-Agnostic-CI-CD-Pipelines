@@ -106,9 +106,10 @@ public class WorkflowItemProvider extends ItemProviderAdapter implements IEditin
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.WORKFLOW__TRIGGER);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.WORKFLOW__TRIGGERS);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.WORKFLOW__BRANCHES);
 			childrenFeatures.add(CircleCI_metamodelPackage.Literals.WORKFLOW__WHEN_UNLESS);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.WORKFLOW__BRANCH);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.WORKFLOW__JOBWORKFLOW);
 		}
 		return childrenFeatures;
 	}
@@ -176,9 +177,10 @@ public class WorkflowItemProvider extends ItemProviderAdapter implements IEditin
 		case CircleCI_metamodelPackage.WORKFLOW__VERSION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case CircleCI_metamodelPackage.WORKFLOW__TRIGGER:
+		case CircleCI_metamodelPackage.WORKFLOW__TRIGGERS:
+		case CircleCI_metamodelPackage.WORKFLOW__BRANCHES:
 		case CircleCI_metamodelPackage.WORKFLOW__WHEN_UNLESS:
-		case CircleCI_metamodelPackage.WORKFLOW__BRANCH:
+		case CircleCI_metamodelPackage.WORKFLOW__JOBWORKFLOW:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -196,14 +198,17 @@ public class WorkflowItemProvider extends ItemProviderAdapter implements IEditin
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WORKFLOW__TRIGGER,
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WORKFLOW__TRIGGERS,
 				CircleCI_metamodelFactory.eINSTANCE.createTrigger()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WORKFLOW__BRANCHES,
+				CircleCI_metamodelFactory.eINSTANCE.createBranch()));
 
 		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WORKFLOW__WHEN_UNLESS,
 				CircleCI_metamodelFactory.eINSTANCE.createWhen_Unless()));
 
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WORKFLOW__BRANCH,
-				CircleCI_metamodelFactory.eINSTANCE.createBranch()));
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.WORKFLOW__JOBWORKFLOW,
+				CircleCI_metamodelFactory.eINSTANCE.createJobWorkflow()));
 	}
 
 	/**

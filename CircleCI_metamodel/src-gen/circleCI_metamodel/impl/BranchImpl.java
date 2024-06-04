@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link circleCI_metamodel.impl.BranchImpl#getName <em>Name</em>}</li>
- *   <li>{@link circleCI_metamodel.impl.BranchImpl#getBranch_type <em>Branch type</em>}</li>
+ *   <li>{@link circleCI_metamodel.impl.BranchImpl#getBranch <em>Branch</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,24 +49,24 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBranch_type() <em>Branch type</em>}' attribute.
+	 * The default value of the '{@link #getBranch() <em>Branch</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBranch_type()
+	 * @see #getBranch()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BRANCH_TYPE BRANCH_TYPE_EDEFAULT = BRANCH_TYPE.ONLY;
+	protected static final BRANCH_TYPE BRANCH_EDEFAULT = BRANCH_TYPE.ONLY;
 
 	/**
-	 * The cached value of the '{@link #getBranch_type() <em>Branch type</em>}' attribute.
+	 * The cached value of the '{@link #getBranch() <em>Branch</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBranch_type()
+	 * @see #getBranch()
 	 * @generated
 	 * @ordered
 	 */
-	protected BRANCH_TYPE branch_type = BRANCH_TYPE_EDEFAULT;
+	protected BRANCH_TYPE branch = BRANCH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,8 +117,8 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 	 * @generated
 	 */
 	@Override
-	public BRANCH_TYPE getBranch_type() {
-		return branch_type;
+	public BRANCH_TYPE getBranch() {
+		return branch;
 	}
 
 	/**
@@ -127,12 +127,12 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 	 * @generated
 	 */
 	@Override
-	public void setBranch_type(BRANCH_TYPE newBranch_type) {
-		BRANCH_TYPE oldBranch_type = branch_type;
-		branch_type = newBranch_type == null ? BRANCH_TYPE_EDEFAULT : newBranch_type;
+	public void setBranch(BRANCH_TYPE newBranch) {
+		BRANCH_TYPE oldBranch = branch;
+		branch = newBranch == null ? BRANCH_EDEFAULT : newBranch;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CircleCI_metamodelPackage.BRANCH__BRANCH_TYPE,
-					oldBranch_type, branch_type));
+			eNotify(new ENotificationImpl(this, Notification.SET, CircleCI_metamodelPackage.BRANCH__BRANCH, oldBranch,
+					branch));
 	}
 
 	/**
@@ -145,8 +145,8 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 		switch (featureID) {
 		case CircleCI_metamodelPackage.BRANCH__NAME:
 			return getName();
-		case CircleCI_metamodelPackage.BRANCH__BRANCH_TYPE:
-			return getBranch_type();
+		case CircleCI_metamodelPackage.BRANCH__BRANCH:
+			return getBranch();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,8 +162,8 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 		case CircleCI_metamodelPackage.BRANCH__NAME:
 			setName((String) newValue);
 			return;
-		case CircleCI_metamodelPackage.BRANCH__BRANCH_TYPE:
-			setBranch_type((BRANCH_TYPE) newValue);
+		case CircleCI_metamodelPackage.BRANCH__BRANCH:
+			setBranch((BRANCH_TYPE) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,8 +180,8 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 		case CircleCI_metamodelPackage.BRANCH__NAME:
 			setName(NAME_EDEFAULT);
 			return;
-		case CircleCI_metamodelPackage.BRANCH__BRANCH_TYPE:
-			setBranch_type(BRANCH_TYPE_EDEFAULT);
+		case CircleCI_metamodelPackage.BRANCH__BRANCH:
+			setBranch(BRANCH_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -197,8 +197,8 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 		switch (featureID) {
 		case CircleCI_metamodelPackage.BRANCH__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case CircleCI_metamodelPackage.BRANCH__BRANCH_TYPE:
-			return branch_type != BRANCH_TYPE_EDEFAULT;
+		case CircleCI_metamodelPackage.BRANCH__BRANCH:
+			return branch != BRANCH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -216,8 +216,8 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", branch_type: ");
-		result.append(branch_type);
+		result.append(", branch: ");
+		result.append(branch);
 		result.append(')');
 		return result.toString();
 	}

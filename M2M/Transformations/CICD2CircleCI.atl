@@ -1,0 +1,357 @@
+-- @path CICD=/CICD_metamodel/model/cICD_metamodel.ecore
+-- @path CircleCI=/CircleCI_metamodel/model/circleCI_metamodel.ecore
+
+module CICD2CircleCI;
+create OUT : CircleCI from IN : CICD;
+
+rule Pipeline2Pipeline {
+	from
+		s : CICD!Pipeline
+	to
+		t : CircleCI!Pipeline(
+			version <- '2.0',
+			setup <- false,
+			jobs <- s.jobs,
+			commands <- s.inputs ->collect(i | thisModule.Input2Command(i)),
+			workflow <- thisModule.ScheduleTrigger2Workflow(s),
+			executors <- s.agents ->collect(agent | thisModule.DockerContainer2Docker(agent.container, agent.labels->first()))
+		)
+}
+
+lazy rule Input2Command {
+    from
+        s : CICD!Input
+    to
+        t : CircleCI!Command (
+            name <- 'dummyCom',
+			description <- '',
+			parameters <- thisModule.Input2Parameter(s)
+        )
+}
+
+lazy rule Input2Parameter {
+	from
+		s : CICD!Input
+	to
+		t : CircleCI!Parameter(
+			name <- s.name,
+			default <- 
+				if not s.default.oclIsUndefined() then 
+					s.default
+				else 
+					'' 
+				endif,
+			description <-
+				if not s.description.oclIsUndefined() then
+					s.description
+				else
+					''
+				endif,
+			enumValues <- s.values,
+			type <-
+				if s.type = #STRING then
+					#STRING
+				else if s.type = #NUMBER then
+					#INTEGER
+				else if s.type = #BOOLEAN then
+					#BOOLEAN
+				else if s.type = #CHOICE then
+					#ENUM
+				else
+					#STRING
+				endif
+				endif
+				endif
+				endif
+		)
+}
+
+lazy rule ScheduleTrigger2Workflow {
+    from
+        s : CICD!Pipeline
+    to
+        t : CircleCI!Workflow (
+            name <- 'dummyWorkflow',
+			version <- '2.0',
+			triggers <- s.triggers -> collect(trigger | thisModule.ScheduleTrigger2ScheduleTrigger(trigger)),
+			jobworkflow <- s.jobs -> collect(job | thisModule.Job2JobWorkflow(job))
+        )
+}
+
+lazy rule ScheduleTrigger2ScheduleTrigger {
+    from
+        s : CICD!ScheduleTrigger
+    to
+        t : CircleCI!Trigger (
+            cron <- s.timer
+        )
+}
+
+lazy rule Job2JobWorkflow {
+    from
+        s : CICD!Job
+    to
+        t : CircleCI!JobWorkflow (
+            name <- s.name,
+			requires <- if s.requireJobs->notEmpty() then 
+					s.requireJobs
+				else 
+					'' 
+				endif, 
+			context <- '',
+			approvalJob <- false,
+			matrix <- if not s.matrix.oclIsUndefined() then 
+					thisModule.Matrix2Matrix(s.matrix)
+				else 
+					 OclUndefined
+				endif
+        )
+}
+
+lazy rule Matrix2Matrix {
+    from
+        s : CICD!Matrix
+    to
+        t : CircleCI!Matrix (
+            alias <- s.name,
+			matrix_params <- s.configs->select(config | (config.type = #INCLUDE or config.type = #DEFAULT)),
+			matrix_exclude <- s.configs->select(config | config.type = #EXCLUDE)
+        )
+}
+
+rule MatrixConfig2MatrixParams {
+    from
+        s : CICD!MatrixConfig
+    to
+        t : CircleCI!MatrixParams (
+            key <- s.name,
+			values <- s.values
+        )
+}
+
+rule Job2Job {
+    from
+        s : CICD!Job
+    to
+        t : CircleCI!Job (
+            name <- s.name,
+			reuseExecutor <- 'dummyExec',
+			executors <- s.agents ->collect(agent | thisModule.DockerContainer2Docker(agent.container, agent.labels->first())),
+            parallelism <- if not s.parallel.oclIsUndefined() and s.parallel.size() > 0 then
+								s.parallel->toInteger()
+							else
+								OclUndefined
+							endif,
+            environments <- s.environments ->collect(env | thisModule.transformEnvironment(env)),
+			steps <- if s.steps->notEmpty() and s.IfStep->notEmpty() and s.artifacts->notEmpty() then
+						s.steps->union(s.IfStep)->union(s.artifacts)->collect(step | 
+							if step.oclIsTypeOf(CICD!IfStep) then
+								thisModule.IfStep2WhenUnless(step)
+								
+							else if step.oclIsTypeOf(CICD!Artifact) then
+								thisModule.Artifact2StoreArtifact(step)
+								
+							else 
+								step.transformStepWithCache()
+							endif
+							endif	
+						)
+					else if s.steps->isEmpty() and s.IfStep->notEmpty() and s.artifacts->notEmpty() then
+						s.IfStep->union(s.artifacts)->collect(step | 
+							if step.oclIsTypeOf(CICD!IfStep) then
+								thisModule.IfStep2WhenUnless(step)
+								
+							else 
+								thisModule.Artifact2StoreArtifact(step)
+							endif	
+						)
+					else if s.steps->notEmpty() and s.IfStep->isEmpty() and s.artifacts->notEmpty() then
+						s.steps->union(s.artifacts)->collect(step | 
+							if step.oclIsTypeOf(CICD!Artifact) then
+								thisModule.Artifact2StoreArtifact(step)
+								
+							else 
+								step.transformStepWithCache()
+							endif	
+						)
+					else if s.steps->notEmpty() and s.IfStep->notEmpty() and s.artifacts->isEmpty() then
+						s.steps->union(s.IfStep)->collect(step | 
+							if step.oclIsTypeOf(CICD!IfStep) then
+								thisModule.IfStep2WhenUnless(step)
+								
+							else 
+								step.transformStepWithCache()
+							endif	
+						)
+					else if s.steps->notEmpty() and s.IfStep->isEmpty() and s.artifacts->isEmpty() then
+						s.steps->collect(step | step.transformStepWithCache())
+					
+					else if s.steps->isEmpty() and s.IfStep->notEmpty() and s.artifacts->isEmpty() then
+						s.IfStep->collect(step | thisModule.IfStep2WhenUnless(step))
+					
+					else if s.steps->isEmpty() and s.IfStep->isEmpty() and s.artifacts->notEmpty() then
+						s.artifacts->collect(step | thisModule.Artifact2StoreArtifact(step))
+					else
+						OclUndefined
+					endif
+					endif
+					endif
+					endif
+					endif
+					endif
+					endif
+        )
+}
+
+
+
+lazy rule IfStep2WhenUnless {
+    from
+        s : CICD!IfStep
+    to
+        t : CircleCI!When_Unless (
+            name <- '',
+			condition <- s.condition,
+			when_step <- if s.if_steps->notEmpty() then
+							s.if_steps->collect(step | step.transformStepWithCache())
+						else
+							OclUndefined
+						endif,
+			unless_step <- if s.else_steps->notEmpty() then
+							s.else_steps->collect(step | step.transformStepWithCache())
+						else
+							OclUndefined
+						endif
+        )
+}
+
+lazy rule Artifact2StoreArtifact {
+    from
+        s : CICD!Artifact
+    to
+        t : CircleCI!StoreArtifact (
+            name <- '',
+			path <- s.path->first(),
+			destination <- ''
+        )
+}
+
+lazy rule Step2SRun {
+    from
+        s : CICD!Step
+    to
+        t : CircleCI!Run (
+            name <- '',
+			when <- #on_success,
+			background <- false,
+			working_directory <- '.',
+			no_output_timeout <- '10m',
+			shell <- '',
+			run_commands <- s.commands,
+			parameters <- s.parameters
+        )
+}
+
+lazy rule Cache2SaveCache {
+    from
+        s : CICD!Cache
+    to
+        t : CircleCI!SaveCache (
+        	name <- '',
+            paths <- s.paths,
+			key <- s.key,
+			when <- #on_success
+        )
+}
+
+lazy rule Cache2RestoreCache {
+    from
+        s : CICD!Cache
+    to
+        t : CircleCI!RestoreCache (
+        	name <- '',
+            key <- s.key,
+            keys <- s.keys
+        )
+}
+
+
+lazy rule transformEnvironment {
+    from
+        s : CICD!Environment
+    to
+        t : CircleCI!Environment (
+            key <- s.key,
+            value <- s.value
+        )
+}
+
+
+lazy rule DockerContainer2Docker {
+    from
+        s : CICD!DockerContainer,
+		label : String
+    to
+        t : CircleCI!Docker (
+        	name <- label,
+            image <- s.image,
+			resourceClass <- 'medium',
+			shell <- '',
+			working_directory <- '',
+			entrypoint <- '',
+			command <- '',
+			user <- '',
+			docker_auth <- if not (s.username->oclIsUndefined() and s.password->oclIsUndefined()) then 
+								thisModule.transformDockerAuth(s)
+							else
+								OclUndefined
+							endif,
+			environments <- s.environments ->collect(env | thisModule.transformEnvironment(env))
+        )
+}
+
+lazy rule transformDockerAuth {
+    from
+        s : CICD!DockerContainer
+    to
+        t : CircleCI!Docker_Auth (
+            username <- s.username,
+			password <- s.password
+        )
+}
+
+
+
+
+rule transformCommand {
+    from
+        s : CICD!Command
+    to
+        t : CircleCI!RunCommand (
+            name <- s.name
+        )
+}
+
+
+rule transformParameters {
+    from
+        s : CICD!Parameters
+    to
+        t : CircleCI!Parameters (
+            parameter <- s.parameter
+        )
+}
+
+helper context CICD!Step def: transformStepWithCache() : Sequence(CircleCI!Run) =
+    if self.cache->notEmpty() then
+        self.cache->collect(c |
+            if c.mode = #STORE then
+                thisModule.Cache2SaveCache(c)
+            else
+                thisModule.Cache2RestoreCache(c)
+            endif
+        )->union(Sequence{thisModule.Step2SRun(self)})
+    else
+        Sequence{thisModule.Step2SRun(self)}
+    endif;
+

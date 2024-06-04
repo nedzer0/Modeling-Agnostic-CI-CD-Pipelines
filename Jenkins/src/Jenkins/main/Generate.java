@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 
 import jenkins_metamodel.Jenkins_metamodelPackage;
 
+
+
 /**
  * Entry point of the 'Generate' generation module.
  *
@@ -376,9 +378,8 @@ public class Generate extends AbstractAcceleoGenerator {
          */
         
         if (!isInWorkspace(Jenkins_metamodelPackage.class)) {
-	        // The normal package registration if your metamodel is in a plugin.
-	        resourceSet.getPackageRegistry().put(Jenkins_metamodelPackage.eNS_URI, Jenkins_metamodelPackage.eINSTANCE);
-	    }
+        	resourceSet.getPackageRegistry().put(Jenkins_metamodelPackage.eNS_URI, Jenkins_metamodelPackage.eINSTANCE);
+        }
     }
 
     /**

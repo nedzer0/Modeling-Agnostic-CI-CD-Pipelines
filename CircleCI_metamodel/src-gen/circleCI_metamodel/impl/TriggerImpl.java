@@ -4,8 +4,11 @@ package circleCI_metamodel.impl;
 
 import circleCI_metamodel.CircleCI_metamodelPackage;
 import circleCI_metamodel.Trigger;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -105,7 +108,6 @@ public class TriggerImpl extends MinimalEObjectImpl.Container implements Trigger
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

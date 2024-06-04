@@ -105,8 +105,8 @@ public class CommandItemProvider extends ItemProviderAdapter implements IEditing
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.COMMAND__STEP);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.COMMAND__COMMAND_PARAMS);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.COMMAND__STEPS);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.COMMAND__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -174,8 +174,8 @@ public class CommandItemProvider extends ItemProviderAdapter implements IEditing
 		case CircleCI_metamodelPackage.COMMAND__DESCRIPTION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case CircleCI_metamodelPackage.COMMAND__STEP:
-		case CircleCI_metamodelPackage.COMMAND__COMMAND_PARAMS:
+		case CircleCI_metamodelPackage.COMMAND__STEPS:
+		case CircleCI_metamodelPackage.COMMAND__PARAMETERS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -193,11 +193,41 @@ public class CommandItemProvider extends ItemProviderAdapter implements IEditing
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEP,
-				CircleCI_metamodelFactory.eINSTANCE.createStep()));
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createRun()));
 
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__COMMAND_PARAMS,
-				CircleCI_metamodelFactory.eINSTANCE.createCommand_Params()));
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createRestoreCache()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createPersistToWorkspace()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createStoreArtifact()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createStoreTestResults()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createSetupRemoteDocker()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createAddSSHKeys()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createSaveCache()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createAttachWorkspace()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createWhen_Unless()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__STEPS,
+				CircleCI_metamodelFactory.eINSTANCE.createCheckout()));
+
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.COMMAND__PARAMETERS,
+				CircleCI_metamodelFactory.eINSTANCE.createParameter()));
 	}
 
 	/**

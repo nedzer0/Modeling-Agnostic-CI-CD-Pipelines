@@ -4,11 +4,10 @@ package circleCI_metamodel.impl;
 
 import circleCI_metamodel.CircleCI_metamodelPackage;
 import circleCI_metamodel.Environment;
-import circleCI_metamodel.Execution_Env;
+import circleCI_metamodel.Executor;
 import circleCI_metamodel.Job;
+import circleCI_metamodel.Parameter;
 import circleCI_metamodel.Step;
-import circleCI_metamodel.Store_Artifact;
-import circleCI_metamodel.When_Unless;
 
 import java.util.Collection;
 
@@ -34,18 +33,48 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link circleCI_metamodel.impl.JobImpl#getEnvironments <em>Environments</em>}</li>
+ *   <li>{@link circleCI_metamodel.impl.JobImpl#getSteps <em>Steps</em>}</li>
+ *   <li>{@link circleCI_metamodel.impl.JobImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.JobImpl#getName <em>Name</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.JobImpl#getParallelism <em>Parallelism</em>}</li>
- *   <li>{@link circleCI_metamodel.impl.JobImpl#getStore_artifact <em>Store artifact</em>}</li>
- *   <li>{@link circleCI_metamodel.impl.JobImpl#getWhen_unless <em>When unless</em>}</li>
- *   <li>{@link circleCI_metamodel.impl.JobImpl#getExecution_env <em>Execution env</em>}</li>
- *   <li>{@link circleCI_metamodel.impl.JobImpl#getEnvironment <em>Environment</em>}</li>
- *   <li>{@link circleCI_metamodel.impl.JobImpl#getStep <em>Step</em>}</li>
+ *   <li>{@link circleCI_metamodel.impl.JobImpl#getReuseExecutor <em>Reuse Executor</em>}</li>
+ *   <li>{@link circleCI_metamodel.impl.JobImpl#getExecutors <em>Executors</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class JobImpl extends MinimalEObjectImpl.Container implements Job {
+	/**
+	 * The cached value of the '{@link #getEnvironments() <em>Environments</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnvironments()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Environment> environments;
+
+	/**
+	 * The cached value of the '{@link #getSteps() <em>Steps</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSteps()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Step> steps;
+
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> parameters;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -87,54 +116,34 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	protected short parallelism = PARALLELISM_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStore_artifact() <em>Store artifact</em>}' containment reference list.
+	 * The default value of the '{@link #getReuseExecutor() <em>Reuse Executor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStore_artifact()
+	 * @see #getReuseExecutor()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Store_Artifact> store_artifact;
+	protected static final String REUSE_EXECUTOR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getWhen_unless() <em>When unless</em>}' containment reference.
+	 * The cached value of the '{@link #getReuseExecutor() <em>Reuse Executor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWhen_unless()
+	 * @see #getReuseExecutor()
 	 * @generated
 	 * @ordered
 	 */
-	protected When_Unless when_unless;
+	protected String reuseExecutor = REUSE_EXECUTOR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExecution_env() <em>Execution env</em>}' containment reference.
+	 * The cached value of the '{@link #getExecutors() <em>Executors</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExecution_env()
+	 * @see #getExecutors()
 	 * @generated
 	 * @ordered
 	 */
-	protected Execution_Env execution_env;
-
-	/**
-	 * The cached value of the '{@link #getEnvironment() <em>Environment</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEnvironment()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Environment> environment;
-
-	/**
-	 * The cached value of the '{@link #getStep() <em>Step</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStep()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Step> step;
+	protected EList<Executor> executors;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,6 +162,47 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	@Override
 	protected EClass eStaticClass() {
 		return CircleCI_metamodelPackage.Literals.JOB;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Environment> getEnvironments() {
+		if (environments == null) {
+			environments = new EObjectContainmentEList<Environment>(Environment.class, this,
+					CircleCI_metamodelPackage.JOB__ENVIRONMENTS);
+		}
+		return environments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Step> getSteps() {
+		if (steps == null) {
+			steps = new EObjectContainmentEList<Step>(Step.class, this, CircleCI_metamodelPackage.JOB__STEPS);
+		}
+		return steps;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Parameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this,
+					CircleCI_metamodelPackage.JOB__PARAMETERS);
+		}
+		return parameters;
 	}
 
 	/**
@@ -208,143 +258,36 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	 * @generated
 	 */
 	@Override
-	public EList<Store_Artifact> getStore_artifact() {
-		if (store_artifact == null) {
-			store_artifact = new EObjectContainmentEList<Store_Artifact>(Store_Artifact.class, this,
-					CircleCI_metamodelPackage.JOB__STORE_ARTIFACT);
+	public String getReuseExecutor() {
+		return reuseExecutor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReuseExecutor(String newReuseExecutor) {
+		String oldReuseExecutor = reuseExecutor;
+		reuseExecutor = newReuseExecutor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CircleCI_metamodelPackage.JOB__REUSE_EXECUTOR,
+					oldReuseExecutor, reuseExecutor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Executor> getExecutors() {
+		if (executors == null) {
+			executors = new EObjectContainmentEList<Executor>(Executor.class, this,
+					CircleCI_metamodelPackage.JOB__EXECUTORS);
 		}
-		return store_artifact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public When_Unless getWhen_unless() {
-		return when_unless;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetWhen_unless(When_Unless newWhen_unless, NotificationChain msgs) {
-		When_Unless oldWhen_unless = when_unless;
-		when_unless = newWhen_unless;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					CircleCI_metamodelPackage.JOB__WHEN_UNLESS, oldWhen_unless, newWhen_unless);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setWhen_unless(When_Unless newWhen_unless) {
-		if (newWhen_unless != when_unless) {
-			NotificationChain msgs = null;
-			if (when_unless != null)
-				msgs = ((InternalEObject) when_unless).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - CircleCI_metamodelPackage.JOB__WHEN_UNLESS, null, msgs);
-			if (newWhen_unless != null)
-				msgs = ((InternalEObject) newWhen_unless).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - CircleCI_metamodelPackage.JOB__WHEN_UNLESS, null, msgs);
-			msgs = basicSetWhen_unless(newWhen_unless, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CircleCI_metamodelPackage.JOB__WHEN_UNLESS,
-					newWhen_unless, newWhen_unless));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Execution_Env getExecution_env() {
-		return execution_env;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetExecution_env(Execution_Env newExecution_env, NotificationChain msgs) {
-		Execution_Env oldExecution_env = execution_env;
-		execution_env = newExecution_env;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					CircleCI_metamodelPackage.JOB__EXECUTION_ENV, oldExecution_env, newExecution_env);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setExecution_env(Execution_Env newExecution_env) {
-		if (newExecution_env != execution_env) {
-			NotificationChain msgs = null;
-			if (execution_env != null)
-				msgs = ((InternalEObject) execution_env).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - CircleCI_metamodelPackage.JOB__EXECUTION_ENV, null, msgs);
-			if (newExecution_env != null)
-				msgs = ((InternalEObject) newExecution_env).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - CircleCI_metamodelPackage.JOB__EXECUTION_ENV, null, msgs);
-			msgs = basicSetExecution_env(newExecution_env, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CircleCI_metamodelPackage.JOB__EXECUTION_ENV,
-					newExecution_env, newExecution_env));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Environment> getEnvironment() {
-		if (environment == null) {
-			environment = new EObjectContainmentEList<Environment>(Environment.class, this,
-					CircleCI_metamodelPackage.JOB__ENVIRONMENT);
-		}
-		return environment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Step> getStep() {
-		if (step == null) {
-			step = new EObjectContainmentEList<Step>(Step.class, this, CircleCI_metamodelPackage.JOB__STEP);
-		}
-		return step;
+		return executors;
 	}
 
 	/**
@@ -355,16 +298,14 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CircleCI_metamodelPackage.JOB__STORE_ARTIFACT:
-			return ((InternalEList<?>) getStore_artifact()).basicRemove(otherEnd, msgs);
-		case CircleCI_metamodelPackage.JOB__WHEN_UNLESS:
-			return basicSetWhen_unless(null, msgs);
-		case CircleCI_metamodelPackage.JOB__EXECUTION_ENV:
-			return basicSetExecution_env(null, msgs);
-		case CircleCI_metamodelPackage.JOB__ENVIRONMENT:
-			return ((InternalEList<?>) getEnvironment()).basicRemove(otherEnd, msgs);
-		case CircleCI_metamodelPackage.JOB__STEP:
-			return ((InternalEList<?>) getStep()).basicRemove(otherEnd, msgs);
+		case CircleCI_metamodelPackage.JOB__ENVIRONMENTS:
+			return ((InternalEList<?>) getEnvironments()).basicRemove(otherEnd, msgs);
+		case CircleCI_metamodelPackage.JOB__STEPS:
+			return ((InternalEList<?>) getSteps()).basicRemove(otherEnd, msgs);
+		case CircleCI_metamodelPackage.JOB__PARAMETERS:
+			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
+		case CircleCI_metamodelPackage.JOB__EXECUTORS:
+			return ((InternalEList<?>) getExecutors()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -377,20 +318,20 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case CircleCI_metamodelPackage.JOB__ENVIRONMENTS:
+			return getEnvironments();
+		case CircleCI_metamodelPackage.JOB__STEPS:
+			return getSteps();
+		case CircleCI_metamodelPackage.JOB__PARAMETERS:
+			return getParameters();
 		case CircleCI_metamodelPackage.JOB__NAME:
 			return getName();
 		case CircleCI_metamodelPackage.JOB__PARALLELISM:
 			return getParallelism();
-		case CircleCI_metamodelPackage.JOB__STORE_ARTIFACT:
-			return getStore_artifact();
-		case CircleCI_metamodelPackage.JOB__WHEN_UNLESS:
-			return getWhen_unless();
-		case CircleCI_metamodelPackage.JOB__EXECUTION_ENV:
-			return getExecution_env();
-		case CircleCI_metamodelPackage.JOB__ENVIRONMENT:
-			return getEnvironment();
-		case CircleCI_metamodelPackage.JOB__STEP:
-			return getStep();
+		case CircleCI_metamodelPackage.JOB__REUSE_EXECUTOR:
+			return getReuseExecutor();
+		case CircleCI_metamodelPackage.JOB__EXECUTORS:
+			return getExecutors();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -404,29 +345,30 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case CircleCI_metamodelPackage.JOB__ENVIRONMENTS:
+			getEnvironments().clear();
+			getEnvironments().addAll((Collection<? extends Environment>) newValue);
+			return;
+		case CircleCI_metamodelPackage.JOB__STEPS:
+			getSteps().clear();
+			getSteps().addAll((Collection<? extends Step>) newValue);
+			return;
+		case CircleCI_metamodelPackage.JOB__PARAMETERS:
+			getParameters().clear();
+			getParameters().addAll((Collection<? extends Parameter>) newValue);
+			return;
 		case CircleCI_metamodelPackage.JOB__NAME:
 			setName((String) newValue);
 			return;
 		case CircleCI_metamodelPackage.JOB__PARALLELISM:
 			setParallelism((Short) newValue);
 			return;
-		case CircleCI_metamodelPackage.JOB__STORE_ARTIFACT:
-			getStore_artifact().clear();
-			getStore_artifact().addAll((Collection<? extends Store_Artifact>) newValue);
+		case CircleCI_metamodelPackage.JOB__REUSE_EXECUTOR:
+			setReuseExecutor((String) newValue);
 			return;
-		case CircleCI_metamodelPackage.JOB__WHEN_UNLESS:
-			setWhen_unless((When_Unless) newValue);
-			return;
-		case CircleCI_metamodelPackage.JOB__EXECUTION_ENV:
-			setExecution_env((Execution_Env) newValue);
-			return;
-		case CircleCI_metamodelPackage.JOB__ENVIRONMENT:
-			getEnvironment().clear();
-			getEnvironment().addAll((Collection<? extends Environment>) newValue);
-			return;
-		case CircleCI_metamodelPackage.JOB__STEP:
-			getStep().clear();
-			getStep().addAll((Collection<? extends Step>) newValue);
+		case CircleCI_metamodelPackage.JOB__EXECUTORS:
+			getExecutors().clear();
+			getExecutors().addAll((Collection<? extends Executor>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -440,26 +382,26 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case CircleCI_metamodelPackage.JOB__ENVIRONMENTS:
+			getEnvironments().clear();
+			return;
+		case CircleCI_metamodelPackage.JOB__STEPS:
+			getSteps().clear();
+			return;
+		case CircleCI_metamodelPackage.JOB__PARAMETERS:
+			getParameters().clear();
+			return;
 		case CircleCI_metamodelPackage.JOB__NAME:
 			setName(NAME_EDEFAULT);
 			return;
 		case CircleCI_metamodelPackage.JOB__PARALLELISM:
 			setParallelism(PARALLELISM_EDEFAULT);
 			return;
-		case CircleCI_metamodelPackage.JOB__STORE_ARTIFACT:
-			getStore_artifact().clear();
+		case CircleCI_metamodelPackage.JOB__REUSE_EXECUTOR:
+			setReuseExecutor(REUSE_EXECUTOR_EDEFAULT);
 			return;
-		case CircleCI_metamodelPackage.JOB__WHEN_UNLESS:
-			setWhen_unless((When_Unless) null);
-			return;
-		case CircleCI_metamodelPackage.JOB__EXECUTION_ENV:
-			setExecution_env((Execution_Env) null);
-			return;
-		case CircleCI_metamodelPackage.JOB__ENVIRONMENT:
-			getEnvironment().clear();
-			return;
-		case CircleCI_metamodelPackage.JOB__STEP:
-			getStep().clear();
+		case CircleCI_metamodelPackage.JOB__EXECUTORS:
+			getExecutors().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -473,20 +415,21 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case CircleCI_metamodelPackage.JOB__ENVIRONMENTS:
+			return environments != null && !environments.isEmpty();
+		case CircleCI_metamodelPackage.JOB__STEPS:
+			return steps != null && !steps.isEmpty();
+		case CircleCI_metamodelPackage.JOB__PARAMETERS:
+			return parameters != null && !parameters.isEmpty();
 		case CircleCI_metamodelPackage.JOB__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case CircleCI_metamodelPackage.JOB__PARALLELISM:
 			return parallelism != PARALLELISM_EDEFAULT;
-		case CircleCI_metamodelPackage.JOB__STORE_ARTIFACT:
-			return store_artifact != null && !store_artifact.isEmpty();
-		case CircleCI_metamodelPackage.JOB__WHEN_UNLESS:
-			return when_unless != null;
-		case CircleCI_metamodelPackage.JOB__EXECUTION_ENV:
-			return execution_env != null;
-		case CircleCI_metamodelPackage.JOB__ENVIRONMENT:
-			return environment != null && !environment.isEmpty();
-		case CircleCI_metamodelPackage.JOB__STEP:
-			return step != null && !step.isEmpty();
+		case CircleCI_metamodelPackage.JOB__REUSE_EXECUTOR:
+			return REUSE_EXECUTOR_EDEFAULT == null ? reuseExecutor != null
+					: !REUSE_EXECUTOR_EDEFAULT.equals(reuseExecutor);
+		case CircleCI_metamodelPackage.JOB__EXECUTORS:
+			return executors != null && !executors.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -506,6 +449,8 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 		result.append(name);
 		result.append(", parallelism: ");
 		result.append(parallelism);
+		result.append(", reuseExecutor: ");
+		result.append(reuseExecutor);
 		result.append(')');
 		return result.toString();
 	}

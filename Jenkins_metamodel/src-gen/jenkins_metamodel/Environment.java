@@ -29,7 +29,7 @@ public interface Environment extends EObject {
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getEnvironment_Key()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getKey();
@@ -51,7 +51,7 @@ public interface Environment extends EObject {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getEnvironment_Value()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getValue();

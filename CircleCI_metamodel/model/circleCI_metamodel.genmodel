@@ -9,103 +9,181 @@
   <foreignModel>circleCI_metamodel.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="CircleCI_metamodel" disposableProviderFactory="true" ecorePackage="circleCI_metamodel.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="circleCI_metamodel.ecore#//WHEN_TYPE">
-      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//WHEN_TYPE/on_success"/>
-      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//WHEN_TYPE/always"/>
-      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//WHEN_TYPE/on_fail"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="circleCI_metamodel.ecore#//PARAMETER_TYPES">
+      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//PARAMETER_TYPES/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//PARAMETER_TYPES/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//PARAMETER_TYPES/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//PARAMETER_TYPES/ENUM"/>
+      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//PARAMETER_TYPES/EXECUTOR"/>
+      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//PARAMETER_TYPES/STEPS"/>
+      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//PARAMETER_TYPES/ENVIRONMENT_VARIABLE_NAME"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="circleCI_metamodel.ecore#//BRANCH_TYPE">
       <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//BRANCH_TYPE/only"/>
       <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//BRANCH_TYPE/ignore"/>
     </genEnums>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Pipeline">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Pipeline/version"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/orb"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/command"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/workflow"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/job"/>
-    </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Step">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Step/parameters"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="circleCI_metamodel.ecore#//WHEN_TYPE">
+      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//WHEN_TYPE/on_success"/>
+      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//WHEN_TYPE/always"/>
+      <genEnumLiterals ecoreEnumLiteral="circleCI_metamodel.ecore#//WHEN_TYPE/on_fail"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="circleCI_metamodel.ecore#//Step">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Step/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Step/when_attribute"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Step/tool_framework"/>
     </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Execution_Env">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Execution_Env/environment"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Execution_Env/step"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Execution_Env/name"/>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Run">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Run/when"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Run/background"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Run/working_directory"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Run/environments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Run/no_output_timeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Run/shell"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Run/run_commands"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Run/parameters"/>
     </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Docker">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Docker/image"/>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Docker_Auth">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Docker_Auth/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Docker_Auth/password"/>
     </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Linux">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Linux/image"/>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//RestoreCache">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//RestoreCache/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//RestoreCache/keys"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Docker_Aws_Auths">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Docker_Aws_Auths/aws_access_key_id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Docker_Aws_Auths/aws_secret_access_key"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Job">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Job/environments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Job/steps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Job/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Job/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Job/parallelism"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Job/reuseExecutor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Job/executors"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Machine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Machine/image"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Machine/docker_layer_caching"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//PersistToWorkspace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//PersistToWorkspace/root"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//PersistToWorkspace/paths"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//StoreArtifact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//StoreArtifact/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//StoreArtifact/destination"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//StoreTestResults">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//StoreTestResults/path"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//SetupRemoteDocker">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//SetupRemoteDocker/docker_layer_caching"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//SetupRemoteDocker/version"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Parameters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Parameters/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Parameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Parameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Parameter/default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Parameter/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Parameter/enumValues"/>
     </genClasses>
     <genClasses ecoreClass="circleCI_metamodel.ecore#//MacOs">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//MacOs/xcode"/>
     </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//WindowsOrb">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//WindowsOrb/executor"/>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Workflow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Workflow/triggers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Workflow/branches"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Workflow/when_unless"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Workflow/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Workflow/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Workflow/jobworkflow"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Environment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Environment/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Environment/value"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Docker">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Docker/docker_auth"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Docker/docker_aws_auth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Docker/image"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Docker/entrypoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Docker/command"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Docker/user"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//AddSSHKeys">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//AddSSHKeys/fingerprints"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//SaveCache">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//SaveCache/paths"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//SaveCache/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//SaveCache/when"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//AttachWorkspace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//AttachWorkspace/at"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//When_Unless">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//When_Unless/when_step"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//When_Unless/unless_step"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//When_Unless/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Branch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Branch/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Branch/branch"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//RunCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//RunCommand/name"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Trigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Trigger/cron"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Checkout">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Checkout/path"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="circleCI_metamodel.ecore#//Executor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Executor/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Executor/resourceClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Executor/shell"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Executor/working_directory"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Executor/environments"/>
+    </genClasses>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Pipeline">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/orbs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/commands"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/workflow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/jobs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/executors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Pipeline/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Pipeline/setup"/>
     </genClasses>
     <genClasses ecoreClass="circleCI_metamodel.ecore#//Orb">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Orb/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Orb/value"/>
     </genClasses>
     <genClasses ecoreClass="circleCI_metamodel.ecore#//Command">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Command/steps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Command/parameters"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Command/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Command/step"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Command/command_params"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Command/description"/>
     </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Workflow">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Workflow/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Workflow/version"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Workflow/trigger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Workflow/when_unless"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Workflow/branch"/>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//Matrix">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Matrix/alias"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Matrix/matrix_exclude"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Matrix/matrix_params"/>
     </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Environment">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Environment/key"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Environment/value"/>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//JobWorkflow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//JobWorkflow/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//JobWorkflow/requires"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//JobWorkflow/context"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//JobWorkflow/approvalJob"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//JobWorkflow/branches"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//JobWorkflow/matrix"/>
     </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Parameters">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Parameters/parameter"/>
-    </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Tool_Framework">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Tool_Framework/name"/>
-    </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//When_Unless">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//When_Unless/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//When_Unless/when_step"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//When_Unless/unless_step"/>
-    </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//When_Attribute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//When_Attribute/when_type"/>
-    </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Trigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Trigger/cron"/>
-    </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Branch">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Branch/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Branch/branch_type"/>
-    </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Job">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Job/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Job/parallelism"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Job/store_artifact"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Job/when_unless"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Job/execution_env"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Job/environment"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Job/step"/>
-    </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Store_Artifact">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Store_Artifact/path"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Store_Artifact/destination"/>
-    </genClasses>
-    <genClasses ecoreClass="circleCI_metamodel.ecore#//Command_Params">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Command_Params/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Command_Params/default"/>
+    <genClasses ecoreClass="circleCI_metamodel.ecore#//MatrixParams">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//MatrixParams/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//MatrixParams/values"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

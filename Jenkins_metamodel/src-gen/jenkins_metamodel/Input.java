@@ -15,12 +15,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link jenkins_metamodel.Input#getParameter_directives <em>Parameter directives</em>}</li>
  *   <li>{@link jenkins_metamodel.Input#getMessage <em>Message</em>}</li>
  *   <li>{@link jenkins_metamodel.Input#getId <em>Id</em>}</li>
  *   <li>{@link jenkins_metamodel.Input#getOk <em>Ok</em>}</li>
  *   <li>{@link jenkins_metamodel.Input#getSubmitter <em>Submitter</em>}</li>
  *   <li>{@link jenkins_metamodel.Input#getSubmitterParameter <em>Submitter Parameter</em>}</li>
- *   <li>{@link jenkins_metamodel.Input#getParameter_directive <em>Parameter directive</em>}</li>
  * </ul>
  *
  * @see jenkins_metamodel.Jenkins_metamodelPackage#getInput()
@@ -29,13 +29,25 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Input extends EObject {
 	/**
+	 * Returns the value of the '<em><b>Parameter directives</b></em>' containment reference list.
+	 * The list contents are of type {@link jenkins_metamodel.Parameter_Directive}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter directives</em>' containment reference list.
+	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getInput_Parameter_directives()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Parameter_Directive> getParameter_directives();
+
+	/**
 	 * Returns the value of the '<em><b>Message</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Message</em>' attribute.
 	 * @see #setMessage(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getInput_Message()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getMessage();
@@ -137,17 +149,5 @@ public interface Input extends EObject {
 	 * @generated
 	 */
 	void setSubmitterParameter(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Parameter directive</b></em>' containment reference list.
-	 * The list contents are of type {@link jenkins_metamodel.Parameter_Directive}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter directive</em>' containment reference list.
-	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getInput_Parameter_directive()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Parameter_Directive> getParameter_directive();
 
 } // Input

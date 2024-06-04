@@ -5,7 +5,6 @@ package jenkins_metamodel.provider;
 import java.util.Collection;
 import java.util.List;
 
-import jenkins_metamodel.Jenkins_metamodelFactory;
 import jenkins_metamodel.Jenkins_metamodelPackage;
 import jenkins_metamodel.Parameter_Directive;
 
@@ -13,8 +12,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -56,55 +53,42 @@ public class Parameter_DirectiveItemProvider extends ItemProviderAdapter impleme
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addParam_typePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Param type feature.
+	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addParam_typePropertyDescriptor(Object object) {
+	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Parameter_Directive_param_type_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Parameter_Directive_param_type_feature",
+						getResourceLocator(), getString("_UI_Parameter_Directive_description_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Parameter_Directive_description_feature",
 								"_UI_Parameter_Directive_type"),
-						Jenkins_metamodelPackage.Literals.PARAMETER_DIRECTIVE__PARAM_TYPE, true, false, false,
+						Jenkins_metamodelPackage.Literals.PARAMETER_DIRECTIVE__DESCRIPTION, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PARAMETER_DIRECTIVE__PARAM_VALUE);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Parameter_Directive_name_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Parameter_Directive_name_feature",
+						"_UI_Parameter_Directive_type"),
+				Jenkins_metamodelPackage.Literals.PARAMETER_DIRECTIVE__NAME, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -125,7 +109,7 @@ public class Parameter_DirectiveItemProvider extends ItemProviderAdapter impleme
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Parameter_Directive) object).getParam_type();
+		String label = ((Parameter_Directive) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_Parameter_Directive_type")
 				: getString("_UI_Parameter_Directive_type") + " " + label;
 	}
@@ -142,11 +126,9 @@ public class Parameter_DirectiveItemProvider extends ItemProviderAdapter impleme
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Parameter_Directive.class)) {
-		case Jenkins_metamodelPackage.PARAMETER_DIRECTIVE__PARAM_TYPE:
+		case Jenkins_metamodelPackage.PARAMETER_DIRECTIVE__DESCRIPTION:
+		case Jenkins_metamodelPackage.PARAMETER_DIRECTIVE__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		case Jenkins_metamodelPackage.PARAMETER_DIRECTIVE__PARAM_VALUE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -162,9 +144,6 @@ public class Parameter_DirectiveItemProvider extends ItemProviderAdapter impleme
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PARAMETER_DIRECTIVE__PARAM_VALUE,
-				Jenkins_metamodelFactory.eINSTANCE.createParam_Value()));
 	}
 
 	/**

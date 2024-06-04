@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cICD_metamodel:Pipeline
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:cICD_metamodel="http://www.example.org/cICD_metamodel"
+    name="">
+  <jobs name="MatrixJob"
+      allowFaillure="true">
+    <steps>
+      <commands
+          name="Hello, ${PERSON}, nice to meet you."/>
+    </steps>
+    <matrix>
+      <configs
+          name="PLATFORM">
+        <values>linux</values>
+        <values>windows</values>
+      </configs>
+      <configs
+          name="ARCHITECTURE"
+          type="EXCLUDE">
+        <values>32-bit</values>
+      </configs>
+      <jobs
+          name="build-and-test">
+        <steps>
+          <commands
+              name="echo"/>
+        </steps>
+      </jobs>
+    </matrix>
+  </jobs>
+  <jobs name="ConditionalJob">
+    <steps>
+      <commands
+          name="echo test123"/>
+      <parameters
+          parameter="param4"/>
+    </steps>
+    <IfStep
+        condition="booleanExpression"/>
+    <artifacts
+        message="Should we continue?"/>
+  </jobs>
+  <jobs name="ParallelFailFast"
+      allowFaillure="false"
+      parallel="true">
+    <environments
+        key="myEnv"
+        value="val10"/>
+    <jobs name="recursiveJob">
+      <steps>
+        <commands
+            name="echo this is a test"/>
+      </steps>
+      <environments
+          key="SERVICE_CREDS"
+          value="credentials('my-predefined-username-password')"/>
+    </jobs>
+    <jobs name="SubJob2">
+      <steps>
+        <commands
+            name="echo echo echo"/>
+      </steps>
+    </jobs>
+  </jobs>
+  <pipeline_environment
+      key="CC"
+      value="'clang'"/>
+  <triggers
+      timer="0 6 * * 1"/>
+  <agents>
+    <container
+        image="maven:3.9.3-eclipse-temurin-17"/>
+  </agents>
+  <inputs name="PERSON"
+      default="Mr Jenkins"/>
+  <inputs type="BOOLEAN"
+      name="TOOGLE"
+      default="true"
+      description="Toogle this value"/>
+</cICD_metamodel:Pipeline>

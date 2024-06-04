@@ -19,36 +19,20 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link jenkins_metamodel.impl.DockerfileImpl#getFilename <em>Filename</em>}</li>
  *   <li>{@link jenkins_metamodel.impl.DockerfileImpl#getDir <em>Dir</em>}</li>
  *   <li>{@link jenkins_metamodel.impl.DockerfileImpl#getAdditionalBuildArgs <em>Additional Build Args</em>}</li>
  *   <li>{@link jenkins_metamodel.impl.DockerfileImpl#getRegistryUrl <em>Registry Url</em>}</li>
  *   <li>{@link jenkins_metamodel.impl.DockerfileImpl#getRegistryCredentialsId <em>Registry Credentials Id</em>}</li>
+ *   <li>{@link jenkins_metamodel.impl.DockerfileImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link jenkins_metamodel.impl.DockerfileImpl#getCustomWorkspace <em>Custom Workspace</em>}</li>
+ *   <li>{@link jenkins_metamodel.impl.DockerfileImpl#getReuseNode <em>Reuse Node</em>}</li>
+ *   <li>{@link jenkins_metamodel.impl.DockerfileImpl#getArgs <em>Args</em>}</li>
+ *   <li>{@link jenkins_metamodel.impl.DockerfileImpl#getFilename <em>Filename</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DockerfileImpl extends AgentImpl implements Dockerfile {
-	/**
-	 * The default value of the '{@link #getFilename() <em>Filename</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFilename()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String FILENAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getFilename() <em>Filename</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFilename()
-	 * @generated
-	 * @ordered
-	 */
-	protected String filename = FILENAME_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getDir() <em>Dir</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -130,6 +114,106 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 	protected String registryCredentialsId = REGISTRY_CREDENTIALS_ID_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LABEL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String label = LABEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCustomWorkspace() <em>Custom Workspace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustomWorkspace()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CUSTOM_WORKSPACE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCustomWorkspace() <em>Custom Workspace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustomWorkspace()
+	 * @generated
+	 * @ordered
+	 */
+	protected String customWorkspace = CUSTOM_WORKSPACE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getReuseNode() <em>Reuse Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReuseNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REUSE_NODE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReuseNode() <em>Reuse Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReuseNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected String reuseNode = REUSE_NODE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getArgs() <em>Args</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArgs()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ARGS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getArgs() <em>Args</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArgs()
+	 * @generated
+	 * @ordered
+	 */
+	protected String args = ARGS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFilename() <em>Filename</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFilename()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FILENAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getFilename() <em>Filename</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFilename()
+	 * @generated
+	 * @ordered
+	 */
+	protected String filename = FILENAME_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -146,30 +230,6 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 	@Override
 	protected EClass eStaticClass() {
 		return Jenkins_metamodelPackage.Literals.DOCKERFILE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getFilename() {
-		return filename;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setFilename(String newFilename) {
-		String oldFilename = filename;
-		filename = newFilename;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Jenkins_metamodelPackage.DOCKERFILE__FILENAME,
-					oldFilename, filename));
 	}
 
 	/**
@@ -276,10 +336,128 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 	 * @generated
 	 */
 	@Override
+	public String getLabel() {
+		return label;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLabel(String newLabel) {
+		String oldLabel = label;
+		label = newLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Jenkins_metamodelPackage.DOCKERFILE__LABEL, oldLabel,
+					label));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCustomWorkspace() {
+		return customWorkspace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCustomWorkspace(String newCustomWorkspace) {
+		String oldCustomWorkspace = customWorkspace;
+		customWorkspace = newCustomWorkspace;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Jenkins_metamodelPackage.DOCKERFILE__CUSTOM_WORKSPACE,
+					oldCustomWorkspace, customWorkspace));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getReuseNode() {
+		return reuseNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReuseNode(String newReuseNode) {
+		String oldReuseNode = reuseNode;
+		reuseNode = newReuseNode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Jenkins_metamodelPackage.DOCKERFILE__REUSE_NODE,
+					oldReuseNode, reuseNode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getArgs() {
+		return args;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setArgs(String newArgs) {
+		String oldArgs = args;
+		args = newArgs;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Jenkins_metamodelPackage.DOCKERFILE__ARGS, oldArgs,
+					args));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getFilename() {
+		return filename;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setFilename(String newFilename) {
+		String oldFilename = filename;
+		filename = newFilename;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Jenkins_metamodelPackage.DOCKERFILE__FILENAME,
+					oldFilename, filename));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case Jenkins_metamodelPackage.DOCKERFILE__FILENAME:
-			return getFilename();
 		case Jenkins_metamodelPackage.DOCKERFILE__DIR:
 			return getDir();
 		case Jenkins_metamodelPackage.DOCKERFILE__ADDITIONAL_BUILD_ARGS:
@@ -288,6 +466,16 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 			return getRegistryUrl();
 		case Jenkins_metamodelPackage.DOCKERFILE__REGISTRY_CREDENTIALS_ID:
 			return getRegistryCredentialsId();
+		case Jenkins_metamodelPackage.DOCKERFILE__LABEL:
+			return getLabel();
+		case Jenkins_metamodelPackage.DOCKERFILE__CUSTOM_WORKSPACE:
+			return getCustomWorkspace();
+		case Jenkins_metamodelPackage.DOCKERFILE__REUSE_NODE:
+			return getReuseNode();
+		case Jenkins_metamodelPackage.DOCKERFILE__ARGS:
+			return getArgs();
+		case Jenkins_metamodelPackage.DOCKERFILE__FILENAME:
+			return getFilename();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -300,9 +488,6 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case Jenkins_metamodelPackage.DOCKERFILE__FILENAME:
-			setFilename((String) newValue);
-			return;
 		case Jenkins_metamodelPackage.DOCKERFILE__DIR:
 			setDir((String) newValue);
 			return;
@@ -314,6 +499,21 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 			return;
 		case Jenkins_metamodelPackage.DOCKERFILE__REGISTRY_CREDENTIALS_ID:
 			setRegistryCredentialsId((String) newValue);
+			return;
+		case Jenkins_metamodelPackage.DOCKERFILE__LABEL:
+			setLabel((String) newValue);
+			return;
+		case Jenkins_metamodelPackage.DOCKERFILE__CUSTOM_WORKSPACE:
+			setCustomWorkspace((String) newValue);
+			return;
+		case Jenkins_metamodelPackage.DOCKERFILE__REUSE_NODE:
+			setReuseNode((String) newValue);
+			return;
+		case Jenkins_metamodelPackage.DOCKERFILE__ARGS:
+			setArgs((String) newValue);
+			return;
+		case Jenkins_metamodelPackage.DOCKERFILE__FILENAME:
+			setFilename((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -327,9 +527,6 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case Jenkins_metamodelPackage.DOCKERFILE__FILENAME:
-			setFilename(FILENAME_EDEFAULT);
-			return;
 		case Jenkins_metamodelPackage.DOCKERFILE__DIR:
 			setDir(DIR_EDEFAULT);
 			return;
@@ -341,6 +538,21 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 			return;
 		case Jenkins_metamodelPackage.DOCKERFILE__REGISTRY_CREDENTIALS_ID:
 			setRegistryCredentialsId(REGISTRY_CREDENTIALS_ID_EDEFAULT);
+			return;
+		case Jenkins_metamodelPackage.DOCKERFILE__LABEL:
+			setLabel(LABEL_EDEFAULT);
+			return;
+		case Jenkins_metamodelPackage.DOCKERFILE__CUSTOM_WORKSPACE:
+			setCustomWorkspace(CUSTOM_WORKSPACE_EDEFAULT);
+			return;
+		case Jenkins_metamodelPackage.DOCKERFILE__REUSE_NODE:
+			setReuseNode(REUSE_NODE_EDEFAULT);
+			return;
+		case Jenkins_metamodelPackage.DOCKERFILE__ARGS:
+			setArgs(ARGS_EDEFAULT);
+			return;
+		case Jenkins_metamodelPackage.DOCKERFILE__FILENAME:
+			setFilename(FILENAME_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -354,8 +566,6 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case Jenkins_metamodelPackage.DOCKERFILE__FILENAME:
-			return FILENAME_EDEFAULT == null ? filename != null : !FILENAME_EDEFAULT.equals(filename);
 		case Jenkins_metamodelPackage.DOCKERFILE__DIR:
 			return DIR_EDEFAULT == null ? dir != null : !DIR_EDEFAULT.equals(dir);
 		case Jenkins_metamodelPackage.DOCKERFILE__ADDITIONAL_BUILD_ARGS:
@@ -366,6 +576,17 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 		case Jenkins_metamodelPackage.DOCKERFILE__REGISTRY_CREDENTIALS_ID:
 			return REGISTRY_CREDENTIALS_ID_EDEFAULT == null ? registryCredentialsId != null
 					: !REGISTRY_CREDENTIALS_ID_EDEFAULT.equals(registryCredentialsId);
+		case Jenkins_metamodelPackage.DOCKERFILE__LABEL:
+			return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+		case Jenkins_metamodelPackage.DOCKERFILE__CUSTOM_WORKSPACE:
+			return CUSTOM_WORKSPACE_EDEFAULT == null ? customWorkspace != null
+					: !CUSTOM_WORKSPACE_EDEFAULT.equals(customWorkspace);
+		case Jenkins_metamodelPackage.DOCKERFILE__REUSE_NODE:
+			return REUSE_NODE_EDEFAULT == null ? reuseNode != null : !REUSE_NODE_EDEFAULT.equals(reuseNode);
+		case Jenkins_metamodelPackage.DOCKERFILE__ARGS:
+			return ARGS_EDEFAULT == null ? args != null : !ARGS_EDEFAULT.equals(args);
+		case Jenkins_metamodelPackage.DOCKERFILE__FILENAME:
+			return FILENAME_EDEFAULT == null ? filename != null : !FILENAME_EDEFAULT.equals(filename);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -381,9 +602,7 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (filename: ");
-		result.append(filename);
-		result.append(", dir: ");
+		result.append(" (dir: ");
 		result.append(dir);
 		result.append(", additionalBuildArgs: ");
 		result.append(additionalBuildArgs);
@@ -391,6 +610,16 @@ public class DockerfileImpl extends AgentImpl implements Dockerfile {
 		result.append(registryUrl);
 		result.append(", registryCredentialsId: ");
 		result.append(registryCredentialsId);
+		result.append(", label: ");
+		result.append(label);
+		result.append(", customWorkspace: ");
+		result.append(customWorkspace);
+		result.append(", reuseNode: ");
+		result.append(reuseNode);
+		result.append(", args: ");
+		result.append(args);
+		result.append(", filename: ");
+		result.append(filename);
 		result.append(')');
 		return result.toString();
 	}

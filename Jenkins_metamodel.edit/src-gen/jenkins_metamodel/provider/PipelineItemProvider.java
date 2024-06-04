@@ -70,13 +70,14 @@ public class PipelineItemProvider extends ItemProviderAdapter implements IEditin
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__ENVIRONMENT);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__STAGE);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__ENVIRONMENTS);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__STAGES);
 			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__POST);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__PARAMETER_DIRECTIVE);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__TRIGGER);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__TOOL);
-			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__AGENT);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__PARAMETER_DIRECTIVES);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__TOOLS);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__AGENTS);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__TRIGGERS);
+			childrenFeatures.add(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -138,13 +139,14 @@ public class PipelineItemProvider extends ItemProviderAdapter implements IEditin
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Pipeline.class)) {
-		case Jenkins_metamodelPackage.PIPELINE__ENVIRONMENT:
-		case Jenkins_metamodelPackage.PIPELINE__STAGE:
+		case Jenkins_metamodelPackage.PIPELINE__ENVIRONMENTS:
+		case Jenkins_metamodelPackage.PIPELINE__STAGES:
 		case Jenkins_metamodelPackage.PIPELINE__POST:
-		case Jenkins_metamodelPackage.PIPELINE__PARAMETER_DIRECTIVE:
-		case Jenkins_metamodelPackage.PIPELINE__TRIGGER:
-		case Jenkins_metamodelPackage.PIPELINE__TOOL:
-		case Jenkins_metamodelPackage.PIPELINE__AGENT:
+		case Jenkins_metamodelPackage.PIPELINE__PARAMETER_DIRECTIVES:
+		case Jenkins_metamodelPackage.PIPELINE__TOOLS:
+		case Jenkins_metamodelPackage.PIPELINE__AGENTS:
+		case Jenkins_metamodelPackage.PIPELINE__TRIGGERS:
+		case Jenkins_metamodelPackage.PIPELINE__OPTIONS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -162,38 +164,104 @@ public class PipelineItemProvider extends ItemProviderAdapter implements IEditin
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__ENVIRONMENT,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__ENVIRONMENTS,
 				Jenkins_metamodelFactory.eINSTANCE.createEnvironment()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__STAGE,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__STAGES,
 				Jenkins_metamodelFactory.eINSTANCE.createStage()));
 
 		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__POST,
 				Jenkins_metamodelFactory.eINSTANCE.createPost()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__PARAMETER_DIRECTIVE,
-				Jenkins_metamodelFactory.eINSTANCE.createParameter_Directive()));
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__PARAMETER_DIRECTIVES,
+				Jenkins_metamodelFactory.eINSTANCE.createStringParam()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__TRIGGER,
-				Jenkins_metamodelFactory.eINSTANCE.createTrigger()));
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__PARAMETER_DIRECTIVES,
+				Jenkins_metamodelFactory.eINSTANCE.createTextParam()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__TOOL,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__PARAMETER_DIRECTIVES,
+				Jenkins_metamodelFactory.eINSTANCE.createChoiceParam()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__PARAMETER_DIRECTIVES,
+				Jenkins_metamodelFactory.eINSTANCE.createPasswordParam()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__PARAMETER_DIRECTIVES,
+				Jenkins_metamodelFactory.eINSTANCE.createBooleanParam()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__TOOLS,
 				Jenkins_metamodelFactory.eINSTANCE.createTool()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__AGENT,
-				Jenkins_metamodelFactory.eINSTANCE.createAny()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__AGENT,
-				Jenkins_metamodelFactory.eINSTANCE.createNone()));
-
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__AGENT,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__AGENTS,
 				Jenkins_metamodelFactory.eINSTANCE.createNode()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__AGENT,
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__AGENTS,
+				Jenkins_metamodelFactory.eINSTANCE.createAny()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__AGENTS,
+				Jenkins_metamodelFactory.eINSTANCE.createNone()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__AGENTS,
+				Jenkins_metamodelFactory.eINSTANCE.createDockerfile()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__AGENTS,
 				Jenkins_metamodelFactory.eINSTANCE.createDocker()));
 
-		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__AGENT,
-				Jenkins_metamodelFactory.eINSTANCE.createDockerfile()));
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__AGENTS,
+				Jenkins_metamodelFactory.eINSTANCE.createLabel()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__TRIGGERS,
+				Jenkins_metamodelFactory.eINSTANCE.createCron()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__TRIGGERS,
+				Jenkins_metamodelFactory.eINSTANCE.createPollSCM()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__TRIGGERS,
+				Jenkins_metamodelFactory.eINSTANCE.createUpstream()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createBuildDiscarder()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createCheckoutToSubdirectory()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createSkipStagesAfterUnstable()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createSkipDefaultCheckout()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createRetry()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createQuietPeriod()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createPreserveStashes()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createTimeout()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createParallelsAlwaysFailFast()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createTimestamps()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createDisableRestartFromStage()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createDisableResume()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createOverrideIndexTriggers()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createNewContainerPerStage()));
+
+		newChildDescriptors.add(createChildParameter(Jenkins_metamodelPackage.Literals.PIPELINE__OPTIONS,
+				Jenkins_metamodelFactory.eINSTANCE.createDisableConcurrentBuilds()));
 	}
 
 	/**

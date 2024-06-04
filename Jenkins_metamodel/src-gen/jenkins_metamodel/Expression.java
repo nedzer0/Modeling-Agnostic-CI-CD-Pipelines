@@ -26,7 +26,7 @@ public interface Expression extends When {
 	 * @return the value of the '<em>Expression</em>' attribute.
 	 * @see #setExpression(String)
 	 * @see jenkins_metamodel.Jenkins_metamodelPackage#getExpression_Expression()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getExpression();

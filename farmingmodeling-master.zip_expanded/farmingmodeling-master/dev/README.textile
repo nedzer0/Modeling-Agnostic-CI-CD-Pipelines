@@ -1,0 +1,112 @@
+
+h1. Introduction
+
+This contains an implementation of the "Farming" use case through technologies integrated in the  Gemoc Studio 
+(those technologies are all open-source under the EPL - Eclipse Public License)
+
+This is a proof of concept used to evaluate what DSLs and MDSD technologies can contribute to a domain where multi-disciplinary activities have the potential to have major gains in resource usage (here water).
+In the case of the farming use case several stakeholders are involved :
+- Agricultural Scientist : owns and design the scientific models used to compute biomass and water requirements. Can try other models, change the parameters and inspect the exploitations design to reason on his research.
+- Farmer : is able to assess "what if" scenarios at his exploitation level : "What if i had one more equipement ?  What if I would grow weat instead of corn ? ". Is also able to estimate the quantity of water he will have to book and buy to the Institutionnal Resource Manager as those contracts are yearly made.
+- Institutionnal Resource Manager : Benefit from a better planning and assessment of the use of the water resource. Could, in case of drought, make better informed decision as to which exploitation will not have the water they booked in order to minimize the impact on the biomass growth.
+
+Four DSLs are defined and used in an integrated way to provide tooling and analysis capabilities over an exploitation. 
+
+From a technical point of view there are many "loose ends" (remember, a prototype) but in its current state the tooling cover all a complete analytic loop.
+
+From a scientific point of view (besides software engineering) biomass and water model computation are not precise enough for now as they rely on missing data which got inferred. furthermore the results given by the tooling have not been validated by 
+any scientific from the domain *yet*.
+
+
+!images/agrodsl-meta.png!
+
+
+h2. Activities DSL
+
+Its purpose is to capture a static definition of the rules related to some cultures : how they are split in activities and what might trigger an activity. It also provides a textual syntax (based on Xtext) which makes it easier to specific the requirements and to compose expressions.
+
+!images/agro-activitiesecore.png!
+
+h2. Exploitation DSL
+
+It is used to capture the structure of a given exploitation. Its break down in fields, the available resources and how
+the workgroups are setup in the exploitation.
+
+!images/agro-exploitationecore.png!
+
+h2. Simulation DSL
+
+It is used to capture simulation settings and result : the climate data for a given location and the schedule and ressource allocation to achieve the culture.
+
+!images/agro-simulationecore.png!
+
+
+h2. Scientific DSL
+
+The Scientific DSL is used to capture the parameters and data required to proceed to a biomass and irrigation analysis.
+
+!images/agro-scientificecore.png!
+
+
+h1. Syntaxes
+
+A textual syntax is used to describe the agricultural activites. Text is more suited for this case as it is composed of expressions and predicates which can be composed togethers.
+
+A graphical syntax is used to describe the exploitation structure. Graphics are more suited in this case as they give a birds-eye view and we 
+can use the shapes size and colors to convey information which helps the analysis :
+- the size of the *Fields* shapes matches the area of those fields.
+- the color of the fields represents the fact that they are fodder and watered or not.
+- *gauges* are used to represent the ratio of the watered fields (W) fodder fields (F) and non watered non fodder fields (N) which is 
+assigned to a given workgroup.
+
+!images/agro-exploitation-design.png!
+
+Both syntaxes are used togethers, the exploitation diagram represents the activities so that what each of the exploitation workshops is assigned to do.
+
+!images/agrodsl-instances.png!
+
+Also this diagram can be animated to go through the days and directly see who works on which field and the corresponding weather.
+
+!images/agro-exploitation-animated.png!
+
+Tables are also quite heavily used to represent time-based data : climate related data and biomass evolution.
+
+!images/agro-climate-series.png!
+
+h1. Planning the Farming activities
+
+Using as an input the set of predicates associated with each step of a culture and, the surfaces to be used and the climate data per day, a model representing the *work to do* is computed. 
+This model effectively capture the work to do and the corresponding resource allocations, then a solver is triggered to find a planning solution which fits the requirements (if possible).
+The solver's computation will not go further than a duration limit specified by the user and if no optimal solution is found will then keep the best one. It also gives feedback to the user regarding which constraints are not met with the solution it found.
+  
+!images/agro-schedule-per-surface.png!
+
+h1. Conducting the Irrigation and Biomass analysis
+
+From the schedule, the exploitation definition, the climate data and a model of the biomass growth an irrigation and biomass analysis can be conducted. 
+It determines *when* a surface has to be watered and from this and the daily temperatures, rays and rain compute the biomass evolution.
+Using this information one can plan how much water will be required for the culture for the year, one can also assess scenarios with more resources (peoples, machines) or with surfaces assigned to other kind of cultures.
+
+!images/agro-water-analysis.png!
+
+h1. Leveraging the models
+
+The models can be leveraged by different means. Using model to text transformation one can generate reports based on the simulation results. 
+Here is a transformation template: 
+
+!images/agro-gensimuhtml.png!
+
+or could directly generate code to launch the simulation using a specific platform like DEVs:
+
+!images/agro-genexpdevs.png!
+
+A Java API is also generated allowing to load the exploitation, activities and simulation data and manipulate those in a platform-agnostic way.
+
+!images/agro-javaapi.png!
+
+
+h1. Deploying the tooling
+
+This tooling made of Eclipse Plugins which can be built and archived in a so-called *update-site* with a single right-click. 
+It can be deployed as a standalone product directly executable on Windows, Linux and MacOSX or installed in a pre-existing Eclipse instance.
+

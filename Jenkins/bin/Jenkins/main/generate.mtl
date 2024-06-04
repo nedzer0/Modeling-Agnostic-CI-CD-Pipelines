@@ -6,21 +6,36 @@
 [comment @main/]
 [file ('Jenkins' + '.yml', false, 'UTF-8')]
 pipeline {
-    [generateAgents(aPipeline)/]
+[for (a: Agent | aPipeline.agents)]
+    [generateAgent(a)/]
+[/for]
+    [generateOptions(aPipeline)/]
     [generateTriggers(aPipeline)/]
     [generateParameterDirective(aPipeline)/]
-    [generateEnvironment(aPipeline)/]
-    [generateTools(aPipeline)/]
+[if (aPipeline.environments->notEmpty()) ]
+    environment {
+    [for (e: Environment | aPipeline.environments)]
+        [generateKeyValue(e)/]
+    [/for]
+    }
+[/if]
+[if (aPipeline.tools->notEmpty())]
+    tools {
+    [for (t: Tool | aPipeline.tools)]
+        [t.tool.toString()/] [t.tool_name/]
+    [/for]
+    }
+[/if]
     [generateStages(aPipeline)/]
-    [generatePosts(aPipeline)/]
+[if (aPipeline._post->notEmpty())]
+    post {
+        [aPipeline._post.condition.toString()/] {
+            [for (p: Post | aPipeline._post)] [generatePostSteps(p)/] [/for]
+        }
+    }
+[/if]
 }
 [/file]
-[/template]
-
-[template public generateAgents(aPipeline: Pipeline)]
-[for (a: Agent | aPipeline.agent)]
-[generateAgent(a)/]
-[/for]
 [/template]
 
 [template public generateAgent(aAgent: Agent)]
@@ -29,6 +44,9 @@ agent any
 [/if]
 [if (aAgent.oclIsKindOf(None))]
 agent none
+[/if]
+[if (aAgent.oclIsKindOf(Label))]
+agent { label [oclAsType(Label).label/] }
 [/if]
 [if (aAgent.oclIsKindOf(Node))]
 [generateNodeAgent(oclAsType(Node))/]
@@ -45,6 +63,9 @@ agent none
 agent {
     node {
         label '[aNode.label/]'
+        [if (aNode.customWorkspace->notEmpty())]
+        customWorkspace '[aNode.customWorkspace/]'
+        [/if]
     }
 }
 [/template]
@@ -64,6 +85,15 @@ agent {
         [/if]
         [if (aDocker.registryCredentialsId->notEmpty())]
         registryCredentialsId '[aDocker.registryCredentialsId/]'
+        [/if]
+        [if (aDocker.reuseNode->notEmpty())]
+        reuseNode '[aDocker.reuseNode/]'
+        [/if]
+        [if (aDocker.customWorkspace->notEmpty())]
+        customWorkspace '[aDocker.customWorkspace/]'
+        [/if]
+        [if (aDocker.alwaysPull->notEmpty())]
+        alwaysPull [aDocker.alwaysPull/]
         [/if]
     }
 }
@@ -92,47 +122,150 @@ agent {
         [if (aDockerfile.registryCredentialsId->notEmpty())]
         registryCredentialsId '[aDockerfile.registryCredentialsId/]'
         [/if]
+        [if (aDockerfile.reuseNode->notEmpty())]
+        reuseNode '[aDockerfile.reuseNode/]'
+        [/if]
+        [if (aDockerfile.customWorkspace->notEmpty())]
+        customWorkspace '[aDockerfile.customWorkspace/]'
+        [/if]
     }
 }
 [/template]
 
 
+[template public generateOptions(aPipeline: Pipeline)]
+options {
+  [for (o: Option | aPipeline.options)]
+    [generateOption(o)/]
+  [/for]
+}
+[/template]
+
+
+[template public generateOption(aOption: Option)]
+[if (aOption.oclIsKindOf(Retry))]
+retry([oclAsType(Retry).retries/])
+[/if]
+[if (aOption.oclIsKindOf(BuildDiscarder))]
+buildDiscarder(logRotator(numToKeepStr: '[oclAsType(BuildDiscarder).numToKeepStr/]'))
+[/if]
+[if (aOption.oclIsKindOf(CheckoutToSubdirectory))]
+checkoutToSubdirectory('[oclAsType(CheckoutToSubdirectory).directory/]')
+[/if]
+[if (aOption.oclIsKindOf(DisableConcurrentBuilds))]
+disableConcurrentBuilds([if (oclAsType(DisableConcurrentBuilds).abort = true)]abortPrevious: true[/if])
+[/if]
+[if (aOption.oclIsKindOf(DisableResume))]
+disableResume()
+[/if]
+[if (aOption.oclIsKindOf(NewContainerPerStage))]
+newContainerPerStage()
+[/if]
+[if (aOption.oclIsKindOf(OverrideIndexTriggers))]
+overrideIndexTriggers([oclAsType(OverrideIndexTriggers).override/])
+[/if]
+[if (aOption.oclIsKindOf(PreserveStashes))]
+preserveStashes([if (oclAsType(PreserveStashes).buildCount->notEmpty())]buildCount: [oclAsType(PreserveStashes).buildCount/][/if])
+[/if]
+[if (aOption.oclIsKindOf(QuietPeriod))]
+quietPeriod([oclAsType(QuietPeriod).period/])
+[/if]
+[if (aOption.oclIsKindOf(SkipDefaultCheckout))]
+skipDefaultCheckout()
+[/if]
+[if (aOption.oclIsKindOf(SkipStagesAfterUnstable))]
+skipStagesAfterUnstable()
+[/if]
+[if (aOption.oclIsKindOf(Timeout))]
+timeout(time: [oclAsType(Timeout).time/], unit: '[oclAsType(Timeout).unit/]')
+[/if]
+[if (aOption.oclIsKindOf(Timestamps))]
+timestamps()
+[/if]
+[if (aOption.oclIsKindOf(ParallelsAlwaysFailFast))]
+parallelsAlwaysFailFast()
+[/if]
+[if (aOption.oclIsKindOf(DisableRestartFromStage))]
+disableRestartFromStage()
+[/if]
+[/template]
+
+
 [template public generateTriggers(aPipeline: Pipeline)]
-[if (aPipeline.trigger->notEmpty())]
+[if (aPipeline.triggers->notEmpty())]
 triggers {
-    [for (t: Trigger | aPipeline.trigger)] 
+  [for (t: Trigger | aPipeline.triggers)] 
     [generateTrigger(t)/]
-    [/for]
+  [/for]
 }
 [/if]
 [/template]
 
 [template public generateTrigger(aTrigger: Trigger)]
-[aTrigger.trigger_type.toString()/]('[aTrigger.timer/]')
+[if (aTrigger.oclIsKindOf(Cron))]
+[generateCronTrigger(oclAsType(Cron))/]
+[/if]
+[if (aTrigger.oclIsKindOf(Upstream))]
+[generateUpstreamTrigger(oclAsType(Upstream))/]
+[/if]
+[if (aTrigger.oclIsKindOf(PollSCM))]
+[generatePollSCMTrigger(oclAsType(PollSCM))/]
+[/if]
+[/template]
+
+[template public generateCronTrigger(aCron : Cron)]
+cron('[aCron.timer/]')
+[/template]
+
+[template public generateUpstreamTrigger(aUpstream : Upstream)]
+upstream(upstreamProjects: '[if (aUpstream.jobs->size() > 1)][aUpstream.jobs->sep(', ')/][/if][if (aUpstream.jobs->size() = 1)][aUpstream.jobs->first()/][/if]', [oclAsType(Upstream).threshold/])
+[/template]
+
+[template public generatePollSCMTrigger(aPollSCM : PollSCM)]
+pollSCM('[oclAsType(PollSCM).timer/]')
 [/template]
 
 
-[template public generateParameterDirective(aPipeline: Pipeline)]
-[if (aPipeline.parameter_directive->notEmpty())]
+[template public generateParameterDirective(aPipeline: Pipeline)] 
+[if (aPipeline.parameter_directives->notEmpty())]
 parameters {
-    [aPipeline.parameter_directive.param_type/]([for (p: Param_Value | aPipeline.parameter_directive.param_value)][generateParamKeyValue(p)/][if (not (p = aPipeline.parameter_directive.param_value->last()))], [/if][/for])
+  [if (aPipeline.parameter_directives->exists(e | e.oclIsKindOf(StringParam)))]
+    string[for (pd: Parameter_Directive | aPipeline.parameter_directives->select(e | e.oclIsKindOf(StringParam)))][generateStringParam(oclAsType(StringParam))/][/for]
+  [/if]
+  [if (aPipeline.parameter_directives->exists(e | e.oclIsKindOf(TextParam)))]
+    text[for (pd: Parameter_Directive | aPipeline.parameter_directives->select(e | e.oclIsKindOf(TextParam)))][generateTextParam(oclAsType(TextParam))/][/for]
+  [/if]
+  [if (aPipeline.parameter_directives->exists(e | e.oclIsKindOf(ChoiceParam)))]
+    choice[for (pd: Parameter_Directive | aPipeline.parameter_directives->select(e | e.oclIsKindOf(ChoiceParam)))][generateChoiceParam(oclAsType(ChoiceParam))/][/for]
+  [/if]
+  [if (aPipeline.parameter_directives->exists(e | e.oclIsKindOf(BooleanParam)))]
+    booleanParam[for (pd: Parameter_Directive | aPipeline.parameter_directives->select(e | e.oclIsKindOf(BooleanParam)))][generateBooleanParam(oclAsType(BooleanParam))/][/for]
+  [/if]
+  [if (aPipeline.parameter_directives->exists(e | e.oclIsKindOf(PasswordParam)))]
+    password[for (pd: Parameter_Directive | aPipeline.parameter_directives->select(e | e.oclIsKindOf(PasswordParam)))][generatePasswordParam(oclAsType(PasswordParam))/][/for]
+  [/if]
 }
 [/if]
 [/template]
 
-[template public generateParamKeyValue(aParam_Value : Param_Value)]
-[aParam_Value.key/]: '[aParam_Value.value/]'
+[template public generateStringParam(aString : StringParam)]
+(name: '[aString.name/]', defaultValue: '[aString.defaultValue/]', description: '[aString.description/]')
 [/template]
 
+[template public generateTextParam(aText : TextParam)]
+(name: '[aText.name/]', defaultValue: '[aText.defaultValue/]', description: '[aText.description/]')
+[/template]
 
-[template public generateEnvironment(aPipeline: Pipeline)]
-[if (aPipeline.environment->notEmpty()) ]
-environment {
-[for (e: Environment | aPipeline.environment)]
-    [generateKeyValue(e)/]
-[/for]
-}
-[/if]
+[template public generateChoiceParam(aChoice : ChoiceParam)]
+(name: '[aChoice.name/]', choices: ['['/][for (val: String | aChoice.choices)]'[val/]'[if (not (val = aChoice.choices->last()))], [/if][/for][']'/], description: '[aChoice.description/]')
+[/template]
+
+[template public generateBooleanParam(aBooleanParam : BooleanParam)]
+(name: '[aBooleanParam.name/]', defaultValue: [aBooleanParam.defaultValue/], description: '[aBooleanParam.description/]')
+[/template]
+
+[template public generatePasswordParam(aPassword : PasswordParam)]
+(name: '[aPassword.name/]', defaultValue: '[aPassword.defaultValue/]', description: '[aPassword.description/]')
 [/template]
 
 
@@ -141,20 +274,9 @@ environment {
 [/template]
 
 
-[template public generateTools(aPipeline: Pipeline)]
-[if (aPipeline.tool->notEmpty())]
-tools {
-[for (t: Tool | aPipeline.tool)]
-    [t.tool/] [t.tool_name/]
-[/for]
-}
-[/if]
-[/template]
-
-
 [template public generateStages(aPipeline : Pipeline)]
 stages {
-[for (s: Stage | aPipeline.stage)]
+[for (s: Stage | aPipeline.stages)]
     [generateStage(s)/]
 [/for]
 }
@@ -163,29 +285,43 @@ stages {
 
 [template public generateStage(aStage : Stage)]
 stage('[aStage.name/]') {
-    [generateStageAgent(aStage)/]
+    [if (aStage.failFast = true)]failFast true[/if]
+[if (aStage.agents->notEmpty())]
+  [for (a: Agent | aStage.agents)]
+    [generateAgent(a)/]
+  [/for]
+[/if]
     [generateStageEnv(aStage)/]
-    [generateInput(aStage)/]
-    [generateWhens(aStage)/]
-    [generateStageTools(aStage)/]
-    [generateStagePosts(aStage)/]
+[if (aStage.inputs->notEmpty())]
+[for (input: Input | aStage.inputs)]
+    [generateInput(input)/]
+[/for]
+[/if]
+[if (aStage.when->notEmpty())]
+    when {
+    [for (w: When | aStage.when)]
+        [generateWhen(w)/]
+    [/for]
+    }
+[/if]
+[if (aStage.stage_options->notEmpty())]
+    options {
+    [for (o: StageOption | aStage.stage_options)]
+        [generateStageOption(o)/]
+    [/for]
+    }
+[/if]
     [generateSteps(aStage)/]
-    [if (aStage.failFast)]failFast true[/if]
+    [generateMatrix(aStage.matrix)/]
     [generateRescursiveStage(aStage)/]
 }
 [/template]
 
 
-[template public generateStageAgent(aStage : Stage)]
-[for (a: Agent | aStage.agent)]
-[generateAgent(a)/]
-[/for]
-[/template]
-
 [template public generateStageEnv(aStage : Stage)]
-[if (aStage.environment->notEmpty())]
+[if (aStage.environments->notEmpty())]
 environment {
-[for (e: Environment | aStage.environment)]
+[for (e: Environment | aStage.environments)]
     [generateKeyValue(e)/]
 [/for]
 }
@@ -193,79 +329,79 @@ environment {
 [/template]
 
 
-[template public generateInput(aStage : Stage)]
-[if (aStage.input->notEmpty())]
+[template public generateInput(input : Input)]
 input {
-    message [aStage.input.message/]
-    [if (aStage.input.id->notEmpty())]
-    id '[aStage.input.id/]'
+    message [input.message/]
+    [if (input.id->notEmpty())]
+    id '[input.id/]'
     [/if]
-    [if (aStage.input.ok->notEmpty())]
-    ok '[aStage.input.ok/]'
+    [if (input.ok->notEmpty())]
+    ok '[input.ok/]'
     [/if]
-    [if (aStage.input.submitter->notEmpty())]
-    submitter '[aStage.input.submitter/]'
+    [if (input.submitter->notEmpty())]
+    submitter '[input.submitter/]'
     [/if]
-    [if (aStage.input.submitterParameter->notEmpty())]
-    submitterParameter '[aStage.input.submitterParameter/]'
+    [if (input.submitterParameter->notEmpty())]
+    submitterParameter '[input.submitterParameter/]'
     [/if]
-    [if (aStage.input.parameter_directive->notEmpty())]
-    parameters {
-    [aStage.input.parameter_directive.param_type/]([for (p: Param_Value | aStage.input.parameter_directive.param_value)][generateParamKeyValue(p)/][if (not (p = aStage.input.parameter_directive.param_value->last()))], [/if][/for])
-    }
-    [/if]
+    [generateInputParams(input)/]
+}
+[/template]
+
+[template public generateInputParams(input : Input)]
+[if (input.parameter_directives->notEmpty())]
+parameters {
+  [if (input.parameter_directives->exists(e | e.oclIsKindOf(StringParam)))]
+    string[for (pd: Parameter_Directive | input.parameter_directives->select(e | e.oclIsKindOf(StringParam)))][generateStringParam(oclAsType(StringParam))/][/for]
+  [/if]
+  [if (input.parameter_directives->exists(e | e.oclIsKindOf(TextParam)))]
+    text[for (pd: Parameter_Directive | input.parameter_directives->select(e | e.oclIsKindOf(TextParam)))][generateTextParam(oclAsType(TextParam))/][/for]
+  [/if]
+  [if (input.parameter_directives->exists(e | e.oclIsKindOf(ChoiceParam)))]
+    choice[for (pd: Parameter_Directive | input.parameter_directives->select(e | e.oclIsKindOf(ChoiceParam)))][generateChoiceParam(oclAsType(ChoiceParam))/][/for]
+  [/if]
+  [if (input.parameter_directives->exists(e | e.oclIsKindOf(BooleanParam)))]
+    booleanParam[for (pd: Parameter_Directive | input.parameter_directives->select(e | e.oclIsKindOf(BooleanParam)))][generateBooleanParam(oclAsType(BooleanParam))/][/for]
+  [/if]
+  [if (input.parameter_directives->exists(e | e.oclIsKindOf(PasswordParam)))]
+    password[for (pd: Parameter_Directive | input.parameter_directives->select(e | e.oclIsKindOf(PasswordParam)))][generatePasswordParam(oclAsType(PasswordParam))/][/for]
+  [/if]
 }
 [/if]
 [/template]
 
 
-[template public generateStageTools(aStage : Stage)]
-[if (aStage.tool->notEmpty()) ]
-tools {
-[for (t: Tool | aStage.tool)]
-    [t.tool/] [t.tool_name/]
-[/for]
-}
+[template public generateStageOption(aStageOption: StageOption)]
+[if (aStageOption.oclIsKindOf(Retry))]
+retry([oclAsType(Retry).retries/])
+[/if]
+[if (aStageOption.oclIsKindOf(SkipDefaultCheckout))]
+skipDefaultCheckout()
+[/if]
+[if (aStageOption.oclIsKindOf(Timeout))]
+timeout(time: [oclAsType(Timeout).time/], unit: '[oclAsType(Timeout).unit/]')
+[/if]
+[if (aStageOption.oclIsKindOf(Timestamps))]
+timestamps()
 [/if]
 [/template]
 
-
-[template public generateStagePosts(aStage : Stage)]
-[if (aStage._post->notEmpty()) ]
-post {
-[for (t: Tool | aStage.tool)]
-    [t.tool/] [t.tool_name/]
-[/for]
-}
-[/if]
-[/template]
-
-
-[template public generateWhens(aStage : Stage)]
-[if (aStage.when->notEmpty())]
-when {
-[for (w: When | aStage.when)]
-    [generateWhen(w)/]
-[/for]
-}
-[/if]
-[/template]
 
 [template public generateWhen(aWhen : When)]
 [if (aWhen.oclIsKindOf(Branch))]
-branch pattern: [oclAsType(Branch).pattern/][if (oclAsType(Branch).comparator->notEmpty())], comparator: [oclAsType(Branch).comparator/][/if]
+branch pattern: [oclAsType(Branch).pattern/][if (oclAsType(Branch).comparator.toString() <> 'none')], comparator: [oclAsType(Branch).comparator.toString().toUpperCase()/][/if]
 [/if]
 [if (aWhen.oclIsKindOf(BuildingTag))]
 buildingTag()
 [/if]
 [if (aWhen.oclIsKindOf(Changelog))]
-changelog pattern: [oclAsType(Changelog).expression/]
+changelog [oclAsType(Changelog).expression/]
 [/if]
 [if (aWhen.oclIsKindOf(ChangeSet))]
-changeset pattern: [oclAsType(ChangeSet).pattern/][if (oclAsType(ChangeSet).comparator->notEmpty())], comparator: [oclAsType(ChangeSet).comparator/][/if]
+changeset pattern: [oclAsType(ChangeSet).pattern/][if (oclAsType(ChangeSet).comparator.toString() <> 'none')], comparator: [oclAsType(ChangeSet).comparator.toString().toUpperCase()/][/if]
 [/if]
 [if (aWhen.oclIsKindOf(ChangeRequest))]
-changeRequest [oclAsType(ChangeRequest).attribute/]: [oclAsType(ChangeRequest).value/][if (oclAsType(ChangeRequest).comparator->notEmpty())], comparator: [oclAsType(ChangeRequest).comparator/][/if]
+changeRequest [oclAsType(ChangeRequest).attribute/]: [oclAsType(ChangeRequest).value/][if (oclAsType(ChangeRequest).comparator.toString() <> 'none')], comparator: [oclAsType(ChangeRequest).comparator.toString().toUpperCase()/][/if]
 [/if]
 [if (aWhen.oclIsKindOf(Not))]
 not {
@@ -292,10 +428,10 @@ allOf {
 equals expected: [oclAsType(Equals).expected_val/], actual: [oclAsType(Equals).actual_val/]
 [/if]
 [if (aWhen.oclIsKindOf(Expression))]
-expression { return [oclAsType(Expression).expression/] }
+expression { [oclAsType(Expression).expression/] }
 [/if]
 [if (aWhen.oclIsKindOf(Tag))]
-tag pattern: [oclAsType(Tag).pattern/][if (oclAsType(Tag).comparator->notEmpty())], comparator: [oclAsType(Tag).comparator/][/if]
+tag pattern: [oclAsType(Tag).pattern/][if (oclAsType(Tag).comparator.toString() <> 'none')], comparator: [oclAsType(Tag).comparator.toString().toUpperCase()/][/if]
 [/if]
 [if (aWhen.oclIsKindOf(When_Env))]
 environment name: [oclAsType(When_Env).name/], value: [oclAsType(When_Env).value/]
@@ -306,9 +442,9 @@ triggeredBy [oclAsType(TriggeredBy).parameter/]
 [/template]
 
 [template public generateSteps(aStage : Stage)]
-[if (aStage.stage->isEmpty())]
+[if (aStage.steps->notEmpty())]
 steps {
-[for (s: Step | aStage.step)]
+[for (s: Step | aStage.steps)]
     [generateStep(s)/]
 [/for]
 }
@@ -317,50 +453,115 @@ steps {
 
 
 [template public generateStep(aStep: Step)]
-[aStep.command.name/][generateStepParameters(aStep)/]
+[aStep.commands.name/][generateStepParameters(aStep)/]
 [/template]
 
 [template public generateStepParameters(aStep: Step)]
-[for (sp: Step_Parameter | aStep.step_parameter)] [sp.parameter/] [/for]
+[for (sp: Step_Parameter | aStep.step_parameters)] [sp.parameter/] [/for]
 [/template]
 
-
-
-[template public generatePosts(aPipeline : Pipeline)]
-[if (aPipeline._post->notEmpty())]
-post {
-    [aPipeline._post.condition.toString()/] {
-        [for (p: Post | aPipeline._post)] [generatePostSteps(p)/] [/for]
-    }
-}
-[/if]
-[/template]
 
 [template public generatePostSteps(aPost : Post)]
 steps {
-[for (s: Step | aPost.step)]
+[for (s: Step | aPost.steps)]
     [generateStep(s)/]
 [/for]
 }
 [/template]
 
+[template public generateMatrix(matrix : Matrix)]
+[if (matrix->notEmpty())]
+matrix {
+[if (matrix.agents->notEmpty()) ]
+  [for (a: Agent | matrix.agents)]
+    [generateAgent(a)/]
+  [/for]
+[/if]
+  [if (matrix.environments->notEmpty()) ]
+    environment {
+    [for (e: Environment | matrix.environments)]
+        [generateKeyValue(e)/]
+    [/for]
+    }
+  [/if]
+[if (matrix.inputs->notEmpty())]
+  [for (input: Input | matrix.inputs)]
+    [generateInput(input)/]
+  [/for]
+[/if]
+[if (matrix.stage_options->notEmpty())]
+    options {
+    [for (o: StageOption | matrix.stage_options)]
+        [generateStageOption(o)/]
+    [/for]
+    }
+[/if]
+[if (matrix._post->notEmpty())]
+    post {
+        [matrix._post.condition.toString()/] {
+            [for (p: Post | matrix._post)] [generatePostSteps(p)/] [/for]
+        }
+    }
+[/if]
+[if (matrix.tools->notEmpty())]
+    tools {
+    [for (t: Tool | matrix.tools)]
+        [t.tool.toString()/] [t.tool_name/]
+    [/for]
+    }
+[/if]
+[if (matrix.when->notEmpty())]
+    when {
+    [for (w: When | matrix.when)]
+        [generateWhen(w)/]
+    [/for]
+    }
+[/if]
+    axes {
+      [for (axis: Axis | matrix.axis->select(a | a.exclude = false))]
+        [generateAxis(axis)/]
+      [/for]
+    }
+[if (matrix.axis->exists(axis | axis.exclude = true))]
+    excludes {
+        exclude {
+          [for (axis: Axis | matrix.axis->select(a | a.exclude = true))]
+            [generateAxis(axis)/]
+          [/for]
+        }
+    }
+[/if]
+    stages {
+      [for (s: Stage | matrix.stages)]
+        [generateStage(s)/]
+      [/for]
+    }
+}
+[/if]
+[/template]
+
+[template public generateAxis(aAxis : Axis)]
+axis {
+    name '[aAxis.name/]'
+    values [for (val: String | aAxis.values)]'[val/]'[if (not (val = aAxis.values->last()))], [/if][/for]
+}
+[/template]
 
 [template public generateRescursiveStage(aStage : Stage)]
-[if (aStage.stage->notEmpty())]
-[if (aStage.stage->exists(s | s.parallel = true))]
+[if (aStage.stages->notEmpty())]
+[if (aStage.stages->exists(s | s.parallel = true))]
 parallel {
-  [for (s: Stage | aStage.stage->select(s | s.parallel = true))]
+  [for (s: Stage | aStage.stages->select(s | s.parallel = true))]
     [generateStage(s)/]
   [/for]
 }
 [/if]
-[if (aStage.stage->exists(s | s.parallel = false))]
+[if (aStage.stages->exists(s | s.parallel = false))]
 stages {
-  [for (s: Stage | aStage.stage->select(s | s.parallel = false))]
+  [for (s: Stage | aStage.stages->select(s | s.parallel = false))]
     [generateStage(s)/]
   [/for]
 }
 [/if]
 [/if]
 [/template]
-

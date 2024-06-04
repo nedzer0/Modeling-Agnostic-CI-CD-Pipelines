@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gHA_metamodel" nsURI="http://www.example.org/gHA_metamodel"
+    nsPrefix="gHA_metamodel">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EEnum" name="EVENTS">
+    <eLiterals name="BRANCH_PROTECTION_RULE" literal="branch_protection_rule"/>
+    <eLiterals name="CHECK_RUN" value="1" literal="check_run"/>
+    <eLiterals name="CHECK_SUITE" value="2" literal="check_suite"/>
+    <eLiterals name="CREATE" value="3" literal="create"/>
+    <eLiterals name="DELETE" value="4" literal="delete"/>
+    <eLiterals name="DEPLOYMENT" value="5" literal="deployment"/>
+    <eLiterals name="DEPLOYMENT_STATUS" value="6" literal="deployment_status"/>
+    <eLiterals name="DISCUSSION" value="7" literal="discussion"/>
+    <eLiterals name="DISCUSSION_COMMENT" value="8" literal="discussion_comment"/>
+    <eLiterals name="FORK" value="9" literal="fork"/>
+    <eLiterals name="GOLLUM" value="10" literal="gollum"/>
+    <eLiterals name="ISSUE_COMMENT" value="11" literal="issue_comment"/>
+    <eLiterals name="ISSUES" value="12" literal="issues"/>
+    <eLiterals name="LABEL" value="13" literal="label"/>
+    <eLiterals name="MERGE_GROUP" value="14" literal="merge_group"/>
+    <eLiterals name="MILESTONE" value="15" literal="milestone"/>
+    <eLiterals name="PAGE_BUILD" value="16" literal="page_build"/>
+    <eLiterals name="PROJECT" value="17" literal="project"/>
+    <eLiterals name="PROJECT_CARD" value="18" literal="project_card"/>
+    <eLiterals name="PROJECT_COLUMN" value="19" literal="project_column"/>
+    <eLiterals name="PUBLIC" value="20" literal="public"/>
+    <eLiterals name="PULL_REQUEST_REVIEW" value="21" literal="pull_request_review"/>
+    <eLiterals name="PULL_REQUEST_REVIEW_COMMENT" value="22" literal="pull_request_review_comment"/>
+    <eLiterals name="REGISTRY_PACKAGE" value="23" literal="registry_package"/>
+    <eLiterals name="RELEASE" value="24" literal="release"/>
+    <eLiterals name="REPOSITORY_DISPATCH" value="25" literal="repository_dispatch"/>
+    <eLiterals name="STATUS" value="26" literal="status"/>
+    <eLiterals name="WATCH" value="27" literal="watch"/>
+    <eLiterals name="BRANCH_PROTECTION_CONFIGURATION" value="28" literal="branch_protection_configuration"/>
+    <eLiterals name="CODE_SCANNING_ALERT" value="29" literal="code_scanning_alert"/>
+    <eLiterals name="COMMIT_COMMENT" value="30" literal="commit_comment"/>
+    <eLiterals name="CUSTOM_PROPERTY" value="31" literal="custom_property"/>
+    <eLiterals name="CUSTOM_PROPERTY_VALUES" value="32" literal="custom_property_values"/>
+    <eLiterals name="DEPENDABOT_ALERT" value="33" literal="dependabot_alert"/>
+    <eLiterals name="DEPLOY_KEY" value="34" literal="deploy_key"/>
+    <eLiterals name="DEPLOYMENT_PROTECTION_RULE" value="35" literal="deployment_protection_rule"/>
+    <eLiterals name="DEPLOYMENT_REVIEW" value="36" literal="deployment_review"/>
+    <eLiterals name="GITHUB_APP_AUTHORIZATION" value="38" literal="github_app_authorization"/>
+    <eLiterals name="INSTALLATION" value="39" literal="installation"/>
+    <eLiterals name="INSTALLATION_REPOSITORIES" value="40" literal="installation_repositories"/>
+    <eLiterals name="INSTALLATION_TARGET" value="41" literal="installation_target"/>
+    <eLiterals name="MARKETPLACE_PURCHASE" value="42" literal="marketplace_purchase"/>
+    <eLiterals name="MEMBER" value="43" literal="member"/>
+    <eLiterals name="MEMBERSHIP" value="44" literal="membership"/>
+    <eLiterals name="META" value="45" literal="meta"/>
+    <eLiterals name="ORG_BLOCK" value="46" literal="org_block"/>
+    <eLiterals name="ORGANIZATION" value="47" literal="organization"/>
+    <eLiterals name="PACKAGE" value="48" literal="package"/>
+    <eLiterals name="PERSONAL_ACCESS_TOKEN_REQUEST" value="50" literal="personal_access_token_request"/>
+    <eLiterals name="PING" value="51" literal="ping"/>
+    <eLiterals name="PROJECTS_V2" value="52" literal="projects_v2"/>
+    <eLiterals name="PROJECTS_V2_ITEM" value="53" literal="projects_v2_item"/>
+    <eLiterals name="PULL_REQUEST" value="54" literal="pull_request"/>
+    <eLiterals name="PULL_REQUEST_REVIEW_THREAD" value="55" literal="pull_request_review_thread"/>
+    <eLiterals name="PUSH" value="56" literal="push"/>
+    <eLiterals name="REPOSITORY_ADVISORY" value="57" literal="repository_advisory"/>
+    <eLiterals name="REPOSITORY" value="58" literal="repository"/>
+    <eLiterals name="REPOSITORY_IMPORT" value="59" literal="repository_import"/>
+    <eLiterals name="REPOSITORY_RULESET" value="60" literal="repository_ruleset"/>
+    <eLiterals name="REPOSITORY_VULNERABILITY_ALERT" value="61" literal="repository_vulnerability_alert"/>
+    <eLiterals name="SECRET_SCANNING_ALERT" value="62" literal="secret_scanning_alert"/>
+    <eLiterals name="SECRET_SCANNING_ALERT_LOCATION" value="63" literal="secret_scanning_alert_location"/>
+    <eLiterals name="SECURITY_ADVISORY" value="64" literal="security_advisory"/>
+    <eLiterals name="SECURITY_AND_ANALYSIS" value="65" literal="security_and_analysis"/>
+    <eLiterals name="SPONSORSHIP" value="66" literal="sponsorship"/>
+    <eLiterals name="STAR" value="67" literal="star"/>
+    <eLiterals name="TEAM_ADD" value="68" literal="team_add"/>
+    <eLiterals name="TEAM" value="69" literal="team"/>
+    <eLiterals name="WORKFLOW_JOB" value="70" literal="workflow_job"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="WEBHOOK_ACTIVITY_TYPES">
+    <eLiterals name="ASSIGNED" literal="assigned"/>
+    <eLiterals name="AUTO_MERGE_DISABLED" value="1" literal="auto_merge_disabled"/>
+    <eLiterals name="AUTO_MERGE_ENABLED" value="2" literal="auto_merge_enabled"/>
+    <eLiterals name="CLOSED" value="4" literal="closed"/>
+    <eLiterals name="CONVERTED_TO_DRAFT" value="5" literal="converted_to_draft"/>
+    <eLiterals name="EDITED" value="6" literal="edited"/>
+    <eLiterals name="LABELED" value="7" literal="labeled"/>
+    <eLiterals name="LOCKED" value="8" literal="locked"/>
+    <eLiterals name="OPENED" value="9" literal="opened"/>
+    <eLiterals name="READY_FOR_REVIEW" value="10" literal="ready_for_review"/>
+    <eLiterals name="REOPENED" value="11" literal="reopened"/>
+    <eLiterals name="REVIEW_REQUEST_REMOVED" value="12" literal="review_request_removed"/>
+    <eLiterals name="REVIEW_REQUESTED" value="13" literal="review_requested"/>
+    <eLiterals name="SYNCHRONIZE" value="14" literal="synchronize"/>
+    <eLiterals name="UNASSIGNED" value="15" literal="unassigned"/>
+    <eLiterals name="UNLABELED" value="16" literal="unlabeled"/>
+    <eLiterals name="UNLOCKED" value="17" literal="unlocked"/>
+    <eLiterals name="CREATED" value="18" literal="created"/>
+    <eLiterals name="DELETED" value="19" literal="deleted"/>
+    <eLiterals name="NONE" value="19" literal="none"/>
+    <eLiterals name="DISABLED" value="20" literal="disabled"/>
+    <eLiterals name="ENABLED" value="21" literal="enabled"/>
+    <eLiterals name="COMPLETED" value="22" literal="completed"/>
+    <eLiterals name="REQUESTED_ACTION" value="23" literal="requested_action"/>
+    <eLiterals name="REREQUESTED" value="24" literal="rerequested"/>
+    <eLiterals name="REQUESTED" value="25" literal="requested"/>
+    <eLiterals name="APPEARED_IN_BRANCH" value="26" literal="appeared_in_branch"/>
+    <eLiterals name="CLOSED_BY_USER" value="27" literal="closed_by_user"/>
+    <eLiterals name="FIXED" value="28" literal="fixed"/>
+    <eLiterals name="REOPENED_BY_USER" value="29" literal="reopened_by_user"/>
+    <eLiterals name="UPDATED" value="30" literal="updated"/>
+    <eLiterals name="AUTO_DISMISSED" value="31" literal="auto_dismissed"/>
+    <eLiterals name="AUTO_REOPENED" value="32" literal="auto_reopened"/>
+    <eLiterals name="DISMISSED" value="33" literal="dismissed"/>
+    <eLiterals name="REINTRODUCED" value="34" literal="reintroduced"/>
+    <eLiterals name="APPROVED" value="35" literal="approved"/>
+    <eLiterals name="REJECTED" value="36" literal="rejected"/>
+    <eLiterals name="ANSWERED" value="37" literal="answered"/>
+    <eLiterals name="CATEGORY_CHANGED" value="38" literal="category_changed"/>
+    <eLiterals name="PINNED" value="39" literal="pinned"/>
+    <eLiterals name="TRANSFERED" value="40" literal="transfered"/>
+    <eLiterals name="UNANSWERED" value="41" literal="unanswered"/>
+    <eLiterals name="UNPINNED" value="42" literal="unpinned"/>
+    <eLiterals name="NEW_PERMISSIONS_ACCEPTED" value="43" literal="new_permissions_accepted"/>
+    <eLiterals name="SUSPEND_UNSUSPEND" value="44" literal="suspend_unsuspend"/>
+    <eLiterals name="ADDED" value="45" literal="added"/>
+    <eLiterals name="REMOVED" value="46" literal="removed"/>
+    <eLiterals name="DEMILESTONED" value="47" literal="demilestoned"/>
+    <eLiterals name="MILESTONED" value="48" literal="milestoned"/>
+    <eLiterals name="CANCELLED" value="49" literal="cancelled"/>
+    <eLiterals name="CHANGED" value="50" literal="changed"/>
+    <eLiterals name="PENDING_CHANGE" value="51" literal="pending_change"/>
+    <eLiterals name="PENDING_CHANGE_CANCELLED" value="52" literal="pending_change_cancelled"/>
+    <eLiterals name="PURCHASED" value="53" literal="purchased"/>
+    <eLiterals name="DENIED" value="54" literal="denied"/>
+    <eLiterals name="CHECKS_REQUESTED" value="55" literal="checks_requested"/>
+    <eLiterals name="DESTROYED" value="56" literal="destroyed"/>
+    <eLiterals name="BLOCKED" value="57" literal="blocked"/>
+    <eLiterals name="MEMBER_ADDED" value="58" literal="member_added"/>
+    <eLiterals name="MEMBER_INVITED" value="59" literal="member_invited"/>
+    <eLiterals name="MEMBER_REMOVED" value="60" literal="member_removed"/>
+    <eLiterals name="RENAMED" value="61" literal="renamed"/>
+    <eLiterals name="PUBLISHED" value="62" literal="published"/>
+    <eLiterals name="MOVED" value="64" literal="moved"/>
+    <eLiterals name="ARCHIVED" value="65" literal="archived"/>
+    <eLiterals name="CONVERTED" value="66" literal="converted"/>
+    <eLiterals name="REORDERED" value="67" literal="reordered"/>
+    <eLiterals name="RESTORED" value="68" literal="restored"/>
+    <eLiterals name="DEQUEUED" value="69" literal="dequeued"/>
+    <eLiterals name="ENQUEUED" value="70" literal="enqueued"/>
+    <eLiterals name="SUBMITTED" value="71" literal="submitted"/>
+    <eLiterals name="RESOLVED" value="72" literal="resolved"/>
+    <eLiterals name="UNRESOLVED" value="73" literal="unresolved"/>
+    <eLiterals name="PRERELEASED" value="74" literal="prereleased"/>
+    <eLiterals name="RELEASED" value="75" literal="released"/>
+    <eLiterals name="UNPUBLISHED" value="76" literal="unpublished"/>
+    <eLiterals name="REPORTED" value="77" literal="reported"/>
+    <eLiterals name="PRIVATIZED" value="78" literal="privatized"/>
+    <eLiterals name="PUBLICIZED" value="79" literal="publicized"/>
+    <eLiterals name="TRANSFERRED" value="80" literal="transferred"/>
+    <eLiterals name="UNARCHIVED" value="81" literal="unarchived"/>
+    <eLiterals name="DISMISS" value="82" literal="dismiss"/>
+    <eLiterals name="REOPEN" value="83" literal="reopen"/>
+    <eLiterals name="RESOLVE" value="84" literal="resolve"/>
+    <eLiterals name="REVOKED" value="85" literal="revoked"/>
+    <eLiterals name="VALIDATED" value="86" literal="validated"/>
+    <eLiterals name="WITHDRAWN" value="87" literal="withdrawn"/>
+    <eLiterals name="PENDING_CANCELLATION" value="89" literal="pending_cancellation"/>
+    <eLiterals name="PENDING_TIER_CHANGE" value="90" literal="pending_tier_change"/>
+    <eLiterals name="TIER_CHANGED" value="91" literal="tier_changed"/>
+    <eLiterals name="ADDED_TO_REPOSITORY" value="92" literal="added_to_repository"/>
+    <eLiterals name="REMOVED_FROM_REPOSITORY" value="93" literal="removed_from_repository"/>
+    <eLiterals name="UNBLOCKED" value="94" literal="unblocked"/>
+    <eLiterals name="CREATE" value="95" literal="create"/>
+    <eLiterals name="IN_PROGRESS" value="96" literal="in_progress"/>
+    <eLiterals name="QUEUED" value="97" literal="queued"/>
+    <eLiterals name="WAITING" value="98" literal="waiting"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PERMISSIONS">
+    <eLiterals name="READ" literal="read"/>
+    <eLiterals name="WRITE" value="1" literal="write"/>
+    <eLiterals name="NONE" value="2" literal="none"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PERMISSION_SCOPES">
+    <eLiterals name="ACTIONS" literal="actions"/>
+    <eLiterals name="CHECKS" value="1" literal="checks"/>
+    <eLiterals name="CONTENTS" value="2" literal="contents"/>
+    <eLiterals name="DEPLOYMENTS" value="3" literal="deployments"/>
+    <eLiterals name="DISCUSSIONS" value="4" literal="discussions"/>
+    <eLiterals name="ID_TOKEN" value="5" literal="id-token"/>
+    <eLiterals name="ISSUES" value="6" literal="issues"/>
+    <eLiterals name="PACKAGES" value="7" literal="packages"/>
+    <eLiterals name="PAGES" value="8" literal="pages"/>
+    <eLiterals name="PULL_REQUESTS" value="9" literal="pull_requests"/>
+    <eLiterals name="REPOSITORY_PROJECTS" value="10" literal="repository_projects"/>
+    <eLiterals name="SECURITY_EVENTS" value="11" literal="security_events"/>
+    <eLiterals name="STATUSES" value="12" literal="statuses"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pipeline">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="UniquePipelinePermissionInstance"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="UniquePipelinePermissionInstance" value="Tuple {&#xA;&#x9;message : String = 'Another Pipeline Permission instance already exists with readAll, writeAll, or disableAll set to true',&#xA;&#x9;status : Boolean = &#xA;    &#x9;&#x9;self.permissions->select(p | p.readAll or p.writeAll or p.disableAll)->size() &lt;= 1&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
+        eType="#//Trigger" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jobs" lowerBound="1" upperBound="-1"
+        eType="#//Job" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="run_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="permissions" upperBound="-1"
+        eType="#//Permission" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concurrency" eType="#//Concurrency"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="envs" upperBound="-1" eType="#//Env"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultsetting" eType="#//DefaultSetting"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Job">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nonDuplicateJobName UniqueJobPermissionInstance"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nonDuplicateJobName" value="Tuple {&#xA;&#x9;message : String = 'Duplicate Job Name. Choose a different name for the job to ensure uniqueness within the pipeline.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;Pipeline.allInstances().jobs->forAll(j | j &lt;> self implies j.name &lt;> self.name)&#xA;}.status"/>
+      <details key="UniqueJobPermissionInstance" value="Tuple {&#xA;&#x9;message : String = 'Another Job Permission instance already exists with readAll, writeAll, or disableAll set to true',&#xA;&#x9;status : Boolean = &#xA;    &#x9;&#x9;self.permissions->select(p | p.readAll or p.writeAll or p.disableAll)->size() &lt;= 1&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" lowerBound="1" upperBound="-1"
+        eType="#//Step" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="if" eType="#//If" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" eType="#//Strategy"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concurrency" eType="#//Concurrency"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environment" eType="#//Environment"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultsetting" eType="#//DefaultSetting"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="permissions" upperBound="-1"
+        eType="#//Permission" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="envs" upperBound="-1" eType="#//Env"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="need" eType="#//Need" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
+        eType="#//Output" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout_minutes" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="360"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="continue_on_error" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//Service" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="secrets" upperBound="-1"
+        eType="#//Secret" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runner" eType="#//Runs_On"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//Container"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="UniqueTriggerTypes"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="UniqueTriggerTypes" value="Tuple {&#xA;&#x9;message : String = 'Only one instance of each trigger type (except ScheduleTrigger) is allowed',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;not self.oclIsTypeOf(ScheduleTrigger) implies&#xA;&#x9;&#x9;&#x9;&#x9;Trigger.allInstances()->select(t | t.oclType() = self.oclType())->size() &lt;= 1&#xA;}.status"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Step">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commands" lowerBound="1"
+        upperBound="-1" eType="#//Command" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="envs" upperBound="-1" eType="#//Env"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="if" eType="#//If" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="working_directory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shell" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="continue_on_error" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout_minutes" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Command">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameter" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Environment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uses" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composite_action" upperBound="-1"
+        eType="#//Step" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="with" upperBound="-1" eType="#//InputParams"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="with_inputPair" eType="#//InputPair"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventTrigger" abstract="true" eSuperTypes="#//Trigger">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activityType" upperBound="-1"
+        eType="#//WEBHOOK_ACTIVITY_TYPES" iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScheduleTrigger" eSuperTypes="#//Trigger">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="validCronSyntax"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="validCronSyntax" value="Tuple {&#xA;&#x9;message : String = 'Not a valid Cron syntax. Ensure that the pattern follows the format: [minute] [hour] [day of month] [month] [day of week], where each field is separated by a space.',&#xA;&#x9;status : Boolean = &#xA;    &#x9;&#x9;self.cron.matches('(?:[0-9]|1[0-9]|2[0-3]|H|L|\\*|\\?|[0-5]?[0-9]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]) (?:[0-9]|1[0-2]|\\*|L|\\?|\\*/[0-9]+) (?:[0-7]|\\*|L|\\?|#[1-5])')&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cron" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PushTrigger" eSuperTypes="#//Trigger">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
+        eType="#//Branch" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="paths" upperBound="-1"
+        eType="#//Path" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Runs_On">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="labelsAndGroupNotEmpty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="labelsAndGroupNotEmpty" value="Tuple {&#xA;&#x9;message : String = 'Either labels or group must be defined and not both as empty strings',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;(self.group->notEmpty() or self.labels->notEmpty()) and not (&#xA;        &#x9;(self.group->isEmpty() or self.group = '') and &#xA;        &#x9;(self.labels->isEmpty() or self.labels->exists(l | l = ''))&#xA;    &#x9;)&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labels" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Secret">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Need">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="existingJobsNeeded"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="existingJobsNeeded" value="Tuple {&#xA;&#x9;message : String = 'Referenced jobs do not exist. Reference existing jobs',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.jobs->forAll(jobName | Job.allInstances()->exists(j | j.name = jobName))&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobs" lowerBound="1" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Strategy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fail_fast" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_parallel" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configs" upperBound="-1"
+        eType="#//MatrixConfig" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Artifact" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paths" lowerBound="1" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="retention_days" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ARTIFACT_TYPE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="If">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="validCondition"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="validCondition" value="Tuple {&#xA;&#x9;message : String = 'Invalid condition pattern. Condition must be non-empty and if negated, ensure the condition starts and ends with the correct characters ${{...}}, '', &quot;&quot;, or ().',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.condition &lt;> '' and&#xA;&#x9;&#x9;&#x9;self.condition->includes('!') implies&#xA;&#x9;&#x9;&#x9;(self.condition.startsWith('${{') and self.condition.endsWith('}}') or&#xA;            self.condition.startsWith('\'') and self.condition.endsWith('\'') or&#xA;            self.condition.startsWith('&quot;') and self.condition.endsWith('&quot;') or&#xA;            self.condition.startsWith('(') and self.condition.endsWith(')'))&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MatrixConfig">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//MATRIX_CONFIG_TYPE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Concurrency">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cancel_in_progress" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Credentials">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefaultSetting">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shell" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="workingDirectory" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Permission">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="NoConflictingPermissions"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="NoConflictingPermissions" value="Tuple {&#xA;&#x9;message : String = 'Only one of readAll, writeAll, or disableAll can be set to true at a time',&#xA;&#x9;status : Boolean = &#xA;    &#x9;&#x9;(self.readAll implies (not self.writeAll and not self.disableAll)) and&#xA;    &#x9;&#x9;(self.writeAll implies (not self.readAll and not self.disableAll)) and&#xA;    &#x9;&#x9;(self.disableAll implies (not self.readAll and not self.writeAll))&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="permission" lowerBound="1"
+        eType="#//PERMISSIONS"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" lowerBound="1" eType="#//PERMISSION_SCOPES"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readAll" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="writeAll" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="disableAll" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Output">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Env">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
+        eType="#//Container" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputParams">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cache" abstract="true" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paths" lowerBound="1" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PullTrigger" eSuperTypes="#//EventTrigger">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
+        eType="#//Branch" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="paths" upperBound="-1"
+        eType="#//Path" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StandardEventTrigger" eSuperTypes="#//EventTrigger">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="validEventActivityType"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="validEventActivityType" value="Tuple {&#xA;&#x9;message : String = 'The specified event or activity type combination is not valid. Please check the event and activity types specified in the rule and ensure they match the allowed combinations.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;if self.event= EVENTS::BRANCH_PROTECTION_CONFIGURATION then&#xA;&#x9;&#x9;&#x9;&#x9;self.activityType->forAll(activity |&#xA;            &#x9;activity = WEBHOOK_ACTIVITY_TYPES::DISABLED or&#xA;            &#x9;activity = WEBHOOK_ACTIVITY_TYPES::ENABLED&#xA;     &#x9;&#x9;)&#xA;     &#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::BRANCH_PROTECTION_RULE then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::CHECK_RUN then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::COMPLETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REQUESTED_ACTION or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REREQUESTED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::CHECK_SUITE then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::COMPLETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REQUESTED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REREQUESTED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::CODE_SCANNING_ALERT then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::APPEARED_IN_BRANCH or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED_BY_USER or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::FIXED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED_BY_USER&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::CUSTOM_PROPERTY then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UPDATED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::DEPENDABOT_ALERT then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::AUTO_DISMISSED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::AUTO_REOPENED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DISMISSED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::FIXED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REINTRODUCED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::DEPLOY_KEY then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::DEPLOYMENT_REVIEW then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::APPROVED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REJECTED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REQUESTED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::DISCUSSION then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::ANSWERED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CATEGORY_CHANGED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::LABELED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PINNED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::TRANSFERRED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNANSWERED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNLABELED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNLOCKED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNPINNED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::DISCUSSION_COMMENT then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::INSTALLATION then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::NEW_PERMISSIONS_ACCEPTED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::SUSPEND_UNSUSPEND&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::INSTALLATION_REPOSITORIES then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::ADDED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REMOVED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;    else if self.event = EVENTS::ISSUE_COMMENT then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED&#xA;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::ISSUES then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::ASSIGNED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DEMILESTONED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::LABELED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::LOCKED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::MILESTONED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::OPENED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PINNED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::TRANSFERRED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNASSIGNED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNLABELED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNLOCKED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNPINNED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::LABEL then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::MARKETPLACE_PURCHASE then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CANCELLED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CHANGED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PENDING_CHANGE or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PENDING_CHANGE_CANCELLED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PURCHASED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::MEMBER then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::ADDED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REMOVED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::MEMBERSHIP then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::ADDED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REMOVED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::MERGE_GROUP then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CHECKS_REQUESTED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DESTROYED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::MILESTONE then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::OPENED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::ORG_BLOCK then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::BLOCKED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNBLOCKED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::ORGANIZATION then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::MEMBER_ADDED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::MEMBER_INVITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::MEMBER_REMOVED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::RENAMED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::PACKAGE then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PUBLISHED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UPDATED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::PERSONAL_ACCESS_TOKEN_REQUEST then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::APPROVED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CANCELLED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DENIED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::PROJECT_CARD then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CONVERTED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::MOVED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::PROJECT then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::PROJECT_COLUMN then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::MOVED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::PROJECTS_V2 then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::PROJECTS_V2_ITEM then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::ARCHIVED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CONVERTED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REORDERED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::RESTORED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::PULL_REQUEST then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::ASSIGNED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::AUTO_MERGE_DISABLED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::AUTO_MERGE_ENABLED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CONVERTED_TO_DRAFT or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DEMILESTONED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DEQUEUED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::ENQUEUED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::LABELED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::LOCKED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::MILESTONED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::OPENED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::READY_FOR_REVIEW or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REVIEW_REQUEST_REMOVED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REVIEW_REQUESTED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::SYNCHRONIZE or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNASSIGNED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNLABELED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNLOCKED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::PULL_REQUEST_REVIEW_COMMENT then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::PULL_REQUEST_REVIEW then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DISMISSED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::SUBMITTED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::PULL_REQUEST_REVIEW_THREAD then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::RESOLVED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNRESOLVED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::REGISTRY_PACKAGE then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PUBLISHED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UPDATED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::RELEASE then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PRERELEASED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PUBLISHED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::RELEASED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNPUBLISHED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::REPOSITORY_ADVISORY then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PUBLISHED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REPORTED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::REPOSITORY then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::ARCHIVED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PRIVATIZED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PUBLICIZED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::RENAMED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::TRANSFERRED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UNARCHIVED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::REPOSITORY_RULESET then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::REPOSITORY_VULNERABILITY_ALERT then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATE or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DISMISS or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REOPEN or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::RESOLVE&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::SECRET_SCANNING_ALERT then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::RESOLVED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REVOKED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::VALIDATED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::SECURITY_ADVISORY then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PUBLISHED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::UPDATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::WITHDRAWN&#xA;&#x9;&#x9;&#x9;    )&#xA;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::SPONSORSHIP then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CANCELLED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PENDING_CANCELLATION or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::PENDING_TIER_CHANGE or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::TIER_CHANGED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::STAR then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::TEAM then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::ADDED_TO_REPOSITORY or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::REMOVED_FROM_REPOSITORY&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else if self.event = EVENTS::WORKFLOW_JOB then&#xA;&#x9;&#x9;&#x9;    self.activityType->forAll(activity |&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::COMPLETED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::IN_PROGRESS or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::QUEUED or&#xA;&#x9;&#x9;&#x9;        activity = WEBHOOK_ACTIVITY_TYPES::WAITING&#xA;&#x9;&#x9;&#x9;    )&#xA;&#x9;     &#x9;else&#xA;&#x9;     &#x9;&#x9;self.activityType->forAll(activity |&#xA;&#x9;        &#x9;&#x9;activity = WEBHOOK_ACTIVITY_TYPES::NONE &#xA;&#x9;    &#x9;&#x9;)&#xA;&#x9;    &#x9;endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif &#xA;&#x9;    &#x9;endif endif endif endif endif endif endif endif endif endif endif endif endif endif&#xA;    &#x9;&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="event" lowerBound="1" eType="#//EVENTS"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Docker" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pre_entrypoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="envs" upperBound="-1" eType="#//Env"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entrypoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="post_entrypoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="args" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputTrigger" abstract="true" eSuperTypes="#//Trigger">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
+        eType="#//Input" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkflowCallTrigger" eSuperTypes="#//InputTrigger">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
+        eType="#//Output" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="secrets" upperBound="-1"
+        eType="#//Secret" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Input">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//INPUT_TYPES"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="INPUT_TYPES">
+    <eLiterals name="STRING" literal="string"/>
+    <eLiterals name="NUMBER" value="1" literal="number"/>
+    <eLiterals name="BOOLEAN" value="2" literal="boolean"/>
+    <eLiterals name="ENVIRONMENT" value="3" literal="environment"/>
+    <eLiterals name="CHOICE" value="5" literal="choice"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Container">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ports" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="volumes" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="credential" eType="#//Credentials"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="envs" upperBound="-1" eType="#//Env"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkflowDispatchTrigger" eSuperTypes="#//InputTrigger"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkflowRunTrigger" eSuperTypes="#//Trigger">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="workflow" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
+        eType="#//Branch" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Branch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignore" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tag">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignore" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Path">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignore" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PullTargetTrigger" eSuperTypes="#//EventTrigger">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
+        eType="#//Branch" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="paths" upperBound="-1"
+        eType="#//Path" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RestoreCache" eSuperTypes="#//Cache">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="restore_keys" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lookup_only" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fail_on_cache_miss" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SaveCache" eSuperTypes="#//Cache">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upload_chunk_size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputPair">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="argsAndEntrypointNotEmpty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="argsAndEntrypointNotEmpty" value="Tuple {&#xA;&#x9;message : String = 'Either args or entrypoint must be defined and not both as empty strings',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;(self.args->notEmpty() or self.entrypoint->notEmpty()) and not (&#xA;        &#x9;(self.args->isEmpty() or self.args = '') and &#xA;        &#x9;(self.entrypoint->isEmpty() or self.entrypoint->exists(l | l = ''))&#xA;    &#x9;)&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="args" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entrypoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ARTIFACT_TYPE">
+    <eLiterals name="UPLOAD" literal="upload"/>
+    <eLiterals name="DOWNLOAD" value="1" literal="download"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MATRIX_CONFIG_TYPE">
+    <eLiterals name="DEFAULT"/>
+    <eLiterals name="INCLUDE" value="1"/>
+    <eLiterals name="EXCLUDE" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

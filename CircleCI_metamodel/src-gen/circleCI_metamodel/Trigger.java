@@ -28,7 +28,7 @@ public interface Trigger extends EObject {
 	 * @return the value of the '<em>Cron</em>' attribute.
 	 * @see #setCron(String)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getTrigger_Cron()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getCron();

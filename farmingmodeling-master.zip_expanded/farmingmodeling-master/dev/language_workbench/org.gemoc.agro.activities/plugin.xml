@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.gemoc.org/agro/ActivitiesDSL" 
+       class = "org.gemoc.agro.activitiesDSL.ActivitiesDSLPackage"
+       genModel = "model/generated/ActivitiesDSL.genmodel" /> 
+	
+  </extension>
+
+
+
+</plugin>
