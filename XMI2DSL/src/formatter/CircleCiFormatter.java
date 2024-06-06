@@ -1,6 +1,11 @@
 package formatter;
 
+import circleCI_metamodel.DOCKER_RESOURCE_TYPE;
+import circleCI_metamodel.MACHINE_RESOURCE_TYPE;
+import circleCI_metamodel.MACOS_RESOURCE_TYPE;
 import circleCI_metamodel.PARAMETER_TYPES;
+import circleCI_metamodel.WHEN_TYPE;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,197 +18,390 @@ public class CircleCiFormatter {
 
 	public List<String> generateXtext(EObject object) {
         List<String> xtextLines = new ArrayList<>();
-        generateXtextLines(object, xtextLines);
+        generateXtextLines(object, xtextLines, 0);
         return xtextLines;
     }
 
-    private void generateXtextLines(EObject object, List<String> xtextLines) {
+    private void generateXtextLines(EObject object, List<String> xtextLines, int indentLevel) {
         EClass eClass = object.eClass();
         String className = eClass.getName();
+        String indent = "    ".repeat(indentLevel);
 
-        if ("Pipeline".equals(className)) {
-            xtextLines.add("Pipeline");
-            appendAttributesAndReferences(object, xtextLines, eClass);
-        } else if ("Orb".equals(className)) {
-            xtextLines.add("Orb");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } else if ("Command".equals(className)) {
-            xtextLines.add("Command");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } else if ("Workflow".equals(className)) {
-            xtextLines.add("Workflow");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } else if ("Job".equals(className)) {
-            xtextLines.add("Job");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        }else if ("Parameter".equals(className)) {
-            xtextLines.add("Parameter");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        }      
-        else if ("Run".equals(className)) {
-            xtextLines.add("Run");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("RestoreCache".equals(className)) {
-            xtextLines.add("RestoreCache");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("PersistToWorkspace".equals(className)) {
-            xtextLines.add("PersistToWorkspace");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("StoreArtifact".equals(className)) {
-            xtextLines.add("StoreArtifact");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("StoreTestResults".equals(className)) {
-            xtextLines.add("StoreTestResults");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("SetupRemoteDocker".equals(className)) {
-            xtextLines.add("SetupRemoteDocker");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("AddSSHKeys".equals(className)) {
-            xtextLines.add("AddSSHKeys");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("SaveCache".equals(className)) {
-            xtextLines.add("SaveCache");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("AttachWorkspace".equals(className)) {
-            xtextLines.add("AttachWorkspace");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("When_Unless".equals(className)) {
-            xtextLines.add("When_Unless");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("Checkout".equals(className)) {
-            xtextLines.add("Checkout");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("Environment".equals(className)) {
-            xtextLines.add("Environment");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("RunCommand".equals(className)) {
-            xtextLines.add("RunCommand");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("Parameters".equals(className)) {
-            xtextLines.add("Parameters");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("Trigger".equals(className)) {
-            xtextLines.add("Trigger");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("Branch".equals(className)) {
-            xtextLines.add("Branch");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("JobWorkflow".equals(className)) {
-            xtextLines.add("JobWorkflow");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("Matrix".equals(className)) {
-            xtextLines.add("Matrix");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("MatrixParams".equals(className)) {
-            xtextLines.add("MatrixParams");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("Machine".equals(className)) {
-            xtextLines.add("Machine");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("MacOs".equals(className)) {
-            xtextLines.add("MacOs");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("Docker".equals(className)) {
-            xtextLines.add("Docker");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("Docker_Auth".equals(className)) {
-            xtextLines.add("Docker_Auth");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else if ("Docker_Aws_Auths".equals(className)) {
-            xtextLines.add("Docker_Aws_Auths");
-            appendBlockAttributesAndReferences(object, xtextLines, eClass);
-        } 
-        else {
-            appendAttributesAndReferences(object, xtextLines, eClass);
+        switch (className) {
+        case "Pipeline":
+            xtextLines.add(indent + "Pipeline");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel);
+            break;
+        case "Command":
+            xtextLines.add(indent + "Command");
+            appendCommandAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            xtextLines.add("");
+            break;
+        case "Parameter":
+            xtextLines.add(indent + "Parameter");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            break;
+        case "StoreArtifact":
+            xtextLines.add(indent + "StoreArtifact");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            break;
+        case "Run":
+            xtextLines.add(indent + "Run");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            break;
+        case "SaveCache":
+            xtextLines.add(indent + "SaveCache");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            break;
+        case "RestoreCache":
+            xtextLines.add(indent + "RestoreCache");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            break;
+        case "RunCommand":
+            xtextLines.add(indent + "RunCommand");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            break;
+        case "Parameters":
+            xtextLines.add(indent + "Parameters");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            break;
+        case "Environment":
+        	xtextLines.add(indent + "Environment");
+        	appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+        	break;
+        case "Docker":
+        	xtextLines.add(indent + "Docker");
+        	appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+        	xtextLines.add("");
+        	break;
+        case "Docker_Auth":
+        	xtextLines.add(indent + "Docker_Auth");
+        	appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+        	break;
+        case "Job":
+            xtextLines.add(indent + "Job");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            xtextLines.add("");
+            break;
+        case "Workflow":
+            xtextLines.add(indent + "Workflow");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            break;
+        case "Trigger":
+            xtextLines.add(indent + "Trigger");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            break;
+        case "When_Unless":
+            xtextLines.add(indent + "When_Unless");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            handleWhenUnlessReferences(object, xtextLines, indentLevel + 1);
+            break;
+        case "JobWorkflow":
+            xtextLines.add(indent + "JobWorkflow");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            xtextLines.add("");
+            break;
+        case "Matrix":
+            xtextLines.add(indent + "Matrix");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            handleMatrixReferences(object, xtextLines, indentLevel + 1);
+            break;
+        case "MatrixParams":
+            xtextLines.add(indent + "MatrixParams");
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            break;
+        default:
+            appendAttributesAndReferences(object, xtextLines, eClass, indentLevel + 1);
+            break;
         }
     }
     
-    private void appendAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass) {
+    private void appendCommandAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
+        String indent = "    ".repeat(indentLevel);
+
         for (EAttribute attribute : eClass.getEAllAttributes()) {
             String attributeName = attribute.getName();
             Object value = object.eGet(attribute);
-            
-            if (attributeName.equals("type")) {
-            	PARAMETER_TYPES val = (PARAMETER_TYPES) value;
-                xtextLines.add("    " + attributeName + " " + val.getName());
-            }
-            
-            if (attributeName.equals("version")) {
-            	String stringValue = (String) value;
-                xtextLines.add(attributeName + " \"" + stringValue + "\"");
-            }
-            
-            if(value != null) {
-            	if (value instanceof String) {
-            		String stringValue = (String) value;
-                    if ("true".equalsIgnoreCase(stringValue)) {
-                        xtextLines.add("    " + attributeName);
-                    } 
-	                else if (!stringValue.isEmpty()) {
-	                    xtextLines.add("    " + attributeName + " \"" + stringValue + "\"");
-	                }
-                } else if (value instanceof List<?>) {
-                    appendEnumValues(attributeName, (List<?>) value, xtextLines);
-                } else if (value instanceof Boolean) {
-                    Boolean booleanValue = (Boolean) value;
-                    if (booleanValue) {
-                        xtextLines.add("    " + attributeName);
-                    }
-                }
+            if (value != null && !value.toString().isEmpty()) {
+                xtextLines.add(indent + attributeName + " \"" + value.toString() + "\"");
             }
         }
 
         for (EReference reference : eClass.getEAllReferences()) {
-            Object value = object.eGet(reference);
-            if (value instanceof EObject) {
-                generateXtextLines((EObject) value, xtextLines);
-            } else if (value instanceof List<?>) {
-                for (Object item : (List<?>) value) {
-                    if (item instanceof EObject) {
-                        generateXtextLines((EObject) item, xtextLines);
+            if (reference.getName().equals("parameters")) {
+                Object value = object.eGet(reference);
+                if (value instanceof EObject) {
+                    generateXtextLines((EObject) value, xtextLines, indentLevel);
+                } else if (value instanceof List<?>) {
+                    for (Object item : (List<?>) value) {
+                        if (item instanceof EObject) {
+                            generateXtextLines((EObject) item, xtextLines, indentLevel);
+                        }
+                    }
+                }
+                break;
+            }
+        }
+
+        for (EReference reference : eClass.getEAllReferences()) {
+            if (!reference.getName().equals("parameters")) {
+                Object value = object.eGet(reference);
+                if (value instanceof EObject) {
+                    generateXtextLines((EObject) value, xtextLines, indentLevel);
+                } else if (value instanceof List<?>) {
+                    for (Object item : (List<?>) value) {
+                        if (item instanceof EObject) {
+                            generateXtextLines((EObject) item, xtextLines, indentLevel);
+                        }
                     }
                 }
             }
         }
     }
     
-    private void appendEnumValues(String attributeName, List<?> values, List<String> xtextLines) {
+    private void appendAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
+        String indent = "    ".repeat(indentLevel);
+
+        for (EAttribute attribute : eClass.getEAllAttributes()) {
+            String attributeName = attribute.getName();
+            Object value = object.eGet(attribute);
+            
+            if (value != null) {
+                if (value instanceof PARAMETER_TYPES) {
+                    xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name());
+                }
+                else if (value instanceof DOCKER_RESOURCE_TYPE) {
+                	String val = ((Enum<?>) value).name();
+                	if(val.equals("MEDIUM_PLUS")) {
+                		xtextLines.add(indent + attributeName + " medium+");
+                	}
+                	else if(val.equals("TWO_XLARGE")) {
+                		xtextLines.add(indent + attributeName + " 2xlarge");
+                	}
+                	else if(val.equals("TWO_XLARGE_PLUS")) {
+                		xtextLines.add(indent + attributeName + " 2xlarge+");
+                	}
+                	else {
+                		xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
+                	}
+                }
+                else if (value instanceof MACHINE_RESOURCE_TYPE) {
+                	String val = ((Enum<?>) value).name();
+                	if(val.equals("TWO_XLARGE")) {
+                		xtextLines.add(indent + attributeName + " 2xlarge");
+                	}
+                	else if(val.equals("TWO_XLARGE_PLUS")) {
+                		xtextLines.add(indent + attributeName + " 2xlarge+");
+                	}
+                	else {
+                		xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
+                	}
+                }
+                else if (value instanceof MACOS_RESOURCE_TYPE) {
+                	String val = ((Enum<?>) value).name();
+                	if(val.equals("MACOS_X86_MEDIUM_GEN2")) {
+                		xtextLines.add(indent + attributeName + " macos_x86_medium_gen2*");
+                	}
+                	else if(val.equals("MACOS_M1_MEDIUM_GEN")) {
+                		xtextLines.add(indent + attributeName + " macos_m1_medium_gen");
+                	}
+                	else if(val.equals("MACOS_M1_LARGE_GEN1")) {
+                		xtextLines.add(indent + attributeName + " macos_m1_large_gen1");
+                	}
+                	else {
+                		xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
+                	}
+                }
+                else if(value instanceof WHEN_TYPE) {
+                	if (!((Enum<?>) value).name().equalsIgnoreCase("on_success")) {
+                        xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
+                    }
+                }
+                else if (value instanceof String) {
+                    String stringValue = (String) value;
+                    if ("true".equalsIgnoreCase(stringValue) && !attributeName.equals("default")) {
+                        xtextLines.add(indent + attributeName);
+                    } 
+                    else if(stringValue.equals(".") && attributeName.equals("working_directory")) {
+                    	break;
+                    }
+                    else if(stringValue.equals("10m") && attributeName.equals("no_output_timeout")) {
+                    	break;
+                    }
+                    else if (!stringValue.isEmpty()) {
+                        xtextLines.add(indent + attributeName + " \"" + stringValue + "\"");
+                    }
+                } else if (value instanceof List<?>) {
+                    appendEnumValues(attributeName, (List<?>) value, xtextLines, indentLevel);
+                } else if (value instanceof Boolean) {
+                    if ((Boolean) value) {
+                        xtextLines.add(indent + attributeName);
+                    }
+                } 
+                else if (value instanceof Short) {
+                	Short shortValue = (Short) value;
+                	if(shortValue != 0) {
+                		xtextLines.add(indent + attributeName + " " + shortValue);
+                	}
+                }
+            }
+        }
+        
+        List<EObject> commandReferences = new ArrayList<>();
+        List<EObject> dockerReferences = new ArrayList<>();
+        List<EObject> jobReferences = new ArrayList<>();
+        List<EObject> workflowReferences = new ArrayList<>();
+        List<EObject> otherReferences = new ArrayList<>();
+
+        for (EReference reference : eClass.getEAllReferences()) {
+            Object value = object.eGet(reference);
+            if (value instanceof EObject) {
+                EObject refObject = (EObject) value;
+                if (refObject.eClass().getName().equals("Command")) {
+                	commandReferences.add(refObject);
+                }
+                else if (refObject.eClass().getName().equals("Docker")) {
+                	dockerReferences.add(refObject);
+                }
+                else if (refObject.eClass().getName().equals("Job")) {
+                    jobReferences.add(refObject);
+                } else if (refObject.eClass().getName().equals("Workflow")) {
+                    workflowReferences.add(refObject);
+                } 
+                else {
+                	if(!refObject.eClass().getName().equals("Matrix")) {
+                    	otherReferences.add(refObject);
+                    }
+                }
+            } else if (value instanceof List<?>) {
+                for (Object item : (List<?>) value) {
+                    if (item instanceof EObject) {
+                        EObject refObject = (EObject) item;
+                        if (refObject.eClass().getName().equals("Command")) {
+                        	commandReferences.add(refObject);
+                        }
+                        else if (refObject.eClass().getName().equals("Docker")) {
+                        	dockerReferences.add(refObject);
+                        }
+                        else if (refObject.eClass().getName().equals("Job")) {
+                            jobReferences.add(refObject);
+                        } else if (refObject.eClass().getName().equals("Workflow")) {
+                            workflowReferences.add(refObject);
+                        } else {
+                            if(!refObject.eClass().getName().equals("When_Unless")) {
+                            	otherReferences.add(refObject);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        for (EObject command : commandReferences) {
+            generateXtextLines(command, xtextLines, indentLevel);
+        }
+        
+        for (EObject docker : dockerReferences) {
+            generateXtextLines(docker, xtextLines, indentLevel);
+        }
+
+        for (EObject job : jobReferences) {
+            generateXtextLines(job, xtextLines, indentLevel);
+        }
+
+        for (EObject workflow : workflowReferences) {
+            generateXtextLines(workflow, xtextLines, indentLevel);
+        }
+
+        for (EObject other : otherReferences) {
+            generateXtextLines(other, xtextLines, indentLevel);
+        }
+    }
+    
+    private void handleMatrixReferences(EObject object, List<String> xtextLines, int indentLevel) {
+        String indent = "    ".repeat(indentLevel);
+
+        List<EObject> matrixParams = new ArrayList<>();
+        List<EObject> matrixExclude = new ArrayList<>();
+
+        for (EReference reference : object.eClass().getEAllReferences()) {
+            Object value = object.eGet(reference);
+            if (value instanceof List<?>) {
+                for (Object item : (List<?>) value) {
+                    if (item instanceof EObject) {
+                        if (reference.getName().equals("matrix_params")) {
+                            matrixParams.add((EObject) item);
+                        } else if (reference.getName().equals("matrix_exclude")) {
+                            matrixExclude.add((EObject) item);
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!matrixExclude.isEmpty()) {
+            xtextLines.add(indent + "matrix_exclude");
+            for (EObject item : matrixExclude) {
+                generateXtextLines(item, xtextLines, indentLevel + 1);
+            }
+        }
+
+        if (!matrixParams.isEmpty()) {
+            xtextLines.add(indent + "matrix_params");
+            for (EObject item : matrixParams) {
+                generateXtextLines(item, xtextLines, indentLevel + 1);
+            }
+        }
+    }
+    
+    
+    private void handleWhenUnlessReferences(EObject object, List<String> xtextLines, int indentLevel) {
+        String indent = "    ".repeat(indentLevel);
+
+        List<EObject> whenSteps = new ArrayList<>();
+        List<EObject> unlessSteps = new ArrayList<>();
+
+        for (EReference reference : object.eClass().getEAllReferences()) {
+            Object value = object.eGet(reference);
+            if (value instanceof List<?>) {
+                for (Object item : (List<?>) value) {
+                    if (item instanceof EObject) {
+                        if (reference.getName().equals("when_step")) {
+                            whenSteps.add((EObject) item);
+                        } else if (reference.getName().equals("unless_step")) {
+                            unlessSteps.add((EObject) item);
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!whenSteps.isEmpty()) {
+            xtextLines.add(indent + "when_step");
+            for (EObject item : whenSteps) {
+                generateXtextLines(item, xtextLines, indentLevel + 1);
+            }
+        }
+
+        if (!unlessSteps.isEmpty()) {
+            xtextLines.add(indent + "unless_step");
+            for (EObject item : unlessSteps) {
+                generateXtextLines(item, xtextLines, indentLevel + 1);
+            }
+        }
+    }
+
+    private void appendEnumValues(String attributeName, List<?> values, List<String> xtextLines, int indentLevel) {
     	if (values.isEmpty()) {
             return;
         }
     	
+    	String indent = "    ".repeat(indentLevel);
         StringBuilder enumValuesString = new StringBuilder();
         for (Object value : values) {
-            enumValuesString.append(value.toString()).append(", ");
+        	enumValuesString.append("\"").append(value.toString()).append("\", ");
         }
-        String enumValues = enumValuesString.substring(0, enumValuesString.length() - 2);
-        xtextLines.add("    " + attributeName + " \"" + enumValues + "\"");
-    }
-
-    private void appendBlockAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass) {
-        appendAttributesAndReferences(object, xtextLines, eClass);
+        enumValuesString.setLength(enumValuesString.length() - 2);
+        xtextLines.add(indent + attributeName + " " + enumValuesString.toString());
     }
 }

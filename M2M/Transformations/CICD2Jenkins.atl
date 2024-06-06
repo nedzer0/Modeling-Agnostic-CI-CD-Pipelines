@@ -12,7 +12,7 @@ rule Pipeline2Pipeline {
 			environments <- s.pipeline_environment ->collect(env | thisModule.transformEnvironment(env)),
 			stages <- s.jobs->collect(job | thisModule.Job2Stage(job)),
 			triggers <- s.triggers->collect(trigger | thisModule.transformScheduleTrigger(trigger)),
-			agents <- if s.agents.oclIsUndefined() then 
+			agents <- if s.agents->isEmpty() then 
 						thisModule.CreateAnyAgent('') 
 					else 
 						s.agents->collect(agent | 

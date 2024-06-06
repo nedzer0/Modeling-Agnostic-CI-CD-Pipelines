@@ -11,7 +11,7 @@ rule Pipeline2Pipeline {
 		t : CircleCI!Pipeline(
 			version <- '2.0',
 			setup <- false,
-			jobs <- s.jobs,
+			jobs <- s.jobs->collect(job | thisModule.Job2Job(job, s.agents->first().labels->first())),
 			commands <- s.inputs ->collect(i | thisModule.Input2Command(i)),
 			workflow <- thisModule.ScheduleTrigger2Workflow(s),
 			executors <- s.agents ->collect(agent | thisModule.DockerContainer2Docker(agent.container, agent.labels->first()))
@@ -23,9 +23,34 @@ lazy rule Input2Command {
         s : CICD!Input
     to
         t : CircleCI!Command (
-            name <- 'dummyCom',
-			description <- '',
-			parameters <- thisModule.Input2Parameter(s)
+            name <- 'Com' + s.name,
+			description <- OclUndefined,
+			parameters <- thisModule.Input2Parameter(s),
+			steps <- thisModule.DummyStep(s)
+        )
+}
+
+lazy rule DummyStep {
+    from
+        s : CICD!Input
+    to
+        t : CircleCI!Run (
+            name <- OclUndefined,
+			when <- #on_success,
+			background <- false,
+			working_directory <- OclUndefined,
+			no_output_timeout <- OclUndefined,
+			shell <- OclUndefined,
+			run_commands <- thisModule.DummyRunCommand(s)
+        )
+}
+
+lazy rule DummyRunCommand {
+    from
+        s : CICD!Input
+    to
+        t : CircleCI!RunCommand (
+            name <- 'change this command to run'
         )
 }
 
@@ -39,13 +64,13 @@ lazy rule Input2Parameter {
 				if not s.default.oclIsUndefined() then 
 					s.default
 				else 
-					'' 
+					OclUndefined 
 				endif,
 			description <-
 				if not s.description.oclIsUndefined() then
 					s.description
 				else
-					''
+					OclUndefined
 				endif,
 			enumValues <- s.values,
 			type <-
@@ -96,9 +121,9 @@ lazy rule Job2JobWorkflow {
 			requires <- if s.requireJobs->notEmpty() then 
 					s.requireJobs
 				else 
-					'' 
+					OclUndefined 
 				endif, 
-			context <- '',
+			context <- OclUndefined,
 			approvalJob <- false,
 			matrix <- if not s.matrix.oclIsUndefined() then 
 					thisModule.Matrix2Matrix(s.matrix)
@@ -129,19 +154,16 @@ rule MatrixConfig2MatrixParams {
         )
 }
 
-rule Job2Job {
+lazy rule Job2Job {
     from
-        s : CICD!Job
+        s : CICD!Job,
+		label : String
     to
         t : CircleCI!Job (
             name <- s.name,
-			reuseExecutor <- 'dummyExec',
+			reuseExecutor <- label,
 			executors <- s.agents ->collect(agent | thisModule.DockerContainer2Docker(agent.container, agent.labels->first())),
-            parallelism <- if not s.parallel.oclIsUndefined() and s.parallel.size() > 0 then
-								s.parallel->toInteger()
-							else
-								OclUndefined
-							endif,
+            parallelism <- OclUndefined,
             environments <- s.environments ->collect(env | thisModule.transformEnvironment(env)),
 			steps <- if s.steps->notEmpty() and s.IfStep->notEmpty() and s.artifacts->notEmpty() then
 						s.steps->union(s.IfStep)->union(s.artifacts)->collect(step | 
@@ -210,7 +232,7 @@ lazy rule IfStep2WhenUnless {
         s : CICD!IfStep
     to
         t : CircleCI!When_Unless (
-            name <- '',
+            name <- OclUndefined,
 			condition <- s.condition,
 			when_step <- if s.if_steps->notEmpty() then
 							s.if_steps->collect(step | step.transformStepWithCache())
@@ -230,9 +252,9 @@ lazy rule Artifact2StoreArtifact {
         s : CICD!Artifact
     to
         t : CircleCI!StoreArtifact (
-            name <- '',
+            name <- OclUndefined,
 			path <- s.path->first(),
-			destination <- ''
+			destination <- OclUndefined
         )
 }
 
@@ -241,12 +263,12 @@ lazy rule Step2SRun {
         s : CICD!Step
     to
         t : CircleCI!Run (
-            name <- '',
+            name <- OclUndefined,
 			when <- #on_success,
 			background <- false,
-			working_directory <- '.',
-			no_output_timeout <- '10m',
-			shell <- '',
+			working_directory <- OclUndefined,
+			no_output_timeout <- OclUndefined,
+			shell <- OclUndefined,
 			run_commands <- s.commands,
 			parameters <- s.parameters
         )
@@ -257,7 +279,7 @@ lazy rule Cache2SaveCache {
         s : CICD!Cache
     to
         t : CircleCI!SaveCache (
-        	name <- '',
+        	name <- OclUndefined,
             paths <- s.paths,
 			key <- s.key,
 			when <- #on_success
@@ -269,7 +291,7 @@ lazy rule Cache2RestoreCache {
         s : CICD!Cache
     to
         t : CircleCI!RestoreCache (
-        	name <- '',
+        	name <- OclUndefined,
             key <- s.key,
             keys <- s.keys
         )
@@ -295,12 +317,12 @@ lazy rule DockerContainer2Docker {
         t : CircleCI!Docker (
         	name <- label,
             image <- s.image,
-			resourceClass <- 'medium',
-			shell <- '',
-			working_directory <- '',
-			entrypoint <- '',
-			command <- '',
-			user <- '',
+			resourceClass <- #medium,
+			shell <- OclUndefined,
+			working_directory <- OclUndefined,
+			entrypoint <- OclUndefined,
+			command <- OclUndefined,
+			user <- OclUndefined,
 			docker_auth <- if not (s.username->oclIsUndefined() and s.password->oclIsUndefined()) then 
 								thisModule.transformDockerAuth(s)
 							else

@@ -9,12 +9,12 @@ rule Pipeline2Pipeline {
 		s : CICD!Pipeline
 	to
 		t : GHA!Pipeline(
-			name <- if s.name.oclIsUndefined() then
+			name <- if not s.name.oclIsUndefined() then
 						s.name
 					else
 						OclUndefined
 					endif,
-			run_name <- '',
+			run_name <- OclUndefined,
 			envs <- s.pipeline_environment ->collect(env | thisModule.transformEnvironment(env)),
 			jobs <- s.jobs,
 			triggers <- if s.triggers->notEmpty() and (s.inputs->notEmpty() or s.output->notEmpty()) then
@@ -101,7 +101,7 @@ rule transformOutput {
 		t : GHA!Output(
 			name <- s.name,
 			value <- s.value,
-			description <- ''
+			description <- OclUndefined
 		)
 }
 
@@ -141,7 +141,8 @@ rule Job2Job {
 							s.artifacts->collect(art | thisModule.tranformArtifact(art))
 						else
 							OclUndefined
-						endif
+						endif,
+			services <- s.agents->collect(agent | thisModule.Agent2Service(agent))
         )
 }
 
@@ -215,11 +216,11 @@ lazy rule transformStep {
         s : CICD!Step
     to
         t : GHA!Step (
-            name <- '',
+            name <- OclUndefined,
 			continue_on_error <- false,
 			working_directory <- OclUndefined,
 			timeout_minutes <- OclUndefined,
-			shell <- '',
+			shell <- OclUndefined,
 			commands <- s.commands,
 			parameters <- s.parameters,
 			if <- if not s.IfStep.oclIsUndefined() then
@@ -283,8 +284,28 @@ lazy rule Agent2Service {
         s : CICD!Agent
     to
         t : GHA!Service (
-            name <- s.labels->first(),
-			container <- thisModule.DockerContainer2Container(s.container)
+            name <- if s.labels->notEmpty() then
+						s.labels->first()
+					else
+						'dummyName'
+					endif,
+			container <- if not s.container.oclIsUndefined() then
+							thisModule.DockerContainer2Container(s.container)
+						else
+							thisModule.dummyContainer(s)
+						endif
+        )
+}
+
+lazy rule dummyContainer {
+    from
+        s : CICD!Agent
+    to
+        t : GHA!Container (
+            image <- 'dummyImage',
+			ports <- OclUndefined,
+			volumes <- OclUndefined,
+			options <- OclUndefined
         )
 }
 
@@ -294,9 +315,9 @@ lazy rule DockerContainer2Container {
     to
         t : GHA!Container (
             image <- s.image,
-			ports <- '',
-			volumes <- '',
-			options <- '',
+			ports <- OclUndefined,
+			volumes <- OclUndefined,
+			options <- OclUndefined,
 			credential <- if not (s.username->oclIsUndefined() and s.password->oclIsUndefined()) then 
 								thisModule.transformDockerAuth(s)
 							else

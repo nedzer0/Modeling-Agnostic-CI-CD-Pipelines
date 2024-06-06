@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.swt.widgets.Shell;
 
 import formatter.CircleCiFormatter;
+import formatter.GHAFormatter;
+import formatter.JenkinsFormatter;
 
 public class XMIReader {
 
@@ -59,13 +61,13 @@ public class XMIReader {
         }
         
         if(extension.contains(".gha")) {
-        	//CircleCiFormatter circleFormatter = new CircleCiFormatter();
-        	//xtextLines = circleFormatter.generateXtext(rootElement);
+        	GHAFormatter ghaFormatter = new GHAFormatter();
+        	xtextLines = ghaFormatter.generateXtext(rootElement);
         }
         
         if(extension.contains(".jenkins")) {
-        	//CircleCiFormatter circleFormatter = new CircleCiFormatter();
-        	//xtextLines = circleFormatter.generateXtext(rootElement);
+        	JenkinsFormatter jenkinsFormatter = new JenkinsFormatter();
+        	xtextLines = jenkinsFormatter.generateXtext(rootElement);
         }
 
         writeXtextToFile(xtextLines, filePath, extension);

@@ -18,5 +18,6 @@ Require-Bundle: org.eclipse.ui,
  org.xtext.example.circleci;bundle-version="1.0.0",
  org.xtext.example.gha;bundle-version="1.0.0",
  org.xtext.example.jenkins;bundle-version="1.0.0",
- CircleCI_metamodel
+ CircleCI_metamodel,
+ GHA_metamodel
 Bundle-ActivationPolicy: lazy

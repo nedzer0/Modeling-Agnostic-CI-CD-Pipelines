@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <circleCI_metamodel:Pipeline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:circleCI_metamodel="http://www.example.org/circleCI_metamodel" version="2.0">
-  <commands name="dummyCom" description="">
-    <parameters name="Input" default="" description=""/>
+  <commands name="ComInput">
+    <steps xsi:type="circleCI_metamodel:Run">
+      <run_commands name="change this command to run"/>
+    </steps>
+    <parameters name="Input"/>
   </commands>
-  <commands name="dummyCom" description="">
-    <parameters name="Input-v2" type="boolean" default="true" description=""/>
+  <commands name="ComInput-v2">
+    <steps xsi:type="circleCI_metamodel:Run">
+      <run_commands name="change this command to run"/>
+    </steps>
+    <parameters name="Input-v2" type="boolean" default="true"/>
   </commands>
   <workflow name="dummyWorkflow" version="2.0">
     <triggers cron="*/15 * * * *"/>
-    <jobworkflow name="Build">
-      <requires></requires>
-      <context></context>
-    </jobworkflow>
+    <jobworkflow name="Build"/>
     <jobworkflow name="Test">
       <requires>Build</requires>
-      <context></context>
     </jobworkflow>
     <jobworkflow name="Executor Job">
-      <requires></requires>
-      <context></context>
       <matrix alias="test-matrix">
         <matrix_exclude key="aba">
           <values>1</values>
@@ -40,51 +40,43 @@
       </matrix>
     </jobworkflow>
   </workflow>
-  <jobs name="Build" parallelism="2" reuseExecutor="dummyExec">
+  <jobs name="Build" reuseExecutor="docker">
     <environments key="MY-TEST-ENV" value="env_secret@78"/>
-    <steps xsi:type="circleCI_metamodel:SaveCache" name="" key="v1-{{ checksum &quot;yarn.lock&quot; }}">
+    <steps xsi:type="circleCI_metamodel:SaveCache" key="v1-{{ checksum &quot;yarn.lock&quot; }}">
       <paths>node_modules/workspace-a</paths>
       <paths>node_modules/workspace-c</paths>
     </steps>
-    <steps xsi:type="circleCI_metamodel:Run" name="" shell="">
+    <steps xsi:type="circleCI_metamodel:Run">
       <run_commands name="echo"/>
       <parameters parameter="hello-world"/>
     </steps>
-    <steps xsi:type="circleCI_metamodel:Run" name="" shell="">
+    <steps xsi:type="circleCI_metamodel:Run">
       <run_commands name="mkdir -p /tmp/test-results"/>
     </steps>
-    <executors xsi:type="circleCI_metamodel:Docker" name="linux-1.3" resourceClass="medium" shell="" image="maven:3.9.3-eclipse-temurin-17" user="">
-      <entrypoint></entrypoint>
-      <command></command>
-    </executors>
+    <executors xsi:type="circleCI_metamodel:Docker" name="linux-1.3" image="maven:3.9.3-eclipse-temurin-17" resourceClass="medium"/>
   </jobs>
-  <jobs name="Test" reuseExecutor="dummyExec">
-    <steps xsi:type="circleCI_metamodel:Run" name="" shell="">
+  <jobs name="Test" reuseExecutor="docker">
+    <steps xsi:type="circleCI_metamodel:Run">
       <run_commands name="bundle exec jekyll build --source jekyll --destination jekyll/_site/docs/"/>
     </steps>
-    <steps xsi:type="circleCI_metamodel:When_Unless" name="" condition="branch = main">
-      <when_step xsi:type="circleCI_metamodel:Run" name="" shell="">
+    <steps xsi:type="circleCI_metamodel:When_Unless" condition="branch = main">
+      <when_step xsi:type="circleCI_metamodel:Run">
         <run_commands name="npm install java -v 1.4"/>
       </when_step>
-      <unless_step xsi:type="circleCI_metamodel:Run" name="" shell="">
+      <unless_step xsi:type="circleCI_metamodel:Run">
         <run_commands name="echo &quot;else step&quot;"/>
       </unless_step>
     </steps>
   </jobs>
-  <jobs name="Executor Job" reuseExecutor="dummyExec">
-    <steps xsi:type="circleCI_metamodel:Run" name="" shell="">
+  <jobs name="Executor Job" reuseExecutor="docker">
+    <steps xsi:type="circleCI_metamodel:Run">
       <run_commands name="git submodule sync"/>
     </steps>
-    <steps xsi:type="circleCI_metamodel:StoreArtifact" name="" path="jekyll/_site/docs/" destination=""/>
+    <steps xsi:type="circleCI_metamodel:StoreArtifact" path="jekyll/_site/docs/"/>
   </jobs>
-  <executors xsi:type="circleCI_metamodel:Docker" name="docker" resourceClass="medium" shell="" image="buildpack-deps:trusty" user="">
+  <executors xsi:type="circleCI_metamodel:Docker" name="docker" image="buildpack-deps:trusty" resourceClass="medium">
     <environments key="ENV" value="CI"/>
     <docker_auth username="$DOCKERHUB_PASSWORD" password="mydockerhub-user"/>
-    <entrypoint></entrypoint>
-    <command></command>
   </executors>
-  <executors xsi:type="circleCI_metamodel:Docker" name="Apache-1.2" resourceClass="medium" shell="" image="image2" user="">
-    <entrypoint></entrypoint>
-    <command></command>
-  </executors>
+  <executors xsi:type="circleCI_metamodel:Docker" name="Apache-1.2" image="image2" resourceClass="medium"/>
 </circleCI_metamodel:Pipeline>
