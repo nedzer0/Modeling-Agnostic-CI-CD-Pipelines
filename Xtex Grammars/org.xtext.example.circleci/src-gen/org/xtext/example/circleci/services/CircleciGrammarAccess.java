@@ -3232,36 +3232,36 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.MACOS_RESOURCE_TYPE");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cMACOS_X86_MEDIUM_GEN2EnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cMACOS_X86_MEDIUM_GEN2Macos_x86_medium_gen2Keyword_0_0 = (Keyword)cMACOS_X86_MEDIUM_GEN2EnumLiteralDeclaration_0.eContents().get(0);
+		private final Keyword cMACOS_X86_MEDIUM_GEN2MacosX86MediumGen2Keyword_0_0 = (Keyword)cMACOS_X86_MEDIUM_GEN2EnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cMACOS_M1_MEDIUM_GENEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cMACOS_M1_MEDIUM_GENMacos_m1_medium_genKeyword_1_0 = (Keyword)cMACOS_M1_MEDIUM_GENEnumLiteralDeclaration_1.eContents().get(0);
+		private final Keyword cMACOS_M1_MEDIUM_GENMacosM1MediumGenKeyword_1_0 = (Keyword)cMACOS_M1_MEDIUM_GENEnumLiteralDeclaration_1.eContents().get(0);
 		private final EnumLiteralDeclaration cMACOS_M1_LARGE_GEN1EnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cMACOS_M1_LARGE_GEN1Macos_m1_large_gen1Keyword_2_0 = (Keyword)cMACOS_M1_LARGE_GEN1EnumLiteralDeclaration_2.eContents().get(0);
+		private final Keyword cMACOS_M1_LARGE_GEN1MacosM1LargeGen1Keyword_2_0 = (Keyword)cMACOS_M1_LARGE_GEN1EnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum MACOS_RESOURCE_TYPE returns MACOS_RESOURCE_TYPE:
-		//                MACOS_X86_MEDIUM_GEN2 = 'macos_x86_medium_gen2*' | MACOS_M1_MEDIUM_GEN = 'macos_m1_medium_gen' | MACOS_M1_LARGE_GEN1 = 'macos_m1_large_gen1';
+		//                MACOS_X86_MEDIUM_GEN2 = 'macos.x86.medium.gen2*' | MACOS_M1_MEDIUM_GEN = 'macos.m1.medium.gen' | MACOS_M1_LARGE_GEN1 = 'macos.m1.large.gen1';
 		public EnumRule getRule() { return rule; }
 		
-		//MACOS_X86_MEDIUM_GEN2 = 'macos_x86_medium_gen2*' | MACOS_M1_MEDIUM_GEN = 'macos_m1_medium_gen' | MACOS_M1_LARGE_GEN1 = 'macos_m1_large_gen1'
+		//MACOS_X86_MEDIUM_GEN2 = 'macos.x86.medium.gen2*' | MACOS_M1_MEDIUM_GEN = 'macos.m1.medium.gen' | MACOS_M1_LARGE_GEN1 = 'macos.m1.large.gen1'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//MACOS_X86_MEDIUM_GEN2 = 'macos_x86_medium_gen2*'
+		//MACOS_X86_MEDIUM_GEN2 = 'macos.x86.medium.gen2*'
 		public EnumLiteralDeclaration getMACOS_X86_MEDIUM_GEN2EnumLiteralDeclaration_0() { return cMACOS_X86_MEDIUM_GEN2EnumLiteralDeclaration_0; }
 		
-		//'macos_x86_medium_gen2*'
-		public Keyword getMACOS_X86_MEDIUM_GEN2Macos_x86_medium_gen2Keyword_0_0() { return cMACOS_X86_MEDIUM_GEN2Macos_x86_medium_gen2Keyword_0_0; }
+		//'macos.x86.medium.gen2*'
+		public Keyword getMACOS_X86_MEDIUM_GEN2MacosX86MediumGen2Keyword_0_0() { return cMACOS_X86_MEDIUM_GEN2MacosX86MediumGen2Keyword_0_0; }
 		
-		//MACOS_M1_MEDIUM_GEN = 'macos_m1_medium_gen'
+		//MACOS_M1_MEDIUM_GEN = 'macos.m1.medium.gen'
 		public EnumLiteralDeclaration getMACOS_M1_MEDIUM_GENEnumLiteralDeclaration_1() { return cMACOS_M1_MEDIUM_GENEnumLiteralDeclaration_1; }
 		
-		//'macos_m1_medium_gen'
-		public Keyword getMACOS_M1_MEDIUM_GENMacos_m1_medium_genKeyword_1_0() { return cMACOS_M1_MEDIUM_GENMacos_m1_medium_genKeyword_1_0; }
+		//'macos.m1.medium.gen'
+		public Keyword getMACOS_M1_MEDIUM_GENMacosM1MediumGenKeyword_1_0() { return cMACOS_M1_MEDIUM_GENMacosM1MediumGenKeyword_1_0; }
 		
-		//MACOS_M1_LARGE_GEN1 = 'macos_m1_large_gen1'
+		//MACOS_M1_LARGE_GEN1 = 'macos.m1.large.gen1'
 		public EnumLiteralDeclaration getMACOS_M1_LARGE_GEN1EnumLiteralDeclaration_2() { return cMACOS_M1_LARGE_GEN1EnumLiteralDeclaration_2; }
 		
-		//'macos_m1_large_gen1'
-		public Keyword getMACOS_M1_LARGE_GEN1Macos_m1_large_gen1Keyword_2_0() { return cMACOS_M1_LARGE_GEN1Macos_m1_large_gen1Keyword_2_0; }
+		//'macos.m1.large.gen1'
+		public Keyword getMACOS_M1_LARGE_GEN1MacosM1LargeGen1Keyword_2_0() { return cMACOS_M1_LARGE_GEN1MacosM1LargeGen1Keyword_2_0; }
 	}
 	public class DOCKER_RESOURCE_TYPEElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.DOCKER_RESOURCE_TYPE");
@@ -3628,7 +3628,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	}
 	
 	//enum MACOS_RESOURCE_TYPE returns MACOS_RESOURCE_TYPE:
-	//                MACOS_X86_MEDIUM_GEN2 = 'macos_x86_medium_gen2*' | MACOS_M1_MEDIUM_GEN = 'macos_m1_medium_gen' | MACOS_M1_LARGE_GEN1 = 'macos_m1_large_gen1';
+	//                MACOS_X86_MEDIUM_GEN2 = 'macos.x86.medium.gen2*' | MACOS_M1_MEDIUM_GEN = 'macos.m1.medium.gen' | MACOS_M1_LARGE_GEN1 = 'macos.m1.large.gen1';
 	public MACOS_RESOURCE_TYPEElements getMACOS_RESOURCE_TYPEAccess() {
 		return eMACOS_RESOURCE_TYPE;
 	}

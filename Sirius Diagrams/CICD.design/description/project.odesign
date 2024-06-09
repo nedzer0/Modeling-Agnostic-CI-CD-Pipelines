@@ -1,0 +1,1225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="project" version="12.0.0.2017041100">
+  <ownedViewpoints name="MyViewpoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="CICD Diagram" domainClass="cICD_metamodel::Pipeline" enablePopupBars="true">
+      <metamodel href="http://www.example.org/cICD_metamodel#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="P_Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:pipeline_environment" domainClass="cICD_metamodel::Environment">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="P_ScheduleTrigger" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editTimer']" semanticCandidatesExpression="feature:triggers" domainClass="cICD_metamodel::ScheduleTrigger">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:timer" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/ScheduleTrigger.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="P_Output" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:output" domainClass="cICD_metamodel::Output">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Output.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="P_Input" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:inputs" domainClass="cICD_metamodel::Input">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Input.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <containerMappings name="Job" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:jobs" domainClass="cICD_metamodel::Job">
+          <subNodeMappings name="J_Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="J_ConditionalStep" semanticCandidatesExpression="feature:IfStep" domainClass="cICD_metamodel::IfStep">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:condition" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/IfStep.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="J_Artifact" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:artifacts" domainClass="cICD_metamodel::Artifact">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Artifact.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="Output" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:output" domainClass="cICD_metamodel::Output">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Output.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <subContainerMappings name="Step" semanticCandidatesExpression="feature:steps" domainClass="cICD_metamodel::Step">
+            <subNodeMappings name="S_Command" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:commands" domainClass="cICD_metamodel::Command">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Command.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="S_Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="cICD_metamodel::Parameters">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Parameters.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="S_Cache" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:cache" domainClass="cICD_metamodel::Cache">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Cache.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="S_Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="S_IfStep" semanticCandidatesExpression="feature:IfStep" domainClass="cICD_metamodel::IfStep">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="ConditionalStep" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/IfStep.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Step">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="J_Matrix" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:matrix" domainClass="cICD_metamodel::Matrix">
+            <subNodeMappings name="M_Config" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:configs" domainClass="cICD_metamodel::MatrixConfig">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/MatrixConfig.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="Step" semanticCandidatesExpression="feature:steps" domainClass="cICD_metamodel::Step">
+              <subNodeMappings name="S_Command" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:commands" domainClass="cICD_metamodel::Command">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Command.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="S_Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="cICD_metamodel::Parameters">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Parameters.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="S_Cache" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:cache" domainClass="cICD_metamodel::Cache">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Cache.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="S_Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="S_IfStep" semanticCandidatesExpression="feature:IfStep" domainClass="cICD_metamodel::IfStep">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="ConditionalStep" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/IfStep.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Step">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="Job" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:jobs" domainClass="cICD_metamodel::Job">
+              <subNodeMappings name="J_Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="J_ConditionalStep" semanticCandidatesExpression="feature:IfStep" domainClass="cICD_metamodel::IfStep">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:condition" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/IfStep.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="J_Artifact" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:artifacts" domainClass="cICD_metamodel::Artifact">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Artifact.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="Output" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:output" domainClass="cICD_metamodel::Output">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Output.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subContainerMappings name="Step" semanticCandidatesExpression="feature:steps" domainClass="cICD_metamodel::Step">
+                <subNodeMappings name="S_Command" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:commands" domainClass="cICD_metamodel::Command">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Command.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="S_Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="cICD_metamodel::Parameters">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Parameters.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="S_Cache" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:cache" domainClass="cICD_metamodel::Cache">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Cache.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="S_Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="S_IfStep" semanticCandidatesExpression="feature:IfStep" domainClass="cICD_metamodel::IfStep">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="ConditionalStep" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/IfStep.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Step">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                </style>
+              </subContainerMappings>
+              <subContainerMappings name="J_Matrix" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:matrix" domainClass="cICD_metamodel::Matrix">
+                <subNodeMappings name="M_Step" semanticCandidatesExpression="feature:steps" domainClass="cICD_metamodel::Step">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="Matrix Step" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Step.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="M_Config" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:configs" domainClass="cICD_metamodel::MatrixConfig">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/MatrixConfig.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+                </style>
+              </subContainerMappings>
+              <subContainerMappings name="Agent" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editLabels']" semanticCandidatesExpression="feature:agents" domainClass="cICD_metamodel::Agent">
+                <subContainerMappings name="DockerContainer" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editImage']" semanticCandidatesExpression="feature:container" domainClass="cICD_metamodel::DockerContainer">
+                  <subNodeMappings name="Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+                    <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    </style>
+                  </subNodeMappings>
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:image">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                  </style>
+                </subContainerMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:labels">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subContainerMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="Agent" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editLabels']" semanticCandidatesExpression="feature:agents" domainClass="cICD_metamodel::Agent">
+            <subContainerMappings name="DockerContainer" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editImage']" semanticCandidatesExpression="feature:container" domainClass="cICD_metamodel::DockerContainer">
+              <subNodeMappings name="Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:image">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:labels">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="Job" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:jobs" domainClass="cICD_metamodel::Job">
+            <subNodeMappings name="J_Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="J_ConditionalStep" semanticCandidatesExpression="feature:IfStep" domainClass="cICD_metamodel::IfStep">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:condition" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/IfStep.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="J_Artifact" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:artifacts" domainClass="cICD_metamodel::Artifact">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Artifact.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="Output" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:output" domainClass="cICD_metamodel::Output">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Output.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="Step" semanticCandidatesExpression="feature:steps" domainClass="cICD_metamodel::Step">
+              <subNodeMappings name="S_Command" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:commands" domainClass="cICD_metamodel::Command">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Command.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="S_Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="cICD_metamodel::Parameters">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Parameters.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="S_Cache" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:cache" domainClass="cICD_metamodel::Cache">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Cache.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="S_Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="S_IfStep" semanticCandidatesExpression="feature:IfStep" domainClass="cICD_metamodel::IfStep">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="ConditionalStep" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/IfStep.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Step">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="Agent" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editLabels']" semanticCandidatesExpression="feature:agents" domainClass="cICD_metamodel::Agent">
+              <subContainerMappings name="DockerContainer" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editImage']" semanticCandidatesExpression="feature:container" domainClass="cICD_metamodel::DockerContainer">
+                <subNodeMappings name="Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:image">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                </style>
+              </subContainerMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:labels">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="J_Matrix" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:matrix" domainClass="cICD_metamodel::Matrix">
+              <subNodeMappings name="M_Config" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:configs" domainClass="cICD_metamodel::MatrixConfig">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/MatrixConfig.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subContainerMappings name="Step" semanticCandidatesExpression="feature:steps" domainClass="cICD_metamodel::Step">
+                <subNodeMappings name="S_Command" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:commands" domainClass="cICD_metamodel::Command">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Command.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="S_Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="cICD_metamodel::Parameters">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Parameters.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="S_Cache" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:cache" domainClass="cICD_metamodel::Cache">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Cache.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="S_Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="S_IfStep" semanticCandidatesExpression="feature:IfStep" domainClass="cICD_metamodel::IfStep">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="ConditionalStep" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/IfStep.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Step">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                </style>
+              </subContainerMappings>
+              <subContainerMappings name="Job" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:jobs" domainClass="cICD_metamodel::Job">
+                <subNodeMappings name="J_Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="J_ConditionalStep" semanticCandidatesExpression="feature:IfStep" domainClass="cICD_metamodel::IfStep">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:condition" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/IfStep.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="J_Artifact" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:artifacts" domainClass="cICD_metamodel::Artifact">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Artifact.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="Output" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:output" domainClass="cICD_metamodel::Output">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Output.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subContainerMappings name="Step" semanticCandidatesExpression="feature:steps" domainClass="cICD_metamodel::Step">
+                  <subNodeMappings name="S_Command" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:commands" domainClass="cICD_metamodel::Command">
+                    <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Command.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    </style>
+                  </subNodeMappings>
+                  <subNodeMappings name="S_Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="cICD_metamodel::Parameters">
+                    <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Parameters.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    </style>
+                  </subNodeMappings>
+                  <subNodeMappings name="S_Cache" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:cache" domainClass="cICD_metamodel::Cache">
+                    <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Cache.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    </style>
+                  </subNodeMappings>
+                  <subNodeMappings name="S_Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+                    <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    </style>
+                  </subNodeMappings>
+                  <subNodeMappings name="S_IfStep" semanticCandidatesExpression="feature:IfStep" domainClass="cICD_metamodel::IfStep">
+                    <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="ConditionalStep" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/IfStep.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    </style>
+                  </subNodeMappings>
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Step">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelFormat>bold</labelFormat>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                  </style>
+                </subContainerMappings>
+                <subContainerMappings name="J_Matrix" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:matrix" domainClass="cICD_metamodel::Matrix">
+                  <subNodeMappings name="M_Step" semanticCandidatesExpression="feature:steps" domainClass="cICD_metamodel::Step">
+                    <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="Matrix Step" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Step.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    </style>
+                  </subNodeMappings>
+                  <subNodeMappings name="M_Config" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:configs" domainClass="cICD_metamodel::MatrixConfig">
+                    <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/MatrixConfig.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    </style>
+                  </subNodeMappings>
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelFormat>bold</labelFormat>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+                  </style>
+                </subContainerMappings>
+                <subContainerMappings name="Agent" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editLabels']" semanticCandidatesExpression="feature:agents" domainClass="cICD_metamodel::Agent">
+                  <subContainerMappings name="DockerContainer" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editImage']" semanticCandidatesExpression="feature:container" domainClass="cICD_metamodel::DockerContainer">
+                    <subNodeMappings name="Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+                      <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                        <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                        <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      </style>
+                    </subNodeMappings>
+                    <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:image">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                      <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                    </style>
+                  </subContainerMappings>
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:labels">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelFormat>bold</labelFormat>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                  </style>
+                </subContainerMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                </style>
+              </subContainerMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Agent" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editLabels']" semanticCandidatesExpression="feature:agents" domainClass="cICD_metamodel::Agent">
+          <subContainerMappings name="DockerContainer" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editImage']" semanticCandidatesExpression="feature:container" domainClass="cICD_metamodel::DockerContainer">
+            <subNodeMappings name="Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:image">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.labels->size() &lt;> 0 then self.labels else 'Agent' endif">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Generic">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editKey">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editName">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editTimer">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="timer" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editCondition">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="condition" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editParameter">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="parameter" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editLabels">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="labels" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editImage">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="image" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Pipeline Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Environment" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@nodeMappings[name='P_Environment']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Environment" referenceName="pipeline_environment"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Input" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@nodeMappings[name='P_Input']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Input" referenceName="inputs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Output" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@nodeMappings[name='P_Output']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Output" referenceName="output"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ScheduleTrigger" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@nodeMappings[name='P_ScheduleTrigger']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::ScheduleTrigger" referenceName="triggers"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Job" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Job" referenceName="jobs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Agent" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Agent']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Agent" referenceName="agents"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Job Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Environment" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='J_Env'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subNodeMappings[name='J_Env']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Environment" referenceName="environments"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Output" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Output'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subNodeMappings[name='Output']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Output" referenceName="output"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ConditionalStep" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='J_ConditionalStep'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subNodeMappings[name='J_ConditionalStep']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::IfStep" referenceName="IfStep"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Step" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Artifact" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='J_Artifact'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subNodeMappings[name='J_Artifact']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Artifact" referenceName="artifacts"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Matrix" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Matrix" referenceName="matrix"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Agent" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Agent'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='Agent']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Agent" referenceName="agents"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Job" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Job" referenceName="jobs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Agent Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Environment" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Agent']/@subContainerMappings[name='DockerContainer']/@subNodeMappings[name='Env'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Agent']/@subContainerMappings[name='DockerContainer']/@subNodeMappings[name='Env'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='Agent']/@subContainerMappings[name='DockerContainer']/@subNodeMappings[name='Env']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Environment" referenceName="environments"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DockerContainer" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Agent']/@subContainerMappings[name='DockerContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Agent']/@subContainerMappings[name='DockerContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='Agent']/@subContainerMappings[name='DockerContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::DockerContainer" referenceName="container"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Matrix Tools">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Step'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Step" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Matrix Config" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subNodeMappings[name='M_Config']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::MatrixConfig" referenceName="configs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Job" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Job" referenceName="jobs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Step Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Environment" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Env'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Env'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Env'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Env'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Env'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Env']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Environment" referenceName="environments"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Command" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Command'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Command'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Command'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Command'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Command'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Command']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Command" referenceName="commands"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Parameters" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Parameters'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Parameters'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Parameters'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Parameters'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Parameters'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Parameters']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Parameters" referenceName="parameters"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Cache" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Cache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Cache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Cache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Cache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Cache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='S_Cache']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::Cache" referenceName="cache"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ConditionalStep" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='J_ConditionalStep'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job']/@subNodeMappings[name='J_ConditionalStep'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subNodeMappings[name='J_ConditionalStep'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Job']/@subContainerMappings[name='J_Matrix']/@subContainerMappings[name='Job']/@subNodeMappings[name='J_ConditionalStep']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cICD_metamodel::IfStep" referenceName="IfStep"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="my.project.design.Services"/>
+  </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <metamodels href="http://www.example.org/cICD_metamodel#/"/>
+    <categories name="Default Category">
+      <pages name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.4 //@extensions.0/@categories.0/@groups.6 //@extensions.0/@categories.0/@groups.10 //@extensions.0/@categories.0/@groups.13 //@extensions.0/@categories.0/@groups.11 //@extensions.0/@categories.0/@groups.9 //@extensions.0/@categories.0/@groups.7 //@extensions.0/@categories.0/@groups.12 //@extensions.0/@categories.0/@groups.8 //@extensions.0/@categories.0/@groups.5 //@extensions.0/@categories.0/@groups.14"/>
+      <groups name="Environment" labelExpression="Properties" domainClass="cICD_metamodel::Environment" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="KeyText" labelExpression="Key" valueExpression="feature:key">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="ValueText" labelExpression="Value" valueExpression="feature:value">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="EnvKey" label="key" level="ERROR" message="Environment key cannot be empty" targets="//@extensions.0/@categories.0/@groups.0/@controls.0">
+            <audits auditExpression="service:checkValidEnvironmentKey()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="EnvValue" label="value" level="ERROR" message="Environment value cannot be empty" targets="//@extensions.0/@categories.0/@groups.0/@controls.1">
+            <audits auditExpression="service:checkValidEnvironmentVal()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Job" labelExpression="Properties" domainClass="cICD_metamodel::Job" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="ParallelText" labelExpression="parallel" helpExpression="Number of independent set up executors running job steps in parallel" valueExpression="feature:parallel">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="parallel" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="AllowFaillure" labelExpression="AllowFaillure" helpExpression="Allow job to fail" valueExpression="feature:allowFaillure">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="allowFaillure" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="RequiredJob" labelExpression="requireJobs" helpExpression="A list of jobs that must succeed for the job to start" valueExpression="feature:requireJobs">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="requireJobs" valueExpression="service:clearRequireJobs()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="requireJobs" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="ExistingJobName" label="name" level="ERROR" message="aql: 'Duplicate job name found: ' + self.name + '. Choose a different name for the job to ensure uniqueness within the pipeline.'" targets="//@extensions.0/@categories.0/@groups.1/@controls.0">
+            <audits auditExpression="service:checkNonDuplicateJobName()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="RequireJob" level="ERROR" message="Required Job does not exist. Select an existing pipeline Job" targets="//@extensions.0/@categories.0/@groups.1/@controls.3">
+            <audits auditExpression="service:checkRequiredJobExists()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="JobNameNotEmpty" label="name" level="ERROR" message="Job name should not be empty" targets="//@extensions.0/@categories.0/@groups.1/@controls.0">
+            <audits auditExpression="service:checkJobNameNotEmpty()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="IfStep" labelExpression="Properties" domainClass="cICD_metamodel::IfStep" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="ConditionText" labelExpression="condition" valueExpression="feature:condition">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="condition" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="ValidCondition" label="condition" level="ERROR" message="Invalid condition pattern. Condition must be non-empty and if negated, ensure the condition starts and ends with the correct characters: ${{...}}, '', &quot;&quot;, or ()" targets="//@extensions.0/@categories.0/@groups.2/@controls.0">
+            <audits auditExpression="service:checkValidCondition()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="ConditionNotEmpty" label="name" level="ERROR" message="Condition cannot be empty" targets="//@extensions.0/@categories.0/@groups.2/@controls.0">
+            <audits auditExpression="service:checkConditionNotEmpty()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Artifact" labelExpression="Properties" domainClass="cICD_metamodel::Artifact" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="MessageText" labelExpression="message" helpExpression="Presented to the user when they go to submit the input." valueExpression="feature:message">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="message" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="Select type" labelExpression="type" valueExpression="aql:self.type.toString()" candidatesExpression="service:getArtifactTypes()" candidateDisplayExpression="aql:candidate">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="PathsText" labelExpression="path" helpExpression="Directory in the primary container to save as job artifacts" valueExpression="feature:path">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="service:clearArtifactPath()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="validDefinition" level="ERROR" message="Either message or path must be defined" targets="//@extensions.0/@categories.0/@groups.3/@controls.1 //@extensions.0/@categories.0/@groups.3/@controls.3">
+            <audits auditExpression="aql:(self.message->size() > 0 or self.path->size() > 0) and not (self.message->size() = 0 and self.path->size() = 0)"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Pipeline" labelExpression="Properties" domainClass="cICD_metamodel::Pipeline" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="ScheduleTrigger" labelExpression="Properties" domainClass="cICD_metamodel::ScheduleTrigger" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="TimerText" labelExpression="timer" valueExpression="feature:timer">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="timer" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="TimerNotEmpty" label="name" level="ERROR" message="Timer cannot be empty" targets="//@extensions.0/@categories.0/@groups.5/@controls.0">
+            <audits auditExpression="service:checkTimerNotEmpty()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="ValidCronSyntax" label="name" level="ERROR" message="Not a valid Cron syntax. Ensure that the pattern follows the format: [minute] [hour] [day of month] [month] [day of week], where each field is separated by a space" targets="//@extensions.0/@categories.0/@groups.5/@controls.0">
+            <audits auditExpression="service:checkValidCronSyntax()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Agent" labelExpression="Properties" domainClass="cICD_metamodel::Agent" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="LabelsText" labelExpression="labels" valueExpression="feature:labels">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="labels" valueExpression="service:clearAgentLabels()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="labels" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="MatrixConfig" labelExpression="Properties" domainClass="cICD_metamodel::MatrixConfig" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" helpExpression="Matrix parameter name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="ValuesText" labelExpression="values" helpExpression="Matrix parameter values" valueExpression="feature:values">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:clearMatrixConfigValues()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="SelectType" labelExpression="Configuration type" valueExpression="aql:self.type.toString()" candidatesExpression="service:getMatrixConfigTypes()" candidateDisplayExpression="aql:candidate">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="NameNotEmpty" label="name" level="ERROR" message="Name cannot be empty" targets="//@extensions.0/@categories.0/@groups.7/@controls.0">
+            <audits auditExpression="service:checkMatrixNameNotEmpty()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="ValuesNotEmpty" label="name" level="ERROR" message="Values cannot be empty" targets="//@extensions.0/@categories.0/@groups.7/@controls.1">
+            <audits auditExpression="service:checkMatrixValNotEmpty()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Parameters" labelExpression="Properties" domainClass="cICD_metamodel::Parameters" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="ParameterText" labelExpression="parameter" valueExpression="feature:parameter">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="parameter" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="ParameterNotEmpty" label="name" level="ERROR" message="Parameter cannot be empty" targets="//@extensions.0/@categories.0/@groups.8/@controls.0">
+            <audits auditExpression="service:checkParameterNotEmpty()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Matrix" labelExpression="Properties" domainClass="cICD_metamodel::Matrix" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Cache" labelExpression="Properties" domainClass="cICD_metamodel::Cache" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="PathsText" labelExpression="paths" helpExpression="List of directories which should be added to the cache" valueExpression="feature:paths">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="service:clearCachePaths()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="KeyText" labelExpression="key" helpExpression="Single cache key to restore" valueExpression="feature:key">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="KeysText" labelExpression="keys" helpExpression="List of cache keys to lookup for a cache to restore. Only first existing key will be restored." valueExpression="feature:keys">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="service:clearCacheKeys()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="Select type" labelExpression="mode" valueExpression="aql:self.mode.toString()" candidatesExpression="service:getCacheTypes()" candidateDisplayExpression="aql:candidate">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="mode" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="PathsNotEmpty" label="name" level="ERROR" message="Paths cannot be empty" targets="//@extensions.0/@categories.0/@groups.10/@controls.0">
+            <audits auditExpression="service:checkKeyNotEmpty()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="KeyNotEmpty" label="name" level="ERROR" message="Key cannot be empty" targets="//@extensions.0/@categories.0/@groups.10/@controls.1">
+            <audits auditExpression="service:checkPathsNotEmpty()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Input" labelExpression="Properties" domainClass="cICD_metamodel::Input" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="DefaultText" labelExpression="default" helpExpression="The default value for the parameter." valueExpression="feature:default">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="default" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="DescriptionText" labelExpression="description" valueExpression="feature:description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="ValuesText" labelExpression="values" valueExpression="feature:values">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:clearInputValues()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="Select type" labelExpression="type" valueExpression="aql:self.type.toString()" candidatesExpression="service:getInputTypes()" candidateDisplayExpression="aql:candidate">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="NameNotEmpty" label="name" level="ERROR" message="Name cannot be empty" targets="//@extensions.0/@categories.0/@groups.11/@controls.0">
+            <audits auditExpression="service:checkInputNameNotEmpty()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="ValidDefaultValue" label="name" level="ERROR" message="Boolean type must have default value set to 'true' or 'false'" targets="//@extensions.0/@categories.0/@groups.11/@controls.1">
+            <audits auditExpression="service:validateBooleanInputDefaultValue()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Output" labelExpression="Properties" domainClass="cICD_metamodel::Output" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="ValueText" labelExpression="value" valueExpression="feature:value">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="NameNotEmpty" label="name" level="ERROR" message="Name cannot be empty" targets="//@extensions.0/@categories.0/@groups.12/@controls.0">
+            <audits auditExpression="service:checkOutputNameNotEmpty()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="ValueNotEmpty" label="name" level="ERROR" message="Value cannot be empty" targets="//@extensions.0/@categories.0/@groups.12/@controls.1">
+            <audits auditExpression="service:checkOutputValueNotEmpty()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="DockerContainer" labelExpression="Properties" domainClass="cICD_metamodel::DockerContainer" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="ImageText" labelExpression="image" valueExpression="feature:image">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="image" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="UsernameText" labelExpression="username" helpExpression="Authentication for registries using standard docker login credentials" valueExpression="feature:username">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="username" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="PasswordText" labelExpression="password" helpExpression="Authentication for registries using standard docker login credentials" valueExpression="feature:password">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="password" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="ImageNotEmpty" label="name" level="ERROR" message="Image cannot be empty" targets="//@extensions.0/@categories.0/@groups.13/@controls.0">
+            <audits auditExpression="service:checkImageNotEmpty()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="Command" labelExpression="Properties" domainClass="cICD_metamodel::Command" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="CommandNameNotEmpty" label="name" level="ERROR" message="Command name should not be empty" targets="//@extensions.0/@categories.0/@groups.14/@controls.0">
+            <audits auditExpression="service:checkCommandNameNotEmpty()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+    </categories>
+  </extensions>
+</description:Group>

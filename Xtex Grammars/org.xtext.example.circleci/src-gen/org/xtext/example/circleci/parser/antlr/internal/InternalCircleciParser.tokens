@@ -64,9 +64,9 @@
 'key'=103
 'keys'=91
 'large'=82
-'macos_m1_large_gen1'=8
-'macos_m1_medium_gen'=9
-'macos_x86_medium_gen2*'=5
+'macos.m1.large.gen1'=8
+'macos.m1.medium.gen'=9
+'macos.x86.medium.gen2*'=5
 'matrix_exclude'=18
 'matrix_params'=20
 'medium'=74

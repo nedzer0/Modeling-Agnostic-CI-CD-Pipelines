@@ -24,7 +24,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalCircleciParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ENVIRONMENT_VARIABLE_NAME", "Macos_x86_medium_gen2", "Aws_secret_access_key", "Docker_layer_caching", "Macos_m1_large_gen1", "Macos_m1_medium_gen", "PersistToWorkspace", "SetupRemoteDocker", "Aws_access_key_id", "No_output_timeout", "Working_directory", "Docker_Aws_Auths", "StoreTestResults", "AttachWorkspace", "Matrix_exclude", "StoreArtifact", "Matrix_params", "ResourceClass", "ReuseExecutor", "MatrixParams", "RestoreCache", "Fingerprints", "Docker_Auth", "Environment", "JobWorkflow", "When_Unless", "ApprovalJob", "Description", "Destination", "Parallelism", "Unless_step", "AddSSHKeys", "Parameters", "RunCommand", "Background", "Entrypoint", "EnumValues", "On_success", "Parameter", "SaveCache", "Condition", "Parameter_1", "When_step", "Xlarge_2", "Checkout", "EXECUTOR", "Pipeline", "Workflow", "Password", "Requires", "Username", "Xlarge_1", "BOOLEAN", "Command", "INTEGER", "Machine", "Trigger", "Command_1", "Context", "Default", "Medium_1", "On_fail", "Version", "Branch", "Docker", "Matrix", "STRING", "Always", "Branch_1", "Ignore", "Medium", "Values", "Xlarge", "MacOs", "STEPS", "Alias", "False", "Image", "Large", "Paths", "Setup", "Shell", "Small", "Value", "Xcode", "ENUM", "Cron", "Keys", "Name", "Only", "Path", "Root", "True", "Type", "User", "When", "Job", "Orb", "Run", "Key", "At", "Comma", "HyphenMinus", "RULE_NEWLINE", "RULE_BEGIN", "RULE_END", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ENVIRONMENT_VARIABLE_NAME", "MacosX86MediumGen2", "Aws_secret_access_key", "Docker_layer_caching", "MacosM1LargeGen1", "MacosM1MediumGen", "PersistToWorkspace", "SetupRemoteDocker", "Aws_access_key_id", "No_output_timeout", "Working_directory", "Docker_Aws_Auths", "StoreTestResults", "AttachWorkspace", "Matrix_exclude", "StoreArtifact", "Matrix_params", "ResourceClass", "ReuseExecutor", "MatrixParams", "RestoreCache", "Fingerprints", "Docker_Auth", "Environment", "JobWorkflow", "When_Unless", "ApprovalJob", "Description", "Destination", "Parallelism", "Unless_step", "AddSSHKeys", "Parameters", "RunCommand", "Background", "Entrypoint", "EnumValues", "On_success", "Parameter", "SaveCache", "Condition", "Parameter_1", "When_step", "Xlarge_2", "Checkout", "EXECUTOR", "Pipeline", "Workflow", "Password", "Requires", "Username", "Xlarge_1", "BOOLEAN", "Command", "INTEGER", "Machine", "Trigger", "Command_1", "Context", "Default", "Medium_1", "On_fail", "Version", "Branch", "Docker", "Matrix", "STRING", "Always", "Branch_1", "Ignore", "Medium", "Values", "Xlarge", "MacOs", "STEPS", "Alias", "False", "Image", "Large", "Paths", "Setup", "Shell", "Small", "Value", "Xcode", "ENUM", "Cron", "Keys", "Name", "Only", "Path", "Root", "True", "Type", "User", "When", "Job", "Orb", "Run", "Key", "At", "Comma", "HyphenMinus", "RULE_NEWLINE", "RULE_BEGIN", "RULE_END", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER"
     };
     public static final int Command_1=61;
     public static final int SetupRemoteDocker=11;
@@ -47,7 +47,7 @@ public class InternalCircleciParser extends AbstractInternalContentAssistParser 
     public static final int When_step=46;
     public static final int Aws_secret_access_key=6;
     public static final int Workflow=51;
-    public static final int Macos_m1_medium_gen=9;
+    public static final int MacosM1MediumGen=9;
     public static final int RestoreCache=24;
     public static final int Medium_1=64;
     public static final int RULE_INT=111;
@@ -102,7 +102,7 @@ public class InternalCircleciParser extends AbstractInternalContentAssistParser 
     public static final int INTEGER=58;
     public static final int Branch_1=72;
     public static final int Requires=53;
-    public static final int Macos_m1_large_gen1=8;
+    public static final int MacosX86MediumGen2=5;
     public static final int Docker_layer_caching=7;
     public static final int Xlarge=76;
     public static final int BOOLEAN=56;
@@ -111,6 +111,7 @@ public class InternalCircleciParser extends AbstractInternalContentAssistParser 
     public static final int Value=87;
     public static final int Environment=27;
     public static final int Parallelism=33;
+    public static final int MacosM1LargeGen1=8;
     public static final int Orb=101;
     public static final int STEPS=78;
     public static final int Destination=32;
@@ -123,7 +124,6 @@ public class InternalCircleciParser extends AbstractInternalContentAssistParser 
     public static final int RULE_SL_COMMENT=114;
     public static final int Shell=85;
     public static final int Branch=67;
-    public static final int Macos_x86_medium_gen2=5;
     public static final int EOF=-1;
     public static final int Password=52;
     public static final int ENVIRONMENT_VARIABLE_NAME=4;
@@ -259,11 +259,11 @@ public class InternalCircleciParser extends AbstractInternalContentAssistParser 
     		tokenNameToValue.put("No_output_timeout", "'no_output_timeout'");
     		tokenNameToValue.put("Working_directory", "'working_directory'");
     		tokenNameToValue.put("PersistToWorkspace", "'PersistToWorkspace'");
-    		tokenNameToValue.put("Macos_m1_large_gen1", "'macos_m1_large_gen1'");
-    		tokenNameToValue.put("Macos_m1_medium_gen", "'macos_m1_medium_gen'");
+    		tokenNameToValue.put("MacosM1LargeGen1", "'macos.m1.large.gen1'");
+    		tokenNameToValue.put("MacosM1MediumGen", "'macos.m1.medium.gen'");
     		tokenNameToValue.put("Docker_layer_caching", "'docker_layer_caching'");
     		tokenNameToValue.put("Aws_secret_access_key", "'aws_secret_access_key'");
-    		tokenNameToValue.put("Macos_x86_medium_gen2", "'macos_x86_medium_gen2*'");
+    		tokenNameToValue.put("MacosX86MediumGen2", "'macos.x86.medium.gen2*'");
     		tokenNameToValue.put("ENVIRONMENT_VARIABLE_NAME", "'ENVIRONMENT_VARIABLE_NAME'");
     	}
 
@@ -3829,26 +3829,26 @@ public class InternalCircleciParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__MACOS_RESOURCE_TYPE__Alternatives"
-    // InternalCircleciParser.g:1265:1: rule__MACOS_RESOURCE_TYPE__Alternatives : ( ( ( Macos_x86_medium_gen2 ) ) | ( ( Macos_m1_medium_gen ) ) | ( ( Macos_m1_large_gen1 ) ) );
+    // InternalCircleciParser.g:1265:1: rule__MACOS_RESOURCE_TYPE__Alternatives : ( ( ( MacosX86MediumGen2 ) ) | ( ( MacosM1MediumGen ) ) | ( ( MacosM1LargeGen1 ) ) );
     public final void rule__MACOS_RESOURCE_TYPE__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCircleciParser.g:1269:1: ( ( ( Macos_x86_medium_gen2 ) ) | ( ( Macos_m1_medium_gen ) ) | ( ( Macos_m1_large_gen1 ) ) )
+            // InternalCircleciParser.g:1269:1: ( ( ( MacosX86MediumGen2 ) ) | ( ( MacosM1MediumGen ) ) | ( ( MacosM1LargeGen1 ) ) )
             int alt5=3;
             switch ( input.LA(1) ) {
-            case Macos_x86_medium_gen2:
+            case MacosX86MediumGen2:
                 {
                 alt5=1;
                 }
                 break;
-            case Macos_m1_medium_gen:
+            case MacosM1MediumGen:
                 {
                 alt5=2;
                 }
                 break;
-            case Macos_m1_large_gen1:
+            case MacosM1LargeGen1:
                 {
                 alt5=3;
                 }
@@ -3862,16 +3862,16 @@ public class InternalCircleciParser extends AbstractInternalContentAssistParser 
 
             switch (alt5) {
                 case 1 :
-                    // InternalCircleciParser.g:1270:2: ( ( Macos_x86_medium_gen2 ) )
+                    // InternalCircleciParser.g:1270:2: ( ( MacosX86MediumGen2 ) )
                     {
-                    // InternalCircleciParser.g:1270:2: ( ( Macos_x86_medium_gen2 ) )
-                    // InternalCircleciParser.g:1271:3: ( Macos_x86_medium_gen2 )
+                    // InternalCircleciParser.g:1270:2: ( ( MacosX86MediumGen2 ) )
+                    // InternalCircleciParser.g:1271:3: ( MacosX86MediumGen2 )
                     {
                      before(grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_X86_MEDIUM_GEN2EnumLiteralDeclaration_0()); 
-                    // InternalCircleciParser.g:1272:3: ( Macos_x86_medium_gen2 )
-                    // InternalCircleciParser.g:1272:4: Macos_x86_medium_gen2
+                    // InternalCircleciParser.g:1272:3: ( MacosX86MediumGen2 )
+                    // InternalCircleciParser.g:1272:4: MacosX86MediumGen2
                     {
-                    match(input,Macos_x86_medium_gen2,FOLLOW_2); 
+                    match(input,MacosX86MediumGen2,FOLLOW_2); 
 
                     }
 
@@ -3883,16 +3883,16 @@ public class InternalCircleciParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalCircleciParser.g:1276:2: ( ( Macos_m1_medium_gen ) )
+                    // InternalCircleciParser.g:1276:2: ( ( MacosM1MediumGen ) )
                     {
-                    // InternalCircleciParser.g:1276:2: ( ( Macos_m1_medium_gen ) )
-                    // InternalCircleciParser.g:1277:3: ( Macos_m1_medium_gen )
+                    // InternalCircleciParser.g:1276:2: ( ( MacosM1MediumGen ) )
+                    // InternalCircleciParser.g:1277:3: ( MacosM1MediumGen )
                     {
                      before(grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_M1_MEDIUM_GENEnumLiteralDeclaration_1()); 
-                    // InternalCircleciParser.g:1278:3: ( Macos_m1_medium_gen )
-                    // InternalCircleciParser.g:1278:4: Macos_m1_medium_gen
+                    // InternalCircleciParser.g:1278:3: ( MacosM1MediumGen )
+                    // InternalCircleciParser.g:1278:4: MacosM1MediumGen
                     {
-                    match(input,Macos_m1_medium_gen,FOLLOW_2); 
+                    match(input,MacosM1MediumGen,FOLLOW_2); 
 
                     }
 
@@ -3904,16 +3904,16 @@ public class InternalCircleciParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 3 :
-                    // InternalCircleciParser.g:1282:2: ( ( Macos_m1_large_gen1 ) )
+                    // InternalCircleciParser.g:1282:2: ( ( MacosM1LargeGen1 ) )
                     {
-                    // InternalCircleciParser.g:1282:2: ( ( Macos_m1_large_gen1 ) )
-                    // InternalCircleciParser.g:1283:3: ( Macos_m1_large_gen1 )
+                    // InternalCircleciParser.g:1282:2: ( ( MacosM1LargeGen1 ) )
+                    // InternalCircleciParser.g:1283:3: ( MacosM1LargeGen1 )
                     {
                      before(grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_M1_LARGE_GEN1EnumLiteralDeclaration_2()); 
-                    // InternalCircleciParser.g:1284:3: ( Macos_m1_large_gen1 )
-                    // InternalCircleciParser.g:1284:4: Macos_m1_large_gen1
+                    // InternalCircleciParser.g:1284:3: ( MacosM1LargeGen1 )
+                    // InternalCircleciParser.g:1284:4: MacosM1LargeGen1
                     {
-                    match(input,Macos_m1_large_gen1,FOLLOW_2); 
+                    match(input,MacosM1LargeGen1,FOLLOW_2); 
 
                     }
 

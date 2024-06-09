@@ -23,7 +23,7 @@ enum MACHINE_RESOURCE_TYPE returns MACHINE_RESOURCE_TYPE:
 				MEDIUM = 'medium' | LARGE = 'large' | XLARGE = 'xlarge' | TWO_XLARGE = '2xlarge' | TWO_XLARGE_PLUS = '2xlarge+';
 
 enum MACOS_RESOURCE_TYPE returns MACOS_RESOURCE_TYPE:
-				MACOS_X86_MEDIUM_GEN2 = 'macos_x86_medium_gen2*' | MACOS_M1_MEDIUM_GEN = 'macos_m1_medium_gen' | MACOS_M1_LARGE_GEN1 = 'macos_m1_large_gen1';
+				MACOS_X86_MEDIUM_GEN2 = 'macos.x86.medium.gen2*' | MACOS_M1_MEDIUM_GEN = 'macos.m1.medium.gen' | MACOS_M1_LARGE_GEN1 = 'macos.m1.large.gen1';
 
 enum DOCKER_RESOURCE_TYPE returns DOCKER_RESOURCE_TYPE:
 				SMALL = 'small' | MEDIUM = 'medium' | MEDIUM_PLUS = 'medium+' | LARGE = 'large' | XLARGE = 'xlarge' | TWO_XLARGE = '2xlarge' | TWO_XLARGE_PLUS = '2xlarge+';

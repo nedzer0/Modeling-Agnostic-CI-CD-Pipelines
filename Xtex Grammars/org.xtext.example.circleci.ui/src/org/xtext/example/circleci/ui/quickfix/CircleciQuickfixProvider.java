@@ -427,15 +427,30 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
 	public void fixEmptyMacOsXcode(Issue issue, IssueResolutionAcceptor acceptor) {
 	    fixEmptyString(issue, "Fix empty MacOs xcode", acceptor, "\"12.5\"");
 	}
+	
+	@Fix(CircleciValidator.MANDATORY_MACOS_NAME_EMPTY_ERRORCODE)
+	public void fixEmptyMacOsName(Issue issue, IssueResolutionAcceptor acceptor) {
+	    fixEmptyString(issue, "Fix empty MacOs name", acceptor, "\"New MacOs name\"");
+	}
 
 	@Fix(CircleciValidator.MANDATORY_MACHINE_IMAGE_EMPTY_ERRORCODE)
 	public void fixEmptyMachineImage(Issue issue, IssueResolutionAcceptor acceptor) {
 	    fixEmptyString(issue, "Fix empty Machine image", acceptor, "\"New Machine Image\"");
 	}
+	
+	@Fix(CircleciValidator.MANDATORY_MACHINE_NAME_EMPTY_ERRORCODE)
+	public void fixEmptyMachineName(Issue issue, IssueResolutionAcceptor acceptor) {
+	    fixEmptyString(issue, "Fix empty Machine name", acceptor, "\"New Machine name\"");
+	}
 
 	@Fix(CircleciValidator.MANDATORY_DOCKER_IMAGE_EMPTY_ERRORCODE)
 	public void fixEmptyDockerImage(Issue issue, IssueResolutionAcceptor acceptor) {
 	    fixEmptyString(issue, "Fix empty Docker image", acceptor, "\"New Docker Image\"");
+	}
+	
+	@Fix(CircleciValidator.MANDATORY_DOCKER_NAME_EMPTY_ERRORCODE)
+	public void fixEmptyDockerName(Issue issue, IssueResolutionAcceptor acceptor) {
+	    fixEmptyString(issue, "Fix empty Docker name", acceptor, "\"New Docker name\"");
 	}
 
 	@Fix(CircleciValidator.MANDATORY_DOCKER_AUTH_USERNAME_EMPTY_ERRORCODE)
