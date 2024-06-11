@@ -391,6 +391,25 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
 	}
 	
 	
+	@Fix(CircleciValidator.INVALID_MATRIXPARAMS_KEY_ERRORCODE)
+	public void fixMatrixParamsKey(Issue issue, IssueResolutionAcceptor acceptor) {
+	    acceptor.accept(issue, "Replace with existing parameter name", "Replace the key with an existing parameter name from the corresponding job.", null, new IModification() {
+	        public void apply(IModificationContext context) throws BadLocationException {
+	            IXtextDocument xtextDocument = context.getXtextDocument();
+	            String documentContent = xtextDocument.get();
+	            Integer offset = issue.getOffset();
+	            
+	            String jobWorkflowName = extractJobWorkflowName(documentContent, offset);
+                List<String> parameterNames = extractJobParameterNames(documentContent, jobWorkflowName);
+                if (!parameterNames.isEmpty()) {
+                    String newKey = parameterNames.get(0);
+                    xtextDocument.replace(offset, issue.getLength(), newKey);
+                }
+	        }
+	    });
+	}
+	
+	
 	@Fix(CircleciValidator.MANDATORY_JOB_NAME_EMPTY_ERRORCODE)
 	public void fixEmptyJobName(Issue issue, IssueResolutionAcceptor acceptor) {
 	    fixEmptyString(issue, "Fix empty job name", acceptor, "\"New Job Name\"");
@@ -686,7 +705,84 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
         }
         return null;
     }
+    
+    private String extractJobWorkflowName(String documentContent, int offset) {
+        String jobKeyword = "JobWorkflow";
+        String nameKeyword = "name ";
+        String newline = "\n";
+        
+        int jobIndex = documentContent.lastIndexOf(jobKeyword);
+        while (jobIndex >= 0) {
+            int lineStart = documentContent.lastIndexOf(newline, jobIndex) + 1;
+            int lineEnd = documentContent.indexOf(newline, jobIndex);
+            
+            String line = documentContent.substring(lineStart, lineEnd);
+            if (line.trim().startsWith(jobKeyword)) {
+                int nextLineStart = lineEnd + 1;
+                int nextLineEnd = documentContent.indexOf(newline, nextLineStart);
+                String nextLine = documentContent.substring(nextLineStart, nextLineEnd);
+                if (nextLine.contains(nameKeyword)) {
+                    int nameIndex = nextLine.indexOf(nameKeyword);
+                    String currentJobName = nextLine.substring(nameIndex + nameKeyword.length()).trim();
+                    return currentJobName;
+                }
+            }
+            jobIndex = documentContent.lastIndexOf(jobKeyword, jobIndex - 1);
+        }
+        
+        return null;
+    }
 
+    private List<String> extractJobParameterNames(String documentContent, String jobWorkflowName) {
+        List<String> parameterNames = new ArrayList<>();
+        String jobKeyword = "Job";
+        String nameKeyword = "name";
+        String parameterKeyword = "Parameter";
+        String newline = "\n";
+        
+        int jobIndex = documentContent.indexOf(jobKeyword);
+        while (jobIndex >= 0) {
+        	int lineStart = documentContent.lastIndexOf(newline, jobIndex) + 1;
+            int lineEnd = documentContent.indexOf(newline, jobIndex);
+            
+            String line = documentContent.substring(lineStart, lineEnd);
+            if (line.trim().startsWith(jobKeyword)) {
+            	int nextLineStart = lineEnd + 1;
+                int nextLineEnd = documentContent.indexOf(newline, nextLineStart);
+                String nextLine = documentContent.substring(nextLineStart, nextLineEnd);
+                if (nextLine.contains(nameKeyword)) {
+                    int nameIndex = nextLine.indexOf(nameKeyword);
+                    String currentJobName = nextLine.substring(nameIndex + nameKeyword.length()).trim();
+                    if (jobWorkflowName.equals(currentJobName)) {
+                        int nextJobIndex = documentContent.indexOf(jobKeyword, jobIndex + 1);
+                        String currentJobContent;
+                        if (nextJobIndex >= 0) {
+                            currentJobContent = documentContent.substring(jobIndex, nextJobIndex);
+                        } else {
+                            currentJobContent = documentContent.substring(jobIndex);
+                        }
+                        int parameterIndex = currentJobContent.indexOf(parameterKeyword);
+                        while (parameterIndex >= 0) {
+                            int nextLineStartIndex = currentJobContent.indexOf(newline, parameterIndex) + 1;
+                            int nextLineEndIndex = currentJobContent.indexOf(newline, nextLineStartIndex);
+                            if (nextLineStartIndex >= 0 && nextLineEndIndex > nextLineStartIndex) {
+                                String paramNameLine = currentJobContent.substring(nextLineStartIndex, nextLineEndIndex).trim();
+                                String[] parts = paramNameLine.split("\\s+");
+                                if (parts.length > 1) {
+                                    String paramName = parts[1];
+                                    parameterNames.add(paramName);
+                                }
+                            }
+                            parameterIndex = currentJobContent.indexOf(parameterKeyword, parameterIndex + 1);
+                        }
+                        break;
+                    }
+                }
+            }
+            jobIndex = documentContent.indexOf(jobKeyword, jobIndex +1);
+        }
+        return parameterNames;
+    }
     
     private int getLineStart(String documentContent, int offset) {
         int lineStart = offset;

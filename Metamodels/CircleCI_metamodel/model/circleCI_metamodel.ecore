@@ -286,6 +286,12 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MatrixParams">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="validKeyMatchesParameterName"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="validKeyMatchesParameterName" value="Tuple {&#xA;&#x9;message : String = 'MatrixParams key must match a Parameter name inside the Job',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;let jobWorkflow : JobWorkflow = Workflow.allInstances()->collect(wf | wf.jobworkflow)->flatten()->any(jw | jw.matrix.matrix_params->includes(self)) in&#xA;&#x9;&#x9;        let job : Job = Pipeline.allInstances().jobs->any(j | j.name = jobWorkflow.name) in&#xA;&#x9;&#x9;    &#x9;&#x9;job.parameters->exists(p | p.name = self.key)&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

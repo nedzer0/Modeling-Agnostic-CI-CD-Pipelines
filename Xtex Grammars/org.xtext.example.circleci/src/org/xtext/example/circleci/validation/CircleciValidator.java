@@ -24,6 +24,7 @@ import circleCI_metamodel.Job;
 import circleCI_metamodel.JobWorkflow;
 import circleCI_metamodel.MacOs;
 import circleCI_metamodel.Machine;
+import circleCI_metamodel.Matrix;
 import circleCI_metamodel.MatrixParams;
 import circleCI_metamodel.Orb;
 import circleCI_metamodel.PARAMETER_TYPES;
@@ -63,6 +64,7 @@ public class CircleciValidator extends AbstractCircleciValidator {
 	public static final String ENUM_VALUES_EMPTY = "Enum parameter must have non-empty enum values";
 	public static final String ENUM_VALUES_NOT_EMPTY = "Non-enum parameter must not have enum values. Remove enumValues entry";
 	public static final String INVALID_BOOLEAN_DEFAULT_VALUE = "Boolean parameter must have default value as 'true' or 'false'";
+	public static final String INVALID_MATRIXPARAMS_KEY = "MatrixParams key must match a Parameter name inside the Job '%s'";
 	public static final String MANDATORY_STRING_EMPTY = "%s cannot be empty";
 
 	// Error codes
@@ -84,6 +86,7 @@ public class CircleciValidator extends AbstractCircleciValidator {
 	public static final String INVALID_DOCKER_RESOURCE_CLASS_ERRORCODE = "INVALID_DOCKER_RESOURCE_CLASS";
 	public static final String INVALID_MACHINE_RESOURCE_CLASS_ERRORCODE = "INVALID_MACHINE_RESOURCE_CLASS";
 	public static final String INVALID_MACOS_RESOURCE_CLASS_ERRORCODE = "INVALID_MACOS_RESOURCE_CLASS";
+	public static final String INVALID_MATRIXPARAMS_KEY_ERRORCODE = "INVALID_MATRIXPARAMS_KEY";
 	
 	public static final String MANDATORY_JOB_NAME_EMPTY_ERRORCODE = "MANDATORY_JOB_NAME_EMPTY";
 	public static final String MANDATORY_COMMAND_NAME_EMPTY_ERRORCODE = "MANDATORY_COMMAND_NAME_EMPTY";
@@ -333,6 +336,31 @@ public class CircleciValidator extends AbstractCircleciValidator {
 	        }
 	    }
 	}
+	
+	@Check
+	public void checkBooleanDefaultValue(MatrixParams matrixParams) {
+		Matrix matrix = (Matrix) matrixParams.eContainer();
+		JobWorkflow jobWorkflow = (JobWorkflow) matrix.eContainer();
+        String jobWorkflowName = jobWorkflow.getName();
+        
+        Pipeline pipeline = (Pipeline) jobWorkflow.eContainer().eContainer();
+        
+        Job matchingJob = pipeline.getJobs().stream()
+                .filter(job -> jobWorkflowName.equals(job.getName()))
+                .findFirst()
+                .orElse(null);
+		
+        if (matchingJob != null) {
+            boolean keyMatches = matchingJob.getParameters().stream()
+                .anyMatch(param -> param.getName().equals(matrixParams.getKey()));
+
+            if (!keyMatches) {
+            	EStructuralFeature defaultValueFeature = matrixParams.eClass().getEStructuralFeature("key");
+	            error(String.format(INVALID_MATRIXPARAMS_KEY, jobWorkflowName), matrixParams, defaultValueFeature, INVALID_MATRIXPARAMS_KEY_ERRORCODE);
+            }
+        }
+	}
+	
 	
 	/*
 	 * Validators to check mandatory attributes

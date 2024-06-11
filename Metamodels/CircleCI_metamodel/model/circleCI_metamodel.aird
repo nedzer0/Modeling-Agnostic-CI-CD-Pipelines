@@ -3,7 +3,6 @@
   <viewpoint:DAnalysis uid="_g7u_ACQUEe-IdaI70sRIEA" selectedViews="_g8hpMCQUEe-IdaI70sRIEA _g8w5wCQUEe-IdaI70sRIEA _mvXKgCQUEe-IdaI70sRIEA _mvfGUCQUEe-IdaI70sRIEA _mvqFcCQUEe-IdaI70sRIEA" version="15.2.0.202303281325">
     <semanticResources>circleCI_metamodel.ecore</semanticResources>
     <semanticResources>circleCI_metamodel.genmodel</semanticResources>
-    <semanticResources>Pipeline.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_g8hpMCQUEe-IdaI70sRIEA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_hDoWwCQUEe-IdaI70sRIEA" name="circleCI_metamodel" repPath="#_hDkFUCQUEe-IdaI70sRIEA" changeId="1717689238998">
