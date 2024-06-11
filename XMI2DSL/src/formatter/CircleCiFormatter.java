@@ -229,6 +229,9 @@ public class CircleCiFormatter {
                     	break;
                     }
                     else if (!stringValue.isEmpty()) {
+                    	if (stringValue.contains("\"")) {
+                            stringValue = stringValue.replace("\"", "'");
+                        }
                         xtextLines.add(indent + attributeName + " \"" + stringValue + "\"");
                     }
                 } else if (value instanceof List<?>) {

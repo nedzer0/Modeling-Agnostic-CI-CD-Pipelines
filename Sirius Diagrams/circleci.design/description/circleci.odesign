@@ -634,7 +634,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
-        <containerMappings name="Workflow" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:workflow" domainClass="circleCI_metamodel::Workflow">
+        <containerMappings name="Workflow" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:workflows" domainClass="circleCI_metamodel::Workflow">
           <subNodeMappings name="Trigger" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editTrigger']" semanticCandidatesExpression="feature:triggers" domainClass="circleCI_metamodel::Trigger">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:cron" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/ScheduleTrigger.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

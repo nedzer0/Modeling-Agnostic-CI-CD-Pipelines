@@ -1670,13 +1670,13 @@ public interface CircleCI_metamodelPackage extends EPackage {
 	int PIPELINE__COMMANDS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Workflow</b></em>' containment reference.
+	 * The feature id for the '<em><b>Workflows</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIPELINE__WORKFLOW = 2;
+	int PIPELINE__WORKFLOWS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Jobs</b></em>' containment reference list.
@@ -3170,15 +3170,15 @@ public interface CircleCI_metamodelPackage extends EPackage {
 	EReference getPipeline_Commands();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link circleCI_metamodel.Pipeline#getWorkflow <em>Workflow</em>}'.
+	 * Returns the meta object for the containment reference list '{@link circleCI_metamodel.Pipeline#getWorkflows <em>Workflows</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Workflow</em>'.
-	 * @see circleCI_metamodel.Pipeline#getWorkflow()
+	 * @return the meta object for the containment reference list '<em>Workflows</em>'.
+	 * @see circleCI_metamodel.Pipeline#getWorkflows()
 	 * @see #getPipeline()
 	 * @generated
 	 */
-	EReference getPipeline_Workflow();
+	EReference getPipeline_Workflows();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link circleCI_metamodel.Pipeline#getJobs <em>Jobs</em>}'.
@@ -4407,12 +4407,12 @@ public interface CircleCI_metamodelPackage extends EPackage {
 		EReference PIPELINE__COMMANDS = eINSTANCE.getPipeline_Commands();
 
 		/**
-		 * The meta object literal for the '<em><b>Workflow</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Workflows</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PIPELINE__WORKFLOW = eINSTANCE.getPipeline_Workflow();
+		EReference PIPELINE__WORKFLOWS = eINSTANCE.getPipeline_Workflows();
 
 		/**
 		 * The meta object literal for the '<em><b>Jobs</b></em>' containment reference list feature.

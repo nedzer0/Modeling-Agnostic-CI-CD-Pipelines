@@ -433,13 +433,15 @@ steps:
 
 
 [template public generateWorkflows(aPipeline : Pipeline)]
-[if (aPipeline.workflow->notEmpty())]
+[if (aPipeline.workflows->notEmpty())]
 workflows:
-  version: [aPipeline.workflow.version/]
-  workflow_Name: [aPipeline.workflow.name/]
-    [generateTriggers(aPipeline.workflow)/]
-    [generateWorkflowWhen(aPipeline.workflow)/]
-    [generateWorkflowJobs(aPipeline.workflow)/]
+[for (workflow: Workflow | aPipeline.workflows)]
+  version: [workflow.version/]
+  [workflow.name/]:
+    [generateTriggers(workflow)/]
+    [generateWorkflowWhen(workflow)/]
+    [generateWorkflowJobs(workflow)/]
+[/for]
 [/if]
 [/template]
 

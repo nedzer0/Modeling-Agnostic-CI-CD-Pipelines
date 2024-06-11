@@ -1399,7 +1399,7 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 	 * @generated
 	 */
 	@Override
-	public EReference getPipeline_Workflow() {
+	public EReference getPipeline_Workflows() {
 		return (EReference) pipelineEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1880,7 +1880,7 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 		pipelineEClass = createEClass(PIPELINE);
 		createEReference(pipelineEClass, PIPELINE__ORBS);
 		createEReference(pipelineEClass, PIPELINE__COMMANDS);
-		createEReference(pipelineEClass, PIPELINE__WORKFLOW);
+		createEReference(pipelineEClass, PIPELINE__WORKFLOWS);
 		createEReference(pipelineEClass, PIPELINE__JOBS);
 		createEReference(pipelineEClass, PIPELINE__EXECUTORS);
 		createEAttribute(pipelineEClass, PIPELINE__VERSION);
@@ -2039,7 +2039,7 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 		initEClass(machineEClass, Machine.class, "Machine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMachine_Image(), ecorePackage.getEString(), "image", null, 1, 1, Machine.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMachine_Docker_layer_caching(), ecorePackage.getEBoolean(), "docker_layer_caching", null, 1,
+		initEAttribute(getMachine_Docker_layer_caching(), ecorePackage.getEBoolean(), "docker_layer_caching", null, 0,
 				1, Machine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMachine_ResourceClass(), this.getMACHINE_RESOURCE_TYPE(), "resourceClass", null, 1, 1,
@@ -2221,7 +2221,7 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 		initEReference(getPipeline_Commands(), this.getCommand(), null, "commands", null, 0, -1, Pipeline.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPipeline_Workflow(), this.getWorkflow(), null, "workflow", null, 0, 1, Pipeline.class,
+		initEReference(getPipeline_Workflows(), this.getWorkflow(), null, "workflows", null, 0, -1, Pipeline.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPipeline_Jobs(), this.getJob(), null, "jobs", null, 1, -1, Pipeline.class, !IS_TRANSIENT,
@@ -2232,7 +2232,7 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPipeline_Version(), ecorePackage.getEString(), "version", null, 1, 1, Pipeline.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPipeline_Setup(), ecorePackage.getEBoolean(), "setup", null, 0, 1, Pipeline.class,
+		initEAttribute(getPipeline_Setup(), ecorePackage.getEBoolean(), "setup", null, 1, 1, Pipeline.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orbEClass, Orb.class, "Orb", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link circleCI_metamodel.Pipeline#getOrbs <em>Orbs</em>}</li>
  *   <li>{@link circleCI_metamodel.Pipeline#getCommands <em>Commands</em>}</li>
- *   <li>{@link circleCI_metamodel.Pipeline#getWorkflow <em>Workflow</em>}</li>
+ *   <li>{@link circleCI_metamodel.Pipeline#getWorkflows <em>Workflows</em>}</li>
  *   <li>{@link circleCI_metamodel.Pipeline#getJobs <em>Jobs</em>}</li>
  *   <li>{@link circleCI_metamodel.Pipeline#getExecutors <em>Executors</em>}</li>
  *   <li>{@link circleCI_metamodel.Pipeline#getVersion <em>Version</em>}</li>
@@ -54,26 +54,16 @@ public interface Pipeline extends EObject {
 	EList<Command> getCommands();
 
 	/**
-	 * Returns the value of the '<em><b>Workflow</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Workflows</b></em>' containment reference list.
+	 * The list contents are of type {@link circleCI_metamodel.Workflow}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Workflow</em>' containment reference.
-	 * @see #setWorkflow(Workflow)
-	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getPipeline_Workflow()
+	 * @return the value of the '<em>Workflows</em>' containment reference list.
+	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getPipeline_Workflows()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Workflow getWorkflow();
-
-	/**
-	 * Sets the value of the '{@link circleCI_metamodel.Pipeline#getWorkflow <em>Workflow</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Workflow</em>' containment reference.
-	 * @see #getWorkflow()
-	 * @generated
-	 */
-	void setWorkflow(Workflow value);
+	EList<Workflow> getWorkflows();
 
 	/**
 	 * Returns the value of the '<em><b>Jobs</b></em>' containment reference list.
@@ -128,7 +118,7 @@ public interface Pipeline extends EObject {
 	 * @return the value of the '<em>Setup</em>' attribute.
 	 * @see #setSetup(boolean)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getPipeline_Setup()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	boolean isSetup();

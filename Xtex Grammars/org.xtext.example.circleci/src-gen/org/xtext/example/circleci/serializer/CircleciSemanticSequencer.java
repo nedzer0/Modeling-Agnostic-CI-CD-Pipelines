@@ -534,7 +534,7 @@ public class CircleciSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *         commands+=Command* 
 	 *         executors+=Executor+ 
 	 *         jobs+=Job+ 
-	 *         workflow=Workflow?
+	 *         workflows+=Workflow*
 	 *     )
 	 * </pre>
 	 */

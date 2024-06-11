@@ -175,7 +175,7 @@
     <genClasses ecoreClass="circleCI_metamodel.ecore#//Pipeline">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/orbs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/commands"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/workflow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/workflows"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/jobs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Pipeline/executors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Pipeline/version"/>

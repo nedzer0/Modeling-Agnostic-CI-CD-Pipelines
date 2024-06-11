@@ -57,8 +57,8 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		private final RuleCall cJobsJobParserRuleCall_6_0_0 = (RuleCall)cJobsAssignment_6_0.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Assignment cWorkflowAssignment_7_0 = (Assignment)cGroup_7.eContents().get(0);
-		private final RuleCall cWorkflowWorkflowParserRuleCall_7_0_0 = (RuleCall)cWorkflowAssignment_7_0.eContents().get(0);
+		private final Assignment cWorkflowsAssignment_7_0 = (Assignment)cGroup_7.eContents().get(0);
+		private final RuleCall cWorkflowsWorkflowParserRuleCall_7_0_0 = (RuleCall)cWorkflowsAssignment_7_0.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_7_1 = (RuleCall)cGroup_7.eContents().get(1);
 		
 		//Pipeline returns Pipeline:
@@ -69,7 +69,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//    ((commands+=Command)+ NEWLINE?)?
 		//    ((executors+=Executor)+ NEWLINE?)
 		//    ((jobs+=Job)+ NEWLINE?)
-		//    (workflow=Workflow NEWLINE?)?
+		//    ((workflows+=Workflow)+ NEWLINE?)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -80,7 +80,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//((commands+=Command)+ NEWLINE?)?
 		//((executors+=Executor)+ NEWLINE?)
 		//((jobs+=Job)+ NEWLINE?)
-		//(workflow=Workflow NEWLINE?)?
+		//((workflows+=Workflow)+ NEWLINE?)?
 		public Group getGroup() { return cGroup; }
 		
 		//('Pipeline' NEWLINE)
@@ -167,14 +167,14 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//NEWLINE?
 		public RuleCall getNEWLINETerminalRuleCall_6_1() { return cNEWLINETerminalRuleCall_6_1; }
 		
-		//(workflow=Workflow NEWLINE?)?
+		//((workflows+=Workflow)+ NEWLINE?)?
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//workflow=Workflow
-		public Assignment getWorkflowAssignment_7_0() { return cWorkflowAssignment_7_0; }
+		//(workflows+=Workflow)+
+		public Assignment getWorkflowsAssignment_7_0() { return cWorkflowsAssignment_7_0; }
 		
 		//Workflow
-		public RuleCall getWorkflowWorkflowParserRuleCall_7_0_0() { return cWorkflowWorkflowParserRuleCall_7_0_0; }
+		public RuleCall getWorkflowsWorkflowParserRuleCall_7_0_0() { return cWorkflowsWorkflowParserRuleCall_7_0_0; }
 		
 		//NEWLINE?
 		public RuleCall getNEWLINETerminalRuleCall_7_1() { return cNEWLINETerminalRuleCall_7_1; }
@@ -3597,7 +3597,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	//    ((commands+=Command)+ NEWLINE?)?
 	//    ((executors+=Executor)+ NEWLINE?)
 	//    ((jobs+=Job)+ NEWLINE?)
-	//    (workflow=Workflow NEWLINE?)?
+	//    ((workflows+=Workflow)+ NEWLINE?)?
 	//;
 	public PipelineElements getPipelineAccess() {
 		return pPipeline;

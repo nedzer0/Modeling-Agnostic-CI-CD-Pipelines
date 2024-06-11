@@ -177,7 +177,7 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     jobs+=Job (ambiguity) (rule end)
-	 *     jobs+=Job (ambiguity) workflow=Workflow
+	 *     jobs+=Job (ambiguity) workflows+=Workflow
 	 
 	 * </pre>
 	 */
@@ -191,7 +191,7 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     NEWLINE?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     workflow=Workflow (ambiguity) (rule end)
+	 *     workflows+=Workflow (ambiguity) (rule end)
 	 
 	 * </pre>
 	 */

@@ -44,7 +44,10 @@ public class CircleciFormatter extends AbstractFormatter2 {
     for (final Job job : _jobs) {
       document.<Job>format(job);
     }
-    document.<Workflow>format(pipeline.getWorkflow());
+    EList<Workflow> _workflows = pipeline.getWorkflows();
+    for (final Workflow workflow : _workflows) {
+      document.<Workflow>format(workflow);
+    }
   }
 
   protected void _format(final Command command, @Extension final IFormattableDocument document) {

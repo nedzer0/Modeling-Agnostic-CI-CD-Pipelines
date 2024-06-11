@@ -241,22 +241,22 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getWorkflowWorkflowParserRuleCall_7_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getWorkflowsWorkflowParserRuleCall_7_0_0());
 					}
-					lv_workflow_15_0=ruleWorkflow
+					lv_workflows_15_0=ruleWorkflow
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
 						}
-						set(
+						add(
 							$current,
-							"workflow",
-							lv_workflow_15_0,
+							"workflows",
+							lv_workflows_15_0,
 							"org.xtext.example.circleci.Circleci.Workflow");
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)
+			)+
 			(
 				this_NEWLINE_16=RULE_NEWLINE
 				{
@@ -4268,7 +4268,7 @@ ruleMACOS_RESOURCE_TYPE returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0=Macos_x86_medium_gen2
+			enumLiteral_0=MacosX86MediumGen2
 			{
 				$current = grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_X86_MEDIUM_GEN2EnumLiteralDeclaration_0().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_0, grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_X86_MEDIUM_GEN2EnumLiteralDeclaration_0());
@@ -4276,7 +4276,7 @@ ruleMACOS_RESOURCE_TYPE returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_1=Macos_m1_medium_gen
+			enumLiteral_1=MacosM1MediumGen
 			{
 				$current = grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_M1_MEDIUM_GENEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_M1_MEDIUM_GENEnumLiteralDeclaration_1());
@@ -4284,7 +4284,7 @@ ruleMACOS_RESOURCE_TYPE returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_2=Macos_m1_large_gen1
+			enumLiteral_2=MacosM1LargeGen1
 			{
 				$current = grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_M1_LARGE_GEN1EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_2, grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_M1_LARGE_GEN1EnumLiteralDeclaration_2());

@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link circleCI_metamodel.impl.PipelineImpl#getOrbs <em>Orbs</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.PipelineImpl#getCommands <em>Commands</em>}</li>
- *   <li>{@link circleCI_metamodel.impl.PipelineImpl#getWorkflow <em>Workflow</em>}</li>
+ *   <li>{@link circleCI_metamodel.impl.PipelineImpl#getWorkflows <em>Workflows</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.PipelineImpl#getJobs <em>Jobs</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.PipelineImpl#getExecutors <em>Executors</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.PipelineImpl#getVersion <em>Version</em>}</li>
@@ -67,14 +67,14 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 	protected EList<Command> commands;
 
 	/**
-	 * The cached value of the '{@link #getWorkflow() <em>Workflow</em>}' containment reference.
+	 * The cached value of the '{@link #getWorkflows() <em>Workflows</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWorkflow()
+	 * @see #getWorkflows()
 	 * @generated
 	 * @ordered
 	 */
-	protected Workflow workflow;
+	protected EList<Workflow> workflows;
 
 	/**
 	 * The cached value of the '{@link #getJobs() <em>Jobs</em>}' containment reference list.
@@ -188,50 +188,12 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 	 * @generated
 	 */
 	@Override
-	public Workflow getWorkflow() {
-		return workflow;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetWorkflow(Workflow newWorkflow, NotificationChain msgs) {
-		Workflow oldWorkflow = workflow;
-		workflow = newWorkflow;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					CircleCI_metamodelPackage.PIPELINE__WORKFLOW, oldWorkflow, newWorkflow);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+	public EList<Workflow> getWorkflows() {
+		if (workflows == null) {
+			workflows = new EObjectContainmentEList<Workflow>(Workflow.class, this,
+					CircleCI_metamodelPackage.PIPELINE__WORKFLOWS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setWorkflow(Workflow newWorkflow) {
-		if (newWorkflow != workflow) {
-			NotificationChain msgs = null;
-			if (workflow != null)
-				msgs = ((InternalEObject) workflow).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - CircleCI_metamodelPackage.PIPELINE__WORKFLOW, null, msgs);
-			if (newWorkflow != null)
-				msgs = ((InternalEObject) newWorkflow).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - CircleCI_metamodelPackage.PIPELINE__WORKFLOW, null, msgs);
-			msgs = basicSetWorkflow(newWorkflow, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CircleCI_metamodelPackage.PIPELINE__WORKFLOW,
-					newWorkflow, newWorkflow));
+		return workflows;
 	}
 
 	/**
@@ -321,8 +283,8 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 			return ((InternalEList<?>) getOrbs()).basicRemove(otherEnd, msgs);
 		case CircleCI_metamodelPackage.PIPELINE__COMMANDS:
 			return ((InternalEList<?>) getCommands()).basicRemove(otherEnd, msgs);
-		case CircleCI_metamodelPackage.PIPELINE__WORKFLOW:
-			return basicSetWorkflow(null, msgs);
+		case CircleCI_metamodelPackage.PIPELINE__WORKFLOWS:
+			return ((InternalEList<?>) getWorkflows()).basicRemove(otherEnd, msgs);
 		case CircleCI_metamodelPackage.PIPELINE__JOBS:
 			return ((InternalEList<?>) getJobs()).basicRemove(otherEnd, msgs);
 		case CircleCI_metamodelPackage.PIPELINE__EXECUTORS:
@@ -343,8 +305,8 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 			return getOrbs();
 		case CircleCI_metamodelPackage.PIPELINE__COMMANDS:
 			return getCommands();
-		case CircleCI_metamodelPackage.PIPELINE__WORKFLOW:
-			return getWorkflow();
+		case CircleCI_metamodelPackage.PIPELINE__WORKFLOWS:
+			return getWorkflows();
 		case CircleCI_metamodelPackage.PIPELINE__JOBS:
 			return getJobs();
 		case CircleCI_metamodelPackage.PIPELINE__EXECUTORS:
@@ -374,8 +336,9 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 			getCommands().clear();
 			getCommands().addAll((Collection<? extends Command>) newValue);
 			return;
-		case CircleCI_metamodelPackage.PIPELINE__WORKFLOW:
-			setWorkflow((Workflow) newValue);
+		case CircleCI_metamodelPackage.PIPELINE__WORKFLOWS:
+			getWorkflows().clear();
+			getWorkflows().addAll((Collection<? extends Workflow>) newValue);
 			return;
 		case CircleCI_metamodelPackage.PIPELINE__JOBS:
 			getJobs().clear();
@@ -409,8 +372,8 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 		case CircleCI_metamodelPackage.PIPELINE__COMMANDS:
 			getCommands().clear();
 			return;
-		case CircleCI_metamodelPackage.PIPELINE__WORKFLOW:
-			setWorkflow((Workflow) null);
+		case CircleCI_metamodelPackage.PIPELINE__WORKFLOWS:
+			getWorkflows().clear();
 			return;
 		case CircleCI_metamodelPackage.PIPELINE__JOBS:
 			getJobs().clear();
@@ -440,8 +403,8 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 			return orbs != null && !orbs.isEmpty();
 		case CircleCI_metamodelPackage.PIPELINE__COMMANDS:
 			return commands != null && !commands.isEmpty();
-		case CircleCI_metamodelPackage.PIPELINE__WORKFLOW:
-			return workflow != null;
+		case CircleCI_metamodelPackage.PIPELINE__WORKFLOWS:
+			return workflows != null && !workflows.isEmpty();
 		case CircleCI_metamodelPackage.PIPELINE__JOBS:
 			return jobs != null && !jobs.isEmpty();
 		case CircleCI_metamodelPackage.PIPELINE__EXECUTORS:

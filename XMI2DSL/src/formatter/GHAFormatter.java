@@ -144,7 +144,6 @@ public class GHAFormatter {
 	        }
 	    }
 
-	    // Append other attributes
 	    for (EAttribute attribute : eClass.getEAllAttributes()) {
 	        String attributeName = attribute.getName();
 	        if (!attributeName.equals("name") && !attributeName.equals("type")) {
@@ -162,7 +161,10 @@ public class GHAFormatter {
 		                	if (eClass.getName().equals("Pipeline") && (attributeName.equals("name") || attributeName.equals("run-name"))) {
 		                		xtextLines.add(attributeName + " \"" + stringValue + "\"");
 		                    }
-		                	else {
+		                	if (stringValue.contains("\"")) {
+	                            stringValue = stringValue.replace("\"", "'");
+	                        }
+		                	else{
 		                		if(!eClass.getName().equals("Pipeline")) {
 		                			xtextLines.add(indent + attributeName + " \"" + stringValue + "\"");
 		                		}

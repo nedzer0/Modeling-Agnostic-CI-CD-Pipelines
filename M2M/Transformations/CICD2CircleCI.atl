@@ -9,11 +9,11 @@ rule Pipeline2Pipeline {
 		s : CICD!Pipeline
 	to
 		t : CircleCI!Pipeline(
-			version <- '2.0',
+			version <- '2.1',
 			setup <- false,
 			jobs <- s.jobs->collect(job | thisModule.Job2Job(job, s.agents->first().labels->first())),
 			commands <- s.inputs ->collect(i | thisModule.Input2Command(i)),
-			workflow <- thisModule.ScheduleTrigger2Workflow(s),
+			workflows <- thisModule.ScheduleTrigger2Workflow(s),
 			executors <- s.agents ->collect(agent | thisModule.DockerContainer2Docker(agent.container, agent.labels->first()))
 		)
 }
@@ -96,7 +96,7 @@ lazy rule ScheduleTrigger2Workflow {
         s : CICD!Pipeline
     to
         t : CircleCI!Workflow (
-            name <- 'dummyWorkflow',
+            name <- 'test',
 			version <- '2.0',
 			triggers <- s.triggers -> collect(trigger | thisModule.ScheduleTrigger2ScheduleTrigger(trigger)),
 			jobworkflow <- s.jobs -> collect(job | thisModule.Job2JobWorkflow(job))

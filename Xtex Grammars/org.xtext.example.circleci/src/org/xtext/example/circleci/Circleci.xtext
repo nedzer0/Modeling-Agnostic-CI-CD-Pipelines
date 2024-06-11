@@ -12,7 +12,7 @@ Pipeline returns Pipeline:
 	((commands+=Command)+ NEWLINE?)?
 	((executors+=Executor)+ NEWLINE?)
 	((jobs+=Job)+ NEWLINE?)
-	(workflow=Workflow NEWLINE?)?
+	((workflows+=Workflow)+ NEWLINE?)?
 ;
 
 

@@ -15,7 +15,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Run" eSuperTypes="#//Step">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="when" eType="#//WHEN_TYPE"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="background" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="background" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="working_directory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="."/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="environments" upperBound="-1"
@@ -61,7 +62,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parallelism" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parallelism" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reuseExecutor" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="executors" upperBound="-1"
@@ -227,15 +229,15 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
         eType="#//Command" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="workflow" eType="#//Workflow"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workflows" upperBound="-1"
+        eType="#//Workflow" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="jobs" lowerBound="1" upperBound="-1"
         eType="#//Job" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="executors" lowerBound="1"
         upperBound="-1" eType="#//Executor" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="setup" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="setup" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Orb">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -269,14 +271,15 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="requiredJobExists" value="Tuple {&#xA;&#x9;message : String = 'Required Job does not exist. Select an existing pipeline Job',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.requires->notEmpty() implies self.requires->forAll(rj | Job.allInstances()->exists(j | j.name = rj))&#xA;}.status"/>
       <details key="WorkflowJobExists" value="Tuple {&#xA;&#x9;message : String = 'Ensure that jobs referenced in the workflow exist in Job\'s configuration',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;Pipeline.allInstances().jobs->exists(job | job.name = self.name)&#xA;}.status"/>
-      <details key="nonDuplicateJobWorkflowName" value="Tuple {&#xA;&#x9;message : String = 'Duplicate JobWorkflow Name. Choose a different jobWorkflow name to ensure uniqueness within the pipeline.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;Pipeline.allInstances().workflow.jobworkflow->forAll(jw | jw &lt;> self implies jw.name &lt;> self.name)&#xA;}.status"/>
+      <details key="nonDuplicateJobWorkflowName" value="Tuple {&#xA;&#x9;message : String = 'Duplicate JobWorkflow Name. Choose a different jobWorkflow name to ensure uniqueness within the pipeline.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;Workflow.allInstances()->exists(w | w.jobworkflow->includes(self) and &#xA;    &#x9;&#x9;&#x9;w.jobworkflow->forAll(jw | jw &lt;> self implies jw.name &lt;> self.name))&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="requires" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="approvalJob" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="approvalJob" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
         eType="#//Branch" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="matrix" eType="#//Matrix"

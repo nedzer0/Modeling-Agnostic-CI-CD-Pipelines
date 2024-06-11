@@ -128,11 +128,11 @@ import org.xtext.example.circleci.services.CircleciGrammarAccess;
 		tokenNameToValue.put("No_output_timeout", "'no_output_timeout'");
 		tokenNameToValue.put("Working_directory", "'working_directory'");
 		tokenNameToValue.put("PersistToWorkspace", "'PersistToWorkspace'");
-		tokenNameToValue.put("Macos_m1_large_gen1", "'macos_m1_large_gen1'");
-		tokenNameToValue.put("Macos_m1_medium_gen", "'macos_m1_medium_gen'");
+		tokenNameToValue.put("MacosM1LargeGen1", "'macos.m1.large.gen1'");
+		tokenNameToValue.put("MacosM1MediumGen", "'macos.m1.medium.gen'");
 		tokenNameToValue.put("Docker_layer_caching", "'docker_layer_caching'");
 		tokenNameToValue.put("Aws_secret_access_key", "'aws_secret_access_key'");
-		tokenNameToValue.put("Macos_x86_medium_gen2", "'macos_x86_medium_gen2*'");
+		tokenNameToValue.put("MacosX86MediumGen2", "'macos.x86.medium.gen2*'");
 		tokenNameToValue.put("ENVIRONMENT_VARIABLE_NAME", "'ENVIRONMENT_VARIABLE_NAME'");
 	}
 
@@ -1269,19 +1269,19 @@ rule__MACOS_RESOURCE_TYPE__Alternatives
 :
 	(
 		{ before(grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_X86_MEDIUM_GEN2EnumLiteralDeclaration_0()); }
-		(Macos_x86_medium_gen2)
+		(MacosX86MediumGen2)
 		{ after(grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_X86_MEDIUM_GEN2EnumLiteralDeclaration_0()); }
 	)
 	|
 	(
 		{ before(grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_M1_MEDIUM_GENEnumLiteralDeclaration_1()); }
-		(Macos_m1_medium_gen)
+		(MacosM1MediumGen)
 		{ after(grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_M1_MEDIUM_GENEnumLiteralDeclaration_1()); }
 	)
 	|
 	(
 		{ before(grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_M1_LARGE_GEN1EnumLiteralDeclaration_2()); }
-		(Macos_m1_large_gen1)
+		(MacosM1LargeGen1)
 		{ after(grammarAccess.getMACOS_RESOURCE_TYPEAccess().getMACOS_M1_LARGE_GEN1EnumLiteralDeclaration_2()); }
 	)
 ;
@@ -2106,9 +2106,16 @@ rule__Pipeline__Group_7__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getPipelineAccess().getWorkflowAssignment_7_0()); }
-	(rule__Pipeline__WorkflowAssignment_7_0)
-	{ after(grammarAccess.getPipelineAccess().getWorkflowAssignment_7_0()); }
+	(
+		{ before(grammarAccess.getPipelineAccess().getWorkflowsAssignment_7_0()); }
+		(rule__Pipeline__WorkflowsAssignment_7_0)
+		{ after(grammarAccess.getPipelineAccess().getWorkflowsAssignment_7_0()); }
+	)
+	(
+		{ before(grammarAccess.getPipelineAccess().getWorkflowsAssignment_7_0()); }
+		(rule__Pipeline__WorkflowsAssignment_7_0)*
+		{ after(grammarAccess.getPipelineAccess().getWorkflowsAssignment_7_0()); }
+	)
 )
 ;
 finally {
@@ -13004,15 +13011,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Pipeline__WorkflowAssignment_7_0
+rule__Pipeline__WorkflowsAssignment_7_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getPipelineAccess().getWorkflowWorkflowParserRuleCall_7_0_0()); }
+		{ before(grammarAccess.getPipelineAccess().getWorkflowsWorkflowParserRuleCall_7_0_0()); }
 		ruleWorkflow
-		{ after(grammarAccess.getPipelineAccess().getWorkflowWorkflowParserRuleCall_7_0_0()); }
+		{ after(grammarAccess.getPipelineAccess().getWorkflowsWorkflowParserRuleCall_7_0_0()); }
 	)
 ;
 finally {

@@ -241,22 +241,22 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getWorkflowWorkflowParserRuleCall_7_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getWorkflowsWorkflowParserRuleCall_7_0_0());
 					}
-					lv_workflow_15_0=ruleWorkflow
+					lv_workflows_15_0=ruleWorkflow
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
 						}
-						set(
+						add(
 							$current,
-							"workflow",
-							lv_workflow_15_0,
+							"workflows",
+							lv_workflows_15_0,
 							"org.xtext.example.circleci.Circleci.Workflow");
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)
+			)+
 			(
 				this_NEWLINE_16=RULE_NEWLINE
 				{

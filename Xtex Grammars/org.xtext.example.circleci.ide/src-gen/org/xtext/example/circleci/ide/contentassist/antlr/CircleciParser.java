@@ -174,7 +174,7 @@ public class CircleciParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPipelineAccess().getCommandsAssignment_4_0(), "rule__Pipeline__CommandsAssignment_4_0");
 			builder.put(grammarAccess.getPipelineAccess().getExecutorsAssignment_5_0(), "rule__Pipeline__ExecutorsAssignment_5_0");
 			builder.put(grammarAccess.getPipelineAccess().getJobsAssignment_6_0(), "rule__Pipeline__JobsAssignment_6_0");
-			builder.put(grammarAccess.getPipelineAccess().getWorkflowAssignment_7_0(), "rule__Pipeline__WorkflowAssignment_7_0");
+			builder.put(grammarAccess.getPipelineAccess().getWorkflowsAssignment_7_0(), "rule__Pipeline__WorkflowsAssignment_7_0");
 			builder.put(grammarAccess.getOrbAccess().getKeyAssignment_1_2(), "rule__Orb__KeyAssignment_1_2");
 			builder.put(grammarAccess.getOrbAccess().getValueAssignment_1_4(), "rule__Orb__ValueAssignment_1_4");
 			builder.put(grammarAccess.getCommandAccess().getNameAssignment_1_2(), "rule__Command__NameAssignment_1_2");

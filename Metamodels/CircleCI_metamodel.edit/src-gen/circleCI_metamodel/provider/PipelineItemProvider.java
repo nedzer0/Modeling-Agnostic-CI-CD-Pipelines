@@ -108,7 +108,7 @@ public class PipelineItemProvider extends ItemProviderAdapter implements IEditin
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__ORBS);
 			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__COMMANDS);
-			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__WORKFLOW);
+			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__WORKFLOWS);
 			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__JOBS);
 			childrenFeatures.add(CircleCI_metamodelPackage.Literals.PIPELINE__EXECUTORS);
 		}
@@ -180,7 +180,7 @@ public class PipelineItemProvider extends ItemProviderAdapter implements IEditin
 			return;
 		case CircleCI_metamodelPackage.PIPELINE__ORBS:
 		case CircleCI_metamodelPackage.PIPELINE__COMMANDS:
-		case CircleCI_metamodelPackage.PIPELINE__WORKFLOW:
+		case CircleCI_metamodelPackage.PIPELINE__WORKFLOWS:
 		case CircleCI_metamodelPackage.PIPELINE__JOBS:
 		case CircleCI_metamodelPackage.PIPELINE__EXECUTORS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -206,7 +206,7 @@ public class PipelineItemProvider extends ItemProviderAdapter implements IEditin
 		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__COMMANDS,
 				CircleCI_metamodelFactory.eINSTANCE.createCommand()));
 
-		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__WORKFLOW,
+		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__WORKFLOWS,
 				CircleCI_metamodelFactory.eINSTANCE.createWorkflow()));
 
 		newChildDescriptors.add(createChildParameter(CircleCI_metamodelPackage.Literals.PIPELINE__JOBS,

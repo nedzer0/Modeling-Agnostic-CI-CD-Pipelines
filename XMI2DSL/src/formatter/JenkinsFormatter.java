@@ -186,7 +186,6 @@ public class JenkinsFormatter {
 	        }
 	    }
 
-	    // Append other attributes
 	    for (EAttribute attribute : eClass.getEAllAttributes()) {
 	        String attributeName = attribute.getName();
 	        if (!attributeName.equals("name") && !attributeName.equals("description") && !attributeName.equals("choices") && !attributeName.equals("defaultValue")) {
@@ -198,6 +197,9 @@ public class JenkinsFormatter {
 	                        xtextLines.add(indent + attributeName);
 	                    } 
 		                else if (!stringValue.isEmpty()) {
+		                	if (stringValue.contains("\"")) {
+	                            stringValue = stringValue.replace("\"", "'");
+	                        }
 		                	xtextLines.add(indent + attributeName + " \"" + stringValue + "\"");
 		                }
 	                } else if (value instanceof List<?>) {

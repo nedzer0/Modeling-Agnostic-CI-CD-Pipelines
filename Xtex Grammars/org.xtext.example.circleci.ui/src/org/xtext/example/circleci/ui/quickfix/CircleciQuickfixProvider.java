@@ -34,15 +34,19 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 List<String> jobNames = extractJobNames(documentContent);
                 Integer offset = issue.getOffset();
 
-                Collections.shuffle(jobNames);
-                String currentJobName = extractCurrentJobName(documentContent, offset);
-                String newJobName = jobNames.stream()
-                                            .filter(name -> !name.equals(currentJobName))
-                                            .findFirst()
-                                            .orElse(null);
                 
-                if (newJobName != null) {
-                    xtextDocument.replace(offset, issue.getLength(), newJobName);
+                List<String> jobWorkflowNames = extractWorkflowJobs(documentContent);
+                
+                String missingJobName = null;
+                for (String jobName : jobNames) {
+                    if (!jobWorkflowNames.contains(jobName)) {
+                        missingJobName = jobName;
+                        break;
+                    }
+                }
+                                
+                if (missingJobName != null) {
+                    xtextDocument.replace(offset, issue.getLength(), missingJobName);
                 } else {
                     int lineStart = getLineStart(documentContent, offset);
                     int lineEnd = getLineEnd(documentContent, offset);
@@ -111,8 +115,21 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 Integer length = issue.getLength();
                 String originalName = xtextDocument.get(offset, length);
                 int randomInt = (int) (Math.random() * 100);
-                String newName = originalName + randomInt;
-                xtextDocument.replace(offset, length, newName);
+                
+                if(originalName.contains("\"")) {
+                    int firstQuoteIndex = originalName.indexOf("\"");
+                    int lastQuoteIndex = originalName.lastIndexOf("\"");
+                    
+                    if (firstQuoteIndex != -1 && lastQuoteIndex != -1 && firstQuoteIndex != lastQuoteIndex) {
+                        String newName = originalName.substring(0, lastQuoteIndex) + randomInt + originalName.substring(lastQuoteIndex);
+                        xtextDocument.replace(offset, length, newName);
+                    } else {
+                        
+                    }
+                } else {
+                    String newName = originalName + randomInt;
+                    xtextDocument.replace(offset, length, newName);
+                }
 	        }
 	    });
 	}
@@ -126,8 +143,21 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 Integer length = issue.getLength();
                 String originalName = xtextDocument.get(offset, length);
                 int randomInt = (int) (Math.random() * 100);
-                String newName = originalName + randomInt;
-                xtextDocument.replace(offset, length, newName);
+                
+                if(originalName.contains("\"")) {
+                    int firstQuoteIndex = originalName.indexOf("\"");
+                    int lastQuoteIndex = originalName.lastIndexOf("\"");
+                    
+                    if (firstQuoteIndex != -1 && lastQuoteIndex != -1 && firstQuoteIndex != lastQuoteIndex) {
+                        String newName = originalName.substring(0, lastQuoteIndex) + randomInt + originalName.substring(lastQuoteIndex);
+                        xtextDocument.replace(offset, length, newName);
+                    } else {
+                        
+                    }
+                } else {
+                    String newName = originalName + randomInt;
+                    xtextDocument.replace(offset, length, newName);
+                }
 	        }
 	    });
 	}
@@ -141,8 +171,21 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 Integer length = issue.getLength();
                 String originalName = xtextDocument.get(offset, length);
                 int randomInt = (int) (Math.random() * 100);
-                String newName = originalName + randomInt;
-                xtextDocument.replace(offset, length, newName);
+                
+                if(originalName.contains("\"")) {
+                    int firstQuoteIndex = originalName.indexOf("\"");
+                    int lastQuoteIndex = originalName.lastIndexOf("\"");
+                    
+                    if (firstQuoteIndex != -1 && lastQuoteIndex != -1 && firstQuoteIndex != lastQuoteIndex) {
+                        String newName = originalName.substring(0, lastQuoteIndex) + randomInt + originalName.substring(lastQuoteIndex);
+                        xtextDocument.replace(offset, length, newName);
+                    } else {
+                        
+                    }
+                } else {
+                    String newName = originalName + randomInt;
+                    xtextDocument.replace(offset, length, newName);
+                }
 	        }
 	    });
 	}
@@ -156,8 +199,21 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 Integer length = issue.getLength();
                 String originalName = xtextDocument.get(offset, length);
                 int randomInt = (int) (Math.random() * 100);
-                String newName = originalName + randomInt;
-                xtextDocument.replace(offset, length, newName);
+                
+                if(originalName.contains("\"")) {
+                    int firstQuoteIndex = originalName.indexOf("\"");
+                    int lastQuoteIndex = originalName.lastIndexOf("\"");
+                    
+                    if (firstQuoteIndex != -1 && lastQuoteIndex != -1 && firstQuoteIndex != lastQuoteIndex) {
+                        String newName = originalName.substring(0, lastQuoteIndex) + randomInt + originalName.substring(lastQuoteIndex);
+                        xtextDocument.replace(offset, length, newName);
+                    } else {
+                        
+                    }
+                } else {
+                    String newName = originalName + randomInt;
+                    xtextDocument.replace(offset, length, newName);
+                }
 	        }
 	    });
 	}
@@ -171,13 +227,15 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 String documentContent = xtextDocument.get();
                 List<String> jobNames = extractJobNames(documentContent);
                 Integer offset = issue.getOffset();
+                
+                List<String> jobWorkflowNames = extractWorkflowJobs(documentContent);
 
                 String currentJobName = extractCurrentJobName(documentContent, offset);
                 Collections.shuffle(jobNames);
                 String newJobName = jobNames.stream()
-                                            .filter(name -> !name.equals(currentJobName))
-                                            .findFirst()
-                                            .orElse(null);
+                        .filter(name -> !jobWorkflowNames.contains(name) && !name.equals(currentJobName))
+                        .findFirst()
+                        .orElse(null);
                 
                 if (newJobName != null) {
                     xtextDocument.replace(offset, issue.getLength(), newJobName);
@@ -525,6 +583,34 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
     private List<String> extractJobNames(String documentContent) {
         List<String> jobNames = new ArrayList<>();
         String jobKeyword = "Job";
+        String nameKeyword = "name ";
+        String newline = "\n";
+        
+        int jobIndex = documentContent.lastIndexOf(jobKeyword);
+        while (jobIndex >= 0) {
+            int lineStart = documentContent.lastIndexOf(newline, jobIndex) + 1;
+            int lineEnd = documentContent.indexOf(newline, jobIndex);
+            
+            String line = documentContent.substring(lineStart, lineEnd);
+            if (line.trim().startsWith(jobKeyword)) {
+                int nextLineStart = lineEnd + 1;
+                int nextLineEnd = documentContent.indexOf(newline, nextLineStart);
+                String nextLine = documentContent.substring(nextLineStart, nextLineEnd);
+                if (nextLine.contains(nameKeyword)) {
+                    int nameIndex = nextLine.indexOf(nameKeyword);
+                    String currentJobName = nextLine.substring(nameIndex + nameKeyword.length()).trim();
+                    jobNames.add(currentJobName);
+                }
+            }
+            jobIndex = documentContent.lastIndexOf(jobKeyword, jobIndex - 1);
+        }
+        
+        return jobNames;
+    }
+    
+    private List<String> extractWorkflowJobs(String documentContent) {
+        List<String> jobNames = new ArrayList<>();
+        String jobKeyword = "JobWorkflow";
         String nameKeyword = "name ";
         String newline = "\n";
         

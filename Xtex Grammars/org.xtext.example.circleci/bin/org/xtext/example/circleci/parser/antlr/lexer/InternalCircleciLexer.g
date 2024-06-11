@@ -13,15 +13,15 @@ import org.eclipse.xtext.parser.antlr.Lexer;
 
 ENVIRONMENT_VARIABLE_NAME : 'ENVIRONMENT_VARIABLE_NAME';
 
-Macos_x86_medium_gen2 : 'macos_x86_medium_gen2*';
+MacosX86MediumGen2 : 'macos.x86.medium.gen2*';
 
 Aws_secret_access_key : 'aws_secret_access_key';
 
 Docker_layer_caching : 'docker_layer_caching';
 
-Macos_m1_large_gen1 : 'macos_m1_large_gen1';
+MacosM1LargeGen1 : 'macos.m1.large.gen1';
 
-Macos_m1_medium_gen : 'macos_m1_medium_gen';
+MacosM1MediumGen : 'macos.m1.medium.gen';
 
 PersistToWorkspace : 'PersistToWorkspace';
 

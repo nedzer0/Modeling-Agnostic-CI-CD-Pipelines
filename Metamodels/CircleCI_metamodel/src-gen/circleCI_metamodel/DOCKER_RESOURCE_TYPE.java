@@ -78,13 +78,13 @@ public enum DOCKER_RESOURCE_TYPE implements Enumerator {
 	 */
 	TWO_XLARGE(5, "TWO_XLARGE", "two_xlarge"),
 	/**
-	* The '<em><b>TWO XLARGE PLUS</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>TWO XLARGE PLUS</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #TWO_XLARGE_PLUS_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #TWO_XLARGE_PLUS_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	TWO_XLARGE_PLUS(6, "TWO_XLARGE_PLUS", "two_xlarge_plus");
 
 	/**

@@ -28,7 +28,9 @@ class CircleciFormatter extends AbstractFormatter2 {
 		for (job : pipeline.jobs) {
 			job.format
 		}
-		pipeline.workflow.format
+		for (workflow : pipeline.workflows) {
+			workflow.format
+		}
 	}
 
 	def dispatch void format(Command command, extension IFormattableDocument document) {
