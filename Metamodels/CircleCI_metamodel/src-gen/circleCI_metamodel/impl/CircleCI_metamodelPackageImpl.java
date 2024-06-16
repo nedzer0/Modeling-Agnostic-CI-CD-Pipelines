@@ -2030,7 +2030,7 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Parallelism(), ecorePackage.getEShort(), "parallelism", null, 0, 1, Job.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_ReuseExecutor(), ecorePackage.getEString(), "reuseExecutor", null, 1, 1, Job.class,
+		initEAttribute(getJob_ReuseExecutor(), ecorePackage.getEString(), "reuseExecutor", null, 0, 1, Job.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJob_Executors(), this.getExecutor(), null, "executors", null, 0, -1, Job.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
@@ -2072,7 +2072,7 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 		initEClass(setupRemoteDockerEClass, SetupRemoteDocker.class, "SetupRemoteDocker", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSetupRemoteDocker_Docker_layer_caching(), ecorePackage.getEBoolean(), "docker_layer_caching",
-				null, 1, 1, SetupRemoteDocker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				null, 0, 1, SetupRemoteDocker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSetupRemoteDocker_Version(), ecorePackage.getEString(), "version", null, 0, 1,
 				SetupRemoteDocker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
@@ -2227,12 +2227,12 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 		initEReference(getPipeline_Jobs(), this.getJob(), null, "jobs", null, 1, -1, Pipeline.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getPipeline_Executors(), this.getExecutor(), null, "executors", null, 1, -1, Pipeline.class,
+		initEReference(getPipeline_Executors(), this.getExecutor(), null, "executors", null, 0, -1, Pipeline.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPipeline_Version(), ecorePackage.getEString(), "version", null, 1, 1, Pipeline.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPipeline_Setup(), ecorePackage.getEBoolean(), "setup", null, 1, 1, Pipeline.class,
+		initEAttribute(getPipeline_Setup(), ecorePackage.getEBoolean(), "setup", null, 0, 1, Pipeline.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orbEClass, Orb.class, "Orb", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -115,6 +115,7 @@ public class CircleCiFormatter {
             break;
         }
     }
+
     
     private void appendCommandAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
         String indent = "    ".repeat(indentLevel);

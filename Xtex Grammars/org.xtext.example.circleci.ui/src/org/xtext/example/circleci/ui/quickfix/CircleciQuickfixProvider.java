@@ -409,6 +409,123 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
 	    });
 	}
 	
+	@Fix(CircleciValidator.INVALID_EXECUTOR_JOB_ERRORCODE)
+	public void fixJobExecutor(Issue issue, IssueResolutionAcceptor acceptor) {
+	    acceptor.accept(issue, "Reuse global Executor", "Reuse global executor", null, new IModification() {
+	        public void apply(IModificationContext context) throws BadLocationException {
+	        	IXtextDocument xtextDocument = context.getXtextDocument();
+                String documentContent = xtextDocument.get();
+                List<String> executorsNames = extractExecutorsNames(documentContent);
+                Integer offset = issue.getOffset();
+
+                Collections.shuffle(executorsNames);
+                String execName = executorsNames.stream()
+                                            .findFirst()
+                                            .orElse(null);
+                
+                if (execName != null) {
+                	int lineStart = getLineStart(documentContent, offset);
+
+                    if (lineStart != -1) {
+                        int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+
+                        if (nameLineEnd != -1) {
+                        	
+                            String newLine = "    reuseExecutor " + execName;
+                            xtextDocument.replace(nameLineEnd, 0, newLine);
+                        }
+                    }
+                }
+                else {
+                	int lineStart = getLineStart(documentContent, offset);
+                    int lineEnd = getLineEnd(documentContent, offset);
+                    xtextDocument.replace(lineStart, lineEnd - lineStart, "");
+                }
+	        }
+	    });
+	}
+
+	//caso se de uma linha apos name -> lines[i].trim() da: name "Build" Environment
+	private int findNameLineEnd(String documentContent, int jobLineStart) {
+	    String[] lines = documentContent.substring(jobLineStart).split(System.lineSeparator());
+	    for (int i = 0; i < lines.length; i++) {
+	        if (lines[i].trim().startsWith("name ")) {
+	            return jobLineStart + lines[i].length() + System.lineSeparator().length();
+	        }
+	        jobLineStart += lines[i].length() + System.lineSeparator().length();
+	    }
+	    return -1;
+	}
+	
+	@Fix(CircleciValidator.INVALID_EXECUTOR_JOB_ERRORCODE)
+	public void fixJobExecutor2(Issue issue, IssueResolutionAcceptor acceptor) {
+	    acceptor.accept(issue, "Define a Job Machine Executor", "Define a Job Machine Executor", null, new IModification() {
+	        public void apply(IModificationContext context) throws BadLocationException {
+	        	IXtextDocument xtextDocument = context.getXtextDocument();
+                String documentContent = xtextDocument.get();
+                Integer offset = issue.getOffset();
+                
+                int lineStart = getLineStart(documentContent, offset);
+
+                if (lineStart != -1) {
+                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+
+                    if (nameLineEnd != -1) {
+                    	int randomInt = (int) (Math.random() * 100);
+                    	String newExec = String.format("    Machine\n\t\tname \"%s\"\n\t\timage \"%s\"\n\t\tresourceClass medium", "exec" + randomInt, "replace image");
+        	            xtextDocument.replace(nameLineEnd, 0, newExec);
+                    }
+                }
+	        }
+	    });
+	}
+	
+	@Fix(CircleciValidator.INVALID_EXECUTOR_JOB_ERRORCODE)
+	public void fixJobExecutor3(Issue issue, IssueResolutionAcceptor acceptor) {
+	    acceptor.accept(issue, "Define a Job Docker Executor", "Define a Job Docker Executor", null, new IModification() {
+	        public void apply(IModificationContext context) throws BadLocationException {
+	        	IXtextDocument xtextDocument = context.getXtextDocument();
+                String documentContent = xtextDocument.get();
+                Integer offset = issue.getOffset();
+                
+                int lineStart = getLineStart(documentContent, offset);
+
+                if (lineStart != -1) {
+                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+
+                    if (nameLineEnd != -1) {
+                    	int randomInt = (int) (Math.random() * 100);
+                    	String newExec = String.format("    Docker\n\t\tname \"%s\"\n\t\timage \"%s\"\n\t\tresourceClass medium", "exec" + randomInt, "replace image");
+        	            xtextDocument.replace(nameLineEnd, 0, newExec);
+                    }
+                }
+	        }
+	    });
+	}
+	
+	@Fix(CircleciValidator.INVALID_EXECUTOR_JOB_ERRORCODE)
+	public void fixJobExecutor4(Issue issue, IssueResolutionAcceptor acceptor) {
+	    acceptor.accept(issue, "Define a Job MacOs Executor", "Define a Job MacOs Executor", null, new IModification() {
+	        public void apply(IModificationContext context) throws BadLocationException {
+	        	IXtextDocument xtextDocument = context.getXtextDocument();
+                String documentContent = xtextDocument.get();
+                Integer offset = issue.getOffset();
+                
+                int lineStart = getLineStart(documentContent, offset);
+
+                if (lineStart != -1) {
+                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+
+                    if (nameLineEnd != -1) {
+                    	int randomInt = (int) (Math.random() * 100);
+                    	String newExec = String.format("    MacOs\n\t\tname \"%s\"\n\t\txcode \"%s\"\n\t\tresourceClass macos.m1.medium.gen", "exec" + randomInt, "replace xcode");
+        	            xtextDocument.replace(nameLineEnd, 0, newExec);
+                    }
+                }
+	        }
+	    });
+	}
+	
 	
 	@Fix(CircleciValidator.MANDATORY_JOB_NAME_EMPTY_ERRORCODE)
 	public void fixEmptyJobName(Issue issue, IssueResolutionAcceptor acceptor) {
@@ -660,31 +777,34 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
         List<String> executorKeywords = Arrays.asList("MacOs", "Machine", "Docker");
         String nameKeyword = "name ";
         String newline = "\n";
-        boolean insideJobOrWorkflow = false;
+        boolean insideTopLevelExecutor = false;
 
         String[] lines = documentContent.split(newline);
         for (int i = 0; i < lines.length; i++) {
-            String line = lines[i].trim();
+            String line = lines[i];
 
-            if (line.startsWith("Job") || line.startsWith("Workflow")) {
-                insideJobOrWorkflow = true;
-            } else if (line.isEmpty()) {
-                insideJobOrWorkflow = false;
+            if (line.trim().isEmpty() || line.startsWith(" ") || line.startsWith("\t")) {
+                insideTopLevelExecutor = false;
+                continue;
             }
 
-            if (!insideJobOrWorkflow) {
-                for (String keyword : executorKeywords) {
-                    if (line.startsWith(keyword)) {
-                        while (++i < lines.length && !lines[i].trim().startsWith(nameKeyword)) {}
-                        if (i < lines.length) {
-                            String nameLine = lines[i].trim();
-                            int nameIndex = nameLine.indexOf(nameKeyword);
-                            String currentExecutorName = nameLine.substring(nameIndex + nameKeyword.length()).trim();
-                            
-                            executorNames.add(currentExecutorName);
-                        }
+            for (String keyword : executorKeywords) {
+                if (line.startsWith(keyword)) {
+                    insideTopLevelExecutor = true;
+                    break;
+                }
+            }
+
+            if (insideTopLevelExecutor) {
+                while (++i < lines.length) {
+                    line = lines[i].trim();
+                    if (line.startsWith(nameKeyword)) {
+                        String currentExecutorName = line.substring(nameKeyword.length()).trim();
+                        executorNames.add(currentExecutorName);
+                        break;
                     }
                 }
+                insideTopLevelExecutor = false;
             }
         }
         return executorNames;

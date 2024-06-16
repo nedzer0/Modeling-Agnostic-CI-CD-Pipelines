@@ -63,11 +63,13 @@ commands:
 
 [comment: Execution Environment for Docker, Machine and MacOs/]
 [template public generateExecutors(aPipeline : Pipeline)]
+[if (aPipeline.executors->notEmpty()) ]
 executors:
 [for (e: Executor | aPipeline.executors)]
   [e.name/]:
     [generateExec(e)/]
 [/for]
+[/if]
 [/template]
 
 [template public generateExec(e : Executor)]
@@ -199,10 +201,12 @@ jobs:
 
 [template public generateJob(aJob : Job)]
 [aJob.name/]:
+[if (aJob.reuseExecutor->notEmpty())]
+  executor: [aJob.reuseExecutor/]
+[/if]
 [if (aJob.executors->notEmpty())]
   [generateJobExecutors(aJob)/]
 [/if]
-  executor: [aJob.reuseExecutor/]
 [if (aJob.environments->notEmpty())]
   environment:
   [for (e: Environment | aJob.environments)]

@@ -96,7 +96,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'Step' else self.name endif">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'Step' else 'Step: ' + self.name endif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -232,7 +232,7 @@
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'Step' else self.name endif">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'WhenStep' else 'WhenStep' + self.name endif">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -259,7 +259,7 @@
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'Step' else self.name endif">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'UnlessStep' else 'UnlessStep' + self.name endif">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -267,7 +267,7 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
               </style>
             </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:condition">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'WhenUnless condition: ' + self.condition">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -294,7 +294,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then self.name else 'Docker' endif">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'Docker: ' + self.name else 'Docker' endif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -309,7 +309,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then self.name else 'Machine' endif">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'Machine: ' + self.name else 'Machine' endif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -324,7 +324,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then self.name else 'MacOs' endif">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'MacOs: ' + self.name else 'MacOs' endif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -332,7 +332,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Job: ' + self.name">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -420,7 +420,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Command Step: ' + self.name">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -556,7 +556,7 @@
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'Step' else self.name endif">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'WhenStep' else 'WhenStep' + self.name endif">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -583,7 +583,7 @@
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'Step' else self.name endif">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'UnlessStep' else 'UnlessStep' + self.name endif">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -591,7 +591,7 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
               </style>
             </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:condition">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'WhenUnless condition: ' + self.condition">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -599,7 +599,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Command: ' + self.name">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -626,7 +626,7 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then self.name else 'Docker' endif">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'Docker: ' + self.name else 'Docker' endif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -661,7 +661,7 @@
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:if self.alias->size() = 0 then 'Matrix' else self.alias endif">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:if self.alias->size() = 0 then 'Matrix' else 'Matrix: ' + self.alias endif">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -669,7 +669,7 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
               </style>
             </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'JobWorkflow: ' + self.name">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -805,7 +805,7 @@
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'Step' else self.name endif">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'WhenStep' else 'WhenStep' + self.name endif">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -832,7 +832,7 @@
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'Step' else self.name endif">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'UnlessStep' else 'WhenStep' + self.name endif">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -840,7 +840,7 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
               </style>
             </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:condition">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'WhenUnless condition: ' + self.condition">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -848,7 +848,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Workflow: ' + self.name">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -863,7 +863,7 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then self.name else 'Machine' endif">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'Machine: ' + self.name else 'Machine' endif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -878,7 +878,7 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then self.name else 'MacOs' endif">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'MacOs: ' + self.name else 'MacOs' endif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -928,7 +928,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Workflow" referenceName="workflow"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Workflow" referenceName="workflows"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1953,9 +1953,9 @@
     <ownedJavaExtensions qualifiedClassName="circleci.design.Services"/>
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
-    <metamodels href="http://www.example.org/cICD_metamodel#/"/>
+    <metamodels href="http://www.example.org/circleCI_metamodel#/"/>
     <categories name="Default Category">
-      <pages name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.7 //@extensions.0/@categories.0/@groups.6 //@extensions.0/@categories.0/@groups.4 //@extensions.0/@categories.0/@groups.5 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.16 //@extensions.0/@categories.0/@groups.25 //@extensions.0/@categories.0/@groups.15 //@extensions.0/@categories.0/@groups.20 //@extensions.0/@categories.0/@groups.27 //@extensions.0/@categories.0/@groups.11 //@extensions.0/@categories.0/@groups.10 //@extensions.0/@categories.0/@groups.14 //@extensions.0/@categories.0/@groups.8 //@extensions.0/@categories.0/@groups.9 //@extensions.0/@categories.0/@groups.13 //@extensions.0/@categories.0/@groups.28 //@extensions.0/@categories.0/@groups.19 //@extensions.0/@categories.0/@groups.21 //@extensions.0/@categories.0/@groups.26 //@extensions.0/@categories.0/@groups.23 //@extensions.0/@categories.0/@groups.18 //@extensions.0/@categories.0/@groups.24 //@extensions.0/@categories.0/@groups.22 //@extensions.0/@categories.0/@groups.29 //@extensions.0/@categories.0/@groups.17 //@extensions.0/@categories.0/@groups.12"/>
+      <pages name="Default Page" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.7 //@extensions.0/@categories.0/@groups.6 //@extensions.0/@categories.0/@groups.4 //@extensions.0/@categories.0/@groups.5 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.16 //@extensions.0/@categories.0/@groups.25 //@extensions.0/@categories.0/@groups.15 //@extensions.0/@categories.0/@groups.20 //@extensions.0/@categories.0/@groups.27 //@extensions.0/@categories.0/@groups.11 //@extensions.0/@categories.0/@groups.10 //@extensions.0/@categories.0/@groups.14 //@extensions.0/@categories.0/@groups.8 //@extensions.0/@categories.0/@groups.9 //@extensions.0/@categories.0/@groups.13 //@extensions.0/@categories.0/@groups.28 //@extensions.0/@categories.0/@groups.19 //@extensions.0/@categories.0/@groups.21 //@extensions.0/@categories.0/@groups.26 //@extensions.0/@categories.0/@groups.23 //@extensions.0/@categories.0/@groups.18 //@extensions.0/@categories.0/@groups.24 //@extensions.0/@categories.0/@groups.22 //@extensions.0/@categories.0/@groups.29 //@extensions.0/@categories.0/@groups.17 //@extensions.0/@categories.0/@groups.12"/>
       <groups name="Environment" labelExpression="Properties" domainClass="circleCI_metamodel::Environment" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="KeyText" labelExpression="key" valueExpression="feature:key">
           <initialOperation>
@@ -2006,6 +2006,9 @@
           <semanticValidationRules name="ExecutorType" level="ERROR" message="Each job should only specify one executor type. Please ensure that each job has a unique executor type assigned" targetClass="circleCI_metamodel::Job">
             <audits auditExpression="service:checkExecutorType()"/>
           </semanticValidationRules>
+          <semanticValidationRules name="Valid Eexecutor Job" level="ERROR" message="Ensure to define an Executor inside the Job or reuse a global one" targetClass="circleCI_metamodel::Job">
+            <audits auditExpression="service:checkValidJobExecutor()"/>
+          </semanticValidationRules>
           <propertyValidationRules name="JobNameNotEmpty" label="name" level="ERROR" message="Job name should not be empty" targets="//@extensions.0/@categories.0/@groups.1/@controls.0">
             <audits auditExpression="service:checkJobNameNotEmpty()"/>
           </propertyValidationRules>
@@ -2020,7 +2023,7 @@
           </propertyValidationRules>
         </validationSet>
       </groups>
-      <groups name="Pipeline" labelExpression="Properties" domainClass="cICD_metamodel::Pipeline" semanticCandidateExpression="var:self">
+      <groups name="Pipeline" labelExpression="Properties" domainClass="circleCI_metamodel::Pipeline" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="VersionText" labelExpression="version" valueExpression="feature:version">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -2080,6 +2083,9 @@
           <propertyValidationRules name="ValuesNotEmpty" label="name" level="ERROR" message="Values cannot be empty" targets="//@extensions.0/@categories.0/@groups.4/@controls.1">
             <audits auditExpression="service:checkMatrixParamsValNotEmpty()"/>
           </propertyValidationRules>
+          <propertyValidationRules name="ValidKey" label="name" level="ERROR" message="MatrixParams key must match a Parameter name inside the Job" targets="//@extensions.0/@categories.0/@groups.4/@controls.0">
+            <audits auditExpression="service:checkValidMatrixParamsKey()"/>
+          </propertyValidationRules>
         </validationSet>
       </groups>
       <groups name="Parameters" labelExpression="Properties" domainClass="circleCI_metamodel::Parameters" semanticCandidateExpression="var:self">
@@ -2096,7 +2102,7 @@
           </propertyValidationRules>
         </validationSet>
       </groups>
-      <groups name="Matrix" labelExpression="Properties" domainClass="cICD_metamodel::Matrix" semanticCandidateExpression="var:self">
+      <groups name="Matrix" labelExpression="Properties" domainClass="circleCI_metamodel::Matrix" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="AliasText" labelExpression="alias" helpExpression="An alias for the matrix, usable from another job’s requires stanza" valueExpression="feature:alias">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -2650,7 +2656,7 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CheckboxDescription" name="Background" labelExpression="Run in background" helpExpression="Whether or not this step should run in the background" valueExpression="feature:background">
+        <controls xsi:type="properties:CheckboxDescription" name="Background" labelExpression="Background" helpExpression="Whether or not this step should run in the background" valueExpression="feature:background">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="background" valueExpression="var:newValue"/>

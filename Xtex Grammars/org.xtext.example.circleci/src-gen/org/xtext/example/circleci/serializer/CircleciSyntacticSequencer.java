@@ -135,6 +135,7 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     orbs+=Orb (ambiguity) commands+=Command
 	 *     orbs+=Orb (ambiguity) executors+=Executor
+	 *     orbs+=Orb (ambiguity) jobs+=Job
 	 
 	 * </pre>
 	 */
@@ -149,6 +150,7 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     commands+=Command (ambiguity) executors+=Executor
+	 *     commands+=Command (ambiguity) jobs+=Job
 	 
 	 * </pre>
 	 */

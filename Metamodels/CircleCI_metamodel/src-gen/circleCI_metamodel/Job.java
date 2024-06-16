@@ -116,7 +116,7 @@ public interface Job extends EObject {
 	 * @return the value of the '<em>Reuse Executor</em>' attribute.
 	 * @see #setReuseExecutor(String)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_ReuseExecutor()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getReuseExecutor();

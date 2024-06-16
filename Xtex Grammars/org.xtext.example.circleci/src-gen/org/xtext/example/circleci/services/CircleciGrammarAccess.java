@@ -67,7 +67,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//    ('version' version=EString NEWLINE)
 		//    ((orbs+=Orb)+ NEWLINE?)?
 		//    ((commands+=Command)+ NEWLINE?)?
-		//    ((executors+=Executor)+ NEWLINE?)
+		//    ((executors+=Executor)+ NEWLINE?)?
 		//    ((jobs+=Job)+ NEWLINE?)
 		//    ((workflows+=Workflow)+ NEWLINE?)?
 		//;
@@ -78,7 +78,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//('version' version=EString NEWLINE)
 		//((orbs+=Orb)+ NEWLINE?)?
 		//((commands+=Command)+ NEWLINE?)?
-		//((executors+=Executor)+ NEWLINE?)
+		//((executors+=Executor)+ NEWLINE?)?
 		//((jobs+=Job)+ NEWLINE?)
 		//((workflows+=Workflow)+ NEWLINE?)?
 		public Group getGroup() { return cGroup; }
@@ -143,7 +143,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//NEWLINE?
 		public RuleCall getNEWLINETerminalRuleCall_4_1() { return cNEWLINETerminalRuleCall_4_1; }
 		
-		//((executors+=Executor)+ NEWLINE?)
+		//((executors+=Executor)+ NEWLINE?)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//(executors+=Executor)+
@@ -527,29 +527,30 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		private final Keyword cParallelismKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Assignment cParallelismAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
 		private final RuleCall cParallelismEShortParserRuleCall_1_2_1_0 = (RuleCall)cParallelismAssignment_1_2_1.eContents().get(0);
-		private final Keyword cReuseExecutorKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cReuseExecutorAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cReuseExecutorEStringParserRuleCall_1_4_0 = (RuleCall)cReuseExecutorAssignment_1_4.eContents().get(0);
-		private final Assignment cExecutorsAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
-		private final RuleCall cExecutorsExecutorParserRuleCall_1_5_0 = (RuleCall)cExecutorsAssignment_1_5.eContents().get(0);
-		private final Assignment cEnvironmentsAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
-		private final RuleCall cEnvironmentsEnvironmentParserRuleCall_1_6_0 = (RuleCall)cEnvironmentsAssignment_1_6.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
+		private final Keyword cReuseExecutorKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Assignment cReuseExecutorAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final RuleCall cReuseExecutorEStringParserRuleCall_1_3_1_0 = (RuleCall)cReuseExecutorAssignment_1_3_1.eContents().get(0);
+		private final Assignment cExecutorsAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
+		private final RuleCall cExecutorsExecutorParserRuleCall_1_4_0 = (RuleCall)cExecutorsAssignment_1_4.eContents().get(0);
+		private final Assignment cEnvironmentsAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final RuleCall cEnvironmentsEnvironmentParserRuleCall_1_5_0 = (RuleCall)cEnvironmentsAssignment_1_5.eContents().get(0);
+		private final Assignment cParametersAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
+		private final RuleCall cParametersParameterParserRuleCall_1_6_0 = (RuleCall)cParametersAssignment_1_6.eContents().get(0);
 		private final Assignment cStepsAssignment_1_7 = (Assignment)cGroup_1.eContents().get(7);
 		private final RuleCall cStepsStepParserRuleCall_1_7_0 = (RuleCall)cStepsAssignment_1_7.eContents().get(0);
-		private final Assignment cParametersAssignment_1_8 = (Assignment)cGroup_1.eContents().get(8);
-		private final RuleCall cParametersParameterParserRuleCall_1_8_0 = (RuleCall)cParametersAssignment_1_8.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_1_9 = (RuleCall)cGroup_1.eContents().get(9);
+		private final RuleCall cENDTerminalRuleCall_1_8 = (RuleCall)cGroup_1.eContents().get(8);
 		
 		//Job returns Job:
 		//    'Job'
 		//    (BEGIN
 		//        ('name' name=EString)
 		//        ('parallelism' parallelism=EShort)?
-		//        'reuseExecutor' reuseExecutor=EString
+		//        ('reuseExecutor' reuseExecutor=EString)?
 		//        (executors+=Executor)*
 		//        (environments+=Environment)*
-		//        (steps+=Step)+
 		//        (parameters+=Parameter)*
+		//        (steps+=Step)+
 		//    END);
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -557,11 +558,11 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//(BEGIN
 		//    ('name' name=EString)
 		//    ('parallelism' parallelism=EShort)?
-		//    'reuseExecutor' reuseExecutor=EString
+		//    ('reuseExecutor' reuseExecutor=EString)?
 		//    (executors+=Executor)*
 		//    (environments+=Environment)*
-		//    (steps+=Step)+
 		//    (parameters+=Parameter)*
+		//    (steps+=Step)+
 		//END)
 		public Group getGroup() { return cGroup; }
 		
@@ -571,11 +572,11 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//(BEGIN
 		//    ('name' name=EString)
 		//    ('parallelism' parallelism=EShort)?
-		//    'reuseExecutor' reuseExecutor=EString
+		//    ('reuseExecutor' reuseExecutor=EString)?
 		//    (executors+=Executor)*
 		//    (environments+=Environment)*
-		//    (steps+=Step)+
 		//    (parameters+=Parameter)*
+		//    (steps+=Step)+
 		//END)
 		public Group getGroup_1() { return cGroup_1; }
 		
@@ -606,26 +607,35 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//EShort
 		public RuleCall getParallelismEShortParserRuleCall_1_2_1_0() { return cParallelismEShortParserRuleCall_1_2_1_0; }
 		
+		//('reuseExecutor' reuseExecutor=EString)?
+		public Group getGroup_1_3() { return cGroup_1_3; }
+		
 		//'reuseExecutor'
-		public Keyword getReuseExecutorKeyword_1_3() { return cReuseExecutorKeyword_1_3; }
+		public Keyword getReuseExecutorKeyword_1_3_0() { return cReuseExecutorKeyword_1_3_0; }
 		
 		//reuseExecutor=EString
-		public Assignment getReuseExecutorAssignment_1_4() { return cReuseExecutorAssignment_1_4; }
+		public Assignment getReuseExecutorAssignment_1_3_1() { return cReuseExecutorAssignment_1_3_1; }
 		
 		//EString
-		public RuleCall getReuseExecutorEStringParserRuleCall_1_4_0() { return cReuseExecutorEStringParserRuleCall_1_4_0; }
+		public RuleCall getReuseExecutorEStringParserRuleCall_1_3_1_0() { return cReuseExecutorEStringParserRuleCall_1_3_1_0; }
 		
 		//(executors+=Executor)*
-		public Assignment getExecutorsAssignment_1_5() { return cExecutorsAssignment_1_5; }
+		public Assignment getExecutorsAssignment_1_4() { return cExecutorsAssignment_1_4; }
 		
 		//Executor
-		public RuleCall getExecutorsExecutorParserRuleCall_1_5_0() { return cExecutorsExecutorParserRuleCall_1_5_0; }
+		public RuleCall getExecutorsExecutorParserRuleCall_1_4_0() { return cExecutorsExecutorParserRuleCall_1_4_0; }
 		
 		//(environments+=Environment)*
-		public Assignment getEnvironmentsAssignment_1_6() { return cEnvironmentsAssignment_1_6; }
+		public Assignment getEnvironmentsAssignment_1_5() { return cEnvironmentsAssignment_1_5; }
 		
 		//Environment
-		public RuleCall getEnvironmentsEnvironmentParserRuleCall_1_6_0() { return cEnvironmentsEnvironmentParserRuleCall_1_6_0; }
+		public RuleCall getEnvironmentsEnvironmentParserRuleCall_1_5_0() { return cEnvironmentsEnvironmentParserRuleCall_1_5_0; }
+		
+		//(parameters+=Parameter)*
+		public Assignment getParametersAssignment_1_6() { return cParametersAssignment_1_6; }
+		
+		//Parameter
+		public RuleCall getParametersParameterParserRuleCall_1_6_0() { return cParametersParameterParserRuleCall_1_6_0; }
 		
 		//(steps+=Step)+
 		public Assignment getStepsAssignment_1_7() { return cStepsAssignment_1_7; }
@@ -633,14 +643,8 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//Step
 		public RuleCall getStepsStepParserRuleCall_1_7_0() { return cStepsStepParserRuleCall_1_7_0; }
 		
-		//(parameters+=Parameter)*
-		public Assignment getParametersAssignment_1_8() { return cParametersAssignment_1_8; }
-		
-		//Parameter
-		public RuleCall getParametersParameterParserRuleCall_1_8_0() { return cParametersParameterParserRuleCall_1_8_0; }
-		
 		//END
-		public RuleCall getENDTerminalRuleCall_1_9() { return cENDTerminalRuleCall_1_9; }
+		public RuleCall getENDTerminalRuleCall_1_8() { return cENDTerminalRuleCall_1_8; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.EString");
@@ -3595,7 +3599,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	//    ('version' version=EString NEWLINE)
 	//    ((orbs+=Orb)+ NEWLINE?)?
 	//    ((commands+=Command)+ NEWLINE?)?
-	//    ((executors+=Executor)+ NEWLINE?)
+	//    ((executors+=Executor)+ NEWLINE?)?
 	//    ((jobs+=Job)+ NEWLINE?)
 	//    ((workflows+=Workflow)+ NEWLINE?)?
 	//;
@@ -3710,11 +3714,11 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	//    (BEGIN
 	//        ('name' name=EString)
 	//        ('parallelism' parallelism=EShort)?
-	//        'reuseExecutor' reuseExecutor=EString
+	//        ('reuseExecutor' reuseExecutor=EString)?
 	//        (executors+=Executor)*
 	//        (environments+=Environment)*
-	//        (steps+=Step)+
 	//        (parameters+=Parameter)*
+	//        (steps+=Step)+
 	//    END);
 	public JobElements getJobAccess() {
 		return pJob;

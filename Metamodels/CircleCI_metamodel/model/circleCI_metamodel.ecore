@@ -48,12 +48,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Job">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="nonDuplicateJobName hasOneExecutorType ExecutorExistsInJobs"/>
+      <details key="constraints" value="nonDuplicateJobName hasOneExecutorType ExecutorExistsInJobs validExecutorJob"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="nonDuplicateJobName" value="Tuple {&#xA;&#x9;message : String = 'Duplicate Job Name. Choose a different job name to ensure uniqueness within the pipeline.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;Pipeline.allInstances().jobs->forAll(j | j &lt;> self implies j.name &lt;> self.name)&#xA;}.status"/>
       <details key="hasOneExecutorType" value="Tuple {&#xA;&#x9;message : String = 'Each job should only specify one executor type. Please ensure that each job has a unique executor type assigned.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;&#x9;self.executors->collect(e | e.oclType())->asSet()->size() &lt;= 1&#xA;}.status"/>
       <details key="ExecutorExistsInJobs" value="Tuple {&#xA;&#x9;message : String = 'Ensure that the executor name matches one of the defined executors in the Pipeline\'s configuration',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;    &#x9;(self.reuseExecutor &lt;> null and self.reuseExecutor->notEmpty()) implies&#xA;&#x9;&#x9;        &#x9;&#x9;Pipeline.allInstances().executors->exists(ex | ex.name = self.reuseExecutor)&#xA;}.status"/>
+      <details key="validExecutorJob" value="Tuple {&#xA;&#x9;message : String = 'Ensure to define an Executor inside the Job or reuse a global one',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;    &#x9;self.reuseExecutor &lt;> null and self.reuseExecutor->notEmpty() or self.executors->notEmpty()&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="environments" upperBound="-1"
         eType="#//Environment" containment="true"/>
@@ -64,8 +65,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parallelism" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reuseExecutor" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reuseExecutor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="executors" upperBound="-1"
         eType="#//Executor" containment="true"/>
   </eClassifiers>
@@ -233,8 +233,8 @@
         eType="#//Workflow" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="jobs" lowerBound="1" upperBound="-1"
         eType="#//Job" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="executors" lowerBound="1"
-        upperBound="-1" eType="#//Executor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executors" upperBound="-1"
+        eType="#//Executor" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="setup" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

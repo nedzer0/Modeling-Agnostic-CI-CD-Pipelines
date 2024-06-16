@@ -214,6 +214,7 @@ public class JenkinsFormatter {
 	        }
 	    }
 	}
+
 	
 	private void appendMatrixAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
         String indent = "    ".repeat(indentLevel);

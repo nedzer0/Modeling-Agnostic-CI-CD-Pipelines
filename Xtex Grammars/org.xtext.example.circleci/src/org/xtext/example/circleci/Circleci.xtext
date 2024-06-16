@@ -10,7 +10,7 @@ Pipeline returns Pipeline:
 	('version' version=EString NEWLINE)
 	((orbs+=Orb)+ NEWLINE?)?
 	((commands+=Command)+ NEWLINE?)?
-	((executors+=Executor)+ NEWLINE?)
+	((executors+=Executor)+ NEWLINE?)?
 	((jobs+=Job)+ NEWLINE?)
 	((workflows+=Workflow)+ NEWLINE?)?
 ;
@@ -64,11 +64,11 @@ Job returns Job:
 	(BEGIN
 		('name' name=EString)
 		('parallelism' parallelism=EShort)?
-		'reuseExecutor' reuseExecutor=EString
+		('reuseExecutor' reuseExecutor=EString)?
 		(executors+=Executor)*
 		(environments+=Environment)*
-		(steps+=Step)+
 		(parameters+=Parameter)*
+		(steps+=Step)+
 	END);
 
 EString returns ecore::EString:

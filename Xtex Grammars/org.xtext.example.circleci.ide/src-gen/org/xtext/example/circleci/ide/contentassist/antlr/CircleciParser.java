@@ -63,6 +63,7 @@ public class CircleciParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getJobAccess().getGroup_1(), "rule__Job__Group_1__0");
 			builder.put(grammarAccess.getJobAccess().getGroup_1_1(), "rule__Job__Group_1_1__0");
 			builder.put(grammarAccess.getJobAccess().getGroup_1_2(), "rule__Job__Group_1_2__0");
+			builder.put(grammarAccess.getJobAccess().getGroup_1_3(), "rule__Job__Group_1_3__0");
 			builder.put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 			builder.put(grammarAccess.getParameterAccess().getGroup_1(), "rule__Parameter__Group_1__0");
 			builder.put(grammarAccess.getParameterAccess().getGroup_1_5(), "rule__Parameter__Group_1_5__0");
@@ -189,11 +190,11 @@ public class CircleciParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getWorkflowAccess().getJobworkflowAssignment_1_8(), "rule__Workflow__JobworkflowAssignment_1_8");
 			builder.put(grammarAccess.getJobAccess().getNameAssignment_1_1_1(), "rule__Job__NameAssignment_1_1_1");
 			builder.put(grammarAccess.getJobAccess().getParallelismAssignment_1_2_1(), "rule__Job__ParallelismAssignment_1_2_1");
-			builder.put(grammarAccess.getJobAccess().getReuseExecutorAssignment_1_4(), "rule__Job__ReuseExecutorAssignment_1_4");
-			builder.put(grammarAccess.getJobAccess().getExecutorsAssignment_1_5(), "rule__Job__ExecutorsAssignment_1_5");
-			builder.put(grammarAccess.getJobAccess().getEnvironmentsAssignment_1_6(), "rule__Job__EnvironmentsAssignment_1_6");
+			builder.put(grammarAccess.getJobAccess().getReuseExecutorAssignment_1_3_1(), "rule__Job__ReuseExecutorAssignment_1_3_1");
+			builder.put(grammarAccess.getJobAccess().getExecutorsAssignment_1_4(), "rule__Job__ExecutorsAssignment_1_4");
+			builder.put(grammarAccess.getJobAccess().getEnvironmentsAssignment_1_5(), "rule__Job__EnvironmentsAssignment_1_5");
+			builder.put(grammarAccess.getJobAccess().getParametersAssignment_1_6(), "rule__Job__ParametersAssignment_1_6");
 			builder.put(grammarAccess.getJobAccess().getStepsAssignment_1_7(), "rule__Job__StepsAssignment_1_7");
-			builder.put(grammarAccess.getJobAccess().getParametersAssignment_1_8(), "rule__Job__ParametersAssignment_1_8");
 			builder.put(grammarAccess.getParameterAccess().getNameAssignment_1_2(), "rule__Parameter__NameAssignment_1_2");
 			builder.put(grammarAccess.getParameterAccess().getTypeAssignment_1_4(), "rule__Parameter__TypeAssignment_1_4");
 			builder.put(grammarAccess.getParameterAccess().getDefaultAssignment_1_5_1(), "rule__Parameter__DefaultAssignment_1_5_1");

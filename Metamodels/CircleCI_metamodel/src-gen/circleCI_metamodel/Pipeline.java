@@ -84,7 +84,7 @@ public interface Pipeline extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Executors</em>' containment reference list.
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getPipeline_Executors()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Executor> getExecutors();
@@ -118,7 +118,7 @@ public interface Pipeline extends EObject {
 	 * @return the value of the '<em>Setup</em>' attribute.
 	 * @see #setSetup(boolean)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getPipeline_Setup()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	boolean isSetup();

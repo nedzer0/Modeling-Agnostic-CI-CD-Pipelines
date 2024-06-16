@@ -27,7 +27,7 @@ public interface SetupRemoteDocker extends Step {
 	 * @return the value of the '<em>Docker layer caching</em>' attribute.
 	 * @see #setDocker_layer_caching(boolean)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getSetupRemoteDocker_Docker_layer_caching()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	boolean isDocker_layer_caching();

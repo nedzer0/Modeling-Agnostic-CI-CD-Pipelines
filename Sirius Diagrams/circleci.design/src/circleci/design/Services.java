@@ -23,6 +23,7 @@ import circleCI_metamodel.MACHINE_RESOURCE_TYPE;
 import circleCI_metamodel.MACOS_RESOURCE_TYPE;
 import circleCI_metamodel.MacOs;
 import circleCI_metamodel.Machine;
+import circleCI_metamodel.Matrix;
 import circleCI_metamodel.MatrixParams;
 import circleCI_metamodel.Orb;
 import circleCI_metamodel.PARAMETER_TYPES;
@@ -401,6 +402,37 @@ public class Services {
         }
         return true;
     }
+    
+    
+	public boolean checkValidMatrixParamsKey(MatrixParams matrixParams) {
+		Matrix matrix = (Matrix) matrixParams.eContainer();
+		JobWorkflow jobWorkflow = (JobWorkflow) matrix.eContainer();
+        String jobWorkflowName = jobWorkflow.getName();
+        
+        Pipeline pipeline = (Pipeline) jobWorkflow.eContainer().eContainer();
+        
+        Job matchingJob = pipeline.getJobs().stream()
+                .filter(job -> jobWorkflowName.equals(job.getName()))
+                .findFirst()
+                .orElse(null);
+		
+        if (matchingJob != null) {
+            boolean keyMatches = matchingJob.getParameters().stream()
+                .anyMatch(param -> param.getName().equals(matrixParams.getKey()));
+
+            if (!keyMatches) {
+            	return false;
+            }
+        }
+        return true;
+	}
+	
+	public boolean checkValidJobExecutor(Job job) {
+        if (job.getExecutors().isEmpty() && job.getReuseExecutor() == null) {
+            return false;
+        }
+        return true;
+	}
     
     
     /*
