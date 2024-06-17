@@ -115,7 +115,6 @@ public class CircleCiFormatter {
             break;
         }
     }
-
     
     private void appendCommandAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
         String indent = "    ".repeat(indentLevel);
@@ -258,73 +257,54 @@ public class CircleCiFormatter {
         List<EObject> otherReferences = new ArrayList<>();
 
         for (EReference reference : eClass.getEAllReferences()) {
+        	if (eClass.getName().equals("Matrix") || eClass.getName().equals("When_Unless")) {
+                continue;
+            }
+        	
             Object value = object.eGet(reference);
             if (value instanceof EObject) {
-                EObject refObject = (EObject) value;
-                if (refObject.eClass().getName().equals("Command")) {
-                	commandReferences.add(refObject);
-                }
-                else if (refObject.eClass().getName().equals("Docker")) {
-                	dockerReferences.add(refObject);
-                }
-                else if (refObject.eClass().getName().equals("Job")) {
-                    jobReferences.add(refObject);
-                } else if (refObject.eClass().getName().equals("Workflow")) {
-                    workflowReferences.add(refObject);
-                } 
-                else {
-                	if(!refObject.eClass().getName().equals("Matrix")) {
-                    	otherReferences.add(refObject);
-                    }
-                }
+            	addReference((EObject) value, commandReferences, dockerReferences, jobReferences, workflowReferences, otherReferences);
             } else if (value instanceof List<?>) {
                 for (Object item : (List<?>) value) {
                     if (item instanceof EObject) {
-                        EObject refObject = (EObject) item;
-                        if (refObject.eClass().getName().equals("Command")) {
-                        	commandReferences.add(refObject);
-                        }
-                        else if (refObject.eClass().getName().equals("Docker")) {
-                        	dockerReferences.add(refObject);
-                        }
-                        else if (refObject.eClass().getName().equals("Job")) {
-                            jobReferences.add(refObject);
-                        } else if (refObject.eClass().getName().equals("Workflow")) {
-                            workflowReferences.add(refObject);
-                        } else {
-                            if(!refObject.eClass().getName().equals("When_Unless")) {
-                            	otherReferences.add(refObject);
-                            }
-                        }
+                    	addReference((EObject) item, commandReferences, dockerReferences, jobReferences, workflowReferences, otherReferences);
                     }
                 }
             }
         }
         
-        for (EObject command : commandReferences) {
-            generateXtextLines(command, xtextLines, indentLevel);
+        processReferences(commandReferences, xtextLines, indentLevel);
+        processReferences(dockerReferences, xtextLines, indentLevel);
+        processReferences(jobReferences, xtextLines, indentLevel);
+        processReferences(workflowReferences, xtextLines, indentLevel);
+        processReferences(otherReferences, xtextLines, indentLevel);
+    }
+    
+    private void addReference(EObject refObject, List<EObject> commandReferences, List<EObject> dockerReferences, List<EObject> jobReferences, List<EObject> workflowReferences, List<EObject> otherReferences) {
+            String className = refObject.eClass().getName();
+            if (className.equals("Command")) {
+                commandReferences.add(refObject);
+            }
+            else if (className.equals("Docker")) {
+                dockerReferences.add(refObject);
+            }
+            else if (className.equals("Job")) {
+                jobReferences.add(refObject);
+            } else if (className.equals("Workflow")) {
+                workflowReferences.add(refObject);
+            } else {
+            	otherReferences.add(refObject);
+            }
         }
-        
-        for (EObject docker : dockerReferences) {
-            generateXtextLines(docker, xtextLines, indentLevel);
-        }
-
-        for (EObject job : jobReferences) {
-            generateXtextLines(job, xtextLines, indentLevel);
-        }
-
-        for (EObject workflow : workflowReferences) {
-            generateXtextLines(workflow, xtextLines, indentLevel);
-        }
-
-        for (EObject other : otherReferences) {
-            generateXtextLines(other, xtextLines, indentLevel);
+    
+    private void processReferences(List<EObject> references, List<String> xtextLines, int indentLevel) {
+        for (EObject reference : references) {
+            generateXtextLines(reference, xtextLines, indentLevel);
         }
     }
     
     private void handleMatrixReferences(EObject object, List<String> xtextLines, int indentLevel) {
         String indent = "    ".repeat(indentLevel);
-
         List<EObject> matrixParams = new ArrayList<>();
         List<EObject> matrixExclude = new ArrayList<>();
 

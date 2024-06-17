@@ -360,6 +360,9 @@ public class GHAFormatter {
 	                	if (eClass.getName().equals("Pipeline") && (attributeName.equals("name") || attributeName.equals("run-name"))) {
 	                		xtextLines.add(attributeName + " \"" + stringValue + "\"");
 	                    }
+	                	if (stringValue.contains("\"")) {
+                            stringValue = stringValue.replace("\"", "'");
+                        }
 	                	else {
 	                		if(!eClass.getName().equals("Pipeline")) {
 	                			xtextLines.add(indent + attributeName + " \"" + stringValue + "\"");
@@ -390,65 +393,46 @@ public class GHAFormatter {
         for (EReference reference : eClass.getEAllReferences()) {
             Object value = object.eGet(reference);
             if (value instanceof EObject) {
-                EObject refObject = (EObject) value;
-                if (refObject.eClass().getName().equals("Env")) {
-                	envReferences.add(refObject);
-                }
-                else if (refObject.eClass().getName().equals("ScheduleTrigger")) {
-                	scheduleReferences.add(refObject);
-                }
-                else if (refObject.eClass().getName().equals("WorkflowCallTrigger")) {
-                    workflowcallReferences.add(refObject);
-                } else if (refObject.eClass().getName().equals("Job")) {
-                	jobReferences.add(refObject);
-                } 
-                else {
-                    otherReferences.add(refObject);
-                }
+                addReference((EObject) value, envReferences, scheduleReferences, workflowcallReferences, jobReferences, otherReferences);
             } else if (value instanceof List<?>) {
                 for (Object item : (List<?>) value) {
                     if (item instanceof EObject) {
-                        EObject refObject = (EObject) item;
-                        if (refObject.eClass().getName().equals("Env")) {
-                        	envReferences.add(refObject);
-                        }
-                        else if (refObject.eClass().getName().equals("ScheduleTrigger")) {
-                        	scheduleReferences.add(refObject);
-                        }
-                        else if (refObject.eClass().getName().equals("WorkflowCallTrigger")) {
-                            workflowcallReferences.add(refObject);
-                        } else if (refObject.eClass().getName().equals("Job")) {
-                        	jobReferences.add(refObject);
-                        } 
-                        else {
-                            otherReferences.add(refObject);
-                        }
+                    	addReference((EObject) item, envReferences, scheduleReferences, workflowcallReferences, jobReferences, otherReferences);
                     }
                 }
             }
         }
         
-        for (EObject env : envReferences) {
-            generateXtextLines(env, xtextLines, indentLevel);
-        }
-        
-        for (EObject schedule : scheduleReferences) {
-            generateXtextLines(schedule, xtextLines, indentLevel);
-        }
-
-        for (EObject workflowCall : workflowcallReferences) {
-            generateXtextLines(workflowCall, xtextLines, indentLevel);
-        }
-
-        for (EObject job : jobReferences) {
-            generateXtextLines(job, xtextLines, indentLevel);
-        }
-
-        for (EObject other : otherReferences) {
-            generateXtextLines(other, xtextLines, indentLevel);
-        }
+        processReferences(envReferences, xtextLines, indentLevel);
+        processReferences(scheduleReferences, xtextLines, indentLevel);
+        processReferences(workflowcallReferences, xtextLines, indentLevel);
+        processReferences(jobReferences, xtextLines, indentLevel);
+        processReferences(otherReferences, xtextLines, indentLevel);
     }
 
+    private void addReference(EObject refObject, List<EObject> envReferences, List<EObject> scheduleReferences, List<EObject> workflowcallReferences, List<EObject> jobReferences, List<EObject> otherReferences) {
+    	String className = refObject.eClass().getName();
+    	if (className.equals("Env")) {
+        	envReferences.add(refObject);
+        }
+        else if (className.equals("ScheduleTrigger")) {
+        	scheduleReferences.add(refObject);
+        }
+        else if (className.equals("WorkflowCallTrigger")) {
+            workflowcallReferences.add(refObject);
+        } else if (className.equals("Job")) {
+        	jobReferences.add(refObject);
+        } 
+        else {
+            otherReferences.add(refObject);
+        }
+    }
+    
+    private void processReferences(List<EObject> references, List<String> xtextLines, int indentLevel) {
+        for (EObject reference : references) {
+            generateXtextLines(reference, xtextLines, indentLevel);
+        }
+    }
     
     private void appendEnumValues(String attributeName, List<?> values, List<String> xtextLines, int indentLevel) {
     	if (values.isEmpty()) {

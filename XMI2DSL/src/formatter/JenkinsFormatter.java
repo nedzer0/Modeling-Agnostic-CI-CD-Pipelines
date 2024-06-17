@@ -174,13 +174,14 @@ public class JenkinsFormatter {
 	            .findFirst()
 	            .orElse(null);
 
+	    String className = eClass.getName();
 	    if (defaultAttribute != null) {
 	        Object defaulValue = object.eGet(defaultAttribute);
 	        if (defaulValue != null && !defaulValue.toString().isEmpty()) {
-	        	if(eClass.getName().equals("StringParam") || eClass.getName().equals("TextParam") || eClass.getName().equals("PasswordParam")) {
+	        	if(className.equals("StringParam") || className.equals("TextParam") || className.equals("PasswordParam")) {
 	        		xtextLines.add(indent + defaultAttribute.getName() + " \"" + defaulValue.toString() + "\"");
 	        	}
-	        	else if(eClass.getName().equals("BooleanParam")) {
+	        	else if(className.equals("BooleanParam")) {
 	        		xtextLines.add(indent + defaultAttribute.getName() + " " + defaulValue.toString());
 	        	}
 	        }
@@ -282,7 +283,7 @@ public class JenkinsFormatter {
     	for (EAttribute attribute : eClass.getEAllAttributes()) {
             String attributeName = attribute.getName();
             Object value = object.eGet(attribute);
-            
+
             if(value != null) {
             	if (value instanceof String) {
             		String stringValue = (String) value;
@@ -290,7 +291,10 @@ public class JenkinsFormatter {
                         xtextLines.add(indent + attributeName);
                     } 
 	                else if (!stringValue.isEmpty()) {
-	                	xtextLines.add(indent + attributeName + " \"" + stringValue + "\"");
+	                	if (stringValue.contains("\"")) {
+                            stringValue = stringValue.replace("\"", "'");
+                        }
+                        xtextLines.add(indent + attributeName + " \"" + stringValue + "\"");
 	                }
                 } else if (value instanceof List<?>) {
                     appendEnumValues(attributeName, (List<?>) value, xtextLines, indentLevel);
@@ -313,70 +317,47 @@ public class JenkinsFormatter {
         for (EReference reference : eClass.getEAllReferences()) {
             Object value = object.eGet(reference);
             if (value instanceof EObject) {
-                EObject refObject = (EObject) value;
-                if (refObject.eClass().getName().equals("Node") || refObject.eClass().getName().equals("Any") || refObject.eClass().getName().equals("Docker")) {
-                	agentReferences.add(refObject);
-                }
-                else if (refObject.eClass().getName().equals("Cron")) {
-                	triggerReferences.add(refObject);
-                }
-                else if (refObject.eClass().getName().equals("StringParam") | refObject.eClass().getName().equals("TextParam") | refObject.eClass().getName().equals("ChoiceParam") | refObject.eClass().getName().equals("PasswordParam") | refObject.eClass().getName().equals("BooleanParam")) {
-                	paramReferences.add(refObject);
-                } else if (refObject.eClass().getName().equals("Environment")) {
-                	environmentReferences.add(refObject);
-                } else if (refObject.eClass().getName().equals("Stage")) {
-                	stagesReferences.add(refObject);
-                } 
-                else {
-                	otherReferences.add(refObject);
-                }
+                addReference((EObject) value, agentReferences, triggerReferences, paramReferences, environmentReferences, stagesReferences, otherReferences);
             } else if (value instanceof List<?>) {
                 for (Object item : (List<?>) value) {
                     if (item instanceof EObject) {
-                        EObject refObject = (EObject) item;
-                        if (refObject.eClass().getName().equals("Node") || refObject.eClass().getName().equals("Any") || refObject.eClass().getName().equals("Docker")) {
-                        	agentReferences.add(refObject);
-                        }
-                        else if (refObject.eClass().getName().equals("Cron")) {
-                        	triggerReferences.add(refObject);
-                        }
-                        else if (refObject.eClass().getName().equals("StringParam") | refObject.eClass().getName().equals("TextParam") | refObject.eClass().getName().equals("ChoiceParam") | refObject.eClass().getName().equals("PasswordParam") | refObject.eClass().getName().equals("BooleanParam")) {
-                        	paramReferences.add(refObject);
-                        } else if (refObject.eClass().getName().equals("Environment")) {
-                        	environmentReferences.add(refObject);
-                        } else if (refObject.eClass().getName().equals("Stage")) {
-                        	stagesReferences.add(refObject);
-                        } 
-                        else {
-                        	otherReferences.add(refObject);
-                        }
+                        addReference((EObject) item, agentReferences, triggerReferences, paramReferences, environmentReferences, stagesReferences, otherReferences);
                     }
                 }
             }
         }
         
-        for (EObject agent : agentReferences) {
-            generateXtextLines(agent, xtextLines, indentLevel);
+        processReferences(agentReferences, xtextLines, indentLevel);
+        processReferences(triggerReferences, xtextLines, indentLevel);
+        processReferences(paramReferences, xtextLines, indentLevel);
+        processReferences(environmentReferences, xtextLines, indentLevel);
+        processReferences(stagesReferences, xtextLines, indentLevel);
+        processReferences(otherReferences, xtextLines, indentLevel);
+    }
+    
+    private void addReference(EObject refObject, List<EObject> agentReferences, List<EObject> triggerReferences, List<EObject> paramReferences, List<EObject> environmentReferences, List<EObject> stagesReferences, List<EObject> otherReferences) {
+    	String className = refObject.eClass().getName();
+    	if (className.equals("Node") || className.equals("Any") || className.equals("Docker")) {
+        	agentReferences.add(refObject);
         }
-        
-        for (EObject trigger : triggerReferences) {
-            generateXtextLines(trigger, xtextLines, indentLevel);
+        else if (className.equals("Cron")) {
+        	triggerReferences.add(refObject);
         }
-
-        for (EObject param : paramReferences) {
-            generateXtextLines(param, xtextLines, indentLevel);
+        else if (className.equals("StringParam") || className.equals("TextParam") || className.equals("ChoiceParam") || className.equals("PasswordParam") || className.equals("BooleanParam")) {
+        	paramReferences.add(refObject);
+        } else if (className.equals("Environment")) {
+        	environmentReferences.add(refObject);
+        } else if (className.equals("Stage")) {
+        	stagesReferences.add(refObject);
+        } 
+        else {
+        	otherReferences.add(refObject);
         }
-
-        for (EObject env : environmentReferences) {
-            generateXtextLines(env, xtextLines, indentLevel);
-        }
-        
-        for (EObject stage : stagesReferences) {
-            generateXtextLines(stage, xtextLines, indentLevel);
-        }
-
-        for (EObject other : otherReferences) {
-            generateXtextLines(other, xtextLines, indentLevel);
+    }
+    
+    private void processReferences(List<EObject> references, List<String> xtextLines, int indentLevel) {
+        for (EObject reference : references) {
+            generateXtextLines(reference, xtextLines, indentLevel);
         }
     }
     
