@@ -433,6 +433,13 @@ public class Services {
         }
         return true;
 	}
+	
+	public boolean checkValidRestoreCache(RestoreCache cache) {
+        if (cache.getKey() == null && cache.getKeys().isEmpty()) {
+        	return false;
+        }
+        return true;
+	}
     
     
     /*

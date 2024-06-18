@@ -2002,9 +2002,9 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 
 		initEClass(restoreCacheEClass, RestoreCache.class, "RestoreCache", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRestoreCache_Key(), ecorePackage.getEString(), "key", null, 1, 1, RestoreCache.class,
+		initEAttribute(getRestoreCache_Key(), ecorePackage.getEString(), "key", null, 0, 1, RestoreCache.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRestoreCache_Keys(), ecorePackage.getEString(), "keys", null, 1, -1, RestoreCache.class,
+		initEAttribute(getRestoreCache_Keys(), ecorePackage.getEString(), "keys", null, 0, -1, RestoreCache.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(docker_Aws_AuthsEClass, Docker_Aws_Auths.class, "Docker_Aws_Auths", !IS_ABSTRACT, !IS_INTERFACE,
@@ -2202,7 +2202,7 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(executorEClass, Executor.class, "Executor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExecutor_Name(), ecorePackage.getEString(), "name", null, 1, 1, Executor.class, !IS_TRANSIENT,
+		initEAttribute(getExecutor_Name(), ecorePackage.getEString(), "name", null, 0, 1, Executor.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getExecutor_Shell(), ecorePackage.getEString(), "shell", null, 0, 1, Executor.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

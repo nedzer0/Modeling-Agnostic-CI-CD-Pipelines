@@ -526,6 +526,72 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
 	    });
 	}
 	
+	@Fix(CircleciValidator.MANDATORY_PIPELINE_EXEC_NAME_ERRORCODE)
+	public void fixPipelineExecName(Issue issue, IssueResolutionAcceptor acceptor) {
+	    acceptor.accept(issue, "Define Pipeline Executor name", "Define Pipeline Executor name", null, new IModification() {
+	        public void apply(IModificationContext context) throws BadLocationException {
+	        	IXtextDocument xtextDocument = context.getXtextDocument();
+                String documentContent = xtextDocument.get();
+                Integer offset = issue.getOffset();
+                
+                int lineStart = getLineStart(documentContent, offset);
+
+                if (lineStart != -1) {
+                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+
+                    if (nameLineEnd != -1) {
+                    	String key = "    name " + "\"execName\"";
+        	            xtextDocument.replace(nameLineEnd, 0, key);
+                    }
+                }
+	        }
+	    });
+	}
+	
+	@Fix(CircleciValidator.INVALID_RESTORE_CACHE_DEF_ERRORCODE)
+	public void fixInvalidRestoreCache(Issue issue, IssueResolutionAcceptor acceptor) {
+	    acceptor.accept(issue, "Define RestoreCache key", "Define RestoreCache key", null, new IModification() {
+	        public void apply(IModificationContext context) throws BadLocationException {
+	        	IXtextDocument xtextDocument = context.getXtextDocument();
+                String documentContent = xtextDocument.get();
+                Integer offset = issue.getOffset();
+                
+                int lineStart = getLineStart(documentContent, offset);
+
+                if (lineStart != -1) {
+                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+
+                    if (nameLineEnd != -1) {
+                    	String key = "    name " + "\"newKey\"";
+        	            xtextDocument.replace(nameLineEnd, 0, key);
+                    }
+                }
+	        }
+	    });
+	}
+	
+	@Fix(CircleciValidator.INVALID_RESTORE_CACHE_DEF_ERRORCODE)
+	public void fixInvalidRestoreCache2(Issue issue, IssueResolutionAcceptor acceptor) {
+	    acceptor.accept(issue, "Define RestoreCache keys", "Define RestoreCache keys", null, new IModification() {
+	        public void apply(IModificationContext context) throws BadLocationException {
+	        	IXtextDocument xtextDocument = context.getXtextDocument();
+                String documentContent = xtextDocument.get();
+                Integer offset = issue.getOffset();
+                
+                int lineStart = getLineStart(documentContent, offset);
+
+                if (lineStart != -1) {
+                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+
+                    if (nameLineEnd != -1) {
+                    	String key = "    name " + "\"newKey\"";
+        	            xtextDocument.replace(nameLineEnd, 0, key);
+                    }
+                }
+	        }
+	    });
+	}
+	
 	
 	@Fix(CircleciValidator.MANDATORY_JOB_NAME_EMPTY_ERRORCODE)
 	public void fixEmptyJobName(Issue issue, IssueResolutionAcceptor acceptor) {

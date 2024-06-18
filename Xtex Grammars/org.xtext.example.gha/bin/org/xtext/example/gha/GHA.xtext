@@ -5,9 +5,8 @@ import "http://www.example.org/gHA_metamodel"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Pipeline returns Pipeline:
-	'Pipeline' NEWLINE
-	('name' (name=EString) NEWLINE)?
-	('run-name' run_name=EString NEWLINE)?
+	'Pipeline'
+	((BEGIN'name' name=EString ('run-name' run_name=EString)? END))?
 	((envs+=Env)+ NEWLINE?)?
 	((permissions+=Permission)+ NEWLINE?)?
 	(defaultsetting=DefaultSetting NEWLINE?)?
@@ -27,6 +26,8 @@ Job returns Job:
 	'Job'
 	(BEGIN
 		'name' name=EString
+		('timeout_minutes' timeout_minutes=EInt )?
+		('continue_on_error' continue_on_error=EString )?
 		(permissions+=Permission)*
 		(need=Need)?
 		(if=If)?
@@ -36,8 +37,6 @@ Job returns Job:
 		(outputs+=Output)*
 		(envs+=Env)*
 		(defaultsetting=DefaultSetting)?
-		('timeout-minutes' timeout_minutes=EInt )?
-		('continue-on-error' continue_on_error=EString )?
 		(container=Container)?
 		(services+=Service)*
 		(actions+=Action)*
@@ -214,14 +213,14 @@ Step returns Step:
 	(BEGIN
 		('name' name=EString)?
 		(if=If)?
-		(actions+=Action)*
 		('shell' shell=EString )?
 		('working_directory' working_directory=EString)?
 		(envs+=Env)*
-		(continue_on_error?='continue-on-error')?
-		('timeout-minutes' timeout_minutes=EShort )?
+		(continue_on_error?='continue_on_error')?
+		('timeout_minutes' timeout_minutes=EShort )?
 		(commands+=Command)+
 		(parameters+=Parameter)*
+		(actions+=Action)*
 	END);
 
 If returns If:
@@ -364,7 +363,7 @@ Docker returns Docker:
 RestoreCache returns RestoreCache:
 	'RestoreCache'
 	(BEGIN
-		'uses' uses="actions/cache/restore@v3" 
+		'uses' uses="\"actions/cache/restore@v4\"" 
 		(lookup_only?='lookup_only' )?
 		(fail_on_cache_miss?='fail_on_cache_miss' )?
 		'key' key=EString 
@@ -378,7 +377,7 @@ RestoreCache returns RestoreCache:
 SaveCache returns SaveCache:
 	'SaveCache'
 	(BEGIN
-		'uses' uses="actions/cache/save@v3"
+		'uses' uses="\"actions/cache/save@v4\""
 		'key' key=EString 
 		'paths' paths+=EString ( "," paths+=EString)*  
 		('upload_chunk_size' upload_chunk_size=EString )?

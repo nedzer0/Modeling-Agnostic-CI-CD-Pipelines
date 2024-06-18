@@ -76,8 +76,21 @@ public class CICDQuickfixProvider extends DefaultQuickfixProvider {
                 Integer length = issue.getLength();
                 String originalName = xtextDocument.get(offset, length);
                 int randomInt = (int) (Math.random() * 100);
-                String newName = originalName + randomInt;
-                xtextDocument.replace(offset, length, newName);
+                
+                if(originalName.contains("\"")) {
+                    int firstQuoteIndex = originalName.indexOf("\"");
+                    int lastQuoteIndex = originalName.lastIndexOf("\"");
+                    
+                    if (firstQuoteIndex != -1 && lastQuoteIndex != -1 && firstQuoteIndex != lastQuoteIndex) {
+                        String newName = originalName.substring(0, lastQuoteIndex) + randomInt + originalName.substring(lastQuoteIndex);
+                        xtextDocument.replace(offset, length, newName);
+                    } else {
+                        
+                    }
+                } else {
+                    String newName = originalName + randomInt;
+                    xtextDocument.replace(offset, length, newName);
+                }
             }
         });
     }
@@ -115,16 +128,6 @@ public class CICDQuickfixProvider extends DefaultQuickfixProvider {
     @Fix(CICDValidator.MANDATORY_JOB_NAME_EMPTY_ERRORCODE)
     public void fixEmptyJobName(Issue issue, IssueResolutionAcceptor acceptor) {
         fixEmptyString(issue, "Fix empty job name", acceptor, "\"New Job Name\"");
-    }
-
-    @Fix(CICDValidator.MANDATORY_CACHE_KEY_EMPTY_ERRORCODE)
-    public void fixEmptyCacheKey(Issue issue, IssueResolutionAcceptor acceptor) {
-        fixEmptyString(issue, "Fix empty cache key", acceptor, "\"New Cache Key\"");
-    }
-
-    @Fix(CICDValidator.MANDATORY_CACHE_PATHS_EMPTY_ERRORCODE)
-    public void fixEmptyCachePaths(Issue issue, IssueResolutionAcceptor acceptor) {
-        fixEmptyString(issue, "Fix empty cache paths", acceptor, "\"./\"");
     }
 
     @Fix(CICDValidator.MANDATORY_OUTPUT_NAME_EMPTY_ERRORCODE)

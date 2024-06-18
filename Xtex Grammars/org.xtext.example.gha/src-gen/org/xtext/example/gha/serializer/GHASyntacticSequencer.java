@@ -20,22 +20,22 @@ import org.xtext.example.gha.services.GHAGrammarAccess;
 public class GHASyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GHAGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_2_1_q;
+	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_3_1_q;
 	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_4_1_q;
 	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_5_1_q;
 	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_6_1_q;
 	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_7_1_q;
-	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_8_1_q;
-	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_9_1_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GHAGrammarAccess) access;
+		match_Pipeline_NEWLINETerminalRuleCall_2_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_1());
+		match_Pipeline_NEWLINETerminalRuleCall_3_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_3_1());
 		match_Pipeline_NEWLINETerminalRuleCall_4_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_4_1());
 		match_Pipeline_NEWLINETerminalRuleCall_5_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_5_1());
 		match_Pipeline_NEWLINETerminalRuleCall_6_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_6_1());
 		match_Pipeline_NEWLINETerminalRuleCall_7_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_7_1());
-		match_Pipeline_NEWLINETerminalRuleCall_8_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_8_1());
-		match_Pipeline_NEWLINETerminalRuleCall_9_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_9_1());
 	}
 	
 	@Override
@@ -77,7 +77,11 @@ public class GHASyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Pipeline_NEWLINETerminalRuleCall_4_1_q.equals(syntax))
+			if (match_Pipeline_NEWLINETerminalRuleCall_2_1_q.equals(syntax))
+				emit_Pipeline_NEWLINETerminalRuleCall_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Pipeline_NEWLINETerminalRuleCall_3_1_q.equals(syntax))
+				emit_Pipeline_NEWLINETerminalRuleCall_3_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Pipeline_NEWLINETerminalRuleCall_4_1_q.equals(syntax))
 				emit_Pipeline_NEWLINETerminalRuleCall_4_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Pipeline_NEWLINETerminalRuleCall_5_1_q.equals(syntax))
 				emit_Pipeline_NEWLINETerminalRuleCall_5_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -85,10 +89,6 @@ public class GHASyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Pipeline_NEWLINETerminalRuleCall_6_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Pipeline_NEWLINETerminalRuleCall_7_1_q.equals(syntax))
 				emit_Pipeline_NEWLINETerminalRuleCall_7_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Pipeline_NEWLINETerminalRuleCall_8_1_q.equals(syntax))
-				emit_Pipeline_NEWLINETerminalRuleCall_8_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Pipeline_NEWLINETerminalRuleCall_9_1_q.equals(syntax))
-				emit_Pipeline_NEWLINETerminalRuleCall_9_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -107,7 +107,7 @@ public class GHASyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Pipeline_NEWLINETerminalRuleCall_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Pipeline_NEWLINETerminalRuleCall_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -124,7 +124,7 @@ public class GHASyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Pipeline_NEWLINETerminalRuleCall_5_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Pipeline_NEWLINETerminalRuleCall_3_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -140,7 +140,7 @@ public class GHASyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Pipeline_NEWLINETerminalRuleCall_6_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Pipeline_NEWLINETerminalRuleCall_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -155,7 +155,7 @@ public class GHASyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Pipeline_NEWLINETerminalRuleCall_7_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Pipeline_NEWLINETerminalRuleCall_5_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -169,7 +169,7 @@ public class GHASyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Pipeline_NEWLINETerminalRuleCall_8_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Pipeline_NEWLINETerminalRuleCall_6_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -183,7 +183,7 @@ public class GHASyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Pipeline_NEWLINETerminalRuleCall_9_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Pipeline_NEWLINETerminalRuleCall_7_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

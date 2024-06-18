@@ -368,8 +368,13 @@ public class JenkinsFormatter {
     	
     	String indent = "    ".repeat(indentLevel);
         StringBuilder enumValuesString = new StringBuilder();
+        String stringVal = "";
         for (Object value : values) {
-        	enumValuesString.append("\"").append(value.toString()).append("\", ");
+        	stringVal = value.toString();
+        	if (stringVal.contains("\"")) {
+        		stringVal = stringVal.replace("\"", "'");
+            }
+        	enumValuesString.append("\"").append(stringVal).append("\", ");
         }
         enumValuesString.setLength(enumValuesString.length() - 2);
         xtextLines.add(indent + attributeName + " " + enumValuesString.toString());

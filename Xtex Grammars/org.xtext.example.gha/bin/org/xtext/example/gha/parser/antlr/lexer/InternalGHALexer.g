@@ -21,6 +21,8 @@ PERSONAL_ACCESS_TOKEN_REQUEST : 'PERSONAL_ACCESS_TOKEN_REQUEST';
 
 PULL_REQUEST_REVIEW_COMMENT : 'PULL_REQUEST_REVIEW_COMMENT';
 
+ActionsCacheRestoreV4 : '"actions/cache/restore@v4"';
+
 DEPLOYMENT_PROTECTION_RULE : 'DEPLOYMENT_PROTECTION_RULE';
 
 PULL_REQUEST_REVIEW_THREAD : 'PULL_REQUEST_REVIEW_THREAD';
@@ -33,7 +35,7 @@ NEW_PERMISSIONS_ACCEPTED : 'NEW_PERMISSIONS_ACCEPTED';
 
 PENDING_CHANGE_CANCELLED : 'PENDING_CHANGE_CANCELLED';
 
-ActionsCacheRestoreV3 : 'actions/cache/restore@v3';
+ActionsCacheSaveV4 : '"actions/cache/save@v4"';
 
 REMOVED_FROM_REPOSITORY : 'REMOVED_FROM_REPOSITORY';
 
@@ -48,8 +50,6 @@ REVIEW_REQUEST_REMOVED : 'REVIEW_REQUEST_REMOVED';
 SECRET_SCANNING_ALERT : 'SECRET_SCANNING_ALERT';
 
 SECURITY_AND_ANALYSIS : 'SECURITY_AND_ANALYSIS';
-
-ActionsCacheSaveV3 : 'actions/cache/save@v3';
 
 MARKETPLACE_PURCHASE : 'MARKETPLACE_PURCHASE';
 
@@ -105,7 +105,7 @@ SECURITY_ADVISORY : 'SECURITY_ADVISORY';
 
 SUSPEND_UNSUSPEND : 'SUSPEND_UNSUSPEND';
 
-ContinueOnError : 'continue-on-error';
+Continue_on_error : 'continue_on_error';
 
 Upload_chunk_size : 'upload_chunk_size';
 
@@ -139,7 +139,7 @@ ScheduleTrigger : 'ScheduleTrigger';
 
 Post_entrypoint : 'post_entrypoint';
 
-TimeoutMinutes : 'timeout-minutes';
+Timeout_minutes : 'timeout_minutes';
 
 AUTO_DISMISSED : 'AUTO_DISMISSED';
 

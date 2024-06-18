@@ -43,7 +43,6 @@ public class XMIReader {
             return;
         }
 		
-		
 		ResourceSet resourceSet = new ResourceSetImpl();
         URI xmiUri = URI.createFileURI(filePath);
         Resource resource = resourceSet.getResource(xmiUri, true);
@@ -53,7 +52,7 @@ public class XMIReader {
             System.err.println("Root element not found in the XMI file.");
             return;
         }
-
+        
         List<String> xtextLines = null;
         if(extension.contains(".circleci")) {
         	CircleCiFormatter circleFormatter = new CircleCiFormatter();
@@ -69,7 +68,6 @@ public class XMIReader {
         	JenkinsFormatter jenkinsFormatter = new JenkinsFormatter();
         	xtextLines = jenkinsFormatter.generateXtext(rootElement);
         }
-
         writeXtextToFile(xtextLines, filePath, extension);
     }
 

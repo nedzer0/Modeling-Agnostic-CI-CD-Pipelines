@@ -182,8 +182,21 @@ public class GHAQuickfixProvider extends DefaultQuickfixProvider {
                 Integer length = issue.getLength();
                 String originalName = xtextDocument.get(offset, length);
                 int randomInt = (int) (Math.random() * 100);
-                String newName = originalName + randomInt;
-                xtextDocument.replace(offset, length, newName);
+                
+                if(originalName.contains("\"")) {
+                    int firstQuoteIndex = originalName.indexOf("\"");
+                    int lastQuoteIndex = originalName.lastIndexOf("\"");
+                    
+                    if (firstQuoteIndex != -1 && lastQuoteIndex != -1 && firstQuoteIndex != lastQuoteIndex) {
+                        String newName = originalName.substring(0, lastQuoteIndex) + randomInt + originalName.substring(lastQuoteIndex);
+                        xtextDocument.replace(offset, length, newName);
+                    } else {
+                        
+                    }
+                } else {
+                    String newName = originalName + randomInt;
+                    xtextDocument.replace(offset, length, newName);
+                }
             }
         });
     }

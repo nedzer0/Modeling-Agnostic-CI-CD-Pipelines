@@ -2404,38 +2404,42 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group__1__Impl"
-    // InternalCICDParser.g:787:1: rule__Pipeline__Group__1__Impl : ( ( RULE_NEWLINE )? ) ;
+    // InternalCICDParser.g:787:1: rule__Pipeline__Group__1__Impl : ( ( rule__Pipeline__Group_1__0 )? ) ;
     public final void rule__Pipeline__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:791:1: ( ( ( RULE_NEWLINE )? ) )
-            // InternalCICDParser.g:792:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:791:1: ( ( ( rule__Pipeline__Group_1__0 )? ) )
+            // InternalCICDParser.g:792:1: ( ( rule__Pipeline__Group_1__0 )? )
             {
-            // InternalCICDParser.g:792:1: ( ( RULE_NEWLINE )? )
-            // InternalCICDParser.g:793:2: ( RULE_NEWLINE )?
+            // InternalCICDParser.g:792:1: ( ( rule__Pipeline__Group_1__0 )? )
+            // InternalCICDParser.g:793:2: ( rule__Pipeline__Group_1__0 )?
             {
-             before(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_1()); 
-            // InternalCICDParser.g:794:2: ( RULE_NEWLINE )?
+             before(grammarAccess.getPipelineAccess().getGroup_1()); 
+            // InternalCICDParser.g:794:2: ( rule__Pipeline__Group_1__0 )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==RULE_NEWLINE) ) {
+            if ( (LA6_0==RULE_BEGIN) ) {
                 alt6=1;
             }
             switch (alt6) {
                 case 1 :
-                    // InternalCICDParser.g:794:3: RULE_NEWLINE
+                    // InternalCICDParser.g:794:3: rule__Pipeline__Group_1__0
                     {
-                    match(input,RULE_NEWLINE,FOLLOW_2); 
+                    pushFollow(FOLLOW_2);
+                    rule__Pipeline__Group_1__0();
+
+                    state._fsp--;
+
 
                     }
                     break;
 
             }
 
-             after(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_1()); 
+             after(grammarAccess.getPipelineAccess().getGroup_1()); 
 
             }
 
@@ -2467,7 +2471,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:806:1: ( rule__Pipeline__Group__2__Impl rule__Pipeline__Group__3 )
             // InternalCICDParser.g:807:2: rule__Pipeline__Group__2__Impl rule__Pipeline__Group__3
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_4);
             rule__Pipeline__Group__2__Impl();
 
             state._fsp--;
@@ -2496,38 +2500,27 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group__2__Impl"
-    // InternalCICDParser.g:814:1: rule__Pipeline__Group__2__Impl : ( ( rule__Pipeline__Group_2__0 )? ) ;
+    // InternalCICDParser.g:814:1: rule__Pipeline__Group__2__Impl : ( ( rule__Pipeline__Group_2__0 ) ) ;
     public final void rule__Pipeline__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:818:1: ( ( ( rule__Pipeline__Group_2__0 )? ) )
-            // InternalCICDParser.g:819:1: ( ( rule__Pipeline__Group_2__0 )? )
+            // InternalCICDParser.g:818:1: ( ( ( rule__Pipeline__Group_2__0 ) ) )
+            // InternalCICDParser.g:819:1: ( ( rule__Pipeline__Group_2__0 ) )
             {
-            // InternalCICDParser.g:819:1: ( ( rule__Pipeline__Group_2__0 )? )
-            // InternalCICDParser.g:820:2: ( rule__Pipeline__Group_2__0 )?
+            // InternalCICDParser.g:819:1: ( ( rule__Pipeline__Group_2__0 ) )
+            // InternalCICDParser.g:820:2: ( rule__Pipeline__Group_2__0 )
             {
              before(grammarAccess.getPipelineAccess().getGroup_2()); 
-            // InternalCICDParser.g:821:2: ( rule__Pipeline__Group_2__0 )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalCICDParser.g:821:2: ( rule__Pipeline__Group_2__0 )
+            // InternalCICDParser.g:821:3: rule__Pipeline__Group_2__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Pipeline__Group_2__0();
 
-            if ( (LA7_0==Name) ) {
-                alt7=1;
-            }
-            switch (alt7) {
-                case 1 :
-                    // InternalCICDParser.g:821:3: rule__Pipeline__Group_2__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Pipeline__Group_2__0();
+            state._fsp--;
 
-                    state._fsp--;
-
-
-                    }
-                    break;
 
             }
 
@@ -2592,27 +2585,38 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group__3__Impl"
-    // InternalCICDParser.g:841:1: rule__Pipeline__Group__3__Impl : ( ( rule__Pipeline__Group_3__0 ) ) ;
+    // InternalCICDParser.g:841:1: rule__Pipeline__Group__3__Impl : ( ( rule__Pipeline__Group_3__0 )? ) ;
     public final void rule__Pipeline__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:845:1: ( ( ( rule__Pipeline__Group_3__0 ) ) )
-            // InternalCICDParser.g:846:1: ( ( rule__Pipeline__Group_3__0 ) )
+            // InternalCICDParser.g:845:1: ( ( ( rule__Pipeline__Group_3__0 )? ) )
+            // InternalCICDParser.g:846:1: ( ( rule__Pipeline__Group_3__0 )? )
             {
-            // InternalCICDParser.g:846:1: ( ( rule__Pipeline__Group_3__0 ) )
-            // InternalCICDParser.g:847:2: ( rule__Pipeline__Group_3__0 )
+            // InternalCICDParser.g:846:1: ( ( rule__Pipeline__Group_3__0 )? )
+            // InternalCICDParser.g:847:2: ( rule__Pipeline__Group_3__0 )?
             {
              before(grammarAccess.getPipelineAccess().getGroup_3()); 
-            // InternalCICDParser.g:848:2: ( rule__Pipeline__Group_3__0 )
-            // InternalCICDParser.g:848:3: rule__Pipeline__Group_3__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__Pipeline__Group_3__0();
+            // InternalCICDParser.g:848:2: ( rule__Pipeline__Group_3__0 )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA7_0==Environment) ) {
+                alt7=1;
+            }
+            switch (alt7) {
+                case 1 :
+                    // InternalCICDParser.g:848:3: rule__Pipeline__Group_3__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Pipeline__Group_3__0();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
@@ -2694,7 +2698,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==Environment) ) {
+            if ( (LA8_0==ScheduleTrigger) ) {
                 alt8=1;
             }
             switch (alt8) {
@@ -2790,7 +2794,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==ScheduleTrigger) ) {
+            if ( (LA9_0==Agent) ) {
                 alt9=1;
             }
             switch (alt9) {
@@ -2886,7 +2890,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==Agent) ) {
+            if ( (LA10_0==Input) ) {
                 alt10=1;
             }
             switch (alt10) {
@@ -2927,22 +2931,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group__7"
-    // InternalCICDParser.g:937:1: rule__Pipeline__Group__7 : rule__Pipeline__Group__7__Impl rule__Pipeline__Group__8 ;
+    // InternalCICDParser.g:937:1: rule__Pipeline__Group__7 : rule__Pipeline__Group__7__Impl ;
     public final void rule__Pipeline__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:941:1: ( rule__Pipeline__Group__7__Impl rule__Pipeline__Group__8 )
-            // InternalCICDParser.g:942:2: rule__Pipeline__Group__7__Impl rule__Pipeline__Group__8
+            // InternalCICDParser.g:941:1: ( rule__Pipeline__Group__7__Impl )
+            // InternalCICDParser.g:942:2: rule__Pipeline__Group__7__Impl
             {
-            pushFollow(FOLLOW_4);
-            rule__Pipeline__Group__7__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Pipeline__Group__8();
+            rule__Pipeline__Group__7__Impl();
 
             state._fsp--;
 
@@ -2965,29 +2964,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group__7__Impl"
-    // InternalCICDParser.g:949:1: rule__Pipeline__Group__7__Impl : ( ( rule__Pipeline__Group_7__0 )? ) ;
+    // InternalCICDParser.g:948:1: rule__Pipeline__Group__7__Impl : ( ( rule__Pipeline__Group_7__0 )? ) ;
     public final void rule__Pipeline__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:953:1: ( ( ( rule__Pipeline__Group_7__0 )? ) )
-            // InternalCICDParser.g:954:1: ( ( rule__Pipeline__Group_7__0 )? )
+            // InternalCICDParser.g:952:1: ( ( ( rule__Pipeline__Group_7__0 )? ) )
+            // InternalCICDParser.g:953:1: ( ( rule__Pipeline__Group_7__0 )? )
             {
-            // InternalCICDParser.g:954:1: ( ( rule__Pipeline__Group_7__0 )? )
-            // InternalCICDParser.g:955:2: ( rule__Pipeline__Group_7__0 )?
+            // InternalCICDParser.g:953:1: ( ( rule__Pipeline__Group_7__0 )? )
+            // InternalCICDParser.g:954:2: ( rule__Pipeline__Group_7__0 )?
             {
              before(grammarAccess.getPipelineAccess().getGroup_7()); 
-            // InternalCICDParser.g:956:2: ( rule__Pipeline__Group_7__0 )?
+            // InternalCICDParser.g:955:2: ( rule__Pipeline__Group_7__0 )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==Input) ) {
+            if ( (LA11_0==Output) ) {
                 alt11=1;
             }
             switch (alt11) {
                 case 1 :
-                    // InternalCICDParser.g:956:3: rule__Pipeline__Group_7__0
+                    // InternalCICDParser.g:955:3: rule__Pipeline__Group_7__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Pipeline__Group_7__0();
@@ -3022,18 +3021,23 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Pipeline__Group__7__Impl"
 
 
-    // $ANTLR start "rule__Pipeline__Group__8"
-    // InternalCICDParser.g:964:1: rule__Pipeline__Group__8 : rule__Pipeline__Group__8__Impl ;
-    public final void rule__Pipeline__Group__8() throws RecognitionException {
+    // $ANTLR start "rule__Pipeline__Group_1__0"
+    // InternalCICDParser.g:964:1: rule__Pipeline__Group_1__0 : rule__Pipeline__Group_1__0__Impl rule__Pipeline__Group_1__1 ;
+    public final void rule__Pipeline__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:968:1: ( rule__Pipeline__Group__8__Impl )
-            // InternalCICDParser.g:969:2: rule__Pipeline__Group__8__Impl
+            // InternalCICDParser.g:968:1: ( rule__Pipeline__Group_1__0__Impl rule__Pipeline__Group_1__1 )
+            // InternalCICDParser.g:969:2: rule__Pipeline__Group_1__0__Impl rule__Pipeline__Group_1__1
             {
+            pushFollow(FOLLOW_5);
+            rule__Pipeline__Group_1__0__Impl();
+
+            state._fsp--;
+
             pushFollow(FOLLOW_2);
-            rule__Pipeline__Group__8__Impl();
+            rule__Pipeline__Group_1__1();
 
             state._fsp--;
 
@@ -3052,46 +3056,25 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Pipeline__Group__8"
+    // $ANTLR end "rule__Pipeline__Group_1__0"
 
 
-    // $ANTLR start "rule__Pipeline__Group__8__Impl"
-    // InternalCICDParser.g:975:1: rule__Pipeline__Group__8__Impl : ( ( rule__Pipeline__Group_8__0 )? ) ;
-    public final void rule__Pipeline__Group__8__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Pipeline__Group_1__0__Impl"
+    // InternalCICDParser.g:976:1: rule__Pipeline__Group_1__0__Impl : ( RULE_BEGIN ) ;
+    public final void rule__Pipeline__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:979:1: ( ( ( rule__Pipeline__Group_8__0 )? ) )
-            // InternalCICDParser.g:980:1: ( ( rule__Pipeline__Group_8__0 )? )
+            // InternalCICDParser.g:980:1: ( ( RULE_BEGIN ) )
+            // InternalCICDParser.g:981:1: ( RULE_BEGIN )
             {
-            // InternalCICDParser.g:980:1: ( ( rule__Pipeline__Group_8__0 )? )
-            // InternalCICDParser.g:981:2: ( rule__Pipeline__Group_8__0 )?
+            // InternalCICDParser.g:981:1: ( RULE_BEGIN )
+            // InternalCICDParser.g:982:2: RULE_BEGIN
             {
-             before(grammarAccess.getPipelineAccess().getGroup_8()); 
-            // InternalCICDParser.g:982:2: ( rule__Pipeline__Group_8__0 )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
-
-            if ( (LA12_0==Output) ) {
-                alt12=1;
-            }
-            switch (alt12) {
-                case 1 :
-                    // InternalCICDParser.g:982:3: rule__Pipeline__Group_8__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Pipeline__Group_8__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getPipelineAccess().getGroup_8()); 
+             before(grammarAccess.getPipelineAccess().getBEGINTerminalRuleCall_1_0()); 
+            match(input,RULE_BEGIN,FOLLOW_2); 
+             after(grammarAccess.getPipelineAccess().getBEGINTerminalRuleCall_1_0()); 
 
             }
 
@@ -3110,20 +3093,250 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Pipeline__Group__8__Impl"
+    // $ANTLR end "rule__Pipeline__Group_1__0__Impl"
+
+
+    // $ANTLR start "rule__Pipeline__Group_1__1"
+    // InternalCICDParser.g:991:1: rule__Pipeline__Group_1__1 : rule__Pipeline__Group_1__1__Impl rule__Pipeline__Group_1__2 ;
+    public final void rule__Pipeline__Group_1__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCICDParser.g:995:1: ( rule__Pipeline__Group_1__1__Impl rule__Pipeline__Group_1__2 )
+            // InternalCICDParser.g:996:2: rule__Pipeline__Group_1__1__Impl rule__Pipeline__Group_1__2
+            {
+            pushFollow(FOLLOW_6);
+            rule__Pipeline__Group_1__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Pipeline__Group_1__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Pipeline__Group_1__1"
+
+
+    // $ANTLR start "rule__Pipeline__Group_1__1__Impl"
+    // InternalCICDParser.g:1003:1: rule__Pipeline__Group_1__1__Impl : ( Name ) ;
+    public final void rule__Pipeline__Group_1__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCICDParser.g:1007:1: ( ( Name ) )
+            // InternalCICDParser.g:1008:1: ( Name )
+            {
+            // InternalCICDParser.g:1008:1: ( Name )
+            // InternalCICDParser.g:1009:2: Name
+            {
+             before(grammarAccess.getPipelineAccess().getNameKeyword_1_1()); 
+            match(input,Name,FOLLOW_2); 
+             after(grammarAccess.getPipelineAccess().getNameKeyword_1_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Pipeline__Group_1__1__Impl"
+
+
+    // $ANTLR start "rule__Pipeline__Group_1__2"
+    // InternalCICDParser.g:1018:1: rule__Pipeline__Group_1__2 : rule__Pipeline__Group_1__2__Impl rule__Pipeline__Group_1__3 ;
+    public final void rule__Pipeline__Group_1__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCICDParser.g:1022:1: ( rule__Pipeline__Group_1__2__Impl rule__Pipeline__Group_1__3 )
+            // InternalCICDParser.g:1023:2: rule__Pipeline__Group_1__2__Impl rule__Pipeline__Group_1__3
+            {
+            pushFollow(FOLLOW_7);
+            rule__Pipeline__Group_1__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Pipeline__Group_1__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Pipeline__Group_1__2"
+
+
+    // $ANTLR start "rule__Pipeline__Group_1__2__Impl"
+    // InternalCICDParser.g:1030:1: rule__Pipeline__Group_1__2__Impl : ( ( rule__Pipeline__NameAssignment_1_2 ) ) ;
+    public final void rule__Pipeline__Group_1__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCICDParser.g:1034:1: ( ( ( rule__Pipeline__NameAssignment_1_2 ) ) )
+            // InternalCICDParser.g:1035:1: ( ( rule__Pipeline__NameAssignment_1_2 ) )
+            {
+            // InternalCICDParser.g:1035:1: ( ( rule__Pipeline__NameAssignment_1_2 ) )
+            // InternalCICDParser.g:1036:2: ( rule__Pipeline__NameAssignment_1_2 )
+            {
+             before(grammarAccess.getPipelineAccess().getNameAssignment_1_2()); 
+            // InternalCICDParser.g:1037:2: ( rule__Pipeline__NameAssignment_1_2 )
+            // InternalCICDParser.g:1037:3: rule__Pipeline__NameAssignment_1_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__Pipeline__NameAssignment_1_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPipelineAccess().getNameAssignment_1_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Pipeline__Group_1__2__Impl"
+
+
+    // $ANTLR start "rule__Pipeline__Group_1__3"
+    // InternalCICDParser.g:1045:1: rule__Pipeline__Group_1__3 : rule__Pipeline__Group_1__3__Impl ;
+    public final void rule__Pipeline__Group_1__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCICDParser.g:1049:1: ( rule__Pipeline__Group_1__3__Impl )
+            // InternalCICDParser.g:1050:2: rule__Pipeline__Group_1__3__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Pipeline__Group_1__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Pipeline__Group_1__3"
+
+
+    // $ANTLR start "rule__Pipeline__Group_1__3__Impl"
+    // InternalCICDParser.g:1056:1: rule__Pipeline__Group_1__3__Impl : ( RULE_END ) ;
+    public final void rule__Pipeline__Group_1__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCICDParser.g:1060:1: ( ( RULE_END ) )
+            // InternalCICDParser.g:1061:1: ( RULE_END )
+            {
+            // InternalCICDParser.g:1061:1: ( RULE_END )
+            // InternalCICDParser.g:1062:2: RULE_END
+            {
+             before(grammarAccess.getPipelineAccess().getENDTerminalRuleCall_1_3()); 
+            match(input,RULE_END,FOLLOW_2); 
+             after(grammarAccess.getPipelineAccess().getENDTerminalRuleCall_1_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Pipeline__Group_1__3__Impl"
 
 
     // $ANTLR start "rule__Pipeline__Group_2__0"
-    // InternalCICDParser.g:991:1: rule__Pipeline__Group_2__0 : rule__Pipeline__Group_2__0__Impl rule__Pipeline__Group_2__1 ;
+    // InternalCICDParser.g:1072:1: rule__Pipeline__Group_2__0 : rule__Pipeline__Group_2__0__Impl rule__Pipeline__Group_2__1 ;
     public final void rule__Pipeline__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:995:1: ( rule__Pipeline__Group_2__0__Impl rule__Pipeline__Group_2__1 )
-            // InternalCICDParser.g:996:2: rule__Pipeline__Group_2__0__Impl rule__Pipeline__Group_2__1
+            // InternalCICDParser.g:1076:1: ( rule__Pipeline__Group_2__0__Impl rule__Pipeline__Group_2__1 )
+            // InternalCICDParser.g:1077:2: rule__Pipeline__Group_2__0__Impl rule__Pipeline__Group_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_8);
             rule__Pipeline__Group_2__0__Impl();
 
             state._fsp--;
@@ -3152,21 +3365,74 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_2__0__Impl"
-    // InternalCICDParser.g:1003:1: rule__Pipeline__Group_2__0__Impl : ( Name ) ;
+    // InternalCICDParser.g:1084:1: rule__Pipeline__Group_2__0__Impl : ( ( ( rule__Pipeline__JobsAssignment_2_0 ) ) ( ( rule__Pipeline__JobsAssignment_2_0 )* ) ) ;
     public final void rule__Pipeline__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1007:1: ( ( Name ) )
-            // InternalCICDParser.g:1008:1: ( Name )
+            // InternalCICDParser.g:1088:1: ( ( ( ( rule__Pipeline__JobsAssignment_2_0 ) ) ( ( rule__Pipeline__JobsAssignment_2_0 )* ) ) )
+            // InternalCICDParser.g:1089:1: ( ( ( rule__Pipeline__JobsAssignment_2_0 ) ) ( ( rule__Pipeline__JobsAssignment_2_0 )* ) )
             {
-            // InternalCICDParser.g:1008:1: ( Name )
-            // InternalCICDParser.g:1009:2: Name
+            // InternalCICDParser.g:1089:1: ( ( ( rule__Pipeline__JobsAssignment_2_0 ) ) ( ( rule__Pipeline__JobsAssignment_2_0 )* ) )
+            // InternalCICDParser.g:1090:2: ( ( rule__Pipeline__JobsAssignment_2_0 ) ) ( ( rule__Pipeline__JobsAssignment_2_0 )* )
             {
-             before(grammarAccess.getPipelineAccess().getNameKeyword_2_0()); 
-            match(input,Name,FOLLOW_2); 
-             after(grammarAccess.getPipelineAccess().getNameKeyword_2_0()); 
+            // InternalCICDParser.g:1090:2: ( ( rule__Pipeline__JobsAssignment_2_0 ) )
+            // InternalCICDParser.g:1091:3: ( rule__Pipeline__JobsAssignment_2_0 )
+            {
+             before(grammarAccess.getPipelineAccess().getJobsAssignment_2_0()); 
+            // InternalCICDParser.g:1092:3: ( rule__Pipeline__JobsAssignment_2_0 )
+            // InternalCICDParser.g:1092:4: rule__Pipeline__JobsAssignment_2_0
+            {
+            pushFollow(FOLLOW_9);
+            rule__Pipeline__JobsAssignment_2_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPipelineAccess().getJobsAssignment_2_0()); 
+
+            }
+
+            // InternalCICDParser.g:1095:2: ( ( rule__Pipeline__JobsAssignment_2_0 )* )
+            // InternalCICDParser.g:1096:3: ( rule__Pipeline__JobsAssignment_2_0 )*
+            {
+             before(grammarAccess.getPipelineAccess().getJobsAssignment_2_0()); 
+            // InternalCICDParser.g:1097:3: ( rule__Pipeline__JobsAssignment_2_0 )*
+            loop12:
+            do {
+                int alt12=2;
+                int LA12_0 = input.LA(1);
+
+                if ( (LA12_0==Job) ) {
+                    alt12=1;
+                }
+
+
+                switch (alt12) {
+            	case 1 :
+            	    // InternalCICDParser.g:1097:4: rule__Pipeline__JobsAssignment_2_0
+            	    {
+            	    pushFollow(FOLLOW_9);
+            	    rule__Pipeline__JobsAssignment_2_0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop12;
+                }
+            } while (true);
+
+             after(grammarAccess.getPipelineAccess().getJobsAssignment_2_0()); 
+
+            }
+
 
             }
 
@@ -3189,22 +3455,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_2__1"
-    // InternalCICDParser.g:1018:1: rule__Pipeline__Group_2__1 : rule__Pipeline__Group_2__1__Impl rule__Pipeline__Group_2__2 ;
+    // InternalCICDParser.g:1106:1: rule__Pipeline__Group_2__1 : rule__Pipeline__Group_2__1__Impl ;
     public final void rule__Pipeline__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1022:1: ( rule__Pipeline__Group_2__1__Impl rule__Pipeline__Group_2__2 )
-            // InternalCICDParser.g:1023:2: rule__Pipeline__Group_2__1__Impl rule__Pipeline__Group_2__2
+            // InternalCICDParser.g:1110:1: ( rule__Pipeline__Group_2__1__Impl )
+            // InternalCICDParser.g:1111:2: rule__Pipeline__Group_2__1__Impl
             {
-            pushFollow(FOLLOW_6);
-            rule__Pipeline__Group_2__1__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Pipeline__Group_2__2();
+            rule__Pipeline__Group_2__1__Impl();
 
             state._fsp--;
 
@@ -3227,31 +3488,38 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_2__1__Impl"
-    // InternalCICDParser.g:1030:1: rule__Pipeline__Group_2__1__Impl : ( ( rule__Pipeline__NameAssignment_2_1 ) ) ;
+    // InternalCICDParser.g:1117:1: rule__Pipeline__Group_2__1__Impl : ( ( RULE_NEWLINE )? ) ;
     public final void rule__Pipeline__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1034:1: ( ( ( rule__Pipeline__NameAssignment_2_1 ) ) )
-            // InternalCICDParser.g:1035:1: ( ( rule__Pipeline__NameAssignment_2_1 ) )
+            // InternalCICDParser.g:1121:1: ( ( ( RULE_NEWLINE )? ) )
+            // InternalCICDParser.g:1122:1: ( ( RULE_NEWLINE )? )
             {
-            // InternalCICDParser.g:1035:1: ( ( rule__Pipeline__NameAssignment_2_1 ) )
-            // InternalCICDParser.g:1036:2: ( rule__Pipeline__NameAssignment_2_1 )
+            // InternalCICDParser.g:1122:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:1123:2: ( RULE_NEWLINE )?
             {
-             before(grammarAccess.getPipelineAccess().getNameAssignment_2_1()); 
-            // InternalCICDParser.g:1037:2: ( rule__Pipeline__NameAssignment_2_1 )
-            // InternalCICDParser.g:1037:3: rule__Pipeline__NameAssignment_2_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Pipeline__NameAssignment_2_1();
+             before(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_1()); 
+            // InternalCICDParser.g:1124:2: ( RULE_NEWLINE )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA13_0==RULE_NEWLINE) ) {
+                alt13=1;
+            }
+            switch (alt13) {
+                case 1 :
+                    // InternalCICDParser.g:1124:3: RULE_NEWLINE
+                    {
+                    match(input,RULE_NEWLINE,FOLLOW_2); 
 
+                    }
+                    break;
 
             }
 
-             after(grammarAccess.getPipelineAccess().getNameAssignment_2_1()); 
+             after(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_1()); 
 
             }
 
@@ -3273,87 +3541,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Pipeline__Group_2__1__Impl"
 
 
-    // $ANTLR start "rule__Pipeline__Group_2__2"
-    // InternalCICDParser.g:1045:1: rule__Pipeline__Group_2__2 : rule__Pipeline__Group_2__2__Impl ;
-    public final void rule__Pipeline__Group_2__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCICDParser.g:1049:1: ( rule__Pipeline__Group_2__2__Impl )
-            // InternalCICDParser.g:1050:2: rule__Pipeline__Group_2__2__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Pipeline__Group_2__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Pipeline__Group_2__2"
-
-
-    // $ANTLR start "rule__Pipeline__Group_2__2__Impl"
-    // InternalCICDParser.g:1056:1: rule__Pipeline__Group_2__2__Impl : ( RULE_NEWLINE ) ;
-    public final void rule__Pipeline__Group_2__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCICDParser.g:1060:1: ( ( RULE_NEWLINE ) )
-            // InternalCICDParser.g:1061:1: ( RULE_NEWLINE )
-            {
-            // InternalCICDParser.g:1061:1: ( RULE_NEWLINE )
-            // InternalCICDParser.g:1062:2: RULE_NEWLINE
-            {
-             before(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_2()); 
-            match(input,RULE_NEWLINE,FOLLOW_2); 
-             after(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Pipeline__Group_2__2__Impl"
-
-
     // $ANTLR start "rule__Pipeline__Group_3__0"
-    // InternalCICDParser.g:1072:1: rule__Pipeline__Group_3__0 : rule__Pipeline__Group_3__0__Impl rule__Pipeline__Group_3__1 ;
+    // InternalCICDParser.g:1133:1: rule__Pipeline__Group_3__0 : rule__Pipeline__Group_3__0__Impl rule__Pipeline__Group_3__1 ;
     public final void rule__Pipeline__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1076:1: ( rule__Pipeline__Group_3__0__Impl rule__Pipeline__Group_3__1 )
-            // InternalCICDParser.g:1077:2: rule__Pipeline__Group_3__0__Impl rule__Pipeline__Group_3__1
+            // InternalCICDParser.g:1137:1: ( rule__Pipeline__Group_3__0__Impl rule__Pipeline__Group_3__1 )
+            // InternalCICDParser.g:1138:2: rule__Pipeline__Group_3__0__Impl rule__Pipeline__Group_3__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_8);
             rule__Pipeline__Group_3__0__Impl();
 
             state._fsp--;
@@ -3382,58 +3580,58 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_3__0__Impl"
-    // InternalCICDParser.g:1084:1: rule__Pipeline__Group_3__0__Impl : ( ( ( rule__Pipeline__JobsAssignment_3_0 ) ) ( ( rule__Pipeline__JobsAssignment_3_0 )* ) ) ;
+    // InternalCICDParser.g:1145:1: rule__Pipeline__Group_3__0__Impl : ( ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 ) ) ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 )* ) ) ;
     public final void rule__Pipeline__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1088:1: ( ( ( ( rule__Pipeline__JobsAssignment_3_0 ) ) ( ( rule__Pipeline__JobsAssignment_3_0 )* ) ) )
-            // InternalCICDParser.g:1089:1: ( ( ( rule__Pipeline__JobsAssignment_3_0 ) ) ( ( rule__Pipeline__JobsAssignment_3_0 )* ) )
+            // InternalCICDParser.g:1149:1: ( ( ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 ) ) ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 )* ) ) )
+            // InternalCICDParser.g:1150:1: ( ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 ) ) ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 )* ) )
             {
-            // InternalCICDParser.g:1089:1: ( ( ( rule__Pipeline__JobsAssignment_3_0 ) ) ( ( rule__Pipeline__JobsAssignment_3_0 )* ) )
-            // InternalCICDParser.g:1090:2: ( ( rule__Pipeline__JobsAssignment_3_0 ) ) ( ( rule__Pipeline__JobsAssignment_3_0 )* )
+            // InternalCICDParser.g:1150:1: ( ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 ) ) ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 )* ) )
+            // InternalCICDParser.g:1151:2: ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 ) ) ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 )* )
             {
-            // InternalCICDParser.g:1090:2: ( ( rule__Pipeline__JobsAssignment_3_0 ) )
-            // InternalCICDParser.g:1091:3: ( rule__Pipeline__JobsAssignment_3_0 )
+            // InternalCICDParser.g:1151:2: ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 ) )
+            // InternalCICDParser.g:1152:3: ( rule__Pipeline__Pipeline_environmentAssignment_3_0 )
             {
-             before(grammarAccess.getPipelineAccess().getJobsAssignment_3_0()); 
-            // InternalCICDParser.g:1092:3: ( rule__Pipeline__JobsAssignment_3_0 )
-            // InternalCICDParser.g:1092:4: rule__Pipeline__JobsAssignment_3_0
+             before(grammarAccess.getPipelineAccess().getPipeline_environmentAssignment_3_0()); 
+            // InternalCICDParser.g:1153:3: ( rule__Pipeline__Pipeline_environmentAssignment_3_0 )
+            // InternalCICDParser.g:1153:4: rule__Pipeline__Pipeline_environmentAssignment_3_0
             {
-            pushFollow(FOLLOW_7);
-            rule__Pipeline__JobsAssignment_3_0();
+            pushFollow(FOLLOW_10);
+            rule__Pipeline__Pipeline_environmentAssignment_3_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPipelineAccess().getJobsAssignment_3_0()); 
+             after(grammarAccess.getPipelineAccess().getPipeline_environmentAssignment_3_0()); 
 
             }
 
-            // InternalCICDParser.g:1095:2: ( ( rule__Pipeline__JobsAssignment_3_0 )* )
-            // InternalCICDParser.g:1096:3: ( rule__Pipeline__JobsAssignment_3_0 )*
+            // InternalCICDParser.g:1156:2: ( ( rule__Pipeline__Pipeline_environmentAssignment_3_0 )* )
+            // InternalCICDParser.g:1157:3: ( rule__Pipeline__Pipeline_environmentAssignment_3_0 )*
             {
-             before(grammarAccess.getPipelineAccess().getJobsAssignment_3_0()); 
-            // InternalCICDParser.g:1097:3: ( rule__Pipeline__JobsAssignment_3_0 )*
-            loop13:
+             before(grammarAccess.getPipelineAccess().getPipeline_environmentAssignment_3_0()); 
+            // InternalCICDParser.g:1158:3: ( rule__Pipeline__Pipeline_environmentAssignment_3_0 )*
+            loop14:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( (LA13_0==Job) ) {
-                    alt13=1;
+                if ( (LA14_0==Environment) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt14) {
             	case 1 :
-            	    // InternalCICDParser.g:1097:4: rule__Pipeline__JobsAssignment_3_0
+            	    // InternalCICDParser.g:1158:4: rule__Pipeline__Pipeline_environmentAssignment_3_0
             	    {
-            	    pushFollow(FOLLOW_7);
-            	    rule__Pipeline__JobsAssignment_3_0();
+            	    pushFollow(FOLLOW_10);
+            	    rule__Pipeline__Pipeline_environmentAssignment_3_0();
 
             	    state._fsp--;
 
@@ -3442,11 +3640,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop14;
                 }
             } while (true);
 
-             after(grammarAccess.getPipelineAccess().getJobsAssignment_3_0()); 
+             after(grammarAccess.getPipelineAccess().getPipeline_environmentAssignment_3_0()); 
 
             }
 
@@ -3472,14 +3670,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_3__1"
-    // InternalCICDParser.g:1106:1: rule__Pipeline__Group_3__1 : rule__Pipeline__Group_3__1__Impl ;
+    // InternalCICDParser.g:1167:1: rule__Pipeline__Group_3__1 : rule__Pipeline__Group_3__1__Impl ;
     public final void rule__Pipeline__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1110:1: ( rule__Pipeline__Group_3__1__Impl )
-            // InternalCICDParser.g:1111:2: rule__Pipeline__Group_3__1__Impl
+            // InternalCICDParser.g:1171:1: ( rule__Pipeline__Group_3__1__Impl )
+            // InternalCICDParser.g:1172:2: rule__Pipeline__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Pipeline__Group_3__1__Impl();
@@ -3505,29 +3703,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_3__1__Impl"
-    // InternalCICDParser.g:1117:1: rule__Pipeline__Group_3__1__Impl : ( ( RULE_NEWLINE )? ) ;
+    // InternalCICDParser.g:1178:1: rule__Pipeline__Group_3__1__Impl : ( ( RULE_NEWLINE )? ) ;
     public final void rule__Pipeline__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1121:1: ( ( ( RULE_NEWLINE )? ) )
-            // InternalCICDParser.g:1122:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:1182:1: ( ( ( RULE_NEWLINE )? ) )
+            // InternalCICDParser.g:1183:1: ( ( RULE_NEWLINE )? )
             {
-            // InternalCICDParser.g:1122:1: ( ( RULE_NEWLINE )? )
-            // InternalCICDParser.g:1123:2: ( RULE_NEWLINE )?
+            // InternalCICDParser.g:1183:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:1184:2: ( RULE_NEWLINE )?
             {
              before(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_3_1()); 
-            // InternalCICDParser.g:1124:2: ( RULE_NEWLINE )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // InternalCICDParser.g:1185:2: ( RULE_NEWLINE )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA14_0==RULE_NEWLINE) ) {
-                alt14=1;
+            if ( (LA15_0==RULE_NEWLINE) ) {
+                alt15=1;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
-                    // InternalCICDParser.g:1124:3: RULE_NEWLINE
+                    // InternalCICDParser.g:1185:3: RULE_NEWLINE
                     {
                     match(input,RULE_NEWLINE,FOLLOW_2); 
 
@@ -3559,16 +3757,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_4__0"
-    // InternalCICDParser.g:1133:1: rule__Pipeline__Group_4__0 : rule__Pipeline__Group_4__0__Impl rule__Pipeline__Group_4__1 ;
+    // InternalCICDParser.g:1194:1: rule__Pipeline__Group_4__0 : rule__Pipeline__Group_4__0__Impl rule__Pipeline__Group_4__1 ;
     public final void rule__Pipeline__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1137:1: ( rule__Pipeline__Group_4__0__Impl rule__Pipeline__Group_4__1 )
-            // InternalCICDParser.g:1138:2: rule__Pipeline__Group_4__0__Impl rule__Pipeline__Group_4__1
+            // InternalCICDParser.g:1198:1: ( rule__Pipeline__Group_4__0__Impl rule__Pipeline__Group_4__1 )
+            // InternalCICDParser.g:1199:2: rule__Pipeline__Group_4__0__Impl rule__Pipeline__Group_4__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_8);
             rule__Pipeline__Group_4__0__Impl();
 
             state._fsp--;
@@ -3597,58 +3795,58 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_4__0__Impl"
-    // InternalCICDParser.g:1145:1: rule__Pipeline__Group_4__0__Impl : ( ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 ) ) ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 )* ) ) ;
+    // InternalCICDParser.g:1206:1: rule__Pipeline__Group_4__0__Impl : ( ( ( rule__Pipeline__TriggersAssignment_4_0 ) ) ( ( rule__Pipeline__TriggersAssignment_4_0 )* ) ) ;
     public final void rule__Pipeline__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1149:1: ( ( ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 ) ) ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 )* ) ) )
-            // InternalCICDParser.g:1150:1: ( ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 ) ) ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 )* ) )
+            // InternalCICDParser.g:1210:1: ( ( ( ( rule__Pipeline__TriggersAssignment_4_0 ) ) ( ( rule__Pipeline__TriggersAssignment_4_0 )* ) ) )
+            // InternalCICDParser.g:1211:1: ( ( ( rule__Pipeline__TriggersAssignment_4_0 ) ) ( ( rule__Pipeline__TriggersAssignment_4_0 )* ) )
             {
-            // InternalCICDParser.g:1150:1: ( ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 ) ) ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 )* ) )
-            // InternalCICDParser.g:1151:2: ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 ) ) ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 )* )
+            // InternalCICDParser.g:1211:1: ( ( ( rule__Pipeline__TriggersAssignment_4_0 ) ) ( ( rule__Pipeline__TriggersAssignment_4_0 )* ) )
+            // InternalCICDParser.g:1212:2: ( ( rule__Pipeline__TriggersAssignment_4_0 ) ) ( ( rule__Pipeline__TriggersAssignment_4_0 )* )
             {
-            // InternalCICDParser.g:1151:2: ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 ) )
-            // InternalCICDParser.g:1152:3: ( rule__Pipeline__Pipeline_environmentAssignment_4_0 )
+            // InternalCICDParser.g:1212:2: ( ( rule__Pipeline__TriggersAssignment_4_0 ) )
+            // InternalCICDParser.g:1213:3: ( rule__Pipeline__TriggersAssignment_4_0 )
             {
-             before(grammarAccess.getPipelineAccess().getPipeline_environmentAssignment_4_0()); 
-            // InternalCICDParser.g:1153:3: ( rule__Pipeline__Pipeline_environmentAssignment_4_0 )
-            // InternalCICDParser.g:1153:4: rule__Pipeline__Pipeline_environmentAssignment_4_0
+             before(grammarAccess.getPipelineAccess().getTriggersAssignment_4_0()); 
+            // InternalCICDParser.g:1214:3: ( rule__Pipeline__TriggersAssignment_4_0 )
+            // InternalCICDParser.g:1214:4: rule__Pipeline__TriggersAssignment_4_0
             {
-            pushFollow(FOLLOW_8);
-            rule__Pipeline__Pipeline_environmentAssignment_4_0();
+            pushFollow(FOLLOW_11);
+            rule__Pipeline__TriggersAssignment_4_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPipelineAccess().getPipeline_environmentAssignment_4_0()); 
+             after(grammarAccess.getPipelineAccess().getTriggersAssignment_4_0()); 
 
             }
 
-            // InternalCICDParser.g:1156:2: ( ( rule__Pipeline__Pipeline_environmentAssignment_4_0 )* )
-            // InternalCICDParser.g:1157:3: ( rule__Pipeline__Pipeline_environmentAssignment_4_0 )*
+            // InternalCICDParser.g:1217:2: ( ( rule__Pipeline__TriggersAssignment_4_0 )* )
+            // InternalCICDParser.g:1218:3: ( rule__Pipeline__TriggersAssignment_4_0 )*
             {
-             before(grammarAccess.getPipelineAccess().getPipeline_environmentAssignment_4_0()); 
-            // InternalCICDParser.g:1158:3: ( rule__Pipeline__Pipeline_environmentAssignment_4_0 )*
-            loop15:
+             before(grammarAccess.getPipelineAccess().getTriggersAssignment_4_0()); 
+            // InternalCICDParser.g:1219:3: ( rule__Pipeline__TriggersAssignment_4_0 )*
+            loop16:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( (LA15_0==Environment) ) {
-                    alt15=1;
+                if ( (LA16_0==ScheduleTrigger) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt16) {
             	case 1 :
-            	    // InternalCICDParser.g:1158:4: rule__Pipeline__Pipeline_environmentAssignment_4_0
+            	    // InternalCICDParser.g:1219:4: rule__Pipeline__TriggersAssignment_4_0
             	    {
-            	    pushFollow(FOLLOW_8);
-            	    rule__Pipeline__Pipeline_environmentAssignment_4_0();
+            	    pushFollow(FOLLOW_11);
+            	    rule__Pipeline__TriggersAssignment_4_0();
 
             	    state._fsp--;
 
@@ -3657,11 +3855,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop16;
                 }
             } while (true);
 
-             after(grammarAccess.getPipelineAccess().getPipeline_environmentAssignment_4_0()); 
+             after(grammarAccess.getPipelineAccess().getTriggersAssignment_4_0()); 
 
             }
 
@@ -3687,14 +3885,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_4__1"
-    // InternalCICDParser.g:1167:1: rule__Pipeline__Group_4__1 : rule__Pipeline__Group_4__1__Impl ;
+    // InternalCICDParser.g:1228:1: rule__Pipeline__Group_4__1 : rule__Pipeline__Group_4__1__Impl ;
     public final void rule__Pipeline__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1171:1: ( rule__Pipeline__Group_4__1__Impl )
-            // InternalCICDParser.g:1172:2: rule__Pipeline__Group_4__1__Impl
+            // InternalCICDParser.g:1232:1: ( rule__Pipeline__Group_4__1__Impl )
+            // InternalCICDParser.g:1233:2: rule__Pipeline__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Pipeline__Group_4__1__Impl();
@@ -3720,29 +3918,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_4__1__Impl"
-    // InternalCICDParser.g:1178:1: rule__Pipeline__Group_4__1__Impl : ( ( RULE_NEWLINE )? ) ;
+    // InternalCICDParser.g:1239:1: rule__Pipeline__Group_4__1__Impl : ( ( RULE_NEWLINE )? ) ;
     public final void rule__Pipeline__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1182:1: ( ( ( RULE_NEWLINE )? ) )
-            // InternalCICDParser.g:1183:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:1243:1: ( ( ( RULE_NEWLINE )? ) )
+            // InternalCICDParser.g:1244:1: ( ( RULE_NEWLINE )? )
             {
-            // InternalCICDParser.g:1183:1: ( ( RULE_NEWLINE )? )
-            // InternalCICDParser.g:1184:2: ( RULE_NEWLINE )?
+            // InternalCICDParser.g:1244:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:1245:2: ( RULE_NEWLINE )?
             {
              before(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_4_1()); 
-            // InternalCICDParser.g:1185:2: ( RULE_NEWLINE )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalCICDParser.g:1246:2: ( RULE_NEWLINE )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA16_0==RULE_NEWLINE) ) {
-                alt16=1;
+            if ( (LA17_0==RULE_NEWLINE) ) {
+                alt17=1;
             }
-            switch (alt16) {
+            switch (alt17) {
                 case 1 :
-                    // InternalCICDParser.g:1185:3: RULE_NEWLINE
+                    // InternalCICDParser.g:1246:3: RULE_NEWLINE
                     {
                     match(input,RULE_NEWLINE,FOLLOW_2); 
 
@@ -3774,16 +3972,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_5__0"
-    // InternalCICDParser.g:1194:1: rule__Pipeline__Group_5__0 : rule__Pipeline__Group_5__0__Impl rule__Pipeline__Group_5__1 ;
+    // InternalCICDParser.g:1255:1: rule__Pipeline__Group_5__0 : rule__Pipeline__Group_5__0__Impl rule__Pipeline__Group_5__1 ;
     public final void rule__Pipeline__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1198:1: ( rule__Pipeline__Group_5__0__Impl rule__Pipeline__Group_5__1 )
-            // InternalCICDParser.g:1199:2: rule__Pipeline__Group_5__0__Impl rule__Pipeline__Group_5__1
+            // InternalCICDParser.g:1259:1: ( rule__Pipeline__Group_5__0__Impl rule__Pipeline__Group_5__1 )
+            // InternalCICDParser.g:1260:2: rule__Pipeline__Group_5__0__Impl rule__Pipeline__Group_5__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_8);
             rule__Pipeline__Group_5__0__Impl();
 
             state._fsp--;
@@ -3812,58 +4010,58 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_5__0__Impl"
-    // InternalCICDParser.g:1206:1: rule__Pipeline__Group_5__0__Impl : ( ( ( rule__Pipeline__TriggersAssignment_5_0 ) ) ( ( rule__Pipeline__TriggersAssignment_5_0 )* ) ) ;
+    // InternalCICDParser.g:1267:1: rule__Pipeline__Group_5__0__Impl : ( ( ( rule__Pipeline__AgentsAssignment_5_0 ) ) ( ( rule__Pipeline__AgentsAssignment_5_0 )* ) ) ;
     public final void rule__Pipeline__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1210:1: ( ( ( ( rule__Pipeline__TriggersAssignment_5_0 ) ) ( ( rule__Pipeline__TriggersAssignment_5_0 )* ) ) )
-            // InternalCICDParser.g:1211:1: ( ( ( rule__Pipeline__TriggersAssignment_5_0 ) ) ( ( rule__Pipeline__TriggersAssignment_5_0 )* ) )
+            // InternalCICDParser.g:1271:1: ( ( ( ( rule__Pipeline__AgentsAssignment_5_0 ) ) ( ( rule__Pipeline__AgentsAssignment_5_0 )* ) ) )
+            // InternalCICDParser.g:1272:1: ( ( ( rule__Pipeline__AgentsAssignment_5_0 ) ) ( ( rule__Pipeline__AgentsAssignment_5_0 )* ) )
             {
-            // InternalCICDParser.g:1211:1: ( ( ( rule__Pipeline__TriggersAssignment_5_0 ) ) ( ( rule__Pipeline__TriggersAssignment_5_0 )* ) )
-            // InternalCICDParser.g:1212:2: ( ( rule__Pipeline__TriggersAssignment_5_0 ) ) ( ( rule__Pipeline__TriggersAssignment_5_0 )* )
+            // InternalCICDParser.g:1272:1: ( ( ( rule__Pipeline__AgentsAssignment_5_0 ) ) ( ( rule__Pipeline__AgentsAssignment_5_0 )* ) )
+            // InternalCICDParser.g:1273:2: ( ( rule__Pipeline__AgentsAssignment_5_0 ) ) ( ( rule__Pipeline__AgentsAssignment_5_0 )* )
             {
-            // InternalCICDParser.g:1212:2: ( ( rule__Pipeline__TriggersAssignment_5_0 ) )
-            // InternalCICDParser.g:1213:3: ( rule__Pipeline__TriggersAssignment_5_0 )
+            // InternalCICDParser.g:1273:2: ( ( rule__Pipeline__AgentsAssignment_5_0 ) )
+            // InternalCICDParser.g:1274:3: ( rule__Pipeline__AgentsAssignment_5_0 )
             {
-             before(grammarAccess.getPipelineAccess().getTriggersAssignment_5_0()); 
-            // InternalCICDParser.g:1214:3: ( rule__Pipeline__TriggersAssignment_5_0 )
-            // InternalCICDParser.g:1214:4: rule__Pipeline__TriggersAssignment_5_0
+             before(grammarAccess.getPipelineAccess().getAgentsAssignment_5_0()); 
+            // InternalCICDParser.g:1275:3: ( rule__Pipeline__AgentsAssignment_5_0 )
+            // InternalCICDParser.g:1275:4: rule__Pipeline__AgentsAssignment_5_0
             {
-            pushFollow(FOLLOW_9);
-            rule__Pipeline__TriggersAssignment_5_0();
+            pushFollow(FOLLOW_12);
+            rule__Pipeline__AgentsAssignment_5_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPipelineAccess().getTriggersAssignment_5_0()); 
+             after(grammarAccess.getPipelineAccess().getAgentsAssignment_5_0()); 
 
             }
 
-            // InternalCICDParser.g:1217:2: ( ( rule__Pipeline__TriggersAssignment_5_0 )* )
-            // InternalCICDParser.g:1218:3: ( rule__Pipeline__TriggersAssignment_5_0 )*
+            // InternalCICDParser.g:1278:2: ( ( rule__Pipeline__AgentsAssignment_5_0 )* )
+            // InternalCICDParser.g:1279:3: ( rule__Pipeline__AgentsAssignment_5_0 )*
             {
-             before(grammarAccess.getPipelineAccess().getTriggersAssignment_5_0()); 
-            // InternalCICDParser.g:1219:3: ( rule__Pipeline__TriggersAssignment_5_0 )*
-            loop17:
+             before(grammarAccess.getPipelineAccess().getAgentsAssignment_5_0()); 
+            // InternalCICDParser.g:1280:3: ( rule__Pipeline__AgentsAssignment_5_0 )*
+            loop18:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( (LA17_0==ScheduleTrigger) ) {
-                    alt17=1;
+                if ( (LA18_0==Agent) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt18) {
             	case 1 :
-            	    // InternalCICDParser.g:1219:4: rule__Pipeline__TriggersAssignment_5_0
+            	    // InternalCICDParser.g:1280:4: rule__Pipeline__AgentsAssignment_5_0
             	    {
-            	    pushFollow(FOLLOW_9);
-            	    rule__Pipeline__TriggersAssignment_5_0();
+            	    pushFollow(FOLLOW_12);
+            	    rule__Pipeline__AgentsAssignment_5_0();
 
             	    state._fsp--;
 
@@ -3872,11 +4070,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop17;
+            	    break loop18;
                 }
             } while (true);
 
-             after(grammarAccess.getPipelineAccess().getTriggersAssignment_5_0()); 
+             after(grammarAccess.getPipelineAccess().getAgentsAssignment_5_0()); 
 
             }
 
@@ -3902,14 +4100,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_5__1"
-    // InternalCICDParser.g:1228:1: rule__Pipeline__Group_5__1 : rule__Pipeline__Group_5__1__Impl ;
+    // InternalCICDParser.g:1289:1: rule__Pipeline__Group_5__1 : rule__Pipeline__Group_5__1__Impl ;
     public final void rule__Pipeline__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1232:1: ( rule__Pipeline__Group_5__1__Impl )
-            // InternalCICDParser.g:1233:2: rule__Pipeline__Group_5__1__Impl
+            // InternalCICDParser.g:1293:1: ( rule__Pipeline__Group_5__1__Impl )
+            // InternalCICDParser.g:1294:2: rule__Pipeline__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Pipeline__Group_5__1__Impl();
@@ -3935,29 +4133,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_5__1__Impl"
-    // InternalCICDParser.g:1239:1: rule__Pipeline__Group_5__1__Impl : ( ( RULE_NEWLINE )? ) ;
+    // InternalCICDParser.g:1300:1: rule__Pipeline__Group_5__1__Impl : ( ( RULE_NEWLINE )? ) ;
     public final void rule__Pipeline__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1243:1: ( ( ( RULE_NEWLINE )? ) )
-            // InternalCICDParser.g:1244:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:1304:1: ( ( ( RULE_NEWLINE )? ) )
+            // InternalCICDParser.g:1305:1: ( ( RULE_NEWLINE )? )
             {
-            // InternalCICDParser.g:1244:1: ( ( RULE_NEWLINE )? )
-            // InternalCICDParser.g:1245:2: ( RULE_NEWLINE )?
+            // InternalCICDParser.g:1305:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:1306:2: ( RULE_NEWLINE )?
             {
              before(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_5_1()); 
-            // InternalCICDParser.g:1246:2: ( RULE_NEWLINE )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // InternalCICDParser.g:1307:2: ( RULE_NEWLINE )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA18_0==RULE_NEWLINE) ) {
-                alt18=1;
+            if ( (LA19_0==RULE_NEWLINE) ) {
+                alt19=1;
             }
-            switch (alt18) {
+            switch (alt19) {
                 case 1 :
-                    // InternalCICDParser.g:1246:3: RULE_NEWLINE
+                    // InternalCICDParser.g:1307:3: RULE_NEWLINE
                     {
                     match(input,RULE_NEWLINE,FOLLOW_2); 
 
@@ -3989,16 +4187,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_6__0"
-    // InternalCICDParser.g:1255:1: rule__Pipeline__Group_6__0 : rule__Pipeline__Group_6__0__Impl rule__Pipeline__Group_6__1 ;
+    // InternalCICDParser.g:1316:1: rule__Pipeline__Group_6__0 : rule__Pipeline__Group_6__0__Impl rule__Pipeline__Group_6__1 ;
     public final void rule__Pipeline__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1259:1: ( rule__Pipeline__Group_6__0__Impl rule__Pipeline__Group_6__1 )
-            // InternalCICDParser.g:1260:2: rule__Pipeline__Group_6__0__Impl rule__Pipeline__Group_6__1
+            // InternalCICDParser.g:1320:1: ( rule__Pipeline__Group_6__0__Impl rule__Pipeline__Group_6__1 )
+            // InternalCICDParser.g:1321:2: rule__Pipeline__Group_6__0__Impl rule__Pipeline__Group_6__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_8);
             rule__Pipeline__Group_6__0__Impl();
 
             state._fsp--;
@@ -4027,58 +4225,58 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_6__0__Impl"
-    // InternalCICDParser.g:1267:1: rule__Pipeline__Group_6__0__Impl : ( ( ( rule__Pipeline__AgentsAssignment_6_0 ) ) ( ( rule__Pipeline__AgentsAssignment_6_0 )* ) ) ;
+    // InternalCICDParser.g:1328:1: rule__Pipeline__Group_6__0__Impl : ( ( ( rule__Pipeline__InputsAssignment_6_0 ) ) ( ( rule__Pipeline__InputsAssignment_6_0 )* ) ) ;
     public final void rule__Pipeline__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1271:1: ( ( ( ( rule__Pipeline__AgentsAssignment_6_0 ) ) ( ( rule__Pipeline__AgentsAssignment_6_0 )* ) ) )
-            // InternalCICDParser.g:1272:1: ( ( ( rule__Pipeline__AgentsAssignment_6_0 ) ) ( ( rule__Pipeline__AgentsAssignment_6_0 )* ) )
+            // InternalCICDParser.g:1332:1: ( ( ( ( rule__Pipeline__InputsAssignment_6_0 ) ) ( ( rule__Pipeline__InputsAssignment_6_0 )* ) ) )
+            // InternalCICDParser.g:1333:1: ( ( ( rule__Pipeline__InputsAssignment_6_0 ) ) ( ( rule__Pipeline__InputsAssignment_6_0 )* ) )
             {
-            // InternalCICDParser.g:1272:1: ( ( ( rule__Pipeline__AgentsAssignment_6_0 ) ) ( ( rule__Pipeline__AgentsAssignment_6_0 )* ) )
-            // InternalCICDParser.g:1273:2: ( ( rule__Pipeline__AgentsAssignment_6_0 ) ) ( ( rule__Pipeline__AgentsAssignment_6_0 )* )
+            // InternalCICDParser.g:1333:1: ( ( ( rule__Pipeline__InputsAssignment_6_0 ) ) ( ( rule__Pipeline__InputsAssignment_6_0 )* ) )
+            // InternalCICDParser.g:1334:2: ( ( rule__Pipeline__InputsAssignment_6_0 ) ) ( ( rule__Pipeline__InputsAssignment_6_0 )* )
             {
-            // InternalCICDParser.g:1273:2: ( ( rule__Pipeline__AgentsAssignment_6_0 ) )
-            // InternalCICDParser.g:1274:3: ( rule__Pipeline__AgentsAssignment_6_0 )
+            // InternalCICDParser.g:1334:2: ( ( rule__Pipeline__InputsAssignment_6_0 ) )
+            // InternalCICDParser.g:1335:3: ( rule__Pipeline__InputsAssignment_6_0 )
             {
-             before(grammarAccess.getPipelineAccess().getAgentsAssignment_6_0()); 
-            // InternalCICDParser.g:1275:3: ( rule__Pipeline__AgentsAssignment_6_0 )
-            // InternalCICDParser.g:1275:4: rule__Pipeline__AgentsAssignment_6_0
+             before(grammarAccess.getPipelineAccess().getInputsAssignment_6_0()); 
+            // InternalCICDParser.g:1336:3: ( rule__Pipeline__InputsAssignment_6_0 )
+            // InternalCICDParser.g:1336:4: rule__Pipeline__InputsAssignment_6_0
             {
-            pushFollow(FOLLOW_10);
-            rule__Pipeline__AgentsAssignment_6_0();
+            pushFollow(FOLLOW_13);
+            rule__Pipeline__InputsAssignment_6_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPipelineAccess().getAgentsAssignment_6_0()); 
+             after(grammarAccess.getPipelineAccess().getInputsAssignment_6_0()); 
 
             }
 
-            // InternalCICDParser.g:1278:2: ( ( rule__Pipeline__AgentsAssignment_6_0 )* )
-            // InternalCICDParser.g:1279:3: ( rule__Pipeline__AgentsAssignment_6_0 )*
+            // InternalCICDParser.g:1339:2: ( ( rule__Pipeline__InputsAssignment_6_0 )* )
+            // InternalCICDParser.g:1340:3: ( rule__Pipeline__InputsAssignment_6_0 )*
             {
-             before(grammarAccess.getPipelineAccess().getAgentsAssignment_6_0()); 
-            // InternalCICDParser.g:1280:3: ( rule__Pipeline__AgentsAssignment_6_0 )*
-            loop19:
+             before(grammarAccess.getPipelineAccess().getInputsAssignment_6_0()); 
+            // InternalCICDParser.g:1341:3: ( rule__Pipeline__InputsAssignment_6_0 )*
+            loop20:
             do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
+                int alt20=2;
+                int LA20_0 = input.LA(1);
 
-                if ( (LA19_0==Agent) ) {
-                    alt19=1;
+                if ( (LA20_0==Input) ) {
+                    alt20=1;
                 }
 
 
-                switch (alt19) {
+                switch (alt20) {
             	case 1 :
-            	    // InternalCICDParser.g:1280:4: rule__Pipeline__AgentsAssignment_6_0
+            	    // InternalCICDParser.g:1341:4: rule__Pipeline__InputsAssignment_6_0
             	    {
-            	    pushFollow(FOLLOW_10);
-            	    rule__Pipeline__AgentsAssignment_6_0();
+            	    pushFollow(FOLLOW_13);
+            	    rule__Pipeline__InputsAssignment_6_0();
 
             	    state._fsp--;
 
@@ -4087,11 +4285,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop19;
+            	    break loop20;
                 }
             } while (true);
 
-             after(grammarAccess.getPipelineAccess().getAgentsAssignment_6_0()); 
+             after(grammarAccess.getPipelineAccess().getInputsAssignment_6_0()); 
 
             }
 
@@ -4117,14 +4315,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_6__1"
-    // InternalCICDParser.g:1289:1: rule__Pipeline__Group_6__1 : rule__Pipeline__Group_6__1__Impl ;
+    // InternalCICDParser.g:1350:1: rule__Pipeline__Group_6__1 : rule__Pipeline__Group_6__1__Impl ;
     public final void rule__Pipeline__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1293:1: ( rule__Pipeline__Group_6__1__Impl )
-            // InternalCICDParser.g:1294:2: rule__Pipeline__Group_6__1__Impl
+            // InternalCICDParser.g:1354:1: ( rule__Pipeline__Group_6__1__Impl )
+            // InternalCICDParser.g:1355:2: rule__Pipeline__Group_6__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Pipeline__Group_6__1__Impl();
@@ -4150,29 +4348,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_6__1__Impl"
-    // InternalCICDParser.g:1300:1: rule__Pipeline__Group_6__1__Impl : ( ( RULE_NEWLINE )? ) ;
+    // InternalCICDParser.g:1361:1: rule__Pipeline__Group_6__1__Impl : ( ( RULE_NEWLINE )? ) ;
     public final void rule__Pipeline__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1304:1: ( ( ( RULE_NEWLINE )? ) )
-            // InternalCICDParser.g:1305:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:1365:1: ( ( ( RULE_NEWLINE )? ) )
+            // InternalCICDParser.g:1366:1: ( ( RULE_NEWLINE )? )
             {
-            // InternalCICDParser.g:1305:1: ( ( RULE_NEWLINE )? )
-            // InternalCICDParser.g:1306:2: ( RULE_NEWLINE )?
+            // InternalCICDParser.g:1366:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:1367:2: ( RULE_NEWLINE )?
             {
              before(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_6_1()); 
-            // InternalCICDParser.g:1307:2: ( RULE_NEWLINE )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // InternalCICDParser.g:1368:2: ( RULE_NEWLINE )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA20_0==RULE_NEWLINE) ) {
-                alt20=1;
+            if ( (LA21_0==RULE_NEWLINE) ) {
+                alt21=1;
             }
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
-                    // InternalCICDParser.g:1307:3: RULE_NEWLINE
+                    // InternalCICDParser.g:1368:3: RULE_NEWLINE
                     {
                     match(input,RULE_NEWLINE,FOLLOW_2); 
 
@@ -4204,16 +4402,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_7__0"
-    // InternalCICDParser.g:1316:1: rule__Pipeline__Group_7__0 : rule__Pipeline__Group_7__0__Impl rule__Pipeline__Group_7__1 ;
+    // InternalCICDParser.g:1377:1: rule__Pipeline__Group_7__0 : rule__Pipeline__Group_7__0__Impl rule__Pipeline__Group_7__1 ;
     public final void rule__Pipeline__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1320:1: ( rule__Pipeline__Group_7__0__Impl rule__Pipeline__Group_7__1 )
-            // InternalCICDParser.g:1321:2: rule__Pipeline__Group_7__0__Impl rule__Pipeline__Group_7__1
+            // InternalCICDParser.g:1381:1: ( rule__Pipeline__Group_7__0__Impl rule__Pipeline__Group_7__1 )
+            // InternalCICDParser.g:1382:2: rule__Pipeline__Group_7__0__Impl rule__Pipeline__Group_7__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_8);
             rule__Pipeline__Group_7__0__Impl();
 
             state._fsp--;
@@ -4242,58 +4440,58 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_7__0__Impl"
-    // InternalCICDParser.g:1328:1: rule__Pipeline__Group_7__0__Impl : ( ( ( rule__Pipeline__InputsAssignment_7_0 ) ) ( ( rule__Pipeline__InputsAssignment_7_0 )* ) ) ;
+    // InternalCICDParser.g:1389:1: rule__Pipeline__Group_7__0__Impl : ( ( ( rule__Pipeline__OutputAssignment_7_0 ) ) ( ( rule__Pipeline__OutputAssignment_7_0 )* ) ) ;
     public final void rule__Pipeline__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1332:1: ( ( ( ( rule__Pipeline__InputsAssignment_7_0 ) ) ( ( rule__Pipeline__InputsAssignment_7_0 )* ) ) )
-            // InternalCICDParser.g:1333:1: ( ( ( rule__Pipeline__InputsAssignment_7_0 ) ) ( ( rule__Pipeline__InputsAssignment_7_0 )* ) )
+            // InternalCICDParser.g:1393:1: ( ( ( ( rule__Pipeline__OutputAssignment_7_0 ) ) ( ( rule__Pipeline__OutputAssignment_7_0 )* ) ) )
+            // InternalCICDParser.g:1394:1: ( ( ( rule__Pipeline__OutputAssignment_7_0 ) ) ( ( rule__Pipeline__OutputAssignment_7_0 )* ) )
             {
-            // InternalCICDParser.g:1333:1: ( ( ( rule__Pipeline__InputsAssignment_7_0 ) ) ( ( rule__Pipeline__InputsAssignment_7_0 )* ) )
-            // InternalCICDParser.g:1334:2: ( ( rule__Pipeline__InputsAssignment_7_0 ) ) ( ( rule__Pipeline__InputsAssignment_7_0 )* )
+            // InternalCICDParser.g:1394:1: ( ( ( rule__Pipeline__OutputAssignment_7_0 ) ) ( ( rule__Pipeline__OutputAssignment_7_0 )* ) )
+            // InternalCICDParser.g:1395:2: ( ( rule__Pipeline__OutputAssignment_7_0 ) ) ( ( rule__Pipeline__OutputAssignment_7_0 )* )
             {
-            // InternalCICDParser.g:1334:2: ( ( rule__Pipeline__InputsAssignment_7_0 ) )
-            // InternalCICDParser.g:1335:3: ( rule__Pipeline__InputsAssignment_7_0 )
+            // InternalCICDParser.g:1395:2: ( ( rule__Pipeline__OutputAssignment_7_0 ) )
+            // InternalCICDParser.g:1396:3: ( rule__Pipeline__OutputAssignment_7_0 )
             {
-             before(grammarAccess.getPipelineAccess().getInputsAssignment_7_0()); 
-            // InternalCICDParser.g:1336:3: ( rule__Pipeline__InputsAssignment_7_0 )
-            // InternalCICDParser.g:1336:4: rule__Pipeline__InputsAssignment_7_0
+             before(grammarAccess.getPipelineAccess().getOutputAssignment_7_0()); 
+            // InternalCICDParser.g:1397:3: ( rule__Pipeline__OutputAssignment_7_0 )
+            // InternalCICDParser.g:1397:4: rule__Pipeline__OutputAssignment_7_0
             {
-            pushFollow(FOLLOW_11);
-            rule__Pipeline__InputsAssignment_7_0();
+            pushFollow(FOLLOW_14);
+            rule__Pipeline__OutputAssignment_7_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPipelineAccess().getInputsAssignment_7_0()); 
+             after(grammarAccess.getPipelineAccess().getOutputAssignment_7_0()); 
 
             }
 
-            // InternalCICDParser.g:1339:2: ( ( rule__Pipeline__InputsAssignment_7_0 )* )
-            // InternalCICDParser.g:1340:3: ( rule__Pipeline__InputsAssignment_7_0 )*
+            // InternalCICDParser.g:1400:2: ( ( rule__Pipeline__OutputAssignment_7_0 )* )
+            // InternalCICDParser.g:1401:3: ( rule__Pipeline__OutputAssignment_7_0 )*
             {
-             before(grammarAccess.getPipelineAccess().getInputsAssignment_7_0()); 
-            // InternalCICDParser.g:1341:3: ( rule__Pipeline__InputsAssignment_7_0 )*
-            loop21:
+             before(grammarAccess.getPipelineAccess().getOutputAssignment_7_0()); 
+            // InternalCICDParser.g:1402:3: ( rule__Pipeline__OutputAssignment_7_0 )*
+            loop22:
             do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
+                int alt22=2;
+                int LA22_0 = input.LA(1);
 
-                if ( (LA21_0==Input) ) {
-                    alt21=1;
+                if ( (LA22_0==Output) ) {
+                    alt22=1;
                 }
 
 
-                switch (alt21) {
+                switch (alt22) {
             	case 1 :
-            	    // InternalCICDParser.g:1341:4: rule__Pipeline__InputsAssignment_7_0
+            	    // InternalCICDParser.g:1402:4: rule__Pipeline__OutputAssignment_7_0
             	    {
-            	    pushFollow(FOLLOW_11);
-            	    rule__Pipeline__InputsAssignment_7_0();
+            	    pushFollow(FOLLOW_14);
+            	    rule__Pipeline__OutputAssignment_7_0();
 
             	    state._fsp--;
 
@@ -4302,11 +4500,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop21;
+            	    break loop22;
                 }
             } while (true);
 
-             after(grammarAccess.getPipelineAccess().getInputsAssignment_7_0()); 
+             after(grammarAccess.getPipelineAccess().getOutputAssignment_7_0()); 
 
             }
 
@@ -4332,14 +4530,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_7__1"
-    // InternalCICDParser.g:1350:1: rule__Pipeline__Group_7__1 : rule__Pipeline__Group_7__1__Impl ;
+    // InternalCICDParser.g:1411:1: rule__Pipeline__Group_7__1 : rule__Pipeline__Group_7__1__Impl ;
     public final void rule__Pipeline__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1354:1: ( rule__Pipeline__Group_7__1__Impl )
-            // InternalCICDParser.g:1355:2: rule__Pipeline__Group_7__1__Impl
+            // InternalCICDParser.g:1415:1: ( rule__Pipeline__Group_7__1__Impl )
+            // InternalCICDParser.g:1416:2: rule__Pipeline__Group_7__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Pipeline__Group_7__1__Impl();
@@ -4365,29 +4563,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Pipeline__Group_7__1__Impl"
-    // InternalCICDParser.g:1361:1: rule__Pipeline__Group_7__1__Impl : ( ( RULE_NEWLINE )? ) ;
+    // InternalCICDParser.g:1422:1: rule__Pipeline__Group_7__1__Impl : ( ( RULE_NEWLINE )? ) ;
     public final void rule__Pipeline__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1365:1: ( ( ( RULE_NEWLINE )? ) )
-            // InternalCICDParser.g:1366:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:1426:1: ( ( ( RULE_NEWLINE )? ) )
+            // InternalCICDParser.g:1427:1: ( ( RULE_NEWLINE )? )
             {
-            // InternalCICDParser.g:1366:1: ( ( RULE_NEWLINE )? )
-            // InternalCICDParser.g:1367:2: ( RULE_NEWLINE )?
+            // InternalCICDParser.g:1427:1: ( ( RULE_NEWLINE )? )
+            // InternalCICDParser.g:1428:2: ( RULE_NEWLINE )?
             {
              before(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_7_1()); 
-            // InternalCICDParser.g:1368:2: ( RULE_NEWLINE )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // InternalCICDParser.g:1429:2: ( RULE_NEWLINE )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA22_0==RULE_NEWLINE) ) {
-                alt22=1;
+            if ( (LA23_0==RULE_NEWLINE) ) {
+                alt23=1;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // InternalCICDParser.g:1368:3: RULE_NEWLINE
+                    // InternalCICDParser.g:1429:3: RULE_NEWLINE
                     {
                     match(input,RULE_NEWLINE,FOLLOW_2); 
 
@@ -4418,221 +4616,6 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Pipeline__Group_7__1__Impl"
 
 
-    // $ANTLR start "rule__Pipeline__Group_8__0"
-    // InternalCICDParser.g:1377:1: rule__Pipeline__Group_8__0 : rule__Pipeline__Group_8__0__Impl rule__Pipeline__Group_8__1 ;
-    public final void rule__Pipeline__Group_8__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCICDParser.g:1381:1: ( rule__Pipeline__Group_8__0__Impl rule__Pipeline__Group_8__1 )
-            // InternalCICDParser.g:1382:2: rule__Pipeline__Group_8__0__Impl rule__Pipeline__Group_8__1
-            {
-            pushFollow(FOLLOW_6);
-            rule__Pipeline__Group_8__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Pipeline__Group_8__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Pipeline__Group_8__0"
-
-
-    // $ANTLR start "rule__Pipeline__Group_8__0__Impl"
-    // InternalCICDParser.g:1389:1: rule__Pipeline__Group_8__0__Impl : ( ( ( rule__Pipeline__OutputAssignment_8_0 ) ) ( ( rule__Pipeline__OutputAssignment_8_0 )* ) ) ;
-    public final void rule__Pipeline__Group_8__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCICDParser.g:1393:1: ( ( ( ( rule__Pipeline__OutputAssignment_8_0 ) ) ( ( rule__Pipeline__OutputAssignment_8_0 )* ) ) )
-            // InternalCICDParser.g:1394:1: ( ( ( rule__Pipeline__OutputAssignment_8_0 ) ) ( ( rule__Pipeline__OutputAssignment_8_0 )* ) )
-            {
-            // InternalCICDParser.g:1394:1: ( ( ( rule__Pipeline__OutputAssignment_8_0 ) ) ( ( rule__Pipeline__OutputAssignment_8_0 )* ) )
-            // InternalCICDParser.g:1395:2: ( ( rule__Pipeline__OutputAssignment_8_0 ) ) ( ( rule__Pipeline__OutputAssignment_8_0 )* )
-            {
-            // InternalCICDParser.g:1395:2: ( ( rule__Pipeline__OutputAssignment_8_0 ) )
-            // InternalCICDParser.g:1396:3: ( rule__Pipeline__OutputAssignment_8_0 )
-            {
-             before(grammarAccess.getPipelineAccess().getOutputAssignment_8_0()); 
-            // InternalCICDParser.g:1397:3: ( rule__Pipeline__OutputAssignment_8_0 )
-            // InternalCICDParser.g:1397:4: rule__Pipeline__OutputAssignment_8_0
-            {
-            pushFollow(FOLLOW_12);
-            rule__Pipeline__OutputAssignment_8_0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getPipelineAccess().getOutputAssignment_8_0()); 
-
-            }
-
-            // InternalCICDParser.g:1400:2: ( ( rule__Pipeline__OutputAssignment_8_0 )* )
-            // InternalCICDParser.g:1401:3: ( rule__Pipeline__OutputAssignment_8_0 )*
-            {
-             before(grammarAccess.getPipelineAccess().getOutputAssignment_8_0()); 
-            // InternalCICDParser.g:1402:3: ( rule__Pipeline__OutputAssignment_8_0 )*
-            loop23:
-            do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
-
-                if ( (LA23_0==Output) ) {
-                    alt23=1;
-                }
-
-
-                switch (alt23) {
-            	case 1 :
-            	    // InternalCICDParser.g:1402:4: rule__Pipeline__OutputAssignment_8_0
-            	    {
-            	    pushFollow(FOLLOW_12);
-            	    rule__Pipeline__OutputAssignment_8_0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop23;
-                }
-            } while (true);
-
-             after(grammarAccess.getPipelineAccess().getOutputAssignment_8_0()); 
-
-            }
-
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Pipeline__Group_8__0__Impl"
-
-
-    // $ANTLR start "rule__Pipeline__Group_8__1"
-    // InternalCICDParser.g:1411:1: rule__Pipeline__Group_8__1 : rule__Pipeline__Group_8__1__Impl ;
-    public final void rule__Pipeline__Group_8__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCICDParser.g:1415:1: ( rule__Pipeline__Group_8__1__Impl )
-            // InternalCICDParser.g:1416:2: rule__Pipeline__Group_8__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Pipeline__Group_8__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Pipeline__Group_8__1"
-
-
-    // $ANTLR start "rule__Pipeline__Group_8__1__Impl"
-    // InternalCICDParser.g:1422:1: rule__Pipeline__Group_8__1__Impl : ( ( RULE_NEWLINE )? ) ;
-    public final void rule__Pipeline__Group_8__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCICDParser.g:1426:1: ( ( ( RULE_NEWLINE )? ) )
-            // InternalCICDParser.g:1427:1: ( ( RULE_NEWLINE )? )
-            {
-            // InternalCICDParser.g:1427:1: ( ( RULE_NEWLINE )? )
-            // InternalCICDParser.g:1428:2: ( RULE_NEWLINE )?
-            {
-             before(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_8_1()); 
-            // InternalCICDParser.g:1429:2: ( RULE_NEWLINE )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
-
-            if ( (LA24_0==RULE_NEWLINE) ) {
-                alt24=1;
-            }
-            switch (alt24) {
-                case 1 :
-                    // InternalCICDParser.g:1429:3: RULE_NEWLINE
-                    {
-                    match(input,RULE_NEWLINE,FOLLOW_2); 
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_8_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Pipeline__Group_8__1__Impl"
-
-
     // $ANTLR start "rule__Job__Group__0"
     // InternalCICDParser.g:1438:1: rule__Job__Group__0 : rule__Job__Group__0__Impl rule__Job__Group__1 ;
     public final void rule__Job__Group__0() throws RecognitionException {
@@ -4643,7 +4626,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1442:1: ( rule__Job__Group__0__Impl rule__Job__Group__1 )
             // InternalCICDParser.g:1443:2: rule__Job__Group__0__Impl rule__Job__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__Job__Group__0__Impl();
 
             state._fsp--;
@@ -4798,7 +4781,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1496:1: ( rule__Job__Group_1__0__Impl rule__Job__Group_1__1 )
             // InternalCICDParser.g:1497:2: rule__Job__Group_1__0__Impl rule__Job__Group_1__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_5);
             rule__Job__Group_1__0__Impl();
 
             state._fsp--;
@@ -4873,7 +4856,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1523:1: ( rule__Job__Group_1__1__Impl rule__Job__Group_1__2 )
             // InternalCICDParser.g:1524:2: rule__Job__Group_1__1__Impl rule__Job__Group_1__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Job__Group_1__1__Impl();
 
             state._fsp--;
@@ -4948,7 +4931,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1550:1: ( rule__Job__Group_1__2__Impl rule__Job__Group_1__3 )
             // InternalCICDParser.g:1551:2: rule__Job__Group_1__2__Impl rule__Job__Group_1__3
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__2__Impl();
 
             state._fsp--;
@@ -5033,7 +5016,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1577:1: ( rule__Job__Group_1__3__Impl rule__Job__Group_1__4 )
             // InternalCICDParser.g:1578:2: rule__Job__Group_1__3__Impl rule__Job__Group_1__4
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__3__Impl();
 
             state._fsp--;
@@ -5076,13 +5059,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getJobAccess().getAllowFaillureAssignment_1_3()); 
             // InternalCICDParser.g:1592:2: ( rule__Job__AllowFaillureAssignment_1_3 )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA25_0==AllowFaillure) ) {
-                alt25=1;
+            if ( (LA24_0==AllowFaillure) ) {
+                alt24=1;
             }
-            switch (alt25) {
+            switch (alt24) {
                 case 1 :
                     // InternalCICDParser.g:1592:3: rule__Job__AllowFaillureAssignment_1_3
                     {
@@ -5129,7 +5112,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1604:1: ( rule__Job__Group_1__4__Impl rule__Job__Group_1__5 )
             // InternalCICDParser.g:1605:2: rule__Job__Group_1__4__Impl rule__Job__Group_1__5
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__4__Impl();
 
             state._fsp--;
@@ -5172,13 +5155,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getJobAccess().getGroup_1_4()); 
             // InternalCICDParser.g:1619:2: ( rule__Job__Group_1_4__0 )?
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA26_0==Parallel) ) {
-                alt26=1;
+            if ( (LA25_0==Parallel) ) {
+                alt25=1;
             }
-            switch (alt26) {
+            switch (alt25) {
                 case 1 :
                     // InternalCICDParser.g:1619:3: rule__Job__Group_1_4__0
                     {
@@ -5225,7 +5208,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1631:1: ( rule__Job__Group_1__5__Impl rule__Job__Group_1__6 )
             // InternalCICDParser.g:1632:2: rule__Job__Group_1__5__Impl rule__Job__Group_1__6
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__5__Impl();
 
             state._fsp--;
@@ -5268,13 +5251,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getJobAccess().getGroup_1_5()); 
             // InternalCICDParser.g:1646:2: ( rule__Job__Group_1_5__0 )?
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA27_0==RequireJobs) ) {
-                alt27=1;
+            if ( (LA26_0==RequireJobs) ) {
+                alt26=1;
             }
-            switch (alt27) {
+            switch (alt26) {
                 case 1 :
                     // InternalCICDParser.g:1646:3: rule__Job__Group_1_5__0
                     {
@@ -5321,7 +5304,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1658:1: ( rule__Job__Group_1__6__Impl rule__Job__Group_1__7 )
             // InternalCICDParser.g:1659:2: rule__Job__Group_1__6__Impl rule__Job__Group_1__7
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__6__Impl();
 
             state._fsp--;
@@ -5350,36 +5333,36 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__Group_1__6__Impl"
-    // InternalCICDParser.g:1666:1: rule__Job__Group_1__6__Impl : ( ( rule__Job__StepsAssignment_1_6 )* ) ;
+    // InternalCICDParser.g:1666:1: rule__Job__Group_1__6__Impl : ( ( rule__Job__IfStepAssignment_1_6 )* ) ;
     public final void rule__Job__Group_1__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1670:1: ( ( ( rule__Job__StepsAssignment_1_6 )* ) )
-            // InternalCICDParser.g:1671:1: ( ( rule__Job__StepsAssignment_1_6 )* )
+            // InternalCICDParser.g:1670:1: ( ( ( rule__Job__IfStepAssignment_1_6 )* ) )
+            // InternalCICDParser.g:1671:1: ( ( rule__Job__IfStepAssignment_1_6 )* )
             {
-            // InternalCICDParser.g:1671:1: ( ( rule__Job__StepsAssignment_1_6 )* )
-            // InternalCICDParser.g:1672:2: ( rule__Job__StepsAssignment_1_6 )*
+            // InternalCICDParser.g:1671:1: ( ( rule__Job__IfStepAssignment_1_6 )* )
+            // InternalCICDParser.g:1672:2: ( rule__Job__IfStepAssignment_1_6 )*
             {
-             before(grammarAccess.getJobAccess().getStepsAssignment_1_6()); 
-            // InternalCICDParser.g:1673:2: ( rule__Job__StepsAssignment_1_6 )*
-            loop28:
+             before(grammarAccess.getJobAccess().getIfStepAssignment_1_6()); 
+            // InternalCICDParser.g:1673:2: ( rule__Job__IfStepAssignment_1_6 )*
+            loop27:
             do {
-                int alt28=2;
-                int LA28_0 = input.LA(1);
+                int alt27=2;
+                int LA27_0 = input.LA(1);
 
-                if ( (LA28_0==Step) ) {
-                    alt28=1;
+                if ( (LA27_0==IfStep) ) {
+                    alt27=1;
                 }
 
 
-                switch (alt28) {
+                switch (alt27) {
             	case 1 :
-            	    // InternalCICDParser.g:1673:3: rule__Job__StepsAssignment_1_6
+            	    // InternalCICDParser.g:1673:3: rule__Job__IfStepAssignment_1_6
             	    {
-            	    pushFollow(FOLLOW_16);
-            	    rule__Job__StepsAssignment_1_6();
+            	    pushFollow(FOLLOW_17);
+            	    rule__Job__IfStepAssignment_1_6();
 
             	    state._fsp--;
 
@@ -5388,11 +5371,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop28;
+            	    break loop27;
                 }
             } while (true);
 
-             after(grammarAccess.getJobAccess().getStepsAssignment_1_6()); 
+             after(grammarAccess.getJobAccess().getIfStepAssignment_1_6()); 
 
             }
 
@@ -5424,7 +5407,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1685:1: ( rule__Job__Group_1__7__Impl rule__Job__Group_1__8 )
             // InternalCICDParser.g:1686:2: rule__Job__Group_1__7__Impl rule__Job__Group_1__8
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__7__Impl();
 
             state._fsp--;
@@ -5453,36 +5436,36 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__Group_1__7__Impl"
-    // InternalCICDParser.g:1693:1: rule__Job__Group_1__7__Impl : ( ( rule__Job__IfStepAssignment_1_7 )* ) ;
+    // InternalCICDParser.g:1693:1: rule__Job__Group_1__7__Impl : ( ( rule__Job__ArtifactsAssignment_1_7 )* ) ;
     public final void rule__Job__Group_1__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1697:1: ( ( ( rule__Job__IfStepAssignment_1_7 )* ) )
-            // InternalCICDParser.g:1698:1: ( ( rule__Job__IfStepAssignment_1_7 )* )
+            // InternalCICDParser.g:1697:1: ( ( ( rule__Job__ArtifactsAssignment_1_7 )* ) )
+            // InternalCICDParser.g:1698:1: ( ( rule__Job__ArtifactsAssignment_1_7 )* )
             {
-            // InternalCICDParser.g:1698:1: ( ( rule__Job__IfStepAssignment_1_7 )* )
-            // InternalCICDParser.g:1699:2: ( rule__Job__IfStepAssignment_1_7 )*
+            // InternalCICDParser.g:1698:1: ( ( rule__Job__ArtifactsAssignment_1_7 )* )
+            // InternalCICDParser.g:1699:2: ( rule__Job__ArtifactsAssignment_1_7 )*
             {
-             before(grammarAccess.getJobAccess().getIfStepAssignment_1_7()); 
-            // InternalCICDParser.g:1700:2: ( rule__Job__IfStepAssignment_1_7 )*
-            loop29:
+             before(grammarAccess.getJobAccess().getArtifactsAssignment_1_7()); 
+            // InternalCICDParser.g:1700:2: ( rule__Job__ArtifactsAssignment_1_7 )*
+            loop28:
             do {
-                int alt29=2;
-                int LA29_0 = input.LA(1);
+                int alt28=2;
+                int LA28_0 = input.LA(1);
 
-                if ( (LA29_0==IfStep) ) {
-                    alt29=1;
+                if ( (LA28_0==Artifact) ) {
+                    alt28=1;
                 }
 
 
-                switch (alt29) {
+                switch (alt28) {
             	case 1 :
-            	    // InternalCICDParser.g:1700:3: rule__Job__IfStepAssignment_1_7
+            	    // InternalCICDParser.g:1700:3: rule__Job__ArtifactsAssignment_1_7
             	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__Job__IfStepAssignment_1_7();
+            	    pushFollow(FOLLOW_18);
+            	    rule__Job__ArtifactsAssignment_1_7();
 
             	    state._fsp--;
 
@@ -5491,11 +5474,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop29;
+            	    break loop28;
                 }
             } while (true);
 
-             after(grammarAccess.getJobAccess().getIfStepAssignment_1_7()); 
+             after(grammarAccess.getJobAccess().getArtifactsAssignment_1_7()); 
 
             }
 
@@ -5527,7 +5510,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1712:1: ( rule__Job__Group_1__8__Impl rule__Job__Group_1__9 )
             // InternalCICDParser.g:1713:2: rule__Job__Group_1__8__Impl rule__Job__Group_1__9
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__8__Impl();
 
             state._fsp--;
@@ -5556,36 +5539,36 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__Group_1__8__Impl"
-    // InternalCICDParser.g:1720:1: rule__Job__Group_1__8__Impl : ( ( rule__Job__ArtifactsAssignment_1_8 )* ) ;
+    // InternalCICDParser.g:1720:1: rule__Job__Group_1__8__Impl : ( ( rule__Job__EnvironmentsAssignment_1_8 )* ) ;
     public final void rule__Job__Group_1__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1724:1: ( ( ( rule__Job__ArtifactsAssignment_1_8 )* ) )
-            // InternalCICDParser.g:1725:1: ( ( rule__Job__ArtifactsAssignment_1_8 )* )
+            // InternalCICDParser.g:1724:1: ( ( ( rule__Job__EnvironmentsAssignment_1_8 )* ) )
+            // InternalCICDParser.g:1725:1: ( ( rule__Job__EnvironmentsAssignment_1_8 )* )
             {
-            // InternalCICDParser.g:1725:1: ( ( rule__Job__ArtifactsAssignment_1_8 )* )
-            // InternalCICDParser.g:1726:2: ( rule__Job__ArtifactsAssignment_1_8 )*
+            // InternalCICDParser.g:1725:1: ( ( rule__Job__EnvironmentsAssignment_1_8 )* )
+            // InternalCICDParser.g:1726:2: ( rule__Job__EnvironmentsAssignment_1_8 )*
             {
-             before(grammarAccess.getJobAccess().getArtifactsAssignment_1_8()); 
-            // InternalCICDParser.g:1727:2: ( rule__Job__ArtifactsAssignment_1_8 )*
-            loop30:
+             before(grammarAccess.getJobAccess().getEnvironmentsAssignment_1_8()); 
+            // InternalCICDParser.g:1727:2: ( rule__Job__EnvironmentsAssignment_1_8 )*
+            loop29:
             do {
-                int alt30=2;
-                int LA30_0 = input.LA(1);
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-                if ( (LA30_0==Artifact) ) {
-                    alt30=1;
+                if ( (LA29_0==Environment) ) {
+                    alt29=1;
                 }
 
 
-                switch (alt30) {
+                switch (alt29) {
             	case 1 :
-            	    // InternalCICDParser.g:1727:3: rule__Job__ArtifactsAssignment_1_8
+            	    // InternalCICDParser.g:1727:3: rule__Job__EnvironmentsAssignment_1_8
             	    {
-            	    pushFollow(FOLLOW_18);
-            	    rule__Job__ArtifactsAssignment_1_8();
+            	    pushFollow(FOLLOW_10);
+            	    rule__Job__EnvironmentsAssignment_1_8();
 
             	    state._fsp--;
 
@@ -5594,11 +5577,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop30;
+            	    break loop29;
                 }
             } while (true);
 
-             after(grammarAccess.getJobAccess().getArtifactsAssignment_1_8()); 
+             after(grammarAccess.getJobAccess().getEnvironmentsAssignment_1_8()); 
 
             }
 
@@ -5630,7 +5613,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1739:1: ( rule__Job__Group_1__9__Impl rule__Job__Group_1__10 )
             // InternalCICDParser.g:1740:2: rule__Job__Group_1__9__Impl rule__Job__Group_1__10
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__9__Impl();
 
             state._fsp--;
@@ -5659,36 +5642,36 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__Group_1__9__Impl"
-    // InternalCICDParser.g:1747:1: rule__Job__Group_1__9__Impl : ( ( rule__Job__EnvironmentsAssignment_1_9 )* ) ;
+    // InternalCICDParser.g:1747:1: rule__Job__Group_1__9__Impl : ( ( rule__Job__JobsAssignment_1_9 )* ) ;
     public final void rule__Job__Group_1__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1751:1: ( ( ( rule__Job__EnvironmentsAssignment_1_9 )* ) )
-            // InternalCICDParser.g:1752:1: ( ( rule__Job__EnvironmentsAssignment_1_9 )* )
+            // InternalCICDParser.g:1751:1: ( ( ( rule__Job__JobsAssignment_1_9 )* ) )
+            // InternalCICDParser.g:1752:1: ( ( rule__Job__JobsAssignment_1_9 )* )
             {
-            // InternalCICDParser.g:1752:1: ( ( rule__Job__EnvironmentsAssignment_1_9 )* )
-            // InternalCICDParser.g:1753:2: ( rule__Job__EnvironmentsAssignment_1_9 )*
+            // InternalCICDParser.g:1752:1: ( ( rule__Job__JobsAssignment_1_9 )* )
+            // InternalCICDParser.g:1753:2: ( rule__Job__JobsAssignment_1_9 )*
             {
-             before(grammarAccess.getJobAccess().getEnvironmentsAssignment_1_9()); 
-            // InternalCICDParser.g:1754:2: ( rule__Job__EnvironmentsAssignment_1_9 )*
-            loop31:
+             before(grammarAccess.getJobAccess().getJobsAssignment_1_9()); 
+            // InternalCICDParser.g:1754:2: ( rule__Job__JobsAssignment_1_9 )*
+            loop30:
             do {
-                int alt31=2;
-                int LA31_0 = input.LA(1);
+                int alt30=2;
+                int LA30_0 = input.LA(1);
 
-                if ( (LA31_0==Environment) ) {
-                    alt31=1;
+                if ( (LA30_0==Job) ) {
+                    alt30=1;
                 }
 
 
-                switch (alt31) {
+                switch (alt30) {
             	case 1 :
-            	    // InternalCICDParser.g:1754:3: rule__Job__EnvironmentsAssignment_1_9
+            	    // InternalCICDParser.g:1754:3: rule__Job__JobsAssignment_1_9
             	    {
-            	    pushFollow(FOLLOW_8);
-            	    rule__Job__EnvironmentsAssignment_1_9();
+            	    pushFollow(FOLLOW_9);
+            	    rule__Job__JobsAssignment_1_9();
 
             	    state._fsp--;
 
@@ -5697,11 +5680,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop31;
+            	    break loop30;
                 }
             } while (true);
 
-             after(grammarAccess.getJobAccess().getEnvironmentsAssignment_1_9()); 
+             after(grammarAccess.getJobAccess().getJobsAssignment_1_9()); 
 
             }
 
@@ -5733,7 +5716,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1766:1: ( rule__Job__Group_1__10__Impl rule__Job__Group_1__11 )
             // InternalCICDParser.g:1767:2: rule__Job__Group_1__10__Impl rule__Job__Group_1__11
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__10__Impl();
 
             state._fsp--;
@@ -5762,49 +5745,42 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__Group_1__10__Impl"
-    // InternalCICDParser.g:1774:1: rule__Job__Group_1__10__Impl : ( ( rule__Job__JobsAssignment_1_10 )* ) ;
+    // InternalCICDParser.g:1774:1: rule__Job__Group_1__10__Impl : ( ( rule__Job__MatrixAssignment_1_10 )? ) ;
     public final void rule__Job__Group_1__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1778:1: ( ( ( rule__Job__JobsAssignment_1_10 )* ) )
-            // InternalCICDParser.g:1779:1: ( ( rule__Job__JobsAssignment_1_10 )* )
+            // InternalCICDParser.g:1778:1: ( ( ( rule__Job__MatrixAssignment_1_10 )? ) )
+            // InternalCICDParser.g:1779:1: ( ( rule__Job__MatrixAssignment_1_10 )? )
             {
-            // InternalCICDParser.g:1779:1: ( ( rule__Job__JobsAssignment_1_10 )* )
-            // InternalCICDParser.g:1780:2: ( rule__Job__JobsAssignment_1_10 )*
+            // InternalCICDParser.g:1779:1: ( ( rule__Job__MatrixAssignment_1_10 )? )
+            // InternalCICDParser.g:1780:2: ( rule__Job__MatrixAssignment_1_10 )?
             {
-             before(grammarAccess.getJobAccess().getJobsAssignment_1_10()); 
-            // InternalCICDParser.g:1781:2: ( rule__Job__JobsAssignment_1_10 )*
-            loop32:
-            do {
-                int alt32=2;
-                int LA32_0 = input.LA(1);
+             before(grammarAccess.getJobAccess().getMatrixAssignment_1_10()); 
+            // InternalCICDParser.g:1781:2: ( rule__Job__MatrixAssignment_1_10 )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-                if ( (LA32_0==Job) ) {
-                    alt32=1;
-                }
+            if ( (LA31_0==Matrix) ) {
+                alt31=1;
+            }
+            switch (alt31) {
+                case 1 :
+                    // InternalCICDParser.g:1781:3: rule__Job__MatrixAssignment_1_10
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Job__MatrixAssignment_1_10();
 
-
-                switch (alt32) {
-            	case 1 :
-            	    // InternalCICDParser.g:1781:3: rule__Job__JobsAssignment_1_10
-            	    {
-            	    pushFollow(FOLLOW_7);
-            	    rule__Job__JobsAssignment_1_10();
-
-            	    state._fsp--;
+                    state._fsp--;
 
 
-            	    }
-            	    break;
+                    }
+                    break;
 
-            	default :
-            	    break loop32;
-                }
-            } while (true);
+            }
 
-             after(grammarAccess.getJobAccess().getJobsAssignment_1_10()); 
+             after(grammarAccess.getJobAccess().getMatrixAssignment_1_10()); 
 
             }
 
@@ -5836,7 +5812,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1793:1: ( rule__Job__Group_1__11__Impl rule__Job__Group_1__12 )
             // InternalCICDParser.g:1794:2: rule__Job__Group_1__11__Impl rule__Job__Group_1__12
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__11__Impl();
 
             state._fsp--;
@@ -5865,42 +5841,49 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__Group_1__11__Impl"
-    // InternalCICDParser.g:1801:1: rule__Job__Group_1__11__Impl : ( ( rule__Job__MatrixAssignment_1_11 )? ) ;
+    // InternalCICDParser.g:1801:1: rule__Job__Group_1__11__Impl : ( ( rule__Job__AgentsAssignment_1_11 )* ) ;
     public final void rule__Job__Group_1__11__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1805:1: ( ( ( rule__Job__MatrixAssignment_1_11 )? ) )
-            // InternalCICDParser.g:1806:1: ( ( rule__Job__MatrixAssignment_1_11 )? )
+            // InternalCICDParser.g:1805:1: ( ( ( rule__Job__AgentsAssignment_1_11 )* ) )
+            // InternalCICDParser.g:1806:1: ( ( rule__Job__AgentsAssignment_1_11 )* )
             {
-            // InternalCICDParser.g:1806:1: ( ( rule__Job__MatrixAssignment_1_11 )? )
-            // InternalCICDParser.g:1807:2: ( rule__Job__MatrixAssignment_1_11 )?
+            // InternalCICDParser.g:1806:1: ( ( rule__Job__AgentsAssignment_1_11 )* )
+            // InternalCICDParser.g:1807:2: ( rule__Job__AgentsAssignment_1_11 )*
             {
-             before(grammarAccess.getJobAccess().getMatrixAssignment_1_11()); 
-            // InternalCICDParser.g:1808:2: ( rule__Job__MatrixAssignment_1_11 )?
-            int alt33=2;
-            int LA33_0 = input.LA(1);
+             before(grammarAccess.getJobAccess().getAgentsAssignment_1_11()); 
+            // InternalCICDParser.g:1808:2: ( rule__Job__AgentsAssignment_1_11 )*
+            loop32:
+            do {
+                int alt32=2;
+                int LA32_0 = input.LA(1);
 
-            if ( (LA33_0==Matrix) ) {
-                alt33=1;
-            }
-            switch (alt33) {
-                case 1 :
-                    // InternalCICDParser.g:1808:3: rule__Job__MatrixAssignment_1_11
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Job__MatrixAssignment_1_11();
-
-                    state._fsp--;
+                if ( (LA32_0==Agent) ) {
+                    alt32=1;
+                }
 
 
-                    }
-                    break;
+                switch (alt32) {
+            	case 1 :
+            	    // InternalCICDParser.g:1808:3: rule__Job__AgentsAssignment_1_11
+            	    {
+            	    pushFollow(FOLLOW_12);
+            	    rule__Job__AgentsAssignment_1_11();
 
-            }
+            	    state._fsp--;
 
-             after(grammarAccess.getJobAccess().getMatrixAssignment_1_11()); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop32;
+                }
+            } while (true);
+
+             after(grammarAccess.getJobAccess().getAgentsAssignment_1_11()); 
 
             }
 
@@ -5932,7 +5915,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1820:1: ( rule__Job__Group_1__12__Impl rule__Job__Group_1__13 )
             // InternalCICDParser.g:1821:2: rule__Job__Group_1__12__Impl rule__Job__Group_1__13
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__12__Impl();
 
             state._fsp--;
@@ -5961,36 +5944,36 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__Group_1__12__Impl"
-    // InternalCICDParser.g:1828:1: rule__Job__Group_1__12__Impl : ( ( rule__Job__AgentsAssignment_1_12 )* ) ;
+    // InternalCICDParser.g:1828:1: rule__Job__Group_1__12__Impl : ( ( rule__Job__OutputAssignment_1_12 )* ) ;
     public final void rule__Job__Group_1__12__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1832:1: ( ( ( rule__Job__AgentsAssignment_1_12 )* ) )
-            // InternalCICDParser.g:1833:1: ( ( rule__Job__AgentsAssignment_1_12 )* )
+            // InternalCICDParser.g:1832:1: ( ( ( rule__Job__OutputAssignment_1_12 )* ) )
+            // InternalCICDParser.g:1833:1: ( ( rule__Job__OutputAssignment_1_12 )* )
             {
-            // InternalCICDParser.g:1833:1: ( ( rule__Job__AgentsAssignment_1_12 )* )
-            // InternalCICDParser.g:1834:2: ( rule__Job__AgentsAssignment_1_12 )*
+            // InternalCICDParser.g:1833:1: ( ( rule__Job__OutputAssignment_1_12 )* )
+            // InternalCICDParser.g:1834:2: ( rule__Job__OutputAssignment_1_12 )*
             {
-             before(grammarAccess.getJobAccess().getAgentsAssignment_1_12()); 
-            // InternalCICDParser.g:1835:2: ( rule__Job__AgentsAssignment_1_12 )*
-            loop34:
+             before(grammarAccess.getJobAccess().getOutputAssignment_1_12()); 
+            // InternalCICDParser.g:1835:2: ( rule__Job__OutputAssignment_1_12 )*
+            loop33:
             do {
-                int alt34=2;
-                int LA34_0 = input.LA(1);
+                int alt33=2;
+                int LA33_0 = input.LA(1);
 
-                if ( (LA34_0==Agent) ) {
-                    alt34=1;
+                if ( (LA33_0==Output) ) {
+                    alt33=1;
                 }
 
 
-                switch (alt34) {
+                switch (alt33) {
             	case 1 :
-            	    // InternalCICDParser.g:1835:3: rule__Job__AgentsAssignment_1_12
+            	    // InternalCICDParser.g:1835:3: rule__Job__OutputAssignment_1_12
             	    {
-            	    pushFollow(FOLLOW_10);
-            	    rule__Job__AgentsAssignment_1_12();
+            	    pushFollow(FOLLOW_14);
+            	    rule__Job__OutputAssignment_1_12();
 
             	    state._fsp--;
 
@@ -5999,11 +5982,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop34;
+            	    break loop33;
                 }
             } while (true);
 
-             after(grammarAccess.getJobAccess().getAgentsAssignment_1_12()); 
+             after(grammarAccess.getJobAccess().getOutputAssignment_1_12()); 
 
             }
 
@@ -6035,7 +6018,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1847:1: ( rule__Job__Group_1__13__Impl rule__Job__Group_1__14 )
             // InternalCICDParser.g:1848:2: rule__Job__Group_1__13__Impl rule__Job__Group_1__14
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Job__Group_1__13__Impl();
 
             state._fsp--;
@@ -6064,36 +6047,36 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__Group_1__13__Impl"
-    // InternalCICDParser.g:1855:1: rule__Job__Group_1__13__Impl : ( ( rule__Job__OutputAssignment_1_13 )* ) ;
+    // InternalCICDParser.g:1855:1: rule__Job__Group_1__13__Impl : ( ( rule__Job__StepsAssignment_1_13 )* ) ;
     public final void rule__Job__Group_1__13__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:1859:1: ( ( ( rule__Job__OutputAssignment_1_13 )* ) )
-            // InternalCICDParser.g:1860:1: ( ( rule__Job__OutputAssignment_1_13 )* )
+            // InternalCICDParser.g:1859:1: ( ( ( rule__Job__StepsAssignment_1_13 )* ) )
+            // InternalCICDParser.g:1860:1: ( ( rule__Job__StepsAssignment_1_13 )* )
             {
-            // InternalCICDParser.g:1860:1: ( ( rule__Job__OutputAssignment_1_13 )* )
-            // InternalCICDParser.g:1861:2: ( rule__Job__OutputAssignment_1_13 )*
+            // InternalCICDParser.g:1860:1: ( ( rule__Job__StepsAssignment_1_13 )* )
+            // InternalCICDParser.g:1861:2: ( rule__Job__StepsAssignment_1_13 )*
             {
-             before(grammarAccess.getJobAccess().getOutputAssignment_1_13()); 
-            // InternalCICDParser.g:1862:2: ( rule__Job__OutputAssignment_1_13 )*
-            loop35:
+             before(grammarAccess.getJobAccess().getStepsAssignment_1_13()); 
+            // InternalCICDParser.g:1862:2: ( rule__Job__StepsAssignment_1_13 )*
+            loop34:
             do {
-                int alt35=2;
-                int LA35_0 = input.LA(1);
+                int alt34=2;
+                int LA34_0 = input.LA(1);
 
-                if ( (LA35_0==Output) ) {
-                    alt35=1;
+                if ( (LA34_0==Step) ) {
+                    alt34=1;
                 }
 
 
-                switch (alt35) {
+                switch (alt34) {
             	case 1 :
-            	    // InternalCICDParser.g:1862:3: rule__Job__OutputAssignment_1_13
+            	    // InternalCICDParser.g:1862:3: rule__Job__StepsAssignment_1_13
             	    {
-            	    pushFollow(FOLLOW_12);
-            	    rule__Job__OutputAssignment_1_13();
+            	    pushFollow(FOLLOW_19);
+            	    rule__Job__StepsAssignment_1_13();
 
             	    state._fsp--;
 
@@ -6102,11 +6085,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop35;
+            	    break loop34;
                 }
             } while (true);
 
-             after(grammarAccess.getJobAccess().getOutputAssignment_1_13()); 
+             after(grammarAccess.getJobAccess().getStepsAssignment_1_13()); 
 
             }
 
@@ -6208,7 +6191,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1901:1: ( rule__Job__Group_1_4__0__Impl rule__Job__Group_1_4__1 )
             // InternalCICDParser.g:1902:2: rule__Job__Group_1_4__0__Impl rule__Job__Group_1_4__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Job__Group_1_4__0__Impl();
 
             state._fsp--;
@@ -6363,7 +6346,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1955:1: ( rule__Job__Group_1_5__0__Impl rule__Job__Group_1_5__1 )
             // InternalCICDParser.g:1956:2: rule__Job__Group_1_5__0__Impl rule__Job__Group_1_5__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Job__Group_1_5__0__Impl();
 
             state._fsp--;
@@ -6438,7 +6421,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:1982:1: ( rule__Job__Group_1_5__1__Impl rule__Job__Group_1_5__2 )
             // InternalCICDParser.g:1983:2: rule__Job__Group_1_5__1__Impl rule__Job__Group_1_5__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_20);
             rule__Job__Group_1_5__1__Impl();
 
             state._fsp--;
@@ -6561,21 +6544,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getJobAccess().getGroup_1_5_2()); 
             // InternalCICDParser.g:2023:2: ( rule__Job__Group_1_5_2__0 )*
-            loop36:
+            loop35:
             do {
-                int alt36=2;
-                int LA36_0 = input.LA(1);
+                int alt35=2;
+                int LA35_0 = input.LA(1);
 
-                if ( (LA36_0==Comma) ) {
-                    alt36=1;
+                if ( (LA35_0==Comma) ) {
+                    alt35=1;
                 }
 
 
-                switch (alt36) {
+                switch (alt35) {
             	case 1 :
             	    // InternalCICDParser.g:2023:3: rule__Job__Group_1_5_2__0
             	    {
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_21);
             	    rule__Job__Group_1_5_2__0();
 
             	    state._fsp--;
@@ -6585,7 +6568,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop36;
+            	    break loop35;
                 }
             } while (true);
 
@@ -6621,7 +6604,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2036:1: ( rule__Job__Group_1_5_2__0__Impl rule__Job__Group_1_5_2__1 )
             // InternalCICDParser.g:2037:2: rule__Job__Group_1_5_2__0__Impl rule__Job__Group_1_5_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Job__Group_1_5_2__0__Impl();
 
             state._fsp--;
@@ -6776,7 +6759,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2090:1: ( rule__Environment__Group__0__Impl rule__Environment__Group__1 )
             // InternalCICDParser.g:2091:2: rule__Environment__Group__0__Impl rule__Environment__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__Environment__Group__0__Impl();
 
             state._fsp--;
@@ -6931,7 +6914,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2144:1: ( rule__Environment__Group_1__0__Impl rule__Environment__Group_1__1 )
             // InternalCICDParser.g:2145:2: rule__Environment__Group_1__0__Impl rule__Environment__Group_1__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_22);
             rule__Environment__Group_1__0__Impl();
 
             state._fsp--;
@@ -7006,7 +6989,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2171:1: ( rule__Environment__Group_1__1__Impl rule__Environment__Group_1__2 )
             // InternalCICDParser.g:2172:2: rule__Environment__Group_1__1__Impl rule__Environment__Group_1__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Environment__Group_1__1__Impl();
 
             state._fsp--;
@@ -7081,7 +7064,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2198:1: ( rule__Environment__Group_1__2__Impl rule__Environment__Group_1__3 )
             // InternalCICDParser.g:2199:2: rule__Environment__Group_1__2__Impl rule__Environment__Group_1__3
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_23);
             rule__Environment__Group_1__2__Impl();
 
             state._fsp--;
@@ -7166,7 +7149,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2225:1: ( rule__Environment__Group_1__3__Impl rule__Environment__Group_1__4 )
             // InternalCICDParser.g:2226:2: rule__Environment__Group_1__3__Impl rule__Environment__Group_1__4
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Environment__Group_1__3__Impl();
 
             state._fsp--;
@@ -7241,7 +7224,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2252:1: ( rule__Environment__Group_1__4__Impl rule__Environment__Group_1__5 )
             // InternalCICDParser.g:2253:2: rule__Environment__Group_1__4__Impl rule__Environment__Group_1__5
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_7);
             rule__Environment__Group_1__4__Impl();
 
             state._fsp--;
@@ -7396,7 +7379,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2306:1: ( rule__ScheduleTrigger__Group__0__Impl rule__ScheduleTrigger__Group__1 )
             // InternalCICDParser.g:2307:2: rule__ScheduleTrigger__Group__0__Impl rule__ScheduleTrigger__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__ScheduleTrigger__Group__0__Impl();
 
             state._fsp--;
@@ -7626,7 +7609,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2387:1: ( rule__ScheduleTrigger__Group_1__1__Impl rule__ScheduleTrigger__Group_1__2 )
             // InternalCICDParser.g:2388:2: rule__ScheduleTrigger__Group_1__1__Impl rule__ScheduleTrigger__Group_1__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__ScheduleTrigger__Group_1__1__Impl();
 
             state._fsp--;
@@ -7701,7 +7684,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2414:1: ( rule__ScheduleTrigger__Group_1__2__Impl rule__ScheduleTrigger__Group_1__3 )
             // InternalCICDParser.g:2415:2: rule__ScheduleTrigger__Group_1__2__Impl rule__ScheduleTrigger__Group_1__3
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_7);
             rule__ScheduleTrigger__Group_1__2__Impl();
 
             state._fsp--;
@@ -7931,7 +7914,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2495:1: ( rule__Agent__Group__1__Impl rule__Agent__Group__2 )
             // InternalCICDParser.g:2496:2: rule__Agent__Group__1__Impl rule__Agent__Group__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__Agent__Group__1__Impl();
 
             state._fsp--;
@@ -8204,13 +8187,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getAgentAccess().getGroup_2_1()); 
             // InternalCICDParser.g:2591:2: ( rule__Agent__Group_2_1__0 )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            int alt36=2;
+            int LA36_0 = input.LA(1);
 
-            if ( (LA37_0==Labels) ) {
-                alt37=1;
+            if ( (LA36_0==Labels) ) {
+                alt36=1;
             }
-            switch (alt37) {
+            switch (alt36) {
                 case 1 :
                     // InternalCICDParser.g:2591:3: rule__Agent__Group_2_1__0
                     {
@@ -8300,13 +8283,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getAgentAccess().getContainerAssignment_2_2()); 
             // InternalCICDParser.g:2618:2: ( rule__Agent__ContainerAssignment_2_2 )?
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            int alt37=2;
+            int LA37_0 = input.LA(1);
 
-            if ( (LA38_0==DockerContainer) ) {
-                alt38=1;
+            if ( (LA37_0==DockerContainer) ) {
+                alt37=1;
             }
-            switch (alt38) {
+            switch (alt37) {
                 case 1 :
                     // InternalCICDParser.g:2618:3: rule__Agent__ContainerAssignment_2_2
                     {
@@ -8423,7 +8406,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2657:1: ( rule__Agent__Group_2_1__0__Impl rule__Agent__Group_2_1__1 )
             // InternalCICDParser.g:2658:2: rule__Agent__Group_2_1__0__Impl rule__Agent__Group_2_1__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Agent__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -8498,7 +8481,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2684:1: ( rule__Agent__Group_2_1__1__Impl rule__Agent__Group_2_1__2 )
             // InternalCICDParser.g:2685:2: rule__Agent__Group_2_1__1__Impl rule__Agent__Group_2_1__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_20);
             rule__Agent__Group_2_1__1__Impl();
 
             state._fsp--;
@@ -8621,21 +8604,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getAgentAccess().getGroup_2_1_2()); 
             // InternalCICDParser.g:2725:2: ( rule__Agent__Group_2_1_2__0 )*
-            loop39:
+            loop38:
             do {
-                int alt39=2;
-                int LA39_0 = input.LA(1);
+                int alt38=2;
+                int LA38_0 = input.LA(1);
 
-                if ( (LA39_0==Comma) ) {
-                    alt39=1;
+                if ( (LA38_0==Comma) ) {
+                    alt38=1;
                 }
 
 
-                switch (alt39) {
+                switch (alt38) {
             	case 1 :
             	    // InternalCICDParser.g:2725:3: rule__Agent__Group_2_1_2__0
             	    {
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_21);
             	    rule__Agent__Group_2_1_2__0();
 
             	    state._fsp--;
@@ -8645,7 +8628,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop39;
+            	    break loop38;
                 }
             } while (true);
 
@@ -8681,7 +8664,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2738:1: ( rule__Agent__Group_2_1_2__0__Impl rule__Agent__Group_2_1_2__1 )
             // InternalCICDParser.g:2739:2: rule__Agent__Group_2_1_2__0__Impl rule__Agent__Group_2_1_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Agent__Group_2_1_2__0__Impl();
 
             state._fsp--;
@@ -8836,7 +8819,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2792:1: ( rule__Input__Group__0__Impl rule__Input__Group__1 )
             // InternalCICDParser.g:2793:2: rule__Input__Group__0__Impl rule__Input__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__Input__Group__0__Impl();
 
             state._fsp--;
@@ -8991,7 +8974,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:2846:1: ( rule__Input__Group_1__0__Impl rule__Input__Group_1__1 )
             // InternalCICDParser.g:2847:2: rule__Input__Group_1__0__Impl rule__Input__Group_1__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_5);
             rule__Input__Group_1__0__Impl();
 
             state._fsp--;
@@ -9279,13 +9262,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getInputAccess().getGroup_1_3()); 
             // InternalCICDParser.g:2942:2: ( rule__Input__Group_1_3__0 )?
-            int alt40=2;
-            int LA40_0 = input.LA(1);
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA40_0==Default) ) {
-                alt40=1;
+            if ( (LA39_0==Default) ) {
+                alt39=1;
             }
-            switch (alt40) {
+            switch (alt39) {
                 case 1 :
                     // InternalCICDParser.g:2942:3: rule__Input__Group_1_3__0
                     {
@@ -9375,13 +9358,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getInputAccess().getGroup_1_4()); 
             // InternalCICDParser.g:2969:2: ( rule__Input__Group_1_4__0 )?
-            int alt41=2;
-            int LA41_0 = input.LA(1);
+            int alt40=2;
+            int LA40_0 = input.LA(1);
 
-            if ( (LA41_0==Description) ) {
-                alt41=1;
+            if ( (LA40_0==Description) ) {
+                alt40=1;
             }
-            switch (alt41) {
+            switch (alt40) {
                 case 1 :
                     // InternalCICDParser.g:2969:3: rule__Input__Group_1_4__0
                     {
@@ -9471,13 +9454,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getInputAccess().getGroup_1_5()); 
             // InternalCICDParser.g:2996:2: ( rule__Input__Group_1_5__0 )?
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            int alt41=2;
+            int LA41_0 = input.LA(1);
 
-            if ( (LA42_0==Values) ) {
-                alt42=1;
+            if ( (LA41_0==Values) ) {
+                alt41=1;
             }
-            switch (alt42) {
+            switch (alt41) {
                 case 1 :
                     // InternalCICDParser.g:2996:3: rule__Input__Group_1_5__0
                     {
@@ -9594,7 +9577,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3035:1: ( rule__Input__Group_1_1__0__Impl rule__Input__Group_1_1__1 )
             // InternalCICDParser.g:3036:2: rule__Input__Group_1_1__0__Impl rule__Input__Group_1_1__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Input__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -9904,7 +9887,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3143:1: ( rule__Input__Group_1_3__0__Impl rule__Input__Group_1_3__1 )
             // InternalCICDParser.g:3144:2: rule__Input__Group_1_3__0__Impl rule__Input__Group_1_3__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Input__Group_1_3__0__Impl();
 
             state._fsp--;
@@ -10059,7 +10042,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3197:1: ( rule__Input__Group_1_4__0__Impl rule__Input__Group_1_4__1 )
             // InternalCICDParser.g:3198:2: rule__Input__Group_1_4__0__Impl rule__Input__Group_1_4__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Input__Group_1_4__0__Impl();
 
             state._fsp--;
@@ -10214,7 +10197,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3251:1: ( rule__Input__Group_1_5__0__Impl rule__Input__Group_1_5__1 )
             // InternalCICDParser.g:3252:2: rule__Input__Group_1_5__0__Impl rule__Input__Group_1_5__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Input__Group_1_5__0__Impl();
 
             state._fsp--;
@@ -10289,7 +10272,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3278:1: ( rule__Input__Group_1_5__1__Impl rule__Input__Group_1_5__2 )
             // InternalCICDParser.g:3279:2: rule__Input__Group_1_5__1__Impl rule__Input__Group_1_5__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_20);
             rule__Input__Group_1_5__1__Impl();
 
             state._fsp--;
@@ -10412,21 +10395,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getInputAccess().getGroup_1_5_2()); 
             // InternalCICDParser.g:3319:2: ( rule__Input__Group_1_5_2__0 )*
-            loop43:
+            loop42:
             do {
-                int alt43=2;
-                int LA43_0 = input.LA(1);
+                int alt42=2;
+                int LA42_0 = input.LA(1);
 
-                if ( (LA43_0==Comma) ) {
-                    alt43=1;
+                if ( (LA42_0==Comma) ) {
+                    alt42=1;
                 }
 
 
-                switch (alt43) {
+                switch (alt42) {
             	case 1 :
             	    // InternalCICDParser.g:3319:3: rule__Input__Group_1_5_2__0
             	    {
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_21);
             	    rule__Input__Group_1_5_2__0();
 
             	    state._fsp--;
@@ -10436,7 +10419,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop43;
+            	    break loop42;
                 }
             } while (true);
 
@@ -10472,7 +10455,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3332:1: ( rule__Input__Group_1_5_2__0__Impl rule__Input__Group_1_5_2__1 )
             // InternalCICDParser.g:3333:2: rule__Input__Group_1_5_2__0__Impl rule__Input__Group_1_5_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Input__Group_1_5_2__0__Impl();
 
             state._fsp--;
@@ -10627,7 +10610,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3386:1: ( rule__Output__Group__0__Impl rule__Output__Group__1 )
             // InternalCICDParser.g:3387:2: rule__Output__Group__0__Impl rule__Output__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__Output__Group__0__Impl();
 
             state._fsp--;
@@ -10782,7 +10765,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3440:1: ( rule__Output__Group_1__0__Impl rule__Output__Group_1__1 )
             // InternalCICDParser.g:3441:2: rule__Output__Group_1__0__Impl rule__Output__Group_1__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_5);
             rule__Output__Group_1__0__Impl();
 
             state._fsp--;
@@ -10857,7 +10840,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3467:1: ( rule__Output__Group_1__1__Impl rule__Output__Group_1__2 )
             // InternalCICDParser.g:3468:2: rule__Output__Group_1__1__Impl rule__Output__Group_1__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Output__Group_1__1__Impl();
 
             state._fsp--;
@@ -10932,7 +10915,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3494:1: ( rule__Output__Group_1__2__Impl rule__Output__Group_1__3 )
             // InternalCICDParser.g:3495:2: rule__Output__Group_1__2__Impl rule__Output__Group_1__3
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_23);
             rule__Output__Group_1__2__Impl();
 
             state._fsp--;
@@ -11017,7 +11000,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3521:1: ( rule__Output__Group_1__3__Impl rule__Output__Group_1__4 )
             // InternalCICDParser.g:3522:2: rule__Output__Group_1__3__Impl rule__Output__Group_1__4
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Output__Group_1__3__Impl();
 
             state._fsp--;
@@ -11092,7 +11075,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3548:1: ( rule__Output__Group_1__4__Impl rule__Output__Group_1__5 )
             // InternalCICDParser.g:3549:2: rule__Output__Group_1__4__Impl rule__Output__Group_1__5
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_7);
             rule__Output__Group_1__4__Impl();
 
             state._fsp--;
@@ -11247,7 +11230,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3602:1: ( rule__Step__Group__0__Impl rule__Step__Group__1 )
             // InternalCICDParser.g:3603:2: rule__Step__Group__0__Impl rule__Step__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__Step__Group__0__Impl();
 
             state._fsp--;
@@ -11520,17 +11503,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getStepAccess().getCacheAssignment_1_1()); 
             // InternalCICDParser.g:3698:2: ( rule__Step__CacheAssignment_1_1 )*
-            loop44:
+            loop43:
             do {
-                int alt44=2;
-                int LA44_0 = input.LA(1);
+                int alt43=2;
+                int LA43_0 = input.LA(1);
 
-                if ( (LA44_0==Cache) ) {
-                    alt44=1;
+                if ( (LA43_0==Cache) ) {
+                    alt43=1;
                 }
 
 
-                switch (alt44) {
+                switch (alt43) {
             	case 1 :
             	    // InternalCICDParser.g:3698:3: rule__Step__CacheAssignment_1_1
             	    {
@@ -11544,7 +11527,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop44;
+            	    break loop43;
                 }
             } while (true);
 
@@ -11623,21 +11606,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getStepAccess().getEnvironmentsAssignment_1_2()); 
             // InternalCICDParser.g:3725:2: ( rule__Step__EnvironmentsAssignment_1_2 )*
-            loop45:
+            loop44:
             do {
-                int alt45=2;
-                int LA45_0 = input.LA(1);
+                int alt44=2;
+                int LA44_0 = input.LA(1);
 
-                if ( (LA45_0==Environment) ) {
-                    alt45=1;
+                if ( (LA44_0==Environment) ) {
+                    alt44=1;
                 }
 
 
-                switch (alt45) {
+                switch (alt44) {
             	case 1 :
             	    // InternalCICDParser.g:3725:3: rule__Step__EnvironmentsAssignment_1_2
             	    {
-            	    pushFollow(FOLLOW_8);
+            	    pushFollow(FOLLOW_10);
             	    rule__Step__EnvironmentsAssignment_1_2();
 
             	    state._fsp--;
@@ -11647,7 +11630,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop45;
+            	    break loop44;
                 }
             } while (true);
 
@@ -11726,13 +11709,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getStepAccess().getIfStepAssignment_1_3()); 
             // InternalCICDParser.g:3752:2: ( rule__Step__IfStepAssignment_1_3 )?
-            int alt46=2;
-            int LA46_0 = input.LA(1);
+            int alt45=2;
+            int LA45_0 = input.LA(1);
 
-            if ( (LA46_0==IfStep) ) {
-                alt46=1;
+            if ( (LA45_0==IfStep) ) {
+                alt45=1;
             }
-            switch (alt46) {
+            switch (alt45) {
                 case 1 :
                     // InternalCICDParser.g:3752:3: rule__Step__IfStepAssignment_1_3
                     {
@@ -11844,17 +11827,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getStepAccess().getCommandsAssignment_1_4()); 
             // InternalCICDParser.g:3785:3: ( rule__Step__CommandsAssignment_1_4 )*
-            loop47:
+            loop46:
             do {
-                int alt47=2;
-                int LA47_0 = input.LA(1);
+                int alt46=2;
+                int LA46_0 = input.LA(1);
 
-                if ( (LA47_0==Command) ) {
-                    alt47=1;
+                if ( (LA46_0==Command) ) {
+                    alt46=1;
                 }
 
 
-                switch (alt47) {
+                switch (alt46) {
             	case 1 :
             	    // InternalCICDParser.g:3785:4: rule__Step__CommandsAssignment_1_4
             	    {
@@ -11868,7 +11851,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop47;
+            	    break loop46;
                 }
             } while (true);
 
@@ -11950,17 +11933,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getStepAccess().getParametersAssignment_1_5()); 
             // InternalCICDParser.g:3813:2: ( rule__Step__ParametersAssignment_1_5 )*
-            loop48:
+            loop47:
             do {
-                int alt48=2;
-                int LA48_0 = input.LA(1);
+                int alt47=2;
+                int LA47_0 = input.LA(1);
 
-                if ( (LA48_0==Parameters) ) {
-                    alt48=1;
+                if ( (LA47_0==Parameters) ) {
+                    alt47=1;
                 }
 
 
-                switch (alt48) {
+                switch (alt47) {
             	case 1 :
             	    // InternalCICDParser.g:3813:3: rule__Step__ParametersAssignment_1_5
             	    {
@@ -11974,7 +11957,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop48;
+            	    break loop47;
                 }
             } while (true);
 
@@ -12080,7 +12063,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3852:1: ( rule__IfStep__Group__0__Impl rule__IfStep__Group__1 )
             // InternalCICDParser.g:3853:2: rule__IfStep__Group__0__Impl rule__IfStep__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__IfStep__Group__0__Impl();
 
             state._fsp--;
@@ -12310,7 +12293,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:3933:1: ( rule__IfStep__Group_1__1__Impl rule__IfStep__Group_1__2 )
             // InternalCICDParser.g:3934:2: rule__IfStep__Group_1__1__Impl rule__IfStep__Group_1__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__IfStep__Group_1__1__Impl();
 
             state._fsp--;
@@ -12513,17 +12496,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getIfStepAccess().getGroup_1_3()); 
             // InternalCICDParser.g:4002:2: ( rule__IfStep__Group_1_3__0 )*
-            loop49:
+            loop48:
             do {
-                int alt49=2;
-                int LA49_0 = input.LA(1);
+                int alt48=2;
+                int LA48_0 = input.LA(1);
 
-                if ( (LA49_0==If_steps) ) {
-                    alt49=1;
+                if ( (LA48_0==If_steps) ) {
+                    alt48=1;
                 }
 
 
-                switch (alt49) {
+                switch (alt48) {
             	case 1 :
             	    // InternalCICDParser.g:4002:3: rule__IfStep__Group_1_3__0
             	    {
@@ -12537,7 +12520,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop49;
+            	    break loop48;
                 }
             } while (true);
 
@@ -12616,17 +12599,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getIfStepAccess().getGroup_1_4()); 
             // InternalCICDParser.g:4029:2: ( rule__IfStep__Group_1_4__0 )*
-            loop50:
+            loop49:
             do {
-                int alt50=2;
-                int LA50_0 = input.LA(1);
+                int alt49=2;
+                int LA49_0 = input.LA(1);
 
-                if ( (LA50_0==Else_steps) ) {
-                    alt50=1;
+                if ( (LA49_0==Else_steps) ) {
+                    alt49=1;
                 }
 
 
-                switch (alt50) {
+                switch (alt49) {
             	case 1 :
             	    // InternalCICDParser.g:4029:3: rule__IfStep__Group_1_4__0
             	    {
@@ -12640,7 +12623,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop50;
+            	    break loop49;
                 }
             } while (true);
 
@@ -13131,7 +13114,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:4203:1: ( rule__Artifact__Group__1__Impl rule__Artifact__Group__2 )
             // InternalCICDParser.g:4204:2: rule__Artifact__Group__1__Impl rule__Artifact__Group__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__Artifact__Group__1__Impl();
 
             state._fsp--;
@@ -13404,13 +13387,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getArtifactAccess().getGroup_2_1()); 
             // InternalCICDParser.g:4299:2: ( rule__Artifact__Group_2_1__0 )?
-            int alt51=2;
-            int LA51_0 = input.LA(1);
+            int alt50=2;
+            int LA50_0 = input.LA(1);
 
-            if ( (LA51_0==Name) ) {
-                alt51=1;
+            if ( (LA50_0==Name) ) {
+                alt50=1;
             }
-            switch (alt51) {
+            switch (alt50) {
                 case 1 :
                     // InternalCICDParser.g:4299:3: rule__Artifact__Group_2_1__0
                     {
@@ -13500,13 +13483,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getArtifactAccess().getGroup_2_2()); 
             // InternalCICDParser.g:4326:2: ( rule__Artifact__Group_2_2__0 )?
-            int alt52=2;
-            int LA52_0 = input.LA(1);
+            int alt51=2;
+            int LA51_0 = input.LA(1);
 
-            if ( (LA52_0==Message) ) {
-                alt52=1;
+            if ( (LA51_0==Message) ) {
+                alt51=1;
             }
-            switch (alt52) {
+            switch (alt51) {
                 case 1 :
                     // InternalCICDParser.g:4326:3: rule__Artifact__Group_2_2__0
                     {
@@ -13596,13 +13579,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getArtifactAccess().getGroup_2_3()); 
             // InternalCICDParser.g:4353:2: ( rule__Artifact__Group_2_3__0 )?
-            int alt53=2;
-            int LA53_0 = input.LA(1);
+            int alt52=2;
+            int LA52_0 = input.LA(1);
 
-            if ( (LA53_0==Path) ) {
-                alt53=1;
+            if ( (LA52_0==Path) ) {
+                alt52=1;
             }
-            switch (alt53) {
+            switch (alt52) {
                 case 1 :
                     // InternalCICDParser.g:4353:3: rule__Artifact__Group_2_3__0
                     {
@@ -13692,13 +13675,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getArtifactAccess().getGroup_2_4()); 
             // InternalCICDParser.g:4380:2: ( rule__Artifact__Group_2_4__0 )?
-            int alt54=2;
-            int LA54_0 = input.LA(1);
+            int alt53=2;
+            int LA53_0 = input.LA(1);
 
-            if ( (LA54_0==Type) ) {
-                alt54=1;
+            if ( (LA53_0==Type) ) {
+                alt53=1;
             }
-            switch (alt54) {
+            switch (alt53) {
                 case 1 :
                     // InternalCICDParser.g:4380:3: rule__Artifact__Group_2_4__0
                     {
@@ -13815,7 +13798,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:4419:1: ( rule__Artifact__Group_2_1__0__Impl rule__Artifact__Group_2_1__1 )
             // InternalCICDParser.g:4420:2: rule__Artifact__Group_2_1__0__Impl rule__Artifact__Group_2_1__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Artifact__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -13970,7 +13953,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:4473:1: ( rule__Artifact__Group_2_2__0__Impl rule__Artifact__Group_2_2__1 )
             // InternalCICDParser.g:4474:2: rule__Artifact__Group_2_2__0__Impl rule__Artifact__Group_2_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Artifact__Group_2_2__0__Impl();
 
             state._fsp--;
@@ -14125,7 +14108,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:4527:1: ( rule__Artifact__Group_2_3__0__Impl rule__Artifact__Group_2_3__1 )
             // InternalCICDParser.g:4528:2: rule__Artifact__Group_2_3__0__Impl rule__Artifact__Group_2_3__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Artifact__Group_2_3__0__Impl();
 
             state._fsp--;
@@ -14200,7 +14183,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:4554:1: ( rule__Artifact__Group_2_3__1__Impl rule__Artifact__Group_2_3__2 )
             // InternalCICDParser.g:4555:2: rule__Artifact__Group_2_3__1__Impl rule__Artifact__Group_2_3__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_20);
             rule__Artifact__Group_2_3__1__Impl();
 
             state._fsp--;
@@ -14323,21 +14306,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getArtifactAccess().getGroup_2_3_2()); 
             // InternalCICDParser.g:4595:2: ( rule__Artifact__Group_2_3_2__0 )*
-            loop55:
+            loop54:
             do {
-                int alt55=2;
-                int LA55_0 = input.LA(1);
+                int alt54=2;
+                int LA54_0 = input.LA(1);
 
-                if ( (LA55_0==Comma) ) {
-                    alt55=1;
+                if ( (LA54_0==Comma) ) {
+                    alt54=1;
                 }
 
 
-                switch (alt55) {
+                switch (alt54) {
             	case 1 :
             	    // InternalCICDParser.g:4595:3: rule__Artifact__Group_2_3_2__0
             	    {
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_21);
             	    rule__Artifact__Group_2_3_2__0();
 
             	    state._fsp--;
@@ -14347,7 +14330,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop55;
+            	    break loop54;
                 }
             } while (true);
 
@@ -14383,7 +14366,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:4608:1: ( rule__Artifact__Group_2_3_2__0__Impl rule__Artifact__Group_2_3_2__1 )
             // InternalCICDParser.g:4609:2: rule__Artifact__Group_2_3_2__0__Impl rule__Artifact__Group_2_3_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Artifact__Group_2_3_2__0__Impl();
 
             state._fsp--;
@@ -14693,7 +14676,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:4716:1: ( rule__Matrix__Group__0__Impl rule__Matrix__Group__1 )
             // InternalCICDParser.g:4717:2: rule__Matrix__Group__0__Impl rule__Matrix__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__Matrix__Group__0__Impl();
 
             state._fsp--;
@@ -14966,13 +14949,13 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getMatrixAccess().getGroup_1_1()); 
             // InternalCICDParser.g:4812:2: ( rule__Matrix__Group_1_1__0 )?
-            int alt56=2;
-            int LA56_0 = input.LA(1);
+            int alt55=2;
+            int LA55_0 = input.LA(1);
 
-            if ( (LA56_0==Name) ) {
-                alt56=1;
+            if ( (LA55_0==Name) ) {
+                alt55=1;
             }
-            switch (alt56) {
+            switch (alt55) {
                 case 1 :
                     // InternalCICDParser.g:4812:3: rule__Matrix__Group_1_1__0
                     {
@@ -15062,21 +15045,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getMatrixAccess().getStepsAssignment_1_2()); 
             // InternalCICDParser.g:4839:2: ( rule__Matrix__StepsAssignment_1_2 )*
-            loop57:
+            loop56:
             do {
-                int alt57=2;
-                int LA57_0 = input.LA(1);
+                int alt56=2;
+                int LA56_0 = input.LA(1);
 
-                if ( (LA57_0==Step) ) {
-                    alt57=1;
+                if ( (LA56_0==Step) ) {
+                    alt56=1;
                 }
 
 
-                switch (alt57) {
+                switch (alt56) {
             	case 1 :
             	    // InternalCICDParser.g:4839:3: rule__Matrix__StepsAssignment_1_2
             	    {
-            	    pushFollow(FOLLOW_16);
+            	    pushFollow(FOLLOW_19);
             	    rule__Matrix__StepsAssignment_1_2();
 
             	    state._fsp--;
@@ -15086,7 +15069,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop57;
+            	    break loop56;
                 }
             } while (true);
 
@@ -15165,21 +15148,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getMatrixAccess().getJobsAssignment_1_3()); 
             // InternalCICDParser.g:4866:2: ( rule__Matrix__JobsAssignment_1_3 )*
-            loop58:
+            loop57:
             do {
-                int alt58=2;
-                int LA58_0 = input.LA(1);
+                int alt57=2;
+                int LA57_0 = input.LA(1);
 
-                if ( (LA58_0==Job) ) {
-                    alt58=1;
+                if ( (LA57_0==Job) ) {
+                    alt57=1;
                 }
 
 
-                switch (alt58) {
+                switch (alt57) {
             	case 1 :
             	    // InternalCICDParser.g:4866:3: rule__Matrix__JobsAssignment_1_3
             	    {
-            	    pushFollow(FOLLOW_7);
+            	    pushFollow(FOLLOW_9);
             	    rule__Matrix__JobsAssignment_1_3();
 
             	    state._fsp--;
@@ -15189,7 +15172,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop58;
+            	    break loop57;
                 }
             } while (true);
 
@@ -15225,7 +15208,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:4878:1: ( rule__Matrix__Group_1__4__Impl rule__Matrix__Group_1__5 )
             // InternalCICDParser.g:4879:2: rule__Matrix__Group_1__4__Impl rule__Matrix__Group_1__5
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_7);
             rule__Matrix__Group_1__4__Impl();
 
             state._fsp--;
@@ -15290,17 +15273,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getMatrixAccess().getConfigsAssignment_1_4()); 
             // InternalCICDParser.g:4899:3: ( rule__Matrix__ConfigsAssignment_1_4 )*
-            loop59:
+            loop58:
             do {
-                int alt59=2;
-                int LA59_0 = input.LA(1);
+                int alt58=2;
+                int LA58_0 = input.LA(1);
 
-                if ( (LA59_0==MatrixConfig) ) {
-                    alt59=1;
+                if ( (LA58_0==MatrixConfig) ) {
+                    alt58=1;
                 }
 
 
-                switch (alt59) {
+                switch (alt58) {
             	case 1 :
             	    // InternalCICDParser.g:4899:4: rule__Matrix__ConfigsAssignment_1_4
             	    {
@@ -15314,7 +15297,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop59;
+            	    break loop58;
                 }
             } while (true);
 
@@ -15423,7 +15406,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:4939:1: ( rule__Matrix__Group_1_1__0__Impl rule__Matrix__Group_1_1__1 )
             // InternalCICDParser.g:4940:2: rule__Matrix__Group_1_1__0__Impl rule__Matrix__Group_1_1__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Matrix__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -15653,7 +15636,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:5020:1: ( rule__Command__Group__1__Impl rule__Command__Group__2 )
             // InternalCICDParser.g:5021:2: rule__Command__Group__1__Impl rule__Command__Group__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__Command__Group__1__Impl();
 
             state._fsp--;
@@ -15808,7 +15791,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:5074:1: ( rule__Command__Group_2__0__Impl rule__Command__Group_2__1 )
             // InternalCICDParser.g:5075:2: rule__Command__Group_2__0__Impl rule__Command__Group_2__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_5);
             rule__Command__Group_2__0__Impl();
 
             state._fsp--;
@@ -15883,7 +15866,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:5101:1: ( rule__Command__Group_2__1__Impl rule__Command__Group_2__2 )
             // InternalCICDParser.g:5102:2: rule__Command__Group_2__1__Impl rule__Command__Group_2__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Command__Group_2__1__Impl();
 
             state._fsp--;
@@ -15958,7 +15941,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:5128:1: ( rule__Command__Group_2__2__Impl rule__Command__Group_2__3 )
             // InternalCICDParser.g:5129:2: rule__Command__Group_2__2__Impl rule__Command__Group_2__3
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_7);
             rule__Command__Group_2__2__Impl();
 
             state._fsp--;
@@ -16113,7 +16096,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:5182:1: ( rule__Parameters__Group__0__Impl rule__Parameters__Group__1 )
             // InternalCICDParser.g:5183:2: rule__Parameters__Group__0__Impl rule__Parameters__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__Parameters__Group__0__Impl();
 
             state._fsp--;
@@ -16343,7 +16326,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:5263:1: ( rule__Parameters__Group_1__1__Impl rule__Parameters__Group_1__2 )
             // InternalCICDParser.g:5264:2: rule__Parameters__Group_1__1__Impl rule__Parameters__Group_1__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Parameters__Group_1__1__Impl();
 
             state._fsp--;
@@ -16418,7 +16401,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:5290:1: ( rule__Parameters__Group_1__2__Impl rule__Parameters__Group_1__3 )
             // InternalCICDParser.g:5291:2: rule__Parameters__Group_1__2__Impl rule__Parameters__Group_1__3
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_7);
             rule__Parameters__Group_1__2__Impl();
 
             state._fsp--;
@@ -16573,7 +16556,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:5344:1: ( rule__Cache__Group__0__Impl rule__Cache__Group__1 )
             // InternalCICDParser.g:5345:2: rule__Cache__Group__0__Impl rule__Cache__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__Cache__Group__0__Impl();
 
             state._fsp--;
@@ -16963,7 +16946,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:5479:1: ( rule__Cache__Group_1__3__Impl rule__Cache__Group_1__4 )
             // InternalCICDParser.g:5480:2: rule__Cache__Group_1__3__Impl rule__Cache__Group_1__4
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_48);
             rule__Cache__Group_1__3__Impl();
 
             state._fsp--;
@@ -16992,27 +16975,38 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1__3__Impl"
-    // InternalCICDParser.g:5487:1: rule__Cache__Group_1__3__Impl : ( ( rule__Cache__Group_1_3__0 ) ) ;
+    // InternalCICDParser.g:5487:1: rule__Cache__Group_1__3__Impl : ( ( rule__Cache__Group_1_3__0 )? ) ;
     public final void rule__Cache__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5491:1: ( ( ( rule__Cache__Group_1_3__0 ) ) )
-            // InternalCICDParser.g:5492:1: ( ( rule__Cache__Group_1_3__0 ) )
+            // InternalCICDParser.g:5491:1: ( ( ( rule__Cache__Group_1_3__0 )? ) )
+            // InternalCICDParser.g:5492:1: ( ( rule__Cache__Group_1_3__0 )? )
             {
-            // InternalCICDParser.g:5492:1: ( ( rule__Cache__Group_1_3__0 ) )
-            // InternalCICDParser.g:5493:2: ( rule__Cache__Group_1_3__0 )
+            // InternalCICDParser.g:5492:1: ( ( rule__Cache__Group_1_3__0 )? )
+            // InternalCICDParser.g:5493:2: ( rule__Cache__Group_1_3__0 )?
             {
              before(grammarAccess.getCacheAccess().getGroup_1_3()); 
-            // InternalCICDParser.g:5494:2: ( rule__Cache__Group_1_3__0 )
-            // InternalCICDParser.g:5494:3: rule__Cache__Group_1_3__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__Cache__Group_1_3__0();
+            // InternalCICDParser.g:5494:2: ( rule__Cache__Group_1_3__0 )?
+            int alt59=2;
+            int LA59_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA59_0==Paths) ) {
+                alt59=1;
+            }
+            switch (alt59) {
+                case 1 :
+                    // InternalCICDParser.g:5494:3: rule__Cache__Group_1_3__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Cache__Group_1_3__0();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
@@ -17048,7 +17042,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:5506:1: ( rule__Cache__Group_1__4__Impl rule__Cache__Group_1__5 )
             // InternalCICDParser.g:5507:2: rule__Cache__Group_1__4__Impl rule__Cache__Group_1__5
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_48);
             rule__Cache__Group_1__4__Impl();
 
             state._fsp--;
@@ -17077,21 +17071,42 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1__4__Impl"
-    // InternalCICDParser.g:5514:1: rule__Cache__Group_1__4__Impl : ( Key ) ;
+    // InternalCICDParser.g:5514:1: rule__Cache__Group_1__4__Impl : ( ( rule__Cache__Group_1_4__0 )? ) ;
     public final void rule__Cache__Group_1__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5518:1: ( ( Key ) )
-            // InternalCICDParser.g:5519:1: ( Key )
+            // InternalCICDParser.g:5518:1: ( ( ( rule__Cache__Group_1_4__0 )? ) )
+            // InternalCICDParser.g:5519:1: ( ( rule__Cache__Group_1_4__0 )? )
             {
-            // InternalCICDParser.g:5519:1: ( Key )
-            // InternalCICDParser.g:5520:2: Key
+            // InternalCICDParser.g:5519:1: ( ( rule__Cache__Group_1_4__0 )? )
+            // InternalCICDParser.g:5520:2: ( rule__Cache__Group_1_4__0 )?
             {
-             before(grammarAccess.getCacheAccess().getKeyKeyword_1_4()); 
-            match(input,Key,FOLLOW_2); 
-             after(grammarAccess.getCacheAccess().getKeyKeyword_1_4()); 
+             before(grammarAccess.getCacheAccess().getGroup_1_4()); 
+            // InternalCICDParser.g:5521:2: ( rule__Cache__Group_1_4__0 )?
+            int alt60=2;
+            int LA60_0 = input.LA(1);
+
+            if ( (LA60_0==Key) ) {
+                alt60=1;
+            }
+            switch (alt60) {
+                case 1 :
+                    // InternalCICDParser.g:5521:3: rule__Cache__Group_1_4__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Cache__Group_1_4__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getCacheAccess().getGroup_1_4()); 
 
             }
 
@@ -17123,7 +17138,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             // InternalCICDParser.g:5533:1: ( rule__Cache__Group_1__5__Impl rule__Cache__Group_1__6 )
             // InternalCICDParser.g:5534:2: rule__Cache__Group_1__5__Impl rule__Cache__Group_1__6
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_48);
             rule__Cache__Group_1__5__Impl();
 
             state._fsp--;
@@ -17152,31 +17167,42 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1__5__Impl"
-    // InternalCICDParser.g:5541:1: rule__Cache__Group_1__5__Impl : ( ( rule__Cache__KeyAssignment_1_5 ) ) ;
+    // InternalCICDParser.g:5541:1: rule__Cache__Group_1__5__Impl : ( ( rule__Cache__Group_1_5__0 )? ) ;
     public final void rule__Cache__Group_1__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5545:1: ( ( ( rule__Cache__KeyAssignment_1_5 ) ) )
-            // InternalCICDParser.g:5546:1: ( ( rule__Cache__KeyAssignment_1_5 ) )
+            // InternalCICDParser.g:5545:1: ( ( ( rule__Cache__Group_1_5__0 )? ) )
+            // InternalCICDParser.g:5546:1: ( ( rule__Cache__Group_1_5__0 )? )
             {
-            // InternalCICDParser.g:5546:1: ( ( rule__Cache__KeyAssignment_1_5 ) )
-            // InternalCICDParser.g:5547:2: ( rule__Cache__KeyAssignment_1_5 )
+            // InternalCICDParser.g:5546:1: ( ( rule__Cache__Group_1_5__0 )? )
+            // InternalCICDParser.g:5547:2: ( rule__Cache__Group_1_5__0 )?
             {
-             before(grammarAccess.getCacheAccess().getKeyAssignment_1_5()); 
-            // InternalCICDParser.g:5548:2: ( rule__Cache__KeyAssignment_1_5 )
-            // InternalCICDParser.g:5548:3: rule__Cache__KeyAssignment_1_5
-            {
-            pushFollow(FOLLOW_2);
-            rule__Cache__KeyAssignment_1_5();
+             before(grammarAccess.getCacheAccess().getGroup_1_5()); 
+            // InternalCICDParser.g:5548:2: ( rule__Cache__Group_1_5__0 )?
+            int alt61=2;
+            int LA61_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA61_0==Keys) ) {
+                alt61=1;
+            }
+            switch (alt61) {
+                case 1 :
+                    // InternalCICDParser.g:5548:3: rule__Cache__Group_1_5__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Cache__Group_1_5__0();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
-             after(grammarAccess.getCacheAccess().getKeyAssignment_1_5()); 
+             after(grammarAccess.getCacheAccess().getGroup_1_5()); 
 
             }
 
@@ -17199,22 +17225,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1__6"
-    // InternalCICDParser.g:5556:1: rule__Cache__Group_1__6 : rule__Cache__Group_1__6__Impl rule__Cache__Group_1__7 ;
+    // InternalCICDParser.g:5556:1: rule__Cache__Group_1__6 : rule__Cache__Group_1__6__Impl ;
     public final void rule__Cache__Group_1__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5560:1: ( rule__Cache__Group_1__6__Impl rule__Cache__Group_1__7 )
-            // InternalCICDParser.g:5561:2: rule__Cache__Group_1__6__Impl rule__Cache__Group_1__7
+            // InternalCICDParser.g:5560:1: ( rule__Cache__Group_1__6__Impl )
+            // InternalCICDParser.g:5561:2: rule__Cache__Group_1__6__Impl
             {
-            pushFollow(FOLLOW_49);
-            rule__Cache__Group_1__6__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Cache__Group_1__7();
+            rule__Cache__Group_1__6__Impl();
 
             state._fsp--;
 
@@ -17237,42 +17258,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1__6__Impl"
-    // InternalCICDParser.g:5568:1: rule__Cache__Group_1__6__Impl : ( ( rule__Cache__Group_1_6__0 )? ) ;
+    // InternalCICDParser.g:5567:1: rule__Cache__Group_1__6__Impl : ( RULE_END ) ;
     public final void rule__Cache__Group_1__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5572:1: ( ( ( rule__Cache__Group_1_6__0 )? ) )
-            // InternalCICDParser.g:5573:1: ( ( rule__Cache__Group_1_6__0 )? )
+            // InternalCICDParser.g:5571:1: ( ( RULE_END ) )
+            // InternalCICDParser.g:5572:1: ( RULE_END )
             {
-            // InternalCICDParser.g:5573:1: ( ( rule__Cache__Group_1_6__0 )? )
-            // InternalCICDParser.g:5574:2: ( rule__Cache__Group_1_6__0 )?
+            // InternalCICDParser.g:5572:1: ( RULE_END )
+            // InternalCICDParser.g:5573:2: RULE_END
             {
-             before(grammarAccess.getCacheAccess().getGroup_1_6()); 
-            // InternalCICDParser.g:5575:2: ( rule__Cache__Group_1_6__0 )?
-            int alt60=2;
-            int LA60_0 = input.LA(1);
-
-            if ( (LA60_0==Keys) ) {
-                alt60=1;
-            }
-            switch (alt60) {
-                case 1 :
-                    // InternalCICDParser.g:5575:3: rule__Cache__Group_1_6__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Cache__Group_1_6__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getCacheAccess().getGroup_1_6()); 
+             before(grammarAccess.getCacheAccess().getENDTerminalRuleCall_1_6()); 
+            match(input,RULE_END,FOLLOW_2); 
+             after(grammarAccess.getCacheAccess().getENDTerminalRuleCall_1_6()); 
 
             }
 
@@ -17294,87 +17294,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Cache__Group_1__6__Impl"
 
 
-    // $ANTLR start "rule__Cache__Group_1__7"
-    // InternalCICDParser.g:5583:1: rule__Cache__Group_1__7 : rule__Cache__Group_1__7__Impl ;
-    public final void rule__Cache__Group_1__7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCICDParser.g:5587:1: ( rule__Cache__Group_1__7__Impl )
-            // InternalCICDParser.g:5588:2: rule__Cache__Group_1__7__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Cache__Group_1__7__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Cache__Group_1__7"
-
-
-    // $ANTLR start "rule__Cache__Group_1__7__Impl"
-    // InternalCICDParser.g:5594:1: rule__Cache__Group_1__7__Impl : ( RULE_END ) ;
-    public final void rule__Cache__Group_1__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCICDParser.g:5598:1: ( ( RULE_END ) )
-            // InternalCICDParser.g:5599:1: ( RULE_END )
-            {
-            // InternalCICDParser.g:5599:1: ( RULE_END )
-            // InternalCICDParser.g:5600:2: RULE_END
-            {
-             before(grammarAccess.getCacheAccess().getENDTerminalRuleCall_1_7()); 
-            match(input,RULE_END,FOLLOW_2); 
-             after(grammarAccess.getCacheAccess().getENDTerminalRuleCall_1_7()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Cache__Group_1__7__Impl"
-
-
     // $ANTLR start "rule__Cache__Group_1_3__0"
-    // InternalCICDParser.g:5610:1: rule__Cache__Group_1_3__0 : rule__Cache__Group_1_3__0__Impl rule__Cache__Group_1_3__1 ;
+    // InternalCICDParser.g:5583:1: rule__Cache__Group_1_3__0 : rule__Cache__Group_1_3__0__Impl rule__Cache__Group_1_3__1 ;
     public final void rule__Cache__Group_1_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5614:1: ( rule__Cache__Group_1_3__0__Impl rule__Cache__Group_1_3__1 )
-            // InternalCICDParser.g:5615:2: rule__Cache__Group_1_3__0__Impl rule__Cache__Group_1_3__1
+            // InternalCICDParser.g:5587:1: ( rule__Cache__Group_1_3__0__Impl rule__Cache__Group_1_3__1 )
+            // InternalCICDParser.g:5588:2: rule__Cache__Group_1_3__0__Impl rule__Cache__Group_1_3__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Cache__Group_1_3__0__Impl();
 
             state._fsp--;
@@ -17403,17 +17333,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1_3__0__Impl"
-    // InternalCICDParser.g:5622:1: rule__Cache__Group_1_3__0__Impl : ( Paths ) ;
+    // InternalCICDParser.g:5595:1: rule__Cache__Group_1_3__0__Impl : ( Paths ) ;
     public final void rule__Cache__Group_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5626:1: ( ( Paths ) )
-            // InternalCICDParser.g:5627:1: ( Paths )
+            // InternalCICDParser.g:5599:1: ( ( Paths ) )
+            // InternalCICDParser.g:5600:1: ( Paths )
             {
-            // InternalCICDParser.g:5627:1: ( Paths )
-            // InternalCICDParser.g:5628:2: Paths
+            // InternalCICDParser.g:5600:1: ( Paths )
+            // InternalCICDParser.g:5601:2: Paths
             {
              before(grammarAccess.getCacheAccess().getPathsKeyword_1_3_0()); 
             match(input,Paths,FOLLOW_2); 
@@ -17440,16 +17370,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1_3__1"
-    // InternalCICDParser.g:5637:1: rule__Cache__Group_1_3__1 : rule__Cache__Group_1_3__1__Impl rule__Cache__Group_1_3__2 ;
+    // InternalCICDParser.g:5610:1: rule__Cache__Group_1_3__1 : rule__Cache__Group_1_3__1__Impl rule__Cache__Group_1_3__2 ;
     public final void rule__Cache__Group_1_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5641:1: ( rule__Cache__Group_1_3__1__Impl rule__Cache__Group_1_3__2 )
-            // InternalCICDParser.g:5642:2: rule__Cache__Group_1_3__1__Impl rule__Cache__Group_1_3__2
+            // InternalCICDParser.g:5614:1: ( rule__Cache__Group_1_3__1__Impl rule__Cache__Group_1_3__2 )
+            // InternalCICDParser.g:5615:2: rule__Cache__Group_1_3__1__Impl rule__Cache__Group_1_3__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_20);
             rule__Cache__Group_1_3__1__Impl();
 
             state._fsp--;
@@ -17478,21 +17408,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1_3__1__Impl"
-    // InternalCICDParser.g:5649:1: rule__Cache__Group_1_3__1__Impl : ( ( rule__Cache__PathsAssignment_1_3_1 ) ) ;
+    // InternalCICDParser.g:5622:1: rule__Cache__Group_1_3__1__Impl : ( ( rule__Cache__PathsAssignment_1_3_1 ) ) ;
     public final void rule__Cache__Group_1_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5653:1: ( ( ( rule__Cache__PathsAssignment_1_3_1 ) ) )
-            // InternalCICDParser.g:5654:1: ( ( rule__Cache__PathsAssignment_1_3_1 ) )
+            // InternalCICDParser.g:5626:1: ( ( ( rule__Cache__PathsAssignment_1_3_1 ) ) )
+            // InternalCICDParser.g:5627:1: ( ( rule__Cache__PathsAssignment_1_3_1 ) )
             {
-            // InternalCICDParser.g:5654:1: ( ( rule__Cache__PathsAssignment_1_3_1 ) )
-            // InternalCICDParser.g:5655:2: ( rule__Cache__PathsAssignment_1_3_1 )
+            // InternalCICDParser.g:5627:1: ( ( rule__Cache__PathsAssignment_1_3_1 ) )
+            // InternalCICDParser.g:5628:2: ( rule__Cache__PathsAssignment_1_3_1 )
             {
              before(grammarAccess.getCacheAccess().getPathsAssignment_1_3_1()); 
-            // InternalCICDParser.g:5656:2: ( rule__Cache__PathsAssignment_1_3_1 )
-            // InternalCICDParser.g:5656:3: rule__Cache__PathsAssignment_1_3_1
+            // InternalCICDParser.g:5629:2: ( rule__Cache__PathsAssignment_1_3_1 )
+            // InternalCICDParser.g:5629:3: rule__Cache__PathsAssignment_1_3_1
             {
             pushFollow(FOLLOW_2);
             rule__Cache__PathsAssignment_1_3_1();
@@ -17525,14 +17455,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1_3__2"
-    // InternalCICDParser.g:5664:1: rule__Cache__Group_1_3__2 : rule__Cache__Group_1_3__2__Impl ;
+    // InternalCICDParser.g:5637:1: rule__Cache__Group_1_3__2 : rule__Cache__Group_1_3__2__Impl ;
     public final void rule__Cache__Group_1_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5668:1: ( rule__Cache__Group_1_3__2__Impl )
-            // InternalCICDParser.g:5669:2: rule__Cache__Group_1_3__2__Impl
+            // InternalCICDParser.g:5641:1: ( rule__Cache__Group_1_3__2__Impl )
+            // InternalCICDParser.g:5642:2: rule__Cache__Group_1_3__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Cache__Group_1_3__2__Impl();
@@ -17558,35 +17488,35 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1_3__2__Impl"
-    // InternalCICDParser.g:5675:1: rule__Cache__Group_1_3__2__Impl : ( ( rule__Cache__Group_1_3_2__0 )* ) ;
+    // InternalCICDParser.g:5648:1: rule__Cache__Group_1_3__2__Impl : ( ( rule__Cache__Group_1_3_2__0 )* ) ;
     public final void rule__Cache__Group_1_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5679:1: ( ( ( rule__Cache__Group_1_3_2__0 )* ) )
-            // InternalCICDParser.g:5680:1: ( ( rule__Cache__Group_1_3_2__0 )* )
+            // InternalCICDParser.g:5652:1: ( ( ( rule__Cache__Group_1_3_2__0 )* ) )
+            // InternalCICDParser.g:5653:1: ( ( rule__Cache__Group_1_3_2__0 )* )
             {
-            // InternalCICDParser.g:5680:1: ( ( rule__Cache__Group_1_3_2__0 )* )
-            // InternalCICDParser.g:5681:2: ( rule__Cache__Group_1_3_2__0 )*
+            // InternalCICDParser.g:5653:1: ( ( rule__Cache__Group_1_3_2__0 )* )
+            // InternalCICDParser.g:5654:2: ( rule__Cache__Group_1_3_2__0 )*
             {
              before(grammarAccess.getCacheAccess().getGroup_1_3_2()); 
-            // InternalCICDParser.g:5682:2: ( rule__Cache__Group_1_3_2__0 )*
-            loop61:
+            // InternalCICDParser.g:5655:2: ( rule__Cache__Group_1_3_2__0 )*
+            loop62:
             do {
-                int alt61=2;
-                int LA61_0 = input.LA(1);
+                int alt62=2;
+                int LA62_0 = input.LA(1);
 
-                if ( (LA61_0==Comma) ) {
-                    alt61=1;
+                if ( (LA62_0==Comma) ) {
+                    alt62=1;
                 }
 
 
-                switch (alt61) {
+                switch (alt62) {
             	case 1 :
-            	    // InternalCICDParser.g:5682:3: rule__Cache__Group_1_3_2__0
+            	    // InternalCICDParser.g:5655:3: rule__Cache__Group_1_3_2__0
             	    {
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_21);
             	    rule__Cache__Group_1_3_2__0();
 
             	    state._fsp--;
@@ -17596,7 +17526,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop61;
+            	    break loop62;
                 }
             } while (true);
 
@@ -17623,16 +17553,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1_3_2__0"
-    // InternalCICDParser.g:5691:1: rule__Cache__Group_1_3_2__0 : rule__Cache__Group_1_3_2__0__Impl rule__Cache__Group_1_3_2__1 ;
+    // InternalCICDParser.g:5664:1: rule__Cache__Group_1_3_2__0 : rule__Cache__Group_1_3_2__0__Impl rule__Cache__Group_1_3_2__1 ;
     public final void rule__Cache__Group_1_3_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5695:1: ( rule__Cache__Group_1_3_2__0__Impl rule__Cache__Group_1_3_2__1 )
-            // InternalCICDParser.g:5696:2: rule__Cache__Group_1_3_2__0__Impl rule__Cache__Group_1_3_2__1
+            // InternalCICDParser.g:5668:1: ( rule__Cache__Group_1_3_2__0__Impl rule__Cache__Group_1_3_2__1 )
+            // InternalCICDParser.g:5669:2: rule__Cache__Group_1_3_2__0__Impl rule__Cache__Group_1_3_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Cache__Group_1_3_2__0__Impl();
 
             state._fsp--;
@@ -17661,17 +17591,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1_3_2__0__Impl"
-    // InternalCICDParser.g:5703:1: rule__Cache__Group_1_3_2__0__Impl : ( Comma ) ;
+    // InternalCICDParser.g:5676:1: rule__Cache__Group_1_3_2__0__Impl : ( Comma ) ;
     public final void rule__Cache__Group_1_3_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5707:1: ( ( Comma ) )
-            // InternalCICDParser.g:5708:1: ( Comma )
+            // InternalCICDParser.g:5680:1: ( ( Comma ) )
+            // InternalCICDParser.g:5681:1: ( Comma )
             {
-            // InternalCICDParser.g:5708:1: ( Comma )
-            // InternalCICDParser.g:5709:2: Comma
+            // InternalCICDParser.g:5681:1: ( Comma )
+            // InternalCICDParser.g:5682:2: Comma
             {
              before(grammarAccess.getCacheAccess().getCommaKeyword_1_3_2_0()); 
             match(input,Comma,FOLLOW_2); 
@@ -17698,14 +17628,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1_3_2__1"
-    // InternalCICDParser.g:5718:1: rule__Cache__Group_1_3_2__1 : rule__Cache__Group_1_3_2__1__Impl ;
+    // InternalCICDParser.g:5691:1: rule__Cache__Group_1_3_2__1 : rule__Cache__Group_1_3_2__1__Impl ;
     public final void rule__Cache__Group_1_3_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5722:1: ( rule__Cache__Group_1_3_2__1__Impl )
-            // InternalCICDParser.g:5723:2: rule__Cache__Group_1_3_2__1__Impl
+            // InternalCICDParser.g:5695:1: ( rule__Cache__Group_1_3_2__1__Impl )
+            // InternalCICDParser.g:5696:2: rule__Cache__Group_1_3_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Cache__Group_1_3_2__1__Impl();
@@ -17731,21 +17661,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__Group_1_3_2__1__Impl"
-    // InternalCICDParser.g:5729:1: rule__Cache__Group_1_3_2__1__Impl : ( ( rule__Cache__PathsAssignment_1_3_2_1 ) ) ;
+    // InternalCICDParser.g:5702:1: rule__Cache__Group_1_3_2__1__Impl : ( ( rule__Cache__PathsAssignment_1_3_2_1 ) ) ;
     public final void rule__Cache__Group_1_3_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5733:1: ( ( ( rule__Cache__PathsAssignment_1_3_2_1 ) ) )
-            // InternalCICDParser.g:5734:1: ( ( rule__Cache__PathsAssignment_1_3_2_1 ) )
+            // InternalCICDParser.g:5706:1: ( ( ( rule__Cache__PathsAssignment_1_3_2_1 ) ) )
+            // InternalCICDParser.g:5707:1: ( ( rule__Cache__PathsAssignment_1_3_2_1 ) )
             {
-            // InternalCICDParser.g:5734:1: ( ( rule__Cache__PathsAssignment_1_3_2_1 ) )
-            // InternalCICDParser.g:5735:2: ( rule__Cache__PathsAssignment_1_3_2_1 )
+            // InternalCICDParser.g:5707:1: ( ( rule__Cache__PathsAssignment_1_3_2_1 ) )
+            // InternalCICDParser.g:5708:2: ( rule__Cache__PathsAssignment_1_3_2_1 )
             {
              before(grammarAccess.getCacheAccess().getPathsAssignment_1_3_2_1()); 
-            // InternalCICDParser.g:5736:2: ( rule__Cache__PathsAssignment_1_3_2_1 )
-            // InternalCICDParser.g:5736:3: rule__Cache__PathsAssignment_1_3_2_1
+            // InternalCICDParser.g:5709:2: ( rule__Cache__PathsAssignment_1_3_2_1 )
+            // InternalCICDParser.g:5709:3: rule__Cache__PathsAssignment_1_3_2_1
             {
             pushFollow(FOLLOW_2);
             rule__Cache__PathsAssignment_1_3_2_1();
@@ -17777,23 +17707,23 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Cache__Group_1_3_2__1__Impl"
 
 
-    // $ANTLR start "rule__Cache__Group_1_6__0"
-    // InternalCICDParser.g:5745:1: rule__Cache__Group_1_6__0 : rule__Cache__Group_1_6__0__Impl rule__Cache__Group_1_6__1 ;
-    public final void rule__Cache__Group_1_6__0() throws RecognitionException {
+    // $ANTLR start "rule__Cache__Group_1_4__0"
+    // InternalCICDParser.g:5718:1: rule__Cache__Group_1_4__0 : rule__Cache__Group_1_4__0__Impl rule__Cache__Group_1_4__1 ;
+    public final void rule__Cache__Group_1_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5749:1: ( rule__Cache__Group_1_6__0__Impl rule__Cache__Group_1_6__1 )
-            // InternalCICDParser.g:5750:2: rule__Cache__Group_1_6__0__Impl rule__Cache__Group_1_6__1
+            // InternalCICDParser.g:5722:1: ( rule__Cache__Group_1_4__0__Impl rule__Cache__Group_1_4__1 )
+            // InternalCICDParser.g:5723:2: rule__Cache__Group_1_4__0__Impl rule__Cache__Group_1_4__1
             {
-            pushFollow(FOLLOW_5);
-            rule__Cache__Group_1_6__0__Impl();
+            pushFollow(FOLLOW_6);
+            rule__Cache__Group_1_4__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Cache__Group_1_6__1();
+            rule__Cache__Group_1_4__1();
 
             state._fsp--;
 
@@ -17812,25 +17742,180 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__Group_1_6__0"
+    // $ANTLR end "rule__Cache__Group_1_4__0"
 
 
-    // $ANTLR start "rule__Cache__Group_1_6__0__Impl"
-    // InternalCICDParser.g:5757:1: rule__Cache__Group_1_6__0__Impl : ( Keys ) ;
-    public final void rule__Cache__Group_1_6__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Cache__Group_1_4__0__Impl"
+    // InternalCICDParser.g:5730:1: rule__Cache__Group_1_4__0__Impl : ( Key ) ;
+    public final void rule__Cache__Group_1_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5761:1: ( ( Keys ) )
-            // InternalCICDParser.g:5762:1: ( Keys )
+            // InternalCICDParser.g:5734:1: ( ( Key ) )
+            // InternalCICDParser.g:5735:1: ( Key )
             {
-            // InternalCICDParser.g:5762:1: ( Keys )
-            // InternalCICDParser.g:5763:2: Keys
+            // InternalCICDParser.g:5735:1: ( Key )
+            // InternalCICDParser.g:5736:2: Key
             {
-             before(grammarAccess.getCacheAccess().getKeysKeyword_1_6_0()); 
+             before(grammarAccess.getCacheAccess().getKeyKeyword_1_4_0()); 
+            match(input,Key,FOLLOW_2); 
+             after(grammarAccess.getCacheAccess().getKeyKeyword_1_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Cache__Group_1_4__0__Impl"
+
+
+    // $ANTLR start "rule__Cache__Group_1_4__1"
+    // InternalCICDParser.g:5745:1: rule__Cache__Group_1_4__1 : rule__Cache__Group_1_4__1__Impl ;
+    public final void rule__Cache__Group_1_4__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCICDParser.g:5749:1: ( rule__Cache__Group_1_4__1__Impl )
+            // InternalCICDParser.g:5750:2: rule__Cache__Group_1_4__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Cache__Group_1_4__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Cache__Group_1_4__1"
+
+
+    // $ANTLR start "rule__Cache__Group_1_4__1__Impl"
+    // InternalCICDParser.g:5756:1: rule__Cache__Group_1_4__1__Impl : ( ( rule__Cache__KeyAssignment_1_4_1 ) ) ;
+    public final void rule__Cache__Group_1_4__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCICDParser.g:5760:1: ( ( ( rule__Cache__KeyAssignment_1_4_1 ) ) )
+            // InternalCICDParser.g:5761:1: ( ( rule__Cache__KeyAssignment_1_4_1 ) )
+            {
+            // InternalCICDParser.g:5761:1: ( ( rule__Cache__KeyAssignment_1_4_1 ) )
+            // InternalCICDParser.g:5762:2: ( rule__Cache__KeyAssignment_1_4_1 )
+            {
+             before(grammarAccess.getCacheAccess().getKeyAssignment_1_4_1()); 
+            // InternalCICDParser.g:5763:2: ( rule__Cache__KeyAssignment_1_4_1 )
+            // InternalCICDParser.g:5763:3: rule__Cache__KeyAssignment_1_4_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Cache__KeyAssignment_1_4_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getCacheAccess().getKeyAssignment_1_4_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Cache__Group_1_4__1__Impl"
+
+
+    // $ANTLR start "rule__Cache__Group_1_5__0"
+    // InternalCICDParser.g:5772:1: rule__Cache__Group_1_5__0 : rule__Cache__Group_1_5__0__Impl rule__Cache__Group_1_5__1 ;
+    public final void rule__Cache__Group_1_5__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCICDParser.g:5776:1: ( rule__Cache__Group_1_5__0__Impl rule__Cache__Group_1_5__1 )
+            // InternalCICDParser.g:5777:2: rule__Cache__Group_1_5__0__Impl rule__Cache__Group_1_5__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__Cache__Group_1_5__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Cache__Group_1_5__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Cache__Group_1_5__0"
+
+
+    // $ANTLR start "rule__Cache__Group_1_5__0__Impl"
+    // InternalCICDParser.g:5784:1: rule__Cache__Group_1_5__0__Impl : ( Keys ) ;
+    public final void rule__Cache__Group_1_5__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCICDParser.g:5788:1: ( ( Keys ) )
+            // InternalCICDParser.g:5789:1: ( Keys )
+            {
+            // InternalCICDParser.g:5789:1: ( Keys )
+            // InternalCICDParser.g:5790:2: Keys
+            {
+             before(grammarAccess.getCacheAccess().getKeysKeyword_1_5_0()); 
             match(input,Keys,FOLLOW_2); 
-             after(grammarAccess.getCacheAccess().getKeysKeyword_1_6_0()); 
+             after(grammarAccess.getCacheAccess().getKeysKeyword_1_5_0()); 
 
             }
 
@@ -17849,26 +17934,26 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__Group_1_6__0__Impl"
+    // $ANTLR end "rule__Cache__Group_1_5__0__Impl"
 
 
-    // $ANTLR start "rule__Cache__Group_1_6__1"
-    // InternalCICDParser.g:5772:1: rule__Cache__Group_1_6__1 : rule__Cache__Group_1_6__1__Impl rule__Cache__Group_1_6__2 ;
-    public final void rule__Cache__Group_1_6__1() throws RecognitionException {
+    // $ANTLR start "rule__Cache__Group_1_5__1"
+    // InternalCICDParser.g:5799:1: rule__Cache__Group_1_5__1 : rule__Cache__Group_1_5__1__Impl rule__Cache__Group_1_5__2 ;
+    public final void rule__Cache__Group_1_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5776:1: ( rule__Cache__Group_1_6__1__Impl rule__Cache__Group_1_6__2 )
-            // InternalCICDParser.g:5777:2: rule__Cache__Group_1_6__1__Impl rule__Cache__Group_1_6__2
+            // InternalCICDParser.g:5803:1: ( rule__Cache__Group_1_5__1__Impl rule__Cache__Group_1_5__2 )
+            // InternalCICDParser.g:5804:2: rule__Cache__Group_1_5__1__Impl rule__Cache__Group_1_5__2
             {
-            pushFollow(FOLLOW_19);
-            rule__Cache__Group_1_6__1__Impl();
+            pushFollow(FOLLOW_20);
+            rule__Cache__Group_1_5__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Cache__Group_1_6__2();
+            rule__Cache__Group_1_5__2();
 
             state._fsp--;
 
@@ -17887,35 +17972,35 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__Group_1_6__1"
+    // $ANTLR end "rule__Cache__Group_1_5__1"
 
 
-    // $ANTLR start "rule__Cache__Group_1_6__1__Impl"
-    // InternalCICDParser.g:5784:1: rule__Cache__Group_1_6__1__Impl : ( ( rule__Cache__KeysAssignment_1_6_1 ) ) ;
-    public final void rule__Cache__Group_1_6__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Cache__Group_1_5__1__Impl"
+    // InternalCICDParser.g:5811:1: rule__Cache__Group_1_5__1__Impl : ( ( rule__Cache__KeysAssignment_1_5_1 ) ) ;
+    public final void rule__Cache__Group_1_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5788:1: ( ( ( rule__Cache__KeysAssignment_1_6_1 ) ) )
-            // InternalCICDParser.g:5789:1: ( ( rule__Cache__KeysAssignment_1_6_1 ) )
+            // InternalCICDParser.g:5815:1: ( ( ( rule__Cache__KeysAssignment_1_5_1 ) ) )
+            // InternalCICDParser.g:5816:1: ( ( rule__Cache__KeysAssignment_1_5_1 ) )
             {
-            // InternalCICDParser.g:5789:1: ( ( rule__Cache__KeysAssignment_1_6_1 ) )
-            // InternalCICDParser.g:5790:2: ( rule__Cache__KeysAssignment_1_6_1 )
+            // InternalCICDParser.g:5816:1: ( ( rule__Cache__KeysAssignment_1_5_1 ) )
+            // InternalCICDParser.g:5817:2: ( rule__Cache__KeysAssignment_1_5_1 )
             {
-             before(grammarAccess.getCacheAccess().getKeysAssignment_1_6_1()); 
-            // InternalCICDParser.g:5791:2: ( rule__Cache__KeysAssignment_1_6_1 )
-            // InternalCICDParser.g:5791:3: rule__Cache__KeysAssignment_1_6_1
+             before(grammarAccess.getCacheAccess().getKeysAssignment_1_5_1()); 
+            // InternalCICDParser.g:5818:2: ( rule__Cache__KeysAssignment_1_5_1 )
+            // InternalCICDParser.g:5818:3: rule__Cache__KeysAssignment_1_5_1
             {
             pushFollow(FOLLOW_2);
-            rule__Cache__KeysAssignment_1_6_1();
+            rule__Cache__KeysAssignment_1_5_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getCacheAccess().getKeysAssignment_1_6_1()); 
+             after(grammarAccess.getCacheAccess().getKeysAssignment_1_5_1()); 
 
             }
 
@@ -17934,21 +18019,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__Group_1_6__1__Impl"
+    // $ANTLR end "rule__Cache__Group_1_5__1__Impl"
 
 
-    // $ANTLR start "rule__Cache__Group_1_6__2"
-    // InternalCICDParser.g:5799:1: rule__Cache__Group_1_6__2 : rule__Cache__Group_1_6__2__Impl ;
-    public final void rule__Cache__Group_1_6__2() throws RecognitionException {
+    // $ANTLR start "rule__Cache__Group_1_5__2"
+    // InternalCICDParser.g:5826:1: rule__Cache__Group_1_5__2 : rule__Cache__Group_1_5__2__Impl ;
+    public final void rule__Cache__Group_1_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5803:1: ( rule__Cache__Group_1_6__2__Impl )
-            // InternalCICDParser.g:5804:2: rule__Cache__Group_1_6__2__Impl
+            // InternalCICDParser.g:5830:1: ( rule__Cache__Group_1_5__2__Impl )
+            // InternalCICDParser.g:5831:2: rule__Cache__Group_1_5__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Cache__Group_1_6__2__Impl();
+            rule__Cache__Group_1_5__2__Impl();
 
             state._fsp--;
 
@@ -17967,40 +18052,40 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__Group_1_6__2"
+    // $ANTLR end "rule__Cache__Group_1_5__2"
 
 
-    // $ANTLR start "rule__Cache__Group_1_6__2__Impl"
-    // InternalCICDParser.g:5810:1: rule__Cache__Group_1_6__2__Impl : ( ( rule__Cache__Group_1_6_2__0 )* ) ;
-    public final void rule__Cache__Group_1_6__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Cache__Group_1_5__2__Impl"
+    // InternalCICDParser.g:5837:1: rule__Cache__Group_1_5__2__Impl : ( ( rule__Cache__Group_1_5_2__0 )* ) ;
+    public final void rule__Cache__Group_1_5__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5814:1: ( ( ( rule__Cache__Group_1_6_2__0 )* ) )
-            // InternalCICDParser.g:5815:1: ( ( rule__Cache__Group_1_6_2__0 )* )
+            // InternalCICDParser.g:5841:1: ( ( ( rule__Cache__Group_1_5_2__0 )* ) )
+            // InternalCICDParser.g:5842:1: ( ( rule__Cache__Group_1_5_2__0 )* )
             {
-            // InternalCICDParser.g:5815:1: ( ( rule__Cache__Group_1_6_2__0 )* )
-            // InternalCICDParser.g:5816:2: ( rule__Cache__Group_1_6_2__0 )*
+            // InternalCICDParser.g:5842:1: ( ( rule__Cache__Group_1_5_2__0 )* )
+            // InternalCICDParser.g:5843:2: ( rule__Cache__Group_1_5_2__0 )*
             {
-             before(grammarAccess.getCacheAccess().getGroup_1_6_2()); 
-            // InternalCICDParser.g:5817:2: ( rule__Cache__Group_1_6_2__0 )*
-            loop62:
+             before(grammarAccess.getCacheAccess().getGroup_1_5_2()); 
+            // InternalCICDParser.g:5844:2: ( rule__Cache__Group_1_5_2__0 )*
+            loop63:
             do {
-                int alt62=2;
-                int LA62_0 = input.LA(1);
+                int alt63=2;
+                int LA63_0 = input.LA(1);
 
-                if ( (LA62_0==Comma) ) {
-                    alt62=1;
+                if ( (LA63_0==Comma) ) {
+                    alt63=1;
                 }
 
 
-                switch (alt62) {
+                switch (alt63) {
             	case 1 :
-            	    // InternalCICDParser.g:5817:3: rule__Cache__Group_1_6_2__0
+            	    // InternalCICDParser.g:5844:3: rule__Cache__Group_1_5_2__0
             	    {
-            	    pushFollow(FOLLOW_20);
-            	    rule__Cache__Group_1_6_2__0();
+            	    pushFollow(FOLLOW_21);
+            	    rule__Cache__Group_1_5_2__0();
 
             	    state._fsp--;
 
@@ -18009,11 +18094,11 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop62;
+            	    break loop63;
                 }
             } while (true);
 
-             after(grammarAccess.getCacheAccess().getGroup_1_6_2()); 
+             after(grammarAccess.getCacheAccess().getGroup_1_5_2()); 
 
             }
 
@@ -18032,26 +18117,26 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__Group_1_6__2__Impl"
+    // $ANTLR end "rule__Cache__Group_1_5__2__Impl"
 
 
-    // $ANTLR start "rule__Cache__Group_1_6_2__0"
-    // InternalCICDParser.g:5826:1: rule__Cache__Group_1_6_2__0 : rule__Cache__Group_1_6_2__0__Impl rule__Cache__Group_1_6_2__1 ;
-    public final void rule__Cache__Group_1_6_2__0() throws RecognitionException {
+    // $ANTLR start "rule__Cache__Group_1_5_2__0"
+    // InternalCICDParser.g:5853:1: rule__Cache__Group_1_5_2__0 : rule__Cache__Group_1_5_2__0__Impl rule__Cache__Group_1_5_2__1 ;
+    public final void rule__Cache__Group_1_5_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5830:1: ( rule__Cache__Group_1_6_2__0__Impl rule__Cache__Group_1_6_2__1 )
-            // InternalCICDParser.g:5831:2: rule__Cache__Group_1_6_2__0__Impl rule__Cache__Group_1_6_2__1
+            // InternalCICDParser.g:5857:1: ( rule__Cache__Group_1_5_2__0__Impl rule__Cache__Group_1_5_2__1 )
+            // InternalCICDParser.g:5858:2: rule__Cache__Group_1_5_2__0__Impl rule__Cache__Group_1_5_2__1
             {
-            pushFollow(FOLLOW_5);
-            rule__Cache__Group_1_6_2__0__Impl();
+            pushFollow(FOLLOW_6);
+            rule__Cache__Group_1_5_2__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Cache__Group_1_6_2__1();
+            rule__Cache__Group_1_5_2__1();
 
             state._fsp--;
 
@@ -18070,25 +18155,25 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__Group_1_6_2__0"
+    // $ANTLR end "rule__Cache__Group_1_5_2__0"
 
 
-    // $ANTLR start "rule__Cache__Group_1_6_2__0__Impl"
-    // InternalCICDParser.g:5838:1: rule__Cache__Group_1_6_2__0__Impl : ( Comma ) ;
-    public final void rule__Cache__Group_1_6_2__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Cache__Group_1_5_2__0__Impl"
+    // InternalCICDParser.g:5865:1: rule__Cache__Group_1_5_2__0__Impl : ( Comma ) ;
+    public final void rule__Cache__Group_1_5_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5842:1: ( ( Comma ) )
-            // InternalCICDParser.g:5843:1: ( Comma )
+            // InternalCICDParser.g:5869:1: ( ( Comma ) )
+            // InternalCICDParser.g:5870:1: ( Comma )
             {
-            // InternalCICDParser.g:5843:1: ( Comma )
-            // InternalCICDParser.g:5844:2: Comma
+            // InternalCICDParser.g:5870:1: ( Comma )
+            // InternalCICDParser.g:5871:2: Comma
             {
-             before(grammarAccess.getCacheAccess().getCommaKeyword_1_6_2_0()); 
+             before(grammarAccess.getCacheAccess().getCommaKeyword_1_5_2_0()); 
             match(input,Comma,FOLLOW_2); 
-             after(grammarAccess.getCacheAccess().getCommaKeyword_1_6_2_0()); 
+             after(grammarAccess.getCacheAccess().getCommaKeyword_1_5_2_0()); 
 
             }
 
@@ -18107,21 +18192,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__Group_1_6_2__0__Impl"
+    // $ANTLR end "rule__Cache__Group_1_5_2__0__Impl"
 
 
-    // $ANTLR start "rule__Cache__Group_1_6_2__1"
-    // InternalCICDParser.g:5853:1: rule__Cache__Group_1_6_2__1 : rule__Cache__Group_1_6_2__1__Impl ;
-    public final void rule__Cache__Group_1_6_2__1() throws RecognitionException {
+    // $ANTLR start "rule__Cache__Group_1_5_2__1"
+    // InternalCICDParser.g:5880:1: rule__Cache__Group_1_5_2__1 : rule__Cache__Group_1_5_2__1__Impl ;
+    public final void rule__Cache__Group_1_5_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5857:1: ( rule__Cache__Group_1_6_2__1__Impl )
-            // InternalCICDParser.g:5858:2: rule__Cache__Group_1_6_2__1__Impl
+            // InternalCICDParser.g:5884:1: ( rule__Cache__Group_1_5_2__1__Impl )
+            // InternalCICDParser.g:5885:2: rule__Cache__Group_1_5_2__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Cache__Group_1_6_2__1__Impl();
+            rule__Cache__Group_1_5_2__1__Impl();
 
             state._fsp--;
 
@@ -18140,35 +18225,35 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__Group_1_6_2__1"
+    // $ANTLR end "rule__Cache__Group_1_5_2__1"
 
 
-    // $ANTLR start "rule__Cache__Group_1_6_2__1__Impl"
-    // InternalCICDParser.g:5864:1: rule__Cache__Group_1_6_2__1__Impl : ( ( rule__Cache__KeysAssignment_1_6_2_1 ) ) ;
-    public final void rule__Cache__Group_1_6_2__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Cache__Group_1_5_2__1__Impl"
+    // InternalCICDParser.g:5891:1: rule__Cache__Group_1_5_2__1__Impl : ( ( rule__Cache__KeysAssignment_1_5_2_1 ) ) ;
+    public final void rule__Cache__Group_1_5_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5868:1: ( ( ( rule__Cache__KeysAssignment_1_6_2_1 ) ) )
-            // InternalCICDParser.g:5869:1: ( ( rule__Cache__KeysAssignment_1_6_2_1 ) )
+            // InternalCICDParser.g:5895:1: ( ( ( rule__Cache__KeysAssignment_1_5_2_1 ) ) )
+            // InternalCICDParser.g:5896:1: ( ( rule__Cache__KeysAssignment_1_5_2_1 ) )
             {
-            // InternalCICDParser.g:5869:1: ( ( rule__Cache__KeysAssignment_1_6_2_1 ) )
-            // InternalCICDParser.g:5870:2: ( rule__Cache__KeysAssignment_1_6_2_1 )
+            // InternalCICDParser.g:5896:1: ( ( rule__Cache__KeysAssignment_1_5_2_1 ) )
+            // InternalCICDParser.g:5897:2: ( rule__Cache__KeysAssignment_1_5_2_1 )
             {
-             before(grammarAccess.getCacheAccess().getKeysAssignment_1_6_2_1()); 
-            // InternalCICDParser.g:5871:2: ( rule__Cache__KeysAssignment_1_6_2_1 )
-            // InternalCICDParser.g:5871:3: rule__Cache__KeysAssignment_1_6_2_1
+             before(grammarAccess.getCacheAccess().getKeysAssignment_1_5_2_1()); 
+            // InternalCICDParser.g:5898:2: ( rule__Cache__KeysAssignment_1_5_2_1 )
+            // InternalCICDParser.g:5898:3: rule__Cache__KeysAssignment_1_5_2_1
             {
             pushFollow(FOLLOW_2);
-            rule__Cache__KeysAssignment_1_6_2_1();
+            rule__Cache__KeysAssignment_1_5_2_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getCacheAccess().getKeysAssignment_1_6_2_1()); 
+             after(grammarAccess.getCacheAccess().getKeysAssignment_1_5_2_1()); 
 
             }
 
@@ -18187,20 +18272,20 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__Group_1_6_2__1__Impl"
+    // $ANTLR end "rule__Cache__Group_1_5_2__1__Impl"
 
 
     // $ANTLR start "rule__MatrixConfig__Group__0"
-    // InternalCICDParser.g:5880:1: rule__MatrixConfig__Group__0 : rule__MatrixConfig__Group__0__Impl rule__MatrixConfig__Group__1 ;
+    // InternalCICDParser.g:5907:1: rule__MatrixConfig__Group__0 : rule__MatrixConfig__Group__0__Impl rule__MatrixConfig__Group__1 ;
     public final void rule__MatrixConfig__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5884:1: ( rule__MatrixConfig__Group__0__Impl rule__MatrixConfig__Group__1 )
-            // InternalCICDParser.g:5885:2: rule__MatrixConfig__Group__0__Impl rule__MatrixConfig__Group__1
+            // InternalCICDParser.g:5911:1: ( rule__MatrixConfig__Group__0__Impl rule__MatrixConfig__Group__1 )
+            // InternalCICDParser.g:5912:2: rule__MatrixConfig__Group__0__Impl rule__MatrixConfig__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__MatrixConfig__Group__0__Impl();
 
             state._fsp--;
@@ -18229,17 +18314,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group__0__Impl"
-    // InternalCICDParser.g:5892:1: rule__MatrixConfig__Group__0__Impl : ( MatrixConfig ) ;
+    // InternalCICDParser.g:5919:1: rule__MatrixConfig__Group__0__Impl : ( MatrixConfig ) ;
     public final void rule__MatrixConfig__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5896:1: ( ( MatrixConfig ) )
-            // InternalCICDParser.g:5897:1: ( MatrixConfig )
+            // InternalCICDParser.g:5923:1: ( ( MatrixConfig ) )
+            // InternalCICDParser.g:5924:1: ( MatrixConfig )
             {
-            // InternalCICDParser.g:5897:1: ( MatrixConfig )
-            // InternalCICDParser.g:5898:2: MatrixConfig
+            // InternalCICDParser.g:5924:1: ( MatrixConfig )
+            // InternalCICDParser.g:5925:2: MatrixConfig
             {
              before(grammarAccess.getMatrixConfigAccess().getMatrixConfigKeyword_0()); 
             match(input,MatrixConfig,FOLLOW_2); 
@@ -18266,14 +18351,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group__1"
-    // InternalCICDParser.g:5907:1: rule__MatrixConfig__Group__1 : rule__MatrixConfig__Group__1__Impl ;
+    // InternalCICDParser.g:5934:1: rule__MatrixConfig__Group__1 : rule__MatrixConfig__Group__1__Impl ;
     public final void rule__MatrixConfig__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5911:1: ( rule__MatrixConfig__Group__1__Impl )
-            // InternalCICDParser.g:5912:2: rule__MatrixConfig__Group__1__Impl
+            // InternalCICDParser.g:5938:1: ( rule__MatrixConfig__Group__1__Impl )
+            // InternalCICDParser.g:5939:2: rule__MatrixConfig__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MatrixConfig__Group__1__Impl();
@@ -18299,21 +18384,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group__1__Impl"
-    // InternalCICDParser.g:5918:1: rule__MatrixConfig__Group__1__Impl : ( ( rule__MatrixConfig__Group_1__0 ) ) ;
+    // InternalCICDParser.g:5945:1: rule__MatrixConfig__Group__1__Impl : ( ( rule__MatrixConfig__Group_1__0 ) ) ;
     public final void rule__MatrixConfig__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5922:1: ( ( ( rule__MatrixConfig__Group_1__0 ) ) )
-            // InternalCICDParser.g:5923:1: ( ( rule__MatrixConfig__Group_1__0 ) )
+            // InternalCICDParser.g:5949:1: ( ( ( rule__MatrixConfig__Group_1__0 ) ) )
+            // InternalCICDParser.g:5950:1: ( ( rule__MatrixConfig__Group_1__0 ) )
             {
-            // InternalCICDParser.g:5923:1: ( ( rule__MatrixConfig__Group_1__0 ) )
-            // InternalCICDParser.g:5924:2: ( rule__MatrixConfig__Group_1__0 )
+            // InternalCICDParser.g:5950:1: ( ( rule__MatrixConfig__Group_1__0 ) )
+            // InternalCICDParser.g:5951:2: ( rule__MatrixConfig__Group_1__0 )
             {
              before(grammarAccess.getMatrixConfigAccess().getGroup_1()); 
-            // InternalCICDParser.g:5925:2: ( rule__MatrixConfig__Group_1__0 )
-            // InternalCICDParser.g:5925:3: rule__MatrixConfig__Group_1__0
+            // InternalCICDParser.g:5952:2: ( rule__MatrixConfig__Group_1__0 )
+            // InternalCICDParser.g:5952:3: rule__MatrixConfig__Group_1__0
             {
             pushFollow(FOLLOW_2);
             rule__MatrixConfig__Group_1__0();
@@ -18346,16 +18431,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__0"
-    // InternalCICDParser.g:5934:1: rule__MatrixConfig__Group_1__0 : rule__MatrixConfig__Group_1__0__Impl rule__MatrixConfig__Group_1__1 ;
+    // InternalCICDParser.g:5961:1: rule__MatrixConfig__Group_1__0 : rule__MatrixConfig__Group_1__0__Impl rule__MatrixConfig__Group_1__1 ;
     public final void rule__MatrixConfig__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5938:1: ( rule__MatrixConfig__Group_1__0__Impl rule__MatrixConfig__Group_1__1 )
-            // InternalCICDParser.g:5939:2: rule__MatrixConfig__Group_1__0__Impl rule__MatrixConfig__Group_1__1
+            // InternalCICDParser.g:5965:1: ( rule__MatrixConfig__Group_1__0__Impl rule__MatrixConfig__Group_1__1 )
+            // InternalCICDParser.g:5966:2: rule__MatrixConfig__Group_1__0__Impl rule__MatrixConfig__Group_1__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_5);
             rule__MatrixConfig__Group_1__0__Impl();
 
             state._fsp--;
@@ -18384,17 +18469,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__0__Impl"
-    // InternalCICDParser.g:5946:1: rule__MatrixConfig__Group_1__0__Impl : ( RULE_BEGIN ) ;
+    // InternalCICDParser.g:5973:1: rule__MatrixConfig__Group_1__0__Impl : ( RULE_BEGIN ) ;
     public final void rule__MatrixConfig__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5950:1: ( ( RULE_BEGIN ) )
-            // InternalCICDParser.g:5951:1: ( RULE_BEGIN )
+            // InternalCICDParser.g:5977:1: ( ( RULE_BEGIN ) )
+            // InternalCICDParser.g:5978:1: ( RULE_BEGIN )
             {
-            // InternalCICDParser.g:5951:1: ( RULE_BEGIN )
-            // InternalCICDParser.g:5952:2: RULE_BEGIN
+            // InternalCICDParser.g:5978:1: ( RULE_BEGIN )
+            // InternalCICDParser.g:5979:2: RULE_BEGIN
             {
              before(grammarAccess.getMatrixConfigAccess().getBEGINTerminalRuleCall_1_0()); 
             match(input,RULE_BEGIN,FOLLOW_2); 
@@ -18421,16 +18506,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__1"
-    // InternalCICDParser.g:5961:1: rule__MatrixConfig__Group_1__1 : rule__MatrixConfig__Group_1__1__Impl rule__MatrixConfig__Group_1__2 ;
+    // InternalCICDParser.g:5988:1: rule__MatrixConfig__Group_1__1 : rule__MatrixConfig__Group_1__1__Impl rule__MatrixConfig__Group_1__2 ;
     public final void rule__MatrixConfig__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5965:1: ( rule__MatrixConfig__Group_1__1__Impl rule__MatrixConfig__Group_1__2 )
-            // InternalCICDParser.g:5966:2: rule__MatrixConfig__Group_1__1__Impl rule__MatrixConfig__Group_1__2
+            // InternalCICDParser.g:5992:1: ( rule__MatrixConfig__Group_1__1__Impl rule__MatrixConfig__Group_1__2 )
+            // InternalCICDParser.g:5993:2: rule__MatrixConfig__Group_1__1__Impl rule__MatrixConfig__Group_1__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__MatrixConfig__Group_1__1__Impl();
 
             state._fsp--;
@@ -18459,17 +18544,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__1__Impl"
-    // InternalCICDParser.g:5973:1: rule__MatrixConfig__Group_1__1__Impl : ( Name ) ;
+    // InternalCICDParser.g:6000:1: rule__MatrixConfig__Group_1__1__Impl : ( Name ) ;
     public final void rule__MatrixConfig__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5977:1: ( ( Name ) )
-            // InternalCICDParser.g:5978:1: ( Name )
+            // InternalCICDParser.g:6004:1: ( ( Name ) )
+            // InternalCICDParser.g:6005:1: ( Name )
             {
-            // InternalCICDParser.g:5978:1: ( Name )
-            // InternalCICDParser.g:5979:2: Name
+            // InternalCICDParser.g:6005:1: ( Name )
+            // InternalCICDParser.g:6006:2: Name
             {
              before(grammarAccess.getMatrixConfigAccess().getNameKeyword_1_1()); 
             match(input,Name,FOLLOW_2); 
@@ -18496,16 +18581,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__2"
-    // InternalCICDParser.g:5988:1: rule__MatrixConfig__Group_1__2 : rule__MatrixConfig__Group_1__2__Impl rule__MatrixConfig__Group_1__3 ;
+    // InternalCICDParser.g:6015:1: rule__MatrixConfig__Group_1__2 : rule__MatrixConfig__Group_1__2__Impl rule__MatrixConfig__Group_1__3 ;
     public final void rule__MatrixConfig__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:5992:1: ( rule__MatrixConfig__Group_1__2__Impl rule__MatrixConfig__Group_1__3 )
-            // InternalCICDParser.g:5993:2: rule__MatrixConfig__Group_1__2__Impl rule__MatrixConfig__Group_1__3
+            // InternalCICDParser.g:6019:1: ( rule__MatrixConfig__Group_1__2__Impl rule__MatrixConfig__Group_1__3 )
+            // InternalCICDParser.g:6020:2: rule__MatrixConfig__Group_1__2__Impl rule__MatrixConfig__Group_1__3
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_49);
             rule__MatrixConfig__Group_1__2__Impl();
 
             state._fsp--;
@@ -18534,21 +18619,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__2__Impl"
-    // InternalCICDParser.g:6000:1: rule__MatrixConfig__Group_1__2__Impl : ( ( rule__MatrixConfig__NameAssignment_1_2 ) ) ;
+    // InternalCICDParser.g:6027:1: rule__MatrixConfig__Group_1__2__Impl : ( ( rule__MatrixConfig__NameAssignment_1_2 ) ) ;
     public final void rule__MatrixConfig__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6004:1: ( ( ( rule__MatrixConfig__NameAssignment_1_2 ) ) )
-            // InternalCICDParser.g:6005:1: ( ( rule__MatrixConfig__NameAssignment_1_2 ) )
+            // InternalCICDParser.g:6031:1: ( ( ( rule__MatrixConfig__NameAssignment_1_2 ) ) )
+            // InternalCICDParser.g:6032:1: ( ( rule__MatrixConfig__NameAssignment_1_2 ) )
             {
-            // InternalCICDParser.g:6005:1: ( ( rule__MatrixConfig__NameAssignment_1_2 ) )
-            // InternalCICDParser.g:6006:2: ( rule__MatrixConfig__NameAssignment_1_2 )
+            // InternalCICDParser.g:6032:1: ( ( rule__MatrixConfig__NameAssignment_1_2 ) )
+            // InternalCICDParser.g:6033:2: ( rule__MatrixConfig__NameAssignment_1_2 )
             {
              before(grammarAccess.getMatrixConfigAccess().getNameAssignment_1_2()); 
-            // InternalCICDParser.g:6007:2: ( rule__MatrixConfig__NameAssignment_1_2 )
-            // InternalCICDParser.g:6007:3: rule__MatrixConfig__NameAssignment_1_2
+            // InternalCICDParser.g:6034:2: ( rule__MatrixConfig__NameAssignment_1_2 )
+            // InternalCICDParser.g:6034:3: rule__MatrixConfig__NameAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__MatrixConfig__NameAssignment_1_2();
@@ -18581,14 +18666,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__3"
-    // InternalCICDParser.g:6015:1: rule__MatrixConfig__Group_1__3 : rule__MatrixConfig__Group_1__3__Impl rule__MatrixConfig__Group_1__4 ;
+    // InternalCICDParser.g:6042:1: rule__MatrixConfig__Group_1__3 : rule__MatrixConfig__Group_1__3__Impl rule__MatrixConfig__Group_1__4 ;
     public final void rule__MatrixConfig__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6019:1: ( rule__MatrixConfig__Group_1__3__Impl rule__MatrixConfig__Group_1__4 )
-            // InternalCICDParser.g:6020:2: rule__MatrixConfig__Group_1__3__Impl rule__MatrixConfig__Group_1__4
+            // InternalCICDParser.g:6046:1: ( rule__MatrixConfig__Group_1__3__Impl rule__MatrixConfig__Group_1__4 )
+            // InternalCICDParser.g:6047:2: rule__MatrixConfig__Group_1__3__Impl rule__MatrixConfig__Group_1__4
             {
             pushFollow(FOLLOW_27);
             rule__MatrixConfig__Group_1__3__Impl();
@@ -18619,21 +18704,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__3__Impl"
-    // InternalCICDParser.g:6027:1: rule__MatrixConfig__Group_1__3__Impl : ( ( rule__MatrixConfig__Group_1_3__0 ) ) ;
+    // InternalCICDParser.g:6054:1: rule__MatrixConfig__Group_1__3__Impl : ( ( rule__MatrixConfig__Group_1_3__0 ) ) ;
     public final void rule__MatrixConfig__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6031:1: ( ( ( rule__MatrixConfig__Group_1_3__0 ) ) )
-            // InternalCICDParser.g:6032:1: ( ( rule__MatrixConfig__Group_1_3__0 ) )
+            // InternalCICDParser.g:6058:1: ( ( ( rule__MatrixConfig__Group_1_3__0 ) ) )
+            // InternalCICDParser.g:6059:1: ( ( rule__MatrixConfig__Group_1_3__0 ) )
             {
-            // InternalCICDParser.g:6032:1: ( ( rule__MatrixConfig__Group_1_3__0 ) )
-            // InternalCICDParser.g:6033:2: ( rule__MatrixConfig__Group_1_3__0 )
+            // InternalCICDParser.g:6059:1: ( ( rule__MatrixConfig__Group_1_3__0 ) )
+            // InternalCICDParser.g:6060:2: ( rule__MatrixConfig__Group_1_3__0 )
             {
              before(grammarAccess.getMatrixConfigAccess().getGroup_1_3()); 
-            // InternalCICDParser.g:6034:2: ( rule__MatrixConfig__Group_1_3__0 )
-            // InternalCICDParser.g:6034:3: rule__MatrixConfig__Group_1_3__0
+            // InternalCICDParser.g:6061:2: ( rule__MatrixConfig__Group_1_3__0 )
+            // InternalCICDParser.g:6061:3: rule__MatrixConfig__Group_1_3__0
             {
             pushFollow(FOLLOW_2);
             rule__MatrixConfig__Group_1_3__0();
@@ -18666,16 +18751,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__4"
-    // InternalCICDParser.g:6042:1: rule__MatrixConfig__Group_1__4 : rule__MatrixConfig__Group_1__4__Impl rule__MatrixConfig__Group_1__5 ;
+    // InternalCICDParser.g:6069:1: rule__MatrixConfig__Group_1__4 : rule__MatrixConfig__Group_1__4__Impl rule__MatrixConfig__Group_1__5 ;
     public final void rule__MatrixConfig__Group_1__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6046:1: ( rule__MatrixConfig__Group_1__4__Impl rule__MatrixConfig__Group_1__5 )
-            // InternalCICDParser.g:6047:2: rule__MatrixConfig__Group_1__4__Impl rule__MatrixConfig__Group_1__5
+            // InternalCICDParser.g:6073:1: ( rule__MatrixConfig__Group_1__4__Impl rule__MatrixConfig__Group_1__5 )
+            // InternalCICDParser.g:6074:2: rule__MatrixConfig__Group_1__4__Impl rule__MatrixConfig__Group_1__5
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__MatrixConfig__Group_1__4__Impl();
 
             state._fsp--;
@@ -18704,17 +18789,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__4__Impl"
-    // InternalCICDParser.g:6054:1: rule__MatrixConfig__Group_1__4__Impl : ( Type ) ;
+    // InternalCICDParser.g:6081:1: rule__MatrixConfig__Group_1__4__Impl : ( Type ) ;
     public final void rule__MatrixConfig__Group_1__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6058:1: ( ( Type ) )
-            // InternalCICDParser.g:6059:1: ( Type )
+            // InternalCICDParser.g:6085:1: ( ( Type ) )
+            // InternalCICDParser.g:6086:1: ( Type )
             {
-            // InternalCICDParser.g:6059:1: ( Type )
-            // InternalCICDParser.g:6060:2: Type
+            // InternalCICDParser.g:6086:1: ( Type )
+            // InternalCICDParser.g:6087:2: Type
             {
              before(grammarAccess.getMatrixConfigAccess().getTypeKeyword_1_4()); 
             match(input,Type,FOLLOW_2); 
@@ -18741,16 +18826,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__5"
-    // InternalCICDParser.g:6069:1: rule__MatrixConfig__Group_1__5 : rule__MatrixConfig__Group_1__5__Impl rule__MatrixConfig__Group_1__6 ;
+    // InternalCICDParser.g:6096:1: rule__MatrixConfig__Group_1__5 : rule__MatrixConfig__Group_1__5__Impl rule__MatrixConfig__Group_1__6 ;
     public final void rule__MatrixConfig__Group_1__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6073:1: ( rule__MatrixConfig__Group_1__5__Impl rule__MatrixConfig__Group_1__6 )
-            // InternalCICDParser.g:6074:2: rule__MatrixConfig__Group_1__5__Impl rule__MatrixConfig__Group_1__6
+            // InternalCICDParser.g:6100:1: ( rule__MatrixConfig__Group_1__5__Impl rule__MatrixConfig__Group_1__6 )
+            // InternalCICDParser.g:6101:2: rule__MatrixConfig__Group_1__5__Impl rule__MatrixConfig__Group_1__6
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_7);
             rule__MatrixConfig__Group_1__5__Impl();
 
             state._fsp--;
@@ -18779,21 +18864,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__5__Impl"
-    // InternalCICDParser.g:6081:1: rule__MatrixConfig__Group_1__5__Impl : ( ( rule__MatrixConfig__TypeAssignment_1_5 ) ) ;
+    // InternalCICDParser.g:6108:1: rule__MatrixConfig__Group_1__5__Impl : ( ( rule__MatrixConfig__TypeAssignment_1_5 ) ) ;
     public final void rule__MatrixConfig__Group_1__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6085:1: ( ( ( rule__MatrixConfig__TypeAssignment_1_5 ) ) )
-            // InternalCICDParser.g:6086:1: ( ( rule__MatrixConfig__TypeAssignment_1_5 ) )
+            // InternalCICDParser.g:6112:1: ( ( ( rule__MatrixConfig__TypeAssignment_1_5 ) ) )
+            // InternalCICDParser.g:6113:1: ( ( rule__MatrixConfig__TypeAssignment_1_5 ) )
             {
-            // InternalCICDParser.g:6086:1: ( ( rule__MatrixConfig__TypeAssignment_1_5 ) )
-            // InternalCICDParser.g:6087:2: ( rule__MatrixConfig__TypeAssignment_1_5 )
+            // InternalCICDParser.g:6113:1: ( ( rule__MatrixConfig__TypeAssignment_1_5 ) )
+            // InternalCICDParser.g:6114:2: ( rule__MatrixConfig__TypeAssignment_1_5 )
             {
              before(grammarAccess.getMatrixConfigAccess().getTypeAssignment_1_5()); 
-            // InternalCICDParser.g:6088:2: ( rule__MatrixConfig__TypeAssignment_1_5 )
-            // InternalCICDParser.g:6088:3: rule__MatrixConfig__TypeAssignment_1_5
+            // InternalCICDParser.g:6115:2: ( rule__MatrixConfig__TypeAssignment_1_5 )
+            // InternalCICDParser.g:6115:3: rule__MatrixConfig__TypeAssignment_1_5
             {
             pushFollow(FOLLOW_2);
             rule__MatrixConfig__TypeAssignment_1_5();
@@ -18826,14 +18911,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__6"
-    // InternalCICDParser.g:6096:1: rule__MatrixConfig__Group_1__6 : rule__MatrixConfig__Group_1__6__Impl ;
+    // InternalCICDParser.g:6123:1: rule__MatrixConfig__Group_1__6 : rule__MatrixConfig__Group_1__6__Impl ;
     public final void rule__MatrixConfig__Group_1__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6100:1: ( rule__MatrixConfig__Group_1__6__Impl )
-            // InternalCICDParser.g:6101:2: rule__MatrixConfig__Group_1__6__Impl
+            // InternalCICDParser.g:6127:1: ( rule__MatrixConfig__Group_1__6__Impl )
+            // InternalCICDParser.g:6128:2: rule__MatrixConfig__Group_1__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MatrixConfig__Group_1__6__Impl();
@@ -18859,17 +18944,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1__6__Impl"
-    // InternalCICDParser.g:6107:1: rule__MatrixConfig__Group_1__6__Impl : ( RULE_END ) ;
+    // InternalCICDParser.g:6134:1: rule__MatrixConfig__Group_1__6__Impl : ( RULE_END ) ;
     public final void rule__MatrixConfig__Group_1__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6111:1: ( ( RULE_END ) )
-            // InternalCICDParser.g:6112:1: ( RULE_END )
+            // InternalCICDParser.g:6138:1: ( ( RULE_END ) )
+            // InternalCICDParser.g:6139:1: ( RULE_END )
             {
-            // InternalCICDParser.g:6112:1: ( RULE_END )
-            // InternalCICDParser.g:6113:2: RULE_END
+            // InternalCICDParser.g:6139:1: ( RULE_END )
+            // InternalCICDParser.g:6140:2: RULE_END
             {
              before(grammarAccess.getMatrixConfigAccess().getENDTerminalRuleCall_1_6()); 
             match(input,RULE_END,FOLLOW_2); 
@@ -18896,16 +18981,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1_3__0"
-    // InternalCICDParser.g:6123:1: rule__MatrixConfig__Group_1_3__0 : rule__MatrixConfig__Group_1_3__0__Impl rule__MatrixConfig__Group_1_3__1 ;
+    // InternalCICDParser.g:6150:1: rule__MatrixConfig__Group_1_3__0 : rule__MatrixConfig__Group_1_3__0__Impl rule__MatrixConfig__Group_1_3__1 ;
     public final void rule__MatrixConfig__Group_1_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6127:1: ( rule__MatrixConfig__Group_1_3__0__Impl rule__MatrixConfig__Group_1_3__1 )
-            // InternalCICDParser.g:6128:2: rule__MatrixConfig__Group_1_3__0__Impl rule__MatrixConfig__Group_1_3__1
+            // InternalCICDParser.g:6154:1: ( rule__MatrixConfig__Group_1_3__0__Impl rule__MatrixConfig__Group_1_3__1 )
+            // InternalCICDParser.g:6155:2: rule__MatrixConfig__Group_1_3__0__Impl rule__MatrixConfig__Group_1_3__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__MatrixConfig__Group_1_3__0__Impl();
 
             state._fsp--;
@@ -18934,17 +19019,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1_3__0__Impl"
-    // InternalCICDParser.g:6135:1: rule__MatrixConfig__Group_1_3__0__Impl : ( Values ) ;
+    // InternalCICDParser.g:6162:1: rule__MatrixConfig__Group_1_3__0__Impl : ( Values ) ;
     public final void rule__MatrixConfig__Group_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6139:1: ( ( Values ) )
-            // InternalCICDParser.g:6140:1: ( Values )
+            // InternalCICDParser.g:6166:1: ( ( Values ) )
+            // InternalCICDParser.g:6167:1: ( Values )
             {
-            // InternalCICDParser.g:6140:1: ( Values )
-            // InternalCICDParser.g:6141:2: Values
+            // InternalCICDParser.g:6167:1: ( Values )
+            // InternalCICDParser.g:6168:2: Values
             {
              before(grammarAccess.getMatrixConfigAccess().getValuesKeyword_1_3_0()); 
             match(input,Values,FOLLOW_2); 
@@ -18971,16 +19056,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1_3__1"
-    // InternalCICDParser.g:6150:1: rule__MatrixConfig__Group_1_3__1 : rule__MatrixConfig__Group_1_3__1__Impl rule__MatrixConfig__Group_1_3__2 ;
+    // InternalCICDParser.g:6177:1: rule__MatrixConfig__Group_1_3__1 : rule__MatrixConfig__Group_1_3__1__Impl rule__MatrixConfig__Group_1_3__2 ;
     public final void rule__MatrixConfig__Group_1_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6154:1: ( rule__MatrixConfig__Group_1_3__1__Impl rule__MatrixConfig__Group_1_3__2 )
-            // InternalCICDParser.g:6155:2: rule__MatrixConfig__Group_1_3__1__Impl rule__MatrixConfig__Group_1_3__2
+            // InternalCICDParser.g:6181:1: ( rule__MatrixConfig__Group_1_3__1__Impl rule__MatrixConfig__Group_1_3__2 )
+            // InternalCICDParser.g:6182:2: rule__MatrixConfig__Group_1_3__1__Impl rule__MatrixConfig__Group_1_3__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_20);
             rule__MatrixConfig__Group_1_3__1__Impl();
 
             state._fsp--;
@@ -19009,21 +19094,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1_3__1__Impl"
-    // InternalCICDParser.g:6162:1: rule__MatrixConfig__Group_1_3__1__Impl : ( ( rule__MatrixConfig__ValuesAssignment_1_3_1 ) ) ;
+    // InternalCICDParser.g:6189:1: rule__MatrixConfig__Group_1_3__1__Impl : ( ( rule__MatrixConfig__ValuesAssignment_1_3_1 ) ) ;
     public final void rule__MatrixConfig__Group_1_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6166:1: ( ( ( rule__MatrixConfig__ValuesAssignment_1_3_1 ) ) )
-            // InternalCICDParser.g:6167:1: ( ( rule__MatrixConfig__ValuesAssignment_1_3_1 ) )
+            // InternalCICDParser.g:6193:1: ( ( ( rule__MatrixConfig__ValuesAssignment_1_3_1 ) ) )
+            // InternalCICDParser.g:6194:1: ( ( rule__MatrixConfig__ValuesAssignment_1_3_1 ) )
             {
-            // InternalCICDParser.g:6167:1: ( ( rule__MatrixConfig__ValuesAssignment_1_3_1 ) )
-            // InternalCICDParser.g:6168:2: ( rule__MatrixConfig__ValuesAssignment_1_3_1 )
+            // InternalCICDParser.g:6194:1: ( ( rule__MatrixConfig__ValuesAssignment_1_3_1 ) )
+            // InternalCICDParser.g:6195:2: ( rule__MatrixConfig__ValuesAssignment_1_3_1 )
             {
              before(grammarAccess.getMatrixConfigAccess().getValuesAssignment_1_3_1()); 
-            // InternalCICDParser.g:6169:2: ( rule__MatrixConfig__ValuesAssignment_1_3_1 )
-            // InternalCICDParser.g:6169:3: rule__MatrixConfig__ValuesAssignment_1_3_1
+            // InternalCICDParser.g:6196:2: ( rule__MatrixConfig__ValuesAssignment_1_3_1 )
+            // InternalCICDParser.g:6196:3: rule__MatrixConfig__ValuesAssignment_1_3_1
             {
             pushFollow(FOLLOW_2);
             rule__MatrixConfig__ValuesAssignment_1_3_1();
@@ -19056,14 +19141,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1_3__2"
-    // InternalCICDParser.g:6177:1: rule__MatrixConfig__Group_1_3__2 : rule__MatrixConfig__Group_1_3__2__Impl ;
+    // InternalCICDParser.g:6204:1: rule__MatrixConfig__Group_1_3__2 : rule__MatrixConfig__Group_1_3__2__Impl ;
     public final void rule__MatrixConfig__Group_1_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6181:1: ( rule__MatrixConfig__Group_1_3__2__Impl )
-            // InternalCICDParser.g:6182:2: rule__MatrixConfig__Group_1_3__2__Impl
+            // InternalCICDParser.g:6208:1: ( rule__MatrixConfig__Group_1_3__2__Impl )
+            // InternalCICDParser.g:6209:2: rule__MatrixConfig__Group_1_3__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MatrixConfig__Group_1_3__2__Impl();
@@ -19089,35 +19174,35 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1_3__2__Impl"
-    // InternalCICDParser.g:6188:1: rule__MatrixConfig__Group_1_3__2__Impl : ( ( rule__MatrixConfig__Group_1_3_2__0 )* ) ;
+    // InternalCICDParser.g:6215:1: rule__MatrixConfig__Group_1_3__2__Impl : ( ( rule__MatrixConfig__Group_1_3_2__0 )* ) ;
     public final void rule__MatrixConfig__Group_1_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6192:1: ( ( ( rule__MatrixConfig__Group_1_3_2__0 )* ) )
-            // InternalCICDParser.g:6193:1: ( ( rule__MatrixConfig__Group_1_3_2__0 )* )
+            // InternalCICDParser.g:6219:1: ( ( ( rule__MatrixConfig__Group_1_3_2__0 )* ) )
+            // InternalCICDParser.g:6220:1: ( ( rule__MatrixConfig__Group_1_3_2__0 )* )
             {
-            // InternalCICDParser.g:6193:1: ( ( rule__MatrixConfig__Group_1_3_2__0 )* )
-            // InternalCICDParser.g:6194:2: ( rule__MatrixConfig__Group_1_3_2__0 )*
+            // InternalCICDParser.g:6220:1: ( ( rule__MatrixConfig__Group_1_3_2__0 )* )
+            // InternalCICDParser.g:6221:2: ( rule__MatrixConfig__Group_1_3_2__0 )*
             {
              before(grammarAccess.getMatrixConfigAccess().getGroup_1_3_2()); 
-            // InternalCICDParser.g:6195:2: ( rule__MatrixConfig__Group_1_3_2__0 )*
-            loop63:
+            // InternalCICDParser.g:6222:2: ( rule__MatrixConfig__Group_1_3_2__0 )*
+            loop64:
             do {
-                int alt63=2;
-                int LA63_0 = input.LA(1);
+                int alt64=2;
+                int LA64_0 = input.LA(1);
 
-                if ( (LA63_0==Comma) ) {
-                    alt63=1;
+                if ( (LA64_0==Comma) ) {
+                    alt64=1;
                 }
 
 
-                switch (alt63) {
+                switch (alt64) {
             	case 1 :
-            	    // InternalCICDParser.g:6195:3: rule__MatrixConfig__Group_1_3_2__0
+            	    // InternalCICDParser.g:6222:3: rule__MatrixConfig__Group_1_3_2__0
             	    {
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_21);
             	    rule__MatrixConfig__Group_1_3_2__0();
 
             	    state._fsp--;
@@ -19127,7 +19212,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop63;
+            	    break loop64;
                 }
             } while (true);
 
@@ -19154,16 +19239,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1_3_2__0"
-    // InternalCICDParser.g:6204:1: rule__MatrixConfig__Group_1_3_2__0 : rule__MatrixConfig__Group_1_3_2__0__Impl rule__MatrixConfig__Group_1_3_2__1 ;
+    // InternalCICDParser.g:6231:1: rule__MatrixConfig__Group_1_3_2__0 : rule__MatrixConfig__Group_1_3_2__0__Impl rule__MatrixConfig__Group_1_3_2__1 ;
     public final void rule__MatrixConfig__Group_1_3_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6208:1: ( rule__MatrixConfig__Group_1_3_2__0__Impl rule__MatrixConfig__Group_1_3_2__1 )
-            // InternalCICDParser.g:6209:2: rule__MatrixConfig__Group_1_3_2__0__Impl rule__MatrixConfig__Group_1_3_2__1
+            // InternalCICDParser.g:6235:1: ( rule__MatrixConfig__Group_1_3_2__0__Impl rule__MatrixConfig__Group_1_3_2__1 )
+            // InternalCICDParser.g:6236:2: rule__MatrixConfig__Group_1_3_2__0__Impl rule__MatrixConfig__Group_1_3_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__MatrixConfig__Group_1_3_2__0__Impl();
 
             state._fsp--;
@@ -19192,17 +19277,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1_3_2__0__Impl"
-    // InternalCICDParser.g:6216:1: rule__MatrixConfig__Group_1_3_2__0__Impl : ( Comma ) ;
+    // InternalCICDParser.g:6243:1: rule__MatrixConfig__Group_1_3_2__0__Impl : ( Comma ) ;
     public final void rule__MatrixConfig__Group_1_3_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6220:1: ( ( Comma ) )
-            // InternalCICDParser.g:6221:1: ( Comma )
+            // InternalCICDParser.g:6247:1: ( ( Comma ) )
+            // InternalCICDParser.g:6248:1: ( Comma )
             {
-            // InternalCICDParser.g:6221:1: ( Comma )
-            // InternalCICDParser.g:6222:2: Comma
+            // InternalCICDParser.g:6248:1: ( Comma )
+            // InternalCICDParser.g:6249:2: Comma
             {
              before(grammarAccess.getMatrixConfigAccess().getCommaKeyword_1_3_2_0()); 
             match(input,Comma,FOLLOW_2); 
@@ -19229,14 +19314,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1_3_2__1"
-    // InternalCICDParser.g:6231:1: rule__MatrixConfig__Group_1_3_2__1 : rule__MatrixConfig__Group_1_3_2__1__Impl ;
+    // InternalCICDParser.g:6258:1: rule__MatrixConfig__Group_1_3_2__1 : rule__MatrixConfig__Group_1_3_2__1__Impl ;
     public final void rule__MatrixConfig__Group_1_3_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6235:1: ( rule__MatrixConfig__Group_1_3_2__1__Impl )
-            // InternalCICDParser.g:6236:2: rule__MatrixConfig__Group_1_3_2__1__Impl
+            // InternalCICDParser.g:6262:1: ( rule__MatrixConfig__Group_1_3_2__1__Impl )
+            // InternalCICDParser.g:6263:2: rule__MatrixConfig__Group_1_3_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MatrixConfig__Group_1_3_2__1__Impl();
@@ -19262,21 +19347,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__Group_1_3_2__1__Impl"
-    // InternalCICDParser.g:6242:1: rule__MatrixConfig__Group_1_3_2__1__Impl : ( ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 ) ) ;
+    // InternalCICDParser.g:6269:1: rule__MatrixConfig__Group_1_3_2__1__Impl : ( ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 ) ) ;
     public final void rule__MatrixConfig__Group_1_3_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6246:1: ( ( ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 ) ) )
-            // InternalCICDParser.g:6247:1: ( ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 ) )
+            // InternalCICDParser.g:6273:1: ( ( ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 ) ) )
+            // InternalCICDParser.g:6274:1: ( ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 ) )
             {
-            // InternalCICDParser.g:6247:1: ( ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 ) )
-            // InternalCICDParser.g:6248:2: ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 )
+            // InternalCICDParser.g:6274:1: ( ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 ) )
+            // InternalCICDParser.g:6275:2: ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 )
             {
              before(grammarAccess.getMatrixConfigAccess().getValuesAssignment_1_3_2_1()); 
-            // InternalCICDParser.g:6249:2: ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 )
-            // InternalCICDParser.g:6249:3: rule__MatrixConfig__ValuesAssignment_1_3_2_1
+            // InternalCICDParser.g:6276:2: ( rule__MatrixConfig__ValuesAssignment_1_3_2_1 )
+            // InternalCICDParser.g:6276:3: rule__MatrixConfig__ValuesAssignment_1_3_2_1
             {
             pushFollow(FOLLOW_2);
             rule__MatrixConfig__ValuesAssignment_1_3_2_1();
@@ -19309,16 +19394,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group__0"
-    // InternalCICDParser.g:6258:1: rule__DockerContainer__Group__0 : rule__DockerContainer__Group__0__Impl rule__DockerContainer__Group__1 ;
+    // InternalCICDParser.g:6285:1: rule__DockerContainer__Group__0 : rule__DockerContainer__Group__0__Impl rule__DockerContainer__Group__1 ;
     public final void rule__DockerContainer__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6262:1: ( rule__DockerContainer__Group__0__Impl rule__DockerContainer__Group__1 )
-            // InternalCICDParser.g:6263:2: rule__DockerContainer__Group__0__Impl rule__DockerContainer__Group__1
+            // InternalCICDParser.g:6289:1: ( rule__DockerContainer__Group__0__Impl rule__DockerContainer__Group__1 )
+            // InternalCICDParser.g:6290:2: rule__DockerContainer__Group__0__Impl rule__DockerContainer__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__DockerContainer__Group__0__Impl();
 
             state._fsp--;
@@ -19347,17 +19432,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group__0__Impl"
-    // InternalCICDParser.g:6270:1: rule__DockerContainer__Group__0__Impl : ( DockerContainer ) ;
+    // InternalCICDParser.g:6297:1: rule__DockerContainer__Group__0__Impl : ( DockerContainer ) ;
     public final void rule__DockerContainer__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6274:1: ( ( DockerContainer ) )
-            // InternalCICDParser.g:6275:1: ( DockerContainer )
+            // InternalCICDParser.g:6301:1: ( ( DockerContainer ) )
+            // InternalCICDParser.g:6302:1: ( DockerContainer )
             {
-            // InternalCICDParser.g:6275:1: ( DockerContainer )
-            // InternalCICDParser.g:6276:2: DockerContainer
+            // InternalCICDParser.g:6302:1: ( DockerContainer )
+            // InternalCICDParser.g:6303:2: DockerContainer
             {
              before(grammarAccess.getDockerContainerAccess().getDockerContainerKeyword_0()); 
             match(input,DockerContainer,FOLLOW_2); 
@@ -19384,14 +19469,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group__1"
-    // InternalCICDParser.g:6285:1: rule__DockerContainer__Group__1 : rule__DockerContainer__Group__1__Impl ;
+    // InternalCICDParser.g:6312:1: rule__DockerContainer__Group__1 : rule__DockerContainer__Group__1__Impl ;
     public final void rule__DockerContainer__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6289:1: ( rule__DockerContainer__Group__1__Impl )
-            // InternalCICDParser.g:6290:2: rule__DockerContainer__Group__1__Impl
+            // InternalCICDParser.g:6316:1: ( rule__DockerContainer__Group__1__Impl )
+            // InternalCICDParser.g:6317:2: rule__DockerContainer__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DockerContainer__Group__1__Impl();
@@ -19417,21 +19502,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group__1__Impl"
-    // InternalCICDParser.g:6296:1: rule__DockerContainer__Group__1__Impl : ( ( rule__DockerContainer__Group_1__0 ) ) ;
+    // InternalCICDParser.g:6323:1: rule__DockerContainer__Group__1__Impl : ( ( rule__DockerContainer__Group_1__0 ) ) ;
     public final void rule__DockerContainer__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6300:1: ( ( ( rule__DockerContainer__Group_1__0 ) ) )
-            // InternalCICDParser.g:6301:1: ( ( rule__DockerContainer__Group_1__0 ) )
+            // InternalCICDParser.g:6327:1: ( ( ( rule__DockerContainer__Group_1__0 ) ) )
+            // InternalCICDParser.g:6328:1: ( ( rule__DockerContainer__Group_1__0 ) )
             {
-            // InternalCICDParser.g:6301:1: ( ( rule__DockerContainer__Group_1__0 ) )
-            // InternalCICDParser.g:6302:2: ( rule__DockerContainer__Group_1__0 )
+            // InternalCICDParser.g:6328:1: ( ( rule__DockerContainer__Group_1__0 ) )
+            // InternalCICDParser.g:6329:2: ( rule__DockerContainer__Group_1__0 )
             {
              before(grammarAccess.getDockerContainerAccess().getGroup_1()); 
-            // InternalCICDParser.g:6303:2: ( rule__DockerContainer__Group_1__0 )
-            // InternalCICDParser.g:6303:3: rule__DockerContainer__Group_1__0
+            // InternalCICDParser.g:6330:2: ( rule__DockerContainer__Group_1__0 )
+            // InternalCICDParser.g:6330:3: rule__DockerContainer__Group_1__0
             {
             pushFollow(FOLLOW_2);
             rule__DockerContainer__Group_1__0();
@@ -19464,16 +19549,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__0"
-    // InternalCICDParser.g:6312:1: rule__DockerContainer__Group_1__0 : rule__DockerContainer__Group_1__0__Impl rule__DockerContainer__Group_1__1 ;
+    // InternalCICDParser.g:6339:1: rule__DockerContainer__Group_1__0 : rule__DockerContainer__Group_1__0__Impl rule__DockerContainer__Group_1__1 ;
     public final void rule__DockerContainer__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6316:1: ( rule__DockerContainer__Group_1__0__Impl rule__DockerContainer__Group_1__1 )
-            // InternalCICDParser.g:6317:2: rule__DockerContainer__Group_1__0__Impl rule__DockerContainer__Group_1__1
+            // InternalCICDParser.g:6343:1: ( rule__DockerContainer__Group_1__0__Impl rule__DockerContainer__Group_1__1 )
+            // InternalCICDParser.g:6344:2: rule__DockerContainer__Group_1__0__Impl rule__DockerContainer__Group_1__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_51);
             rule__DockerContainer__Group_1__0__Impl();
 
             state._fsp--;
@@ -19502,17 +19587,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__0__Impl"
-    // InternalCICDParser.g:6324:1: rule__DockerContainer__Group_1__0__Impl : ( RULE_BEGIN ) ;
+    // InternalCICDParser.g:6351:1: rule__DockerContainer__Group_1__0__Impl : ( RULE_BEGIN ) ;
     public final void rule__DockerContainer__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6328:1: ( ( RULE_BEGIN ) )
-            // InternalCICDParser.g:6329:1: ( RULE_BEGIN )
+            // InternalCICDParser.g:6355:1: ( ( RULE_BEGIN ) )
+            // InternalCICDParser.g:6356:1: ( RULE_BEGIN )
             {
-            // InternalCICDParser.g:6329:1: ( RULE_BEGIN )
-            // InternalCICDParser.g:6330:2: RULE_BEGIN
+            // InternalCICDParser.g:6356:1: ( RULE_BEGIN )
+            // InternalCICDParser.g:6357:2: RULE_BEGIN
             {
              before(grammarAccess.getDockerContainerAccess().getBEGINTerminalRuleCall_1_0()); 
             match(input,RULE_BEGIN,FOLLOW_2); 
@@ -19539,16 +19624,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__1"
-    // InternalCICDParser.g:6339:1: rule__DockerContainer__Group_1__1 : rule__DockerContainer__Group_1__1__Impl rule__DockerContainer__Group_1__2 ;
+    // InternalCICDParser.g:6366:1: rule__DockerContainer__Group_1__1 : rule__DockerContainer__Group_1__1__Impl rule__DockerContainer__Group_1__2 ;
     public final void rule__DockerContainer__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6343:1: ( rule__DockerContainer__Group_1__1__Impl rule__DockerContainer__Group_1__2 )
-            // InternalCICDParser.g:6344:2: rule__DockerContainer__Group_1__1__Impl rule__DockerContainer__Group_1__2
+            // InternalCICDParser.g:6370:1: ( rule__DockerContainer__Group_1__1__Impl rule__DockerContainer__Group_1__2 )
+            // InternalCICDParser.g:6371:2: rule__DockerContainer__Group_1__1__Impl rule__DockerContainer__Group_1__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__DockerContainer__Group_1__1__Impl();
 
             state._fsp--;
@@ -19577,17 +19662,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__1__Impl"
-    // InternalCICDParser.g:6351:1: rule__DockerContainer__Group_1__1__Impl : ( Image ) ;
+    // InternalCICDParser.g:6378:1: rule__DockerContainer__Group_1__1__Impl : ( Image ) ;
     public final void rule__DockerContainer__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6355:1: ( ( Image ) )
-            // InternalCICDParser.g:6356:1: ( Image )
+            // InternalCICDParser.g:6382:1: ( ( Image ) )
+            // InternalCICDParser.g:6383:1: ( Image )
             {
-            // InternalCICDParser.g:6356:1: ( Image )
-            // InternalCICDParser.g:6357:2: Image
+            // InternalCICDParser.g:6383:1: ( Image )
+            // InternalCICDParser.g:6384:2: Image
             {
              before(grammarAccess.getDockerContainerAccess().getImageKeyword_1_1()); 
             match(input,Image,FOLLOW_2); 
@@ -19614,16 +19699,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__2"
-    // InternalCICDParser.g:6366:1: rule__DockerContainer__Group_1__2 : rule__DockerContainer__Group_1__2__Impl rule__DockerContainer__Group_1__3 ;
+    // InternalCICDParser.g:6393:1: rule__DockerContainer__Group_1__2 : rule__DockerContainer__Group_1__2__Impl rule__DockerContainer__Group_1__3 ;
     public final void rule__DockerContainer__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6370:1: ( rule__DockerContainer__Group_1__2__Impl rule__DockerContainer__Group_1__3 )
-            // InternalCICDParser.g:6371:2: rule__DockerContainer__Group_1__2__Impl rule__DockerContainer__Group_1__3
+            // InternalCICDParser.g:6397:1: ( rule__DockerContainer__Group_1__2__Impl rule__DockerContainer__Group_1__3 )
+            // InternalCICDParser.g:6398:2: rule__DockerContainer__Group_1__2__Impl rule__DockerContainer__Group_1__3
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__DockerContainer__Group_1__2__Impl();
 
             state._fsp--;
@@ -19652,21 +19737,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__2__Impl"
-    // InternalCICDParser.g:6378:1: rule__DockerContainer__Group_1__2__Impl : ( ( rule__DockerContainer__ImageAssignment_1_2 ) ) ;
+    // InternalCICDParser.g:6405:1: rule__DockerContainer__Group_1__2__Impl : ( ( rule__DockerContainer__ImageAssignment_1_2 ) ) ;
     public final void rule__DockerContainer__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6382:1: ( ( ( rule__DockerContainer__ImageAssignment_1_2 ) ) )
-            // InternalCICDParser.g:6383:1: ( ( rule__DockerContainer__ImageAssignment_1_2 ) )
+            // InternalCICDParser.g:6409:1: ( ( ( rule__DockerContainer__ImageAssignment_1_2 ) ) )
+            // InternalCICDParser.g:6410:1: ( ( rule__DockerContainer__ImageAssignment_1_2 ) )
             {
-            // InternalCICDParser.g:6383:1: ( ( rule__DockerContainer__ImageAssignment_1_2 ) )
-            // InternalCICDParser.g:6384:2: ( rule__DockerContainer__ImageAssignment_1_2 )
+            // InternalCICDParser.g:6410:1: ( ( rule__DockerContainer__ImageAssignment_1_2 ) )
+            // InternalCICDParser.g:6411:2: ( rule__DockerContainer__ImageAssignment_1_2 )
             {
              before(grammarAccess.getDockerContainerAccess().getImageAssignment_1_2()); 
-            // InternalCICDParser.g:6385:2: ( rule__DockerContainer__ImageAssignment_1_2 )
-            // InternalCICDParser.g:6385:3: rule__DockerContainer__ImageAssignment_1_2
+            // InternalCICDParser.g:6412:2: ( rule__DockerContainer__ImageAssignment_1_2 )
+            // InternalCICDParser.g:6412:3: rule__DockerContainer__ImageAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__DockerContainer__ImageAssignment_1_2();
@@ -19699,16 +19784,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__3"
-    // InternalCICDParser.g:6393:1: rule__DockerContainer__Group_1__3 : rule__DockerContainer__Group_1__3__Impl rule__DockerContainer__Group_1__4 ;
+    // InternalCICDParser.g:6420:1: rule__DockerContainer__Group_1__3 : rule__DockerContainer__Group_1__3__Impl rule__DockerContainer__Group_1__4 ;
     public final void rule__DockerContainer__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6397:1: ( rule__DockerContainer__Group_1__3__Impl rule__DockerContainer__Group_1__4 )
-            // InternalCICDParser.g:6398:2: rule__DockerContainer__Group_1__3__Impl rule__DockerContainer__Group_1__4
+            // InternalCICDParser.g:6424:1: ( rule__DockerContainer__Group_1__3__Impl rule__DockerContainer__Group_1__4 )
+            // InternalCICDParser.g:6425:2: rule__DockerContainer__Group_1__3__Impl rule__DockerContainer__Group_1__4
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__DockerContainer__Group_1__3__Impl();
 
             state._fsp--;
@@ -19737,29 +19822,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__3__Impl"
-    // InternalCICDParser.g:6405:1: rule__DockerContainer__Group_1__3__Impl : ( ( rule__DockerContainer__Group_1_3__0 )? ) ;
+    // InternalCICDParser.g:6432:1: rule__DockerContainer__Group_1__3__Impl : ( ( rule__DockerContainer__Group_1_3__0 )? ) ;
     public final void rule__DockerContainer__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6409:1: ( ( ( rule__DockerContainer__Group_1_3__0 )? ) )
-            // InternalCICDParser.g:6410:1: ( ( rule__DockerContainer__Group_1_3__0 )? )
+            // InternalCICDParser.g:6436:1: ( ( ( rule__DockerContainer__Group_1_3__0 )? ) )
+            // InternalCICDParser.g:6437:1: ( ( rule__DockerContainer__Group_1_3__0 )? )
             {
-            // InternalCICDParser.g:6410:1: ( ( rule__DockerContainer__Group_1_3__0 )? )
-            // InternalCICDParser.g:6411:2: ( rule__DockerContainer__Group_1_3__0 )?
+            // InternalCICDParser.g:6437:1: ( ( rule__DockerContainer__Group_1_3__0 )? )
+            // InternalCICDParser.g:6438:2: ( rule__DockerContainer__Group_1_3__0 )?
             {
              before(grammarAccess.getDockerContainerAccess().getGroup_1_3()); 
-            // InternalCICDParser.g:6412:2: ( rule__DockerContainer__Group_1_3__0 )?
-            int alt64=2;
-            int LA64_0 = input.LA(1);
+            // InternalCICDParser.g:6439:2: ( rule__DockerContainer__Group_1_3__0 )?
+            int alt65=2;
+            int LA65_0 = input.LA(1);
 
-            if ( (LA64_0==Username) ) {
-                alt64=1;
+            if ( (LA65_0==Username) ) {
+                alt65=1;
             }
-            switch (alt64) {
+            switch (alt65) {
                 case 1 :
-                    // InternalCICDParser.g:6412:3: rule__DockerContainer__Group_1_3__0
+                    // InternalCICDParser.g:6439:3: rule__DockerContainer__Group_1_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DockerContainer__Group_1_3__0();
@@ -19795,16 +19880,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__4"
-    // InternalCICDParser.g:6420:1: rule__DockerContainer__Group_1__4 : rule__DockerContainer__Group_1__4__Impl rule__DockerContainer__Group_1__5 ;
+    // InternalCICDParser.g:6447:1: rule__DockerContainer__Group_1__4 : rule__DockerContainer__Group_1__4__Impl rule__DockerContainer__Group_1__5 ;
     public final void rule__DockerContainer__Group_1__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6424:1: ( rule__DockerContainer__Group_1__4__Impl rule__DockerContainer__Group_1__5 )
-            // InternalCICDParser.g:6425:2: rule__DockerContainer__Group_1__4__Impl rule__DockerContainer__Group_1__5
+            // InternalCICDParser.g:6451:1: ( rule__DockerContainer__Group_1__4__Impl rule__DockerContainer__Group_1__5 )
+            // InternalCICDParser.g:6452:2: rule__DockerContainer__Group_1__4__Impl rule__DockerContainer__Group_1__5
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__DockerContainer__Group_1__4__Impl();
 
             state._fsp--;
@@ -19833,29 +19918,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__4__Impl"
-    // InternalCICDParser.g:6432:1: rule__DockerContainer__Group_1__4__Impl : ( ( rule__DockerContainer__Group_1_4__0 )? ) ;
+    // InternalCICDParser.g:6459:1: rule__DockerContainer__Group_1__4__Impl : ( ( rule__DockerContainer__Group_1_4__0 )? ) ;
     public final void rule__DockerContainer__Group_1__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6436:1: ( ( ( rule__DockerContainer__Group_1_4__0 )? ) )
-            // InternalCICDParser.g:6437:1: ( ( rule__DockerContainer__Group_1_4__0 )? )
+            // InternalCICDParser.g:6463:1: ( ( ( rule__DockerContainer__Group_1_4__0 )? ) )
+            // InternalCICDParser.g:6464:1: ( ( rule__DockerContainer__Group_1_4__0 )? )
             {
-            // InternalCICDParser.g:6437:1: ( ( rule__DockerContainer__Group_1_4__0 )? )
-            // InternalCICDParser.g:6438:2: ( rule__DockerContainer__Group_1_4__0 )?
+            // InternalCICDParser.g:6464:1: ( ( rule__DockerContainer__Group_1_4__0 )? )
+            // InternalCICDParser.g:6465:2: ( rule__DockerContainer__Group_1_4__0 )?
             {
              before(grammarAccess.getDockerContainerAccess().getGroup_1_4()); 
-            // InternalCICDParser.g:6439:2: ( rule__DockerContainer__Group_1_4__0 )?
-            int alt65=2;
-            int LA65_0 = input.LA(1);
+            // InternalCICDParser.g:6466:2: ( rule__DockerContainer__Group_1_4__0 )?
+            int alt66=2;
+            int LA66_0 = input.LA(1);
 
-            if ( (LA65_0==Password) ) {
-                alt65=1;
+            if ( (LA66_0==Password) ) {
+                alt66=1;
             }
-            switch (alt65) {
+            switch (alt66) {
                 case 1 :
-                    // InternalCICDParser.g:6439:3: rule__DockerContainer__Group_1_4__0
+                    // InternalCICDParser.g:6466:3: rule__DockerContainer__Group_1_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DockerContainer__Group_1_4__0();
@@ -19891,16 +19976,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__5"
-    // InternalCICDParser.g:6447:1: rule__DockerContainer__Group_1__5 : rule__DockerContainer__Group_1__5__Impl rule__DockerContainer__Group_1__6 ;
+    // InternalCICDParser.g:6474:1: rule__DockerContainer__Group_1__5 : rule__DockerContainer__Group_1__5__Impl rule__DockerContainer__Group_1__6 ;
     public final void rule__DockerContainer__Group_1__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6451:1: ( rule__DockerContainer__Group_1__5__Impl rule__DockerContainer__Group_1__6 )
-            // InternalCICDParser.g:6452:2: rule__DockerContainer__Group_1__5__Impl rule__DockerContainer__Group_1__6
+            // InternalCICDParser.g:6478:1: ( rule__DockerContainer__Group_1__5__Impl rule__DockerContainer__Group_1__6 )
+            // InternalCICDParser.g:6479:2: rule__DockerContainer__Group_1__5__Impl rule__DockerContainer__Group_1__6
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__DockerContainer__Group_1__5__Impl();
 
             state._fsp--;
@@ -19929,35 +20014,35 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__5__Impl"
-    // InternalCICDParser.g:6459:1: rule__DockerContainer__Group_1__5__Impl : ( ( rule__DockerContainer__EnvironmentsAssignment_1_5 )* ) ;
+    // InternalCICDParser.g:6486:1: rule__DockerContainer__Group_1__5__Impl : ( ( rule__DockerContainer__EnvironmentsAssignment_1_5 )* ) ;
     public final void rule__DockerContainer__Group_1__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6463:1: ( ( ( rule__DockerContainer__EnvironmentsAssignment_1_5 )* ) )
-            // InternalCICDParser.g:6464:1: ( ( rule__DockerContainer__EnvironmentsAssignment_1_5 )* )
+            // InternalCICDParser.g:6490:1: ( ( ( rule__DockerContainer__EnvironmentsAssignment_1_5 )* ) )
+            // InternalCICDParser.g:6491:1: ( ( rule__DockerContainer__EnvironmentsAssignment_1_5 )* )
             {
-            // InternalCICDParser.g:6464:1: ( ( rule__DockerContainer__EnvironmentsAssignment_1_5 )* )
-            // InternalCICDParser.g:6465:2: ( rule__DockerContainer__EnvironmentsAssignment_1_5 )*
+            // InternalCICDParser.g:6491:1: ( ( rule__DockerContainer__EnvironmentsAssignment_1_5 )* )
+            // InternalCICDParser.g:6492:2: ( rule__DockerContainer__EnvironmentsAssignment_1_5 )*
             {
              before(grammarAccess.getDockerContainerAccess().getEnvironmentsAssignment_1_5()); 
-            // InternalCICDParser.g:6466:2: ( rule__DockerContainer__EnvironmentsAssignment_1_5 )*
-            loop66:
+            // InternalCICDParser.g:6493:2: ( rule__DockerContainer__EnvironmentsAssignment_1_5 )*
+            loop67:
             do {
-                int alt66=2;
-                int LA66_0 = input.LA(1);
+                int alt67=2;
+                int LA67_0 = input.LA(1);
 
-                if ( (LA66_0==Environment) ) {
-                    alt66=1;
+                if ( (LA67_0==Environment) ) {
+                    alt67=1;
                 }
 
 
-                switch (alt66) {
+                switch (alt67) {
             	case 1 :
-            	    // InternalCICDParser.g:6466:3: rule__DockerContainer__EnvironmentsAssignment_1_5
+            	    // InternalCICDParser.g:6493:3: rule__DockerContainer__EnvironmentsAssignment_1_5
             	    {
-            	    pushFollow(FOLLOW_8);
+            	    pushFollow(FOLLOW_10);
             	    rule__DockerContainer__EnvironmentsAssignment_1_5();
 
             	    state._fsp--;
@@ -19967,7 +20052,7 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop66;
+            	    break loop67;
                 }
             } while (true);
 
@@ -19994,14 +20079,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__6"
-    // InternalCICDParser.g:6474:1: rule__DockerContainer__Group_1__6 : rule__DockerContainer__Group_1__6__Impl ;
+    // InternalCICDParser.g:6501:1: rule__DockerContainer__Group_1__6 : rule__DockerContainer__Group_1__6__Impl ;
     public final void rule__DockerContainer__Group_1__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6478:1: ( rule__DockerContainer__Group_1__6__Impl )
-            // InternalCICDParser.g:6479:2: rule__DockerContainer__Group_1__6__Impl
+            // InternalCICDParser.g:6505:1: ( rule__DockerContainer__Group_1__6__Impl )
+            // InternalCICDParser.g:6506:2: rule__DockerContainer__Group_1__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DockerContainer__Group_1__6__Impl();
@@ -20027,17 +20112,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1__6__Impl"
-    // InternalCICDParser.g:6485:1: rule__DockerContainer__Group_1__6__Impl : ( RULE_END ) ;
+    // InternalCICDParser.g:6512:1: rule__DockerContainer__Group_1__6__Impl : ( RULE_END ) ;
     public final void rule__DockerContainer__Group_1__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6489:1: ( ( RULE_END ) )
-            // InternalCICDParser.g:6490:1: ( RULE_END )
+            // InternalCICDParser.g:6516:1: ( ( RULE_END ) )
+            // InternalCICDParser.g:6517:1: ( RULE_END )
             {
-            // InternalCICDParser.g:6490:1: ( RULE_END )
-            // InternalCICDParser.g:6491:2: RULE_END
+            // InternalCICDParser.g:6517:1: ( RULE_END )
+            // InternalCICDParser.g:6518:2: RULE_END
             {
              before(grammarAccess.getDockerContainerAccess().getENDTerminalRuleCall_1_6()); 
             match(input,RULE_END,FOLLOW_2); 
@@ -20064,16 +20149,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1_3__0"
-    // InternalCICDParser.g:6501:1: rule__DockerContainer__Group_1_3__0 : rule__DockerContainer__Group_1_3__0__Impl rule__DockerContainer__Group_1_3__1 ;
+    // InternalCICDParser.g:6528:1: rule__DockerContainer__Group_1_3__0 : rule__DockerContainer__Group_1_3__0__Impl rule__DockerContainer__Group_1_3__1 ;
     public final void rule__DockerContainer__Group_1_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6505:1: ( rule__DockerContainer__Group_1_3__0__Impl rule__DockerContainer__Group_1_3__1 )
-            // InternalCICDParser.g:6506:2: rule__DockerContainer__Group_1_3__0__Impl rule__DockerContainer__Group_1_3__1
+            // InternalCICDParser.g:6532:1: ( rule__DockerContainer__Group_1_3__0__Impl rule__DockerContainer__Group_1_3__1 )
+            // InternalCICDParser.g:6533:2: rule__DockerContainer__Group_1_3__0__Impl rule__DockerContainer__Group_1_3__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__DockerContainer__Group_1_3__0__Impl();
 
             state._fsp--;
@@ -20102,17 +20187,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1_3__0__Impl"
-    // InternalCICDParser.g:6513:1: rule__DockerContainer__Group_1_3__0__Impl : ( Username ) ;
+    // InternalCICDParser.g:6540:1: rule__DockerContainer__Group_1_3__0__Impl : ( Username ) ;
     public final void rule__DockerContainer__Group_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6517:1: ( ( Username ) )
-            // InternalCICDParser.g:6518:1: ( Username )
+            // InternalCICDParser.g:6544:1: ( ( Username ) )
+            // InternalCICDParser.g:6545:1: ( Username )
             {
-            // InternalCICDParser.g:6518:1: ( Username )
-            // InternalCICDParser.g:6519:2: Username
+            // InternalCICDParser.g:6545:1: ( Username )
+            // InternalCICDParser.g:6546:2: Username
             {
              before(grammarAccess.getDockerContainerAccess().getUsernameKeyword_1_3_0()); 
             match(input,Username,FOLLOW_2); 
@@ -20139,14 +20224,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1_3__1"
-    // InternalCICDParser.g:6528:1: rule__DockerContainer__Group_1_3__1 : rule__DockerContainer__Group_1_3__1__Impl ;
+    // InternalCICDParser.g:6555:1: rule__DockerContainer__Group_1_3__1 : rule__DockerContainer__Group_1_3__1__Impl ;
     public final void rule__DockerContainer__Group_1_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6532:1: ( rule__DockerContainer__Group_1_3__1__Impl )
-            // InternalCICDParser.g:6533:2: rule__DockerContainer__Group_1_3__1__Impl
+            // InternalCICDParser.g:6559:1: ( rule__DockerContainer__Group_1_3__1__Impl )
+            // InternalCICDParser.g:6560:2: rule__DockerContainer__Group_1_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DockerContainer__Group_1_3__1__Impl();
@@ -20172,21 +20257,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1_3__1__Impl"
-    // InternalCICDParser.g:6539:1: rule__DockerContainer__Group_1_3__1__Impl : ( ( rule__DockerContainer__UsernameAssignment_1_3_1 ) ) ;
+    // InternalCICDParser.g:6566:1: rule__DockerContainer__Group_1_3__1__Impl : ( ( rule__DockerContainer__UsernameAssignment_1_3_1 ) ) ;
     public final void rule__DockerContainer__Group_1_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6543:1: ( ( ( rule__DockerContainer__UsernameAssignment_1_3_1 ) ) )
-            // InternalCICDParser.g:6544:1: ( ( rule__DockerContainer__UsernameAssignment_1_3_1 ) )
+            // InternalCICDParser.g:6570:1: ( ( ( rule__DockerContainer__UsernameAssignment_1_3_1 ) ) )
+            // InternalCICDParser.g:6571:1: ( ( rule__DockerContainer__UsernameAssignment_1_3_1 ) )
             {
-            // InternalCICDParser.g:6544:1: ( ( rule__DockerContainer__UsernameAssignment_1_3_1 ) )
-            // InternalCICDParser.g:6545:2: ( rule__DockerContainer__UsernameAssignment_1_3_1 )
+            // InternalCICDParser.g:6571:1: ( ( rule__DockerContainer__UsernameAssignment_1_3_1 ) )
+            // InternalCICDParser.g:6572:2: ( rule__DockerContainer__UsernameAssignment_1_3_1 )
             {
              before(grammarAccess.getDockerContainerAccess().getUsernameAssignment_1_3_1()); 
-            // InternalCICDParser.g:6546:2: ( rule__DockerContainer__UsernameAssignment_1_3_1 )
-            // InternalCICDParser.g:6546:3: rule__DockerContainer__UsernameAssignment_1_3_1
+            // InternalCICDParser.g:6573:2: ( rule__DockerContainer__UsernameAssignment_1_3_1 )
+            // InternalCICDParser.g:6573:3: rule__DockerContainer__UsernameAssignment_1_3_1
             {
             pushFollow(FOLLOW_2);
             rule__DockerContainer__UsernameAssignment_1_3_1();
@@ -20219,16 +20304,16 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1_4__0"
-    // InternalCICDParser.g:6555:1: rule__DockerContainer__Group_1_4__0 : rule__DockerContainer__Group_1_4__0__Impl rule__DockerContainer__Group_1_4__1 ;
+    // InternalCICDParser.g:6582:1: rule__DockerContainer__Group_1_4__0 : rule__DockerContainer__Group_1_4__0__Impl rule__DockerContainer__Group_1_4__1 ;
     public final void rule__DockerContainer__Group_1_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6559:1: ( rule__DockerContainer__Group_1_4__0__Impl rule__DockerContainer__Group_1_4__1 )
-            // InternalCICDParser.g:6560:2: rule__DockerContainer__Group_1_4__0__Impl rule__DockerContainer__Group_1_4__1
+            // InternalCICDParser.g:6586:1: ( rule__DockerContainer__Group_1_4__0__Impl rule__DockerContainer__Group_1_4__1 )
+            // InternalCICDParser.g:6587:2: rule__DockerContainer__Group_1_4__0__Impl rule__DockerContainer__Group_1_4__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__DockerContainer__Group_1_4__0__Impl();
 
             state._fsp--;
@@ -20257,17 +20342,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1_4__0__Impl"
-    // InternalCICDParser.g:6567:1: rule__DockerContainer__Group_1_4__0__Impl : ( Password ) ;
+    // InternalCICDParser.g:6594:1: rule__DockerContainer__Group_1_4__0__Impl : ( Password ) ;
     public final void rule__DockerContainer__Group_1_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6571:1: ( ( Password ) )
-            // InternalCICDParser.g:6572:1: ( Password )
+            // InternalCICDParser.g:6598:1: ( ( Password ) )
+            // InternalCICDParser.g:6599:1: ( Password )
             {
-            // InternalCICDParser.g:6572:1: ( Password )
-            // InternalCICDParser.g:6573:2: Password
+            // InternalCICDParser.g:6599:1: ( Password )
+            // InternalCICDParser.g:6600:2: Password
             {
              before(grammarAccess.getDockerContainerAccess().getPasswordKeyword_1_4_0()); 
             match(input,Password,FOLLOW_2); 
@@ -20294,14 +20379,14 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1_4__1"
-    // InternalCICDParser.g:6582:1: rule__DockerContainer__Group_1_4__1 : rule__DockerContainer__Group_1_4__1__Impl ;
+    // InternalCICDParser.g:6609:1: rule__DockerContainer__Group_1_4__1 : rule__DockerContainer__Group_1_4__1__Impl ;
     public final void rule__DockerContainer__Group_1_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6586:1: ( rule__DockerContainer__Group_1_4__1__Impl )
-            // InternalCICDParser.g:6587:2: rule__DockerContainer__Group_1_4__1__Impl
+            // InternalCICDParser.g:6613:1: ( rule__DockerContainer__Group_1_4__1__Impl )
+            // InternalCICDParser.g:6614:2: rule__DockerContainer__Group_1_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DockerContainer__Group_1_4__1__Impl();
@@ -20327,21 +20412,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__Group_1_4__1__Impl"
-    // InternalCICDParser.g:6593:1: rule__DockerContainer__Group_1_4__1__Impl : ( ( rule__DockerContainer__PasswordAssignment_1_4_1 ) ) ;
+    // InternalCICDParser.g:6620:1: rule__DockerContainer__Group_1_4__1__Impl : ( ( rule__DockerContainer__PasswordAssignment_1_4_1 ) ) ;
     public final void rule__DockerContainer__Group_1_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6597:1: ( ( ( rule__DockerContainer__PasswordAssignment_1_4_1 ) ) )
-            // InternalCICDParser.g:6598:1: ( ( rule__DockerContainer__PasswordAssignment_1_4_1 ) )
+            // InternalCICDParser.g:6624:1: ( ( ( rule__DockerContainer__PasswordAssignment_1_4_1 ) ) )
+            // InternalCICDParser.g:6625:1: ( ( rule__DockerContainer__PasswordAssignment_1_4_1 ) )
             {
-            // InternalCICDParser.g:6598:1: ( ( rule__DockerContainer__PasswordAssignment_1_4_1 ) )
-            // InternalCICDParser.g:6599:2: ( rule__DockerContainer__PasswordAssignment_1_4_1 )
+            // InternalCICDParser.g:6625:1: ( ( rule__DockerContainer__PasswordAssignment_1_4_1 ) )
+            // InternalCICDParser.g:6626:2: ( rule__DockerContainer__PasswordAssignment_1_4_1 )
             {
              before(grammarAccess.getDockerContainerAccess().getPasswordAssignment_1_4_1()); 
-            // InternalCICDParser.g:6600:2: ( rule__DockerContainer__PasswordAssignment_1_4_1 )
-            // InternalCICDParser.g:6600:3: rule__DockerContainer__PasswordAssignment_1_4_1
+            // InternalCICDParser.g:6627:2: ( rule__DockerContainer__PasswordAssignment_1_4_1 )
+            // InternalCICDParser.g:6627:3: rule__DockerContainer__PasswordAssignment_1_4_1
             {
             pushFollow(FOLLOW_2);
             rule__DockerContainer__PasswordAssignment_1_4_1();
@@ -20373,26 +20458,26 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DockerContainer__Group_1_4__1__Impl"
 
 
-    // $ANTLR start "rule__Pipeline__NameAssignment_2_1"
-    // InternalCICDParser.g:6609:1: rule__Pipeline__NameAssignment_2_1 : ( ruleEString ) ;
-    public final void rule__Pipeline__NameAssignment_2_1() throws RecognitionException {
+    // $ANTLR start "rule__Pipeline__NameAssignment_1_2"
+    // InternalCICDParser.g:6636:1: rule__Pipeline__NameAssignment_1_2 : ( ruleEString ) ;
+    public final void rule__Pipeline__NameAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6613:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:6614:2: ( ruleEString )
+            // InternalCICDParser.g:6640:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:6641:2: ( ruleEString )
             {
-            // InternalCICDParser.g:6614:2: ( ruleEString )
-            // InternalCICDParser.g:6615:3: ruleEString
+            // InternalCICDParser.g:6641:2: ( ruleEString )
+            // InternalCICDParser.g:6642:3: ruleEString
             {
-             before(grammarAccess.getPipelineAccess().getNameEStringParserRuleCall_2_1_0()); 
+             before(grammarAccess.getPipelineAccess().getNameEStringParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getPipelineAccess().getNameEStringParserRuleCall_2_1_0()); 
+             after(grammarAccess.getPipelineAccess().getNameEStringParserRuleCall_1_2_0()); 
 
             }
 
@@ -20411,29 +20496,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Pipeline__NameAssignment_2_1"
+    // $ANTLR end "rule__Pipeline__NameAssignment_1_2"
 
 
-    // $ANTLR start "rule__Pipeline__JobsAssignment_3_0"
-    // InternalCICDParser.g:6624:1: rule__Pipeline__JobsAssignment_3_0 : ( ruleJob ) ;
-    public final void rule__Pipeline__JobsAssignment_3_0() throws RecognitionException {
+    // $ANTLR start "rule__Pipeline__JobsAssignment_2_0"
+    // InternalCICDParser.g:6651:1: rule__Pipeline__JobsAssignment_2_0 : ( ruleJob ) ;
+    public final void rule__Pipeline__JobsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6628:1: ( ( ruleJob ) )
-            // InternalCICDParser.g:6629:2: ( ruleJob )
+            // InternalCICDParser.g:6655:1: ( ( ruleJob ) )
+            // InternalCICDParser.g:6656:2: ( ruleJob )
             {
-            // InternalCICDParser.g:6629:2: ( ruleJob )
-            // InternalCICDParser.g:6630:3: ruleJob
+            // InternalCICDParser.g:6656:2: ( ruleJob )
+            // InternalCICDParser.g:6657:3: ruleJob
             {
-             before(grammarAccess.getPipelineAccess().getJobsJobParserRuleCall_3_0_0()); 
+             before(grammarAccess.getPipelineAccess().getJobsJobParserRuleCall_2_0_0()); 
             pushFollow(FOLLOW_2);
             ruleJob();
 
             state._fsp--;
 
-             after(grammarAccess.getPipelineAccess().getJobsJobParserRuleCall_3_0_0()); 
+             after(grammarAccess.getPipelineAccess().getJobsJobParserRuleCall_2_0_0()); 
 
             }
 
@@ -20452,29 +20537,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Pipeline__JobsAssignment_3_0"
+    // $ANTLR end "rule__Pipeline__JobsAssignment_2_0"
 
 
-    // $ANTLR start "rule__Pipeline__Pipeline_environmentAssignment_4_0"
-    // InternalCICDParser.g:6639:1: rule__Pipeline__Pipeline_environmentAssignment_4_0 : ( ruleEnvironment ) ;
-    public final void rule__Pipeline__Pipeline_environmentAssignment_4_0() throws RecognitionException {
+    // $ANTLR start "rule__Pipeline__Pipeline_environmentAssignment_3_0"
+    // InternalCICDParser.g:6666:1: rule__Pipeline__Pipeline_environmentAssignment_3_0 : ( ruleEnvironment ) ;
+    public final void rule__Pipeline__Pipeline_environmentAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6643:1: ( ( ruleEnvironment ) )
-            // InternalCICDParser.g:6644:2: ( ruleEnvironment )
+            // InternalCICDParser.g:6670:1: ( ( ruleEnvironment ) )
+            // InternalCICDParser.g:6671:2: ( ruleEnvironment )
             {
-            // InternalCICDParser.g:6644:2: ( ruleEnvironment )
-            // InternalCICDParser.g:6645:3: ruleEnvironment
+            // InternalCICDParser.g:6671:2: ( ruleEnvironment )
+            // InternalCICDParser.g:6672:3: ruleEnvironment
             {
-             before(grammarAccess.getPipelineAccess().getPipeline_environmentEnvironmentParserRuleCall_4_0_0()); 
+             before(grammarAccess.getPipelineAccess().getPipeline_environmentEnvironmentParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
             ruleEnvironment();
 
             state._fsp--;
 
-             after(grammarAccess.getPipelineAccess().getPipeline_environmentEnvironmentParserRuleCall_4_0_0()); 
+             after(grammarAccess.getPipelineAccess().getPipeline_environmentEnvironmentParserRuleCall_3_0_0()); 
 
             }
 
@@ -20493,29 +20578,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Pipeline__Pipeline_environmentAssignment_4_0"
+    // $ANTLR end "rule__Pipeline__Pipeline_environmentAssignment_3_0"
 
 
-    // $ANTLR start "rule__Pipeline__TriggersAssignment_5_0"
-    // InternalCICDParser.g:6654:1: rule__Pipeline__TriggersAssignment_5_0 : ( ruleScheduleTrigger ) ;
-    public final void rule__Pipeline__TriggersAssignment_5_0() throws RecognitionException {
+    // $ANTLR start "rule__Pipeline__TriggersAssignment_4_0"
+    // InternalCICDParser.g:6681:1: rule__Pipeline__TriggersAssignment_4_0 : ( ruleScheduleTrigger ) ;
+    public final void rule__Pipeline__TriggersAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6658:1: ( ( ruleScheduleTrigger ) )
-            // InternalCICDParser.g:6659:2: ( ruleScheduleTrigger )
+            // InternalCICDParser.g:6685:1: ( ( ruleScheduleTrigger ) )
+            // InternalCICDParser.g:6686:2: ( ruleScheduleTrigger )
             {
-            // InternalCICDParser.g:6659:2: ( ruleScheduleTrigger )
-            // InternalCICDParser.g:6660:3: ruleScheduleTrigger
+            // InternalCICDParser.g:6686:2: ( ruleScheduleTrigger )
+            // InternalCICDParser.g:6687:3: ruleScheduleTrigger
             {
-             before(grammarAccess.getPipelineAccess().getTriggersScheduleTriggerParserRuleCall_5_0_0()); 
+             before(grammarAccess.getPipelineAccess().getTriggersScheduleTriggerParserRuleCall_4_0_0()); 
             pushFollow(FOLLOW_2);
             ruleScheduleTrigger();
 
             state._fsp--;
 
-             after(grammarAccess.getPipelineAccess().getTriggersScheduleTriggerParserRuleCall_5_0_0()); 
+             after(grammarAccess.getPipelineAccess().getTriggersScheduleTriggerParserRuleCall_4_0_0()); 
 
             }
 
@@ -20534,29 +20619,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Pipeline__TriggersAssignment_5_0"
+    // $ANTLR end "rule__Pipeline__TriggersAssignment_4_0"
 
 
-    // $ANTLR start "rule__Pipeline__AgentsAssignment_6_0"
-    // InternalCICDParser.g:6669:1: rule__Pipeline__AgentsAssignment_6_0 : ( ruleAgent ) ;
-    public final void rule__Pipeline__AgentsAssignment_6_0() throws RecognitionException {
+    // $ANTLR start "rule__Pipeline__AgentsAssignment_5_0"
+    // InternalCICDParser.g:6696:1: rule__Pipeline__AgentsAssignment_5_0 : ( ruleAgent ) ;
+    public final void rule__Pipeline__AgentsAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6673:1: ( ( ruleAgent ) )
-            // InternalCICDParser.g:6674:2: ( ruleAgent )
+            // InternalCICDParser.g:6700:1: ( ( ruleAgent ) )
+            // InternalCICDParser.g:6701:2: ( ruleAgent )
             {
-            // InternalCICDParser.g:6674:2: ( ruleAgent )
-            // InternalCICDParser.g:6675:3: ruleAgent
+            // InternalCICDParser.g:6701:2: ( ruleAgent )
+            // InternalCICDParser.g:6702:3: ruleAgent
             {
-             before(grammarAccess.getPipelineAccess().getAgentsAgentParserRuleCall_6_0_0()); 
+             before(grammarAccess.getPipelineAccess().getAgentsAgentParserRuleCall_5_0_0()); 
             pushFollow(FOLLOW_2);
             ruleAgent();
 
             state._fsp--;
 
-             after(grammarAccess.getPipelineAccess().getAgentsAgentParserRuleCall_6_0_0()); 
+             after(grammarAccess.getPipelineAccess().getAgentsAgentParserRuleCall_5_0_0()); 
 
             }
 
@@ -20575,29 +20660,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Pipeline__AgentsAssignment_6_0"
+    // $ANTLR end "rule__Pipeline__AgentsAssignment_5_0"
 
 
-    // $ANTLR start "rule__Pipeline__InputsAssignment_7_0"
-    // InternalCICDParser.g:6684:1: rule__Pipeline__InputsAssignment_7_0 : ( ruleInput ) ;
-    public final void rule__Pipeline__InputsAssignment_7_0() throws RecognitionException {
+    // $ANTLR start "rule__Pipeline__InputsAssignment_6_0"
+    // InternalCICDParser.g:6711:1: rule__Pipeline__InputsAssignment_6_0 : ( ruleInput ) ;
+    public final void rule__Pipeline__InputsAssignment_6_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6688:1: ( ( ruleInput ) )
-            // InternalCICDParser.g:6689:2: ( ruleInput )
+            // InternalCICDParser.g:6715:1: ( ( ruleInput ) )
+            // InternalCICDParser.g:6716:2: ( ruleInput )
             {
-            // InternalCICDParser.g:6689:2: ( ruleInput )
-            // InternalCICDParser.g:6690:3: ruleInput
+            // InternalCICDParser.g:6716:2: ( ruleInput )
+            // InternalCICDParser.g:6717:3: ruleInput
             {
-             before(grammarAccess.getPipelineAccess().getInputsInputParserRuleCall_7_0_0()); 
+             before(grammarAccess.getPipelineAccess().getInputsInputParserRuleCall_6_0_0()); 
             pushFollow(FOLLOW_2);
             ruleInput();
 
             state._fsp--;
 
-             after(grammarAccess.getPipelineAccess().getInputsInputParserRuleCall_7_0_0()); 
+             after(grammarAccess.getPipelineAccess().getInputsInputParserRuleCall_6_0_0()); 
 
             }
 
@@ -20616,29 +20701,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Pipeline__InputsAssignment_7_0"
+    // $ANTLR end "rule__Pipeline__InputsAssignment_6_0"
 
 
-    // $ANTLR start "rule__Pipeline__OutputAssignment_8_0"
-    // InternalCICDParser.g:6699:1: rule__Pipeline__OutputAssignment_8_0 : ( ruleOutput ) ;
-    public final void rule__Pipeline__OutputAssignment_8_0() throws RecognitionException {
+    // $ANTLR start "rule__Pipeline__OutputAssignment_7_0"
+    // InternalCICDParser.g:6726:1: rule__Pipeline__OutputAssignment_7_0 : ( ruleOutput ) ;
+    public final void rule__Pipeline__OutputAssignment_7_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6703:1: ( ( ruleOutput ) )
-            // InternalCICDParser.g:6704:2: ( ruleOutput )
+            // InternalCICDParser.g:6730:1: ( ( ruleOutput ) )
+            // InternalCICDParser.g:6731:2: ( ruleOutput )
             {
-            // InternalCICDParser.g:6704:2: ( ruleOutput )
-            // InternalCICDParser.g:6705:3: ruleOutput
+            // InternalCICDParser.g:6731:2: ( ruleOutput )
+            // InternalCICDParser.g:6732:3: ruleOutput
             {
-             before(grammarAccess.getPipelineAccess().getOutputOutputParserRuleCall_8_0_0()); 
+             before(grammarAccess.getPipelineAccess().getOutputOutputParserRuleCall_7_0_0()); 
             pushFollow(FOLLOW_2);
             ruleOutput();
 
             state._fsp--;
 
-             after(grammarAccess.getPipelineAccess().getOutputOutputParserRuleCall_8_0_0()); 
+             after(grammarAccess.getPipelineAccess().getOutputOutputParserRuleCall_7_0_0()); 
 
             }
 
@@ -20657,21 +20742,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Pipeline__OutputAssignment_8_0"
+    // $ANTLR end "rule__Pipeline__OutputAssignment_7_0"
 
 
     // $ANTLR start "rule__Job__NameAssignment_1_2"
-    // InternalCICDParser.g:6714:1: rule__Job__NameAssignment_1_2 : ( ruleEString ) ;
+    // InternalCICDParser.g:6741:1: rule__Job__NameAssignment_1_2 : ( ruleEString ) ;
     public final void rule__Job__NameAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6718:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:6719:2: ( ruleEString )
+            // InternalCICDParser.g:6745:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:6746:2: ( ruleEString )
             {
-            // InternalCICDParser.g:6719:2: ( ruleEString )
-            // InternalCICDParser.g:6720:3: ruleEString
+            // InternalCICDParser.g:6746:2: ( ruleEString )
+            // InternalCICDParser.g:6747:3: ruleEString
             {
              before(grammarAccess.getJobAccess().getNameEStringParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -20702,21 +20787,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__AllowFaillureAssignment_1_3"
-    // InternalCICDParser.g:6729:1: rule__Job__AllowFaillureAssignment_1_3 : ( ( AllowFaillure ) ) ;
+    // InternalCICDParser.g:6756:1: rule__Job__AllowFaillureAssignment_1_3 : ( ( AllowFaillure ) ) ;
     public final void rule__Job__AllowFaillureAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6733:1: ( ( ( AllowFaillure ) ) )
-            // InternalCICDParser.g:6734:2: ( ( AllowFaillure ) )
+            // InternalCICDParser.g:6760:1: ( ( ( AllowFaillure ) ) )
+            // InternalCICDParser.g:6761:2: ( ( AllowFaillure ) )
             {
-            // InternalCICDParser.g:6734:2: ( ( AllowFaillure ) )
-            // InternalCICDParser.g:6735:3: ( AllowFaillure )
+            // InternalCICDParser.g:6761:2: ( ( AllowFaillure ) )
+            // InternalCICDParser.g:6762:3: ( AllowFaillure )
             {
              before(grammarAccess.getJobAccess().getAllowFaillureAllowFaillureKeyword_1_3_0()); 
-            // InternalCICDParser.g:6736:3: ( AllowFaillure )
-            // InternalCICDParser.g:6737:4: AllowFaillure
+            // InternalCICDParser.g:6763:3: ( AllowFaillure )
+            // InternalCICDParser.g:6764:4: AllowFaillure
             {
              before(grammarAccess.getJobAccess().getAllowFaillureAllowFaillureKeyword_1_3_0()); 
             match(input,AllowFaillure,FOLLOW_2); 
@@ -20747,17 +20832,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__ParallelAssignment_1_4_1"
-    // InternalCICDParser.g:6748:1: rule__Job__ParallelAssignment_1_4_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:6775:1: rule__Job__ParallelAssignment_1_4_1 : ( ruleEString ) ;
     public final void rule__Job__ParallelAssignment_1_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6752:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:6753:2: ( ruleEString )
+            // InternalCICDParser.g:6779:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:6780:2: ( ruleEString )
             {
-            // InternalCICDParser.g:6753:2: ( ruleEString )
-            // InternalCICDParser.g:6754:3: ruleEString
+            // InternalCICDParser.g:6780:2: ( ruleEString )
+            // InternalCICDParser.g:6781:3: ruleEString
             {
              before(grammarAccess.getJobAccess().getParallelEStringParserRuleCall_1_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -20788,17 +20873,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__RequireJobsAssignment_1_5_1"
-    // InternalCICDParser.g:6763:1: rule__Job__RequireJobsAssignment_1_5_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:6790:1: rule__Job__RequireJobsAssignment_1_5_1 : ( ruleEString ) ;
     public final void rule__Job__RequireJobsAssignment_1_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6767:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:6768:2: ( ruleEString )
+            // InternalCICDParser.g:6794:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:6795:2: ( ruleEString )
             {
-            // InternalCICDParser.g:6768:2: ( ruleEString )
-            // InternalCICDParser.g:6769:3: ruleEString
+            // InternalCICDParser.g:6795:2: ( ruleEString )
+            // InternalCICDParser.g:6796:3: ruleEString
             {
              before(grammarAccess.getJobAccess().getRequireJobsEStringParserRuleCall_1_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -20829,17 +20914,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Job__RequireJobsAssignment_1_5_2_1"
-    // InternalCICDParser.g:6778:1: rule__Job__RequireJobsAssignment_1_5_2_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:6805:1: rule__Job__RequireJobsAssignment_1_5_2_1 : ( ruleEString ) ;
     public final void rule__Job__RequireJobsAssignment_1_5_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6782:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:6783:2: ( ruleEString )
+            // InternalCICDParser.g:6809:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:6810:2: ( ruleEString )
             {
-            // InternalCICDParser.g:6783:2: ( ruleEString )
-            // InternalCICDParser.g:6784:3: ruleEString
+            // InternalCICDParser.g:6810:2: ( ruleEString )
+            // InternalCICDParser.g:6811:3: ruleEString
             {
              before(grammarAccess.getJobAccess().getRequireJobsEStringParserRuleCall_1_5_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -20869,67 +20954,26 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Job__RequireJobsAssignment_1_5_2_1"
 
 
-    // $ANTLR start "rule__Job__StepsAssignment_1_6"
-    // InternalCICDParser.g:6793:1: rule__Job__StepsAssignment_1_6 : ( ruleStep ) ;
-    public final void rule__Job__StepsAssignment_1_6() throws RecognitionException {
+    // $ANTLR start "rule__Job__IfStepAssignment_1_6"
+    // InternalCICDParser.g:6820:1: rule__Job__IfStepAssignment_1_6 : ( ruleIfStep ) ;
+    public final void rule__Job__IfStepAssignment_1_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6797:1: ( ( ruleStep ) )
-            // InternalCICDParser.g:6798:2: ( ruleStep )
+            // InternalCICDParser.g:6824:1: ( ( ruleIfStep ) )
+            // InternalCICDParser.g:6825:2: ( ruleIfStep )
             {
-            // InternalCICDParser.g:6798:2: ( ruleStep )
-            // InternalCICDParser.g:6799:3: ruleStep
+            // InternalCICDParser.g:6825:2: ( ruleIfStep )
+            // InternalCICDParser.g:6826:3: ruleIfStep
             {
-             before(grammarAccess.getJobAccess().getStepsStepParserRuleCall_1_6_0()); 
-            pushFollow(FOLLOW_2);
-            ruleStep();
-
-            state._fsp--;
-
-             after(grammarAccess.getJobAccess().getStepsStepParserRuleCall_1_6_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Job__StepsAssignment_1_6"
-
-
-    // $ANTLR start "rule__Job__IfStepAssignment_1_7"
-    // InternalCICDParser.g:6808:1: rule__Job__IfStepAssignment_1_7 : ( ruleIfStep ) ;
-    public final void rule__Job__IfStepAssignment_1_7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCICDParser.g:6812:1: ( ( ruleIfStep ) )
-            // InternalCICDParser.g:6813:2: ( ruleIfStep )
-            {
-            // InternalCICDParser.g:6813:2: ( ruleIfStep )
-            // InternalCICDParser.g:6814:3: ruleIfStep
-            {
-             before(grammarAccess.getJobAccess().getIfStepIfStepParserRuleCall_1_7_0()); 
+             before(grammarAccess.getJobAccess().getIfStepIfStepParserRuleCall_1_6_0()); 
             pushFollow(FOLLOW_2);
             ruleIfStep();
 
             state._fsp--;
 
-             after(grammarAccess.getJobAccess().getIfStepIfStepParserRuleCall_1_7_0()); 
+             after(grammarAccess.getJobAccess().getIfStepIfStepParserRuleCall_1_6_0()); 
 
             }
 
@@ -20948,29 +20992,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Job__IfStepAssignment_1_7"
+    // $ANTLR end "rule__Job__IfStepAssignment_1_6"
 
 
-    // $ANTLR start "rule__Job__ArtifactsAssignment_1_8"
-    // InternalCICDParser.g:6823:1: rule__Job__ArtifactsAssignment_1_8 : ( ruleArtifact ) ;
-    public final void rule__Job__ArtifactsAssignment_1_8() throws RecognitionException {
+    // $ANTLR start "rule__Job__ArtifactsAssignment_1_7"
+    // InternalCICDParser.g:6835:1: rule__Job__ArtifactsAssignment_1_7 : ( ruleArtifact ) ;
+    public final void rule__Job__ArtifactsAssignment_1_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6827:1: ( ( ruleArtifact ) )
-            // InternalCICDParser.g:6828:2: ( ruleArtifact )
+            // InternalCICDParser.g:6839:1: ( ( ruleArtifact ) )
+            // InternalCICDParser.g:6840:2: ( ruleArtifact )
             {
-            // InternalCICDParser.g:6828:2: ( ruleArtifact )
-            // InternalCICDParser.g:6829:3: ruleArtifact
+            // InternalCICDParser.g:6840:2: ( ruleArtifact )
+            // InternalCICDParser.g:6841:3: ruleArtifact
             {
-             before(grammarAccess.getJobAccess().getArtifactsArtifactParserRuleCall_1_8_0()); 
+             before(grammarAccess.getJobAccess().getArtifactsArtifactParserRuleCall_1_7_0()); 
             pushFollow(FOLLOW_2);
             ruleArtifact();
 
             state._fsp--;
 
-             after(grammarAccess.getJobAccess().getArtifactsArtifactParserRuleCall_1_8_0()); 
+             after(grammarAccess.getJobAccess().getArtifactsArtifactParserRuleCall_1_7_0()); 
 
             }
 
@@ -20989,29 +21033,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Job__ArtifactsAssignment_1_8"
+    // $ANTLR end "rule__Job__ArtifactsAssignment_1_7"
 
 
-    // $ANTLR start "rule__Job__EnvironmentsAssignment_1_9"
-    // InternalCICDParser.g:6838:1: rule__Job__EnvironmentsAssignment_1_9 : ( ruleEnvironment ) ;
-    public final void rule__Job__EnvironmentsAssignment_1_9() throws RecognitionException {
+    // $ANTLR start "rule__Job__EnvironmentsAssignment_1_8"
+    // InternalCICDParser.g:6850:1: rule__Job__EnvironmentsAssignment_1_8 : ( ruleEnvironment ) ;
+    public final void rule__Job__EnvironmentsAssignment_1_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6842:1: ( ( ruleEnvironment ) )
-            // InternalCICDParser.g:6843:2: ( ruleEnvironment )
+            // InternalCICDParser.g:6854:1: ( ( ruleEnvironment ) )
+            // InternalCICDParser.g:6855:2: ( ruleEnvironment )
             {
-            // InternalCICDParser.g:6843:2: ( ruleEnvironment )
-            // InternalCICDParser.g:6844:3: ruleEnvironment
+            // InternalCICDParser.g:6855:2: ( ruleEnvironment )
+            // InternalCICDParser.g:6856:3: ruleEnvironment
             {
-             before(grammarAccess.getJobAccess().getEnvironmentsEnvironmentParserRuleCall_1_9_0()); 
+             before(grammarAccess.getJobAccess().getEnvironmentsEnvironmentParserRuleCall_1_8_0()); 
             pushFollow(FOLLOW_2);
             ruleEnvironment();
 
             state._fsp--;
 
-             after(grammarAccess.getJobAccess().getEnvironmentsEnvironmentParserRuleCall_1_9_0()); 
+             after(grammarAccess.getJobAccess().getEnvironmentsEnvironmentParserRuleCall_1_8_0()); 
 
             }
 
@@ -21030,29 +21074,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Job__EnvironmentsAssignment_1_9"
+    // $ANTLR end "rule__Job__EnvironmentsAssignment_1_8"
 
 
-    // $ANTLR start "rule__Job__JobsAssignment_1_10"
-    // InternalCICDParser.g:6853:1: rule__Job__JobsAssignment_1_10 : ( ruleJob ) ;
-    public final void rule__Job__JobsAssignment_1_10() throws RecognitionException {
+    // $ANTLR start "rule__Job__JobsAssignment_1_9"
+    // InternalCICDParser.g:6865:1: rule__Job__JobsAssignment_1_9 : ( ruleJob ) ;
+    public final void rule__Job__JobsAssignment_1_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6857:1: ( ( ruleJob ) )
-            // InternalCICDParser.g:6858:2: ( ruleJob )
+            // InternalCICDParser.g:6869:1: ( ( ruleJob ) )
+            // InternalCICDParser.g:6870:2: ( ruleJob )
             {
-            // InternalCICDParser.g:6858:2: ( ruleJob )
-            // InternalCICDParser.g:6859:3: ruleJob
+            // InternalCICDParser.g:6870:2: ( ruleJob )
+            // InternalCICDParser.g:6871:3: ruleJob
             {
-             before(grammarAccess.getJobAccess().getJobsJobParserRuleCall_1_10_0()); 
+             before(grammarAccess.getJobAccess().getJobsJobParserRuleCall_1_9_0()); 
             pushFollow(FOLLOW_2);
             ruleJob();
 
             state._fsp--;
 
-             after(grammarAccess.getJobAccess().getJobsJobParserRuleCall_1_10_0()); 
+             after(grammarAccess.getJobAccess().getJobsJobParserRuleCall_1_9_0()); 
 
             }
 
@@ -21071,29 +21115,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Job__JobsAssignment_1_10"
+    // $ANTLR end "rule__Job__JobsAssignment_1_9"
 
 
-    // $ANTLR start "rule__Job__MatrixAssignment_1_11"
-    // InternalCICDParser.g:6868:1: rule__Job__MatrixAssignment_1_11 : ( ruleMatrix ) ;
-    public final void rule__Job__MatrixAssignment_1_11() throws RecognitionException {
+    // $ANTLR start "rule__Job__MatrixAssignment_1_10"
+    // InternalCICDParser.g:6880:1: rule__Job__MatrixAssignment_1_10 : ( ruleMatrix ) ;
+    public final void rule__Job__MatrixAssignment_1_10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6872:1: ( ( ruleMatrix ) )
-            // InternalCICDParser.g:6873:2: ( ruleMatrix )
+            // InternalCICDParser.g:6884:1: ( ( ruleMatrix ) )
+            // InternalCICDParser.g:6885:2: ( ruleMatrix )
             {
-            // InternalCICDParser.g:6873:2: ( ruleMatrix )
-            // InternalCICDParser.g:6874:3: ruleMatrix
+            // InternalCICDParser.g:6885:2: ( ruleMatrix )
+            // InternalCICDParser.g:6886:3: ruleMatrix
             {
-             before(grammarAccess.getJobAccess().getMatrixMatrixParserRuleCall_1_11_0()); 
+             before(grammarAccess.getJobAccess().getMatrixMatrixParserRuleCall_1_10_0()); 
             pushFollow(FOLLOW_2);
             ruleMatrix();
 
             state._fsp--;
 
-             after(grammarAccess.getJobAccess().getMatrixMatrixParserRuleCall_1_11_0()); 
+             after(grammarAccess.getJobAccess().getMatrixMatrixParserRuleCall_1_10_0()); 
 
             }
 
@@ -21112,29 +21156,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Job__MatrixAssignment_1_11"
+    // $ANTLR end "rule__Job__MatrixAssignment_1_10"
 
 
-    // $ANTLR start "rule__Job__AgentsAssignment_1_12"
-    // InternalCICDParser.g:6883:1: rule__Job__AgentsAssignment_1_12 : ( ruleAgent ) ;
-    public final void rule__Job__AgentsAssignment_1_12() throws RecognitionException {
+    // $ANTLR start "rule__Job__AgentsAssignment_1_11"
+    // InternalCICDParser.g:6895:1: rule__Job__AgentsAssignment_1_11 : ( ruleAgent ) ;
+    public final void rule__Job__AgentsAssignment_1_11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6887:1: ( ( ruleAgent ) )
-            // InternalCICDParser.g:6888:2: ( ruleAgent )
+            // InternalCICDParser.g:6899:1: ( ( ruleAgent ) )
+            // InternalCICDParser.g:6900:2: ( ruleAgent )
             {
-            // InternalCICDParser.g:6888:2: ( ruleAgent )
-            // InternalCICDParser.g:6889:3: ruleAgent
+            // InternalCICDParser.g:6900:2: ( ruleAgent )
+            // InternalCICDParser.g:6901:3: ruleAgent
             {
-             before(grammarAccess.getJobAccess().getAgentsAgentParserRuleCall_1_12_0()); 
+             before(grammarAccess.getJobAccess().getAgentsAgentParserRuleCall_1_11_0()); 
             pushFollow(FOLLOW_2);
             ruleAgent();
 
             state._fsp--;
 
-             after(grammarAccess.getJobAccess().getAgentsAgentParserRuleCall_1_12_0()); 
+             after(grammarAccess.getJobAccess().getAgentsAgentParserRuleCall_1_11_0()); 
 
             }
 
@@ -21153,29 +21197,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Job__AgentsAssignment_1_12"
+    // $ANTLR end "rule__Job__AgentsAssignment_1_11"
 
 
-    // $ANTLR start "rule__Job__OutputAssignment_1_13"
-    // InternalCICDParser.g:6898:1: rule__Job__OutputAssignment_1_13 : ( ruleOutput ) ;
-    public final void rule__Job__OutputAssignment_1_13() throws RecognitionException {
+    // $ANTLR start "rule__Job__OutputAssignment_1_12"
+    // InternalCICDParser.g:6910:1: rule__Job__OutputAssignment_1_12 : ( ruleOutput ) ;
+    public final void rule__Job__OutputAssignment_1_12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6902:1: ( ( ruleOutput ) )
-            // InternalCICDParser.g:6903:2: ( ruleOutput )
+            // InternalCICDParser.g:6914:1: ( ( ruleOutput ) )
+            // InternalCICDParser.g:6915:2: ( ruleOutput )
             {
-            // InternalCICDParser.g:6903:2: ( ruleOutput )
-            // InternalCICDParser.g:6904:3: ruleOutput
+            // InternalCICDParser.g:6915:2: ( ruleOutput )
+            // InternalCICDParser.g:6916:3: ruleOutput
             {
-             before(grammarAccess.getJobAccess().getOutputOutputParserRuleCall_1_13_0()); 
+             before(grammarAccess.getJobAccess().getOutputOutputParserRuleCall_1_12_0()); 
             pushFollow(FOLLOW_2);
             ruleOutput();
 
             state._fsp--;
 
-             after(grammarAccess.getJobAccess().getOutputOutputParserRuleCall_1_13_0()); 
+             after(grammarAccess.getJobAccess().getOutputOutputParserRuleCall_1_12_0()); 
 
             }
 
@@ -21194,21 +21238,62 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Job__OutputAssignment_1_13"
+    // $ANTLR end "rule__Job__OutputAssignment_1_12"
+
+
+    // $ANTLR start "rule__Job__StepsAssignment_1_13"
+    // InternalCICDParser.g:6925:1: rule__Job__StepsAssignment_1_13 : ( ruleStep ) ;
+    public final void rule__Job__StepsAssignment_1_13() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCICDParser.g:6929:1: ( ( ruleStep ) )
+            // InternalCICDParser.g:6930:2: ( ruleStep )
+            {
+            // InternalCICDParser.g:6930:2: ( ruleStep )
+            // InternalCICDParser.g:6931:3: ruleStep
+            {
+             before(grammarAccess.getJobAccess().getStepsStepParserRuleCall_1_13_0()); 
+            pushFollow(FOLLOW_2);
+            ruleStep();
+
+            state._fsp--;
+
+             after(grammarAccess.getJobAccess().getStepsStepParserRuleCall_1_13_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Job__StepsAssignment_1_13"
 
 
     // $ANTLR start "rule__Environment__KeyAssignment_1_2"
-    // InternalCICDParser.g:6913:1: rule__Environment__KeyAssignment_1_2 : ( ruleEString ) ;
+    // InternalCICDParser.g:6940:1: rule__Environment__KeyAssignment_1_2 : ( ruleEString ) ;
     public final void rule__Environment__KeyAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6917:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:6918:2: ( ruleEString )
+            // InternalCICDParser.g:6944:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:6945:2: ( ruleEString )
             {
-            // InternalCICDParser.g:6918:2: ( ruleEString )
-            // InternalCICDParser.g:6919:3: ruleEString
+            // InternalCICDParser.g:6945:2: ( ruleEString )
+            // InternalCICDParser.g:6946:3: ruleEString
             {
              before(grammarAccess.getEnvironmentAccess().getKeyEStringParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -21239,17 +21324,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Environment__ValueAssignment_1_4"
-    // InternalCICDParser.g:6928:1: rule__Environment__ValueAssignment_1_4 : ( ruleEString ) ;
+    // InternalCICDParser.g:6955:1: rule__Environment__ValueAssignment_1_4 : ( ruleEString ) ;
     public final void rule__Environment__ValueAssignment_1_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6932:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:6933:2: ( ruleEString )
+            // InternalCICDParser.g:6959:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:6960:2: ( ruleEString )
             {
-            // InternalCICDParser.g:6933:2: ( ruleEString )
-            // InternalCICDParser.g:6934:3: ruleEString
+            // InternalCICDParser.g:6960:2: ( ruleEString )
+            // InternalCICDParser.g:6961:3: ruleEString
             {
              before(grammarAccess.getEnvironmentAccess().getValueEStringParserRuleCall_1_4_0()); 
             pushFollow(FOLLOW_2);
@@ -21280,17 +21365,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ScheduleTrigger__TimerAssignment_1_2"
-    // InternalCICDParser.g:6943:1: rule__ScheduleTrigger__TimerAssignment_1_2 : ( ruleEString ) ;
+    // InternalCICDParser.g:6970:1: rule__ScheduleTrigger__TimerAssignment_1_2 : ( ruleEString ) ;
     public final void rule__ScheduleTrigger__TimerAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6947:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:6948:2: ( ruleEString )
+            // InternalCICDParser.g:6974:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:6975:2: ( ruleEString )
             {
-            // InternalCICDParser.g:6948:2: ( ruleEString )
-            // InternalCICDParser.g:6949:3: ruleEString
+            // InternalCICDParser.g:6975:2: ( ruleEString )
+            // InternalCICDParser.g:6976:3: ruleEString
             {
              before(grammarAccess.getScheduleTriggerAccess().getTimerEStringParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -21321,17 +21406,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Agent__LabelsAssignment_2_1_1"
-    // InternalCICDParser.g:6958:1: rule__Agent__LabelsAssignment_2_1_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:6985:1: rule__Agent__LabelsAssignment_2_1_1 : ( ruleEString ) ;
     public final void rule__Agent__LabelsAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6962:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:6963:2: ( ruleEString )
+            // InternalCICDParser.g:6989:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:6990:2: ( ruleEString )
             {
-            // InternalCICDParser.g:6963:2: ( ruleEString )
-            // InternalCICDParser.g:6964:3: ruleEString
+            // InternalCICDParser.g:6990:2: ( ruleEString )
+            // InternalCICDParser.g:6991:3: ruleEString
             {
              before(grammarAccess.getAgentAccess().getLabelsEStringParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21362,17 +21447,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Agent__LabelsAssignment_2_1_2_1"
-    // InternalCICDParser.g:6973:1: rule__Agent__LabelsAssignment_2_1_2_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7000:1: rule__Agent__LabelsAssignment_2_1_2_1 : ( ruleEString ) ;
     public final void rule__Agent__LabelsAssignment_2_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6977:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:6978:2: ( ruleEString )
+            // InternalCICDParser.g:7004:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7005:2: ( ruleEString )
             {
-            // InternalCICDParser.g:6978:2: ( ruleEString )
-            // InternalCICDParser.g:6979:3: ruleEString
+            // InternalCICDParser.g:7005:2: ( ruleEString )
+            // InternalCICDParser.g:7006:3: ruleEString
             {
              before(grammarAccess.getAgentAccess().getLabelsEStringParserRuleCall_2_1_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21403,17 +21488,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Agent__ContainerAssignment_2_2"
-    // InternalCICDParser.g:6988:1: rule__Agent__ContainerAssignment_2_2 : ( ruleDockerContainer ) ;
+    // InternalCICDParser.g:7015:1: rule__Agent__ContainerAssignment_2_2 : ( ruleDockerContainer ) ;
     public final void rule__Agent__ContainerAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:6992:1: ( ( ruleDockerContainer ) )
-            // InternalCICDParser.g:6993:2: ( ruleDockerContainer )
+            // InternalCICDParser.g:7019:1: ( ( ruleDockerContainer ) )
+            // InternalCICDParser.g:7020:2: ( ruleDockerContainer )
             {
-            // InternalCICDParser.g:6993:2: ( ruleDockerContainer )
-            // InternalCICDParser.g:6994:3: ruleDockerContainer
+            // InternalCICDParser.g:7020:2: ( ruleDockerContainer )
+            // InternalCICDParser.g:7021:3: ruleDockerContainer
             {
              before(grammarAccess.getAgentAccess().getContainerDockerContainerParserRuleCall_2_2_0()); 
             pushFollow(FOLLOW_2);
@@ -21444,17 +21529,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Input__NameAssignment_1_1_1"
-    // InternalCICDParser.g:7003:1: rule__Input__NameAssignment_1_1_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7030:1: rule__Input__NameAssignment_1_1_1 : ( ruleEString ) ;
     public final void rule__Input__NameAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7007:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7008:2: ( ruleEString )
+            // InternalCICDParser.g:7034:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7035:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7008:2: ( ruleEString )
-            // InternalCICDParser.g:7009:3: ruleEString
+            // InternalCICDParser.g:7035:2: ( ruleEString )
+            // InternalCICDParser.g:7036:3: ruleEString
             {
              before(grammarAccess.getInputAccess().getNameEStringParserRuleCall_1_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21485,17 +21570,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Input__TypeAssignment_1_2_1"
-    // InternalCICDParser.g:7018:1: rule__Input__TypeAssignment_1_2_1 : ( ruleINPUT_TYPE ) ;
+    // InternalCICDParser.g:7045:1: rule__Input__TypeAssignment_1_2_1 : ( ruleINPUT_TYPE ) ;
     public final void rule__Input__TypeAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7022:1: ( ( ruleINPUT_TYPE ) )
-            // InternalCICDParser.g:7023:2: ( ruleINPUT_TYPE )
+            // InternalCICDParser.g:7049:1: ( ( ruleINPUT_TYPE ) )
+            // InternalCICDParser.g:7050:2: ( ruleINPUT_TYPE )
             {
-            // InternalCICDParser.g:7023:2: ( ruleINPUT_TYPE )
-            // InternalCICDParser.g:7024:3: ruleINPUT_TYPE
+            // InternalCICDParser.g:7050:2: ( ruleINPUT_TYPE )
+            // InternalCICDParser.g:7051:3: ruleINPUT_TYPE
             {
              before(grammarAccess.getInputAccess().getTypeINPUT_TYPEEnumRuleCall_1_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21526,17 +21611,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Input__DefaultAssignment_1_3_1"
-    // InternalCICDParser.g:7033:1: rule__Input__DefaultAssignment_1_3_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7060:1: rule__Input__DefaultAssignment_1_3_1 : ( ruleEString ) ;
     public final void rule__Input__DefaultAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7037:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7038:2: ( ruleEString )
+            // InternalCICDParser.g:7064:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7065:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7038:2: ( ruleEString )
-            // InternalCICDParser.g:7039:3: ruleEString
+            // InternalCICDParser.g:7065:2: ( ruleEString )
+            // InternalCICDParser.g:7066:3: ruleEString
             {
              before(grammarAccess.getInputAccess().getDefaultEStringParserRuleCall_1_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21567,17 +21652,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Input__DescriptionAssignment_1_4_1"
-    // InternalCICDParser.g:7048:1: rule__Input__DescriptionAssignment_1_4_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7075:1: rule__Input__DescriptionAssignment_1_4_1 : ( ruleEString ) ;
     public final void rule__Input__DescriptionAssignment_1_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7052:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7053:2: ( ruleEString )
+            // InternalCICDParser.g:7079:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7080:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7053:2: ( ruleEString )
-            // InternalCICDParser.g:7054:3: ruleEString
+            // InternalCICDParser.g:7080:2: ( ruleEString )
+            // InternalCICDParser.g:7081:3: ruleEString
             {
              before(grammarAccess.getInputAccess().getDescriptionEStringParserRuleCall_1_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21608,17 +21693,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Input__ValuesAssignment_1_5_1"
-    // InternalCICDParser.g:7063:1: rule__Input__ValuesAssignment_1_5_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7090:1: rule__Input__ValuesAssignment_1_5_1 : ( ruleEString ) ;
     public final void rule__Input__ValuesAssignment_1_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7067:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7068:2: ( ruleEString )
+            // InternalCICDParser.g:7094:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7095:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7068:2: ( ruleEString )
-            // InternalCICDParser.g:7069:3: ruleEString
+            // InternalCICDParser.g:7095:2: ( ruleEString )
+            // InternalCICDParser.g:7096:3: ruleEString
             {
              before(grammarAccess.getInputAccess().getValuesEStringParserRuleCall_1_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21649,17 +21734,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Input__ValuesAssignment_1_5_2_1"
-    // InternalCICDParser.g:7078:1: rule__Input__ValuesAssignment_1_5_2_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7105:1: rule__Input__ValuesAssignment_1_5_2_1 : ( ruleEString ) ;
     public final void rule__Input__ValuesAssignment_1_5_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7082:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7083:2: ( ruleEString )
+            // InternalCICDParser.g:7109:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7110:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7083:2: ( ruleEString )
-            // InternalCICDParser.g:7084:3: ruleEString
+            // InternalCICDParser.g:7110:2: ( ruleEString )
+            // InternalCICDParser.g:7111:3: ruleEString
             {
              before(grammarAccess.getInputAccess().getValuesEStringParserRuleCall_1_5_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21690,17 +21775,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Output__NameAssignment_1_2"
-    // InternalCICDParser.g:7093:1: rule__Output__NameAssignment_1_2 : ( ruleEString ) ;
+    // InternalCICDParser.g:7120:1: rule__Output__NameAssignment_1_2 : ( ruleEString ) ;
     public final void rule__Output__NameAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7097:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7098:2: ( ruleEString )
+            // InternalCICDParser.g:7124:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7125:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7098:2: ( ruleEString )
-            // InternalCICDParser.g:7099:3: ruleEString
+            // InternalCICDParser.g:7125:2: ( ruleEString )
+            // InternalCICDParser.g:7126:3: ruleEString
             {
              before(grammarAccess.getOutputAccess().getNameEStringParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -21731,17 +21816,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Output__ValueAssignment_1_4"
-    // InternalCICDParser.g:7108:1: rule__Output__ValueAssignment_1_4 : ( ruleEString ) ;
+    // InternalCICDParser.g:7135:1: rule__Output__ValueAssignment_1_4 : ( ruleEString ) ;
     public final void rule__Output__ValueAssignment_1_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7112:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7113:2: ( ruleEString )
+            // InternalCICDParser.g:7139:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7140:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7113:2: ( ruleEString )
-            // InternalCICDParser.g:7114:3: ruleEString
+            // InternalCICDParser.g:7140:2: ( ruleEString )
+            // InternalCICDParser.g:7141:3: ruleEString
             {
              before(grammarAccess.getOutputAccess().getValueEStringParserRuleCall_1_4_0()); 
             pushFollow(FOLLOW_2);
@@ -21772,17 +21857,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Step__CacheAssignment_1_1"
-    // InternalCICDParser.g:7123:1: rule__Step__CacheAssignment_1_1 : ( ruleCache ) ;
+    // InternalCICDParser.g:7150:1: rule__Step__CacheAssignment_1_1 : ( ruleCache ) ;
     public final void rule__Step__CacheAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7127:1: ( ( ruleCache ) )
-            // InternalCICDParser.g:7128:2: ( ruleCache )
+            // InternalCICDParser.g:7154:1: ( ( ruleCache ) )
+            // InternalCICDParser.g:7155:2: ( ruleCache )
             {
-            // InternalCICDParser.g:7128:2: ( ruleCache )
-            // InternalCICDParser.g:7129:3: ruleCache
+            // InternalCICDParser.g:7155:2: ( ruleCache )
+            // InternalCICDParser.g:7156:3: ruleCache
             {
              before(grammarAccess.getStepAccess().getCacheCacheParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21813,17 +21898,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Step__EnvironmentsAssignment_1_2"
-    // InternalCICDParser.g:7138:1: rule__Step__EnvironmentsAssignment_1_2 : ( ruleEnvironment ) ;
+    // InternalCICDParser.g:7165:1: rule__Step__EnvironmentsAssignment_1_2 : ( ruleEnvironment ) ;
     public final void rule__Step__EnvironmentsAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7142:1: ( ( ruleEnvironment ) )
-            // InternalCICDParser.g:7143:2: ( ruleEnvironment )
+            // InternalCICDParser.g:7169:1: ( ( ruleEnvironment ) )
+            // InternalCICDParser.g:7170:2: ( ruleEnvironment )
             {
-            // InternalCICDParser.g:7143:2: ( ruleEnvironment )
-            // InternalCICDParser.g:7144:3: ruleEnvironment
+            // InternalCICDParser.g:7170:2: ( ruleEnvironment )
+            // InternalCICDParser.g:7171:3: ruleEnvironment
             {
              before(grammarAccess.getStepAccess().getEnvironmentsEnvironmentParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -21854,17 +21939,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Step__IfStepAssignment_1_3"
-    // InternalCICDParser.g:7153:1: rule__Step__IfStepAssignment_1_3 : ( ruleIfStep ) ;
+    // InternalCICDParser.g:7180:1: rule__Step__IfStepAssignment_1_3 : ( ruleIfStep ) ;
     public final void rule__Step__IfStepAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7157:1: ( ( ruleIfStep ) )
-            // InternalCICDParser.g:7158:2: ( ruleIfStep )
+            // InternalCICDParser.g:7184:1: ( ( ruleIfStep ) )
+            // InternalCICDParser.g:7185:2: ( ruleIfStep )
             {
-            // InternalCICDParser.g:7158:2: ( ruleIfStep )
-            // InternalCICDParser.g:7159:3: ruleIfStep
+            // InternalCICDParser.g:7185:2: ( ruleIfStep )
+            // InternalCICDParser.g:7186:3: ruleIfStep
             {
              before(grammarAccess.getStepAccess().getIfStepIfStepParserRuleCall_1_3_0()); 
             pushFollow(FOLLOW_2);
@@ -21895,17 +21980,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Step__CommandsAssignment_1_4"
-    // InternalCICDParser.g:7168:1: rule__Step__CommandsAssignment_1_4 : ( ruleCommand ) ;
+    // InternalCICDParser.g:7195:1: rule__Step__CommandsAssignment_1_4 : ( ruleCommand ) ;
     public final void rule__Step__CommandsAssignment_1_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7172:1: ( ( ruleCommand ) )
-            // InternalCICDParser.g:7173:2: ( ruleCommand )
+            // InternalCICDParser.g:7199:1: ( ( ruleCommand ) )
+            // InternalCICDParser.g:7200:2: ( ruleCommand )
             {
-            // InternalCICDParser.g:7173:2: ( ruleCommand )
-            // InternalCICDParser.g:7174:3: ruleCommand
+            // InternalCICDParser.g:7200:2: ( ruleCommand )
+            // InternalCICDParser.g:7201:3: ruleCommand
             {
              before(grammarAccess.getStepAccess().getCommandsCommandParserRuleCall_1_4_0()); 
             pushFollow(FOLLOW_2);
@@ -21936,17 +22021,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Step__ParametersAssignment_1_5"
-    // InternalCICDParser.g:7183:1: rule__Step__ParametersAssignment_1_5 : ( ruleParameters ) ;
+    // InternalCICDParser.g:7210:1: rule__Step__ParametersAssignment_1_5 : ( ruleParameters ) ;
     public final void rule__Step__ParametersAssignment_1_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7187:1: ( ( ruleParameters ) )
-            // InternalCICDParser.g:7188:2: ( ruleParameters )
+            // InternalCICDParser.g:7214:1: ( ( ruleParameters ) )
+            // InternalCICDParser.g:7215:2: ( ruleParameters )
             {
-            // InternalCICDParser.g:7188:2: ( ruleParameters )
-            // InternalCICDParser.g:7189:3: ruleParameters
+            // InternalCICDParser.g:7215:2: ( ruleParameters )
+            // InternalCICDParser.g:7216:3: ruleParameters
             {
              before(grammarAccess.getStepAccess().getParametersParametersParserRuleCall_1_5_0()); 
             pushFollow(FOLLOW_2);
@@ -21977,17 +22062,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfStep__ConditionAssignment_1_2"
-    // InternalCICDParser.g:7198:1: rule__IfStep__ConditionAssignment_1_2 : ( ruleEString ) ;
+    // InternalCICDParser.g:7225:1: rule__IfStep__ConditionAssignment_1_2 : ( ruleEString ) ;
     public final void rule__IfStep__ConditionAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7202:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7203:2: ( ruleEString )
+            // InternalCICDParser.g:7229:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7230:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7203:2: ( ruleEString )
-            // InternalCICDParser.g:7204:3: ruleEString
+            // InternalCICDParser.g:7230:2: ( ruleEString )
+            // InternalCICDParser.g:7231:3: ruleEString
             {
              before(grammarAccess.getIfStepAccess().getConditionEStringParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -22018,17 +22103,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfStep__If_stepsAssignment_1_3_1"
-    // InternalCICDParser.g:7213:1: rule__IfStep__If_stepsAssignment_1_3_1 : ( ruleStep ) ;
+    // InternalCICDParser.g:7240:1: rule__IfStep__If_stepsAssignment_1_3_1 : ( ruleStep ) ;
     public final void rule__IfStep__If_stepsAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7217:1: ( ( ruleStep ) )
-            // InternalCICDParser.g:7218:2: ( ruleStep )
+            // InternalCICDParser.g:7244:1: ( ( ruleStep ) )
+            // InternalCICDParser.g:7245:2: ( ruleStep )
             {
-            // InternalCICDParser.g:7218:2: ( ruleStep )
-            // InternalCICDParser.g:7219:3: ruleStep
+            // InternalCICDParser.g:7245:2: ( ruleStep )
+            // InternalCICDParser.g:7246:3: ruleStep
             {
              before(grammarAccess.getIfStepAccess().getIf_stepsStepParserRuleCall_1_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22059,17 +22144,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfStep__Else_stepsAssignment_1_4_1"
-    // InternalCICDParser.g:7228:1: rule__IfStep__Else_stepsAssignment_1_4_1 : ( ruleStep ) ;
+    // InternalCICDParser.g:7255:1: rule__IfStep__Else_stepsAssignment_1_4_1 : ( ruleStep ) ;
     public final void rule__IfStep__Else_stepsAssignment_1_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7232:1: ( ( ruleStep ) )
-            // InternalCICDParser.g:7233:2: ( ruleStep )
+            // InternalCICDParser.g:7259:1: ( ( ruleStep ) )
+            // InternalCICDParser.g:7260:2: ( ruleStep )
             {
-            // InternalCICDParser.g:7233:2: ( ruleStep )
-            // InternalCICDParser.g:7234:3: ruleStep
+            // InternalCICDParser.g:7260:2: ( ruleStep )
+            // InternalCICDParser.g:7261:3: ruleStep
             {
              before(grammarAccess.getIfStepAccess().getElse_stepsStepParserRuleCall_1_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22100,17 +22185,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__NameAssignment_2_1_1"
-    // InternalCICDParser.g:7243:1: rule__Artifact__NameAssignment_2_1_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7270:1: rule__Artifact__NameAssignment_2_1_1 : ( ruleEString ) ;
     public final void rule__Artifact__NameAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7247:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7248:2: ( ruleEString )
+            // InternalCICDParser.g:7274:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7275:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7248:2: ( ruleEString )
-            // InternalCICDParser.g:7249:3: ruleEString
+            // InternalCICDParser.g:7275:2: ( ruleEString )
+            // InternalCICDParser.g:7276:3: ruleEString
             {
              before(grammarAccess.getArtifactAccess().getNameEStringParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22141,17 +22226,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__MessageAssignment_2_2_1"
-    // InternalCICDParser.g:7258:1: rule__Artifact__MessageAssignment_2_2_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7285:1: rule__Artifact__MessageAssignment_2_2_1 : ( ruleEString ) ;
     public final void rule__Artifact__MessageAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7262:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7263:2: ( ruleEString )
+            // InternalCICDParser.g:7289:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7290:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7263:2: ( ruleEString )
-            // InternalCICDParser.g:7264:3: ruleEString
+            // InternalCICDParser.g:7290:2: ( ruleEString )
+            // InternalCICDParser.g:7291:3: ruleEString
             {
              before(grammarAccess.getArtifactAccess().getMessageEStringParserRuleCall_2_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22182,17 +22267,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__PathAssignment_2_3_1"
-    // InternalCICDParser.g:7273:1: rule__Artifact__PathAssignment_2_3_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7300:1: rule__Artifact__PathAssignment_2_3_1 : ( ruleEString ) ;
     public final void rule__Artifact__PathAssignment_2_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7277:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7278:2: ( ruleEString )
+            // InternalCICDParser.g:7304:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7305:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7278:2: ( ruleEString )
-            // InternalCICDParser.g:7279:3: ruleEString
+            // InternalCICDParser.g:7305:2: ( ruleEString )
+            // InternalCICDParser.g:7306:3: ruleEString
             {
              before(grammarAccess.getArtifactAccess().getPathEStringParserRuleCall_2_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22223,17 +22308,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__PathAssignment_2_3_2_1"
-    // InternalCICDParser.g:7288:1: rule__Artifact__PathAssignment_2_3_2_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7315:1: rule__Artifact__PathAssignment_2_3_2_1 : ( ruleEString ) ;
     public final void rule__Artifact__PathAssignment_2_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7292:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7293:2: ( ruleEString )
+            // InternalCICDParser.g:7319:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7320:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7293:2: ( ruleEString )
-            // InternalCICDParser.g:7294:3: ruleEString
+            // InternalCICDParser.g:7320:2: ( ruleEString )
+            // InternalCICDParser.g:7321:3: ruleEString
             {
              before(grammarAccess.getArtifactAccess().getPathEStringParserRuleCall_2_3_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22264,17 +22349,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__TypeAssignment_2_4_1"
-    // InternalCICDParser.g:7303:1: rule__Artifact__TypeAssignment_2_4_1 : ( ruleARTIFACT_TYPE ) ;
+    // InternalCICDParser.g:7330:1: rule__Artifact__TypeAssignment_2_4_1 : ( ruleARTIFACT_TYPE ) ;
     public final void rule__Artifact__TypeAssignment_2_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7307:1: ( ( ruleARTIFACT_TYPE ) )
-            // InternalCICDParser.g:7308:2: ( ruleARTIFACT_TYPE )
+            // InternalCICDParser.g:7334:1: ( ( ruleARTIFACT_TYPE ) )
+            // InternalCICDParser.g:7335:2: ( ruleARTIFACT_TYPE )
             {
-            // InternalCICDParser.g:7308:2: ( ruleARTIFACT_TYPE )
-            // InternalCICDParser.g:7309:3: ruleARTIFACT_TYPE
+            // InternalCICDParser.g:7335:2: ( ruleARTIFACT_TYPE )
+            // InternalCICDParser.g:7336:3: ruleARTIFACT_TYPE
             {
              before(grammarAccess.getArtifactAccess().getTypeARTIFACT_TYPEEnumRuleCall_2_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22305,17 +22390,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Matrix__NameAssignment_1_1_1"
-    // InternalCICDParser.g:7318:1: rule__Matrix__NameAssignment_1_1_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7345:1: rule__Matrix__NameAssignment_1_1_1 : ( ruleEString ) ;
     public final void rule__Matrix__NameAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7322:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7323:2: ( ruleEString )
+            // InternalCICDParser.g:7349:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7350:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7323:2: ( ruleEString )
-            // InternalCICDParser.g:7324:3: ruleEString
+            // InternalCICDParser.g:7350:2: ( ruleEString )
+            // InternalCICDParser.g:7351:3: ruleEString
             {
              before(grammarAccess.getMatrixAccess().getNameEStringParserRuleCall_1_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22346,17 +22431,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Matrix__StepsAssignment_1_2"
-    // InternalCICDParser.g:7333:1: rule__Matrix__StepsAssignment_1_2 : ( ruleStep ) ;
+    // InternalCICDParser.g:7360:1: rule__Matrix__StepsAssignment_1_2 : ( ruleStep ) ;
     public final void rule__Matrix__StepsAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7337:1: ( ( ruleStep ) )
-            // InternalCICDParser.g:7338:2: ( ruleStep )
+            // InternalCICDParser.g:7364:1: ( ( ruleStep ) )
+            // InternalCICDParser.g:7365:2: ( ruleStep )
             {
-            // InternalCICDParser.g:7338:2: ( ruleStep )
-            // InternalCICDParser.g:7339:3: ruleStep
+            // InternalCICDParser.g:7365:2: ( ruleStep )
+            // InternalCICDParser.g:7366:3: ruleStep
             {
              before(grammarAccess.getMatrixAccess().getStepsStepParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -22387,17 +22472,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Matrix__JobsAssignment_1_3"
-    // InternalCICDParser.g:7348:1: rule__Matrix__JobsAssignment_1_3 : ( ruleJob ) ;
+    // InternalCICDParser.g:7375:1: rule__Matrix__JobsAssignment_1_3 : ( ruleJob ) ;
     public final void rule__Matrix__JobsAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7352:1: ( ( ruleJob ) )
-            // InternalCICDParser.g:7353:2: ( ruleJob )
+            // InternalCICDParser.g:7379:1: ( ( ruleJob ) )
+            // InternalCICDParser.g:7380:2: ( ruleJob )
             {
-            // InternalCICDParser.g:7353:2: ( ruleJob )
-            // InternalCICDParser.g:7354:3: ruleJob
+            // InternalCICDParser.g:7380:2: ( ruleJob )
+            // InternalCICDParser.g:7381:3: ruleJob
             {
              before(grammarAccess.getMatrixAccess().getJobsJobParserRuleCall_1_3_0()); 
             pushFollow(FOLLOW_2);
@@ -22428,17 +22513,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Matrix__ConfigsAssignment_1_4"
-    // InternalCICDParser.g:7363:1: rule__Matrix__ConfigsAssignment_1_4 : ( ruleMatrixConfig ) ;
+    // InternalCICDParser.g:7390:1: rule__Matrix__ConfigsAssignment_1_4 : ( ruleMatrixConfig ) ;
     public final void rule__Matrix__ConfigsAssignment_1_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7367:1: ( ( ruleMatrixConfig ) )
-            // InternalCICDParser.g:7368:2: ( ruleMatrixConfig )
+            // InternalCICDParser.g:7394:1: ( ( ruleMatrixConfig ) )
+            // InternalCICDParser.g:7395:2: ( ruleMatrixConfig )
             {
-            // InternalCICDParser.g:7368:2: ( ruleMatrixConfig )
-            // InternalCICDParser.g:7369:3: ruleMatrixConfig
+            // InternalCICDParser.g:7395:2: ( ruleMatrixConfig )
+            // InternalCICDParser.g:7396:3: ruleMatrixConfig
             {
              before(grammarAccess.getMatrixAccess().getConfigsMatrixConfigParserRuleCall_1_4_0()); 
             pushFollow(FOLLOW_2);
@@ -22469,17 +22554,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Command__NameAssignment_2_2"
-    // InternalCICDParser.g:7378:1: rule__Command__NameAssignment_2_2 : ( ruleEString ) ;
+    // InternalCICDParser.g:7405:1: rule__Command__NameAssignment_2_2 : ( ruleEString ) ;
     public final void rule__Command__NameAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7382:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7383:2: ( ruleEString )
+            // InternalCICDParser.g:7409:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7410:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7383:2: ( ruleEString )
-            // InternalCICDParser.g:7384:3: ruleEString
+            // InternalCICDParser.g:7410:2: ( ruleEString )
+            // InternalCICDParser.g:7411:3: ruleEString
             {
              before(grammarAccess.getCommandAccess().getNameEStringParserRuleCall_2_2_0()); 
             pushFollow(FOLLOW_2);
@@ -22510,17 +22595,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameters__ParameterAssignment_1_2"
-    // InternalCICDParser.g:7393:1: rule__Parameters__ParameterAssignment_1_2 : ( ruleEString ) ;
+    // InternalCICDParser.g:7420:1: rule__Parameters__ParameterAssignment_1_2 : ( ruleEString ) ;
     public final void rule__Parameters__ParameterAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7397:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7398:2: ( ruleEString )
+            // InternalCICDParser.g:7424:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7425:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7398:2: ( ruleEString )
-            // InternalCICDParser.g:7399:3: ruleEString
+            // InternalCICDParser.g:7425:2: ( ruleEString )
+            // InternalCICDParser.g:7426:3: ruleEString
             {
              before(grammarAccess.getParametersAccess().getParameterEStringParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -22551,17 +22636,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__ModeAssignment_1_2"
-    // InternalCICDParser.g:7408:1: rule__Cache__ModeAssignment_1_2 : ( ruleCACHE_MODE ) ;
+    // InternalCICDParser.g:7435:1: rule__Cache__ModeAssignment_1_2 : ( ruleCACHE_MODE ) ;
     public final void rule__Cache__ModeAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7412:1: ( ( ruleCACHE_MODE ) )
-            // InternalCICDParser.g:7413:2: ( ruleCACHE_MODE )
+            // InternalCICDParser.g:7439:1: ( ( ruleCACHE_MODE ) )
+            // InternalCICDParser.g:7440:2: ( ruleCACHE_MODE )
             {
-            // InternalCICDParser.g:7413:2: ( ruleCACHE_MODE )
-            // InternalCICDParser.g:7414:3: ruleCACHE_MODE
+            // InternalCICDParser.g:7440:2: ( ruleCACHE_MODE )
+            // InternalCICDParser.g:7441:3: ruleCACHE_MODE
             {
              before(grammarAccess.getCacheAccess().getModeCACHE_MODEEnumRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -22592,17 +22677,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__PathsAssignment_1_3_1"
-    // InternalCICDParser.g:7423:1: rule__Cache__PathsAssignment_1_3_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7450:1: rule__Cache__PathsAssignment_1_3_1 : ( ruleEString ) ;
     public final void rule__Cache__PathsAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7427:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7428:2: ( ruleEString )
+            // InternalCICDParser.g:7454:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7455:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7428:2: ( ruleEString )
-            // InternalCICDParser.g:7429:3: ruleEString
+            // InternalCICDParser.g:7455:2: ( ruleEString )
+            // InternalCICDParser.g:7456:3: ruleEString
             {
              before(grammarAccess.getCacheAccess().getPathsEStringParserRuleCall_1_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22633,17 +22718,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cache__PathsAssignment_1_3_2_1"
-    // InternalCICDParser.g:7438:1: rule__Cache__PathsAssignment_1_3_2_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7465:1: rule__Cache__PathsAssignment_1_3_2_1 : ( ruleEString ) ;
     public final void rule__Cache__PathsAssignment_1_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7442:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7443:2: ( ruleEString )
+            // InternalCICDParser.g:7469:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7470:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7443:2: ( ruleEString )
-            // InternalCICDParser.g:7444:3: ruleEString
+            // InternalCICDParser.g:7470:2: ( ruleEString )
+            // InternalCICDParser.g:7471:3: ruleEString
             {
              before(grammarAccess.getCacheAccess().getPathsEStringParserRuleCall_1_3_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22673,26 +22758,26 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Cache__PathsAssignment_1_3_2_1"
 
 
-    // $ANTLR start "rule__Cache__KeyAssignment_1_5"
-    // InternalCICDParser.g:7453:1: rule__Cache__KeyAssignment_1_5 : ( ruleEString ) ;
-    public final void rule__Cache__KeyAssignment_1_5() throws RecognitionException {
+    // $ANTLR start "rule__Cache__KeyAssignment_1_4_1"
+    // InternalCICDParser.g:7480:1: rule__Cache__KeyAssignment_1_4_1 : ( ruleEString ) ;
+    public final void rule__Cache__KeyAssignment_1_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7457:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7458:2: ( ruleEString )
+            // InternalCICDParser.g:7484:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7485:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7458:2: ( ruleEString )
-            // InternalCICDParser.g:7459:3: ruleEString
+            // InternalCICDParser.g:7485:2: ( ruleEString )
+            // InternalCICDParser.g:7486:3: ruleEString
             {
-             before(grammarAccess.getCacheAccess().getKeyEStringParserRuleCall_1_5_0()); 
+             before(grammarAccess.getCacheAccess().getKeyEStringParserRuleCall_1_4_1_0()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getCacheAccess().getKeyEStringParserRuleCall_1_5_0()); 
+             after(grammarAccess.getCacheAccess().getKeyEStringParserRuleCall_1_4_1_0()); 
 
             }
 
@@ -22711,29 +22796,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__KeyAssignment_1_5"
+    // $ANTLR end "rule__Cache__KeyAssignment_1_4_1"
 
 
-    // $ANTLR start "rule__Cache__KeysAssignment_1_6_1"
-    // InternalCICDParser.g:7468:1: rule__Cache__KeysAssignment_1_6_1 : ( ruleEString ) ;
-    public final void rule__Cache__KeysAssignment_1_6_1() throws RecognitionException {
+    // $ANTLR start "rule__Cache__KeysAssignment_1_5_1"
+    // InternalCICDParser.g:7495:1: rule__Cache__KeysAssignment_1_5_1 : ( ruleEString ) ;
+    public final void rule__Cache__KeysAssignment_1_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7472:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7473:2: ( ruleEString )
+            // InternalCICDParser.g:7499:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7500:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7473:2: ( ruleEString )
-            // InternalCICDParser.g:7474:3: ruleEString
+            // InternalCICDParser.g:7500:2: ( ruleEString )
+            // InternalCICDParser.g:7501:3: ruleEString
             {
-             before(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_6_1_0()); 
+             before(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_5_1_0()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_6_1_0()); 
+             after(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_5_1_0()); 
 
             }
 
@@ -22752,29 +22837,29 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__KeysAssignment_1_6_1"
+    // $ANTLR end "rule__Cache__KeysAssignment_1_5_1"
 
 
-    // $ANTLR start "rule__Cache__KeysAssignment_1_6_2_1"
-    // InternalCICDParser.g:7483:1: rule__Cache__KeysAssignment_1_6_2_1 : ( ruleEString ) ;
-    public final void rule__Cache__KeysAssignment_1_6_2_1() throws RecognitionException {
+    // $ANTLR start "rule__Cache__KeysAssignment_1_5_2_1"
+    // InternalCICDParser.g:7510:1: rule__Cache__KeysAssignment_1_5_2_1 : ( ruleEString ) ;
+    public final void rule__Cache__KeysAssignment_1_5_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7487:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7488:2: ( ruleEString )
+            // InternalCICDParser.g:7514:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7515:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7488:2: ( ruleEString )
-            // InternalCICDParser.g:7489:3: ruleEString
+            // InternalCICDParser.g:7515:2: ( ruleEString )
+            // InternalCICDParser.g:7516:3: ruleEString
             {
-             before(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_6_2_1_0()); 
+             before(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_5_2_1_0()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_6_2_1_0()); 
+             after(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_5_2_1_0()); 
 
             }
 
@@ -22793,21 +22878,21 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Cache__KeysAssignment_1_6_2_1"
+    // $ANTLR end "rule__Cache__KeysAssignment_1_5_2_1"
 
 
     // $ANTLR start "rule__MatrixConfig__NameAssignment_1_2"
-    // InternalCICDParser.g:7498:1: rule__MatrixConfig__NameAssignment_1_2 : ( ruleEString ) ;
+    // InternalCICDParser.g:7525:1: rule__MatrixConfig__NameAssignment_1_2 : ( ruleEString ) ;
     public final void rule__MatrixConfig__NameAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7502:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7503:2: ( ruleEString )
+            // InternalCICDParser.g:7529:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7530:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7503:2: ( ruleEString )
-            // InternalCICDParser.g:7504:3: ruleEString
+            // InternalCICDParser.g:7530:2: ( ruleEString )
+            // InternalCICDParser.g:7531:3: ruleEString
             {
              before(grammarAccess.getMatrixConfigAccess().getNameEStringParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -22838,17 +22923,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__ValuesAssignment_1_3_1"
-    // InternalCICDParser.g:7513:1: rule__MatrixConfig__ValuesAssignment_1_3_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7540:1: rule__MatrixConfig__ValuesAssignment_1_3_1 : ( ruleEString ) ;
     public final void rule__MatrixConfig__ValuesAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7517:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7518:2: ( ruleEString )
+            // InternalCICDParser.g:7544:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7545:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7518:2: ( ruleEString )
-            // InternalCICDParser.g:7519:3: ruleEString
+            // InternalCICDParser.g:7545:2: ( ruleEString )
+            // InternalCICDParser.g:7546:3: ruleEString
             {
              before(grammarAccess.getMatrixConfigAccess().getValuesEStringParserRuleCall_1_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22879,17 +22964,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__ValuesAssignment_1_3_2_1"
-    // InternalCICDParser.g:7528:1: rule__MatrixConfig__ValuesAssignment_1_3_2_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7555:1: rule__MatrixConfig__ValuesAssignment_1_3_2_1 : ( ruleEString ) ;
     public final void rule__MatrixConfig__ValuesAssignment_1_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7532:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7533:2: ( ruleEString )
+            // InternalCICDParser.g:7559:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7560:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7533:2: ( ruleEString )
-            // InternalCICDParser.g:7534:3: ruleEString
+            // InternalCICDParser.g:7560:2: ( ruleEString )
+            // InternalCICDParser.g:7561:3: ruleEString
             {
              before(grammarAccess.getMatrixConfigAccess().getValuesEStringParserRuleCall_1_3_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22920,17 +23005,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MatrixConfig__TypeAssignment_1_5"
-    // InternalCICDParser.g:7543:1: rule__MatrixConfig__TypeAssignment_1_5 : ( ruleMATRIX_CONFIG_TYPE ) ;
+    // InternalCICDParser.g:7570:1: rule__MatrixConfig__TypeAssignment_1_5 : ( ruleMATRIX_CONFIG_TYPE ) ;
     public final void rule__MatrixConfig__TypeAssignment_1_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7547:1: ( ( ruleMATRIX_CONFIG_TYPE ) )
-            // InternalCICDParser.g:7548:2: ( ruleMATRIX_CONFIG_TYPE )
+            // InternalCICDParser.g:7574:1: ( ( ruleMATRIX_CONFIG_TYPE ) )
+            // InternalCICDParser.g:7575:2: ( ruleMATRIX_CONFIG_TYPE )
             {
-            // InternalCICDParser.g:7548:2: ( ruleMATRIX_CONFIG_TYPE )
-            // InternalCICDParser.g:7549:3: ruleMATRIX_CONFIG_TYPE
+            // InternalCICDParser.g:7575:2: ( ruleMATRIX_CONFIG_TYPE )
+            // InternalCICDParser.g:7576:3: ruleMATRIX_CONFIG_TYPE
             {
              before(grammarAccess.getMatrixConfigAccess().getTypeMATRIX_CONFIG_TYPEEnumRuleCall_1_5_0()); 
             pushFollow(FOLLOW_2);
@@ -22961,17 +23046,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__ImageAssignment_1_2"
-    // InternalCICDParser.g:7558:1: rule__DockerContainer__ImageAssignment_1_2 : ( ruleEString ) ;
+    // InternalCICDParser.g:7585:1: rule__DockerContainer__ImageAssignment_1_2 : ( ruleEString ) ;
     public final void rule__DockerContainer__ImageAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7562:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7563:2: ( ruleEString )
+            // InternalCICDParser.g:7589:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7590:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7563:2: ( ruleEString )
-            // InternalCICDParser.g:7564:3: ruleEString
+            // InternalCICDParser.g:7590:2: ( ruleEString )
+            // InternalCICDParser.g:7591:3: ruleEString
             {
              before(grammarAccess.getDockerContainerAccess().getImageEStringParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -23002,17 +23087,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__UsernameAssignment_1_3_1"
-    // InternalCICDParser.g:7573:1: rule__DockerContainer__UsernameAssignment_1_3_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7600:1: rule__DockerContainer__UsernameAssignment_1_3_1 : ( ruleEString ) ;
     public final void rule__DockerContainer__UsernameAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7577:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7578:2: ( ruleEString )
+            // InternalCICDParser.g:7604:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7605:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7578:2: ( ruleEString )
-            // InternalCICDParser.g:7579:3: ruleEString
+            // InternalCICDParser.g:7605:2: ( ruleEString )
+            // InternalCICDParser.g:7606:3: ruleEString
             {
              before(grammarAccess.getDockerContainerAccess().getUsernameEStringParserRuleCall_1_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -23043,17 +23128,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__PasswordAssignment_1_4_1"
-    // InternalCICDParser.g:7588:1: rule__DockerContainer__PasswordAssignment_1_4_1 : ( ruleEString ) ;
+    // InternalCICDParser.g:7615:1: rule__DockerContainer__PasswordAssignment_1_4_1 : ( ruleEString ) ;
     public final void rule__DockerContainer__PasswordAssignment_1_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7592:1: ( ( ruleEString ) )
-            // InternalCICDParser.g:7593:2: ( ruleEString )
+            // InternalCICDParser.g:7619:1: ( ( ruleEString ) )
+            // InternalCICDParser.g:7620:2: ( ruleEString )
             {
-            // InternalCICDParser.g:7593:2: ( ruleEString )
-            // InternalCICDParser.g:7594:3: ruleEString
+            // InternalCICDParser.g:7620:2: ( ruleEString )
+            // InternalCICDParser.g:7621:3: ruleEString
             {
              before(grammarAccess.getDockerContainerAccess().getPasswordEStringParserRuleCall_1_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -23084,17 +23169,17 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DockerContainer__EnvironmentsAssignment_1_5"
-    // InternalCICDParser.g:7603:1: rule__DockerContainer__EnvironmentsAssignment_1_5 : ( ruleEnvironment ) ;
+    // InternalCICDParser.g:7630:1: rule__DockerContainer__EnvironmentsAssignment_1_5 : ( ruleEnvironment ) ;
     public final void rule__DockerContainer__EnvironmentsAssignment_1_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCICDParser.g:7607:1: ( ( ruleEnvironment ) )
-            // InternalCICDParser.g:7608:2: ( ruleEnvironment )
+            // InternalCICDParser.g:7634:1: ( ( ruleEnvironment ) )
+            // InternalCICDParser.g:7635:2: ( ruleEnvironment )
             {
-            // InternalCICDParser.g:7608:2: ( ruleEnvironment )
-            // InternalCICDParser.g:7609:3: ruleEnvironment
+            // InternalCICDParser.g:7635:2: ( ruleEnvironment )
+            // InternalCICDParser.g:7636:3: ruleEnvironment
             {
              before(grammarAccess.getDockerContainerAccess().getEnvironmentsEnvironmentParserRuleCall_1_5_0()); 
             pushFollow(FOLLOW_2);
@@ -23130,27 +23215,27 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x4880000000000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x8800000000000000L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000050400000120L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000000L,0x000000000000000AL});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x4880000000000002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000102L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000010000000002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000040000000002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000400000002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x4888010580108540L,0x0000000000000001L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000000L,0x000000000000000AL});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x8800000000000002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000102L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000400000002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x8808010580108540L,0x0000000000000001L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000080000002L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x2000000000000002L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x1000000000000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x2000000000000002L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0001000000000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000800000000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000010000000000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000004000000010L,0x0000000000000001L});
@@ -23170,16 +23255,15 @@ public class InternalCICDParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0580000020000000L,0x0000000000000001L});
     public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000002000010000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x4888000000000080L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x4888000000000082L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x8888000000000080L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x8888000000000082L});
     public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0040000000000000L});
     public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0006080000000000L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0020000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x000000000E000000L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000600100L,0x0000000000000001L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x1020400000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x000000000E000000L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000600100L,0x0000000000000001L});
 
 }

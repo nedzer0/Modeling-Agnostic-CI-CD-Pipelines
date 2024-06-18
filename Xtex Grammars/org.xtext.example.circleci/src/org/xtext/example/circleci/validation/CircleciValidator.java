@@ -66,6 +66,8 @@ public class CircleciValidator extends AbstractCircleciValidator {
 	public static final String INVALID_BOOLEAN_DEFAULT_VALUE = "Boolean parameter must have default value as 'true' or 'false'";
 	public static final String INVALID_MATRIXPARAMS_KEY = "MatrixParams key must match a Parameter name inside the Job '%s'";
 	public static final String INVALID_EXECUTOR_JOB = "Ensure to define an Executor inside the Job or reuse a global one";
+	public static final String MANDATORY_PIPELINE_EXEC_NAME = "Pipeline Executor Name is empty. Define Executor name.";
+	public static final String INVALID_RESTORE_CACHE_DEF = "Invalid RestoreCache definition. Define key or keys or both";
 	public static final String MANDATORY_STRING_EMPTY = "%s cannot be empty";
 
 	// Error codes
@@ -89,6 +91,8 @@ public class CircleciValidator extends AbstractCircleciValidator {
 	public static final String INVALID_MACOS_RESOURCE_CLASS_ERRORCODE = "INVALID_MACOS_RESOURCE_CLASS";
 	public static final String INVALID_MATRIXPARAMS_KEY_ERRORCODE = "INVALID_MATRIXPARAMS_KEY";
 	public static final String INVALID_EXECUTOR_JOB_ERRORCODE = "INVALID_EXECUTOR_JOB";
+	public static final String MANDATORY_PIPELINE_EXEC_NAME_ERRORCODE = "MANDATORY_PIPELINE_EXEC_NAME";
+	public static final String INVALID_RESTORE_CACHE_DEF_ERRORCODE = "INVALID_RESTORE_CACHE_DEF";
 	
 	public static final String MANDATORY_JOB_NAME_EMPTY_ERRORCODE = "MANDATORY_JOB_NAME_EMPTY";
 	public static final String MANDATORY_COMMAND_NAME_EMPTY_ERRORCODE = "MANDATORY_COMMAND_NAME_EMPTY";
@@ -370,6 +374,24 @@ public class CircleciValidator extends AbstractCircleciValidator {
         }
 	}
 	
+	@Check
+	public void checkPipelineExecName(Executor exec) {
+		if(exec.eContainer() instanceof Pipeline) {
+			if (exec.getName() == null || exec.getName().isEmpty()) {
+				EStructuralFeature nameFeature = exec.eClass().getEStructuralFeature("name");
+				error(MANDATORY_PIPELINE_EXEC_NAME, exec, nameFeature, MANDATORY_PIPELINE_EXEC_NAME_ERRORCODE);
+			}
+		}
+	}
+	
+	@Check
+	public void checkValidRestoreCache(RestoreCache cache) {
+        if (cache.getKey() == null && cache.getKeys().isEmpty()) {
+            error(INVALID_RESTORE_CACHE_DEF, cache, null, INVALID_RESTORE_CACHE_DEF_ERRORCODE);
+        }
+	}
+
+	
 	/*
 	 * Validators to check mandatory attributes
 	 */		
@@ -426,12 +448,6 @@ public class CircleciValidator extends AbstractCircleciValidator {
 	public void checkNameNotEmpty(PersistToWorkspace workspace) {
 	    checkMandatoryListNotEmpty(workspace.getPaths(), String.format(MANDATORY_STRING_EMPTY, "PersistToWorkspace paths"), workspace, "paths", MANDATORY_PERSIST_TO_WORKSPACE_PATHS_EMPTY_ERRORCODE);
 	    checkMandatoryStringNotEmpty(workspace.getRoot(), String.format(MANDATORY_STRING_EMPTY, "PersistToWorkspace root"), workspace, "root", MANDATORY_PERSIST_TO_WORKSPACE_ROOT_EMPTY_ERRORCODE);
-	}
-
-	@Check
-	public void checkNameNotEmpty(RestoreCache cache) {
-	    checkMandatoryListNotEmpty(cache.getKeys(), String.format(MANDATORY_STRING_EMPTY, "RestoreCache keys"), cache, "keys", MANDATORY_RESTORE_CACHE_KEYS_EMPTY_ERRORCODE);
-	    checkMandatoryStringNotEmpty(cache.getKey(), String.format(MANDATORY_STRING_EMPTY, "RestoreCache key"), cache, "key", MANDATORY_RESTORE_CACHE_KEY_EMPTY_ERRORCODE);
 	}
 
 	@Check

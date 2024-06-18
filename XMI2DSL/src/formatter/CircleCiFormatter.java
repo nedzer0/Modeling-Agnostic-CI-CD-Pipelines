@@ -281,21 +281,21 @@ public class CircleCiFormatter {
     }
     
     private void addReference(EObject refObject, List<EObject> commandReferences, List<EObject> dockerReferences, List<EObject> jobReferences, List<EObject> workflowReferences, List<EObject> otherReferences) {
-            String className = refObject.eClass().getName();
-            if (className.equals("Command")) {
-                commandReferences.add(refObject);
-            }
-            else if (className.equals("Docker")) {
-                dockerReferences.add(refObject);
-            }
-            else if (className.equals("Job")) {
-                jobReferences.add(refObject);
-            } else if (className.equals("Workflow")) {
-                workflowReferences.add(refObject);
-            } else {
-            	otherReferences.add(refObject);
-            }
+        String className = refObject.eClass().getName();
+        if (className.equals("Command")) {
+            commandReferences.add(refObject);
         }
+        else if (className.equals("Docker")) {
+            dockerReferences.add(refObject);
+        }
+        else if (className.equals("Job")) {
+            jobReferences.add(refObject);
+        } else if (className.equals("Workflow")) {
+            workflowReferences.add(refObject);
+        } else {
+        	otherReferences.add(refObject);
+        }
+    }
     
     private void processReferences(List<EObject> references, List<String> xtextLines, int indentLevel) {
         for (EObject reference : references) {
@@ -382,8 +382,13 @@ public class CircleCiFormatter {
     	
     	String indent = "    ".repeat(indentLevel);
         StringBuilder enumValuesString = new StringBuilder();
+        String stringVal = "";
         for (Object value : values) {
-        	enumValuesString.append("\"").append(value.toString()).append("\", ");
+        	stringVal = value.toString();
+        	if (stringVal.contains("\"")) {
+        		stringVal = stringVal.replace("\"", "'");
+            }
+        	enumValuesString.append("\"").append(stringVal).append("\", ");
         }
         enumValuesString.setLength(enumValuesString.length() - 2);
         xtextLines.add(indent + attributeName + " " + enumValuesString.toString());

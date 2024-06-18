@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.validation.Check;
 
-import cICD_metamodel.Cache;
 import cICD_metamodel.Command;
 import cICD_metamodel.DockerContainer;
 import cICD_metamodel.Environment;
@@ -45,8 +44,6 @@ public class CICDValidator extends AbstractCICDValidator {
 	public static final String REQUIRED_JOB_NOT_EXIST_ERRORCODE = "REQUIRED_JOB_NOT_EXIST";
 	
 	public static final String MANDATORY_JOB_NAME_EMPTY_ERRORCODE = "MANDATORY_JOB_NAME_EMPTY";
-	public static final String MANDATORY_CACHE_KEY_EMPTY_ERRORCODE = "MANDATORY_CACHE_KEY_EMPTY";
-	public static final String MANDATORY_CACHE_PATHS_EMPTY_ERRORCODE = "MANDATORY_CACHE_PATHS_EMPTY";
 	public static final String MANDATORY_OUTPUT_NAME_EMPTY_ERRORCODE = "MANDATORY_OUTPUT_NAME_EMPTY";
 	public static final String MANDATORY_OUTPUT_VALUE_EMPTY_ERRORCODE = "MANDATORY_OUTPUT_VALUE_EMPTY";
 	public static final String MANDATORY_DOCKER_IMAGE_EMPTY_ERRORCODE = "MANDATORY_DOCKER_IMAGE_EMPTY";
@@ -135,12 +132,6 @@ public class CICDValidator extends AbstractCICDValidator {
 	@Check
 	public void checkNameNotEmpty(Job job) {
 	    checkMandatoryStringNotEmpty(job.getName(), String.format(MANDATORY_STRING_EMPTY, "Job name"), job, "name", MANDATORY_JOB_NAME_EMPTY_ERRORCODE);
-	}
-
-	@Check
-	public void checkKeyNotEmpty(Cache cache) {
-	    checkMandatoryStringNotEmpty(cache.getKey(), String.format(MANDATORY_STRING_EMPTY, "Cache key"), cache, "key", MANDATORY_CACHE_KEY_EMPTY_ERRORCODE);
-	    checkMandatoryListNotEmpty(cache.getPaths(), String.format(MANDATORY_STRING_EMPTY, "Cache paths"), cache, "paths", MANDATORY_CACHE_PATHS_EMPTY_ERRORCODE);
 	}
 
 	@Check

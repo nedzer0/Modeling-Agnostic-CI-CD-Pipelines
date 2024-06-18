@@ -73,19 +73,6 @@ executors:
 [/template]
 
 [template public generateExec(e : Executor)]
-resource_class: [generateExecResourceClass(e)/]
-[if (e.shell->notEmpty())]
-shell: [shell/]
-[/if]
-[if (e.working_directory->notEmpty())]
-working_directory: [e.working_directory/]
-[/if]
-[if (e.environments->notEmpty())]
-environment:
-[for (env : Environment | e.environments)]
-  [generateEnvironment(env)/]
-[/for]
-[/if]
 [if (e.oclIsKindOf(Docker))]
 docker:
   [generateDockerExecEnv(oclAsType(Docker))/]
@@ -97,6 +84,19 @@ machine:
 [if (e.oclIsKindOf(MacOs))]
 macos:
   [generateMacExecEnv(oclAsType(MacOs))/]
+[/if]
+resource_class: [generateExecResourceClass(e)/]
+[if (e.shell->notEmpty())]
+shell: [shell/]
+[/if]
+[if (e.working_directory->notEmpty() and e.working_directory <> '')]
+working_directory: [e.working_directory/]
+[/if]
+[if (e.environments->notEmpty())]
+environment:
+[for (env : Environment | e.environments)]
+  [generateEnvironment(env)/]
+[/for]
 [/if]
 [/template]
 
@@ -154,12 +154,6 @@ macos:
 [/if]
 [if (docker.user->notEmpty())]
   user: [docker.user/]
-[/if]
-[if (docker.environments->notEmpty())]
-  environment:
-  [for (e: Environment | docker.environments)]
-    [generateEnvironment(e)/]
-  [/for]
 [/if]
 [if (docker.docker_auth->notEmpty())]
   auth:
@@ -432,7 +426,7 @@ steps:
 
 
 [template public generateParameters(aRun: Run)]
-[for (p: Parameters | aRun.parameters)] [p.parameter/] [/for]
+[for (p: Parameters | aRun.parameters)][p.parameter/] [/for]
 [/template]
 
 
@@ -459,7 +453,7 @@ workflows:
 [generateFilters(aWorkflow)/]
 [/if]
 [if (aWorkflow.triggers->notEmpty() and aWorkflow.branches->isEmpty())]
-[generateTriggers(aWorkflow)/]
+[generateAuxTriggers(aWorkflow)/]
 [/if]
 [/template]
 

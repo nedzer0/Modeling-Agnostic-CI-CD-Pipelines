@@ -134,7 +134,7 @@ public class CICDSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Cache returns Cache
 	 *
 	 * Constraint:
-	 *     (mode=CACHE_MODE paths+=EString paths+=EString* key=EString (keys+=EString keys+=EString*)?)
+	 *     (mode=CACHE_MODE (paths+=EString paths+=EString*)? key=EString? (keys+=EString keys+=EString*)?)
 	 * </pre>
 	 */
 	protected void sequence_Cache(ISerializationContext context, Cache semanticObject) {
@@ -238,14 +238,14 @@ public class CICDSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         allowFaillure?='allowFaillure'? 
 	 *         parallel=EString? 
 	 *         (requireJobs+=EString requireJobs+=EString*)? 
-	 *         steps+=Step* 
 	 *         IfStep+=IfStep* 
 	 *         artifacts+=Artifact* 
 	 *         environments+=Environment* 
 	 *         jobs+=Job* 
 	 *         matrix=Matrix? 
 	 *         agents+=Agent* 
-	 *         output+=Output*
+	 *         output+=Output* 
+	 *         steps+=Step*
 	 *     )
 	 * </pre>
 	 */

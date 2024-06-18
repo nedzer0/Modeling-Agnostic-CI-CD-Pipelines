@@ -29,7 +29,7 @@ public interface RestoreCache extends Step {
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(String)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getRestoreCache_Key()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getKey();
@@ -51,7 +51,7 @@ public interface RestoreCache extends Step {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Keys</em>' attribute list.
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getRestoreCache_Keys()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	EList<String> getKeys();

@@ -23,22 +23,22 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected CircleciGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Checkout___BEGINTerminalRuleCall_2_0_ENDTerminalRuleCall_2_3__q;
 	protected AbstractElementAlias match_Matrix___Matrix_excludeKeyword_1_2_0_BEGINTerminalRuleCall_1_2_1_0_ENDTerminalRuleCall_1_2_1_2__q;
+	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_2_1_q;
 	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_3_1_q;
 	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_4_1_q;
 	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_5_1_q;
 	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_6_1_q;
-	protected AbstractElementAlias match_Pipeline_NEWLINETerminalRuleCall_7_1_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CircleciGrammarAccess) access;
 		match_Checkout___BEGINTerminalRuleCall_2_0_ENDTerminalRuleCall_2_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getCheckoutAccess().getBEGINTerminalRuleCall_2_0()), new TokenAlias(false, false, grammarAccess.getCheckoutAccess().getENDTerminalRuleCall_2_3()));
 		match_Matrix___Matrix_excludeKeyword_1_2_0_BEGINTerminalRuleCall_1_2_1_0_ENDTerminalRuleCall_1_2_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMatrixAccess().getMatrix_excludeKeyword_1_2_0()), new TokenAlias(false, false, grammarAccess.getMatrixAccess().getBEGINTerminalRuleCall_1_2_1_0()), new TokenAlias(false, false, grammarAccess.getMatrixAccess().getENDTerminalRuleCall_1_2_1_2()));
+		match_Pipeline_NEWLINETerminalRuleCall_2_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_1());
 		match_Pipeline_NEWLINETerminalRuleCall_3_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_3_1());
 		match_Pipeline_NEWLINETerminalRuleCall_4_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_4_1());
 		match_Pipeline_NEWLINETerminalRuleCall_5_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_5_1());
 		match_Pipeline_NEWLINETerminalRuleCall_6_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_6_1());
-		match_Pipeline_NEWLINETerminalRuleCall_7_1_q = new TokenAlias(false, true, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_7_1());
 	}
 	
 	@Override
@@ -84,6 +84,8 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Checkout___BEGINTerminalRuleCall_2_0_ENDTerminalRuleCall_2_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Matrix___Matrix_excludeKeyword_1_2_0_BEGINTerminalRuleCall_1_2_1_0_ENDTerminalRuleCall_1_2_1_2__q.equals(syntax))
 				emit_Matrix___Matrix_excludeKeyword_1_2_0_BEGINTerminalRuleCall_1_2_1_0_ENDTerminalRuleCall_1_2_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Pipeline_NEWLINETerminalRuleCall_2_1_q.equals(syntax))
+				emit_Pipeline_NEWLINETerminalRuleCall_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Pipeline_NEWLINETerminalRuleCall_3_1_q.equals(syntax))
 				emit_Pipeline_NEWLINETerminalRuleCall_3_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Pipeline_NEWLINETerminalRuleCall_4_1_q.equals(syntax))
@@ -92,8 +94,6 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Pipeline_NEWLINETerminalRuleCall_5_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Pipeline_NEWLINETerminalRuleCall_6_1_q.equals(syntax))
 				emit_Pipeline_NEWLINETerminalRuleCall_6_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Pipeline_NEWLINETerminalRuleCall_7_1_q.equals(syntax))
-				emit_Pipeline_NEWLINETerminalRuleCall_7_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -139,7 +139,7 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Pipeline_NEWLINETerminalRuleCall_3_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Pipeline_NEWLINETerminalRuleCall_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -154,7 +154,7 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Pipeline_NEWLINETerminalRuleCall_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Pipeline_NEWLINETerminalRuleCall_3_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -168,7 +168,7 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Pipeline_NEWLINETerminalRuleCall_5_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Pipeline_NEWLINETerminalRuleCall_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -183,7 +183,7 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Pipeline_NEWLINETerminalRuleCall_6_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Pipeline_NEWLINETerminalRuleCall_5_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -197,7 +197,7 @@ public class CircleciSyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Pipeline_NEWLINETerminalRuleCall_7_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Pipeline_NEWLINETerminalRuleCall_6_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

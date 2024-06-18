@@ -75,20 +75,18 @@ rulePipeline returns [EObject current=null]
 			newLeafNode(otherlv_0, grammarAccess.getPipelineAccess().getPipelineKeyword_0());
 		}
 		(
-			this_NEWLINE_1=RULE_NEWLINE
+			this_BEGIN_1=RULE_BEGIN
 			{
-				newLeafNode(this_NEWLINE_1, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_1());
+				newLeafNode(this_BEGIN_1, grammarAccess.getPipelineAccess().getBEGINTerminalRuleCall_1_0());
 			}
-		)?
-		(
 			otherlv_2=Name
 			{
-				newLeafNode(otherlv_2, grammarAccess.getPipelineAccess().getNameKeyword_2_0());
+				newLeafNode(otherlv_2, grammarAccess.getPipelineAccess().getNameKeyword_1_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getNameEStringParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getNameEStringParserRuleCall_1_2_0());
 					}
 					lv_name_3_0=ruleEString
 					{
@@ -104,16 +102,16 @@ rulePipeline returns [EObject current=null]
 					}
 				)
 			)
-			this_NEWLINE_4=RULE_NEWLINE
+			this_END_4=RULE_END
 			{
-				newLeafNode(this_NEWLINE_4, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_2());
+				newLeafNode(this_END_4, grammarAccess.getPipelineAccess().getENDTerminalRuleCall_1_3());
 			}
 		)?
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getJobsJobParserRuleCall_3_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getJobsJobParserRuleCall_2_0_0());
 					}
 					lv_jobs_5_0=ruleJob
 					{
@@ -132,7 +130,7 @@ rulePipeline returns [EObject current=null]
 			(
 				this_NEWLINE_6=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_6, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_3_1());
+					newLeafNode(this_NEWLINE_6, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_1());
 				}
 			)?
 		)
@@ -140,7 +138,7 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getPipeline_environmentEnvironmentParserRuleCall_4_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getPipeline_environmentEnvironmentParserRuleCall_3_0_0());
 					}
 					lv_pipeline_environment_7_0=ruleEnvironment
 					{
@@ -159,7 +157,7 @@ rulePipeline returns [EObject current=null]
 			(
 				this_NEWLINE_8=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_8, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_4_1());
+					newLeafNode(this_NEWLINE_8, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_3_1());
 				}
 			)?
 		)?
@@ -167,7 +165,7 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getTriggersScheduleTriggerParserRuleCall_5_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getTriggersScheduleTriggerParserRuleCall_4_0_0());
 					}
 					lv_triggers_9_0=ruleScheduleTrigger
 					{
@@ -186,7 +184,7 @@ rulePipeline returns [EObject current=null]
 			(
 				this_NEWLINE_10=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_10, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_5_1());
+					newLeafNode(this_NEWLINE_10, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_4_1());
 				}
 			)?
 		)?
@@ -194,7 +192,7 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getAgentsAgentParserRuleCall_6_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getAgentsAgentParserRuleCall_5_0_0());
 					}
 					lv_agents_11_0=ruleAgent
 					{
@@ -213,7 +211,7 @@ rulePipeline returns [EObject current=null]
 			(
 				this_NEWLINE_12=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_12, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_6_1());
+					newLeafNode(this_NEWLINE_12, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_5_1());
 				}
 			)?
 		)?
@@ -221,7 +219,7 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getInputsInputParserRuleCall_7_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getInputsInputParserRuleCall_6_0_0());
 					}
 					lv_inputs_13_0=ruleInput
 					{
@@ -240,7 +238,7 @@ rulePipeline returns [EObject current=null]
 			(
 				this_NEWLINE_14=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_14, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_7_1());
+					newLeafNode(this_NEWLINE_14, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_6_1());
 				}
 			)?
 		)?
@@ -248,7 +246,7 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getOutputOutputParserRuleCall_8_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getOutputOutputParserRuleCall_7_0_0());
 					}
 					lv_output_15_0=ruleOutput
 					{
@@ -267,7 +265,7 @@ rulePipeline returns [EObject current=null]
 			(
 				this_NEWLINE_16=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_16, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_8_1());
+					newLeafNode(this_NEWLINE_16, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_7_1());
 				}
 			)?
 		)?
@@ -414,28 +412,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getStepsStepParserRuleCall_1_6_0());
+						newCompositeNode(grammarAccess.getJobAccess().getIfStepIfStepParserRuleCall_1_6_0());
 					}
-					lv_steps_11_0=ruleStep
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getJobRule());
-						}
-						add(
-							$current,
-							"steps",
-							lv_steps_11_0,
-							"org.xtext.example.cicd.CICD.Step");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)*
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getJobAccess().getIfStepIfStepParserRuleCall_1_7_0());
-					}
-					lv_IfStep_12_0=ruleIfStep
+					lv_IfStep_11_0=ruleIfStep
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -443,7 +422,7 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"IfStep",
-							lv_IfStep_12_0,
+							lv_IfStep_11_0,
 							"org.xtext.example.cicd.CICD.IfStep");
 						afterParserOrEnumRuleCall();
 					}
@@ -452,9 +431,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getArtifactsArtifactParserRuleCall_1_8_0());
+						newCompositeNode(grammarAccess.getJobAccess().getArtifactsArtifactParserRuleCall_1_7_0());
 					}
-					lv_artifacts_13_0=ruleArtifact
+					lv_artifacts_12_0=ruleArtifact
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -462,7 +441,7 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"artifacts",
-							lv_artifacts_13_0,
+							lv_artifacts_12_0,
 							"org.xtext.example.cicd.CICD.Artifact");
 						afterParserOrEnumRuleCall();
 					}
@@ -471,9 +450,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getEnvironmentsEnvironmentParserRuleCall_1_9_0());
+						newCompositeNode(grammarAccess.getJobAccess().getEnvironmentsEnvironmentParserRuleCall_1_8_0());
 					}
-					lv_environments_14_0=ruleEnvironment
+					lv_environments_13_0=ruleEnvironment
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -481,7 +460,7 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"environments",
-							lv_environments_14_0,
+							lv_environments_13_0,
 							"org.xtext.example.cicd.CICD.Environment");
 						afterParserOrEnumRuleCall();
 					}
@@ -490,9 +469,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getJobsJobParserRuleCall_1_10_0());
+						newCompositeNode(grammarAccess.getJobAccess().getJobsJobParserRuleCall_1_9_0());
 					}
-					lv_jobs_15_0=ruleJob
+					lv_jobs_14_0=ruleJob
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -500,7 +479,7 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"jobs",
-							lv_jobs_15_0,
+							lv_jobs_14_0,
 							"org.xtext.example.cicd.CICD.Job");
 						afterParserOrEnumRuleCall();
 					}
@@ -509,9 +488,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getMatrixMatrixParserRuleCall_1_11_0());
+						newCompositeNode(grammarAccess.getJobAccess().getMatrixMatrixParserRuleCall_1_10_0());
 					}
-					lv_matrix_16_0=ruleMatrix
+					lv_matrix_15_0=ruleMatrix
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -519,7 +498,7 @@ ruleJob returns [EObject current=null]
 						set(
 							$current,
 							"matrix",
-							lv_matrix_16_0,
+							lv_matrix_15_0,
 							"org.xtext.example.cicd.CICD.Matrix");
 						afterParserOrEnumRuleCall();
 					}
@@ -528,9 +507,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getAgentsAgentParserRuleCall_1_12_0());
+						newCompositeNode(grammarAccess.getJobAccess().getAgentsAgentParserRuleCall_1_11_0());
 					}
-					lv_agents_17_0=ruleAgent
+					lv_agents_16_0=ruleAgent
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -538,7 +517,7 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"agents",
-							lv_agents_17_0,
+							lv_agents_16_0,
 							"org.xtext.example.cicd.CICD.Agent");
 						afterParserOrEnumRuleCall();
 					}
@@ -547,9 +526,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getOutputOutputParserRuleCall_1_13_0());
+						newCompositeNode(grammarAccess.getJobAccess().getOutputOutputParserRuleCall_1_12_0());
 					}
-					lv_output_18_0=ruleOutput
+					lv_output_17_0=ruleOutput
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -557,8 +536,27 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"output",
-							lv_output_18_0,
+							lv_output_17_0,
 							"org.xtext.example.cicd.CICD.Output");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getJobAccess().getStepsStepParserRuleCall_1_13_0());
+					}
+					lv_steps_18_0=ruleStep
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getJobRule());
+						}
+						add(
+							$current,
+							"steps",
+							lv_steps_18_0,
+							"org.xtext.example.cicd.CICD.Step");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1841,39 +1839,41 @@ ruleCache returns [EObject current=null]
 						)
 					)
 				)*
-			)
-			otherlv_8=Key
-			{
-				newLeafNode(otherlv_8, grammarAccess.getCacheAccess().getKeyKeyword_1_4());
-			}
+			)?
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getCacheAccess().getKeyEStringParserRuleCall_1_5_0());
-					}
-					lv_key_9_0=ruleEString
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCacheRule());
-						}
-						set(
-							$current,
-							"key",
-							lv_key_9_0,
-							"org.xtext.example.cicd.CICD.EString");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_10=Keys
+				otherlv_8=Key
 				{
-					newLeafNode(otherlv_10, grammarAccess.getCacheAccess().getKeysKeyword_1_6_0());
+					newLeafNode(otherlv_8, grammarAccess.getCacheAccess().getKeyKeyword_1_4_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_6_1_0());
+							newCompositeNode(grammarAccess.getCacheAccess().getKeyEStringParserRuleCall_1_4_1_0());
+						}
+						lv_key_9_0=ruleEString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getCacheRule());
+							}
+							set(
+								$current,
+								"key",
+								lv_key_9_0,
+								"org.xtext.example.cicd.CICD.EString");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)?
+			(
+				otherlv_10=Keys
+				{
+					newLeafNode(otherlv_10, grammarAccess.getCacheAccess().getKeysKeyword_1_5_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_5_1_0());
 						}
 						lv_keys_11_0=ruleEString
 						{
@@ -1892,12 +1892,12 @@ ruleCache returns [EObject current=null]
 				(
 					otherlv_12=Comma
 					{
-						newLeafNode(otherlv_12, grammarAccess.getCacheAccess().getCommaKeyword_1_6_2_0());
+						newLeafNode(otherlv_12, grammarAccess.getCacheAccess().getCommaKeyword_1_5_2_0());
 					}
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_6_2_1_0());
+								newCompositeNode(grammarAccess.getCacheAccess().getKeysEStringParserRuleCall_1_5_2_1_0());
 							}
 							lv_keys_13_0=ruleEString
 							{
@@ -1917,7 +1917,7 @@ ruleCache returns [EObject current=null]
 			)?
 			this_END_14=RULE_END
 			{
-				newLeafNode(this_END_14, grammarAccess.getCacheAccess().getENDTerminalRuleCall_1_7());
+				newLeafNode(this_END_14, grammarAccess.getCacheAccess().getENDTerminalRuleCall_1_6());
 			}
 		)
 	)

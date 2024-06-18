@@ -33,7 +33,7 @@ public interface Executor extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getExecutor_Name()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getName();

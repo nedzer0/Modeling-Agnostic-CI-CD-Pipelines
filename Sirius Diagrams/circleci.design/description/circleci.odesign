@@ -2111,7 +2111,7 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="Docker" labelExpression="Properties" domainClass="circleCI_metamodel::Docker" semanticCandidateExpression="var:self">
+      <groups name="Docker" labelExpression="Properties" domainClass="circleCI_metamodel::Docker" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer().oclIsTypeOf(circleCI_metamodel::Pipeline)">
         <controls xsi:type="properties:TextDescription" name="ImageText" labelExpression="image" valueExpression="feature:image">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -2168,7 +2168,7 @@
           </propertyValidationRules>
         </validationSet>
       </groups>
-      <groups name="Machine" labelExpression="Properties" domainClass="circleCI_metamodel::Machine" semanticCandidateExpression="var:self">
+      <groups name="Machine" labelExpression="Properties" domainClass="circleCI_metamodel::Machine" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer().oclIsTypeOf(circleCI_metamodel::Pipeline)">
         <controls xsi:type="properties:TextDescription" name="ImageText" labelExpression="image" valueExpression="feature:image">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -2209,7 +2209,7 @@
           </propertyValidationRules>
         </validationSet>
       </groups>
-      <groups name="MacOs" labelExpression="Properties" domainClass="circleCI_metamodel::MacOs" semanticCandidateExpression="var:self">
+      <groups name="MacOs" labelExpression="Properties" domainClass="circleCI_metamodel::MacOs" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer().oclIsTypeOf(circleCI_metamodel::Pipeline)">
         <controls xsi:type="properties:TextDescription" name="XcodeText" labelExpression="xcode" helpExpression="The version of Xcode that is installed on the virtual machine" valueExpression="feature:xcode">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -2531,11 +2531,8 @@
           </initialOperation>
         </controls>
         <validationSet>
-          <propertyValidationRules name="KeyNotEmpty" label="name" level="ERROR" message="Key should not be empty" targets="//@extensions.0/@categories.0/@groups.21/@controls.0">
-            <audits auditExpression="service:checkCacheKeyNotEmpty()"/>
-          </propertyValidationRules>
-          <propertyValidationRules name="KeysNotEmpty" label="name" level="ERROR" message="Keys should not be empty" targets="//@extensions.0/@categories.0/@groups.21/@controls.2">
-            <audits auditExpression="service:checkCacheKeysNotEmpty()"/>
+          <propertyValidationRules name="checkValidRestoreCache" level="ERROR" message="Invalid RestoreCache definition. Define key or keys or both" targets="//@extensions.0/@categories.0/@groups.21/@controls.0 //@extensions.0/@categories.0/@groups.21/@controls.2">
+            <audits auditExpression="service:checkValidRestoreCache()"/>
           </propertyValidationRules>
         </validationSet>
       </groups>
@@ -2785,6 +2782,129 @@
         <validationSet>
           <propertyValidationRules name="NameNotEmpty" label="name" level="ERROR" message="Name should not be empty" targets="//@extensions.0/@categories.0/@groups.29/@controls.0">
             <audits auditExpression="service:checkRunCommandNameNotEmpty()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="JobDocker" labelExpression="Properties" domainClass="circleCI_metamodel::Docker" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer().oclIsTypeOf(circleCI_metamodel::Job)">
+        <controls xsi:type="properties:TextDescription" name="ImageText" labelExpression="image" valueExpression="feature:image">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="image" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="EntrypointText" labelExpression="entrypoint" helpExpression="The command used as executable when launching the container." valueExpression="feature:entrypoint">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="entrypoint" valueExpression="service:clearDockerEntrypoint()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="entrypoint" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CommandText" labelExpression="command" helpExpression="The command used as PID 1 (or arguments for entrypoint) when launching the container." valueExpression="feature:command">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="command" valueExpression="service:clearDockerCommand()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="command" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="UserText" labelExpression="user" helpExpression="Which user to run commands as within the Docker container" valueExpression="feature:user">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="user" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="Resource class" labelExpression="resourceClass" helpExpression="Amount of CPU and RAM allocated to each container in a job" valueExpression="service:getDockerCurrentResourceClass()" candidatesExpression="service:getDockerResourceClass()" candidateDisplayExpression="aql:candidate">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="resourceClass" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" helpExpression="Container hostname " valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="ImageNotEmpty" label="name" level="ERROR" message="Image cannot be empty" targets="//@extensions.0/@categories.0/@groups.30/@controls.0">
+            <audits auditExpression="service:checkDockerImageNotEmpty()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="NonDuplicateExecutorName" label="name" level="ERROR" message="aql: 'Duplicate executor name found: &quot;' + self.name + '&quot;. Choose a different executor name to ensure uniqueness within the pipeline'" targets="//@extensions.0/@categories.0/@groups.30/@controls.5">
+            <audits auditExpression="service:checkNonDuplicateExecutorName()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="JobMachine" labelExpression="Properties" domainClass="circleCI_metamodel::Machine" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer().oclIsTypeOf(circleCI_metamodel::Job)">
+        <controls xsi:type="properties:TextDescription" name="ImageText" labelExpression="image" valueExpression="feature:image">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="image" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="DockerLayerCaching" labelExpression="docker_layer_caching" valueExpression="feature:docker_layer_caching">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="docker_layer_caching" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="Resource class" labelExpression="resourceClass" helpExpression="Amount of CPU and RAM allocated to each container in a job" valueExpression="service:getMachineCurrentResourceClass()" candidatesExpression="service:getMachineResourceClass()" candidateDisplayExpression="aql:candidate">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="resourceClass" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" helpExpression="Container hostname " valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="ImageNotEmpty" label="name" level="ERROR" message="Image cannot be empty" targets="//@extensions.0/@categories.0/@groups.31/@controls.0">
+            <audits auditExpression="service:checkMachineImageNotEmpty()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="NonDuplicateExecutorName" label="name" level="ERROR" message="aql: 'Duplicate executor name found: &quot;' + self.name + '&quot;. Choose a different executor name to ensure uniqueness within the pipeline'" targets="//@extensions.0/@categories.0/@groups.31/@controls.3">
+            <audits auditExpression="service:checkNonDuplicateExecutorName()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
+      <groups name="JobMacOs" labelExpression="Properties" domainClass="circleCI_metamodel::MacOs" semanticCandidateExpression="var:self" preconditionExpression="aql:self.eContainer().oclIsTypeOf(circleCI_metamodel::Job)">
+        <controls xsi:type="properties:TextDescription" name="XcodeText" labelExpression="xcode" helpExpression="The version of Xcode that is installed on the virtual machine" valueExpression="feature:xcode">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="xcode" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="Resource class" labelExpression="resourceClass" helpExpression="Amount of CPU and RAM allocated to each container in a job" valueExpression="service:getMacOsCurrentResourceClass()" candidatesExpression="service:getMacOsResourceClass()" candidateDisplayExpression="aql:candidate">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="resourceClass" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" helpExpression="Container hostname " valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="XcodeNotEmpty" label="name" level="ERROR" message="Xcode cannot be empty" targets="//@extensions.0/@categories.0/@groups.32/@controls.0">
+            <audits auditExpression="service:checkMacXcodeNotEmpty()"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="NonDuplicateExecutorName" label="name" level="ERROR" message="aql: 'Duplicate executor name found: &quot;' + self.name + '&quot;. Choose a different executor name to ensure uniqueness within the pipeline'" targets="//@extensions.0/@categories.0/@groups.32/@controls.2">
+            <audits auditExpression="service:checkNonDuplicateExecutorName()"/>
           </propertyValidationRules>
         </validationSet>
       </groups>

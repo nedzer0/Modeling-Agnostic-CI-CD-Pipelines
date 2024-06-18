@@ -70,22 +70,20 @@ rulePipeline returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0=Pipeline
+		{
+			newLeafNode(otherlv_0, grammarAccess.getPipelineAccess().getPipelineKeyword_0());
+		}
 		(
-			otherlv_0=Pipeline
+			this_BEGIN_1=RULE_BEGIN
 			{
-				newLeafNode(otherlv_0, grammarAccess.getPipelineAccess().getPipelineKeyword_0_0());
+				newLeafNode(this_BEGIN_1, grammarAccess.getPipelineAccess().getBEGINTerminalRuleCall_1_0());
 			}
-			this_NEWLINE_1=RULE_NEWLINE
-			{
-				newLeafNode(this_NEWLINE_1, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_0_1());
-			}
-		)
-		(
 			(
 				(
 					lv_setup_2_0=Setup
 					{
-						newLeafNode(lv_setup_2_0, grammarAccess.getPipelineAccess().getSetupSetupKeyword_1_0_0());
+						newLeafNode(lv_setup_2_0, grammarAccess.getPipelineAccess().getSetupSetupKeyword_1_1_0());
 					}
 					{
 						if ($current==null) {
@@ -94,23 +92,17 @@ rulePipeline returns [EObject current=null]
 						setWithLastConsumed($current, "setup", lv_setup_2_0 != null, "setup");
 					}
 				)
-			)
-			this_NEWLINE_3=RULE_NEWLINE
+			)?
+			otherlv_3=Version
 			{
-				newLeafNode(this_NEWLINE_3, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_1_1());
-			}
-		)?
-		(
-			otherlv_4=Version
-			{
-				newLeafNode(otherlv_4, grammarAccess.getPipelineAccess().getVersionKeyword_2_0());
+				newLeafNode(otherlv_3, grammarAccess.getPipelineAccess().getVersionKeyword_1_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getVersionEStringParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getVersionEStringParserRuleCall_1_3_0());
 					}
-					lv_version_5_0=ruleEString
+					lv_version_4_0=ruleEString
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -118,24 +110,24 @@ rulePipeline returns [EObject current=null]
 						set(
 							$current,
 							"version",
-							lv_version_5_0,
+							lv_version_4_0,
 							"org.xtext.example.circleci.Circleci.EString");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			this_NEWLINE_6=RULE_NEWLINE
+			this_END_5=RULE_END
 			{
-				newLeafNode(this_NEWLINE_6, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_2());
+				newLeafNode(this_END_5, grammarAccess.getPipelineAccess().getENDTerminalRuleCall_1_4());
 			}
 		)
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getOrbsOrbParserRuleCall_3_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getOrbsOrbParserRuleCall_2_0_0());
 					}
-					lv_orbs_7_0=ruleOrb
+					lv_orbs_6_0=ruleOrb
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -143,16 +135,16 @@ rulePipeline returns [EObject current=null]
 						add(
 							$current,
 							"orbs",
-							lv_orbs_7_0,
+							lv_orbs_6_0,
 							"org.xtext.example.circleci.Circleci.Orb");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
 			(
-				this_NEWLINE_8=RULE_NEWLINE
+				this_NEWLINE_7=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_8, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_3_1());
+					newLeafNode(this_NEWLINE_7, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_1());
 				}
 			)?
 		)?
@@ -160,9 +152,9 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getCommandsCommandParserRuleCall_4_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getCommandsCommandParserRuleCall_3_0_0());
 					}
-					lv_commands_9_0=ruleCommand
+					lv_commands_8_0=ruleCommand
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -170,16 +162,16 @@ rulePipeline returns [EObject current=null]
 						add(
 							$current,
 							"commands",
-							lv_commands_9_0,
+							lv_commands_8_0,
 							"org.xtext.example.circleci.Circleci.Command");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
 			(
-				this_NEWLINE_10=RULE_NEWLINE
+				this_NEWLINE_9=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_10, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_4_1());
+					newLeafNode(this_NEWLINE_9, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_3_1());
 				}
 			)?
 		)?
@@ -187,9 +179,9 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getExecutorsExecutorParserRuleCall_5_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getExecutorsExecutorParserRuleCall_4_0_0());
 					}
-					lv_executors_11_0=ruleExecutor
+					lv_executors_10_0=ruleExecutor
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -197,16 +189,16 @@ rulePipeline returns [EObject current=null]
 						add(
 							$current,
 							"executors",
-							lv_executors_11_0,
+							lv_executors_10_0,
 							"org.xtext.example.circleci.Circleci.Executor");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
 			(
-				this_NEWLINE_12=RULE_NEWLINE
+				this_NEWLINE_11=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_12, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_5_1());
+					newLeafNode(this_NEWLINE_11, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_4_1());
 				}
 			)?
 		)?
@@ -214,9 +206,9 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getJobsJobParserRuleCall_6_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getJobsJobParserRuleCall_5_0_0());
 					}
-					lv_jobs_13_0=ruleJob
+					lv_jobs_12_0=ruleJob
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -224,16 +216,16 @@ rulePipeline returns [EObject current=null]
 						add(
 							$current,
 							"jobs",
-							lv_jobs_13_0,
+							lv_jobs_12_0,
 							"org.xtext.example.circleci.Circleci.Job");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
 			(
-				this_NEWLINE_14=RULE_NEWLINE
+				this_NEWLINE_13=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_14, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_6_1());
+					newLeafNode(this_NEWLINE_13, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_5_1());
 				}
 			)?
 		)
@@ -241,9 +233,9 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getWorkflowsWorkflowParserRuleCall_7_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getWorkflowsWorkflowParserRuleCall_6_0_0());
 					}
-					lv_workflows_15_0=ruleWorkflow
+					lv_workflows_14_0=ruleWorkflow
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -251,16 +243,16 @@ rulePipeline returns [EObject current=null]
 						add(
 							$current,
 							"workflows",
-							lv_workflows_15_0,
+							lv_workflows_14_0,
 							"org.xtext.example.circleci.Circleci.Workflow");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
 			(
-				this_NEWLINE_16=RULE_NEWLINE
+				this_NEWLINE_15=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_16, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_7_1());
+					newLeafNode(this_NEWLINE_15, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_6_1());
 				}
 			)?
 		)?

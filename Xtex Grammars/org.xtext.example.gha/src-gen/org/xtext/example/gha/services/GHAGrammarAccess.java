@@ -29,46 +29,44 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.gha.GHA.Pipeline");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPipelineKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cBEGINTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Keyword cNameKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
+		private final Keyword cRunNameKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Assignment cRun_nameAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final RuleCall cRun_nameEStringParserRuleCall_1_3_1_0 = (RuleCall)cRun_nameAssignment_1_3_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_1_4 = (RuleCall)cGroup_1.eContents().get(4);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cNameKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
+		private final Assignment cEnvsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cEnvsEnvParserRuleCall_2_0_0 = (RuleCall)cEnvsAssignment_2_0.eContents().get(0);
+		private final RuleCall cNEWLINETerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cRunNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cRun_nameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cRun_nameEStringParserRuleCall_3_1_0 = (RuleCall)cRun_nameAssignment_3_1.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_3_2 = (RuleCall)cGroup_3.eContents().get(2);
+		private final Assignment cPermissionsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cPermissionsPermissionParserRuleCall_3_0_0 = (RuleCall)cPermissionsAssignment_3_0.eContents().get(0);
+		private final RuleCall cNEWLINETerminalRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Assignment cEnvsAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final RuleCall cEnvsEnvParserRuleCall_4_0_0 = (RuleCall)cEnvsAssignment_4_0.eContents().get(0);
+		private final Assignment cDefaultsettingAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cDefaultsettingDefaultSettingParserRuleCall_4_0_0 = (RuleCall)cDefaultsettingAssignment_4_0.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Assignment cPermissionsAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
-		private final RuleCall cPermissionsPermissionParserRuleCall_5_0_0 = (RuleCall)cPermissionsAssignment_5_0.eContents().get(0);
+		private final Assignment cConcurrencyAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final RuleCall cConcurrencyConcurrencyParserRuleCall_5_0_0 = (RuleCall)cConcurrencyAssignment_5_0.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Assignment cDefaultsettingAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
-		private final RuleCall cDefaultsettingDefaultSettingParserRuleCall_6_0_0 = (RuleCall)cDefaultsettingAssignment_6_0.eContents().get(0);
+		private final Assignment cTriggersAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
+		private final RuleCall cTriggersTriggerParserRuleCall_6_0_0 = (RuleCall)cTriggersAssignment_6_0.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Assignment cConcurrencyAssignment_7_0 = (Assignment)cGroup_7.eContents().get(0);
-		private final RuleCall cConcurrencyConcurrencyParserRuleCall_7_0_0 = (RuleCall)cConcurrencyAssignment_7_0.eContents().get(0);
+		private final Assignment cJobsAssignment_7_0 = (Assignment)cGroup_7.eContents().get(0);
+		private final RuleCall cJobsJobParserRuleCall_7_0_0 = (RuleCall)cJobsAssignment_7_0.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_7_1 = (RuleCall)cGroup_7.eContents().get(1);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Assignment cTriggersAssignment_8_0 = (Assignment)cGroup_8.eContents().get(0);
-		private final RuleCall cTriggersTriggerParserRuleCall_8_0_0 = (RuleCall)cTriggersAssignment_8_0.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
-		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Assignment cJobsAssignment_9_0 = (Assignment)cGroup_9.eContents().get(0);
-		private final RuleCall cJobsJobParserRuleCall_9_0_0 = (RuleCall)cJobsAssignment_9_0.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_9_1 = (RuleCall)cGroup_9.eContents().get(1);
 		
 		//Pipeline returns Pipeline:
-		//    'Pipeline' NEWLINE
-		//    ('name' (name=EString) NEWLINE)?
-		//    ('run-name' run_name=EString NEWLINE)?
+		//    'Pipeline'
+		//    ((BEGIN'name' name=EString ('run-name' run_name=EString)? END))?
 		//    ((envs+=Env)+ NEWLINE?)?
 		//    ((permissions+=Permission)+ NEWLINE?)?
 		//    (defaultsetting=DefaultSetting NEWLINE?)?
@@ -78,9 +76,8 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Pipeline' NEWLINE
-		//('name' (name=EString) NEWLINE)?
-		//('run-name' run_name=EString NEWLINE)?
+		//'Pipeline'
+		//((BEGIN'name' name=EString ('run-name' run_name=EString)? END))?
 		//((envs+=Env)+ NEWLINE?)?
 		//((permissions+=Permission)+ NEWLINE?)?
 		//(defaultsetting=DefaultSetting NEWLINE?)?
@@ -92,110 +89,107 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'Pipeline'
 		public Keyword getPipelineKeyword_0() { return cPipelineKeyword_0; }
 		
-		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_1() { return cNEWLINETerminalRuleCall_1; }
+		//((BEGIN'name' name=EString ('run-name' run_name=EString)? END))?
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//('name' (name=EString) NEWLINE)?
-		public Group getGroup_2() { return cGroup_2; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1_0() { return cBEGINTerminalRuleCall_1_0; }
 		
 		//'name'
-		public Keyword getNameKeyword_2_0() { return cNameKeyword_2_0; }
+		public Keyword getNameKeyword_1_1() { return cNameKeyword_1_1; }
 		
-		//(name=EString)
-		public Assignment getNameAssignment_2_1() { return cNameAssignment_2_1; }
+		//name=EString
+		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_2_1_0() { return cNameEStringParserRuleCall_2_1_0; }
+		public RuleCall getNameEStringParserRuleCall_1_2_0() { return cNameEStringParserRuleCall_1_2_0; }
 		
-		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_2_2() { return cNEWLINETerminalRuleCall_2_2; }
-		
-		//('run-name' run_name=EString NEWLINE)?
-		public Group getGroup_3() { return cGroup_3; }
+		//('run-name' run_name=EString)?
+		public Group getGroup_1_3() { return cGroup_1_3; }
 		
 		//'run-name'
-		public Keyword getRunNameKeyword_3_0() { return cRunNameKeyword_3_0; }
+		public Keyword getRunNameKeyword_1_3_0() { return cRunNameKeyword_1_3_0; }
 		
 		//run_name=EString
-		public Assignment getRun_nameAssignment_3_1() { return cRun_nameAssignment_3_1; }
+		public Assignment getRun_nameAssignment_1_3_1() { return cRun_nameAssignment_1_3_1; }
 		
 		//EString
-		public RuleCall getRun_nameEStringParserRuleCall_3_1_0() { return cRun_nameEStringParserRuleCall_3_1_0; }
+		public RuleCall getRun_nameEStringParserRuleCall_1_3_1_0() { return cRun_nameEStringParserRuleCall_1_3_1_0; }
 		
-		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_3_2() { return cNEWLINETerminalRuleCall_3_2; }
+		//END
+		public RuleCall getENDTerminalRuleCall_1_4() { return cENDTerminalRuleCall_1_4; }
 		
 		//((envs+=Env)+ NEWLINE?)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//(envs+=Env)+
-		public Assignment getEnvsAssignment_4_0() { return cEnvsAssignment_4_0; }
+		public Assignment getEnvsAssignment_2_0() { return cEnvsAssignment_2_0; }
 		
 		//Env
-		public RuleCall getEnvsEnvParserRuleCall_4_0_0() { return cEnvsEnvParserRuleCall_4_0_0; }
+		public RuleCall getEnvsEnvParserRuleCall_2_0_0() { return cEnvsEnvParserRuleCall_2_0_0; }
+		
+		//NEWLINE?
+		public RuleCall getNEWLINETerminalRuleCall_2_1() { return cNEWLINETerminalRuleCall_2_1; }
+		
+		//((permissions+=Permission)+ NEWLINE?)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//(permissions+=Permission)+
+		public Assignment getPermissionsAssignment_3_0() { return cPermissionsAssignment_3_0; }
+		
+		//Permission
+		public RuleCall getPermissionsPermissionParserRuleCall_3_0_0() { return cPermissionsPermissionParserRuleCall_3_0_0; }
+		
+		//NEWLINE?
+		public RuleCall getNEWLINETerminalRuleCall_3_1() { return cNEWLINETerminalRuleCall_3_1; }
+		
+		//(defaultsetting=DefaultSetting NEWLINE?)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//defaultsetting=DefaultSetting
+		public Assignment getDefaultsettingAssignment_4_0() { return cDefaultsettingAssignment_4_0; }
+		
+		//DefaultSetting
+		public RuleCall getDefaultsettingDefaultSettingParserRuleCall_4_0_0() { return cDefaultsettingDefaultSettingParserRuleCall_4_0_0; }
 		
 		//NEWLINE?
 		public RuleCall getNEWLINETerminalRuleCall_4_1() { return cNEWLINETerminalRuleCall_4_1; }
 		
-		//((permissions+=Permission)+ NEWLINE?)?
+		//(concurrency=Concurrency NEWLINE?)?
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//(permissions+=Permission)+
-		public Assignment getPermissionsAssignment_5_0() { return cPermissionsAssignment_5_0; }
+		//concurrency=Concurrency
+		public Assignment getConcurrencyAssignment_5_0() { return cConcurrencyAssignment_5_0; }
 		
-		//Permission
-		public RuleCall getPermissionsPermissionParserRuleCall_5_0_0() { return cPermissionsPermissionParserRuleCall_5_0_0; }
+		//Concurrency
+		public RuleCall getConcurrencyConcurrencyParserRuleCall_5_0_0() { return cConcurrencyConcurrencyParserRuleCall_5_0_0; }
 		
 		//NEWLINE?
 		public RuleCall getNEWLINETerminalRuleCall_5_1() { return cNEWLINETerminalRuleCall_5_1; }
 		
-		//(defaultsetting=DefaultSetting NEWLINE?)?
+		//((triggers+=Trigger)+ NEWLINE?)?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//defaultsetting=DefaultSetting
-		public Assignment getDefaultsettingAssignment_6_0() { return cDefaultsettingAssignment_6_0; }
+		//(triggers+=Trigger)+
+		public Assignment getTriggersAssignment_6_0() { return cTriggersAssignment_6_0; }
 		
-		//DefaultSetting
-		public RuleCall getDefaultsettingDefaultSettingParserRuleCall_6_0_0() { return cDefaultsettingDefaultSettingParserRuleCall_6_0_0; }
+		//Trigger
+		public RuleCall getTriggersTriggerParserRuleCall_6_0_0() { return cTriggersTriggerParserRuleCall_6_0_0; }
 		
 		//NEWLINE?
 		public RuleCall getNEWLINETerminalRuleCall_6_1() { return cNEWLINETerminalRuleCall_6_1; }
 		
-		//(concurrency=Concurrency NEWLINE?)?
+		//((jobs+=Job)+ NEWLINE?)
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//concurrency=Concurrency
-		public Assignment getConcurrencyAssignment_7_0() { return cConcurrencyAssignment_7_0; }
+		//(jobs+=Job)+
+		public Assignment getJobsAssignment_7_0() { return cJobsAssignment_7_0; }
 		
-		//Concurrency
-		public RuleCall getConcurrencyConcurrencyParserRuleCall_7_0_0() { return cConcurrencyConcurrencyParserRuleCall_7_0_0; }
+		//Job
+		public RuleCall getJobsJobParserRuleCall_7_0_0() { return cJobsJobParserRuleCall_7_0_0; }
 		
 		//NEWLINE?
 		public RuleCall getNEWLINETerminalRuleCall_7_1() { return cNEWLINETerminalRuleCall_7_1; }
-		
-		//((triggers+=Trigger)+ NEWLINE?)?
-		public Group getGroup_8() { return cGroup_8; }
-		
-		//(triggers+=Trigger)+
-		public Assignment getTriggersAssignment_8_0() { return cTriggersAssignment_8_0; }
-		
-		//Trigger
-		public RuleCall getTriggersTriggerParserRuleCall_8_0_0() { return cTriggersTriggerParserRuleCall_8_0_0; }
-		
-		//NEWLINE?
-		public RuleCall getNEWLINETerminalRuleCall_8_1() { return cNEWLINETerminalRuleCall_8_1; }
-		
-		//((jobs+=Job)+ NEWLINE?)
-		public Group getGroup_9() { return cGroup_9; }
-		
-		//(jobs+=Job)+
-		public Assignment getJobsAssignment_9_0() { return cJobsAssignment_9_0; }
-		
-		//Job
-		public RuleCall getJobsJobParserRuleCall_9_0_0() { return cJobsJobParserRuleCall_9_0_0; }
-		
-		//NEWLINE?
-		public RuleCall getNEWLINETerminalRuleCall_9_1() { return cNEWLINETerminalRuleCall_9_1; }
 	}
 	public class TriggerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.gha.GHA.Trigger");
@@ -280,32 +274,32 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cNameKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cNameEStringParserRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		private final Assignment cPermissionsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final RuleCall cPermissionsPermissionParserRuleCall_1_3_0 = (RuleCall)cPermissionsAssignment_1_3.eContents().get(0);
-		private final Assignment cNeedAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cNeedNeedParserRuleCall_1_4_0 = (RuleCall)cNeedAssignment_1_4.eContents().get(0);
-		private final Assignment cIfAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
-		private final RuleCall cIfIfParserRuleCall_1_5_0 = (RuleCall)cIfAssignment_1_5.eContents().get(0);
-		private final Assignment cRunnerAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
-		private final RuleCall cRunnerRuns_OnParserRuleCall_1_6_0 = (RuleCall)cRunnerAssignment_1_6.eContents().get(0);
-		private final Assignment cEnvironmentAssignment_1_7 = (Assignment)cGroup_1.eContents().get(7);
-		private final RuleCall cEnvironmentEnvironmentParserRuleCall_1_7_0 = (RuleCall)cEnvironmentAssignment_1_7.eContents().get(0);
-		private final Assignment cConcurrencyAssignment_1_8 = (Assignment)cGroup_1.eContents().get(8);
-		private final RuleCall cConcurrencyConcurrencyParserRuleCall_1_8_0 = (RuleCall)cConcurrencyAssignment_1_8.eContents().get(0);
-		private final Assignment cOutputsAssignment_1_9 = (Assignment)cGroup_1.eContents().get(9);
-		private final RuleCall cOutputsOutputParserRuleCall_1_9_0 = (RuleCall)cOutputsAssignment_1_9.eContents().get(0);
-		private final Assignment cEnvsAssignment_1_10 = (Assignment)cGroup_1.eContents().get(10);
-		private final RuleCall cEnvsEnvParserRuleCall_1_10_0 = (RuleCall)cEnvsAssignment_1_10.eContents().get(0);
-		private final Assignment cDefaultsettingAssignment_1_11 = (Assignment)cGroup_1.eContents().get(11);
-		private final RuleCall cDefaultsettingDefaultSettingParserRuleCall_1_11_0 = (RuleCall)cDefaultsettingAssignment_1_11.eContents().get(0);
-		private final Group cGroup_1_12 = (Group)cGroup_1.eContents().get(12);
-		private final Keyword cTimeoutMinutesKeyword_1_12_0 = (Keyword)cGroup_1_12.eContents().get(0);
-		private final Assignment cTimeout_minutesAssignment_1_12_1 = (Assignment)cGroup_1_12.eContents().get(1);
-		private final RuleCall cTimeout_minutesEIntParserRuleCall_1_12_1_0 = (RuleCall)cTimeout_minutesAssignment_1_12_1.eContents().get(0);
-		private final Group cGroup_1_13 = (Group)cGroup_1.eContents().get(13);
-		private final Keyword cContinueOnErrorKeyword_1_13_0 = (Keyword)cGroup_1_13.eContents().get(0);
-		private final Assignment cContinue_on_errorAssignment_1_13_1 = (Assignment)cGroup_1_13.eContents().get(1);
-		private final RuleCall cContinue_on_errorEStringParserRuleCall_1_13_1_0 = (RuleCall)cContinue_on_errorAssignment_1_13_1.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
+		private final Keyword cTimeout_minutesKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Assignment cTimeout_minutesAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final RuleCall cTimeout_minutesEIntParserRuleCall_1_3_1_0 = (RuleCall)cTimeout_minutesAssignment_1_3_1.eContents().get(0);
+		private final Group cGroup_1_4 = (Group)cGroup_1.eContents().get(4);
+		private final Keyword cContinue_on_errorKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Assignment cContinue_on_errorAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
+		private final RuleCall cContinue_on_errorEStringParserRuleCall_1_4_1_0 = (RuleCall)cContinue_on_errorAssignment_1_4_1.eContents().get(0);
+		private final Assignment cPermissionsAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final RuleCall cPermissionsPermissionParserRuleCall_1_5_0 = (RuleCall)cPermissionsAssignment_1_5.eContents().get(0);
+		private final Assignment cNeedAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
+		private final RuleCall cNeedNeedParserRuleCall_1_6_0 = (RuleCall)cNeedAssignment_1_6.eContents().get(0);
+		private final Assignment cIfAssignment_1_7 = (Assignment)cGroup_1.eContents().get(7);
+		private final RuleCall cIfIfParserRuleCall_1_7_0 = (RuleCall)cIfAssignment_1_7.eContents().get(0);
+		private final Assignment cRunnerAssignment_1_8 = (Assignment)cGroup_1.eContents().get(8);
+		private final RuleCall cRunnerRuns_OnParserRuleCall_1_8_0 = (RuleCall)cRunnerAssignment_1_8.eContents().get(0);
+		private final Assignment cEnvironmentAssignment_1_9 = (Assignment)cGroup_1.eContents().get(9);
+		private final RuleCall cEnvironmentEnvironmentParserRuleCall_1_9_0 = (RuleCall)cEnvironmentAssignment_1_9.eContents().get(0);
+		private final Assignment cConcurrencyAssignment_1_10 = (Assignment)cGroup_1.eContents().get(10);
+		private final RuleCall cConcurrencyConcurrencyParserRuleCall_1_10_0 = (RuleCall)cConcurrencyAssignment_1_10.eContents().get(0);
+		private final Assignment cOutputsAssignment_1_11 = (Assignment)cGroup_1.eContents().get(11);
+		private final RuleCall cOutputsOutputParserRuleCall_1_11_0 = (RuleCall)cOutputsAssignment_1_11.eContents().get(0);
+		private final Assignment cEnvsAssignment_1_12 = (Assignment)cGroup_1.eContents().get(12);
+		private final RuleCall cEnvsEnvParserRuleCall_1_12_0 = (RuleCall)cEnvsAssignment_1_12.eContents().get(0);
+		private final Assignment cDefaultsettingAssignment_1_13 = (Assignment)cGroup_1.eContents().get(13);
+		private final RuleCall cDefaultsettingDefaultSettingParserRuleCall_1_13_0 = (RuleCall)cDefaultsettingAssignment_1_13.eContents().get(0);
 		private final Assignment cContainerAssignment_1_14 = (Assignment)cGroup_1.eContents().get(14);
 		private final RuleCall cContainerContainerParserRuleCall_1_14_0 = (RuleCall)cContainerAssignment_1_14.eContents().get(0);
 		private final Assignment cServicesAssignment_1_15 = (Assignment)cGroup_1.eContents().get(15);
@@ -324,6 +318,8 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    'Job'
 		//    (BEGIN
 		//        'name' name=EString
+		//        ('timeout_minutes' timeout_minutes=EInt )?
+		//        ('continue_on_error' continue_on_error=EString )?
 		//        (permissions+=Permission)*
 		//        (need=Need)?
 		//        (if=If)?
@@ -333,8 +329,6 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//        (outputs+=Output)*
 		//        (envs+=Env)*
 		//        (defaultsetting=DefaultSetting)?
-		//        ('timeout-minutes' timeout_minutes=EInt )?
-		//        ('continue-on-error' continue_on_error=EString )?
 		//        (container=Container)?
 		//        (services+=Service)*
 		//        (actions+=Action)*
@@ -347,6 +341,8 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'Job'
 		//(BEGIN
 		//    'name' name=EString
+		//    ('timeout_minutes' timeout_minutes=EInt )?
+		//    ('continue_on_error' continue_on_error=EString )?
 		//    (permissions+=Permission)*
 		//    (need=Need)?
 		//    (if=If)?
@@ -356,8 +352,6 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    (outputs+=Output)*
 		//    (envs+=Env)*
 		//    (defaultsetting=DefaultSetting)?
-		//    ('timeout-minutes' timeout_minutes=EInt )?
-		//    ('continue-on-error' continue_on_error=EString )?
 		//    (container=Container)?
 		//    (services+=Service)*
 		//    (actions+=Action)*
@@ -372,6 +366,8 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//(BEGIN
 		//    'name' name=EString
+		//    ('timeout_minutes' timeout_minutes=EInt )?
+		//    ('continue_on_error' continue_on_error=EString )?
 		//    (permissions+=Permission)*
 		//    (need=Need)?
 		//    (if=If)?
@@ -381,8 +377,6 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    (outputs+=Output)*
 		//    (envs+=Env)*
 		//    (defaultsetting=DefaultSetting)?
-		//    ('timeout-minutes' timeout_minutes=EInt )?
-		//    ('continue-on-error' continue_on_error=EString )?
 		//    (container=Container)?
 		//    (services+=Service)*
 		//    (actions+=Action)*
@@ -404,83 +398,83 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//EString
 		public RuleCall getNameEStringParserRuleCall_1_2_0() { return cNameEStringParserRuleCall_1_2_0; }
 		
-		//(permissions+=Permission)*
-		public Assignment getPermissionsAssignment_1_3() { return cPermissionsAssignment_1_3; }
+		//('timeout_minutes' timeout_minutes=EInt )?
+		public Group getGroup_1_3() { return cGroup_1_3; }
 		
-		//Permission
-		public RuleCall getPermissionsPermissionParserRuleCall_1_3_0() { return cPermissionsPermissionParserRuleCall_1_3_0; }
-		
-		//(need=Need)?
-		public Assignment getNeedAssignment_1_4() { return cNeedAssignment_1_4; }
-		
-		//Need
-		public RuleCall getNeedNeedParserRuleCall_1_4_0() { return cNeedNeedParserRuleCall_1_4_0; }
-		
-		//(if=If)?
-		public Assignment getIfAssignment_1_5() { return cIfAssignment_1_5; }
-		
-		//If
-		public RuleCall getIfIfParserRuleCall_1_5_0() { return cIfIfParserRuleCall_1_5_0; }
-		
-		//(runner=Runs_On)?
-		public Assignment getRunnerAssignment_1_6() { return cRunnerAssignment_1_6; }
-		
-		//Runs_On
-		public RuleCall getRunnerRuns_OnParserRuleCall_1_6_0() { return cRunnerRuns_OnParserRuleCall_1_6_0; }
-		
-		//(environment=Environment)?
-		public Assignment getEnvironmentAssignment_1_7() { return cEnvironmentAssignment_1_7; }
-		
-		//Environment
-		public RuleCall getEnvironmentEnvironmentParserRuleCall_1_7_0() { return cEnvironmentEnvironmentParserRuleCall_1_7_0; }
-		
-		//(concurrency=Concurrency)?
-		public Assignment getConcurrencyAssignment_1_8() { return cConcurrencyAssignment_1_8; }
-		
-		//Concurrency
-		public RuleCall getConcurrencyConcurrencyParserRuleCall_1_8_0() { return cConcurrencyConcurrencyParserRuleCall_1_8_0; }
-		
-		//(outputs+=Output)*
-		public Assignment getOutputsAssignment_1_9() { return cOutputsAssignment_1_9; }
-		
-		//Output
-		public RuleCall getOutputsOutputParserRuleCall_1_9_0() { return cOutputsOutputParserRuleCall_1_9_0; }
-		
-		//(envs+=Env)*
-		public Assignment getEnvsAssignment_1_10() { return cEnvsAssignment_1_10; }
-		
-		//Env
-		public RuleCall getEnvsEnvParserRuleCall_1_10_0() { return cEnvsEnvParserRuleCall_1_10_0; }
-		
-		//(defaultsetting=DefaultSetting)?
-		public Assignment getDefaultsettingAssignment_1_11() { return cDefaultsettingAssignment_1_11; }
-		
-		//DefaultSetting
-		public RuleCall getDefaultsettingDefaultSettingParserRuleCall_1_11_0() { return cDefaultsettingDefaultSettingParserRuleCall_1_11_0; }
-		
-		//('timeout-minutes' timeout_minutes=EInt )?
-		public Group getGroup_1_12() { return cGroup_1_12; }
-		
-		//'timeout-minutes'
-		public Keyword getTimeoutMinutesKeyword_1_12_0() { return cTimeoutMinutesKeyword_1_12_0; }
+		//'timeout_minutes'
+		public Keyword getTimeout_minutesKeyword_1_3_0() { return cTimeout_minutesKeyword_1_3_0; }
 		
 		//timeout_minutes=EInt
-		public Assignment getTimeout_minutesAssignment_1_12_1() { return cTimeout_minutesAssignment_1_12_1; }
+		public Assignment getTimeout_minutesAssignment_1_3_1() { return cTimeout_minutesAssignment_1_3_1; }
 		
 		//EInt
-		public RuleCall getTimeout_minutesEIntParserRuleCall_1_12_1_0() { return cTimeout_minutesEIntParserRuleCall_1_12_1_0; }
+		public RuleCall getTimeout_minutesEIntParserRuleCall_1_3_1_0() { return cTimeout_minutesEIntParserRuleCall_1_3_1_0; }
 		
-		//('continue-on-error' continue_on_error=EString )?
-		public Group getGroup_1_13() { return cGroup_1_13; }
+		//('continue_on_error' continue_on_error=EString )?
+		public Group getGroup_1_4() { return cGroup_1_4; }
 		
-		//'continue-on-error'
-		public Keyword getContinueOnErrorKeyword_1_13_0() { return cContinueOnErrorKeyword_1_13_0; }
+		//'continue_on_error'
+		public Keyword getContinue_on_errorKeyword_1_4_0() { return cContinue_on_errorKeyword_1_4_0; }
 		
 		//continue_on_error=EString
-		public Assignment getContinue_on_errorAssignment_1_13_1() { return cContinue_on_errorAssignment_1_13_1; }
+		public Assignment getContinue_on_errorAssignment_1_4_1() { return cContinue_on_errorAssignment_1_4_1; }
 		
 		//EString
-		public RuleCall getContinue_on_errorEStringParserRuleCall_1_13_1_0() { return cContinue_on_errorEStringParserRuleCall_1_13_1_0; }
+		public RuleCall getContinue_on_errorEStringParserRuleCall_1_4_1_0() { return cContinue_on_errorEStringParserRuleCall_1_4_1_0; }
+		
+		//(permissions+=Permission)*
+		public Assignment getPermissionsAssignment_1_5() { return cPermissionsAssignment_1_5; }
+		
+		//Permission
+		public RuleCall getPermissionsPermissionParserRuleCall_1_5_0() { return cPermissionsPermissionParserRuleCall_1_5_0; }
+		
+		//(need=Need)?
+		public Assignment getNeedAssignment_1_6() { return cNeedAssignment_1_6; }
+		
+		//Need
+		public RuleCall getNeedNeedParserRuleCall_1_6_0() { return cNeedNeedParserRuleCall_1_6_0; }
+		
+		//(if=If)?
+		public Assignment getIfAssignment_1_7() { return cIfAssignment_1_7; }
+		
+		//If
+		public RuleCall getIfIfParserRuleCall_1_7_0() { return cIfIfParserRuleCall_1_7_0; }
+		
+		//(runner=Runs_On)?
+		public Assignment getRunnerAssignment_1_8() { return cRunnerAssignment_1_8; }
+		
+		//Runs_On
+		public RuleCall getRunnerRuns_OnParserRuleCall_1_8_0() { return cRunnerRuns_OnParserRuleCall_1_8_0; }
+		
+		//(environment=Environment)?
+		public Assignment getEnvironmentAssignment_1_9() { return cEnvironmentAssignment_1_9; }
+		
+		//Environment
+		public RuleCall getEnvironmentEnvironmentParserRuleCall_1_9_0() { return cEnvironmentEnvironmentParserRuleCall_1_9_0; }
+		
+		//(concurrency=Concurrency)?
+		public Assignment getConcurrencyAssignment_1_10() { return cConcurrencyAssignment_1_10; }
+		
+		//Concurrency
+		public RuleCall getConcurrencyConcurrencyParserRuleCall_1_10_0() { return cConcurrencyConcurrencyParserRuleCall_1_10_0; }
+		
+		//(outputs+=Output)*
+		public Assignment getOutputsAssignment_1_11() { return cOutputsAssignment_1_11; }
+		
+		//Output
+		public RuleCall getOutputsOutputParserRuleCall_1_11_0() { return cOutputsOutputParserRuleCall_1_11_0; }
+		
+		//(envs+=Env)*
+		public Assignment getEnvsAssignment_1_12() { return cEnvsAssignment_1_12; }
+		
+		//Env
+		public RuleCall getEnvsEnvParserRuleCall_1_12_0() { return cEnvsEnvParserRuleCall_1_12_0; }
+		
+		//(defaultsetting=DefaultSetting)?
+		public Assignment getDefaultsettingAssignment_1_13() { return cDefaultsettingAssignment_1_13; }
+		
+		//DefaultSetting
+		public RuleCall getDefaultsettingDefaultSettingParserRuleCall_1_13_0() { return cDefaultsettingDefaultSettingParserRuleCall_1_13_0; }
 		
 		//(container=Container)?
 		public Assignment getContainerAssignment_1_14() { return cContainerAssignment_1_14; }
@@ -1933,28 +1927,28 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cNameEStringParserRuleCall_1_1_1_0 = (RuleCall)cNameAssignment_1_1_1.eContents().get(0);
 		private final Assignment cIfAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cIfIfParserRuleCall_1_2_0 = (RuleCall)cIfAssignment_1_2.eContents().get(0);
-		private final Assignment cActionsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final RuleCall cActionsActionParserRuleCall_1_3_0 = (RuleCall)cActionsAssignment_1_3.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
+		private final Keyword cShellKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Assignment cShellAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final RuleCall cShellEStringParserRuleCall_1_3_1_0 = (RuleCall)cShellAssignment_1_3_1.eContents().get(0);
 		private final Group cGroup_1_4 = (Group)cGroup_1.eContents().get(4);
-		private final Keyword cShellKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
-		private final Assignment cShellAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
-		private final RuleCall cShellEStringParserRuleCall_1_4_1_0 = (RuleCall)cShellAssignment_1_4_1.eContents().get(0);
-		private final Group cGroup_1_5 = (Group)cGroup_1.eContents().get(5);
-		private final Keyword cWorking_directoryKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
-		private final Assignment cWorking_directoryAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
-		private final RuleCall cWorking_directoryEStringParserRuleCall_1_5_1_0 = (RuleCall)cWorking_directoryAssignment_1_5_1.eContents().get(0);
-		private final Assignment cEnvsAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
-		private final RuleCall cEnvsEnvParserRuleCall_1_6_0 = (RuleCall)cEnvsAssignment_1_6.eContents().get(0);
-		private final Assignment cContinue_on_errorAssignment_1_7 = (Assignment)cGroup_1.eContents().get(7);
-		private final Keyword cContinue_on_errorContinueOnErrorKeyword_1_7_0 = (Keyword)cContinue_on_errorAssignment_1_7.eContents().get(0);
-		private final Group cGroup_1_8 = (Group)cGroup_1.eContents().get(8);
-		private final Keyword cTimeoutMinutesKeyword_1_8_0 = (Keyword)cGroup_1_8.eContents().get(0);
-		private final Assignment cTimeout_minutesAssignment_1_8_1 = (Assignment)cGroup_1_8.eContents().get(1);
-		private final RuleCall cTimeout_minutesEShortParserRuleCall_1_8_1_0 = (RuleCall)cTimeout_minutesAssignment_1_8_1.eContents().get(0);
-		private final Assignment cCommandsAssignment_1_9 = (Assignment)cGroup_1.eContents().get(9);
-		private final RuleCall cCommandsCommandParserRuleCall_1_9_0 = (RuleCall)cCommandsAssignment_1_9.eContents().get(0);
-		private final Assignment cParametersAssignment_1_10 = (Assignment)cGroup_1.eContents().get(10);
-		private final RuleCall cParametersParameterParserRuleCall_1_10_0 = (RuleCall)cParametersAssignment_1_10.eContents().get(0);
+		private final Keyword cWorking_directoryKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Assignment cWorking_directoryAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
+		private final RuleCall cWorking_directoryEStringParserRuleCall_1_4_1_0 = (RuleCall)cWorking_directoryAssignment_1_4_1.eContents().get(0);
+		private final Assignment cEnvsAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final RuleCall cEnvsEnvParserRuleCall_1_5_0 = (RuleCall)cEnvsAssignment_1_5.eContents().get(0);
+		private final Assignment cContinue_on_errorAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
+		private final Keyword cContinue_on_errorContinue_on_errorKeyword_1_6_0 = (Keyword)cContinue_on_errorAssignment_1_6.eContents().get(0);
+		private final Group cGroup_1_7 = (Group)cGroup_1.eContents().get(7);
+		private final Keyword cTimeout_minutesKeyword_1_7_0 = (Keyword)cGroup_1_7.eContents().get(0);
+		private final Assignment cTimeout_minutesAssignment_1_7_1 = (Assignment)cGroup_1_7.eContents().get(1);
+		private final RuleCall cTimeout_minutesEShortParserRuleCall_1_7_1_0 = (RuleCall)cTimeout_minutesAssignment_1_7_1.eContents().get(0);
+		private final Assignment cCommandsAssignment_1_8 = (Assignment)cGroup_1.eContents().get(8);
+		private final RuleCall cCommandsCommandParserRuleCall_1_8_0 = (RuleCall)cCommandsAssignment_1_8.eContents().get(0);
+		private final Assignment cParametersAssignment_1_9 = (Assignment)cGroup_1.eContents().get(9);
+		private final RuleCall cParametersParameterParserRuleCall_1_9_0 = (RuleCall)cParametersAssignment_1_9.eContents().get(0);
+		private final Assignment cActionsAssignment_1_10 = (Assignment)cGroup_1.eContents().get(10);
+		private final RuleCall cActionsActionParserRuleCall_1_10_0 = (RuleCall)cActionsAssignment_1_10.eContents().get(0);
 		private final RuleCall cENDTerminalRuleCall_1_11 = (RuleCall)cGroup_1.eContents().get(11);
 		
 		//Step returns Step:
@@ -1962,14 +1956,14 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    (BEGIN
 		//        ('name' name=EString)?
 		//        (if=If)?
-		//        (actions+=Action)*
 		//        ('shell' shell=EString )?
 		//        ('working_directory' working_directory=EString)?
 		//        (envs+=Env)*
-		//        (continue_on_error?='continue-on-error')?
-		//        ('timeout-minutes' timeout_minutes=EShort )?
+		//        (continue_on_error?='continue_on_error')?
+		//        ('timeout_minutes' timeout_minutes=EShort )?
 		//        (commands+=Command)+
 		//        (parameters+=Parameter)*
+		//        (actions+=Action)*
 		//    END);
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1977,14 +1971,14 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//(BEGIN
 		//    ('name' name=EString)?
 		//    (if=If)?
-		//    (actions+=Action)*
 		//    ('shell' shell=EString )?
 		//    ('working_directory' working_directory=EString)?
 		//    (envs+=Env)*
-		//    (continue_on_error?='continue-on-error')?
-		//    ('timeout-minutes' timeout_minutes=EShort )?
+		//    (continue_on_error?='continue_on_error')?
+		//    ('timeout_minutes' timeout_minutes=EShort )?
 		//    (commands+=Command)+
 		//    (parameters+=Parameter)*
+		//    (actions+=Action)*
 		//END)
 		public Group getGroup() { return cGroup; }
 		
@@ -1994,14 +1988,14 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//(BEGIN
 		//    ('name' name=EString)?
 		//    (if=If)?
-		//    (actions+=Action)*
 		//    ('shell' shell=EString )?
 		//    ('working_directory' working_directory=EString)?
 		//    (envs+=Env)*
-		//    (continue_on_error?='continue-on-error')?
-		//    ('timeout-minutes' timeout_minutes=EShort )?
+		//    (continue_on_error?='continue_on_error')?
+		//    ('timeout_minutes' timeout_minutes=EShort )?
 		//    (commands+=Command)+
 		//    (parameters+=Parameter)*
+		//    (actions+=Action)*
 		//END)
 		public Group getGroup_1() { return cGroup_1; }
 		
@@ -2026,71 +2020,71 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//If
 		public RuleCall getIfIfParserRuleCall_1_2_0() { return cIfIfParserRuleCall_1_2_0; }
 		
-		//(actions+=Action)*
-		public Assignment getActionsAssignment_1_3() { return cActionsAssignment_1_3; }
-		
-		//Action
-		public RuleCall getActionsActionParserRuleCall_1_3_0() { return cActionsActionParserRuleCall_1_3_0; }
-		
 		//('shell' shell=EString )?
-		public Group getGroup_1_4() { return cGroup_1_4; }
+		public Group getGroup_1_3() { return cGroup_1_3; }
 		
 		//'shell'
-		public Keyword getShellKeyword_1_4_0() { return cShellKeyword_1_4_0; }
+		public Keyword getShellKeyword_1_3_0() { return cShellKeyword_1_3_0; }
 		
 		//shell=EString
-		public Assignment getShellAssignment_1_4_1() { return cShellAssignment_1_4_1; }
+		public Assignment getShellAssignment_1_3_1() { return cShellAssignment_1_3_1; }
 		
 		//EString
-		public RuleCall getShellEStringParserRuleCall_1_4_1_0() { return cShellEStringParserRuleCall_1_4_1_0; }
+		public RuleCall getShellEStringParserRuleCall_1_3_1_0() { return cShellEStringParserRuleCall_1_3_1_0; }
 		
 		//('working_directory' working_directory=EString)?
-		public Group getGroup_1_5() { return cGroup_1_5; }
+		public Group getGroup_1_4() { return cGroup_1_4; }
 		
 		//'working_directory'
-		public Keyword getWorking_directoryKeyword_1_5_0() { return cWorking_directoryKeyword_1_5_0; }
+		public Keyword getWorking_directoryKeyword_1_4_0() { return cWorking_directoryKeyword_1_4_0; }
 		
 		//working_directory=EString
-		public Assignment getWorking_directoryAssignment_1_5_1() { return cWorking_directoryAssignment_1_5_1; }
+		public Assignment getWorking_directoryAssignment_1_4_1() { return cWorking_directoryAssignment_1_4_1; }
 		
 		//EString
-		public RuleCall getWorking_directoryEStringParserRuleCall_1_5_1_0() { return cWorking_directoryEStringParserRuleCall_1_5_1_0; }
+		public RuleCall getWorking_directoryEStringParserRuleCall_1_4_1_0() { return cWorking_directoryEStringParserRuleCall_1_4_1_0; }
 		
 		//(envs+=Env)*
-		public Assignment getEnvsAssignment_1_6() { return cEnvsAssignment_1_6; }
+		public Assignment getEnvsAssignment_1_5() { return cEnvsAssignment_1_5; }
 		
 		//Env
-		public RuleCall getEnvsEnvParserRuleCall_1_6_0() { return cEnvsEnvParserRuleCall_1_6_0; }
+		public RuleCall getEnvsEnvParserRuleCall_1_5_0() { return cEnvsEnvParserRuleCall_1_5_0; }
 		
-		//(continue_on_error?='continue-on-error')?
-		public Assignment getContinue_on_errorAssignment_1_7() { return cContinue_on_errorAssignment_1_7; }
+		//(continue_on_error?='continue_on_error')?
+		public Assignment getContinue_on_errorAssignment_1_6() { return cContinue_on_errorAssignment_1_6; }
 		
-		//'continue-on-error'
-		public Keyword getContinue_on_errorContinueOnErrorKeyword_1_7_0() { return cContinue_on_errorContinueOnErrorKeyword_1_7_0; }
+		//'continue_on_error'
+		public Keyword getContinue_on_errorContinue_on_errorKeyword_1_6_0() { return cContinue_on_errorContinue_on_errorKeyword_1_6_0; }
 		
-		//('timeout-minutes' timeout_minutes=EShort )?
-		public Group getGroup_1_8() { return cGroup_1_8; }
+		//('timeout_minutes' timeout_minutes=EShort )?
+		public Group getGroup_1_7() { return cGroup_1_7; }
 		
-		//'timeout-minutes'
-		public Keyword getTimeoutMinutesKeyword_1_8_0() { return cTimeoutMinutesKeyword_1_8_0; }
+		//'timeout_minutes'
+		public Keyword getTimeout_minutesKeyword_1_7_0() { return cTimeout_minutesKeyword_1_7_0; }
 		
 		//timeout_minutes=EShort
-		public Assignment getTimeout_minutesAssignment_1_8_1() { return cTimeout_minutesAssignment_1_8_1; }
+		public Assignment getTimeout_minutesAssignment_1_7_1() { return cTimeout_minutesAssignment_1_7_1; }
 		
 		//EShort
-		public RuleCall getTimeout_minutesEShortParserRuleCall_1_8_1_0() { return cTimeout_minutesEShortParserRuleCall_1_8_1_0; }
+		public RuleCall getTimeout_minutesEShortParserRuleCall_1_7_1_0() { return cTimeout_minutesEShortParserRuleCall_1_7_1_0; }
 		
 		//(commands+=Command)+
-		public Assignment getCommandsAssignment_1_9() { return cCommandsAssignment_1_9; }
+		public Assignment getCommandsAssignment_1_8() { return cCommandsAssignment_1_8; }
 		
 		//Command
-		public RuleCall getCommandsCommandParserRuleCall_1_9_0() { return cCommandsCommandParserRuleCall_1_9_0; }
+		public RuleCall getCommandsCommandParserRuleCall_1_8_0() { return cCommandsCommandParserRuleCall_1_8_0; }
 		
 		//(parameters+=Parameter)*
-		public Assignment getParametersAssignment_1_10() { return cParametersAssignment_1_10; }
+		public Assignment getParametersAssignment_1_9() { return cParametersAssignment_1_9; }
 		
 		//Parameter
-		public RuleCall getParametersParameterParserRuleCall_1_10_0() { return cParametersParameterParserRuleCall_1_10_0; }
+		public RuleCall getParametersParameterParserRuleCall_1_9_0() { return cParametersParameterParserRuleCall_1_9_0; }
+		
+		//(actions+=Action)*
+		public Assignment getActionsAssignment_1_10() { return cActionsAssignment_1_10; }
+		
+		//Action
+		public RuleCall getActionsActionParserRuleCall_1_10_0() { return cActionsActionParserRuleCall_1_10_0; }
 		
 		//END
 		public RuleCall getENDTerminalRuleCall_1_11() { return cENDTerminalRuleCall_1_11; }
@@ -3487,7 +3481,7 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cBEGINTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
 		private final Keyword cUsesKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Assignment cUsesAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final Keyword cUsesActionsCacheRestoreV3Keyword_1_2_0 = (Keyword)cUsesAssignment_1_2.eContents().get(0);
+		private final Keyword cUsesActionsCacheRestoreV4Keyword_1_2_0 = (Keyword)cUsesAssignment_1_2.eContents().get(0);
 		private final Assignment cLookup_onlyAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
 		private final Keyword cLookup_onlyLookup_onlyKeyword_1_3_0 = (Keyword)cLookup_onlyAssignment_1_3.eContents().get(0);
 		private final Assignment cFail_on_cache_missAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
@@ -3521,7 +3515,7 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//RestoreCache returns RestoreCache:
 		//    'RestoreCache'
 		//    (BEGIN
-		//        'uses' uses="actions/cache/restore@v3"
+		//        'uses' uses="\"actions/cache/restore@v4\""
 		//        (lookup_only?='lookup_only' )?
 		//        (fail_on_cache_miss?='fail_on_cache_miss' )?
 		//        'key' key=EString
@@ -3535,7 +3529,7 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//'RestoreCache'
 		//(BEGIN
-		//    'uses' uses="actions/cache/restore@v3"
+		//    'uses' uses="\"actions/cache/restore@v4\""
 		//    (lookup_only?='lookup_only' )?
 		//    (fail_on_cache_miss?='fail_on_cache_miss' )?
 		//    'key' key=EString
@@ -3551,7 +3545,7 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		public Keyword getRestoreCacheKeyword_0() { return cRestoreCacheKeyword_0; }
 		
 		//(BEGIN
-		//    'uses' uses="actions/cache/restore@v3"
+		//    'uses' uses="\"actions/cache/restore@v4\""
 		//    (lookup_only?='lookup_only' )?
 		//    (fail_on_cache_miss?='fail_on_cache_miss' )?
 		//    'key' key=EString
@@ -3569,11 +3563,11 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'uses'
 		public Keyword getUsesKeyword_1_1() { return cUsesKeyword_1_1; }
 		
-		//uses="actions/cache/restore@v3"
+		//uses="\"actions/cache/restore@v4\""
 		public Assignment getUsesAssignment_1_2() { return cUsesAssignment_1_2; }
 		
-		//"actions/cache/restore@v3"
-		public Keyword getUsesActionsCacheRestoreV3Keyword_1_2_0() { return cUsesActionsCacheRestoreV3Keyword_1_2_0; }
+		//"\"actions/cache/restore@v4\""
+		public Keyword getUsesActionsCacheRestoreV4Keyword_1_2_0() { return cUsesActionsCacheRestoreV4Keyword_1_2_0; }
 		
 		//(lookup_only?='lookup_only' )?
 		public Assignment getLookup_onlyAssignment_1_3() { return cLookup_onlyAssignment_1_3; }
@@ -3670,7 +3664,7 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cBEGINTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
 		private final Keyword cUsesKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Assignment cUsesAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final Keyword cUsesActionsCacheSaveV3Keyword_1_2_0 = (Keyword)cUsesAssignment_1_2.eContents().get(0);
+		private final Keyword cUsesActionsCacheSaveV4Keyword_1_2_0 = (Keyword)cUsesAssignment_1_2.eContents().get(0);
 		private final Keyword cKeyKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		private final Assignment cKeyAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
 		private final RuleCall cKeyEStringParserRuleCall_1_4_0 = (RuleCall)cKeyAssignment_1_4.eContents().get(0);
@@ -3696,7 +3690,7 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//SaveCache returns SaveCache:
 		//    'SaveCache'
 		//    (BEGIN
-		//        'uses' uses="actions/cache/save@v3"
+		//        'uses' uses="\"actions/cache/save@v4\""
 		//        'key' key=EString
 		//        'paths' paths+=EString ( "," paths+=EString)*
 		//        ('upload_chunk_size' upload_chunk_size=EString )?
@@ -3708,7 +3702,7 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//'SaveCache'
 		//(BEGIN
-		//    'uses' uses="actions/cache/save@v3"
+		//    'uses' uses="\"actions/cache/save@v4\""
 		//    'key' key=EString
 		//    'paths' paths+=EString ( "," paths+=EString)*
 		//    ('upload_chunk_size' upload_chunk_size=EString )?
@@ -3722,7 +3716,7 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		public Keyword getSaveCacheKeyword_0() { return cSaveCacheKeyword_0; }
 		
 		//(BEGIN
-		//    'uses' uses="actions/cache/save@v3"
+		//    'uses' uses="\"actions/cache/save@v4\""
 		//    'key' key=EString
 		//    'paths' paths+=EString ( "," paths+=EString)*
 		//    ('upload_chunk_size' upload_chunk_size=EString )?
@@ -3738,11 +3732,11 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'uses'
 		public Keyword getUsesKeyword_1_1() { return cUsesKeyword_1_1; }
 		
-		//uses="actions/cache/save@v3"
+		//uses="\"actions/cache/save@v4\""
 		public Assignment getUsesAssignment_1_2() { return cUsesAssignment_1_2; }
 		
-		//"actions/cache/save@v3"
-		public Keyword getUsesActionsCacheSaveV3Keyword_1_2_0() { return cUsesActionsCacheSaveV3Keyword_1_2_0; }
+		//"\"actions/cache/save@v4\""
+		public Keyword getUsesActionsCacheSaveV4Keyword_1_2_0() { return cUsesActionsCacheSaveV4Keyword_1_2_0; }
 		
 		//'key'
 		public Keyword getKeyKeyword_1_3() { return cKeyKeyword_1_3; }
@@ -5634,9 +5628,8 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 
 	
 	//Pipeline returns Pipeline:
-	//    'Pipeline' NEWLINE
-	//    ('name' (name=EString) NEWLINE)?
-	//    ('run-name' run_name=EString NEWLINE)?
+	//    'Pipeline'
+	//    ((BEGIN'name' name=EString ('run-name' run_name=EString)? END))?
 	//    ((envs+=Env)+ NEWLINE?)?
 	//    ((permissions+=Permission)+ NEWLINE?)?
 	//    (defaultsetting=DefaultSetting NEWLINE?)?
@@ -5676,6 +5669,8 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    'Job'
 	//    (BEGIN
 	//        'name' name=EString
+	//        ('timeout_minutes' timeout_minutes=EInt )?
+	//        ('continue_on_error' continue_on_error=EString )?
 	//        (permissions+=Permission)*
 	//        (need=Need)?
 	//        (if=If)?
@@ -5685,8 +5680,6 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//        (outputs+=Output)*
 	//        (envs+=Env)*
 	//        (defaultsetting=DefaultSetting)?
-	//        ('timeout-minutes' timeout_minutes=EInt )?
-	//        ('continue-on-error' continue_on_error=EString )?
 	//        (container=Container)?
 	//        (services+=Service)*
 	//        (actions+=Action)*
@@ -6031,14 +6024,14 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    (BEGIN
 	//        ('name' name=EString)?
 	//        (if=If)?
-	//        (actions+=Action)*
 	//        ('shell' shell=EString )?
 	//        ('working_directory' working_directory=EString)?
 	//        (envs+=Env)*
-	//        (continue_on_error?='continue-on-error')?
-	//        ('timeout-minutes' timeout_minutes=EShort )?
+	//        (continue_on_error?='continue_on_error')?
+	//        ('timeout_minutes' timeout_minutes=EShort )?
 	//        (commands+=Command)+
 	//        (parameters+=Parameter)*
+	//        (actions+=Action)*
 	//    END);
 	public StepElements getStepAccess() {
 		return pStep;
@@ -6314,7 +6307,7 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//RestoreCache returns RestoreCache:
 	//    'RestoreCache'
 	//    (BEGIN
-	//        'uses' uses="actions/cache/restore@v3"
+	//        'uses' uses="\"actions/cache/restore@v4\""
 	//        (lookup_only?='lookup_only' )?
 	//        (fail_on_cache_miss?='fail_on_cache_miss' )?
 	//        'key' key=EString
@@ -6335,7 +6328,7 @@ public class GHAGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//SaveCache returns SaveCache:
 	//    'SaveCache'
 	//    (BEGIN
-	//        'uses' uses="actions/cache/save@v3"
+	//        'uses' uses="\"actions/cache/save@v4\""
 	//        'key' key=EString
 	//        'paths' paths+=EString ( "," paths+=EString)*
 	//        ('upload_chunk_size' upload_chunk_size=EString )?

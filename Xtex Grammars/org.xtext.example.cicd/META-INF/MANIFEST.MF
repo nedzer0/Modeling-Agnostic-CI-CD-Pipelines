@@ -12,7 +12,7 @@ Require-Bundle: CICD_metamodel,
  org.eclipse.equinox.common;bundle-version="3.16.0",
  org.eclipse.xtext.xbase.lib;bundle-version="2.34.0",
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
- CICD.tree.xtext;bundle-version="1.0.0"
+ org.eclipse.ocl.xtext.base.ui;bundle-version="1.17.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.xtext.example.cicd,
  org.xtext.example.cicd.formatting2,

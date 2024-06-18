@@ -74,19 +74,19 @@ rulePipeline returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getPipelineAccess().getPipelineKeyword_0());
 		}
-		this_NEWLINE_1=RULE_NEWLINE
-		{
-			newLeafNode(this_NEWLINE_1, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_1());
-		}
 		(
+			this_BEGIN_1=RULE_BEGIN
+			{
+				newLeafNode(this_BEGIN_1, grammarAccess.getPipelineAccess().getBEGINTerminalRuleCall_1_0());
+			}
 			otherlv_2=Name
 			{
-				newLeafNode(otherlv_2, grammarAccess.getPipelineAccess().getNameKeyword_2_0());
+				newLeafNode(otherlv_2, grammarAccess.getPipelineAccess().getNameKeyword_1_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getNameEStringParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getNameEStringParserRuleCall_1_2_0());
 					}
 					lv_name_3_0=ruleEString
 					{
@@ -102,47 +102,43 @@ rulePipeline returns [EObject current=null]
 					}
 				)
 			)
-			this_NEWLINE_4=RULE_NEWLINE
-			{
-				newLeafNode(this_NEWLINE_4, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_2());
-			}
-		)?
-		(
-			otherlv_5=RunName
-			{
-				newLeafNode(otherlv_5, grammarAccess.getPipelineAccess().getRunNameKeyword_3_0());
-			}
 			(
+				otherlv_4=RunName
+				{
+					newLeafNode(otherlv_4, grammarAccess.getPipelineAccess().getRunNameKeyword_1_3_0());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getRun_nameEStringParserRuleCall_3_1_0());
-					}
-					lv_run_name_6_0=ruleEString
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPipelineRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getPipelineAccess().getRun_nameEStringParserRuleCall_1_3_1_0());
 						}
-						set(
-							$current,
-							"run_name",
-							lv_run_name_6_0,
-							"org.xtext.example.gha.GHA.EString");
-						afterParserOrEnumRuleCall();
-					}
+						lv_run_name_5_0=ruleEString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getPipelineRule());
+							}
+							set(
+								$current,
+								"run_name",
+								lv_run_name_5_0,
+								"org.xtext.example.gha.GHA.EString");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
-			)
-			this_NEWLINE_7=RULE_NEWLINE
+			)?
+			this_END_6=RULE_END
 			{
-				newLeafNode(this_NEWLINE_7, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_3_2());
+				newLeafNode(this_END_6, grammarAccess.getPipelineAccess().getENDTerminalRuleCall_1_4());
 			}
 		)?
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getEnvsEnvParserRuleCall_4_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getEnvsEnvParserRuleCall_2_0_0());
 					}
-					lv_envs_8_0=ruleEnv
+					lv_envs_7_0=ruleEnv
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -150,16 +146,16 @@ rulePipeline returns [EObject current=null]
 						add(
 							$current,
 							"envs",
-							lv_envs_8_0,
+							lv_envs_7_0,
 							"org.xtext.example.gha.GHA.Env");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
 			(
-				this_NEWLINE_9=RULE_NEWLINE
+				this_NEWLINE_8=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_9, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_4_1());
+					newLeafNode(this_NEWLINE_8, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_2_1());
 				}
 			)?
 		)?
@@ -167,9 +163,9 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getPermissionsPermissionParserRuleCall_5_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getPermissionsPermissionParserRuleCall_3_0_0());
 					}
-					lv_permissions_10_0=rulePermission
+					lv_permissions_9_0=rulePermission
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -177,16 +173,16 @@ rulePipeline returns [EObject current=null]
 						add(
 							$current,
 							"permissions",
-							lv_permissions_10_0,
+							lv_permissions_9_0,
 							"org.xtext.example.gha.GHA.Permission");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
 			(
-				this_NEWLINE_11=RULE_NEWLINE
+				this_NEWLINE_10=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_11, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_5_1());
+					newLeafNode(this_NEWLINE_10, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_3_1());
 				}
 			)?
 		)?
@@ -194,9 +190,9 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getDefaultsettingDefaultSettingParserRuleCall_6_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getDefaultsettingDefaultSettingParserRuleCall_4_0_0());
 					}
-					lv_defaultsetting_12_0=ruleDefaultSetting
+					lv_defaultsetting_11_0=ruleDefaultSetting
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -204,16 +200,16 @@ rulePipeline returns [EObject current=null]
 						set(
 							$current,
 							"defaultsetting",
-							lv_defaultsetting_12_0,
+							lv_defaultsetting_11_0,
 							"org.xtext.example.gha.GHA.DefaultSetting");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				this_NEWLINE_13=RULE_NEWLINE
+				this_NEWLINE_12=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_13, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_6_1());
+					newLeafNode(this_NEWLINE_12, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_4_1());
 				}
 			)?
 		)?
@@ -221,9 +217,9 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getConcurrencyConcurrencyParserRuleCall_7_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getConcurrencyConcurrencyParserRuleCall_5_0_0());
 					}
-					lv_concurrency_14_0=ruleConcurrency
+					lv_concurrency_13_0=ruleConcurrency
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -231,16 +227,16 @@ rulePipeline returns [EObject current=null]
 						set(
 							$current,
 							"concurrency",
-							lv_concurrency_14_0,
+							lv_concurrency_13_0,
 							"org.xtext.example.gha.GHA.Concurrency");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				this_NEWLINE_15=RULE_NEWLINE
+				this_NEWLINE_14=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_15, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_7_1());
+					newLeafNode(this_NEWLINE_14, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_5_1());
 				}
 			)?
 		)?
@@ -248,9 +244,9 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getTriggersTriggerParserRuleCall_8_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getTriggersTriggerParserRuleCall_6_0_0());
 					}
-					lv_triggers_16_0=ruleTrigger
+					lv_triggers_15_0=ruleTrigger
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -258,16 +254,16 @@ rulePipeline returns [EObject current=null]
 						add(
 							$current,
 							"triggers",
-							lv_triggers_16_0,
+							lv_triggers_15_0,
 							"org.xtext.example.gha.GHA.Trigger");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
 			(
-				this_NEWLINE_17=RULE_NEWLINE
+				this_NEWLINE_16=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_17, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_8_1());
+					newLeafNode(this_NEWLINE_16, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_6_1());
 				}
 			)?
 		)?
@@ -275,9 +271,9 @@ rulePipeline returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPipelineAccess().getJobsJobParserRuleCall_9_0_0());
+						newCompositeNode(grammarAccess.getPipelineAccess().getJobsJobParserRuleCall_7_0_0());
 					}
-					lv_jobs_18_0=ruleJob
+					lv_jobs_17_0=ruleJob
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPipelineRule());
@@ -285,16 +281,16 @@ rulePipeline returns [EObject current=null]
 						add(
 							$current,
 							"jobs",
-							lv_jobs_18_0,
+							lv_jobs_17_0,
 							"org.xtext.example.gha.GHA.Job");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
 			(
-				this_NEWLINE_19=RULE_NEWLINE
+				this_NEWLINE_18=RULE_NEWLINE
 				{
-					newLeafNode(this_NEWLINE_19, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_9_1());
+					newLeafNode(this_NEWLINE_18, grammarAccess.getPipelineAccess().getNEWLINETerminalRuleCall_7_1());
 				}
 			)?
 		)
@@ -503,11 +499,61 @@ ruleJob returns [EObject current=null]
 				)
 			)
 			(
+				otherlv_4=Timeout_minutes
+				{
+					newLeafNode(otherlv_4, grammarAccess.getJobAccess().getTimeout_minutesKeyword_1_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getJobAccess().getTimeout_minutesEIntParserRuleCall_1_3_1_0());
+						}
+						lv_timeout_minutes_5_0=ruleEInt
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getJobRule());
+							}
+							set(
+								$current,
+								"timeout_minutes",
+								lv_timeout_minutes_5_0,
+								"org.xtext.example.gha.GHA.EInt");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)?
+			(
+				otherlv_6=Continue_on_error
+				{
+					newLeafNode(otherlv_6, grammarAccess.getJobAccess().getContinue_on_errorKeyword_1_4_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getJobAccess().getContinue_on_errorEStringParserRuleCall_1_4_1_0());
+						}
+						lv_continue_on_error_7_0=ruleEString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getJobRule());
+							}
+							set(
+								$current,
+								"continue_on_error",
+								lv_continue_on_error_7_0,
+								"org.xtext.example.gha.GHA.EString");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)?
+			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getPermissionsPermissionParserRuleCall_1_3_0());
+						newCompositeNode(grammarAccess.getJobAccess().getPermissionsPermissionParserRuleCall_1_5_0());
 					}
-					lv_permissions_4_0=rulePermission
+					lv_permissions_8_0=rulePermission
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -515,7 +561,7 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"permissions",
-							lv_permissions_4_0,
+							lv_permissions_8_0,
 							"org.xtext.example.gha.GHA.Permission");
 						afterParserOrEnumRuleCall();
 					}
@@ -524,9 +570,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getNeedNeedParserRuleCall_1_4_0());
+						newCompositeNode(grammarAccess.getJobAccess().getNeedNeedParserRuleCall_1_6_0());
 					}
-					lv_need_5_0=ruleNeed
+					lv_need_9_0=ruleNeed
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -534,7 +580,7 @@ ruleJob returns [EObject current=null]
 						set(
 							$current,
 							"need",
-							lv_need_5_0,
+							lv_need_9_0,
 							"org.xtext.example.gha.GHA.Need");
 						afterParserOrEnumRuleCall();
 					}
@@ -543,9 +589,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getIfIfParserRuleCall_1_5_0());
+						newCompositeNode(grammarAccess.getJobAccess().getIfIfParserRuleCall_1_7_0());
 					}
-					lv_if_6_0=ruleIf
+					lv_if_10_0=ruleIf
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -553,7 +599,7 @@ ruleJob returns [EObject current=null]
 						set(
 							$current,
 							"if",
-							lv_if_6_0,
+							lv_if_10_0,
 							"org.xtext.example.gha.GHA.If");
 						afterParserOrEnumRuleCall();
 					}
@@ -562,9 +608,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getRunnerRuns_OnParserRuleCall_1_6_0());
+						newCompositeNode(grammarAccess.getJobAccess().getRunnerRuns_OnParserRuleCall_1_8_0());
 					}
-					lv_runner_7_0=ruleRuns_On
+					lv_runner_11_0=ruleRuns_On
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -572,7 +618,7 @@ ruleJob returns [EObject current=null]
 						set(
 							$current,
 							"runner",
-							lv_runner_7_0,
+							lv_runner_11_0,
 							"org.xtext.example.gha.GHA.Runs_On");
 						afterParserOrEnumRuleCall();
 					}
@@ -581,9 +627,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getEnvironmentEnvironmentParserRuleCall_1_7_0());
+						newCompositeNode(grammarAccess.getJobAccess().getEnvironmentEnvironmentParserRuleCall_1_9_0());
 					}
-					lv_environment_8_0=ruleEnvironment
+					lv_environment_12_0=ruleEnvironment
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -591,7 +637,7 @@ ruleJob returns [EObject current=null]
 						set(
 							$current,
 							"environment",
-							lv_environment_8_0,
+							lv_environment_12_0,
 							"org.xtext.example.gha.GHA.Environment");
 						afterParserOrEnumRuleCall();
 					}
@@ -600,9 +646,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getConcurrencyConcurrencyParserRuleCall_1_8_0());
+						newCompositeNode(grammarAccess.getJobAccess().getConcurrencyConcurrencyParserRuleCall_1_10_0());
 					}
-					lv_concurrency_9_0=ruleConcurrency
+					lv_concurrency_13_0=ruleConcurrency
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -610,7 +656,7 @@ ruleJob returns [EObject current=null]
 						set(
 							$current,
 							"concurrency",
-							lv_concurrency_9_0,
+							lv_concurrency_13_0,
 							"org.xtext.example.gha.GHA.Concurrency");
 						afterParserOrEnumRuleCall();
 					}
@@ -619,9 +665,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getOutputsOutputParserRuleCall_1_9_0());
+						newCompositeNode(grammarAccess.getJobAccess().getOutputsOutputParserRuleCall_1_11_0());
 					}
-					lv_outputs_10_0=ruleOutput
+					lv_outputs_14_0=ruleOutput
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -629,7 +675,7 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"outputs",
-							lv_outputs_10_0,
+							lv_outputs_14_0,
 							"org.xtext.example.gha.GHA.Output");
 						afterParserOrEnumRuleCall();
 					}
@@ -638,9 +684,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getEnvsEnvParserRuleCall_1_10_0());
+						newCompositeNode(grammarAccess.getJobAccess().getEnvsEnvParserRuleCall_1_12_0());
 					}
-					lv_envs_11_0=ruleEnv
+					lv_envs_15_0=ruleEnv
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -648,7 +694,7 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"envs",
-							lv_envs_11_0,
+							lv_envs_15_0,
 							"org.xtext.example.gha.GHA.Env");
 						afterParserOrEnumRuleCall();
 					}
@@ -657,9 +703,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getDefaultsettingDefaultSettingParserRuleCall_1_11_0());
+						newCompositeNode(grammarAccess.getJobAccess().getDefaultsettingDefaultSettingParserRuleCall_1_13_0());
 					}
-					lv_defaultsetting_12_0=ruleDefaultSetting
+					lv_defaultsetting_16_0=ruleDefaultSetting
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -667,60 +713,10 @@ ruleJob returns [EObject current=null]
 						set(
 							$current,
 							"defaultsetting",
-							lv_defaultsetting_12_0,
+							lv_defaultsetting_16_0,
 							"org.xtext.example.gha.GHA.DefaultSetting");
 						afterParserOrEnumRuleCall();
 					}
-				)
-			)?
-			(
-				otherlv_13=TimeoutMinutes
-				{
-					newLeafNode(otherlv_13, grammarAccess.getJobAccess().getTimeoutMinutesKeyword_1_12_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getJobAccess().getTimeout_minutesEIntParserRuleCall_1_12_1_0());
-						}
-						lv_timeout_minutes_14_0=ruleEInt
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getJobRule());
-							}
-							set(
-								$current,
-								"timeout_minutes",
-								lv_timeout_minutes_14_0,
-								"org.xtext.example.gha.GHA.EInt");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			(
-				otherlv_15=ContinueOnError
-				{
-					newLeafNode(otherlv_15, grammarAccess.getJobAccess().getContinueOnErrorKeyword_1_13_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getJobAccess().getContinue_on_errorEStringParserRuleCall_1_13_1_0());
-						}
-						lv_continue_on_error_16_0=ruleEString
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getJobRule());
-							}
-							set(
-								$current,
-								"continue_on_error",
-								lv_continue_on_error_16_0,
-								"org.xtext.example.gha.GHA.EString");
-							afterParserOrEnumRuleCall();
-						}
-					)
 				)
 			)?
 			(
@@ -2699,35 +2695,16 @@ ruleStep returns [EObject current=null]
 				)
 			)?
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getStepAccess().getActionsActionParserRuleCall_1_3_0());
-					}
-					lv_actions_5_0=ruleAction
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getStepRule());
-						}
-						add(
-							$current,
-							"actions",
-							lv_actions_5_0,
-							"org.xtext.example.gha.GHA.Action");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)*
-			(
-				otherlv_6=Shell
+				otherlv_5=Shell
 				{
-					newLeafNode(otherlv_6, grammarAccess.getStepAccess().getShellKeyword_1_4_0());
+					newLeafNode(otherlv_5, grammarAccess.getStepAccess().getShellKeyword_1_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getStepAccess().getShellEStringParserRuleCall_1_4_1_0());
+							newCompositeNode(grammarAccess.getStepAccess().getShellEStringParserRuleCall_1_3_1_0());
 						}
-						lv_shell_7_0=ruleEString
+						lv_shell_6_0=ruleEString
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getStepRule());
@@ -2735,7 +2712,7 @@ ruleStep returns [EObject current=null]
 							set(
 								$current,
 								"shell",
-								lv_shell_7_0,
+								lv_shell_6_0,
 								"org.xtext.example.gha.GHA.EString");
 							afterParserOrEnumRuleCall();
 						}
@@ -2743,16 +2720,16 @@ ruleStep returns [EObject current=null]
 				)
 			)?
 			(
-				otherlv_8=Working_directory
+				otherlv_7=Working_directory
 				{
-					newLeafNode(otherlv_8, grammarAccess.getStepAccess().getWorking_directoryKeyword_1_5_0());
+					newLeafNode(otherlv_7, grammarAccess.getStepAccess().getWorking_directoryKeyword_1_4_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getStepAccess().getWorking_directoryEStringParserRuleCall_1_5_1_0());
+							newCompositeNode(grammarAccess.getStepAccess().getWorking_directoryEStringParserRuleCall_1_4_1_0());
 						}
-						lv_working_directory_9_0=ruleEString
+						lv_working_directory_8_0=ruleEString
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getStepRule());
@@ -2760,7 +2737,7 @@ ruleStep returns [EObject current=null]
 							set(
 								$current,
 								"working_directory",
-								lv_working_directory_9_0,
+								lv_working_directory_8_0,
 								"org.xtext.example.gha.GHA.EString");
 							afterParserOrEnumRuleCall();
 						}
@@ -2770,9 +2747,9 @@ ruleStep returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getStepAccess().getEnvsEnvParserRuleCall_1_6_0());
+						newCompositeNode(grammarAccess.getStepAccess().getEnvsEnvParserRuleCall_1_5_0());
 					}
-					lv_envs_10_0=ruleEnv
+					lv_envs_9_0=ruleEnv
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getStepRule());
@@ -2780,7 +2757,7 @@ ruleStep returns [EObject current=null]
 						add(
 							$current,
 							"envs",
-							lv_envs_10_0,
+							lv_envs_9_0,
 							"org.xtext.example.gha.GHA.Env");
 						afterParserOrEnumRuleCall();
 					}
@@ -2788,29 +2765,29 @@ ruleStep returns [EObject current=null]
 			)*
 			(
 				(
-					lv_continue_on_error_11_0=ContinueOnError
+					lv_continue_on_error_10_0=Continue_on_error
 					{
-						newLeafNode(lv_continue_on_error_11_0, grammarAccess.getStepAccess().getContinue_on_errorContinueOnErrorKeyword_1_7_0());
+						newLeafNode(lv_continue_on_error_10_0, grammarAccess.getStepAccess().getContinue_on_errorContinue_on_errorKeyword_1_6_0());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getStepRule());
 						}
-						setWithLastConsumed($current, "continue_on_error", lv_continue_on_error_11_0 != null, "continue-on-error");
+						setWithLastConsumed($current, "continue_on_error", lv_continue_on_error_10_0 != null, "continue_on_error");
 					}
 				)
 			)?
 			(
-				otherlv_12=TimeoutMinutes
+				otherlv_11=Timeout_minutes
 				{
-					newLeafNode(otherlv_12, grammarAccess.getStepAccess().getTimeoutMinutesKeyword_1_8_0());
+					newLeafNode(otherlv_11, grammarAccess.getStepAccess().getTimeout_minutesKeyword_1_7_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getStepAccess().getTimeout_minutesEShortParserRuleCall_1_8_1_0());
+							newCompositeNode(grammarAccess.getStepAccess().getTimeout_minutesEShortParserRuleCall_1_7_1_0());
 						}
-						lv_timeout_minutes_13_0=ruleEShort
+						lv_timeout_minutes_12_0=ruleEShort
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getStepRule());
@@ -2818,7 +2795,7 @@ ruleStep returns [EObject current=null]
 							set(
 								$current,
 								"timeout_minutes",
-								lv_timeout_minutes_13_0,
+								lv_timeout_minutes_12_0,
 								"org.xtext.example.gha.GHA.EShort");
 							afterParserOrEnumRuleCall();
 						}
@@ -2828,9 +2805,9 @@ ruleStep returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getStepAccess().getCommandsCommandParserRuleCall_1_9_0());
+						newCompositeNode(grammarAccess.getStepAccess().getCommandsCommandParserRuleCall_1_8_0());
 					}
-					lv_commands_14_0=ruleCommand
+					lv_commands_13_0=ruleCommand
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getStepRule());
@@ -2838,7 +2815,7 @@ ruleStep returns [EObject current=null]
 						add(
 							$current,
 							"commands",
-							lv_commands_14_0,
+							lv_commands_13_0,
 							"org.xtext.example.gha.GHA.Command");
 						afterParserOrEnumRuleCall();
 					}
@@ -2847,9 +2824,9 @@ ruleStep returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getStepAccess().getParametersParameterParserRuleCall_1_10_0());
+						newCompositeNode(grammarAccess.getStepAccess().getParametersParameterParserRuleCall_1_9_0());
 					}
-					lv_parameters_15_0=ruleParameter
+					lv_parameters_14_0=ruleParameter
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getStepRule());
@@ -2857,8 +2834,27 @@ ruleStep returns [EObject current=null]
 						add(
 							$current,
 							"parameters",
-							lv_parameters_15_0,
+							lv_parameters_14_0,
 							"org.xtext.example.gha.GHA.Parameter");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getStepAccess().getActionsActionParserRuleCall_1_10_0());
+					}
+					lv_actions_15_0=ruleAction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStepRule());
+						}
+						add(
+							$current,
+							"actions",
+							lv_actions_15_0,
+							"org.xtext.example.gha.GHA.Action");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -4744,15 +4740,15 @@ ruleRestoreCache returns [EObject current=null]
 			}
 			(
 				(
-					lv_uses_3_0=ActionsCacheRestoreV3
+					lv_uses_3_0=ActionsCacheRestoreV4
 					{
-						newLeafNode(lv_uses_3_0, grammarAccess.getRestoreCacheAccess().getUsesActionsCacheRestoreV3Keyword_1_2_0());
+						newLeafNode(lv_uses_3_0, grammarAccess.getRestoreCacheAccess().getUsesActionsCacheRestoreV4Keyword_1_2_0());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getRestoreCacheRule());
 						}
-						setWithLastConsumed($current, "uses", lv_uses_3_0, "actions/cache/restore@v3");
+						setWithLastConsumed($current, "uses", lv_uses_3_0, "\"actions/cache/restore@v4\"");
 					}
 				)
 			)
@@ -5001,15 +4997,15 @@ ruleSaveCache returns [EObject current=null]
 			}
 			(
 				(
-					lv_uses_3_0=ActionsCacheSaveV3
+					lv_uses_3_0=ActionsCacheSaveV4
 					{
-						newLeafNode(lv_uses_3_0, grammarAccess.getSaveCacheAccess().getUsesActionsCacheSaveV3Keyword_1_2_0());
+						newLeafNode(lv_uses_3_0, grammarAccess.getSaveCacheAccess().getUsesActionsCacheSaveV4Keyword_1_2_0());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getSaveCacheRule());
 						}
-						setWithLastConsumed($current, "uses", lv_uses_3_0, "actions/cache/save@v3");
+						setWithLastConsumed($current, "uses", lv_uses_3_0, "\"actions/cache/save@v4\"");
 					}
 				)
 			)

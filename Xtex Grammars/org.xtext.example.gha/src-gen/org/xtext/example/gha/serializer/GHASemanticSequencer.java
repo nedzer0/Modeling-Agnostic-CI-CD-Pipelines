@@ -494,6 +494,8 @@ public class GHASemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
+	 *         timeout_minutes=EInt? 
+	 *         continue_on_error=EString? 
 	 *         permissions+=Permission* 
 	 *         need=Need? 
 	 *         if=If? 
@@ -503,8 +505,6 @@ public class GHASemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         outputs+=Output* 
 	 *         envs+=Env* 
 	 *         defaultsetting=DefaultSetting? 
-	 *         timeout_minutes=EInt? 
-	 *         continue_on_error=EString? 
 	 *         container=Container? 
 	 *         services+=Service* 
 	 *         actions+=Action* 
@@ -616,8 +616,7 @@ public class GHASemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=EString? 
-	 *         run_name=EString? 
+	 *         (name=EString run_name=EString?)? 
 	 *         envs+=Env* 
 	 *         permissions+=Permission* 
 	 *         defaultsetting=DefaultSetting? 
@@ -685,7 +684,7 @@ public class GHASemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         uses='actions/cache/restore@v3' 
+	 *         uses='"actions/cache/restore@v4"' 
 	 *         lookup_only?='lookup_only'? 
 	 *         fail_on_cache_miss?='fail_on_cache_miss'? 
 	 *         key=EString 
@@ -725,7 +724,7 @@ public class GHASemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         uses='actions/cache/save@v3' 
+	 *         uses='"actions/cache/save@v4"' 
 	 *         key=EString 
 	 *         paths+=EString 
 	 *         paths+=EString* 
@@ -823,14 +822,14 @@ public class GHASemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=EString? 
 	 *         if=If? 
-	 *         actions+=Action* 
 	 *         shell=EString? 
 	 *         working_directory=EString? 
 	 *         envs+=Env* 
-	 *         continue_on_error?='continue-on-error'? 
+	 *         continue_on_error?='continue_on_error'? 
 	 *         timeout_minutes=EShort? 
 	 *         commands+=Command+ 
-	 *         parameters+=Parameter*
+	 *         parameters+=Parameter* 
+	 *         actions+=Action*
 	 *     )
 	 * </pre>
 	 */

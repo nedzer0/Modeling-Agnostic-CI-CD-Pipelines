@@ -28,43 +28,39 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	public class PipelineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.Pipeline");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Keyword cPipelineKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Keyword cPipelineKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cSetupAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final Keyword cSetupSetupKeyword_1_0_0 = (Keyword)cSetupAssignment_1_0.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final RuleCall cBEGINTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cSetupAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Keyword cSetupSetupKeyword_1_1_0 = (Keyword)cSetupAssignment_1_1.eContents().get(0);
+		private final Keyword cVersionKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cVersionAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cVersionEStringParserRuleCall_1_3_0 = (RuleCall)cVersionAssignment_1_3.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_1_4 = (RuleCall)cGroup_1.eContents().get(4);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cVersionKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cVersionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cVersionEStringParserRuleCall_2_1_0 = (RuleCall)cVersionAssignment_2_1.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
+		private final Assignment cOrbsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cOrbsOrbParserRuleCall_2_0_0 = (RuleCall)cOrbsAssignment_2_0.eContents().get(0);
+		private final RuleCall cNEWLINETerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Assignment cOrbsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final RuleCall cOrbsOrbParserRuleCall_3_0_0 = (RuleCall)cOrbsAssignment_3_0.eContents().get(0);
+		private final Assignment cCommandsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cCommandsCommandParserRuleCall_3_0_0 = (RuleCall)cCommandsAssignment_3_0.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Assignment cCommandsAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final RuleCall cCommandsCommandParserRuleCall_4_0_0 = (RuleCall)cCommandsAssignment_4_0.eContents().get(0);
+		private final Assignment cExecutorsAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cExecutorsExecutorParserRuleCall_4_0_0 = (RuleCall)cExecutorsAssignment_4_0.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Assignment cExecutorsAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
-		private final RuleCall cExecutorsExecutorParserRuleCall_5_0_0 = (RuleCall)cExecutorsAssignment_5_0.eContents().get(0);
+		private final Assignment cJobsAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final RuleCall cJobsJobParserRuleCall_5_0_0 = (RuleCall)cJobsAssignment_5_0.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Assignment cJobsAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
-		private final RuleCall cJobsJobParserRuleCall_6_0_0 = (RuleCall)cJobsAssignment_6_0.eContents().get(0);
+		private final Assignment cWorkflowsAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
+		private final RuleCall cWorkflowsWorkflowParserRuleCall_6_0_0 = (RuleCall)cWorkflowsAssignment_6_0.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Assignment cWorkflowsAssignment_7_0 = (Assignment)cGroup_7.eContents().get(0);
-		private final RuleCall cWorkflowsWorkflowParserRuleCall_7_0_0 = (RuleCall)cWorkflowsAssignment_7_0.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_7_1 = (RuleCall)cGroup_7.eContents().get(1);
 		
 		//Pipeline returns Pipeline:
-		//    ('Pipeline' NEWLINE)
-		//    ((setup?='setup') NEWLINE)?
-		//    ('version' version=EString NEWLINE)
+		//    'Pipeline'
+		//    ((BEGIN (setup?='setup')? 'version' version=EString END))
 		//    ((orbs+=Orb)+ NEWLINE?)?
 		//    ((commands+=Command)+ NEWLINE?)?
 		//    ((executors+=Executor)+ NEWLINE?)?
@@ -73,9 +69,8 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('Pipeline' NEWLINE)
-		//((setup?='setup') NEWLINE)?
-		//('version' version=EString NEWLINE)
+		//'Pipeline'
+		//((BEGIN (setup?='setup')? 'version' version=EString END))
 		//((orbs+=Orb)+ NEWLINE?)?
 		//((commands+=Command)+ NEWLINE?)?
 		//((executors+=Executor)+ NEWLINE?)?
@@ -83,101 +78,92 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//((workflows+=Workflow)+ NEWLINE?)?
 		public Group getGroup() { return cGroup; }
 		
-		//('Pipeline' NEWLINE)
-		public Group getGroup_0() { return cGroup_0; }
-		
 		//'Pipeline'
-		public Keyword getPipelineKeyword_0_0() { return cPipelineKeyword_0_0; }
+		public Keyword getPipelineKeyword_0() { return cPipelineKeyword_0; }
 		
-		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_0_1() { return cNEWLINETerminalRuleCall_0_1; }
-		
-		//((setup?='setup') NEWLINE)?
+		//((BEGIN (setup?='setup')? 'version' version=EString END))
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//(setup?='setup')
-		public Assignment getSetupAssignment_1_0() { return cSetupAssignment_1_0; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1_0() { return cBEGINTerminalRuleCall_1_0; }
+		
+		//(setup?='setup')?
+		public Assignment getSetupAssignment_1_1() { return cSetupAssignment_1_1; }
 		
 		//'setup'
-		public Keyword getSetupSetupKeyword_1_0_0() { return cSetupSetupKeyword_1_0_0; }
-		
-		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_1_1() { return cNEWLINETerminalRuleCall_1_1; }
-		
-		//('version' version=EString NEWLINE)
-		public Group getGroup_2() { return cGroup_2; }
+		public Keyword getSetupSetupKeyword_1_1_0() { return cSetupSetupKeyword_1_1_0; }
 		
 		//'version'
-		public Keyword getVersionKeyword_2_0() { return cVersionKeyword_2_0; }
+		public Keyword getVersionKeyword_1_2() { return cVersionKeyword_1_2; }
 		
 		//version=EString
-		public Assignment getVersionAssignment_2_1() { return cVersionAssignment_2_1; }
+		public Assignment getVersionAssignment_1_3() { return cVersionAssignment_1_3; }
 		
 		//EString
-		public RuleCall getVersionEStringParserRuleCall_2_1_0() { return cVersionEStringParserRuleCall_2_1_0; }
+		public RuleCall getVersionEStringParserRuleCall_1_3_0() { return cVersionEStringParserRuleCall_1_3_0; }
 		
-		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_2_2() { return cNEWLINETerminalRuleCall_2_2; }
+		//END
+		public RuleCall getENDTerminalRuleCall_1_4() { return cENDTerminalRuleCall_1_4; }
 		
 		//((orbs+=Orb)+ NEWLINE?)?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//(orbs+=Orb)+
-		public Assignment getOrbsAssignment_3_0() { return cOrbsAssignment_3_0; }
+		public Assignment getOrbsAssignment_2_0() { return cOrbsAssignment_2_0; }
 		
 		//Orb
-		public RuleCall getOrbsOrbParserRuleCall_3_0_0() { return cOrbsOrbParserRuleCall_3_0_0; }
+		public RuleCall getOrbsOrbParserRuleCall_2_0_0() { return cOrbsOrbParserRuleCall_2_0_0; }
+		
+		//NEWLINE?
+		public RuleCall getNEWLINETerminalRuleCall_2_1() { return cNEWLINETerminalRuleCall_2_1; }
+		
+		//((commands+=Command)+ NEWLINE?)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//(commands+=Command)+
+		public Assignment getCommandsAssignment_3_0() { return cCommandsAssignment_3_0; }
+		
+		//Command
+		public RuleCall getCommandsCommandParserRuleCall_3_0_0() { return cCommandsCommandParserRuleCall_3_0_0; }
 		
 		//NEWLINE?
 		public RuleCall getNEWLINETerminalRuleCall_3_1() { return cNEWLINETerminalRuleCall_3_1; }
 		
-		//((commands+=Command)+ NEWLINE?)?
+		//((executors+=Executor)+ NEWLINE?)?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//(commands+=Command)+
-		public Assignment getCommandsAssignment_4_0() { return cCommandsAssignment_4_0; }
+		//(executors+=Executor)+
+		public Assignment getExecutorsAssignment_4_0() { return cExecutorsAssignment_4_0; }
 		
-		//Command
-		public RuleCall getCommandsCommandParserRuleCall_4_0_0() { return cCommandsCommandParserRuleCall_4_0_0; }
+		//Executor
+		public RuleCall getExecutorsExecutorParserRuleCall_4_0_0() { return cExecutorsExecutorParserRuleCall_4_0_0; }
 		
 		//NEWLINE?
 		public RuleCall getNEWLINETerminalRuleCall_4_1() { return cNEWLINETerminalRuleCall_4_1; }
 		
-		//((executors+=Executor)+ NEWLINE?)?
+		//((jobs+=Job)+ NEWLINE?)
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//(executors+=Executor)+
-		public Assignment getExecutorsAssignment_5_0() { return cExecutorsAssignment_5_0; }
+		//(jobs+=Job)+
+		public Assignment getJobsAssignment_5_0() { return cJobsAssignment_5_0; }
 		
-		//Executor
-		public RuleCall getExecutorsExecutorParserRuleCall_5_0_0() { return cExecutorsExecutorParserRuleCall_5_0_0; }
+		//Job
+		public RuleCall getJobsJobParserRuleCall_5_0_0() { return cJobsJobParserRuleCall_5_0_0; }
 		
 		//NEWLINE?
 		public RuleCall getNEWLINETerminalRuleCall_5_1() { return cNEWLINETerminalRuleCall_5_1; }
 		
-		//((jobs+=Job)+ NEWLINE?)
+		//((workflows+=Workflow)+ NEWLINE?)?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//(jobs+=Job)+
-		public Assignment getJobsAssignment_6_0() { return cJobsAssignment_6_0; }
+		//(workflows+=Workflow)+
+		public Assignment getWorkflowsAssignment_6_0() { return cWorkflowsAssignment_6_0; }
 		
-		//Job
-		public RuleCall getJobsJobParserRuleCall_6_0_0() { return cJobsJobParserRuleCall_6_0_0; }
+		//Workflow
+		public RuleCall getWorkflowsWorkflowParserRuleCall_6_0_0() { return cWorkflowsWorkflowParserRuleCall_6_0_0; }
 		
 		//NEWLINE?
 		public RuleCall getNEWLINETerminalRuleCall_6_1() { return cNEWLINETerminalRuleCall_6_1; }
-		
-		//((workflows+=Workflow)+ NEWLINE?)?
-		public Group getGroup_7() { return cGroup_7; }
-		
-		//(workflows+=Workflow)+
-		public Assignment getWorkflowsAssignment_7_0() { return cWorkflowsAssignment_7_0; }
-		
-		//Workflow
-		public RuleCall getWorkflowsWorkflowParserRuleCall_7_0_0() { return cWorkflowsWorkflowParserRuleCall_7_0_0; }
-		
-		//NEWLINE?
-		public RuleCall getNEWLINETerminalRuleCall_7_1() { return cNEWLINETerminalRuleCall_7_1; }
 	}
 	public class ExecutorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.Executor");
@@ -3594,9 +3580,8 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 
 	
 	//Pipeline returns Pipeline:
-	//    ('Pipeline' NEWLINE)
-	//    ((setup?='setup') NEWLINE)?
-	//    ('version' version=EString NEWLINE)
+	//    'Pipeline'
+	//    ((BEGIN (setup?='setup')? 'version' version=EString END))
 	//    ((orbs+=Orb)+ NEWLINE?)?
 	//    ((commands+=Command)+ NEWLINE?)?
 	//    ((executors+=Executor)+ NEWLINE?)?
