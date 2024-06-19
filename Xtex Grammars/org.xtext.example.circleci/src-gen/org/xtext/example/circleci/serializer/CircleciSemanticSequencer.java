@@ -291,7 +291,7 @@ public class CircleciSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=EString 
+	 *         name=EString? 
 	 *         image=EString 
 	 *         resourceClass=DOCKER_RESOURCE_TYPE 
 	 *         shell=EString? 
@@ -384,7 +384,7 @@ public class CircleciSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=EString 
+	 *         name=EString? 
 	 *         xcode=EString 
 	 *         resourceClass=MACOS_RESOURCE_TYPE 
 	 *         shell=EString? 
@@ -406,7 +406,7 @@ public class CircleciSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=EString 
+	 *         name=EString? 
 	 *         image=EString 
 	 *         docker_layer_caching?='docker_layer_caching'? 
 	 *         resourceClass=MACHINE_RESOURCE_TYPE 
@@ -550,7 +550,7 @@ public class CircleciSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     RestoreCache returns RestoreCache
 	 *
 	 * Constraint:
-	 *     (name=EString? key=EString keys+=EString keys+=EString*)
+	 *     (name=EString? key=EString? (keys+=EString keys+=EString*)?)
 	 * </pre>
 	 */
 	protected void sequence_RestoreCache(ISerializationContext context, RestoreCache semanticObject) {

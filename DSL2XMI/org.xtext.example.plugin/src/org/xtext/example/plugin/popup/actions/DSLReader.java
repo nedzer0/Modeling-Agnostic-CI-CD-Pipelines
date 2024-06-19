@@ -21,7 +21,7 @@ public class DSLReader {
         
         EcoreUtil.resolveAll(resourceSet);
 
-        URI xmiUri = URI.createURI(uri.trimFileExtension().toString() + ".xmi");
+        URI xmiUri = URI.createURI(uri.trimFileExtension().toString() + "Final.xmi");
 
         Resource xmiResource = resourceSet.createResource(xmiUri);
         xmiResource.getContents().addAll(resource.getContents());

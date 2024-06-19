@@ -408,7 +408,7 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
 	        }
 	    });
 	}
-	
+
 	@Fix(CircleciValidator.INVALID_EXECUTOR_JOB_ERRORCODE)
 	public void fixJobExecutor(Issue issue, IssueResolutionAcceptor acceptor) {
 	    acceptor.accept(issue, "Reuse global Executor", "Reuse global executor", null, new IModification() {
@@ -419,20 +419,20 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 Integer offset = issue.getOffset();
 
                 Collections.shuffle(executorsNames);
-                String execName = executorsNames.stream()
-                                            .findFirst()
-                                            .orElse(null);
+                String execName = executorsNames.stream().findFirst().orElse(null);
                 
                 if (execName != null) {
                 	int lineStart = getLineStart(documentContent, offset);
 
-                    if (lineStart != -1) {
-                        int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+                	if (lineStart != -1) {
+                        int nameLineEnd = findLineEnd(documentContent, lineStart, "name");
+                        int parallelismLineEnd = findLineEnd(documentContent, lineStart, "parallelism");
 
-                        if (nameLineEnd != -1) {
-                        	
-                            String newLine = "    reuseExecutor " + execName;
-                            xtextDocument.replace(nameLineEnd, 0, newLine);
+                        int insertPosition = (parallelismLineEnd != -1) ? parallelismLineEnd : nameLineEnd;
+
+                        if (insertPosition != -1) {
+                            String newLine = "\treuseExecutor " + execName + "\n";
+                            xtextDocument.replace(insertPosition, 0, newLine);
                         }
                     }
                 }
@@ -444,19 +444,19 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
 	        }
 	    });
 	}
-
-	//caso se de uma linha apos name -> lines[i].trim() da: name "Build" Environment
-	private int findNameLineEnd(String documentContent, int jobLineStart) {
+	
+	private int findLineEnd(String documentContent, int jobLineStart, String keyword) {
 	    String[] lines = documentContent.substring(jobLineStart).split(System.lineSeparator());
 	    for (int i = 0; i < lines.length; i++) {
-	        if (lines[i].trim().startsWith("name ")) {
+	        if (lines[i].trim().startsWith(keyword)) {
 	            return jobLineStart + lines[i].length() + System.lineSeparator().length();
 	        }
 	        jobLineStart += lines[i].length() + System.lineSeparator().length();
 	    }
 	    return -1;
 	}
-	
+
+
 	@Fix(CircleciValidator.INVALID_EXECUTOR_JOB_ERRORCODE)
 	public void fixJobExecutor2(Issue issue, IssueResolutionAcceptor acceptor) {
 	    acceptor.accept(issue, "Define a Job Machine Executor", "Define a Job Machine Executor", null, new IModification() {
@@ -468,12 +468,14 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 int lineStart = getLineStart(documentContent, offset);
 
                 if (lineStart != -1) {
-                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+                	int nameLineEnd = findLineEnd(documentContent, lineStart, "name");
+                    int parallelismLineEnd = findLineEnd(documentContent, lineStart, "parallelism");
 
-                    if (nameLineEnd != -1) {
-                    	int randomInt = (int) (Math.random() * 100);
-                    	String newExec = String.format("    Machine\n\t\tname \"%s\"\n\t\timage \"%s\"\n\t\tresourceClass medium", "exec" + randomInt, "replace image");
-        	            xtextDocument.replace(nameLineEnd, 0, newExec);
+                    int insertPosition = (parallelismLineEnd != -1) ? parallelismLineEnd : nameLineEnd;
+
+                    if (insertPosition != -1) {
+                    	String newExec = String.format("\tMachine\n\t\timage \"%s\"\n\t\tresourceClass medium\n", "replace image");
+        	            xtextDocument.replace(insertPosition, 0, newExec);
                     }
                 }
 	        }
@@ -489,20 +491,22 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 Integer offset = issue.getOffset();
                 
                 int lineStart = getLineStart(documentContent, offset);
-
+                
                 if (lineStart != -1) {
-                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+                    int nameLineEnd = findLineEnd(documentContent, lineStart, "name");
+                    int parallelismLineEnd = findLineEnd(documentContent, lineStart, "parallelism");
 
-                    if (nameLineEnd != -1) {
-                    	int randomInt = (int) (Math.random() * 100);
-                    	String newExec = String.format("    Docker\n\t\tname \"%s\"\n\t\timage \"%s\"\n\t\tresourceClass medium", "exec" + randomInt, "replace image");
-        	            xtextDocument.replace(nameLineEnd, 0, newExec);
+                    int insertPosition = (parallelismLineEnd != -1) ? parallelismLineEnd : nameLineEnd;
+
+                    if (insertPosition != -1) {
+                    	String newExec = String.format("\tDocker\n\t\timage \"%s\"\n\t\tresourceClass medium\n", "replace image");
+        	            xtextDocument.replace(insertPosition, 0, newExec);
                     }
                 }
 	        }
 	    });
 	}
-	
+
 	@Fix(CircleciValidator.INVALID_EXECUTOR_JOB_ERRORCODE)
 	public void fixJobExecutor4(Issue issue, IssueResolutionAcceptor acceptor) {
 	    acceptor.accept(issue, "Define a Job MacOs Executor", "Define a Job MacOs Executor", null, new IModification() {
@@ -514,12 +518,14 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 int lineStart = getLineStart(documentContent, offset);
 
                 if (lineStart != -1) {
-                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+                	int nameLineEnd = findLineEnd(documentContent, lineStart, "name");
+                    int parallelismLineEnd = findLineEnd(documentContent, lineStart, "parallelism");
 
-                    if (nameLineEnd != -1) {
-                    	int randomInt = (int) (Math.random() * 100);
-                    	String newExec = String.format("    MacOs\n\t\tname \"%s\"\n\t\txcode \"%s\"\n\t\tresourceClass macos.m1.medium.gen", "exec" + randomInt, "replace xcode");
-        	            xtextDocument.replace(nameLineEnd, 0, newExec);
+                    int insertPosition = (parallelismLineEnd != -1) ? parallelismLineEnd : nameLineEnd;
+
+                    if (insertPosition != -1) {
+                    	String newExec = String.format("\tMacOs\n\t\txcode \"%s\"\n\t\tresourceClass macos.m1.medium.gen\n", "replace xcode");
+        	            xtextDocument.replace(insertPosition, 0, newExec);
                     }
                 }
 	        }
@@ -534,15 +540,15 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 String documentContent = xtextDocument.get();
                 Integer offset = issue.getOffset();
                 
-                int lineStart = getLineStart(documentContent, offset);
+                int dockerLineStart = getLineStart(documentContent, offset);
+                int dockerLineEnd = getLineEnd(documentContent, dockerLineStart);
 
-                if (lineStart != -1) {
-                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
+                if (dockerLineEnd != -1) {
+                	int randomInt = (int) (Math.random() * 100);
+                    String newName = "execName" + randomInt;
+                    String newLine = "\tname \"" + newName + "\"\n";
 
-                    if (nameLineEnd != -1) {
-                    	String key = "    name " + "\"execName\"";
-        	            xtextDocument.replace(nameLineEnd, 0, key);
-                    }
+                    xtextDocument.replace(dockerLineEnd, 0, newLine);
                 }
 	        }
 	    });
@@ -556,15 +562,12 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 String documentContent = xtextDocument.get();
                 Integer offset = issue.getOffset();
                 
-                int lineStart = getLineStart(documentContent, offset);
+                int cacheLineStart = getLineStart(documentContent, offset);
+                int cacheLineEnd = getLineEnd(documentContent, cacheLineStart);
 
-                if (lineStart != -1) {
-                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
-
-                    if (nameLineEnd != -1) {
-                    	String key = "    name " + "\"newKey\"";
-        	            xtextDocument.replace(nameLineEnd, 0, key);
-                    }
+                if (cacheLineEnd != -1) {
+                    String newLine = "\t\tkey newKey\n";
+                    xtextDocument.replace(cacheLineEnd, 0, newLine);
                 }
 	        }
 	    });
@@ -578,15 +581,12 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
                 String documentContent = xtextDocument.get();
                 Integer offset = issue.getOffset();
                 
-                int lineStart = getLineStart(documentContent, offset);
+                int cacheLineStart = getLineStart(documentContent, offset);
+                int cacheLineEnd = getLineEnd(documentContent, cacheLineStart);
 
-                if (lineStart != -1) {
-                    int nameLineEnd = findNameLineEnd(documentContent, lineStart);
-
-                    if (nameLineEnd != -1) {
-                    	String key = "    name " + "\"newKey\"";
-        	            xtextDocument.replace(nameLineEnd, 0, key);
-                    }
+                if (cacheLineEnd != -1) {
+                    String newLine = "\t\tkeys newKeys\n";
+                    xtextDocument.replace(cacheLineEnd, 0, newLine);
                 }
 	        }
 	    });
@@ -648,16 +648,6 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
 	    fixEmptyString(issue, "Fix empty PersistToWorkspace root", acceptor, "\"New Workspace Root\"");
 	}
 
-	@Fix(CircleciValidator.MANDATORY_RESTORE_CACHE_KEYS_EMPTY_ERRORCODE)
-	public void fixEmptyRestoreCacheKeys(Issue issue, IssueResolutionAcceptor acceptor) {
-	    fixEmptyString(issue, "Fix empty RestoreCache keys", acceptor, "\"New Cache Key\"");
-	}
-
-	@Fix(CircleciValidator.MANDATORY_RESTORE_CACHE_KEY_EMPTY_ERRORCODE)
-	public void fixEmptyRestoreCacheKey(Issue issue, IssueResolutionAcceptor acceptor) {
-	    fixEmptyString(issue, "Fix empty RestoreCache key", acceptor, "\"New Cache Key\"");
-	}
-
 	@Fix(CircleciValidator.MANDATORY_BRANCH_NAME_EMPTY_ERRORCODE)
 	public void fixEmptyBranchName(Issue issue, IssueResolutionAcceptor acceptor) {
 	    fixEmptyString(issue, "Fix empty branch name", acceptor, "\"New Branch Name\"");
@@ -687,30 +677,15 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
 	public void fixEmptyMacOsXcode(Issue issue, IssueResolutionAcceptor acceptor) {
 	    fixEmptyString(issue, "Fix empty MacOs xcode", acceptor, "\"12.5\"");
 	}
-	
-	@Fix(CircleciValidator.MANDATORY_MACOS_NAME_EMPTY_ERRORCODE)
-	public void fixEmptyMacOsName(Issue issue, IssueResolutionAcceptor acceptor) {
-	    fixEmptyString(issue, "Fix empty MacOs name", acceptor, "\"New MacOs name\"");
-	}
 
 	@Fix(CircleciValidator.MANDATORY_MACHINE_IMAGE_EMPTY_ERRORCODE)
 	public void fixEmptyMachineImage(Issue issue, IssueResolutionAcceptor acceptor) {
 	    fixEmptyString(issue, "Fix empty Machine image", acceptor, "\"New Machine Image\"");
 	}
 	
-	@Fix(CircleciValidator.MANDATORY_MACHINE_NAME_EMPTY_ERRORCODE)
-	public void fixEmptyMachineName(Issue issue, IssueResolutionAcceptor acceptor) {
-	    fixEmptyString(issue, "Fix empty Machine name", acceptor, "\"New Machine name\"");
-	}
-
 	@Fix(CircleciValidator.MANDATORY_DOCKER_IMAGE_EMPTY_ERRORCODE)
 	public void fixEmptyDockerImage(Issue issue, IssueResolutionAcceptor acceptor) {
 	    fixEmptyString(issue, "Fix empty Docker image", acceptor, "\"New Docker Image\"");
-	}
-	
-	@Fix(CircleciValidator.MANDATORY_DOCKER_NAME_EMPTY_ERRORCODE)
-	public void fixEmptyDockerName(Issue issue, IssueResolutionAcceptor acceptor) {
-	    fixEmptyString(issue, "Fix empty Docker name", acceptor, "\"New Docker name\"");
 	}
 
 	@Fix(CircleciValidator.MANDATORY_DOCKER_AUTH_USERNAME_EMPTY_ERRORCODE)

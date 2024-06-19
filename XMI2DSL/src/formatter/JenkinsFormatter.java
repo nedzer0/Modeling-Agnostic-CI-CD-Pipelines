@@ -20,7 +20,7 @@ public class JenkinsFormatter {
 	private void generateXtextLines(EObject object, List<String> xtextLines, int indentLevel) {
         EClass eClass = object.eClass();
         String className = eClass.getName();
-        String indent = "    ".repeat(indentLevel);
+        String indent = "\t".repeat(indentLevel);
 
         switch (className) {
             case "Pipeline":
@@ -131,7 +131,7 @@ public class JenkinsFormatter {
     }
 	
 	private void appendParamAttributes(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
-	    String indent = "    ".repeat(indentLevel);
+	    String indent = "\t".repeat(indentLevel);
 
 	    EAttribute nameAttribute = eClass.getEAllAttributes().stream()
 	            .filter(attr -> attr.getName().equals("name"))
@@ -218,7 +218,7 @@ public class JenkinsFormatter {
 
 	
 	private void appendMatrixAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
-        String indent = "    ".repeat(indentLevel);
+        String indent = "\t".repeat(indentLevel);
 
         for (EAttribute attribute : eClass.getEAllAttributes()) {
             String attributeName = attribute.getName();
@@ -278,7 +278,7 @@ public class JenkinsFormatter {
     }
     
     private void appendAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
-    	String indent = "    ".repeat(indentLevel);
+    	String indent = "\t".repeat(indentLevel);
     	
     	for (EAttribute attribute : eClass.getEAllAttributes()) {
             String attributeName = attribute.getName();
@@ -366,7 +366,7 @@ public class JenkinsFormatter {
             return;
         }
     	
-    	String indent = "    ".repeat(indentLevel);
+    	String indent = "\t".repeat(indentLevel);
         StringBuilder enumValuesString = new StringBuilder();
         String stringVal = "";
         for (Object value : values) {

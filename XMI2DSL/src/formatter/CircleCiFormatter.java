@@ -25,7 +25,7 @@ public class CircleCiFormatter {
     private void generateXtextLines(EObject object, List<String> xtextLines, int indentLevel) {
         EClass eClass = object.eClass();
         String className = eClass.getName();
-        String indent = "    ".repeat(indentLevel);
+        String indent = "\t".repeat(indentLevel);
 
         switch (className) {
         case "Pipeline":
@@ -117,7 +117,7 @@ public class CircleCiFormatter {
     }
     
     private void appendCommandAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
-        String indent = "    ".repeat(indentLevel);
+        String indent = "\t".repeat(indentLevel);
 
         for (EAttribute attribute : eClass.getEAllAttributes()) {
             String attributeName = attribute.getName();
@@ -160,95 +160,117 @@ public class CircleCiFormatter {
     }
     
     private void appendAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
-        String indent = "    ".repeat(indentLevel);
+        String indent = "\t".repeat(indentLevel);
+        String setupString = null;
+        String versionString = null;
 
         for (EAttribute attribute : eClass.getEAllAttributes()) {
             String attributeName = attribute.getName();
             Object value = object.eGet(attribute);
-            
+
             if (value != null) {
-                if (value instanceof PARAMETER_TYPES) {
-                    xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name());
+            	if (attributeName.equals("setup") && value instanceof Boolean) {
+        			Boolean boolValue = (Boolean) value;
+        			if(boolValue) {
+        				setupString = "\t" + attributeName;
+        			}
                 }
-                else if (value instanceof DOCKER_RESOURCE_TYPE) {
-                	String val = ((Enum<?>) value).name();
-                	if(val.equals("MEDIUM_PLUS")) {
-                		xtextLines.add(indent + attributeName + " medium+");
-                	}
-                	else if(val.equals("TWO_XLARGE")) {
-                		xtextLines.add(indent + attributeName + " 2xlarge");
-                	}
-                	else if(val.equals("TWO_XLARGE_PLUS")) {
-                		xtextLines.add(indent + attributeName + " 2xlarge+");
-                	}
-                	else {
-                		xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
-                	}
-                }
-                else if (value instanceof MACHINE_RESOURCE_TYPE) {
-                	String val = ((Enum<?>) value).name();
-                	if(val.equals("TWO_XLARGE")) {
-                		xtextLines.add(indent + attributeName + " 2xlarge");
-                	}
-                	else if(val.equals("TWO_XLARGE_PLUS")) {
-                		xtextLines.add(indent + attributeName + " 2xlarge+");
-                	}
-                	else {
-                		xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
-                	}
-                }
-                else if (value instanceof MACOS_RESOURCE_TYPE) {
-                	String val = ((Enum<?>) value).name();
-                	if(val.equals("MACOS_X86_MEDIUM_GEN2")) {
-                		xtextLines.add(indent + attributeName + " macos_x86_medium_gen2*");
-                	}
-                	else if(val.equals("MACOS_M1_MEDIUM_GEN")) {
-                		xtextLines.add(indent + attributeName + " macos_m1_medium_gen");
-                	}
-                	else if(val.equals("MACOS_M1_LARGE_GEN1")) {
-                		xtextLines.add(indent + attributeName + " macos_m1_large_gen1");
-                	}
-                	else {
-                		xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
-                	}
-                }
-                else if(value instanceof WHEN_TYPE) {
-                	if (!((Enum<?>) value).name().equalsIgnoreCase("on_success")) {
-                        xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
+            	else if (attributeName.equals("version") && value instanceof String) {
+        			String stringValue = (String) value;
+        			versionString = "\t" + attributeName + " \"" + stringValue + "\"\n";
+            	}
+            	else {
+            		if (value instanceof PARAMETER_TYPES) {
+                        xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name());
                     }
-                }
-                else if (value instanceof String) {
-                    String stringValue = (String) value;
-                    if ("true".equalsIgnoreCase(stringValue) && !attributeName.equals("default")) {
-                        xtextLines.add(indent + attributeName);
-                    } 
-                    else if(stringValue.equals(".") && attributeName.equals("working_directory")) {
-                    	break;
+                    else if (value instanceof DOCKER_RESOURCE_TYPE) {
+                    	String val = ((Enum<?>) value).name();
+                    	if(val.equals("MEDIUM_PLUS")) {
+                    		xtextLines.add(indent + attributeName + " medium+");
+                    	}
+                    	else if(val.equals("TWO_XLARGE")) {
+                    		xtextLines.add(indent + attributeName + " 2xlarge");
+                    	}
+                    	else if(val.equals("TWO_XLARGE_PLUS")) {
+                    		xtextLines.add(indent + attributeName + " 2xlarge+");
+                    	}
+                    	else {
+                    		xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
+                    	}
                     }
-                    else if(stringValue.equals("10m") && attributeName.equals("no_output_timeout")) {
-                    	break;
+                    else if (value instanceof MACHINE_RESOURCE_TYPE) {
+                    	String val = ((Enum<?>) value).name();
+                    	if(val.equals("TWO_XLARGE")) {
+                    		xtextLines.add(indent + attributeName + " 2xlarge");
+                    	}
+                    	else if(val.equals("TWO_XLARGE_PLUS")) {
+                    		xtextLines.add(indent + attributeName + " 2xlarge+");
+                    	}
+                    	else {
+                    		xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
+                    	}
                     }
-                    else if (!stringValue.isEmpty()) {
-                    	if (stringValue.contains("\"")) {
-                            stringValue = stringValue.replace("\"", "'");
+                    else if (value instanceof MACOS_RESOURCE_TYPE) {
+                    	String val = ((Enum<?>) value).name();
+                    	if(val.equals("MACOS_X86_MEDIUM_GEN2")) {
+                    		xtextLines.add(indent + attributeName + " macos_x86_medium_gen2*");
+                    	}
+                    	else if(val.equals("MACOS_M1_MEDIUM_GEN")) {
+                    		xtextLines.add(indent + attributeName + " macos_m1_medium_gen");
+                    	}
+                    	else if(val.equals("MACOS_M1_LARGE_GEN1")) {
+                    		xtextLines.add(indent + attributeName + " macos_m1_large_gen1");
+                    	}
+                    	else {
+                    		xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
+                    	}
+                    }
+                    else if(value instanceof WHEN_TYPE) {
+                    	if (!((Enum<?>) value).name().equalsIgnoreCase("on_success")) {
+                            xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name().toLowerCase());
                         }
-                        xtextLines.add(indent + attributeName + " \"" + stringValue + "\"");
                     }
-                } else if (value instanceof List<?>) {
-                    appendEnumValues(attributeName, (List<?>) value, xtextLines, indentLevel);
-                } else if (value instanceof Boolean) {
-                    if ((Boolean) value) {
-                        xtextLines.add(indent + attributeName);
+                    else if (value instanceof String) {
+                        String stringValue = (String) value;
+                        
+                        if ("true".equalsIgnoreCase(stringValue) && !attributeName.equals("default")) {
+                            xtextLines.add(indent + attributeName);
+                        } 
+                        else if(stringValue.equals(".") && attributeName.equals("working_directory")) {
+                        	break;
+                        }
+                        else if(stringValue.equals("10m") && attributeName.equals("no_output_timeout")) {
+                        	break;
+                        }
+                        else if (!stringValue.isEmpty()) {
+                        	if (stringValue.contains("\"")) {
+                                stringValue = stringValue.replace("\"", "'");
+                            }
+                            xtextLines.add(indent + attributeName + " \"" + stringValue + "\"");
+                        }
+                    } else if (value instanceof List<?>) {
+                        appendEnumValues(attributeName, (List<?>) value, xtextLines, indentLevel);
+                    } else if (value instanceof Boolean) {
+                        if ((Boolean) value) {
+                            xtextLines.add(indent + attributeName);
+                        }
+                    } 
+                    else if (value instanceof Short) {
+                    	Short shortValue = (Short) value;
+                    	if(shortValue != 0) {
+                    		xtextLines.add(indent + attributeName + " " + shortValue);
+                    	}
                     }
-                } 
-                else if (value instanceof Short) {
-                	Short shortValue = (Short) value;
-                	if(shortValue != 0) {
-                		xtextLines.add(indent + attributeName + " " + shortValue);
-                	}
-                }
+            	}
             }
         }
+            
+        if (setupString != null) {
+            xtextLines.add(setupString);
+        }
+        if (versionString != null) {
+            xtextLines.add(versionString);
+        } 
         
         List<EObject> commandReferences = new ArrayList<>();
         List<EObject> dockerReferences = new ArrayList<>();
@@ -304,7 +326,7 @@ public class CircleCiFormatter {
     }
     
     private void handleMatrixReferences(EObject object, List<String> xtextLines, int indentLevel) {
-        String indent = "    ".repeat(indentLevel);
+        String indent = "\t".repeat(indentLevel);
         List<EObject> matrixParams = new ArrayList<>();
         List<EObject> matrixExclude = new ArrayList<>();
 
@@ -340,7 +362,7 @@ public class CircleCiFormatter {
     
     
     private void handleWhenUnlessReferences(EObject object, List<String> xtextLines, int indentLevel) {
-        String indent = "    ".repeat(indentLevel);
+        String indent = "\t".repeat(indentLevel);
 
         List<EObject> whenSteps = new ArrayList<>();
         List<EObject> unlessSteps = new ArrayList<>();
@@ -380,7 +402,7 @@ public class CircleCiFormatter {
             return;
         }
     	
-    	String indent = "    ".repeat(indentLevel);
+    	String indent = "\t".repeat(indentLevel);
         StringBuilder enumValuesString = new StringBuilder();
         String stringVal = "";
         for (Object value : values) {

@@ -23,7 +23,7 @@ public class GHAFormatter {
 	private void generateXtextLines(EObject object, List<String> xtextLines, int indentLevel) {
         EClass eClass = object.eClass();
         String className = eClass.getName();
-        String indent = "    ".repeat(indentLevel);
+        String indent = "\t".repeat(indentLevel);
 
         switch (className) {
             case "Pipeline":
@@ -118,7 +118,7 @@ public class GHAFormatter {
     }
 	
 	private void appendInputAttributes(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
-	    String indent = "    ".repeat(indentLevel);
+	    String indent = "\t".repeat(indentLevel);
 
 	    EAttribute nameAttribute = eClass.getEAllAttributes().stream()
 	            .filter(attr -> attr.getName().equals("name"))
@@ -184,7 +184,7 @@ public class GHAFormatter {
 	}
 	
 	private void appendJobAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
-        String indent = "    ".repeat(indentLevel);
+        String indent = "\t".repeat(indentLevel);
 
         for (EAttribute attribute : eClass.getEAllAttributes()) {
             String attributeName = attribute.getName();
@@ -341,48 +341,67 @@ public class GHAFormatter {
     }
     
     private void appendAttributesAndReferences(EObject object, List<String> xtextLines, EClass eClass, int indentLevel) {
-    	String indent = "    ".repeat(indentLevel);
+    	String indent = "\t".repeat(indentLevel);
+    	String nameString = null;
+        String runNameString = null;
     	
     	for (EAttribute attribute : eClass.getEAllAttributes()) {
             String attributeName = attribute.getName();
             Object value = object.eGet(attribute);
             
             if(value != null) {
-            	if(value instanceof MATRIX_CONFIG_TYPE || value instanceof INPUT_TYPES || value instanceof ARTIFACT_TYPE) {
-            		xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name());
-            	}
-            	else if (value instanceof String) {
+            	if (attributeName.equals("name") && value instanceof String) {
             		String stringValue = (String) value;
-                    if ("true".equalsIgnoreCase(stringValue) && (attributeName.equals("readAll") || attributeName.equals("writeAll") || attributeName.equals("disableAll") || attributeName.equals("cancel_in_progress") || attributeName.equals("ignore") || attributeName.equals("isRequired") || attributeName.equals("required") || (attributeName.equals("continue_on_error") && eClass.getName().equals("Step")) || attributeName.equals("fail_fast") || attributeName.equals("fail_on_cache_miss"))) {
-                        xtextLines.add(indent + attributeName);
-                    } 
-	                else if (!stringValue.isEmpty()) {
-	                	if (eClass.getName().equals("Pipeline") && (attributeName.equals("name") || attributeName.equals("run-name"))) {
-	                		xtextLines.add(attributeName + " \"" + stringValue + "\"");
-	                    }
-	                	if (stringValue.contains("\"")) {
-                            stringValue = stringValue.replace("\"", "'");
+            		nameString = "\t" + attributeName + " \"" + stringValue + "\"\n";
+                }
+            	else if (attributeName.equals("run_name") && value instanceof String) {
+        			String stringValue = (String) value;
+        			runNameString = "\t" + attributeName + " \"" + stringValue + "\"\n";
+            	}
+            	else {
+            		if(value instanceof MATRIX_CONFIG_TYPE || value instanceof INPUT_TYPES || value instanceof ARTIFACT_TYPE) {
+                		xtextLines.add(indent + attributeName + " " + ((Enum<?>) value).name());
+                	}
+                	else if (value instanceof String) {
+                		String stringValue = (String) value;
+                        if ("true".equalsIgnoreCase(stringValue) && (attributeName.equals("readAll") || attributeName.equals("writeAll") || attributeName.equals("disableAll") || attributeName.equals("cancel_in_progress") || attributeName.equals("ignore") || attributeName.equals("isRequired") || attributeName.equals("required") || (attributeName.equals("continue_on_error") && eClass.getName().equals("Step")) || attributeName.equals("fail_fast") || attributeName.equals("fail_on_cache_miss"))) {
+                            xtextLines.add(indent + attributeName);
+                        } 
+    	                else if (!stringValue.isEmpty()) {
+    	                	if (eClass.getName().equals("Pipeline") && (attributeName.equals("name") || attributeName.equals("run-name"))) {
+    	                		xtextLines.add(attributeName + " \"" + stringValue + "\"");
+    	                    }
+    	                	if (stringValue.contains("\"")) {
+                                stringValue = stringValue.replace("\"", "'");
+                            }
+    	                	else {
+    	                		if(!eClass.getName().equals("Pipeline")) {
+    	                			xtextLines.add(indent + attributeName + " \"" + stringValue + "\"");
+    	                		}
+    	                	}
+    	                }
+                    } else if (value instanceof List<?>) {
+                        appendEnumValues(attributeName, (List<?>) value, xtextLines, indentLevel);
+                    } else if (value instanceof Boolean) {
+                        Boolean booleanValue = (Boolean) value;
+                        if (booleanValue) {
+                            xtextLines.add(indent + attributeName);
                         }
-	                	else {
-	                		if(!eClass.getName().equals("Pipeline")) {
-	                			xtextLines.add(indent + attributeName + " \"" + stringValue + "\"");
-	                		}
-	                	}
-	                }
-                } else if (value instanceof List<?>) {
-                    appendEnumValues(attributeName, (List<?>) value, xtextLines, indentLevel);
-                } else if (value instanceof Boolean) {
-                    Boolean booleanValue = (Boolean) value;
-                    if (booleanValue) {
-                        xtextLines.add(indent + attributeName);
                     }
-                }
-                else if (value instanceof Short) {
-                	Short shortValue = (Short) value;
-                	xtextLines.add(indent + attributeName + " " + shortValue);
-                }
+                    else if (value instanceof Short) {
+                    	Short shortValue = (Short) value;
+                    	xtextLines.add(indent + attributeName + " " + shortValue);
+                    }
+            	}
             }
         }
+    	
+    	if (nameString != null) {
+            xtextLines.add(nameString);
+        }
+        if (runNameString != null) {
+            xtextLines.add(runNameString);
+        } 
 
     	List<EObject> envReferences = new ArrayList<>();
         List<EObject> scheduleReferences = new ArrayList<>();
@@ -439,7 +458,7 @@ public class GHAFormatter {
             return;
         }
     	
-    	String indent = "    ".repeat(indentLevel);
+    	String indent = "\t".repeat(indentLevel);
         StringBuilder enumValuesString = new StringBuilder();
         String stringVal = "";
         for (Object value : values) {

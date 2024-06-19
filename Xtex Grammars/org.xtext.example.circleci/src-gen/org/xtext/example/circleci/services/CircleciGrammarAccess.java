@@ -979,99 +979,113 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	public class RestoreCacheElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.RestoreCache");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRestoreCacheKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final RuleCall cBEGINTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
-		private final Keyword cNameKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final Assignment cNameAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_1_1_0 = (RuleCall)cNameAssignment_1_1_1.eContents().get(0);
-		private final Keyword cKeyKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Assignment cKeyAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final RuleCall cKeyEStringParserRuleCall_1_3_0 = (RuleCall)cKeyAssignment_1_3.eContents().get(0);
-		private final Keyword cKeysKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
-		private final Assignment cKeysAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
-		private final RuleCall cKeysEStringParserRuleCall_1_5_0 = (RuleCall)cKeysAssignment_1_5.eContents().get(0);
-		private final Group cGroup_1_6 = (Group)cGroup_1.eContents().get(6);
-		private final Keyword cCommaKeyword_1_6_0 = (Keyword)cGroup_1_6.eContents().get(0);
-		private final Assignment cKeysAssignment_1_6_1 = (Assignment)cGroup_1_6.eContents().get(1);
-		private final RuleCall cKeysEStringParserRuleCall_1_6_1_0 = (RuleCall)cKeysAssignment_1_6_1.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_1_7 = (RuleCall)cGroup_1.eContents().get(7);
+		private final Action cRestoreCacheAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cRestoreCacheKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final RuleCall cBEGINTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cNameKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cNameAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_2_1_1_0 = (RuleCall)cNameAssignment_2_1_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cKeyKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cKeyAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cKeyEStringParserRuleCall_2_2_1_0 = (RuleCall)cKeyAssignment_2_2_1.eContents().get(0);
+		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
+		private final Keyword cKeysKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cKeysAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cKeysEStringParserRuleCall_2_3_1_0 = (RuleCall)cKeysAssignment_2_3_1.eContents().get(0);
+		private final Group cGroup_2_3_2 = (Group)cGroup_2_3.eContents().get(2);
+		private final Keyword cCommaKeyword_2_3_2_0 = (Keyword)cGroup_2_3_2.eContents().get(0);
+		private final Assignment cKeysAssignment_2_3_2_1 = (Assignment)cGroup_2_3_2.eContents().get(1);
+		private final RuleCall cKeysEStringParserRuleCall_2_3_2_1_0 = (RuleCall)cKeysAssignment_2_3_2_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_2_4 = (RuleCall)cGroup_2.eContents().get(4);
 		
 		//RestoreCache returns RestoreCache:
+		//    {RestoreCache}
 		//    'RestoreCache'
 		//    (BEGIN
 		//        ('name' name=EString)?
-		//        'key' key=EString
-		//        'keys' keys+=EString (',' keys+=EString)*
+		//        ('key' key=EString)?
+		//        ('keys' keys+=EString (',' keys+=EString)*)?
 		//    END);
 		@Override public ParserRule getRule() { return rule; }
 		
+		//{RestoreCache}
 		//'RestoreCache'
 		//(BEGIN
 		//    ('name' name=EString)?
-		//    'key' key=EString
-		//    'keys' keys+=EString (',' keys+=EString)*
+		//    ('key' key=EString)?
+		//    ('keys' keys+=EString (',' keys+=EString)*)?
 		//END)
 		public Group getGroup() { return cGroup; }
 		
+		//{RestoreCache}
+		public Action getRestoreCacheAction_0() { return cRestoreCacheAction_0; }
+		
 		//'RestoreCache'
-		public Keyword getRestoreCacheKeyword_0() { return cRestoreCacheKeyword_0; }
+		public Keyword getRestoreCacheKeyword_1() { return cRestoreCacheKeyword_1; }
 		
 		//(BEGIN
 		//    ('name' name=EString)?
-		//    'key' key=EString
-		//    'keys' keys+=EString (',' keys+=EString)*
+		//    ('key' key=EString)?
+		//    ('keys' keys+=EString (',' keys+=EString)*)?
 		//END)
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_1_0() { return cBEGINTerminalRuleCall_1_0; }
+		public RuleCall getBEGINTerminalRuleCall_2_0() { return cBEGINTerminalRuleCall_2_0; }
 		
 		//('name' name=EString)?
-		public Group getGroup_1_1() { return cGroup_1_1; }
+		public Group getGroup_2_1() { return cGroup_2_1; }
 		
 		//'name'
-		public Keyword getNameKeyword_1_1_0() { return cNameKeyword_1_1_0; }
+		public Keyword getNameKeyword_2_1_0() { return cNameKeyword_2_1_0; }
 		
 		//name=EString
-		public Assignment getNameAssignment_1_1_1() { return cNameAssignment_1_1_1; }
+		public Assignment getNameAssignment_2_1_1() { return cNameAssignment_2_1_1; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_1_1_1_0() { return cNameEStringParserRuleCall_1_1_1_0; }
+		public RuleCall getNameEStringParserRuleCall_2_1_1_0() { return cNameEStringParserRuleCall_2_1_1_0; }
+		
+		//('key' key=EString)?
+		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//'key'
-		public Keyword getKeyKeyword_1_2() { return cKeyKeyword_1_2; }
+		public Keyword getKeyKeyword_2_2_0() { return cKeyKeyword_2_2_0; }
 		
 		//key=EString
-		public Assignment getKeyAssignment_1_3() { return cKeyAssignment_1_3; }
+		public Assignment getKeyAssignment_2_2_1() { return cKeyAssignment_2_2_1; }
 		
 		//EString
-		public RuleCall getKeyEStringParserRuleCall_1_3_0() { return cKeyEStringParserRuleCall_1_3_0; }
+		public RuleCall getKeyEStringParserRuleCall_2_2_1_0() { return cKeyEStringParserRuleCall_2_2_1_0; }
+		
+		//('keys' keys+=EString (',' keys+=EString)*)?
+		public Group getGroup_2_3() { return cGroup_2_3; }
 		
 		//'keys'
-		public Keyword getKeysKeyword_1_4() { return cKeysKeyword_1_4; }
+		public Keyword getKeysKeyword_2_3_0() { return cKeysKeyword_2_3_0; }
 		
 		//keys+=EString
-		public Assignment getKeysAssignment_1_5() { return cKeysAssignment_1_5; }
+		public Assignment getKeysAssignment_2_3_1() { return cKeysAssignment_2_3_1; }
 		
 		//EString
-		public RuleCall getKeysEStringParserRuleCall_1_5_0() { return cKeysEStringParserRuleCall_1_5_0; }
+		public RuleCall getKeysEStringParserRuleCall_2_3_1_0() { return cKeysEStringParserRuleCall_2_3_1_0; }
 		
 		//(',' keys+=EString)*
-		public Group getGroup_1_6() { return cGroup_1_6; }
+		public Group getGroup_2_3_2() { return cGroup_2_3_2; }
 		
 		//','
-		public Keyword getCommaKeyword_1_6_0() { return cCommaKeyword_1_6_0; }
+		public Keyword getCommaKeyword_2_3_2_0() { return cCommaKeyword_2_3_2_0; }
 		
 		//keys+=EString
-		public Assignment getKeysAssignment_1_6_1() { return cKeysAssignment_1_6_1; }
+		public Assignment getKeysAssignment_2_3_2_1() { return cKeysAssignment_2_3_2_1; }
 		
 		//EString
-		public RuleCall getKeysEStringParserRuleCall_1_6_1_0() { return cKeysEStringParserRuleCall_1_6_1_0; }
+		public RuleCall getKeysEStringParserRuleCall_2_3_2_1_0() { return cKeysEStringParserRuleCall_2_3_2_1_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_1_7() { return cENDTerminalRuleCall_1_7; }
+		public RuleCall getENDTerminalRuleCall_2_4() { return cENDTerminalRuleCall_2_4; }
 	}
 	public class PersistToWorkspaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.PersistToWorkspace");
@@ -2540,33 +2554,34 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		private final Keyword cMachineKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final RuleCall cBEGINTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Keyword cNameKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		private final Keyword cImageKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cImageAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cImageEStringParserRuleCall_1_4_0 = (RuleCall)cImageAssignment_1_4.eContents().get(0);
-		private final Assignment cDocker_layer_cachingAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
-		private final Keyword cDocker_layer_cachingDocker_layer_cachingKeyword_1_5_0 = (Keyword)cDocker_layer_cachingAssignment_1_5.eContents().get(0);
-		private final Keyword cResourceClassKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
-		private final Assignment cResourceClassAssignment_1_7 = (Assignment)cGroup_1.eContents().get(7);
-		private final RuleCall cResourceClassMACHINE_RESOURCE_TYPEEnumRuleCall_1_7_0 = (RuleCall)cResourceClassAssignment_1_7.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cNameKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cNameAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_1_1_0 = (RuleCall)cNameAssignment_1_1_1.eContents().get(0);
+		private final Keyword cImageKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cImageAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cImageEStringParserRuleCall_1_3_0 = (RuleCall)cImageAssignment_1_3.eContents().get(0);
+		private final Assignment cDocker_layer_cachingAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
+		private final Keyword cDocker_layer_cachingDocker_layer_cachingKeyword_1_4_0 = (Keyword)cDocker_layer_cachingAssignment_1_4.eContents().get(0);
+		private final Keyword cResourceClassKeyword_1_5 = (Keyword)cGroup_1.eContents().get(5);
+		private final Assignment cResourceClassAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
+		private final RuleCall cResourceClassMACHINE_RESOURCE_TYPEEnumRuleCall_1_6_0 = (RuleCall)cResourceClassAssignment_1_6.eContents().get(0);
+		private final Group cGroup_1_7 = (Group)cGroup_1.eContents().get(7);
+		private final Keyword cShellKeyword_1_7_0 = (Keyword)cGroup_1_7.eContents().get(0);
+		private final Assignment cShellAssignment_1_7_1 = (Assignment)cGroup_1_7.eContents().get(1);
+		private final RuleCall cShellEStringParserRuleCall_1_7_1_0 = (RuleCall)cShellAssignment_1_7_1.eContents().get(0);
 		private final Group cGroup_1_8 = (Group)cGroup_1.eContents().get(8);
-		private final Keyword cShellKeyword_1_8_0 = (Keyword)cGroup_1_8.eContents().get(0);
-		private final Assignment cShellAssignment_1_8_1 = (Assignment)cGroup_1_8.eContents().get(1);
-		private final RuleCall cShellEStringParserRuleCall_1_8_1_0 = (RuleCall)cShellAssignment_1_8_1.eContents().get(0);
-		private final Group cGroup_1_9 = (Group)cGroup_1.eContents().get(9);
-		private final Keyword cWorking_directoryKeyword_1_9_0 = (Keyword)cGroup_1_9.eContents().get(0);
-		private final Assignment cWorking_directoryAssignment_1_9_1 = (Assignment)cGroup_1_9.eContents().get(1);
-		private final RuleCall cWorking_directoryEStringParserRuleCall_1_9_1_0 = (RuleCall)cWorking_directoryAssignment_1_9_1.eContents().get(0);
-		private final Assignment cEnvironmentsAssignment_1_10 = (Assignment)cGroup_1.eContents().get(10);
-		private final RuleCall cEnvironmentsEnvironmentParserRuleCall_1_10_0 = (RuleCall)cEnvironmentsAssignment_1_10.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_1_11 = (RuleCall)cGroup_1.eContents().get(11);
+		private final Keyword cWorking_directoryKeyword_1_8_0 = (Keyword)cGroup_1_8.eContents().get(0);
+		private final Assignment cWorking_directoryAssignment_1_8_1 = (Assignment)cGroup_1_8.eContents().get(1);
+		private final RuleCall cWorking_directoryEStringParserRuleCall_1_8_1_0 = (RuleCall)cWorking_directoryAssignment_1_8_1.eContents().get(0);
+		private final Assignment cEnvironmentsAssignment_1_9 = (Assignment)cGroup_1.eContents().get(9);
+		private final RuleCall cEnvironmentsEnvironmentParserRuleCall_1_9_0 = (RuleCall)cEnvironmentsAssignment_1_9.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_1_10 = (RuleCall)cGroup_1.eContents().get(10);
 		
 		//Machine returns Machine:
 		//    'Machine'
 		//    (BEGIN
-		//        'name' name=EString
+		//        ('name' name=EString)?
 		//        'image' image=EString
 		//        (docker_layer_caching?='docker_layer_caching')?
 		//        'resourceClass' resourceClass=MACHINE_RESOURCE_TYPE
@@ -2578,7 +2593,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		
 		//'Machine'
 		//(BEGIN
-		//    'name' name=EString
+		//    ('name' name=EString)?
 		//    'image' image=EString
 		//    (docker_layer_caching?='docker_layer_caching')?
 		//    'resourceClass' resourceClass=MACHINE_RESOURCE_TYPE
@@ -2592,7 +2607,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		public Keyword getMachineKeyword_0() { return cMachineKeyword_0; }
 		
 		//(BEGIN
-		//    'name' name=EString
+		//    ('name' name=EString)?
 		//    'image' image=EString
 		//    (docker_layer_caching?='docker_layer_caching')?
 		//    'resourceClass' resourceClass=MACHINE_RESOURCE_TYPE
@@ -2605,337 +2620,41 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//BEGIN
 		public RuleCall getBEGINTerminalRuleCall_1_0() { return cBEGINTerminalRuleCall_1_0; }
 		
+		//('name' name=EString)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
 		//'name'
-		public Keyword getNameKeyword_1_1() { return cNameKeyword_1_1; }
+		public Keyword getNameKeyword_1_1_0() { return cNameKeyword_1_1_0; }
 		
 		//name=EString
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
+		public Assignment getNameAssignment_1_1_1() { return cNameAssignment_1_1_1; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_1_2_0() { return cNameEStringParserRuleCall_1_2_0; }
+		public RuleCall getNameEStringParserRuleCall_1_1_1_0() { return cNameEStringParserRuleCall_1_1_1_0; }
 		
 		//'image'
-		public Keyword getImageKeyword_1_3() { return cImageKeyword_1_3; }
+		public Keyword getImageKeyword_1_2() { return cImageKeyword_1_2; }
 		
 		//image=EString
-		public Assignment getImageAssignment_1_4() { return cImageAssignment_1_4; }
+		public Assignment getImageAssignment_1_3() { return cImageAssignment_1_3; }
 		
 		//EString
-		public RuleCall getImageEStringParserRuleCall_1_4_0() { return cImageEStringParserRuleCall_1_4_0; }
+		public RuleCall getImageEStringParserRuleCall_1_3_0() { return cImageEStringParserRuleCall_1_3_0; }
 		
 		//(docker_layer_caching?='docker_layer_caching')?
-		public Assignment getDocker_layer_cachingAssignment_1_5() { return cDocker_layer_cachingAssignment_1_5; }
+		public Assignment getDocker_layer_cachingAssignment_1_4() { return cDocker_layer_cachingAssignment_1_4; }
 		
 		//'docker_layer_caching'
-		public Keyword getDocker_layer_cachingDocker_layer_cachingKeyword_1_5_0() { return cDocker_layer_cachingDocker_layer_cachingKeyword_1_5_0; }
-		
-		//'resourceClass'
-		public Keyword getResourceClassKeyword_1_6() { return cResourceClassKeyword_1_6; }
-		
-		//resourceClass=MACHINE_RESOURCE_TYPE
-		public Assignment getResourceClassAssignment_1_7() { return cResourceClassAssignment_1_7; }
-		
-		//MACHINE_RESOURCE_TYPE
-		public RuleCall getResourceClassMACHINE_RESOURCE_TYPEEnumRuleCall_1_7_0() { return cResourceClassMACHINE_RESOURCE_TYPEEnumRuleCall_1_7_0; }
-		
-		//('shell' shell=EString )?
-		public Group getGroup_1_8() { return cGroup_1_8; }
-		
-		//'shell'
-		public Keyword getShellKeyword_1_8_0() { return cShellKeyword_1_8_0; }
-		
-		//shell=EString
-		public Assignment getShellAssignment_1_8_1() { return cShellAssignment_1_8_1; }
-		
-		//EString
-		public RuleCall getShellEStringParserRuleCall_1_8_1_0() { return cShellEStringParserRuleCall_1_8_1_0; }
-		
-		//('working_directory' working_directory=EString )?
-		public Group getGroup_1_9() { return cGroup_1_9; }
-		
-		//'working_directory'
-		public Keyword getWorking_directoryKeyword_1_9_0() { return cWorking_directoryKeyword_1_9_0; }
-		
-		//working_directory=EString
-		public Assignment getWorking_directoryAssignment_1_9_1() { return cWorking_directoryAssignment_1_9_1; }
-		
-		//EString
-		public RuleCall getWorking_directoryEStringParserRuleCall_1_9_1_0() { return cWorking_directoryEStringParserRuleCall_1_9_1_0; }
-		
-		//(environments+=Environment)*
-		public Assignment getEnvironmentsAssignment_1_10() { return cEnvironmentsAssignment_1_10; }
-		
-		//Environment
-		public RuleCall getEnvironmentsEnvironmentParserRuleCall_1_10_0() { return cEnvironmentsEnvironmentParserRuleCall_1_10_0; }
-		
-		//END
-		public RuleCall getENDTerminalRuleCall_1_11() { return cENDTerminalRuleCall_1_11; }
-	}
-	public class MacOsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.MacOs");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMacOsKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final RuleCall cBEGINTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Keyword cNameKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
-		private final Keyword cXcodeKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
-		private final Assignment cXcodeAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
-		private final RuleCall cXcodeEStringParserRuleCall_1_3_1_0 = (RuleCall)cXcodeAssignment_1_3_1.eContents().get(0);
-		private final Group cGroup_1_4 = (Group)cGroup_1.eContents().get(4);
-		private final Keyword cResourceClassKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
-		private final Assignment cResourceClassAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
-		private final RuleCall cResourceClassMACOS_RESOURCE_TYPEEnumRuleCall_1_4_1_0 = (RuleCall)cResourceClassAssignment_1_4_1.eContents().get(0);
-		private final Group cGroup_1_5 = (Group)cGroup_1.eContents().get(5);
-		private final Keyword cShellKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
-		private final Assignment cShellAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
-		private final RuleCall cShellEStringParserRuleCall_1_5_1_0 = (RuleCall)cShellAssignment_1_5_1.eContents().get(0);
-		private final Group cGroup_1_6 = (Group)cGroup_1.eContents().get(6);
-		private final Keyword cWorking_directoryKeyword_1_6_0 = (Keyword)cGroup_1_6.eContents().get(0);
-		private final Assignment cWorking_directoryAssignment_1_6_1 = (Assignment)cGroup_1_6.eContents().get(1);
-		private final RuleCall cWorking_directoryEStringParserRuleCall_1_6_1_0 = (RuleCall)cWorking_directoryAssignment_1_6_1.eContents().get(0);
-		private final Assignment cEnvironmentsAssignment_1_7 = (Assignment)cGroup_1.eContents().get(7);
-		private final RuleCall cEnvironmentsEnvironmentParserRuleCall_1_7_0 = (RuleCall)cEnvironmentsAssignment_1_7.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_1_8 = (RuleCall)cGroup_1.eContents().get(8);
-		
-		//MacOs returns MacOs:
-		//    'MacOs'
-		//    (BEGIN
-		//        'name' name=EString
-		//        ('xcode' xcode=EString)
-		//        ('resourceClass' resourceClass=MACOS_RESOURCE_TYPE)
-		//        ('shell' shell=EString)?
-		//        ('working_directory' working_directory=EString)?
-		//        (environments+=Environment)*
-		//    END);
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'MacOs'
-		//(BEGIN
-		//    'name' name=EString
-		//    ('xcode' xcode=EString)
-		//    ('resourceClass' resourceClass=MACOS_RESOURCE_TYPE)
-		//    ('shell' shell=EString)?
-		//    ('working_directory' working_directory=EString)?
-		//    (environments+=Environment)*
-		//END)
-		public Group getGroup() { return cGroup; }
-		
-		//'MacOs'
-		public Keyword getMacOsKeyword_0() { return cMacOsKeyword_0; }
-		
-		//(BEGIN
-		//    'name' name=EString
-		//    ('xcode' xcode=EString)
-		//    ('resourceClass' resourceClass=MACOS_RESOURCE_TYPE)
-		//    ('shell' shell=EString)?
-		//    ('working_directory' working_directory=EString)?
-		//    (environments+=Environment)*
-		//END)
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_1_0() { return cBEGINTerminalRuleCall_1_0; }
-		
-		//'name'
-		public Keyword getNameKeyword_1_1() { return cNameKeyword_1_1; }
-		
-		//name=EString
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_1_2_0() { return cNameEStringParserRuleCall_1_2_0; }
-		
-		//('xcode' xcode=EString)
-		public Group getGroup_1_3() { return cGroup_1_3; }
-		
-		//'xcode'
-		public Keyword getXcodeKeyword_1_3_0() { return cXcodeKeyword_1_3_0; }
-		
-		//xcode=EString
-		public Assignment getXcodeAssignment_1_3_1() { return cXcodeAssignment_1_3_1; }
-		
-		//EString
-		public RuleCall getXcodeEStringParserRuleCall_1_3_1_0() { return cXcodeEStringParserRuleCall_1_3_1_0; }
-		
-		//('resourceClass' resourceClass=MACOS_RESOURCE_TYPE)
-		public Group getGroup_1_4() { return cGroup_1_4; }
-		
-		//'resourceClass'
-		public Keyword getResourceClassKeyword_1_4_0() { return cResourceClassKeyword_1_4_0; }
-		
-		//resourceClass=MACOS_RESOURCE_TYPE
-		public Assignment getResourceClassAssignment_1_4_1() { return cResourceClassAssignment_1_4_1; }
-		
-		//MACOS_RESOURCE_TYPE
-		public RuleCall getResourceClassMACOS_RESOURCE_TYPEEnumRuleCall_1_4_1_0() { return cResourceClassMACOS_RESOURCE_TYPEEnumRuleCall_1_4_1_0; }
-		
-		//('shell' shell=EString)?
-		public Group getGroup_1_5() { return cGroup_1_5; }
-		
-		//'shell'
-		public Keyword getShellKeyword_1_5_0() { return cShellKeyword_1_5_0; }
-		
-		//shell=EString
-		public Assignment getShellAssignment_1_5_1() { return cShellAssignment_1_5_1; }
-		
-		//EString
-		public RuleCall getShellEStringParserRuleCall_1_5_1_0() { return cShellEStringParserRuleCall_1_5_1_0; }
-		
-		//('working_directory' working_directory=EString)?
-		public Group getGroup_1_6() { return cGroup_1_6; }
-		
-		//'working_directory'
-		public Keyword getWorking_directoryKeyword_1_6_0() { return cWorking_directoryKeyword_1_6_0; }
-		
-		//working_directory=EString
-		public Assignment getWorking_directoryAssignment_1_6_1() { return cWorking_directoryAssignment_1_6_1; }
-		
-		//EString
-		public RuleCall getWorking_directoryEStringParserRuleCall_1_6_1_0() { return cWorking_directoryEStringParserRuleCall_1_6_1_0; }
-		
-		//(environments+=Environment)*
-		public Assignment getEnvironmentsAssignment_1_7() { return cEnvironmentsAssignment_1_7; }
-		
-		//Environment
-		public RuleCall getEnvironmentsEnvironmentParserRuleCall_1_7_0() { return cEnvironmentsEnvironmentParserRuleCall_1_7_0; }
-		
-		//END
-		public RuleCall getENDTerminalRuleCall_1_8() { return cENDTerminalRuleCall_1_8; }
-	}
-	public class DockerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.Docker");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cDockerKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final RuleCall cBEGINTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Keyword cNameKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		private final Keyword cImageKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cImageAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cImageEStringParserRuleCall_1_4_0 = (RuleCall)cImageAssignment_1_4.eContents().get(0);
-		private final Keyword cResourceClassKeyword_1_5 = (Keyword)cGroup_1.eContents().get(5);
-		private final Assignment cResourceClassAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
-		private final RuleCall cResourceClassDOCKER_RESOURCE_TYPEEnumRuleCall_1_6_0 = (RuleCall)cResourceClassAssignment_1_6.eContents().get(0);
-		private final Group cGroup_1_7 = (Group)cGroup_1.eContents().get(7);
-		private final Keyword cShellKeyword_1_7_0 = (Keyword)cGroup_1_7.eContents().get(0);
-		private final Assignment cShellAssignment_1_7_1 = (Assignment)cGroup_1_7.eContents().get(1);
-		private final RuleCall cShellEStringParserRuleCall_1_7_1_0 = (RuleCall)cShellAssignment_1_7_1.eContents().get(0);
-		private final Group cGroup_1_8 = (Group)cGroup_1.eContents().get(8);
-		private final Keyword cWorking_directoryKeyword_1_8_0 = (Keyword)cGroup_1_8.eContents().get(0);
-		private final Assignment cWorking_directoryAssignment_1_8_1 = (Assignment)cGroup_1_8.eContents().get(1);
-		private final RuleCall cWorking_directoryEStringParserRuleCall_1_8_1_0 = (RuleCall)cWorking_directoryAssignment_1_8_1.eContents().get(0);
-		private final Group cGroup_1_9 = (Group)cGroup_1.eContents().get(9);
-		private final Keyword cEntrypointKeyword_1_9_0 = (Keyword)cGroup_1_9.eContents().get(0);
-		private final Assignment cEntrypointAssignment_1_9_1 = (Assignment)cGroup_1_9.eContents().get(1);
-		private final RuleCall cEntrypointEStringParserRuleCall_1_9_1_0 = (RuleCall)cEntrypointAssignment_1_9_1.eContents().get(0);
-		private final Group cGroup_1_9_2 = (Group)cGroup_1_9.eContents().get(2);
-		private final Keyword cCommaKeyword_1_9_2_0 = (Keyword)cGroup_1_9_2.eContents().get(0);
-		private final Assignment cEntrypointAssignment_1_9_2_1 = (Assignment)cGroup_1_9_2.eContents().get(1);
-		private final RuleCall cEntrypointEStringParserRuleCall_1_9_2_1_0 = (RuleCall)cEntrypointAssignment_1_9_2_1.eContents().get(0);
-		private final Group cGroup_1_10 = (Group)cGroup_1.eContents().get(10);
-		private final Keyword cCommandKeyword_1_10_0 = (Keyword)cGroup_1_10.eContents().get(0);
-		private final Assignment cCommandAssignment_1_10_1 = (Assignment)cGroup_1_10.eContents().get(1);
-		private final RuleCall cCommandEStringParserRuleCall_1_10_1_0 = (RuleCall)cCommandAssignment_1_10_1.eContents().get(0);
-		private final Group cGroup_1_10_2 = (Group)cGroup_1_10.eContents().get(2);
-		private final Keyword cCommaKeyword_1_10_2_0 = (Keyword)cGroup_1_10_2.eContents().get(0);
-		private final Assignment cCommandAssignment_1_10_2_1 = (Assignment)cGroup_1_10_2.eContents().get(1);
-		private final RuleCall cCommandEStringParserRuleCall_1_10_2_1_0 = (RuleCall)cCommandAssignment_1_10_2_1.eContents().get(0);
-		private final Group cGroup_1_11 = (Group)cGroup_1.eContents().get(11);
-		private final Keyword cUserKeyword_1_11_0 = (Keyword)cGroup_1_11.eContents().get(0);
-		private final Assignment cUserAssignment_1_11_1 = (Assignment)cGroup_1_11.eContents().get(1);
-		private final RuleCall cUserEStringParserRuleCall_1_11_1_0 = (RuleCall)cUserAssignment_1_11_1.eContents().get(0);
-		private final Assignment cEnvironmentsAssignment_1_12 = (Assignment)cGroup_1.eContents().get(12);
-		private final RuleCall cEnvironmentsEnvironmentParserRuleCall_1_12_0 = (RuleCall)cEnvironmentsAssignment_1_12.eContents().get(0);
-		private final Assignment cDocker_authAssignment_1_13 = (Assignment)cGroup_1.eContents().get(13);
-		private final RuleCall cDocker_authDocker_AuthParserRuleCall_1_13_0 = (RuleCall)cDocker_authAssignment_1_13.eContents().get(0);
-		private final Assignment cDocker_aws_authAssignment_1_14 = (Assignment)cGroup_1.eContents().get(14);
-		private final RuleCall cDocker_aws_authDocker_Aws_AuthsParserRuleCall_1_14_0 = (RuleCall)cDocker_aws_authAssignment_1_14.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_1_15 = (RuleCall)cGroup_1.eContents().get(15);
-		
-		//Docker returns Docker:
-		//    'Docker'
-		//    (BEGIN
-		//        'name' name=EString
-		//        'image' image=EString
-		//        'resourceClass' resourceClass=DOCKER_RESOURCE_TYPE
-		//        ('shell' shell=EString )?
-		//        ('working_directory' working_directory=EString )?
-		//        ('entrypoint' entrypoint+=EString (',' entrypoint+=EString)* )?
-		//        ('command' command+=EString (',' command+=EString)* )?
-		//        ('user' user=EString )?
-		//        (environments+=Environment)*
-		//        (docker_auth=Docker_Auth)?
-		//        (docker_aws_auth=Docker_Aws_Auths)?
-		//    END);
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Docker'
-		//(BEGIN
-		//    'name' name=EString
-		//    'image' image=EString
-		//    'resourceClass' resourceClass=DOCKER_RESOURCE_TYPE
-		//    ('shell' shell=EString )?
-		//    ('working_directory' working_directory=EString )?
-		//    ('entrypoint' entrypoint+=EString (',' entrypoint+=EString)* )?
-		//    ('command' command+=EString (',' command+=EString)* )?
-		//    ('user' user=EString )?
-		//    (environments+=Environment)*
-		//    (docker_auth=Docker_Auth)?
-		//    (docker_aws_auth=Docker_Aws_Auths)?
-		//END)
-		public Group getGroup() { return cGroup; }
-		
-		//'Docker'
-		public Keyword getDockerKeyword_0() { return cDockerKeyword_0; }
-		
-		//(BEGIN
-		//    'name' name=EString
-		//    'image' image=EString
-		//    'resourceClass' resourceClass=DOCKER_RESOURCE_TYPE
-		//    ('shell' shell=EString )?
-		//    ('working_directory' working_directory=EString )?
-		//    ('entrypoint' entrypoint+=EString (',' entrypoint+=EString)* )?
-		//    ('command' command+=EString (',' command+=EString)* )?
-		//    ('user' user=EString )?
-		//    (environments+=Environment)*
-		//    (docker_auth=Docker_Auth)?
-		//    (docker_aws_auth=Docker_Aws_Auths)?
-		//END)
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_1_0() { return cBEGINTerminalRuleCall_1_0; }
-		
-		//'name'
-		public Keyword getNameKeyword_1_1() { return cNameKeyword_1_1; }
-		
-		//name=EString
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_1_2_0() { return cNameEStringParserRuleCall_1_2_0; }
-		
-		//'image'
-		public Keyword getImageKeyword_1_3() { return cImageKeyword_1_3; }
-		
-		//image=EString
-		public Assignment getImageAssignment_1_4() { return cImageAssignment_1_4; }
-		
-		//EString
-		public RuleCall getImageEStringParserRuleCall_1_4_0() { return cImageEStringParserRuleCall_1_4_0; }
+		public Keyword getDocker_layer_cachingDocker_layer_cachingKeyword_1_4_0() { return cDocker_layer_cachingDocker_layer_cachingKeyword_1_4_0; }
 		
 		//'resourceClass'
 		public Keyword getResourceClassKeyword_1_5() { return cResourceClassKeyword_1_5; }
 		
-		//resourceClass=DOCKER_RESOURCE_TYPE
+		//resourceClass=MACHINE_RESOURCE_TYPE
 		public Assignment getResourceClassAssignment_1_6() { return cResourceClassAssignment_1_6; }
 		
-		//DOCKER_RESOURCE_TYPE
-		public RuleCall getResourceClassDOCKER_RESOURCE_TYPEEnumRuleCall_1_6_0() { return cResourceClassDOCKER_RESOURCE_TYPEEnumRuleCall_1_6_0; }
+		//MACHINE_RESOURCE_TYPE
+		public RuleCall getResourceClassMACHINE_RESOURCE_TYPEEnumRuleCall_1_6_0() { return cResourceClassMACHINE_RESOURCE_TYPEEnumRuleCall_1_6_0; }
 		
 		//('shell' shell=EString )?
 		public Group getGroup_1_7() { return cGroup_1_7; }
@@ -2961,86 +2680,393 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//EString
 		public RuleCall getWorking_directoryEStringParserRuleCall_1_8_1_0() { return cWorking_directoryEStringParserRuleCall_1_8_1_0; }
 		
-		//('entrypoint' entrypoint+=EString (',' entrypoint+=EString)* )?
-		public Group getGroup_1_9() { return cGroup_1_9; }
+		//(environments+=Environment)*
+		public Assignment getEnvironmentsAssignment_1_9() { return cEnvironmentsAssignment_1_9; }
 		
-		//'entrypoint'
-		public Keyword getEntrypointKeyword_1_9_0() { return cEntrypointKeyword_1_9_0; }
+		//Environment
+		public RuleCall getEnvironmentsEnvironmentParserRuleCall_1_9_0() { return cEnvironmentsEnvironmentParserRuleCall_1_9_0; }
 		
-		//entrypoint+=EString
-		public Assignment getEntrypointAssignment_1_9_1() { return cEntrypointAssignment_1_9_1; }
+		//END
+		public RuleCall getENDTerminalRuleCall_1_10() { return cENDTerminalRuleCall_1_10; }
+	}
+	public class MacOsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.MacOs");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMacOsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cBEGINTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cNameKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cNameAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_1_1_0 = (RuleCall)cNameAssignment_1_1_1.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Keyword cXcodeKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cXcodeAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cXcodeEStringParserRuleCall_1_2_1_0 = (RuleCall)cXcodeAssignment_1_2_1.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
+		private final Keyword cResourceClassKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Assignment cResourceClassAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final RuleCall cResourceClassMACOS_RESOURCE_TYPEEnumRuleCall_1_3_1_0 = (RuleCall)cResourceClassAssignment_1_3_1.eContents().get(0);
+		private final Group cGroup_1_4 = (Group)cGroup_1.eContents().get(4);
+		private final Keyword cShellKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Assignment cShellAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
+		private final RuleCall cShellEStringParserRuleCall_1_4_1_0 = (RuleCall)cShellAssignment_1_4_1.eContents().get(0);
+		private final Group cGroup_1_5 = (Group)cGroup_1.eContents().get(5);
+		private final Keyword cWorking_directoryKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
+		private final Assignment cWorking_directoryAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
+		private final RuleCall cWorking_directoryEStringParserRuleCall_1_5_1_0 = (RuleCall)cWorking_directoryAssignment_1_5_1.eContents().get(0);
+		private final Assignment cEnvironmentsAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
+		private final RuleCall cEnvironmentsEnvironmentParserRuleCall_1_6_0 = (RuleCall)cEnvironmentsAssignment_1_6.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_1_7 = (RuleCall)cGroup_1.eContents().get(7);
+		
+		//MacOs returns MacOs:
+		//    'MacOs'
+		//    (BEGIN
+		//        ('name' name=EString)?
+		//        ('xcode' xcode=EString)
+		//        ('resourceClass' resourceClass=MACOS_RESOURCE_TYPE)
+		//        ('shell' shell=EString)?
+		//        ('working_directory' working_directory=EString)?
+		//        (environments+=Environment)*
+		//    END);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'MacOs'
+		//(BEGIN
+		//    ('name' name=EString)?
+		//    ('xcode' xcode=EString)
+		//    ('resourceClass' resourceClass=MACOS_RESOURCE_TYPE)
+		//    ('shell' shell=EString)?
+		//    ('working_directory' working_directory=EString)?
+		//    (environments+=Environment)*
+		//END)
+		public Group getGroup() { return cGroup; }
+		
+		//'MacOs'
+		public Keyword getMacOsKeyword_0() { return cMacOsKeyword_0; }
+		
+		//(BEGIN
+		//    ('name' name=EString)?
+		//    ('xcode' xcode=EString)
+		//    ('resourceClass' resourceClass=MACOS_RESOURCE_TYPE)
+		//    ('shell' shell=EString)?
+		//    ('working_directory' working_directory=EString)?
+		//    (environments+=Environment)*
+		//END)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1_0() { return cBEGINTerminalRuleCall_1_0; }
+		
+		//('name' name=EString)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'name'
+		public Keyword getNameKeyword_1_1_0() { return cNameKeyword_1_1_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1_1_1() { return cNameAssignment_1_1_1; }
 		
 		//EString
-		public RuleCall getEntrypointEStringParserRuleCall_1_9_1_0() { return cEntrypointEStringParserRuleCall_1_9_1_0; }
+		public RuleCall getNameEStringParserRuleCall_1_1_1_0() { return cNameEStringParserRuleCall_1_1_1_0; }
+		
+		//('xcode' xcode=EString)
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//'xcode'
+		public Keyword getXcodeKeyword_1_2_0() { return cXcodeKeyword_1_2_0; }
+		
+		//xcode=EString
+		public Assignment getXcodeAssignment_1_2_1() { return cXcodeAssignment_1_2_1; }
+		
+		//EString
+		public RuleCall getXcodeEStringParserRuleCall_1_2_1_0() { return cXcodeEStringParserRuleCall_1_2_1_0; }
+		
+		//('resourceClass' resourceClass=MACOS_RESOURCE_TYPE)
+		public Group getGroup_1_3() { return cGroup_1_3; }
+		
+		//'resourceClass'
+		public Keyword getResourceClassKeyword_1_3_0() { return cResourceClassKeyword_1_3_0; }
+		
+		//resourceClass=MACOS_RESOURCE_TYPE
+		public Assignment getResourceClassAssignment_1_3_1() { return cResourceClassAssignment_1_3_1; }
+		
+		//MACOS_RESOURCE_TYPE
+		public RuleCall getResourceClassMACOS_RESOURCE_TYPEEnumRuleCall_1_3_1_0() { return cResourceClassMACOS_RESOURCE_TYPEEnumRuleCall_1_3_1_0; }
+		
+		//('shell' shell=EString)?
+		public Group getGroup_1_4() { return cGroup_1_4; }
+		
+		//'shell'
+		public Keyword getShellKeyword_1_4_0() { return cShellKeyword_1_4_0; }
+		
+		//shell=EString
+		public Assignment getShellAssignment_1_4_1() { return cShellAssignment_1_4_1; }
+		
+		//EString
+		public RuleCall getShellEStringParserRuleCall_1_4_1_0() { return cShellEStringParserRuleCall_1_4_1_0; }
+		
+		//('working_directory' working_directory=EString)?
+		public Group getGroup_1_5() { return cGroup_1_5; }
+		
+		//'working_directory'
+		public Keyword getWorking_directoryKeyword_1_5_0() { return cWorking_directoryKeyword_1_5_0; }
+		
+		//working_directory=EString
+		public Assignment getWorking_directoryAssignment_1_5_1() { return cWorking_directoryAssignment_1_5_1; }
+		
+		//EString
+		public RuleCall getWorking_directoryEStringParserRuleCall_1_5_1_0() { return cWorking_directoryEStringParserRuleCall_1_5_1_0; }
+		
+		//(environments+=Environment)*
+		public Assignment getEnvironmentsAssignment_1_6() { return cEnvironmentsAssignment_1_6; }
+		
+		//Environment
+		public RuleCall getEnvironmentsEnvironmentParserRuleCall_1_6_0() { return cEnvironmentsEnvironmentParserRuleCall_1_6_0; }
+		
+		//END
+		public RuleCall getENDTerminalRuleCall_1_7() { return cENDTerminalRuleCall_1_7; }
+	}
+	public class DockerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.Docker");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDockerKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cBEGINTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cNameKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cNameAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_1_1_0 = (RuleCall)cNameAssignment_1_1_1.eContents().get(0);
+		private final Keyword cImageKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cImageAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cImageEStringParserRuleCall_1_3_0 = (RuleCall)cImageAssignment_1_3.eContents().get(0);
+		private final Keyword cResourceClassKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Assignment cResourceClassAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final RuleCall cResourceClassDOCKER_RESOURCE_TYPEEnumRuleCall_1_5_0 = (RuleCall)cResourceClassAssignment_1_5.eContents().get(0);
+		private final Group cGroup_1_6 = (Group)cGroup_1.eContents().get(6);
+		private final Keyword cShellKeyword_1_6_0 = (Keyword)cGroup_1_6.eContents().get(0);
+		private final Assignment cShellAssignment_1_6_1 = (Assignment)cGroup_1_6.eContents().get(1);
+		private final RuleCall cShellEStringParserRuleCall_1_6_1_0 = (RuleCall)cShellAssignment_1_6_1.eContents().get(0);
+		private final Group cGroup_1_7 = (Group)cGroup_1.eContents().get(7);
+		private final Keyword cWorking_directoryKeyword_1_7_0 = (Keyword)cGroup_1_7.eContents().get(0);
+		private final Assignment cWorking_directoryAssignment_1_7_1 = (Assignment)cGroup_1_7.eContents().get(1);
+		private final RuleCall cWorking_directoryEStringParserRuleCall_1_7_1_0 = (RuleCall)cWorking_directoryAssignment_1_7_1.eContents().get(0);
+		private final Group cGroup_1_8 = (Group)cGroup_1.eContents().get(8);
+		private final Keyword cEntrypointKeyword_1_8_0 = (Keyword)cGroup_1_8.eContents().get(0);
+		private final Assignment cEntrypointAssignment_1_8_1 = (Assignment)cGroup_1_8.eContents().get(1);
+		private final RuleCall cEntrypointEStringParserRuleCall_1_8_1_0 = (RuleCall)cEntrypointAssignment_1_8_1.eContents().get(0);
+		private final Group cGroup_1_8_2 = (Group)cGroup_1_8.eContents().get(2);
+		private final Keyword cCommaKeyword_1_8_2_0 = (Keyword)cGroup_1_8_2.eContents().get(0);
+		private final Assignment cEntrypointAssignment_1_8_2_1 = (Assignment)cGroup_1_8_2.eContents().get(1);
+		private final RuleCall cEntrypointEStringParserRuleCall_1_8_2_1_0 = (RuleCall)cEntrypointAssignment_1_8_2_1.eContents().get(0);
+		private final Group cGroup_1_9 = (Group)cGroup_1.eContents().get(9);
+		private final Keyword cCommandKeyword_1_9_0 = (Keyword)cGroup_1_9.eContents().get(0);
+		private final Assignment cCommandAssignment_1_9_1 = (Assignment)cGroup_1_9.eContents().get(1);
+		private final RuleCall cCommandEStringParserRuleCall_1_9_1_0 = (RuleCall)cCommandAssignment_1_9_1.eContents().get(0);
+		private final Group cGroup_1_9_2 = (Group)cGroup_1_9.eContents().get(2);
+		private final Keyword cCommaKeyword_1_9_2_0 = (Keyword)cGroup_1_9_2.eContents().get(0);
+		private final Assignment cCommandAssignment_1_9_2_1 = (Assignment)cGroup_1_9_2.eContents().get(1);
+		private final RuleCall cCommandEStringParserRuleCall_1_9_2_1_0 = (RuleCall)cCommandAssignment_1_9_2_1.eContents().get(0);
+		private final Group cGroup_1_10 = (Group)cGroup_1.eContents().get(10);
+		private final Keyword cUserKeyword_1_10_0 = (Keyword)cGroup_1_10.eContents().get(0);
+		private final Assignment cUserAssignment_1_10_1 = (Assignment)cGroup_1_10.eContents().get(1);
+		private final RuleCall cUserEStringParserRuleCall_1_10_1_0 = (RuleCall)cUserAssignment_1_10_1.eContents().get(0);
+		private final Assignment cEnvironmentsAssignment_1_11 = (Assignment)cGroup_1.eContents().get(11);
+		private final RuleCall cEnvironmentsEnvironmentParserRuleCall_1_11_0 = (RuleCall)cEnvironmentsAssignment_1_11.eContents().get(0);
+		private final Assignment cDocker_authAssignment_1_12 = (Assignment)cGroup_1.eContents().get(12);
+		private final RuleCall cDocker_authDocker_AuthParserRuleCall_1_12_0 = (RuleCall)cDocker_authAssignment_1_12.eContents().get(0);
+		private final Assignment cDocker_aws_authAssignment_1_13 = (Assignment)cGroup_1.eContents().get(13);
+		private final RuleCall cDocker_aws_authDocker_Aws_AuthsParserRuleCall_1_13_0 = (RuleCall)cDocker_aws_authAssignment_1_13.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_1_14 = (RuleCall)cGroup_1.eContents().get(14);
+		
+		//Docker returns Docker:
+		//    'Docker'
+		//    (BEGIN
+		//        ('name' name=EString)?
+		//        'image' image=EString
+		//        'resourceClass' resourceClass=DOCKER_RESOURCE_TYPE
+		//        ('shell' shell=EString )?
+		//        ('working_directory' working_directory=EString )?
+		//        ('entrypoint' entrypoint+=EString (',' entrypoint+=EString)* )?
+		//        ('command' command+=EString (',' command+=EString)* )?
+		//        ('user' user=EString )?
+		//        (environments+=Environment)*
+		//        (docker_auth=Docker_Auth)?
+		//        (docker_aws_auth=Docker_Aws_Auths)?
+		//    END);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Docker'
+		//(BEGIN
+		//    ('name' name=EString)?
+		//    'image' image=EString
+		//    'resourceClass' resourceClass=DOCKER_RESOURCE_TYPE
+		//    ('shell' shell=EString )?
+		//    ('working_directory' working_directory=EString )?
+		//    ('entrypoint' entrypoint+=EString (',' entrypoint+=EString)* )?
+		//    ('command' command+=EString (',' command+=EString)* )?
+		//    ('user' user=EString )?
+		//    (environments+=Environment)*
+		//    (docker_auth=Docker_Auth)?
+		//    (docker_aws_auth=Docker_Aws_Auths)?
+		//END)
+		public Group getGroup() { return cGroup; }
+		
+		//'Docker'
+		public Keyword getDockerKeyword_0() { return cDockerKeyword_0; }
+		
+		//(BEGIN
+		//    ('name' name=EString)?
+		//    'image' image=EString
+		//    'resourceClass' resourceClass=DOCKER_RESOURCE_TYPE
+		//    ('shell' shell=EString )?
+		//    ('working_directory' working_directory=EString )?
+		//    ('entrypoint' entrypoint+=EString (',' entrypoint+=EString)* )?
+		//    ('command' command+=EString (',' command+=EString)* )?
+		//    ('user' user=EString )?
+		//    (environments+=Environment)*
+		//    (docker_auth=Docker_Auth)?
+		//    (docker_aws_auth=Docker_Aws_Auths)?
+		//END)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1_0() { return cBEGINTerminalRuleCall_1_0; }
+		
+		//('name' name=EString)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'name'
+		public Keyword getNameKeyword_1_1_0() { return cNameKeyword_1_1_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1_1_1() { return cNameAssignment_1_1_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_1_1_0() { return cNameEStringParserRuleCall_1_1_1_0; }
+		
+		//'image'
+		public Keyword getImageKeyword_1_2() { return cImageKeyword_1_2; }
+		
+		//image=EString
+		public Assignment getImageAssignment_1_3() { return cImageAssignment_1_3; }
+		
+		//EString
+		public RuleCall getImageEStringParserRuleCall_1_3_0() { return cImageEStringParserRuleCall_1_3_0; }
+		
+		//'resourceClass'
+		public Keyword getResourceClassKeyword_1_4() { return cResourceClassKeyword_1_4; }
+		
+		//resourceClass=DOCKER_RESOURCE_TYPE
+		public Assignment getResourceClassAssignment_1_5() { return cResourceClassAssignment_1_5; }
+		
+		//DOCKER_RESOURCE_TYPE
+		public RuleCall getResourceClassDOCKER_RESOURCE_TYPEEnumRuleCall_1_5_0() { return cResourceClassDOCKER_RESOURCE_TYPEEnumRuleCall_1_5_0; }
+		
+		//('shell' shell=EString )?
+		public Group getGroup_1_6() { return cGroup_1_6; }
+		
+		//'shell'
+		public Keyword getShellKeyword_1_6_0() { return cShellKeyword_1_6_0; }
+		
+		//shell=EString
+		public Assignment getShellAssignment_1_6_1() { return cShellAssignment_1_6_1; }
+		
+		//EString
+		public RuleCall getShellEStringParserRuleCall_1_6_1_0() { return cShellEStringParserRuleCall_1_6_1_0; }
+		
+		//('working_directory' working_directory=EString )?
+		public Group getGroup_1_7() { return cGroup_1_7; }
+		
+		//'working_directory'
+		public Keyword getWorking_directoryKeyword_1_7_0() { return cWorking_directoryKeyword_1_7_0; }
+		
+		//working_directory=EString
+		public Assignment getWorking_directoryAssignment_1_7_1() { return cWorking_directoryAssignment_1_7_1; }
+		
+		//EString
+		public RuleCall getWorking_directoryEStringParserRuleCall_1_7_1_0() { return cWorking_directoryEStringParserRuleCall_1_7_1_0; }
+		
+		//('entrypoint' entrypoint+=EString (',' entrypoint+=EString)* )?
+		public Group getGroup_1_8() { return cGroup_1_8; }
+		
+		//'entrypoint'
+		public Keyword getEntrypointKeyword_1_8_0() { return cEntrypointKeyword_1_8_0; }
+		
+		//entrypoint+=EString
+		public Assignment getEntrypointAssignment_1_8_1() { return cEntrypointAssignment_1_8_1; }
+		
+		//EString
+		public RuleCall getEntrypointEStringParserRuleCall_1_8_1_0() { return cEntrypointEStringParserRuleCall_1_8_1_0; }
 		
 		//(',' entrypoint+=EString)*
+		public Group getGroup_1_8_2() { return cGroup_1_8_2; }
+		
+		//','
+		public Keyword getCommaKeyword_1_8_2_0() { return cCommaKeyword_1_8_2_0; }
+		
+		//entrypoint+=EString
+		public Assignment getEntrypointAssignment_1_8_2_1() { return cEntrypointAssignment_1_8_2_1; }
+		
+		//EString
+		public RuleCall getEntrypointEStringParserRuleCall_1_8_2_1_0() { return cEntrypointEStringParserRuleCall_1_8_2_1_0; }
+		
+		//('command' command+=EString (',' command+=EString)* )?
+		public Group getGroup_1_9() { return cGroup_1_9; }
+		
+		//'command'
+		public Keyword getCommandKeyword_1_9_0() { return cCommandKeyword_1_9_0; }
+		
+		//command+=EString
+		public Assignment getCommandAssignment_1_9_1() { return cCommandAssignment_1_9_1; }
+		
+		//EString
+		public RuleCall getCommandEStringParserRuleCall_1_9_1_0() { return cCommandEStringParserRuleCall_1_9_1_0; }
+		
+		//(',' command+=EString)*
 		public Group getGroup_1_9_2() { return cGroup_1_9_2; }
 		
 		//','
 		public Keyword getCommaKeyword_1_9_2_0() { return cCommaKeyword_1_9_2_0; }
 		
-		//entrypoint+=EString
-		public Assignment getEntrypointAssignment_1_9_2_1() { return cEntrypointAssignment_1_9_2_1; }
-		
-		//EString
-		public RuleCall getEntrypointEStringParserRuleCall_1_9_2_1_0() { return cEntrypointEStringParserRuleCall_1_9_2_1_0; }
-		
-		//('command' command+=EString (',' command+=EString)* )?
-		public Group getGroup_1_10() { return cGroup_1_10; }
-		
-		//'command'
-		public Keyword getCommandKeyword_1_10_0() { return cCommandKeyword_1_10_0; }
-		
 		//command+=EString
-		public Assignment getCommandAssignment_1_10_1() { return cCommandAssignment_1_10_1; }
+		public Assignment getCommandAssignment_1_9_2_1() { return cCommandAssignment_1_9_2_1; }
 		
 		//EString
-		public RuleCall getCommandEStringParserRuleCall_1_10_1_0() { return cCommandEStringParserRuleCall_1_10_1_0; }
-		
-		//(',' command+=EString)*
-		public Group getGroup_1_10_2() { return cGroup_1_10_2; }
-		
-		//','
-		public Keyword getCommaKeyword_1_10_2_0() { return cCommaKeyword_1_10_2_0; }
-		
-		//command+=EString
-		public Assignment getCommandAssignment_1_10_2_1() { return cCommandAssignment_1_10_2_1; }
-		
-		//EString
-		public RuleCall getCommandEStringParserRuleCall_1_10_2_1_0() { return cCommandEStringParserRuleCall_1_10_2_1_0; }
+		public RuleCall getCommandEStringParserRuleCall_1_9_2_1_0() { return cCommandEStringParserRuleCall_1_9_2_1_0; }
 		
 		//('user' user=EString )?
-		public Group getGroup_1_11() { return cGroup_1_11; }
+		public Group getGroup_1_10() { return cGroup_1_10; }
 		
 		//'user'
-		public Keyword getUserKeyword_1_11_0() { return cUserKeyword_1_11_0; }
+		public Keyword getUserKeyword_1_10_0() { return cUserKeyword_1_10_0; }
 		
 		//user=EString
-		public Assignment getUserAssignment_1_11_1() { return cUserAssignment_1_11_1; }
+		public Assignment getUserAssignment_1_10_1() { return cUserAssignment_1_10_1; }
 		
 		//EString
-		public RuleCall getUserEStringParserRuleCall_1_11_1_0() { return cUserEStringParserRuleCall_1_11_1_0; }
+		public RuleCall getUserEStringParserRuleCall_1_10_1_0() { return cUserEStringParserRuleCall_1_10_1_0; }
 		
 		//(environments+=Environment)*
-		public Assignment getEnvironmentsAssignment_1_12() { return cEnvironmentsAssignment_1_12; }
+		public Assignment getEnvironmentsAssignment_1_11() { return cEnvironmentsAssignment_1_11; }
 		
 		//Environment
-		public RuleCall getEnvironmentsEnvironmentParserRuleCall_1_12_0() { return cEnvironmentsEnvironmentParserRuleCall_1_12_0; }
+		public RuleCall getEnvironmentsEnvironmentParserRuleCall_1_11_0() { return cEnvironmentsEnvironmentParserRuleCall_1_11_0; }
 		
 		//(docker_auth=Docker_Auth)?
-		public Assignment getDocker_authAssignment_1_13() { return cDocker_authAssignment_1_13; }
+		public Assignment getDocker_authAssignment_1_12() { return cDocker_authAssignment_1_12; }
 		
 		//Docker_Auth
-		public RuleCall getDocker_authDocker_AuthParserRuleCall_1_13_0() { return cDocker_authDocker_AuthParserRuleCall_1_13_0; }
+		public RuleCall getDocker_authDocker_AuthParserRuleCall_1_12_0() { return cDocker_authDocker_AuthParserRuleCall_1_12_0; }
 		
 		//(docker_aws_auth=Docker_Aws_Auths)?
-		public Assignment getDocker_aws_authAssignment_1_14() { return cDocker_aws_authAssignment_1_14; }
+		public Assignment getDocker_aws_authAssignment_1_13() { return cDocker_aws_authAssignment_1_13; }
 		
 		//Docker_Aws_Auths
-		public RuleCall getDocker_aws_authDocker_Aws_AuthsParserRuleCall_1_14_0() { return cDocker_aws_authDocker_Aws_AuthsParserRuleCall_1_14_0; }
+		public RuleCall getDocker_aws_authDocker_Aws_AuthsParserRuleCall_1_13_0() { return cDocker_aws_authDocker_Aws_AuthsParserRuleCall_1_13_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_1_15() { return cENDTerminalRuleCall_1_15; }
+		public RuleCall getENDTerminalRuleCall_1_14() { return cENDTerminalRuleCall_1_14; }
 	}
 	public class Docker_AuthElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.circleci.Circleci.Docker_Auth");
@@ -3772,11 +3798,12 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	}
 	
 	//RestoreCache returns RestoreCache:
+	//    {RestoreCache}
 	//    'RestoreCache'
 	//    (BEGIN
 	//        ('name' name=EString)?
-	//        'key' key=EString
-	//        'keys' keys+=EString (',' keys+=EString)*
+	//        ('key' key=EString)?
+	//        ('keys' keys+=EString (',' keys+=EString)*)?
 	//    END);
 	public RestoreCacheElements getRestoreCacheAccess() {
 		return pRestoreCache;
@@ -4091,7 +4118,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	//Machine returns Machine:
 	//    'Machine'
 	//    (BEGIN
-	//        'name' name=EString
+	//        ('name' name=EString)?
 	//        'image' image=EString
 	//        (docker_layer_caching?='docker_layer_caching')?
 	//        'resourceClass' resourceClass=MACHINE_RESOURCE_TYPE
@@ -4110,7 +4137,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	//MacOs returns MacOs:
 	//    'MacOs'
 	//    (BEGIN
-	//        'name' name=EString
+	//        ('name' name=EString)?
 	//        ('xcode' xcode=EString)
 	//        ('resourceClass' resourceClass=MACOS_RESOURCE_TYPE)
 	//        ('shell' shell=EString)?
@@ -4128,7 +4155,7 @@ public class CircleciGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	//Docker returns Docker:
 	//    'Docker'
 	//    (BEGIN
-	//        'name' name=EString
+	//        ('name' name=EString)?
 	//        'image' image=EString
 	//        'resourceClass' resourceClass=DOCKER_RESOURCE_TYPE
 	//        ('shell' shell=EString )?

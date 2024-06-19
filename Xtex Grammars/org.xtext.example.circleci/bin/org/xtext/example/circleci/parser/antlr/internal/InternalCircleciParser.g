@@ -1416,26 +1416,33 @@ ruleRestoreCache returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0=RestoreCache
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getRestoreCacheAccess().getRestoreCacheAction_0(),
+					$current);
+			}
+		)
+		otherlv_1=RestoreCache
 		{
-			newLeafNode(otherlv_0, grammarAccess.getRestoreCacheAccess().getRestoreCacheKeyword_0());
+			newLeafNode(otherlv_1, grammarAccess.getRestoreCacheAccess().getRestoreCacheKeyword_1());
 		}
 		(
-			this_BEGIN_1=RULE_BEGIN
+			this_BEGIN_2=RULE_BEGIN
 			{
-				newLeafNode(this_BEGIN_1, grammarAccess.getRestoreCacheAccess().getBEGINTerminalRuleCall_1_0());
+				newLeafNode(this_BEGIN_2, grammarAccess.getRestoreCacheAccess().getBEGINTerminalRuleCall_2_0());
 			}
 			(
-				otherlv_2=Name
+				otherlv_3=Name
 				{
-					newLeafNode(otherlv_2, grammarAccess.getRestoreCacheAccess().getNameKeyword_1_1_0());
+					newLeafNode(otherlv_3, grammarAccess.getRestoreCacheAccess().getNameKeyword_2_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRestoreCacheAccess().getNameEStringParserRuleCall_1_1_1_0());
+							newCompositeNode(grammarAccess.getRestoreCacheAccess().getNameEStringParserRuleCall_2_1_1_0());
 						}
-						lv_name_3_0=ruleEString
+						lv_name_4_0=ruleEString
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRestoreCacheRule());
@@ -1443,70 +1450,49 @@ ruleRestoreCache returns [EObject current=null]
 							set(
 								$current,
 								"name",
-								lv_name_3_0,
+								lv_name_4_0,
 								"org.xtext.example.circleci.Circleci.EString");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)?
-			otherlv_4=Key
-			{
-				newLeafNode(otherlv_4, grammarAccess.getRestoreCacheAccess().getKeyKeyword_1_2());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getRestoreCacheAccess().getKeyEStringParserRuleCall_1_3_0());
-					}
-					lv_key_5_0=ruleEString
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getRestoreCacheRule());
-						}
-						set(
-							$current,
-							"key",
-							lv_key_5_0,
-							"org.xtext.example.circleci.Circleci.EString");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			otherlv_6=Keys
-			{
-				newLeafNode(otherlv_6, grammarAccess.getRestoreCacheAccess().getKeysKeyword_1_4());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getRestoreCacheAccess().getKeysEStringParserRuleCall_1_5_0());
-					}
-					lv_keys_7_0=ruleEString
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getRestoreCacheRule());
-						}
-						add(
-							$current,
-							"keys",
-							lv_keys_7_0,
-							"org.xtext.example.circleci.Circleci.EString");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_8=Comma
+				otherlv_5=Key
 				{
-					newLeafNode(otherlv_8, grammarAccess.getRestoreCacheAccess().getCommaKeyword_1_6_0());
+					newLeafNode(otherlv_5, grammarAccess.getRestoreCacheAccess().getKeyKeyword_2_2_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRestoreCacheAccess().getKeysEStringParserRuleCall_1_6_1_0());
+							newCompositeNode(grammarAccess.getRestoreCacheAccess().getKeyEStringParserRuleCall_2_2_1_0());
 						}
-						lv_keys_9_0=ruleEString
+						lv_key_6_0=ruleEString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getRestoreCacheRule());
+							}
+							set(
+								$current,
+								"key",
+								lv_key_6_0,
+								"org.xtext.example.circleci.Circleci.EString");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)?
+			(
+				otherlv_7=Keys
+				{
+					newLeafNode(otherlv_7, grammarAccess.getRestoreCacheAccess().getKeysKeyword_2_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getRestoreCacheAccess().getKeysEStringParserRuleCall_2_3_1_0());
+						}
+						lv_keys_8_0=ruleEString
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRestoreCacheRule());
@@ -1514,16 +1500,41 @@ ruleRestoreCache returns [EObject current=null]
 							add(
 								$current,
 								"keys",
-								lv_keys_9_0,
+								lv_keys_8_0,
 								"org.xtext.example.circleci.Circleci.EString");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
-			)*
-			this_END_10=RULE_END
+				(
+					otherlv_9=Comma
+					{
+						newLeafNode(otherlv_9, grammarAccess.getRestoreCacheAccess().getCommaKeyword_2_3_2_0());
+					}
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getRestoreCacheAccess().getKeysEStringParserRuleCall_2_3_2_1_0());
+							}
+							lv_keys_10_0=ruleEString
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getRestoreCacheRule());
+								}
+								add(
+									$current,
+									"keys",
+									lv_keys_10_0,
+									"org.xtext.example.circleci.Circleci.EString");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
+				)*
+			)?
+			this_END_11=RULE_END
 			{
-				newLeafNode(this_END_10, grammarAccess.getRestoreCacheAccess().getENDTerminalRuleCall_1_7());
+				newLeafNode(this_END_11, grammarAccess.getRestoreCacheAccess().getENDTerminalRuleCall_2_4());
 			}
 		)
 	)
@@ -3374,37 +3385,39 @@ ruleMachine returns [EObject current=null]
 			{
 				newLeafNode(this_BEGIN_1, grammarAccess.getMachineAccess().getBEGINTerminalRuleCall_1_0());
 			}
-			otherlv_2=Name
-			{
-				newLeafNode(otherlv_2, grammarAccess.getMachineAccess().getNameKeyword_1_1());
-			}
 			(
+				otherlv_2=Name
+				{
+					newLeafNode(otherlv_2, grammarAccess.getMachineAccess().getNameKeyword_1_1_0());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getMachineAccess().getNameEStringParserRuleCall_1_2_0());
-					}
-					lv_name_3_0=ruleEString
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMachineRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getMachineAccess().getNameEStringParserRuleCall_1_1_1_0());
 						}
-						set(
-							$current,
-							"name",
-							lv_name_3_0,
-							"org.xtext.example.circleci.Circleci.EString");
-						afterParserOrEnumRuleCall();
-					}
+						lv_name_3_0=ruleEString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getMachineRule());
+							}
+							set(
+								$current,
+								"name",
+								lv_name_3_0,
+								"org.xtext.example.circleci.Circleci.EString");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
-			)
+			)?
 			otherlv_4=Image
 			{
-				newLeafNode(otherlv_4, grammarAccess.getMachineAccess().getImageKeyword_1_3());
+				newLeafNode(otherlv_4, grammarAccess.getMachineAccess().getImageKeyword_1_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMachineAccess().getImageEStringParserRuleCall_1_4_0());
+						newCompositeNode(grammarAccess.getMachineAccess().getImageEStringParserRuleCall_1_3_0());
 					}
 					lv_image_5_0=ruleEString
 					{
@@ -3424,7 +3437,7 @@ ruleMachine returns [EObject current=null]
 				(
 					lv_docker_layer_caching_6_0=Docker_layer_caching
 					{
-						newLeafNode(lv_docker_layer_caching_6_0, grammarAccess.getMachineAccess().getDocker_layer_cachingDocker_layer_cachingKeyword_1_5_0());
+						newLeafNode(lv_docker_layer_caching_6_0, grammarAccess.getMachineAccess().getDocker_layer_cachingDocker_layer_cachingKeyword_1_4_0());
 					}
 					{
 						if ($current==null) {
@@ -3436,12 +3449,12 @@ ruleMachine returns [EObject current=null]
 			)?
 			otherlv_7=ResourceClass
 			{
-				newLeafNode(otherlv_7, grammarAccess.getMachineAccess().getResourceClassKeyword_1_6());
+				newLeafNode(otherlv_7, grammarAccess.getMachineAccess().getResourceClassKeyword_1_5());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMachineAccess().getResourceClassMACHINE_RESOURCE_TYPEEnumRuleCall_1_7_0());
+						newCompositeNode(grammarAccess.getMachineAccess().getResourceClassMACHINE_RESOURCE_TYPEEnumRuleCall_1_6_0());
 					}
 					lv_resourceClass_8_0=ruleMACHINE_RESOURCE_TYPE
 					{
@@ -3460,12 +3473,12 @@ ruleMachine returns [EObject current=null]
 			(
 				otherlv_9=Shell
 				{
-					newLeafNode(otherlv_9, grammarAccess.getMachineAccess().getShellKeyword_1_8_0());
+					newLeafNode(otherlv_9, grammarAccess.getMachineAccess().getShellKeyword_1_7_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getMachineAccess().getShellEStringParserRuleCall_1_8_1_0());
+							newCompositeNode(grammarAccess.getMachineAccess().getShellEStringParserRuleCall_1_7_1_0());
 						}
 						lv_shell_10_0=ruleEString
 						{
@@ -3485,12 +3498,12 @@ ruleMachine returns [EObject current=null]
 			(
 				otherlv_11=Working_directory
 				{
-					newLeafNode(otherlv_11, grammarAccess.getMachineAccess().getWorking_directoryKeyword_1_9_0());
+					newLeafNode(otherlv_11, grammarAccess.getMachineAccess().getWorking_directoryKeyword_1_8_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getMachineAccess().getWorking_directoryEStringParserRuleCall_1_9_1_0());
+							newCompositeNode(grammarAccess.getMachineAccess().getWorking_directoryEStringParserRuleCall_1_8_1_0());
 						}
 						lv_working_directory_12_0=ruleEString
 						{
@@ -3510,7 +3523,7 @@ ruleMachine returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMachineAccess().getEnvironmentsEnvironmentParserRuleCall_1_10_0());
+						newCompositeNode(grammarAccess.getMachineAccess().getEnvironmentsEnvironmentParserRuleCall_1_9_0());
 					}
 					lv_environments_13_0=ruleEnvironment
 					{
@@ -3528,7 +3541,7 @@ ruleMachine returns [EObject current=null]
 			)*
 			this_END_14=RULE_END
 			{
-				newLeafNode(this_END_14, grammarAccess.getMachineAccess().getENDTerminalRuleCall_1_11());
+				newLeafNode(this_END_14, grammarAccess.getMachineAccess().getENDTerminalRuleCall_1_10());
 			}
 		)
 	)
@@ -3559,38 +3572,40 @@ ruleMacOs returns [EObject current=null]
 			{
 				newLeafNode(this_BEGIN_1, grammarAccess.getMacOsAccess().getBEGINTerminalRuleCall_1_0());
 			}
-			otherlv_2=Name
-			{
-				newLeafNode(otherlv_2, grammarAccess.getMacOsAccess().getNameKeyword_1_1());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getMacOsAccess().getNameEStringParserRuleCall_1_2_0());
-					}
-					lv_name_3_0=ruleEString
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMacOsRule());
-						}
-						set(
-							$current,
-							"name",
-							lv_name_3_0,
-							"org.xtext.example.circleci.Circleci.EString");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_4=Xcode
+				otherlv_2=Name
 				{
-					newLeafNode(otherlv_4, grammarAccess.getMacOsAccess().getXcodeKeyword_1_3_0());
+					newLeafNode(otherlv_2, grammarAccess.getMacOsAccess().getNameKeyword_1_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getMacOsAccess().getXcodeEStringParserRuleCall_1_3_1_0());
+							newCompositeNode(grammarAccess.getMacOsAccess().getNameEStringParserRuleCall_1_1_1_0());
+						}
+						lv_name_3_0=ruleEString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getMacOsRule());
+							}
+							set(
+								$current,
+								"name",
+								lv_name_3_0,
+								"org.xtext.example.circleci.Circleci.EString");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)?
+			(
+				otherlv_4=Xcode
+				{
+					newLeafNode(otherlv_4, grammarAccess.getMacOsAccess().getXcodeKeyword_1_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getMacOsAccess().getXcodeEStringParserRuleCall_1_2_1_0());
 						}
 						lv_xcode_5_0=ruleEString
 						{
@@ -3610,12 +3625,12 @@ ruleMacOs returns [EObject current=null]
 			(
 				otherlv_6=ResourceClass
 				{
-					newLeafNode(otherlv_6, grammarAccess.getMacOsAccess().getResourceClassKeyword_1_4_0());
+					newLeafNode(otherlv_6, grammarAccess.getMacOsAccess().getResourceClassKeyword_1_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getMacOsAccess().getResourceClassMACOS_RESOURCE_TYPEEnumRuleCall_1_4_1_0());
+							newCompositeNode(grammarAccess.getMacOsAccess().getResourceClassMACOS_RESOURCE_TYPEEnumRuleCall_1_3_1_0());
 						}
 						lv_resourceClass_7_0=ruleMACOS_RESOURCE_TYPE
 						{
@@ -3635,12 +3650,12 @@ ruleMacOs returns [EObject current=null]
 			(
 				otherlv_8=Shell
 				{
-					newLeafNode(otherlv_8, grammarAccess.getMacOsAccess().getShellKeyword_1_5_0());
+					newLeafNode(otherlv_8, grammarAccess.getMacOsAccess().getShellKeyword_1_4_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getMacOsAccess().getShellEStringParserRuleCall_1_5_1_0());
+							newCompositeNode(grammarAccess.getMacOsAccess().getShellEStringParserRuleCall_1_4_1_0());
 						}
 						lv_shell_9_0=ruleEString
 						{
@@ -3660,12 +3675,12 @@ ruleMacOs returns [EObject current=null]
 			(
 				otherlv_10=Working_directory
 				{
-					newLeafNode(otherlv_10, grammarAccess.getMacOsAccess().getWorking_directoryKeyword_1_6_0());
+					newLeafNode(otherlv_10, grammarAccess.getMacOsAccess().getWorking_directoryKeyword_1_5_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getMacOsAccess().getWorking_directoryEStringParserRuleCall_1_6_1_0());
+							newCompositeNode(grammarAccess.getMacOsAccess().getWorking_directoryEStringParserRuleCall_1_5_1_0());
 						}
 						lv_working_directory_11_0=ruleEString
 						{
@@ -3685,7 +3700,7 @@ ruleMacOs returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMacOsAccess().getEnvironmentsEnvironmentParserRuleCall_1_7_0());
+						newCompositeNode(grammarAccess.getMacOsAccess().getEnvironmentsEnvironmentParserRuleCall_1_6_0());
 					}
 					lv_environments_12_0=ruleEnvironment
 					{
@@ -3703,7 +3718,7 @@ ruleMacOs returns [EObject current=null]
 			)*
 			this_END_13=RULE_END
 			{
-				newLeafNode(this_END_13, grammarAccess.getMacOsAccess().getENDTerminalRuleCall_1_8());
+				newLeafNode(this_END_13, grammarAccess.getMacOsAccess().getENDTerminalRuleCall_1_7());
 			}
 		)
 	)
@@ -3734,37 +3749,39 @@ ruleDocker returns [EObject current=null]
 			{
 				newLeafNode(this_BEGIN_1, grammarAccess.getDockerAccess().getBEGINTerminalRuleCall_1_0());
 			}
-			otherlv_2=Name
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDockerAccess().getNameKeyword_1_1());
-			}
 			(
+				otherlv_2=Name
+				{
+					newLeafNode(otherlv_2, grammarAccess.getDockerAccess().getNameKeyword_1_1_0());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getDockerAccess().getNameEStringParserRuleCall_1_2_0());
-					}
-					lv_name_3_0=ruleEString
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDockerRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getDockerAccess().getNameEStringParserRuleCall_1_1_1_0());
 						}
-						set(
-							$current,
-							"name",
-							lv_name_3_0,
-							"org.xtext.example.circleci.Circleci.EString");
-						afterParserOrEnumRuleCall();
-					}
+						lv_name_3_0=ruleEString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDockerRule());
+							}
+							set(
+								$current,
+								"name",
+								lv_name_3_0,
+								"org.xtext.example.circleci.Circleci.EString");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
-			)
+			)?
 			otherlv_4=Image
 			{
-				newLeafNode(otherlv_4, grammarAccess.getDockerAccess().getImageKeyword_1_3());
+				newLeafNode(otherlv_4, grammarAccess.getDockerAccess().getImageKeyword_1_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDockerAccess().getImageEStringParserRuleCall_1_4_0());
+						newCompositeNode(grammarAccess.getDockerAccess().getImageEStringParserRuleCall_1_3_0());
 					}
 					lv_image_5_0=ruleEString
 					{
@@ -3782,12 +3799,12 @@ ruleDocker returns [EObject current=null]
 			)
 			otherlv_6=ResourceClass
 			{
-				newLeafNode(otherlv_6, grammarAccess.getDockerAccess().getResourceClassKeyword_1_5());
+				newLeafNode(otherlv_6, grammarAccess.getDockerAccess().getResourceClassKeyword_1_4());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDockerAccess().getResourceClassDOCKER_RESOURCE_TYPEEnumRuleCall_1_6_0());
+						newCompositeNode(grammarAccess.getDockerAccess().getResourceClassDOCKER_RESOURCE_TYPEEnumRuleCall_1_5_0());
 					}
 					lv_resourceClass_7_0=ruleDOCKER_RESOURCE_TYPE
 					{
@@ -3806,12 +3823,12 @@ ruleDocker returns [EObject current=null]
 			(
 				otherlv_8=Shell
 				{
-					newLeafNode(otherlv_8, grammarAccess.getDockerAccess().getShellKeyword_1_7_0());
+					newLeafNode(otherlv_8, grammarAccess.getDockerAccess().getShellKeyword_1_6_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDockerAccess().getShellEStringParserRuleCall_1_7_1_0());
+							newCompositeNode(grammarAccess.getDockerAccess().getShellEStringParserRuleCall_1_6_1_0());
 						}
 						lv_shell_9_0=ruleEString
 						{
@@ -3831,12 +3848,12 @@ ruleDocker returns [EObject current=null]
 			(
 				otherlv_10=Working_directory
 				{
-					newLeafNode(otherlv_10, grammarAccess.getDockerAccess().getWorking_directoryKeyword_1_8_0());
+					newLeafNode(otherlv_10, grammarAccess.getDockerAccess().getWorking_directoryKeyword_1_7_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDockerAccess().getWorking_directoryEStringParserRuleCall_1_8_1_0());
+							newCompositeNode(grammarAccess.getDockerAccess().getWorking_directoryEStringParserRuleCall_1_7_1_0());
 						}
 						lv_working_directory_11_0=ruleEString
 						{
@@ -3856,12 +3873,12 @@ ruleDocker returns [EObject current=null]
 			(
 				otherlv_12=Entrypoint
 				{
-					newLeafNode(otherlv_12, grammarAccess.getDockerAccess().getEntrypointKeyword_1_9_0());
+					newLeafNode(otherlv_12, grammarAccess.getDockerAccess().getEntrypointKeyword_1_8_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDockerAccess().getEntrypointEStringParserRuleCall_1_9_1_0());
+							newCompositeNode(grammarAccess.getDockerAccess().getEntrypointEStringParserRuleCall_1_8_1_0());
 						}
 						lv_entrypoint_13_0=ruleEString
 						{
@@ -3880,12 +3897,12 @@ ruleDocker returns [EObject current=null]
 				(
 					otherlv_14=Comma
 					{
-						newLeafNode(otherlv_14, grammarAccess.getDockerAccess().getCommaKeyword_1_9_2_0());
+						newLeafNode(otherlv_14, grammarAccess.getDockerAccess().getCommaKeyword_1_8_2_0());
 					}
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getDockerAccess().getEntrypointEStringParserRuleCall_1_9_2_1_0());
+								newCompositeNode(grammarAccess.getDockerAccess().getEntrypointEStringParserRuleCall_1_8_2_1_0());
 							}
 							lv_entrypoint_15_0=ruleEString
 							{
@@ -3906,12 +3923,12 @@ ruleDocker returns [EObject current=null]
 			(
 				otherlv_16=Command_1
 				{
-					newLeafNode(otherlv_16, grammarAccess.getDockerAccess().getCommandKeyword_1_10_0());
+					newLeafNode(otherlv_16, grammarAccess.getDockerAccess().getCommandKeyword_1_9_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDockerAccess().getCommandEStringParserRuleCall_1_10_1_0());
+							newCompositeNode(grammarAccess.getDockerAccess().getCommandEStringParserRuleCall_1_9_1_0());
 						}
 						lv_command_17_0=ruleEString
 						{
@@ -3930,12 +3947,12 @@ ruleDocker returns [EObject current=null]
 				(
 					otherlv_18=Comma
 					{
-						newLeafNode(otherlv_18, grammarAccess.getDockerAccess().getCommaKeyword_1_10_2_0());
+						newLeafNode(otherlv_18, grammarAccess.getDockerAccess().getCommaKeyword_1_9_2_0());
 					}
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getDockerAccess().getCommandEStringParserRuleCall_1_10_2_1_0());
+								newCompositeNode(grammarAccess.getDockerAccess().getCommandEStringParserRuleCall_1_9_2_1_0());
 							}
 							lv_command_19_0=ruleEString
 							{
@@ -3956,12 +3973,12 @@ ruleDocker returns [EObject current=null]
 			(
 				otherlv_20=User
 				{
-					newLeafNode(otherlv_20, grammarAccess.getDockerAccess().getUserKeyword_1_11_0());
+					newLeafNode(otherlv_20, grammarAccess.getDockerAccess().getUserKeyword_1_10_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDockerAccess().getUserEStringParserRuleCall_1_11_1_0());
+							newCompositeNode(grammarAccess.getDockerAccess().getUserEStringParserRuleCall_1_10_1_0());
 						}
 						lv_user_21_0=ruleEString
 						{
@@ -3981,7 +3998,7 @@ ruleDocker returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDockerAccess().getEnvironmentsEnvironmentParserRuleCall_1_12_0());
+						newCompositeNode(grammarAccess.getDockerAccess().getEnvironmentsEnvironmentParserRuleCall_1_11_0());
 					}
 					lv_environments_22_0=ruleEnvironment
 					{
@@ -4000,7 +4017,7 @@ ruleDocker returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDockerAccess().getDocker_authDocker_AuthParserRuleCall_1_13_0());
+						newCompositeNode(grammarAccess.getDockerAccess().getDocker_authDocker_AuthParserRuleCall_1_12_0());
 					}
 					lv_docker_auth_23_0=ruleDocker_Auth
 					{
@@ -4019,7 +4036,7 @@ ruleDocker returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDockerAccess().getDocker_aws_authDocker_Aws_AuthsParserRuleCall_1_14_0());
+						newCompositeNode(grammarAccess.getDockerAccess().getDocker_aws_authDocker_Aws_AuthsParserRuleCall_1_13_0());
 					}
 					lv_docker_aws_auth_24_0=ruleDocker_Aws_Auths
 					{
@@ -4037,7 +4054,7 @@ ruleDocker returns [EObject current=null]
 			)?
 			this_END_25=RULE_END
 			{
-				newLeafNode(this_END_25, grammarAccess.getDockerAccess().getENDTerminalRuleCall_1_15());
+				newLeafNode(this_END_25, grammarAccess.getDockerAccess().getENDTerminalRuleCall_1_14());
 			}
 		)
 	)

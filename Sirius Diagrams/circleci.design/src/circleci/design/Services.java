@@ -435,7 +435,7 @@ public class Services {
 	}
 	
 	public boolean checkValidRestoreCache(RestoreCache cache) {
-        if (cache.getKey() == null && cache.getKeys().isEmpty()) {
+        if ((cache.getKey() == null || cache.getKey().isEmpty()) && cache.getKeys().isEmpty()) {
         	return false;
         }
         return true;

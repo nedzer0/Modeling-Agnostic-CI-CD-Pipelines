@@ -107,19 +107,14 @@ public class CircleciValidator extends AbstractCircleciValidator {
 	public static final String MANDATORY_STORE_TEST_RESULTS_PATH_EMPTY_ERRORCODE = "MANDATORY_STORE_TEST_RESULTS_PATH_EMPTY";
 	public static final String MANDATORY_PERSIST_TO_WORKSPACE_PATHS_EMPTY_ERRORCODE = "MANDATORY_PERSIST_TO_WORKSPACE_PATHS_EMPTY";
 	public static final String MANDATORY_PERSIST_TO_WORKSPACE_ROOT_EMPTY_ERRORCODE = "MANDATORY_PERSIST_TO_WORKSPACE_ROOT_EMPTY";
-	public static final String MANDATORY_RESTORE_CACHE_KEYS_EMPTY_ERRORCODE = "MANDATORY_RESTORE_CACHE_KEYS_EMPTY";
-	public static final String MANDATORY_RESTORE_CACHE_KEY_EMPTY_ERRORCODE = "MANDATORY_RESTORE_CACHE_KEY_EMPTY";
 	public static final String MANDATORY_BRANCH_NAME_EMPTY_ERRORCODE = "MANDATORY_BRANCH_NAME_EMPTY";
 	public static final String MANDATORY_TRIGGER_CRON_EMPTY_ERRORCODE = "MANDATORY_TRIGGER_CRON_EMPTY";
 	public static final String MANDATORY_JOB_WORKFLOW_NAME_EMPTY_ERRORCODE = "MANDATORY_JOB_WORKFLOW_NAME_EMPTY";
 	public static final String MANDATORY_WORKFLOW_NAME_EMPTY_ERRORCODE = "MANDATORY_WORKFLOW_NAME_EMPTY";
 	public static final String MANDATORY_WORKFLOW_VERSION_EMPTY_ERRORCODE = "MANDATORY_WORKFLOW_VERSION_EMPTY";
 	public static final String MANDATORY_MACOS_XCODE_EMPTY_ERRORCODE = "MANDATORY_MACOS_XCODE_EMPTY";
-	public static final String MANDATORY_MACOS_NAME_EMPTY_ERRORCODE = "MANDATORY_MACOS_NAME_EMPTY";
 	public static final String MANDATORY_MACHINE_IMAGE_EMPTY_ERRORCODE = "MANDATORY_MACHINE_IMAGE_EMPTY";
-	public static final String MANDATORY_MACHINE_NAME_EMPTY_ERRORCODE = "MANDATORY_MACHINE_NAME_EMPTY";
 	public static final String MANDATORY_DOCKER_IMAGE_EMPTY_ERRORCODE = "MANDATORY_DOCKER_IMAGE_EMPTY";
-	public static final String MANDATORY_DOCKER_NAME_EMPTY_ERRORCODE = "MANDATORY_DOCKER_NAME_EMPTY";
 	public static final String MANDATORY_DOCKER_AUTH_USERNAME_EMPTY_ERRORCODE = "MANDATORY_DOCKER_AUTH_USERNAME_EMPTY";
 	public static final String MANDATORY_DOCKER_AUTH_PASSWORD_EMPTY_ERRORCODE = "MANDATORY_DOCKER_AUTH_PASSWORD_EMPTY";
 	public static final String MANDATORY_DOCKER_AWS_AUTHS_ACCESS_KEY_ID_EMPTY_ERRORCODE = "MANDATORY_DOCKER_AWS_AUTHS_ACCESS_KEY_ID_EMPTY";
@@ -474,19 +469,16 @@ public class CircleciValidator extends AbstractCircleciValidator {
 	@Check
 	public void checkNameNotEmpty(MacOs macOs) {
 	    checkMandatoryStringNotEmpty(macOs.getXcode(), String.format(MANDATORY_STRING_EMPTY, "MacOs xcode"), macOs, "xcode", MANDATORY_MACOS_XCODE_EMPTY_ERRORCODE);
-	    checkMandatoryStringNotEmpty(macOs.getName(), String.format(MANDATORY_STRING_EMPTY, "MacOs name"), macOs, "name", MANDATORY_MACOS_NAME_EMPTY_ERRORCODE);
 	}
 
 	@Check
 	public void checkNameNotEmpty(Machine machine) {
 	    checkMandatoryStringNotEmpty(machine.getImage(), String.format(MANDATORY_STRING_EMPTY, "Machine image"), machine, "image", MANDATORY_MACHINE_IMAGE_EMPTY_ERRORCODE);
-	    checkMandatoryStringNotEmpty(machine.getName(), String.format(MANDATORY_STRING_EMPTY, "Machine name"), machine, "name", MANDATORY_MACHINE_NAME_EMPTY_ERRORCODE);
 	}
 
 	@Check
 	public void checkNameNotEmpty(Docker docker) {
 	    checkMandatoryStringNotEmpty(docker.getImage(), String.format(MANDATORY_STRING_EMPTY, "Docker image"), docker, "image", MANDATORY_DOCKER_IMAGE_EMPTY_ERRORCODE);
-	    checkMandatoryStringNotEmpty(docker.getName(), String.format(MANDATORY_STRING_EMPTY, "Docker name"), docker, "name", MANDATORY_DOCKER_NAME_EMPTY_ERRORCODE);
 	}
 
 	@Check
