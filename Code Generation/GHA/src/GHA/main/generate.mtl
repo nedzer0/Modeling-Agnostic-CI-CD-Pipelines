@@ -656,7 +656,7 @@ with:
 [/template]
 
 [template public generateParameters(aStep: Step)]
-[for (p: Parameter | parameters)] [p.parameter/] [/for]
+[for (p: Parameter | parameters)][p.parameter/] [/for]
 [/template]
 
 
