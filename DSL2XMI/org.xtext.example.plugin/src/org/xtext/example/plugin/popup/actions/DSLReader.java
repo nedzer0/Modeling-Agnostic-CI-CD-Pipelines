@@ -9,9 +9,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.xtext.resource.XtextResourceSet;
 
-
-
 public class DSLReader {
+	
+	private static int executionCount = 0;
 	
 	public static void convertXText2XMI (String filePath, Shell shell) {
 		
@@ -21,13 +21,19 @@ public class DSLReader {
         
         EcoreUtil.resolveAll(resourceSet);
 
-        URI xmiUri = URI.createURI(uri.trimFileExtension().toString() + "Final.xmi");
+        URI xmiUri;
+        if (executionCount == 0) {
+            xmiUri = URI.createURI(uri.trimFileExtension().toString() + ".xmi");
+        } else {
+            xmiUri = URI.createURI(uri.trimFileExtension().toString() + "Final.xmi");
+        }
+        executionCount++;
+        if (executionCount == 3) { executionCount = 0; }
 
         Resource xmiResource = resourceSet.createResource(xmiUri);
         xmiResource.getContents().addAll(resource.getContents());
 
         try {
-            // Save the XMI resource
             xmiResource.save(null);
         } catch (IOException e) {
             e.printStackTrace();

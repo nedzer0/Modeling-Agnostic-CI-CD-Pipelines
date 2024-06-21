@@ -4,7 +4,7 @@
 
 [template public generateElement(aPipeline : Pipeline)]
 [comment @main/]
-[file ('CircleCI' + '.yml', false, 'UTF-8')]
+[file ('script' + '.yml', false, 'UTF-8')]
 version: [aPipeline.version/]
 [if (aPipeline.setup) ]
 setup: [aPipeline.setup/]
@@ -388,8 +388,8 @@ steps:
   [if (aRestoreCache.key->notEmpty())]
     key: [aRestoreCache.key/]
   [/if]
-  [if (aRestoreCache.key->notEmpty())]
-    keys: [aRestoreCache.keys/]
+  [if (aRestoreCache.keys->notEmpty())]
+    keys:
     [for (key: String | aRestoreCache.keys)] 
       - [key/] 
     [/for]

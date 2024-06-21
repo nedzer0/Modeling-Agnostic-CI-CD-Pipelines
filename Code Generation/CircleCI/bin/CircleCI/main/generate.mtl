@@ -4,7 +4,7 @@
 
 [template public generateElement(aPipeline : Pipeline)]
 [comment @main/]
-[file ('CircleCI' + '.yml', false, 'UTF-8')]
+[file ('script' + '.yml', false, 'UTF-8')]
 version: [aPipeline.version/]
 [if (aPipeline.setup) ]
 setup: [aPipeline.setup/]
@@ -225,8 +225,13 @@ jobs:
 
 [template public generateJobExecutors(aJob : Job)]
 [for (e: Executor | aJob.executors)]
+[if (e.name->notEmpty())]
 [e.name/]:
   [generateExec(e)/]
+[/if]
+[if (e.name->isEmpty())]
+[generateExec(e)/]
+[/if]
 [/for]
 [/template]
 
@@ -380,14 +385,18 @@ steps:
 
 [template public generateRestoreCacheStep(aRestoreCache: RestoreCache)]
 - restore_cache:
+  [if (aRestoreCache.key->notEmpty())]
     key: [aRestoreCache.key/]
-    keys: 
+  [/if]
+  [if (aRestoreCache.keys->notEmpty())]
+    keys:
     [for (key: String | aRestoreCache.keys)] 
       - [key/] 
     [/for]
-	[if (aRestoreCache.name->notEmpty())]
+  [/if]
+  [if (aRestoreCache.name->notEmpty())]
     name: [aRestoreCache.name/]
-    [/if]
+  [/if]
 [/template]
 
 [template public generateSetupRemoteDockerStep(aSetupRemoteDocker: SetupRemoteDocker)]
@@ -494,7 +503,12 @@ unless: [aWorkflow.when_unless.condition/]
 [template public generateWorkflowJobs(aWorkflow: Workflow)]
 jobs:
 [for (j: JobWorkflow | aWorkflow.jobworkflow)]
+  [if (j.requires->notEmpty() or j.branches->notEmpty())]
+  - [j.name/]:
+  [/if]
+  [if (j.requires->isEmpty() and j.branches->isEmpty())]
   - [j.name/]
+  [/if]
     [if (j.approvalJob)]
       type: approval
     [/if]

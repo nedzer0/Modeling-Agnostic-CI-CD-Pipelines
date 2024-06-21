@@ -11,7 +11,12 @@ rule Pipeline2Pipeline {
 		t : CircleCI!Pipeline(
 			version <- '2.1',
 			setup <- false,
-			jobs <- s.jobs->collect(job | thisModule.Job2Job(job, s.agents->first().labels->first())),
+			jobs <- s.jobs->collect(job | thisModule.Job2Job(job, 
+                                            if s.agents->notEmpty() and s.agents->first().labels->notEmpty() then 
+                                                s.agents->first().labels->first()
+                                            else 
+                                                ''
+                                            endif)),
 			commands <- s.inputs ->collect(i | thisModule.Input2Command(i)),
 			workflows <- thisModule.ScheduleTrigger2Workflow(s),
 			executors <- s.agents ->collect(agent | thisModule.DockerContainer2Docker(agent.container, agent.labels->first()))
@@ -96,7 +101,7 @@ lazy rule ScheduleTrigger2Workflow {
         s : CICD!Pipeline
     to
         t : CircleCI!Workflow (
-            name <- 'test',
+            name <- 'build-and-deploy',
 			version <- '2.0',
 			triggers <- s.triggers -> collect(trigger | thisModule.ScheduleTrigger2ScheduleTrigger(trigger)),
 			jobworkflow <- s.jobs -> collect(job | thisModule.Job2JobWorkflow(job))
@@ -161,7 +166,7 @@ lazy rule Job2Job {
     to
         t : CircleCI!Job (
             name <- s.name,
-			reuseExecutor <- label,
+			reuseExecutor <- if label <> '' then label else OclUndefined endif,
 			executors <- s.agents ->collect(agent | thisModule.DockerContainer2Docker(agent.container, agent.labels->first())),
             parallelism <- OclUndefined,
             environments <- s.environments ->collect(env | thisModule.transformEnvironment(env)),
@@ -343,8 +348,6 @@ lazy rule transformDockerAuth {
 }
 
 
-
-
 rule transformCommand {
     from
         s : CICD!Command
@@ -365,15 +368,17 @@ rule transformParameters {
 }
 
 helper context CICD!Step def: transformStepWithCache() : Sequence(CircleCI!Run) =
-    if self.cache->notEmpty() then
+    let cacheSteps : Sequence(CircleCI!Run) = 
         self.cache->collect(c |
             if c.mode = #STORE then
                 thisModule.Cache2SaveCache(c)
             else
                 thisModule.Cache2RestoreCache(c)
             endif
-        )->union(Sequence{thisModule.Step2SRun(self)})
+        )->flatten()
+    in
+    if self.cache->notEmpty() then
+        cacheSteps
     else
         Sequence{thisModule.Step2SRun(self)}
     endif;
-
