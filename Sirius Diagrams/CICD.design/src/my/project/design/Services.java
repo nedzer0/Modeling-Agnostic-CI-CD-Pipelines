@@ -28,6 +28,43 @@ import cICD_metamodel.ScheduleTrigger;
  */
 public class Services {
     
+	public void removeJobRequireJob(Job job, List<String> selection) {
+        List<String> values = job.getRequireJobs();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeArtifactPath(Artifact art, List<String> selection) {
+        List<String> values = art.getPath();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeAgentLabel(Agent agent, List<String> selection) {
+        List<String> values = agent.getLabels();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeMatrixConfigValue(MatrixConfig config, List<String> selection) {
+        List<String> values = config.getValues();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeCacheKey(Cache cache, List<String> selection) {
+        List<String> values = cache.getKeys();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeCachePath(Cache cache, List<String> selection) {
+        List<String> values = cache.getPaths();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeInputValue(Input input, List<String> selection) {
+        List<String> values = input.getValues();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	
+	
 	public String getCacheLabel(Cache cache) {		
 		return cache.getKey();
 	}
@@ -76,33 +113,6 @@ public class Services {
         return cacheTypes;
     }
 	
-	public void clearAgentLabels(Agent agent) {
-		agent.getLabels().clear();
-    }
-	
-	public void clearInputValues(Input input) {
-		input.getValues().clear();
-    }
-	
-	public void clearArtifactPath(Artifact artifact) {
-		artifact.getPath().clear();
-    }
-	
-	public void clearRequireJobs(Job job) {
-		job.getRequireJobs().clear();
-    }
-	
-	public void clearCachePaths(Cache cache) {
-		cache.getPaths().clear();
-    }
-	
-	public void clearCacheKeys(Cache cache) {
-		cache.getKeys().clear();
-    }
-	
-	public void clearMatrixConfigValues(MatrixConfig matrixConfig) {
-		matrixConfig.getValues().clear();
-    }
 	
 	public boolean validateBooleanInputDefaultValue(Input input) {
 		if (input.getType().getLiteral().equals("BOOLEAN") && (!input.getDefault().equals("true") && !input.getDefault().equals("false"))) {
@@ -174,14 +184,6 @@ public class Services {
     
 	public boolean checkJobNameNotEmpty(Job job) {
 	    return checkMandatoryStringNotEmpty(job.getName());
-	}
-	
-	public boolean checkKeyNotEmpty(Cache cache) {
-		return checkMandatoryStringNotEmpty(cache.getKey());
-	}
-
-	public boolean checkPathsNotEmpty(Cache cache) {
-		return checkMandatoryListNotEmpty(cache.getPaths());
 	}
 	
 	public boolean checkOutputNameNotEmpty(Output output) {

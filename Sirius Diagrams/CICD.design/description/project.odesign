@@ -7,11 +7,12 @@
         <nodeMappings name="P_Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:pipeline_environment" domainClass="cICD_metamodel::Environment">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="P_ScheduleTrigger" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editTimer']" semanticCandidatesExpression="feature:triggers" domainClass="cICD_metamodel::ScheduleTrigger">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:timer" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/ScheduleTrigger.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:'ScheduleTimer: ' + self.timer" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/ScheduleTrigger.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -30,7 +31,7 @@
         </nodeMappings>
         <containerMappings name="Job" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:jobs" domainClass="cICD_metamodel::Job">
           <subNodeMappings name="J_Env" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CICD%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="cICD_metamodel::Environment">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:'Environment: ' + self.key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/CICD.design/icons/Environment.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
@@ -215,7 +216,7 @@
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   </style>
                 </subNodeMappings>
-                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Matrix: ' + self.name">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelFormat>bold</labelFormat>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -231,14 +232,15 @@
                       <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     </style>
                   </subNodeMappings>
-                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:image">
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'DockerContainer: ' + self.image">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelFormat>bold</labelFormat>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
                     <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
                   </style>
                 </subContainerMappings>
-                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:labels">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Agent: ' + self.labels">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelFormat>bold</labelFormat>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -246,7 +248,7 @@
                   <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
                 </style>
               </subContainerMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: 'Job: ' + self.name">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -254,7 +256,7 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
               </style>
             </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Matrix: ' + self.name">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -270,14 +272,15 @@
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:image">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'DockerContainer: ' + self.image">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
               </style>
             </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:labels">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Agent: ' + self.labels">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -495,7 +498,7 @@
                       <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     </style>
                   </subNodeMappings>
-                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Matrix: ' + self.name">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelFormat>bold</labelFormat>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -511,14 +514,14 @@
                         <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                       </style>
                     </subNodeMappings>
-                    <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:image">
+                    <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'DockerContainer: ' + self.image">
                       <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                       <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                       <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
                       <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
                     </style>
                   </subContainerMappings>
-                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:labels">
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Agent: ' + self.labels">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelFormat>bold</labelFormat>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -526,7 +529,7 @@
                     <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
                   </style>
                 </subContainerMappings>
-                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: 'Job: ' + self.name">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelFormat>bold</labelFormat>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -534,7 +537,7 @@
                   <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
                 </style>
               </subContainerMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Matrix: ' + self.name">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -542,7 +545,7 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
               </style>
             </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: 'Job: ' + self.name">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -550,7 +553,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: 'Job: ' + self.name">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -566,15 +569,17 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:image">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'DockerContainer: ' + self.image">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.labels->size() &lt;> 0 then self.labels else 'Agent' endif">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Agent: ' + self.labels">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
@@ -904,13 +909,26 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="RequiredJob" labelExpression="requireJobs" helpExpression="A list of jobs that must succeed for the job to start" valueExpression="feature:requireJobs">
+        <controls xsi:type="properties:TextDescription" name="RequiredJob" labelExpression="New requireJob Input" helpExpression="Add a new requireJob to the list">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="requireJobs" valueExpression="service:clearRequireJobs()"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="requireJobs" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" buttonLabelExpression="Add requireJob">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="requireJobs" valueExpression="aql:self.requireJobs->append(self.RequiredJob)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" labelExpression="requireJobs" helpExpression="A list of jobs that must succeed for the job to start" valueExpression="feature:requireJobs" displayExpression="var:value">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="requireJobs" valueExpression="service:removeJobRequireJob(selection)"/>
+            </firstModelOperations>
+          </onClickOperation>
         </controls>
         <validationSet>
           <propertyValidationRules name="ExistingJobName" label="name" level="ERROR" message="aql: 'Duplicate job name found: ' + self.name + '. Choose a different name for the job to ensure uniqueness within the pipeline.'" targets="//@extensions.0/@categories.0/@groups.1/@controls.0">
@@ -963,13 +981,26 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="PathsText" labelExpression="path" helpExpression="Directory in the primary container to save as job artifacts" valueExpression="feature:path">
+        <controls xsi:type="properties:TextDescription" name="PathsText" labelExpression="New path Input" helpExpression="Add a new path to the list">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="service:clearArtifactPath()"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" buttonLabelExpression="Add path">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="aql:self.path->append(self.PathsText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" labelExpression="path" helpExpression="Directory in the primary container to save as job artifacts" valueExpression="feature:path" displayExpression="var:value">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="service:removeArtifactPath(selection)"/>
+            </firstModelOperations>
+          </onClickOperation>
         </controls>
         <validationSet>
           <propertyValidationRules name="validDefinition" level="ERROR" message="Either message or path must be defined" targets="//@extensions.0/@categories.0/@groups.3/@controls.1 //@extensions.0/@categories.0/@groups.3/@controls.3">
@@ -1004,13 +1035,26 @@
         </validationSet>
       </groups>
       <groups name="Agent" labelExpression="Properties" domainClass="cICD_metamodel::Agent" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="LabelsText" labelExpression="labels" valueExpression="feature:labels">
+        <controls xsi:type="properties:TextDescription" name="LabelsText" labelExpression="New label Input" helpExpression="Add a new label to the list">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="labels" valueExpression="service:clearAgentLabels()"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="labels" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" buttonLabelExpression="Add label">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="labels" valueExpression="aql:self.labels->append(self.LabelsText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" labelExpression="labels" valueExpression="feature:labels" displayExpression="var:value">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="labels" valueExpression="service:removeAgentLabel(selection)"/>
+            </firstModelOperations>
+          </onClickOperation>
         </controls>
       </groups>
       <groups name="MatrixConfig" labelExpression="Properties" domainClass="cICD_metamodel::MatrixConfig" semanticCandidateExpression="var:self">
@@ -1021,14 +1065,6 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="ValuesText" labelExpression="values" helpExpression="Matrix parameter values" valueExpression="feature:values">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:clearMatrixConfigValues()"/>
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="var:newValue"/>
-            </firstModelOperations>
-          </initialOperation>
-        </controls>
         <controls xsi:type="properties:SelectDescription" name="SelectType" labelExpression="Configuration type" valueExpression="aql:self.type.toString()" candidatesExpression="service:getMatrixConfigTypes()" candidateDisplayExpression="aql:candidate">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -1036,11 +1072,32 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
+        <controls xsi:type="properties:TextDescription" name="ValuesText" labelExpression="New value Input" helpExpression="Add a new value to the list">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" buttonLabelExpression="Add value">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="aql:self.values->append(self.ValuesText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" labelExpression="values" helpExpression="Matrix parameter values" valueExpression="feature:values" displayExpression="var:value">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:removeMatrixConfigValue(selection)"/>
+            </firstModelOperations>
+          </onClickOperation>
+        </controls>
         <validationSet>
           <propertyValidationRules name="NameNotEmpty" label="name" level="ERROR" message="Name cannot be empty" targets="//@extensions.0/@categories.0/@groups.7/@controls.0">
             <audits auditExpression="service:checkMatrixNameNotEmpty()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="ValuesNotEmpty" label="name" level="ERROR" message="Values cannot be empty" targets="//@extensions.0/@categories.0/@groups.7/@controls.1">
+          <propertyValidationRules name="ValuesNotEmpty" label="name" level="ERROR" message="Values cannot be empty" targets="//@extensions.0/@categories.0/@groups.7/@controls.2">
             <audits auditExpression="service:checkMatrixValNotEmpty()"/>
           </propertyValidationRules>
         </validationSet>
@@ -1069,26 +1126,31 @@
         </controls>
       </groups>
       <groups name="Cache" labelExpression="Properties" domainClass="cICD_metamodel::Cache" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="PathsText" labelExpression="paths" helpExpression="List of directories which should be added to the cache" valueExpression="feature:paths">
+        <controls xsi:type="properties:TextDescription" name="PathsText" labelExpression="New path Input" helpExpression="Add a new path to the list">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="service:clearCachePaths()"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" name="PathsButton" buttonLabelExpression="Add path">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="aql:self.paths->append(self.PathsText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" name="PathsList" labelExpression="paths" helpExpression="List of directories which should be added to the cache" valueExpression="feature:paths" displayExpression="var:value">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="service:removeCachePath(selection)"/>
+            </firstModelOperations>
+          </onClickOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="KeyText" labelExpression="key" helpExpression="Single cache key to restore" valueExpression="feature:key">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
-            </firstModelOperations>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:TextDescription" name="KeysText" labelExpression="keys" helpExpression="List of cache keys to lookup for a cache to restore. Only first existing key will be restored." valueExpression="feature:keys">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="service:clearCacheKeys()"/>
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
         </controls>
@@ -1099,14 +1161,27 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <validationSet>
-          <propertyValidationRules name="PathsNotEmpty" label="name" level="ERROR" message="Paths cannot be empty" targets="//@extensions.0/@categories.0/@groups.10/@controls.0">
-            <audits auditExpression="service:checkKeyNotEmpty()"/>
-          </propertyValidationRules>
-          <propertyValidationRules name="KeyNotEmpty" label="name" level="ERROR" message="Key cannot be empty" targets="//@extensions.0/@categories.0/@groups.10/@controls.1">
-            <audits auditExpression="service:checkPathsNotEmpty()"/>
-          </propertyValidationRules>
-        </validationSet>
+        <controls xsi:type="properties:TextDescription" name="KeysText" labelExpression="New key Input" helpExpression="Add a new key to the list">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" name="KeysButton" buttonLabelExpression="Add key">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="aql:self.keys->append(self.KeysText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" labelExpression="keys" helpExpression="List of cache keys to lookup for a cache to restore. Only first existing key will be restored." valueExpression="feature:keys" displayExpression="var:value">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="service:removeCacheKey(selection)"/>
+            </firstModelOperations>
+          </onClickOperation>
+        </controls>
       </groups>
       <groups name="Input" labelExpression="Properties" domainClass="cICD_metamodel::Input" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" valueExpression="feature:name">
@@ -1130,20 +1205,33 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="ValuesText" labelExpression="values" valueExpression="feature:values">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:clearInputValues()"/>
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="var:newValue"/>
-            </firstModelOperations>
-          </initialOperation>
-        </controls>
         <controls xsi:type="properties:SelectDescription" name="Select type" labelExpression="type" valueExpression="aql:self.type.toString()" candidatesExpression="service:getInputTypes()" candidateDisplayExpression="aql:candidate">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="ValuesText" labelExpression="New value Input" helpExpression="Add a new value to the list">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" buttonLabelExpression="Add value">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="aql:self.values->append(self.ValuesText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" labelExpression="values" valueExpression="feature:values" displayExpression="var:value">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:removeInputValue(selection)"/>
+            </firstModelOperations>
+          </onClickOperation>
         </controls>
         <validationSet>
           <propertyValidationRules name="NameNotEmpty" label="name" level="ERROR" message="Name cannot be empty" targets="//@extensions.0/@categories.0/@groups.11/@controls.0">

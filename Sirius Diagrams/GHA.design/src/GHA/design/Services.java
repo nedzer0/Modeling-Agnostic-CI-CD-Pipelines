@@ -9,7 +9,6 @@ import gHA_metamodel.ARTIFACT_TYPE;
 import gHA_metamodel.Action;
 import gHA_metamodel.Artifact;
 import gHA_metamodel.Branch;
-import gHA_metamodel.Cache;
 import gHA_metamodel.Command;
 import gHA_metamodel.Concurrency;
 import gHA_metamodel.Container;
@@ -51,6 +50,62 @@ import gHA_metamodel.WorkflowRunTrigger;
  * The services class used by VSM.
  */
 public class Services {
+	
+	public void removeInputOption(Input input, List<String> selection) {
+        List<String> values = input.getOptions();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeRuns_OnLabel(Runs_On runs, List<String> selection) {
+        List<String> values = runs.getLabels();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeNeedJob(Need need, List<String> selection) {
+        List<String> values = need.getJobs();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeArtifactPath(Artifact art, List<String> selection) {
+        List<String> values = art.getPaths();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeRestoreCachePath(RestoreCache cache, List<String> selection) {
+        List<String> values = cache.getPaths();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeRestoreCacheKey(RestoreCache cache, List<String> selection) {
+        List<String> values = cache.getRestore_keys();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeSaveCachePath(SaveCache cache, List<String> selection) {
+        List<String> values = cache.getPaths();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeContainerPort(Container cont, List<String> selection) {
+        List<String> values = cont.getPorts();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeContainerVolume(Container cont, List<String> selection) {
+        List<String> values = cont.getVolumes();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeMatrixConfigValue(MatrixConfig config, List<String> selection) {
+        List<String> values = config.getValues();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeDockerArg(Docker docker, List<String> selection) {
+        List<String> values = docker.getArgs();
+        selection.forEach(value -> values.remove(value));
+    }
+	
     
 	public List<String> getEventTypes(StandardEventTrigger event) {
         List<String> eventTypes = new ArrayList<>();
@@ -111,46 +166,6 @@ public class Services {
         	permissionTypes.add(type.getLiteral());
         }
         return permissionTypes;
-    }
-	
-	public void clearOptions(Input input) {
-        input.getOptions().clear();
-    }
-	
-	public void clearPorts(Container container) {
-		container.getPorts().clear();
-    }
-	
-	public void clearVolumes(Container container) {
-		container.getVolumes().clear();
-    }
-	
-	public void clearValues(MatrixConfig matrix) {
-		matrix.getValues().clear();
-    }
-	
-	public void clearLabels(Runs_On runs_On) {
-		runs_On.getLabels().clear();
-    }
-	
-	public void clearJobs(Need need) {
-		need.getJobs().clear();
-    }
-	
-	public void clearDockerArgs(Docker docker) {
-		docker.getArgs().clear();
-    }
-	
-	public void clearRestoreKeys(RestoreCache cache) {
-		cache.getRestore_keys().clear();
-    }
-	
-	public void clearCachePaths(Cache cache) {
-		cache.getPaths().clear();
-    }
-	
-	public void clearArtifactPaths(Artifact artifact) {
-		artifact.getPaths().clear();
     }
 
 	

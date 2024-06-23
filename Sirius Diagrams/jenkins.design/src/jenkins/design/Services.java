@@ -52,6 +52,22 @@ import jenkins_metamodel.When_Env;
  */
 public class Services {
     
+	public void removeUpstreamJob(Upstream upstream, List<String> selection) {
+        List<String> values = upstream.getJobs();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeAxisValue(Axis axis, List<String> selection) {
+        List<String> values = axis.getValues();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	public void removeChoiceParamChoice(ChoiceParam param, List<String> selection) {
+        List<String> values = param.getChoices();
+        selection.forEach(value -> values.remove(value));
+    }
+	
+	
 	
 	public List<String> getChangeSetTypes(ChangeSet changeSet) {
         List<String> changeSetTypes = new ArrayList<>();
@@ -99,18 +115,6 @@ public class Services {
         	changeRequestTypes.add(literal.toString());
         }
         return changeRequestTypes;
-    }
-	
-	public void clearChoices(ChoiceParam param) {
-		param.getChoices().clear();
-    }
-	
-	public void clearUpstreamJobs(Upstream upstream) {
-		upstream.getJobs().clear();
-    }
-	
-	public void clearAxisValues(Axis axis) {
-		axis.getValues().clear();
     }
 	
 	

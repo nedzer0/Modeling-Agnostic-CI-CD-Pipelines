@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 
+import circleCI_metamodel.AddSSHKeys;
 import circleCI_metamodel.AttachWorkspace;
 import circleCI_metamodel.BRANCH_TYPE;
 import circleCI_metamodel.Branch;
@@ -48,6 +49,51 @@ import circleCI_metamodel.Workflow;
  * The services class used by VSM.
  */
 public class Services {
+	
+	public void removeRestoreCacheKey(RestoreCache cache, List<String> selection) {
+        List<String> keys = cache.getKeys();
+        selection.forEach(key -> keys.remove(key));
+    }
+	
+	public void removeMatrixParamsValue(MatrixParams matrix, List<String> selection) {
+        List<String> values = matrix.getValues();
+        selection.forEach(val -> values.remove(val));
+    }
+	
+	public void removeDockerEntrypoint(Docker docker, List<String> selection) {
+        List<String> values = docker.getEntrypoint();
+        selection.forEach(val -> values.remove(val));
+    }
+	
+	public void removeDockerCommand(Docker docker, List<String> selection) {
+        List<String> values = docker.getCommand();
+        selection.forEach(val -> values.remove(val));
+    }
+	
+	public void removeJobWorkflowRequire(JobWorkflow jw, List<String> selection) {
+        List<String> values = jw.getRequires();
+        selection.forEach(val -> values.remove(val));
+    }
+	
+	public void removeJobWorkflowContext(JobWorkflow jw, List<String> selection) {
+        List<String> values = jw.getContext();
+        selection.forEach(val -> values.remove(val));
+    }
+	
+	public void removeAddSSHKeysFingerprints(AddSSHKeys ssh, List<String> selection) {
+        List<String> values = ssh.getFingerprints();
+        selection.forEach(val -> values.remove(val));
+    }
+	
+	public void removePersistToWorkspacePath(PersistToWorkspace pw, List<String> selection) {
+        List<String> values = pw.getPaths();
+        selection.forEach(val -> values.remove(val));
+    }
+	
+	public void removeParameterEnumValue(Parameter param, List<String> selection) {
+        List<String> values = param.getEnumValues();
+        selection.forEach(val -> values.remove(val));
+    }
 	
 	public List<String> getDockerResourceClass(Docker docker) {
         List<String> resourceClasses = new ArrayList<>();
@@ -166,38 +212,6 @@ public class Services {
         	paramTypes.add(type.getLiteral());
         }
         return paramTypes;
-    }
-	
-	public void clearDockerEntrypoint(Docker docker) {
-		docker.getEntrypoint().clear();
-    }
-	
-	public void clearDockerCommand(Docker docker) {
-		docker.getCommand().clear();
-    }
-	
-	public void clearSaveCachePaths(SaveCache cache) {
-		cache.getPaths().clear();
-    }
-	
-	public void clearPersistPaths(PersistToWorkspace p) {
-		p.getPaths().clear();
-    }
-	
-	public void clearRestoreCacheKeys(RestoreCache cache) {
-		cache.getKeys().clear();
-    }
-	
-	public void clearParameterEnumValues(Parameter param) {
-		param.getEnumValues().clear();
-    }
-	
-	public void clearJobWorkflowRequires(JobWorkflow work) {
-		work.getRequires().clear();
-    }
-	
-	public void clearJobWorkflowContext(JobWorkflow work) {
-		work.getContext().clear();
     }
 	
 	

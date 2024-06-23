@@ -2070,12 +2070,28 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="ValuesText" labelExpression="values" helpExpression="Matrix parameter values" valueExpression="feature:values">
+        <controls xsi:type="properties:TextDescription" name="ValuesText" labelExpression="values" helpExpression="New value input" valueExpression="feature:values">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" name="Button Add Value" buttonLabelExpression="Add value">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="aql:self.values->append(self.ValuesText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" labelExpression="Values" helpExpression="Matrix parameter values" valueExpression="feature:values" displayExpression="var:value">
+          <actions labelExpression="Remove value">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:removeMatrixParamsValue(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <validationSet>
           <propertyValidationRules name="KeyNotEmpty" label="name" level="ERROR" message="Key cannot be empty" targets="//@extensions.0/@categories.0/@groups.4/@controls.0">
@@ -2120,21 +2136,51 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="EntrypointText" labelExpression="entrypoint" helpExpression="The command used as executable when launching the container." valueExpression="feature:entrypoint">
+        <controls xsi:type="properties:TextDescription" name="EntrypointText" labelExpression="New Entrypoint input" helpExpression="Add a new entrypoint to the list">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="entrypoint" valueExpression="service:clearDockerEntrypoint()"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="entrypoint" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="CommandText" labelExpression="command" helpExpression="The command used as PID 1 (or arguments for entrypoint) when launching the container." valueExpression="feature:command">
+        <controls xsi:type="properties:ButtonDescription" name="Button Add Entrypoint" buttonLabelExpression="Add entrypoint">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="command" valueExpression="service:clearDockerCommand()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="entrypoint" valueExpression="aql:self.entrypoint->append(self.EntrypointText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" name="EntrypointList" labelExpression="entrypoint" helpExpression="The command used as executable when launching the container." valueExpression="feature:entrypoint" displayExpression="var:value">
+          <actions labelExpression="Remove entrypoint">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="entrypoint" valueExpression="service:removeDockerEntrypoint(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CommandText" labelExpression="New command input" helpExpression="Add a new command to the list">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="command" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" name="Button Add command" buttonLabelExpression="Add command">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="command" valueExpression="aql:self.command->append(self.CommandText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" name="CommandsList" labelExpression="command" helpExpression="The command used as PID 1 (or arguments for entrypoint) when launching the container." valueExpression="feature:command" displayExpression="var:value">
+          <actions labelExpression="Remove command">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="command" valueExpression="service:removeDockerCommand(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <controls xsi:type="properties:TextDescription" name="UserText" labelExpression="user" helpExpression="Which user to run commands as within the Docker container" valueExpression="feature:user">
           <initialOperation>
@@ -2161,10 +2207,10 @@
           <propertyValidationRules name="ImageNotEmpty" label="name" level="ERROR" message="Image cannot be empty" targets="//@extensions.0/@categories.0/@groups.7/@controls.0">
             <audits auditExpression="service:checkDockerImageNotEmpty()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="NameNotEmpty" label="name" level="ERROR" message="Name should not be empty" targets="//@extensions.0/@categories.0/@groups.7/@controls.4">
+          <propertyValidationRules name="NameNotEmpty" label="name" level="ERROR" message="Name should not be empty" targets="//@extensions.0/@categories.0/@groups.7/@controls.8">
             <audits auditExpression="service:checkDockerNameNotEmpty()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="NonDuplicateExecutorName" label="name" level="ERROR" message="aql: 'Duplicate executor name found: &quot;' + self.name + '&quot;. Choose a different executor name to ensure uniqueness within the pipeline'" targets="//@extensions.0/@categories.0/@groups.7/@controls.4">
+          <propertyValidationRules name="NonDuplicateExecutorName" label="name" level="ERROR" message="aql: 'Duplicate executor name found: &quot;' + self.name + '&quot;. Choose a different executor name to ensure uniqueness within the pipeline'" targets="//@extensions.0/@categories.0/@groups.7/@controls.8">
             <audits auditExpression="service:checkNonDuplicateExecutorName()"/>
           </propertyValidationRules>
         </validationSet>
@@ -2348,21 +2394,51 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="RequiresText" labelExpression="requires" helpExpression="A list of jobs that must succeed for the job to start" valueExpression="feature:requires">
+        <controls xsi:type="properties:TextDescription" name="RequiresText" labelExpression="New require input" helpExpression="Add a new require to the list">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="requires" valueExpression="service:clearJobWorkflowRequires()"/>
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="requires" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="ContextText" labelExpression="context" helpExpression="The name of the context(s). Each context name must be unique." valueExpression="feature:context">
+        <controls xsi:type="properties:ButtonDescription" name="Button Add requires" buttonLabelExpression="Add requires">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="requires" valueExpression="aql:self.requires->append(self.RequiresText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" name="RequiresList" labelExpression="requires" helpExpression="A list of jobs that must succeed for the job to start" valueExpression="feature:requires" displayExpression="var:value">
+          <actions labelExpression="Remove requires">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="requires" valueExpression="service:removeJobWorkflowRequire(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="ContextText" labelExpression="New context input" helpExpression="Add a new context to the list">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="context" valueExpression="service:clearJobWorkflowContext()"/>
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="context" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" name="Button Add context" buttonLabelExpression="Add context">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="context" valueExpression="aql:self.context->append(self.ContextText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" name="ContextList" labelExpression="context" helpExpression="The name of the context(s). Each context name must be unique." valueExpression="feature:context" displayExpression="var:value">
+          <actions labelExpression="Remove context">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="context" valueExpression="service:removeJobWorkflowContext(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <controls xsi:type="properties:CheckboxDescription" name="ApprovalJob" labelExpression="approvalJob" valueExpression="feature:approvalJob">
           <initialOperation>
@@ -2408,19 +2484,35 @@
         </validationSet>
       </groups>
       <groups name="AddSSHKeys" labelExpression="Properties" domainClass="circleCI_metamodel::AddSSHKeys" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="FingerprintsText" labelExpression="fingerprints" helpExpression="List of fingerprints corresponding to the keys to be added (default: all keys added)" valueExpression="feature:fingerprints">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="fingerprints" valueExpression="var:newValue"/>
-            </firstModelOperations>
-          </initialOperation>
-        </controls>
         <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" valueExpression="feature:name">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="FingerprintsText" labelExpression="New fingerprint input" helpExpression="Add a new fingerprint to the list">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="fingerprints" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" name="Button Add fingerprint" buttonLabelExpression="Add fingerprint">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="fingerprints" valueExpression="aql:self.fingerprints->append(self.FingerprintsText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" name="FingerprintsList" labelExpression="fingerprints" helpExpression="List of fingerprints corresponding to the keys to be added (default: all keys added)" valueExpression="feature:fingerprints" displayExpression="var:value">
+          <actions labelExpression="Remove fingerprint">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="fingerprints" valueExpression="service:removeAddSSHKeysFingerprints(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
       </groups>
       <groups name="When_Unless" labelExpression="Properties" domainClass="circleCI_metamodel::When_Unless" semanticCandidateExpression="var:self">
@@ -2475,13 +2567,28 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="PathsText" labelExpression="paths" helpExpression="Glob identifying file(s), or a non-glob path to a directory to add to the shared workspace. Interpreted as relative to the workspace root. Must not be the workspace root itself." valueExpression="feature:paths">
+        <controls xsi:type="properties:TextDescription" name="PathsText" labelExpression="New path input" helpExpression="Add a new path to the list">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="service:clearPersistPaths()"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" name="Button Add path" buttonLabelExpression="Add path">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="aql:self.paths->append(self.PathsText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" name="PathsList" labelExpression="paths" helpExpression="Glob identifying file(s), or a non-glob path to a directory to add to the shared workspace. Interpreted as relative to the workspace root. Must not be the workspace root itself." valueExpression="feature:paths" displayExpression="var:value">
+          <actions labelExpression="Remove path">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="service:removePersistToWorkspacePath(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <validationSet>
           <propertyValidationRules name="RootNotEmpty" label="name" level="ERROR" message="Root should not be empty" targets="//@extensions.0/@categories.0/@groups.19/@controls.0">
@@ -2523,13 +2630,28 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="KeysText" labelExpression="keys" helpExpression="List of cache keys to lookup for a cache to restore. Only first existing key will be restored." valueExpression="feature:keys">
+        <controls xsi:type="properties:TextDescription" name="newKeyText" labelExpression="New Key Input" helpExpression="Add a new key to keys">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="service:clearRestoreCacheKeys()"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" name="Button Add key" buttonLabelExpression="Add key">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="aql:self.keys->append(self.newKeyText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" labelExpression="Keys" valueExpression="feature:keys" displayExpression="var:value">
+          <actions labelExpression="Remove key">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="service:removeRestoreCacheKey(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <validationSet>
           <propertyValidationRules name="checkValidRestoreCache" level="ERROR" message="Invalid RestoreCache definition. Define key or keys or both" targets="//@extensions.0/@categories.0/@groups.21/@controls.0 //@extensions.0/@categories.0/@groups.21/@controls.2">
@@ -2729,10 +2851,9 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="EnumValuesText" labelExpression="enumValues" helpExpression="Only insert enum values if Parameter type is Enum" valueExpression="feature:enumValues">
+        <controls xsi:type="properties:TextDescription" name="EnumValuesText" labelExpression="New enumValues Input" helpExpression="Add a new enumValue to the list">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="enumValues" valueExpression="service:clearParameterEnumValues()"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="enumValues" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
@@ -2750,6 +2871,22 @@
               <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" name="Button Add enumValue" buttonLabelExpression="Add enumValue">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="enumValues" valueExpression="aql:self.enumValues->append(self.EnumValuesText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" labelExpression="enumValues" helpExpression="Only insert enum values if Parameter type is Enum" valueExpression="feature:enumValues" displayExpression="var:value">
+          <actions labelExpression="Remove enumValue">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="enumValues" valueExpression="service:removeParameterEnumValue(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <validationSet>
           <propertyValidationRules name="ParameterNameNotEmpty" label="name" level="ERROR" message="Parameter name should not be empty" targets="//@extensions.0/@categories.0/@groups.28/@controls.0">
