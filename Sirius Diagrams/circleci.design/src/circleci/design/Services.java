@@ -50,6 +50,11 @@ import circleCI_metamodel.Workflow;
  */
 public class Services {
 	
+	public void removeSaveCachePath(SaveCache cache, List<String> selection) {
+        List<String> keys = cache.getPaths();
+        selection.forEach(key -> keys.remove(key));
+    }
+	
 	public void removeRestoreCacheKey(RestoreCache cache, List<String> selection) {
         List<String> keys = cache.getKeys();
         selection.forEach(key -> keys.remove(key));

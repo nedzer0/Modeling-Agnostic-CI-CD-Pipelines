@@ -924,11 +924,13 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" labelExpression="requireJobs" helpExpression="A list of jobs that must succeed for the job to start" valueExpression="feature:requireJobs" displayExpression="var:value">
-          <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="requireJobs" valueExpression="service:removeJobRequireJob(selection)"/>
-            </firstModelOperations>
-          </onClickOperation>
+          <actions labelExpression="Remove job">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="requireJobs" valueExpression="service:removeJobRequireJob(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <validationSet>
           <propertyValidationRules name="ExistingJobName" label="name" level="ERROR" message="aql: 'Duplicate job name found: ' + self.name + '. Choose a different name for the job to ensure uniqueness within the pipeline.'" targets="//@extensions.0/@categories.0/@groups.1/@controls.0">
@@ -996,11 +998,13 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" labelExpression="path" helpExpression="Directory in the primary container to save as job artifacts" valueExpression="feature:path" displayExpression="var:value">
-          <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="service:removeArtifactPath(selection)"/>
-            </firstModelOperations>
-          </onClickOperation>
+          <actions labelExpression="Remove path">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="service:removeArtifactPath(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <validationSet>
           <propertyValidationRules name="validDefinition" level="ERROR" message="Either message or path must be defined" targets="//@extensions.0/@categories.0/@groups.3/@controls.1 //@extensions.0/@categories.0/@groups.3/@controls.3">
@@ -1050,11 +1054,13 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" labelExpression="labels" valueExpression="feature:labels" displayExpression="var:value">
-          <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="labels" valueExpression="service:removeAgentLabel(selection)"/>
-            </firstModelOperations>
-          </onClickOperation>
+          <actions labelExpression="Remove label">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="labels" valueExpression="service:removeAgentLabel(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
       </groups>
       <groups name="MatrixConfig" labelExpression="Properties" domainClass="cICD_metamodel::MatrixConfig" semanticCandidateExpression="var:self">
@@ -1087,11 +1093,13 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" labelExpression="values" helpExpression="Matrix parameter values" valueExpression="feature:values" displayExpression="var:value">
-          <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:removeMatrixConfigValue(selection)"/>
-            </firstModelOperations>
-          </onClickOperation>
+          <actions labelExpression="Remove value">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:removeMatrixConfigValue(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <validationSet>
           <propertyValidationRules name="NameNotEmpty" label="name" level="ERROR" message="Name cannot be empty" targets="//@extensions.0/@categories.0/@groups.7/@controls.0">
@@ -1141,11 +1149,13 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" name="PathsList" labelExpression="paths" helpExpression="List of directories which should be added to the cache" valueExpression="feature:paths" displayExpression="var:value">
-          <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="service:removeCachePath(selection)"/>
-            </firstModelOperations>
-          </onClickOperation>
+          <actions labelExpression="Remove path">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="service:removeCachePath(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <controls xsi:type="properties:TextDescription" name="KeyText" labelExpression="key" helpExpression="Single cache key to restore" valueExpression="feature:key">
           <initialOperation>
@@ -1176,11 +1186,13 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" labelExpression="keys" helpExpression="List of cache keys to lookup for a cache to restore. Only first existing key will be restored." valueExpression="feature:keys" displayExpression="var:value">
-          <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="service:removeCacheKey(selection)"/>
-            </firstModelOperations>
-          </onClickOperation>
+          <actions labelExpression="Remove key">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="keys" valueExpression="service:removeCacheKey(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
       </groups>
       <groups name="Input" labelExpression="Properties" domainClass="cICD_metamodel::Input" semanticCandidateExpression="var:self">
@@ -1227,11 +1239,13 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" labelExpression="values" valueExpression="feature:values" displayExpression="var:value">
-          <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:removeInputValue(selection)"/>
-            </firstModelOperations>
-          </onClickOperation>
+          <actions labelExpression="Remove value">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:removeInputValue(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <validationSet>
           <propertyValidationRules name="NameNotEmpty" label="name" level="ERROR" message="Name cannot be empty" targets="//@extensions.0/@categories.0/@groups.11/@controls.0">

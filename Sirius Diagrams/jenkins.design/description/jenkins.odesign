@@ -4837,11 +4837,13 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" labelExpression="jobs" valueExpression="feature:jobs" displayExpression="var:value">
-          <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="jobs" valueExpression="service:removeUpstreamJob(selection)"/>
-            </firstModelOperations>
-          </onClickOperation>
+          <actions labelExpression="Remove job">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="jobs" valueExpression="service:removeUpstreamJob(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <validationSet>
           <propertyValidationRules name="Jobs" level="ERROR" message="Jobs cannot be empty" targets="//@extensions.0/@categories.0/@groups.29/@controls.1">
@@ -5020,11 +5022,13 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" labelExpression="values" valueExpression="feature:values" displayExpression="var:value">
-          <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:removeAxisValue(selection)"/>
-            </firstModelOperations>
-          </onClickOperation>
+          <actions labelExpression="Remove value">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="values" valueExpression="service:removeAxisValue(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <validationSet>
           <propertyValidationRules name="Name" level="ERROR" message="Name cannot be empty" targets="//@extensions.0/@categories.0/@groups.38/@controls.0">
@@ -5249,11 +5253,13 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" labelExpression="choices" valueExpression="feature:choices" displayExpression="var:value">
-          <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="choices" valueExpression="service:removeChoiceParamChoice(selection)"/>
-            </firstModelOperations>
-          </onClickOperation>
+          <actions labelExpression="Remove choice">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="choices" valueExpression="service:removeChoiceParamChoice(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <validationSet>
           <propertyValidationRules name="Name" level="ERROR" message="Name cannot be empty" targets="//@extensions.0/@categories.0/@groups.45/@controls.0">

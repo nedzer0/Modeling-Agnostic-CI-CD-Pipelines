@@ -2684,10 +2684,25 @@
         <controls xsi:type="properties:TextDescription" name="PathsText" labelExpression="paths" helpExpression="List of directories which should be added to the cache" valueExpression="feature:paths">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="service:clearSaveCachePaths()"/>
               <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ButtonDescription" name="Button Add path" buttonLabelExpression="Add path">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="aql:self.paths->append(self.PathsText)"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" labelExpression="paths" helpExpression="List of directories which should be added to the cache" valueExpression="feature:paths" displayExpression="var:value">
+          <actions labelExpression="Remove path">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="paths" valueExpression="service:removeSaveCachePath(selection)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
         </controls>
         <controls xsi:type="properties:TextDescription" name="NameText" labelExpression="name" valueExpression="feature:name">
           <initialOperation>
@@ -2714,7 +2729,7 @@
           <propertyValidationRules name="PathsNotEmpty" label="name" level="ERROR" message="Paths should not be empty" targets="//@extensions.0/@categories.0/@groups.23/@controls.0">
             <audits auditExpression="service:checkSavePathsNotEmpty()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="KeyNotEmpty" label="name" level="ERROR" message="Key should not be empty" targets="//@extensions.0/@categories.0/@groups.23/@controls.2">
+          <propertyValidationRules name="KeyNotEmpty" label="name" level="ERROR" message="Key should not be empty" targets="//@extensions.0/@categories.0/@groups.23/@controls.4">
             <audits auditExpression="service:checkSaveKeyNotEmpty()"/>
           </propertyValidationRules>
         </validationSet>
