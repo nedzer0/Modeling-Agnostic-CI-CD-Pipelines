@@ -425,13 +425,22 @@ public interface CircleCI_metamodelPackage extends EPackage {
 	int JOB__EXECUTORS = 6;
 
 	/**
+	 * The feature id for the '<em><b>Reuse Command</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__REUSE_COMMAND = 7;
+
+	/**
 	 * The number of structural features of the '<em>Job</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_FEATURE_COUNT = 7;
+	int JOB_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Job</em>' class.
@@ -2388,6 +2397,17 @@ public interface CircleCI_metamodelPackage extends EPackage {
 	EReference getJob_Executors();
 
 	/**
+	 * Returns the meta object for the attribute '{@link circleCI_metamodel.Job#getReuseCommand <em>Reuse Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reuse Command</em>'.
+	 * @see circleCI_metamodel.Job#getReuseCommand()
+	 * @see #getJob()
+	 * @generated
+	 */
+	EAttribute getJob_ReuseCommand();
+
+	/**
 	 * Returns the meta object for class '{@link circleCI_metamodel.Machine <em>Machine</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3779,6 +3799,14 @@ public interface CircleCI_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JOB__EXECUTORS = eINSTANCE.getJob_Executors();
+
+		/**
+		 * The meta object literal for the '<em><b>Reuse Command</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB__REUSE_COMMAND = eINSTANCE.getJob_ReuseCommand();
 
 		/**
 		 * The meta object literal for the '{@link circleCI_metamodel.impl.MachineImpl <em>Machine</em>}' class.

@@ -55,6 +55,8 @@ RestoreCache : 'RestoreCache';
 
 Fingerprints : 'fingerprints';
 
+ReuseCommand : 'reuseCommand';
+
 Docker_Auth : 'Docker_Auth';
 
 Environment : 'Environment';

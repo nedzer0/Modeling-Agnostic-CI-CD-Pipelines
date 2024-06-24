@@ -81,6 +81,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Job/parallelism"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Job/reuseExecutor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circleCI_metamodel.ecore#//Job/executors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Job/reuseCommand"/>
     </genClasses>
     <genClasses ecoreClass="circleCI_metamodel.ecore#//Machine">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circleCI_metamodel.ecore#//Machine/image"/>

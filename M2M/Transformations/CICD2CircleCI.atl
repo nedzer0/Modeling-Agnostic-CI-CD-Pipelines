@@ -167,6 +167,7 @@ lazy rule Job2Job {
         t : CircleCI!Job (
             name <- s.name,
 			reuseExecutor <- if label <> '' then label else OclUndefined endif,
+			reuseCommand <- OclUndefined,
 			executors <- s.agents ->collect(agent | thisModule.DockerContainer2Docker(agent.container, agent.labels->first())),
             parallelism <- OclUndefined,
             environments <- s.environments ->collect(env | thisModule.transformEnvironment(env)),

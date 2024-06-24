@@ -64,6 +64,7 @@ Job returns Job:
 		('name' name=EString)
 		('parallelism' parallelism=EShort)?
 		('reuseExecutor' reuseExecutor=EString)?
+		('reuseCommand' reuseCommand=EString)?
 		(executors+=Executor)*
 		(environments+=Environment)*
 		(parameters+=Parameter)*

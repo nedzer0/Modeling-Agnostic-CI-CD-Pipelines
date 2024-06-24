@@ -669,6 +669,16 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 	 * @generated
 	 */
 	@Override
+	public EAttribute getJob_ReuseCommand() {
+		return (EAttribute) jobEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMachine() {
 		return machineEClass;
 	}
@@ -1786,6 +1796,7 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 		createEAttribute(jobEClass, JOB__PARALLELISM);
 		createEAttribute(jobEClass, JOB__REUSE_EXECUTOR);
 		createEReference(jobEClass, JOB__EXECUTORS);
+		createEAttribute(jobEClass, JOB__REUSE_COMMAND);
 
 		machineEClass = createEClass(MACHINE);
 		createEAttribute(machineEClass, MACHINE__IMAGE);
@@ -2035,6 +2046,8 @@ public class CircleCI_metamodelPackageImpl extends EPackageImpl implements Circl
 		initEReference(getJob_Executors(), this.getExecutor(), null, "executors", null, 0, -1, Job.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getJob_ReuseCommand(), ecorePackage.getEString(), "reuseCommand", null, 0, 1, Job.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(machineEClass, Machine.class, "Machine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMachine_Image(), ecorePackage.getEString(), "image", null, 1, 1, Machine.class, !IS_TRANSIENT,

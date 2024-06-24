@@ -374,7 +374,15 @@ public class Services {
         return true;
     }
 
-
+    public boolean checkCommandExistsInJobs(Job job) {
+        if (job.getReuseCommand() != null && !job.getReuseCommand().isEmpty()) {
+            Pipeline pipeline = (Pipeline) job.eContainer();
+            if(!pipeline.getCommands().stream().anyMatch(com -> com.getName().equals(job.getReuseCommand()))) {
+            	return false;
+            }
+        }
+        return true;
+    }
 	
     public boolean checkRequiredJobExists(JobWorkflow jobWorkflow) {
         if (!jobWorkflow.getRequires().isEmpty()) {

@@ -364,6 +364,7 @@ public class CircleciSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *         name=EString 
 	 *         parallelism=EShort? 
 	 *         reuseExecutor=EString? 
+	 *         reuseCommand=EString? 
 	 *         executors+=Executor* 
 	 *         environments+=Environment* 
 	 *         parameters+=Parameter* 

@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link circleCI_metamodel.impl.JobImpl#getParallelism <em>Parallelism</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.JobImpl#getReuseExecutor <em>Reuse Executor</em>}</li>
  *   <li>{@link circleCI_metamodel.impl.JobImpl#getExecutors <em>Executors</em>}</li>
+ *   <li>{@link circleCI_metamodel.impl.JobImpl#getReuseCommand <em>Reuse Command</em>}</li>
  * </ul>
  *
  * @generated
@@ -144,6 +145,26 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	 * @ordered
 	 */
 	protected EList<Executor> executors;
+
+	/**
+	 * The default value of the '{@link #getReuseCommand() <em>Reuse Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReuseCommand()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REUSE_COMMAND_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReuseCommand() <em>Reuse Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReuseCommand()
+	 * @generated
+	 * @ordered
+	 */
+	protected String reuseCommand = REUSE_COMMAND_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -296,6 +317,30 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	 * @generated
 	 */
 	@Override
+	public String getReuseCommand() {
+		return reuseCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReuseCommand(String newReuseCommand) {
+		String oldReuseCommand = reuseCommand;
+		reuseCommand = newReuseCommand;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CircleCI_metamodelPackage.JOB__REUSE_COMMAND,
+					oldReuseCommand, reuseCommand));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case CircleCI_metamodelPackage.JOB__ENVIRONMENTS:
@@ -332,6 +377,8 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 			return getReuseExecutor();
 		case CircleCI_metamodelPackage.JOB__EXECUTORS:
 			return getExecutors();
+		case CircleCI_metamodelPackage.JOB__REUSE_COMMAND:
+			return getReuseCommand();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -370,6 +417,9 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 			getExecutors().clear();
 			getExecutors().addAll((Collection<? extends Executor>) newValue);
 			return;
+		case CircleCI_metamodelPackage.JOB__REUSE_COMMAND:
+			setReuseCommand((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -403,6 +453,9 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 		case CircleCI_metamodelPackage.JOB__EXECUTORS:
 			getExecutors().clear();
 			return;
+		case CircleCI_metamodelPackage.JOB__REUSE_COMMAND:
+			setReuseCommand(REUSE_COMMAND_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -430,6 +483,8 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 					: !REUSE_EXECUTOR_EDEFAULT.equals(reuseExecutor);
 		case CircleCI_metamodelPackage.JOB__EXECUTORS:
 			return executors != null && !executors.isEmpty();
+		case CircleCI_metamodelPackage.JOB__REUSE_COMMAND:
+			return REUSE_COMMAND_EDEFAULT == null ? reuseCommand != null : !REUSE_COMMAND_EDEFAULT.equals(reuseCommand);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -451,6 +506,8 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 		result.append(parallelism);
 		result.append(", reuseExecutor: ");
 		result.append(reuseExecutor);
+		result.append(", reuseCommand: ");
+		result.append(reuseCommand);
 		result.append(')');
 		return result.toString();
 	}

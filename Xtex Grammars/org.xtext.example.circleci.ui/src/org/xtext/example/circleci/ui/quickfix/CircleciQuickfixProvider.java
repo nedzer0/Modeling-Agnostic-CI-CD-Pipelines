@@ -31,11 +31,10 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
             public void apply(IModificationContext context) throws BadLocationException {
             	IXtextDocument xtextDocument = context.getXtextDocument();
                 String documentContent = xtextDocument.get();
-                List<String> jobNames = extractJobNames(documentContent);
+                List<String> jobNames = extractNames(documentContent, "Job");
                 Integer offset = issue.getOffset();
-
                 
-                List<String> jobWorkflowNames = extractWorkflowJobs(documentContent);
+                List<String> jobWorkflowNames = extractNames(documentContent, "JobWorkflow");
                 
                 String missingJobName = null;
                 for (String jobName : jobNames) {
@@ -225,10 +224,10 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
 	        public void apply(IModificationContext context) throws BadLocationException {
 	        	IXtextDocument xtextDocument = context.getXtextDocument();
                 String documentContent = xtextDocument.get();
-                List<String> jobNames = extractJobNames(documentContent);
+                List<String> jobNames = extractNames(documentContent, "Job");
                 Integer offset = issue.getOffset();
                 
-                List<String> jobWorkflowNames = extractWorkflowJobs(documentContent);
+                List<String> jobWorkflowNames = extractNames(documentContent, "JobWorkflow");
 
                 String currentJobName = extractCurrentJobName(documentContent, offset);
                 Collections.shuffle(jobNames);
@@ -290,6 +289,34 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
 	        }
 	    });
 	}
+	
+	@Fix(CircleciValidator.COMMAND_NOT_FOUND_ERRORCODE)
+	public void fixCommandNotFound(Issue issue, IssueResolutionAcceptor acceptor) {
+	    acceptor.accept(issue, "Fix command not found", "Refer an existing command.", null, new IModification() {
+	        public void apply(IModificationContext context) throws BadLocationException {
+	        	IXtextDocument xtextDocument = context.getXtextDocument();
+                String documentContent = xtextDocument.get();
+                List<String> commandsNames = extractNames(documentContent, "Command");
+                Integer offset = issue.getOffset();
+
+                String currentJobName = extractCurrentJobName(documentContent, offset);
+                Collections.shuffle(commandsNames);
+                String newCommandName = commandsNames.stream()
+                                            .filter(name -> !name.equals(currentJobName))
+                                            .findFirst()
+                                            .orElse(null);
+                
+                if (newCommandName != null) {
+                    xtextDocument.replace(offset, issue.getLength(), newCommandName);
+                }
+                else {
+                	int lineStart = getLineStart(documentContent, offset);
+                    int lineEnd = getLineEnd(documentContent, offset);
+                    xtextDocument.replace(lineStart, lineEnd - lineStart, "");
+                }
+	        }
+	    });
+	}
 
 	@Fix(CircleciValidator.REQUIRED_JOB_NOT_EXIST_ERRORCODE)
 	public void fixRequiredJobNotExist(Issue issue, IssueResolutionAcceptor acceptor) {
@@ -297,7 +324,7 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
 	        public void apply(IModificationContext context) throws BadLocationException {
 	        	IXtextDocument xtextDocument = context.getXtextDocument();
                 String documentContent = xtextDocument.get();
-                List<String> jobNames = extractJobNames(documentContent);
+                List<String> jobNames = extractNames(documentContent, "Job");
                 Integer offset = issue.getOffset();
 
                 String currentJobName = extractCurrentJobName(documentContent, offset);
@@ -757,62 +784,6 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
         });
     }
     
-    private List<String> extractJobNames(String documentContent) {
-        List<String> jobNames = new ArrayList<>();
-        String jobKeyword = "Job";
-        String nameKeyword = "name ";
-        String newline = "\n";
-        
-        int jobIndex = documentContent.lastIndexOf(jobKeyword);
-        while (jobIndex >= 0) {
-            int lineStart = documentContent.lastIndexOf(newline, jobIndex) + 1;
-            int lineEnd = documentContent.indexOf(newline, jobIndex);
-            
-            String line = documentContent.substring(lineStart, lineEnd);
-            if (line.trim().startsWith(jobKeyword)) {
-                int nextLineStart = lineEnd + 1;
-                int nextLineEnd = documentContent.indexOf(newline, nextLineStart);
-                String nextLine = documentContent.substring(nextLineStart, nextLineEnd);
-                if (nextLine.contains(nameKeyword)) {
-                    int nameIndex = nextLine.indexOf(nameKeyword);
-                    String currentJobName = nextLine.substring(nameIndex + nameKeyword.length()).trim();
-                    jobNames.add(currentJobName);
-                }
-            }
-            jobIndex = documentContent.lastIndexOf(jobKeyword, jobIndex - 1);
-        }
-        
-        return jobNames;
-    }
-    
-    private List<String> extractWorkflowJobs(String documentContent) {
-        List<String> jobNames = new ArrayList<>();
-        String jobKeyword = "JobWorkflow";
-        String nameKeyword = "name ";
-        String newline = "\n";
-        
-        int jobIndex = documentContent.lastIndexOf(jobKeyword);
-        while (jobIndex >= 0) {
-            int lineStart = documentContent.lastIndexOf(newline, jobIndex) + 1;
-            int lineEnd = documentContent.indexOf(newline, jobIndex);
-            
-            String line = documentContent.substring(lineStart, lineEnd);
-            if (line.trim().startsWith(jobKeyword)) {
-                int nextLineStart = lineEnd + 1;
-                int nextLineEnd = documentContent.indexOf(newline, nextLineStart);
-                String nextLine = documentContent.substring(nextLineStart, nextLineEnd);
-                if (nextLine.contains(nameKeyword)) {
-                    int nameIndex = nextLine.indexOf(nameKeyword);
-                    String currentJobName = nextLine.substring(nameIndex + nameKeyword.length()).trim();
-                    jobNames.add(currentJobName);
-                }
-            }
-            jobIndex = documentContent.lastIndexOf(jobKeyword, jobIndex - 1);
-        }
-        
-        return jobNames;
-    }
-    
     private List<String> extractExecutorsNames(String documentContent) {
         List<String> executorNames = new ArrayList<>();
         List<String> executorKeywords = Arrays.asList("MacOs", "Machine", "Docker");
@@ -892,6 +863,33 @@ public class CircleciQuickfixProvider extends DefaultQuickfixProvider {
         }
         
         return null;
+    }
+    
+    private List<String> extractNames(String documentContent, String keyword) {
+    	List<String> names = new ArrayList<>();
+        String nameKeyword = "name ";
+        String newline = "\n";
+        
+        int commandIndex = documentContent.lastIndexOf(keyword);
+        while (commandIndex >= 0) {
+            int lineStart = documentContent.lastIndexOf(newline, commandIndex) + 1;
+            int lineEnd = documentContent.indexOf(newline, commandIndex);
+            
+            String line = documentContent.substring(lineStart, lineEnd);
+            if (line.trim().startsWith(keyword)) {
+                int nextLineStart = lineEnd + 1;
+                int nextLineEnd = documentContent.indexOf(newline, nextLineStart);
+                String nextLine = documentContent.substring(nextLineStart, nextLineEnd);
+                if (nextLine.contains(nameKeyword)) {
+                    int nameIndex = nextLine.indexOf(nameKeyword);
+                    String currentCommandName = nextLine.substring(nameIndex + nameKeyword.length()).trim();
+                    names.add(currentCommandName);
+                }
+            }
+            commandIndex = documentContent.lastIndexOf(keyword, commandIndex - 1);
+        }
+        
+        return names;
     }
 
     private List<String> extractJobParameterNames(String documentContent, String jobWorkflowName) {

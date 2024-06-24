@@ -59,6 +59,7 @@ public class JobItemProvider extends ItemProviderAdapter implements IEditingDoma
 			addNamePropertyDescriptor(object);
 			addParallelismPropertyDescriptor(object);
 			addReuseExecutorPropertyDescriptor(object);
+			addReuseCommandPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -106,6 +107,21 @@ public class JobItemProvider extends ItemProviderAdapter implements IEditingDoma
 						getString("_UI_PropertyDescriptor_description", "_UI_Job_reuseExecutor_feature",
 								"_UI_Job_type"),
 						CircleCI_metamodelPackage.Literals.JOB__REUSE_EXECUTOR, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Reuse Command feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReuseCommandPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Job_reuseCommand_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Job_reuseCommand_feature", "_UI_Job_type"),
+						CircleCI_metamodelPackage.Literals.JOB__REUSE_COMMAND, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -191,6 +207,7 @@ public class JobItemProvider extends ItemProviderAdapter implements IEditingDoma
 		case CircleCI_metamodelPackage.JOB__NAME:
 		case CircleCI_metamodelPackage.JOB__PARALLELISM:
 		case CircleCI_metamodelPackage.JOB__REUSE_EXECUTOR:
+		case CircleCI_metamodelPackage.JOB__REUSE_COMMAND:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case CircleCI_metamodelPackage.JOB__ENVIRONMENTS:

@@ -875,11 +875,36 @@ ruleJob returns [EObject current=null]
 				)
 			)?
 			(
+				otherlv_8=ReuseCommand
+				{
+					newLeafNode(otherlv_8, grammarAccess.getJobAccess().getReuseCommandKeyword_1_4_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getJobAccess().getReuseCommandEStringParserRuleCall_1_4_1_0());
+						}
+						lv_reuseCommand_9_0=ruleEString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getJobRule());
+							}
+							set(
+								$current,
+								"reuseCommand",
+								lv_reuseCommand_9_0,
+								"org.xtext.example.circleci.Circleci.EString");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)?
+			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getExecutorsExecutorParserRuleCall_1_4_0());
+						newCompositeNode(grammarAccess.getJobAccess().getExecutorsExecutorParserRuleCall_1_5_0());
 					}
-					lv_executors_8_0=ruleExecutor
+					lv_executors_10_0=ruleExecutor
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -887,7 +912,7 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"executors",
-							lv_executors_8_0,
+							lv_executors_10_0,
 							"org.xtext.example.circleci.Circleci.Executor");
 						afterParserOrEnumRuleCall();
 					}
@@ -896,9 +921,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getEnvironmentsEnvironmentParserRuleCall_1_5_0());
+						newCompositeNode(grammarAccess.getJobAccess().getEnvironmentsEnvironmentParserRuleCall_1_6_0());
 					}
-					lv_environments_9_0=ruleEnvironment
+					lv_environments_11_0=ruleEnvironment
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -906,7 +931,7 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"environments",
-							lv_environments_9_0,
+							lv_environments_11_0,
 							"org.xtext.example.circleci.Circleci.Environment");
 						afterParserOrEnumRuleCall();
 					}
@@ -915,9 +940,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getParametersParameterParserRuleCall_1_6_0());
+						newCompositeNode(grammarAccess.getJobAccess().getParametersParameterParserRuleCall_1_7_0());
 					}
-					lv_parameters_10_0=ruleParameter
+					lv_parameters_12_0=ruleParameter
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -925,7 +950,7 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"parameters",
-							lv_parameters_10_0,
+							lv_parameters_12_0,
 							"org.xtext.example.circleci.Circleci.Parameter");
 						afterParserOrEnumRuleCall();
 					}
@@ -934,9 +959,9 @@ ruleJob returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJobAccess().getStepsStepParserRuleCall_1_7_0());
+						newCompositeNode(grammarAccess.getJobAccess().getStepsStepParserRuleCall_1_8_0());
 					}
-					lv_steps_11_0=ruleStep
+					lv_steps_13_0=ruleStep
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJobRule());
@@ -944,15 +969,15 @@ ruleJob returns [EObject current=null]
 						add(
 							$current,
 							"steps",
-							lv_steps_11_0,
+							lv_steps_13_0,
 							"org.xtext.example.circleci.Circleci.Step");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
-			this_END_12=RULE_END
+			this_END_14=RULE_END
 			{
-				newLeafNode(this_END_12, grammarAccess.getJobAccess().getENDTerminalRuleCall_1_8());
+				newLeafNode(this_END_14, grammarAccess.getJobAccess().getENDTerminalRuleCall_1_9());
 			}
 		)
 	)

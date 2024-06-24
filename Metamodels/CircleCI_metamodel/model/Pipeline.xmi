@@ -1,14 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<circleCI_metamodel:Pipeline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:circleCI_metamodel="http://www.example.org/circleCI_metamodel">
-  <workflows>
-    <jobworkflow name="a"/>
-    <jobworkflow name="b"/>
-  </workflows>
-  <workflows>
-    <jobworkflow name="a"/>
-    <jobworkflow name="a"/>
-  </workflows>
-  <jobs name="a"/>
-  <jobs name="b"/>
-  <jobs name="c"/>
-</circleCI_metamodel:Pipeline>
+<circleCI_metamodel:Pipeline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:circleCI_metamodel="http://www.example.org/circleCI_metamodel" xsi:schemaLocation="http://www.example.org/circleCI_metamodel circleCI_metamodel.ecore"/>

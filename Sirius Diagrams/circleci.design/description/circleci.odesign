@@ -1553,6 +1553,13 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
+        <controls xsi:type="properties:TextDescription" name="ReuseCommandText" labelExpression="reuseCommand" helpExpression="Command name to reuse in job" valueExpression="feature:reuseCommand">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="reuseCommand" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
         <validationSet>
           <semanticValidationRules name="ExecutorType" level="ERROR" message="Each job should only specify one executor type. Please ensure that each job has a unique executor type assigned" targetClass="circleCI_metamodel::Job">
             <audits auditExpression="service:checkExecutorType()"/>
@@ -1569,8 +1576,11 @@
           <propertyValidationRules name="ExecutorExistsInJobs" label="name" level="ERROR" message="aql: 'Executor &quot;' + self.reuseExecutor + '&quot; does not exist in the pipeline configuration'" targets="//@extensions.0/@categories.0/@groups.1/@controls.2">
             <audits auditExpression="service:checkExecutorExistsInJobs()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="ExecutorNotEmpty" label="name" level="ERROR" message="Executor name to use should not be empty" targets="//@extensions.0/@categories.0/@groups.1/@controls.2">
+          <propertyValidationRules name="ExecutorNotEmpty" label="name" level="ERROR" message="Executor name to reuse should not be empty" targets="//@extensions.0/@categories.0/@groups.1/@controls.2">
             <audits auditExpression="aql:self.reuseExecutor->size()&lt;>0"/>
+          </propertyValidationRules>
+          <propertyValidationRules name="CommandExistsInJobs" label="name" level="ERROR" message="aql: 'Command &quot;' + self.reuseCommand + '&quot; does not exist in the pipeline configuration'" targets="//@extensions.0/@categories.0/@groups.1/@controls.3">
+            <audits auditExpression="service:checkCommandExistsInJobs()"/>
           </propertyValidationRules>
         </validationSet>
       </groups>

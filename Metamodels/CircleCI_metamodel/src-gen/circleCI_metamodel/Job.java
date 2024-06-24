@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link circleCI_metamodel.Job#getParallelism <em>Parallelism</em>}</li>
  *   <li>{@link circleCI_metamodel.Job#getReuseExecutor <em>Reuse Executor</em>}</li>
  *   <li>{@link circleCI_metamodel.Job#getExecutors <em>Executors</em>}</li>
+ *   <li>{@link circleCI_metamodel.Job#getReuseCommand <em>Reuse Command</em>}</li>
  * </ul>
  *
  * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob()
@@ -142,5 +143,27 @@ public interface Job extends EObject {
 	 * @generated
 	 */
 	EList<Executor> getExecutors();
+
+	/**
+	 * Returns the value of the '<em><b>Reuse Command</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reuse Command</em>' attribute.
+	 * @see #setReuseCommand(String)
+	 * @see circleCI_metamodel.CircleCI_metamodelPackage#getJob_ReuseCommand()
+	 * @model
+	 * @generated
+	 */
+	String getReuseCommand();
+
+	/**
+	 * Sets the value of the '{@link circleCI_metamodel.Job#getReuseCommand <em>Reuse Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reuse Command</em>' attribute.
+	 * @see #getReuseCommand()
+	 * @generated
+	 */
+	void setReuseCommand(String value);
 
 } // Job

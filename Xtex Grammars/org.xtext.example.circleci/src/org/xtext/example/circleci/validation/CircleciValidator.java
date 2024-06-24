@@ -59,6 +59,7 @@ public class CircleciValidator extends AbstractCircleciValidator {
 	public static final String DUPLICATE_JOBWORKFLOW_NAME = "Duplicate jobWorkflow name found: %s. Choose a different jobWorkflow name to ensure uniqueness within the pipeline.";
 	public static final String MULTIPLE_EXECUTOR_TYPES = "Each job should only specify one executor type. Please ensure that each job has a unique executor type assigned.";
 	public static final String EXECUTOR_NOT_FOUND = "Executor '%s' does not exist in the pipeline configuration";
+	public static final String COMMAND_NOT_FOUND = "Command '%s' does not exist in the pipeline configuration";
 	public static final String REQUIRED_JOB_NOT_EXIST = "Required Job '%s' does not exist. Select an existing pipeline Job";
 	public static final String NULL_ENUM_VALUES_ENTRY = "EnumValues entry must be defined if Parameter type ENUM";
 	public static final String ENUM_VALUES_EMPTY = "Enum parameter must have non-empty enum values";
@@ -81,6 +82,7 @@ public class CircleciValidator extends AbstractCircleciValidator {
 	public static final String DUPLICATE_JOBWORKFLOW_NAME_ERRORCODE = "DUPLICATE_JOBWORKFLOW_NAME";
 	public static final String MULTIPLE_EXECUTOR_TYPES_ERRORCODE = "MULTIPLE_EXECUTOR_TYPES";
 	public static final String EXECUTOR_NOT_FOUND_ERRORCODE = "EXECUTOR_NOT_FOUND";
+	public static final String COMMAND_NOT_FOUND_ERRORCODE = "COMMAND_NOT_FOUND";
 	public static final String REQUIRED_JOB_NOT_EXIST_ERRORCODE = "REQUIRED_JOB_NOT_EXIST";
 	public static final String NULL_ENUM_VALUES_ENTRY_ERRORCODE = "NULL_ENUM_VALUES_ENTRY";
 	public static final String ENUM_VALUES_EMPTY_ERRORCODE = "ENUM_VALUES_EMPTY";
@@ -280,6 +282,20 @@ public class CircleciValidator extends AbstractCircleciValidator {
 	        }
 	        EStructuralFeature reuseExecutorFeature = job.eClass().getEStructuralFeature("reuseExecutor");
 	        error(String.format(EXECUTOR_NOT_FOUND, job.getReuseExecutor()), job, reuseExecutorFeature, EXECUTOR_NOT_FOUND_ERRORCODE);
+	    }
+	}
+	
+	@Check
+	public void checkCommandExistsInJobs(Job job) {
+	    if (job.getReuseCommand() != null && !job.getReuseCommand().isEmpty()) {
+	        Pipeline pipeline = (Pipeline) job.eContainer();
+	        for (Command com : pipeline.getCommands()) {
+	            if (com.getName().equals(job.getReuseCommand())) {
+	                return;
+	            }
+	        }
+	        EStructuralFeature reuseCommandFeature = job.eClass().getEStructuralFeature("reuseCommand");
+	        error(String.format(COMMAND_NOT_FOUND, job.getReuseCommand()), job, reuseCommandFeature, COMMAND_NOT_FOUND_ERRORCODE);
 	    }
 	}
 
