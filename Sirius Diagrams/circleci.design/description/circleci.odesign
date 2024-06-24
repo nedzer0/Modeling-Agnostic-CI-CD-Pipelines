@@ -73,7 +73,7 @@
             </style>
           </subNodeMappings>
           <subNodeMappings name="JobSaveCache" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::SaveCache">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else self.paths endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'SaveCache' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
@@ -107,109 +107,109 @@
           </subContainerMappings>
           <subContainerMappings name="JobWhen_Unless" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editCondition']" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::When_Unless">
             <subNodeMappings name="WhenAddSSHKeys" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::AddSSHKeys">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'AddSSHKey' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenSetupRemoteDocker" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::SetupRemoteDocker">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SetupRemoteDocker.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'SetupRemoteDocker' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SetupRemoteDocker.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenPersistToWorkspace" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::PersistToWorkspace">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/workspace.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'PersistToWorkspace' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/workspace.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenCheckout" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::Checkout">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/checkout.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'Checkout' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/checkout.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenStoreArtifact" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::StoreArtifact">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Artifact.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'StoreArtifact' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Artifact.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenAttachWorkspace" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::AttachWorkspace">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/attach.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'AttachWorkspace' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/attach.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenRestoreCache" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::RestoreCache">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/RestoreCache.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'RestoreCache' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/RestoreCache.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenStoreTestResults" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::StoreTestResults">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Input.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'StoreTestResults' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Input.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenSaveCache" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::SaveCache">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'SaveCache' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessAddSSHKeys" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::AddSSHKeys">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'AddSSHKey' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessSetupRemoteDocker" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::SetupRemoteDocker">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SetupRemoteDocker.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'SetupRemoteDocker' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SetupRemoteDocker.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessPersistToWorkspace" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::PersistToWorkspace">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/workspace.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'PersistToWorkspace' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/workspace.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessCheckout" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::Checkout">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/checkout.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'Checkout' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/checkout.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessStoreArtifact" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::StoreArtifact">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Artifact.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'StoreArtifact' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Artifact.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessAttachWorkspace" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::AttachWorkspace">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/attach.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'AttachWorkspace' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/attach.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessRestoreCache" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::RestoreCache">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/RestoreCache.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'RestoreCache' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/RestoreCache.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessStoreTestResults" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::StoreTestResults">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Input.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'StoreTestResults' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Input.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessSaveCache" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::SaveCache">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'SaveCache' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
@@ -349,55 +349,55 @@
             </style>
           </subNodeMappings>
           <subNodeMappings name="CommandAddSSHKeys" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::AddSSHKeys">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'AddSSHKey' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="CommandSetupRemoteDocker" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::SetupRemoteDocker">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SetupRemoteDocker.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'SetupRemoteDocker' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SetupRemoteDocker.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="CommandPersistToWorkspace" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::PersistToWorkspace">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/workspace.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'PersistToWorkspace' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/workspace.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="CommandCheckout" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::Checkout">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/checkout.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'Checkout' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/checkout.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="CommandStoreArtifact" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::StoreArtifact">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Artifact.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'StoreArtifact' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Artifact.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="CommandAttachWorkspace" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::AttachWorkspace">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/attach.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'AttachWorkspace' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/attach.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="CommandRestoreCache" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::RestoreCache">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/RestoreCache.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'RestoreCache' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/RestoreCache.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="CommandStoreTestResults" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::StoreTestResults">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Input.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'StoreTestResults' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Input.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="CommandSaveCache" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::SaveCache">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else self.paths endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
@@ -421,7 +421,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Command Step: ' + self.name">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->size() = 0 then 'Step' else 'Step: ' + self.name endif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -431,109 +431,109 @@
           </subContainerMappings>
           <subContainerMappings name="CommandWhen_Unless" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editCondition']" semanticCandidatesExpression="feature:eAllContents" domainClass="circleCI_metamodel::When_Unless">
             <subNodeMappings name="WhenAddSSHKeys" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::AddSSHKeys">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'AddSSHKey' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenSetupRemoteDocker" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::SetupRemoteDocker">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SetupRemoteDocker.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'SetupRemoteDocker' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SetupRemoteDocker.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenPersistToWorkspace" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::PersistToWorkspace">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/workspace.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'PersistToWorkspace' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/workspace.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenCheckout" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::Checkout">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/checkout.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'Checkout' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/checkout.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenStoreArtifact" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::StoreArtifact">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Artifact.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'StoreArtifact' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Artifact.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenAttachWorkspace" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::AttachWorkspace">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/attach.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'AttachWorkspace' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/attach.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenRestoreCache" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::RestoreCache">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/RestoreCache.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'RestoreCache' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/RestoreCache.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenStoreTestResults" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::StoreTestResults">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Input.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'StoreTestResults' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Input.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="WhenSaveCache" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::SaveCache">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'SaveCache' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessAddSSHKeys" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::AddSSHKeys">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'AddSSHKey' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessSetupRemoteDocker" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::SetupRemoteDocker">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SetupRemoteDocker.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'SetupRemoteDocker' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SetupRemoteDocker.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessPersistToWorkspace" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::PersistToWorkspace">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/workspace.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'PersistToWorkspace' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/workspace.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessCheckout" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::Checkout">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/checkout.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'Checkout' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/checkout.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessStoreArtifact" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::StoreArtifact">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Artifact.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'StoreArtifact' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Artifact.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessAttachWorkspace" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::AttachWorkspace">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/attach.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'AttachWorkspace' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/attach.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessRestoreCache" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::RestoreCache">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/RestoreCache.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'RestoreCache' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/RestoreCache.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessStoreTestResults" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::StoreTestResults">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Input.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'StoreTestResults' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Input.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="UnlessSaveCache" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::SaveCache">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->size() &lt;> 0 then self.name else 'SaveCache' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Cache.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
@@ -627,7 +627,7 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'Docker: ' + self.name else 'Docker' endif">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'Docker Executor: ' + self.name else 'Docker' endif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -864,7 +864,7 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'Machine: ' + self.name else 'Machine' endif">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'Machine Executor: ' + self.name else 'Machine' endif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -879,7 +879,7 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'MacOs: ' + self.name else 'MacOs' endif">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: if self.name->notEmpty() then 'MacOs  Executor: ' + self.name else 'MacOs' endif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -888,12 +888,12 @@
           </style>
         </containerMappings>
         <toolSections name="Pipeline Tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Orb" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@nodeMappings[name='Orb']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Command" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Orb" referenceName="orbs"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Command" referenceName="commands"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -906,30 +906,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Command" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Command" referenceName="commands"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Job" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Job" referenceName="jobs"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Workflow" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Workflow" referenceName="workflows"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -951,8 +933,35 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Orb" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@nodeMappings[name='Orb']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Orb" referenceName="orbs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Workflow" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Workflow" referenceName="workflows"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Workflow Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Branch" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subNodeMappings[name='Branch'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='JobWorkflow']/@subNodeMappings[name='Branch']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Branch" referenceName="branches"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="Environment" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subContainerMappings[name='UnlessRun']/@subNodeMappings[name='Environment'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subContainerMappings[name='WhenRun']/@subNodeMappings[name='Environment']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandRun']/@subNodeMappings[name='Environment'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Docker']/@subNodeMappings[name='Environment'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Environment'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']/@subNodeMappings[name='Environment']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -968,24 +977,6 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::JobWorkflow" referenceName="jobworkflow"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Workflow Trigger" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subNodeMappings[name='Trigger']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Trigger" referenceName="triggers"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Branch" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subNodeMappings[name='Branch'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='JobWorkflow']/@subNodeMappings[name='Branch']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Branch" referenceName="branches"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1016,192 +1007,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="When Unless Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Trigger" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subNodeMappings[name='Trigger']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::When_Unless" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AddSSHKeys When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenAddSSHKeys']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AddSSHKeys" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SetupRemoteDocker When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenSetupRemoteDocker']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SetupRemoteDocker" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="PersistToWorkspace When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenPersistToWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::PersistToWorkspace" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Checkout When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenCheckout']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Checkout" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreArtifact When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenStoreArtifact']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreArtifact" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AttachWorkspace When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenAttachWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AttachWorkspace" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenRestoreCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RestoreCache" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreTestResults When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenStoreTestResults']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenSaveCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SaveCache" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Run When Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subContainerMappings[name='WhenRun']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Run" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AddSSHKeys Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessAddSSHKeys']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AddSSHKeys" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SetupRemoteDocker Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessSetupRemoteDocker']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SetupRemoteDocker" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="PersistToWorkspace Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessPersistToWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::PersistToWorkspace" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Checkout Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessCheckout']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Checkout" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreArtifact Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessStoreArtifact']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreArtifact" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AttachWorkspace Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessAttachWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AttachWorkspace" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessRestoreCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RestoreCache" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreTestResults Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessStoreTestResults']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessSaveCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SaveCache" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Run Unless Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subContainerMappings[name='UnlessRun']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Run" referenceName="unless_step"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Trigger" referenceName="triggers"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1220,6 +1031,105 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Parameters" referenceName="parameters"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="AddSSHKeys Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenAddSSHKeys'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessAddSSHKeys']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AddSSHKeys" referenceName="when_step"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="AttachWorkspace Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenAttachWorkspace'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessAttachWorkspace']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AttachWorkspace" referenceName="when_step"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Checkout Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenCheckout'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessCheckout']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Checkout" referenceName="when_step"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="PersistToWorkspace Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenPersistToWorkspace'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessPersistToWorkspace']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::PersistToWorkspace" referenceName="when_step"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenRestoreCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessRestoreCache']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RestoreCache" referenceName="when_step"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Run Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subContainerMappings[name='WhenRun'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subContainerMappings[name='UnlessRun']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Run" referenceName="when_step"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenSaveCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessSaveCache']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SaveCache" referenceName="when_step"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SetupRemoteDocker Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenSetupRemoteDocker'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessSetupRemoteDocker']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SetupRemoteDocker" referenceName="when_step"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreArtifact Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenStoreArtifact'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessStoreArtifact']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreArtifact" referenceName="when_step"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreTestResults Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='WhenStoreTestResults'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']/@subNodeMappings[name='UnlessStoreTestResults']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="when_step"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="When Unless Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::When_Unless" referenceName="steps"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1263,16 +1173,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Run Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandRun']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Run" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AddSSHKeys Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandAddSSHKeys']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="AddSSHKeys Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandAddSSHKeys'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessAddSSHKeys'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenAddSSHKeys']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1281,43 +1182,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SetupRemoteDocker Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandSetupRemoteDocker']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SetupRemoteDocker" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="PersistToWorkspace Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandPersistToWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::PersistToWorkspace" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Checkout Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandCheckout']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Checkout" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreArtifact Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandStoreArtifact']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreArtifact" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AttachWorkspace Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandAttachWorkspace']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="AttachWorkspace Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandAttachWorkspace'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessAttachWorkspace'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenAttachWorkspace']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1326,7 +1191,25 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandRestoreCache']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Checkout Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandCheckout'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessCheckout'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenCheckout']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Checkout" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="PersistToWorkspace Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandPersistToWorkspace'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessPersistToWorkspace'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenPersistToWorkspace']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::PersistToWorkspace" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandRestoreCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessRestoreCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenRestoreCache']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1335,21 +1218,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreTestResults Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandStoreTestResults']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Run Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandRun'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subContainerMappings[name='UnlessRun'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subContainerMappings[name='WhenRun']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandSaveCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SaveCache" referenceName="steps"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Run" referenceName="steps"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1371,6 +1245,42 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandSaveCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessSaveCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenSaveCache']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SaveCache" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SetupRemoteDocker Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandSetupRemoteDocker'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessSetupRemoteDocker'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenSetupRemoteDocker']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SetupRemoteDocker" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreArtifact Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandStoreArtifact'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessStoreArtifact'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenStoreArtifact']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreArtifact" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreTestResults Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandStoreTestResults'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessStoreTestResults'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenStoreTestResults']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="When Unless Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -1380,197 +1290,8 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Run When Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subContainerMappings[name='WhenRun']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Run" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AddSSHKeys When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenAddSSHKeys']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AddSSHKeys" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SetupRemoteDocker When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenSetupRemoteDocker']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SetupRemoteDocker" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="PersistToWorkspace When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenPersistToWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::PersistToWorkspace" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Checkout When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenCheckout']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Checkout" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreArtifact When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenStoreArtifact']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreArtifact" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AttachWorkspace When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenAttachWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AttachWorkspace" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenRestoreCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RestoreCache" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreTestResults When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenStoreTestResults']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenSaveCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SaveCache" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Run Unless Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subContainerMappings[name='UnlessRun']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Run" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AddSSHKeys Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessAddSSHKeys']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AddSSHKeys" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SetupRemoteDocker Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessSetupRemoteDocker']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SetupRemoteDocker" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="PersistToWorkspace Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessPersistToWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::PersistToWorkspace" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Checkout Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessCheckout']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Checkout" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreArtifact Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessStoreArtifact']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreArtifact" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AttachWorkspace Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessAttachWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AttachWorkspace" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessRestoreCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RestoreCache" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreTestResults Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessStoreTestResults']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessSaveCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SaveCache" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
         </toolSections>
         <toolSections name="Job Tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Parameter" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Parameter']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='Parameter'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Parameter']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Parameter" referenceName="parameters"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="Environment" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Environment'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']/@subNodeMappings[name='Environment'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='WhenRun']/@subNodeMappings[name='Environment'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='UnlessRun']/@subNodeMappings[name='Environment']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandRun']/@subNodeMappings[name='Environment'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Docker']/@subNodeMappings[name='Environment'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Environment'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']/@subNodeMappings[name='Environment']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -1580,300 +1301,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Run Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Parameter" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Parameter']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='Parameter'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Parameter']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Run" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AddSSHKeys Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobAddSSHKeys']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AddSSHKeys" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SetupRemoteDocker Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobSetupRemoteDocker']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SetupRemoteDocker" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="PersistToWorkspace Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobPersistToWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::PersistToWorkspace" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Checkout Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobCheckout']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Checkout" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreArtifact Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobStoreArtifact']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreArtifact" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AttachWorkspace Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobAttachWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AttachWorkspace" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobRestoreCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RestoreCache" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreTestResults Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobStoreTestResults']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobSaveCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SaveCache" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Run Command" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']/@subNodeMappings[name='RunCommand'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='WhenRun']/@subNodeMappings[name='RunCommand'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='UnlessRun']/@subNodeMappings[name='RunCommand']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Tool_Framework" referenceName="tool_frameworks"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Run Parameters" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']/@subNodeMappings[name='Parameters'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='UnlessRun']/@subNodeMappings[name='Parameters'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='WhenRun']/@subNodeMappings[name='Parameters']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Parameters" referenceName="parameters"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="When Unless Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::When_Unless" referenceName="steps"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AddSSHKeys When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenAddSSHKeys']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AddSSHKeys" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SetupRemoteDocker When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenSetupRemoteDocker']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SetupRemoteDocker" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="PersistToWorkspace When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenPersistToWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::PersistToWorkspace" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Checkout When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenCheckout']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Checkout" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreArtifact When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenStoreArtifact']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreArtifact" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AttachWorkspace When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenAttachWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AttachWorkspace" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenRestoreCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RestoreCache" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreTestResults When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenStoreTestResults']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache When Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenSaveCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SaveCache" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Run When Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='WhenRun']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Run" referenceName="when_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AddSSHKeys Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessAddSSHKeys']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AddSSHKeys" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SetupRemoteDocker Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessSetupRemoteDocker']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SetupRemoteDocker" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="PersistToWorkspace Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessPersistToWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::PersistToWorkspace" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Checkout Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessCheckout']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Checkout" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreArtifact Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessStoreArtifact']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreArtifact" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AttachWorkspace Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessAttachWorkspace']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AttachWorkspace" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessRestoreCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RestoreCache" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreTestResults Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessStoreTestResults']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache Unless Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessSaveCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SaveCache" referenceName="unless_step"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Run Unless Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='UnlessRun']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Run" referenceName="unless_step"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Parameter" referenceName="parameters"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1901,6 +1334,123 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::MacOs" referenceName="executors"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="AddSSHKeys Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobAddSSHKeys'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessAddSSHKeys'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenAddSSHKeys']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AddSSHKeys" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="AttachWorkspace Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobAttachWorkspace'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessAttachWorkspace'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenAttachWorkspace']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::AttachWorkspace" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Checkout Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobCheckout'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessCheckout'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenCheckout']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Checkout" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="PersistToWorkspace Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobPersistToWorkspace'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='UnlessPersistToWorkspace'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless']/@subNodeMappings[name='WhenPersistToWorkspace']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::PersistToWorkspace" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobRestoreCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessRestoreCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenRestoreCache']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RestoreCache" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Run Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='UnlessRun'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='WhenRun']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandWhen_Unless'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Workflow']/@subContainerMappings[name='WorkflowWhen_Unless']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Run" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Run Command" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']/@subNodeMappings[name='RunCommand'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='WhenRun']/@subNodeMappings[name='RunCommand'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='UnlessRun']/@subNodeMappings[name='RunCommand']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RunCommand" referenceName="run_commands"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Run Parameters" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']/@subNodeMappings[name='Parameters'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='UnlessRun']/@subNodeMappings[name='Parameters'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subContainerMappings[name='WhenRun']/@subNodeMappings[name='Parameters']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Parameters" referenceName="parameters"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobSaveCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessSaveCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenSaveCache']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SaveCache" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SetupRemoteDocker Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobSetupRemoteDocker'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessSetupRemoteDocker'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenSetupRemoteDocker']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::SetupRemoteDocker" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreArtifact Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobStoreArtifact'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessStoreArtifact'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenStoreArtifact']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreArtifact" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="StoreTestResults Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobStoreTestResults'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='UnlessStoreTestResults'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']/@subNodeMappings[name='WhenStoreTestResults']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="steps"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="When Unless Step" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobWhen_Unless']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::When_Unless" referenceName="steps"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -2397,7 +1947,7 @@
         <controls xsi:type="properties:TextDescription" name="RequiresText" labelExpression="New require input" helpExpression="Add a new require to the list">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="requires" valueExpression="service:clearJobWorkflowRequires()"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="requires" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
         </controls>
@@ -2866,13 +2416,6 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="EnumValuesText" labelExpression="New enumValues Input" helpExpression="Add a new enumValue to the list">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="enumValues" valueExpression="var:newValue"/>
-            </firstModelOperations>
-          </initialOperation>
-        </controls>
         <controls xsi:type="properties:TextDescription" name="DescriptionText" labelExpression="description" helpExpression="Optional. Used to generate documentation for your orb" valueExpression="feature:description">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -2884,6 +2427,13 @@
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="EnumValuesText" labelExpression="New enumValues Input" helpExpression="Add a new enumValue to the list">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="enumValues" valueExpression="var:newValue"/>
             </firstModelOperations>
           </initialOperation>
         </controls>
@@ -2907,13 +2457,13 @@
           <propertyValidationRules name="ParameterNameNotEmpty" label="name" level="ERROR" message="Parameter name should not be empty" targets="//@extensions.0/@categories.0/@groups.28/@controls.0">
             <audits auditExpression="service:checkParameterNameNotEmpty()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="ValidParameterTypes" label="name" level="ERROR" message="aql: 'Invalid parameter type &quot;' + self.type + '&quot;. Pipeline parameters can only have types: string, boolean, integer, or enum'" targets="//@extensions.0/@categories.0/@groups.28/@controls.4">
+          <propertyValidationRules name="ValidParameterTypes" label="name" level="ERROR" message="aql: 'Invalid parameter type &quot;' + self.type + '&quot;. Pipeline parameters can only have types: string, boolean, integer, or enum'" targets="//@extensions.0/@categories.0/@groups.28/@controls.3">
             <audits auditExpression="service:checkValidParameterTypes()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="EnumValuesNotEmpty" label="name" level="ERROR" message="Enum parameter must have non-empty enum values" targets="//@extensions.0/@categories.0/@groups.28/@controls.2">
+          <propertyValidationRules name="EnumValuesNotEmpty" label="name" level="ERROR" message="Enum parameter must have non-empty enum values" targets="//@extensions.0/@categories.0/@groups.28/@controls.4">
             <audits auditExpression="service:checkEnumValuesNotEmpty()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="EnumValuesEmptyForNonEnum" label="name" level="ERROR" message="Non-enum parameter must not have enum values. Remove enumValues entry" targets="//@extensions.0/@categories.0/@groups.28/@controls.2">
+          <propertyValidationRules name="EnumValuesEmptyForNonEnum" label="name" level="ERROR" message="Non-enum parameter must not have enum values. Remove enumValues entry" targets="//@extensions.0/@categories.0/@groups.28/@controls.4">
             <audits auditExpression="service:checkEnumValuesEmptyForNonEnum()"/>
           </propertyValidationRules>
           <propertyValidationRules name="ValidBooleanDefaultValue" label="name" level="ERROR" message="Boolean parameter must have default value as 'true' or 'false'" targets="//@extensions.0/@categories.0/@groups.28/@controls.1">

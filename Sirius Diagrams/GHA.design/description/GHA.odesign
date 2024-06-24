@@ -608,15 +608,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Permission" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@nodeMappings[name='Permission']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Permission" referenceName="permissions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="DefaultSetting" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@nodeMappings[name='DefaultSetting']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -632,6 +623,51 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Env" referenceName="envs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Job" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Job" referenceName="jobs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Permission" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@nodeMappings[name='Permission']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Permission" referenceName="permissions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Push Trigger" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PushTrigger']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::PushTrigger" referenceName="triggers"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Pull Trigger" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTrigger']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::PullTrigger" referenceName="triggers"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="PullTarget Trigger" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTargetTrigger']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::PullTargetTrigger" referenceName="triggers"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -653,39 +689,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Push Trigger" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PushTrigger']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="WorkflowCall Trigger" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='WorkflowCallTrigger']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::PushTrigger" referenceName="triggers"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="PullTarget Trigger" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTargetTrigger']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::PullTargetTrigger" referenceName="triggers"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Pull Trigger" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTrigger']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::PullTrigger" referenceName="triggers"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="WorkflowRun Trigger" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='WorkflowRunTrigger']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::WorkflowRunTrigger" referenceName="triggers"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::WorkflowCallTrigger" referenceName="triggers"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -698,27 +707,18 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="WorkflowCall Trigger" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='WorkflowCallTrigger']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="WorkflowRun Trigger" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='WorkflowRunTrigger']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::WorkflowCallTrigger" referenceName="triggers"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Job" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Job" referenceName="jobs"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::WorkflowRunTrigger" referenceName="triggers"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Trigger Tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Push, PullTarget, Pull and WorkflowRun Branch" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTargetTrigger']/@subNodeMappings[name='Branch'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTrigger']/@subNodeMappings[name='Branch'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PushTrigger']/@subNodeMappings[name='Branch'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='WorkflowRunTrigger']/@subNodeMappings[name='Branch']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Branch" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTargetTrigger']/@subNodeMappings[name='Branch'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTrigger']/@subNodeMappings[name='Branch'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PushTrigger']/@subNodeMappings[name='Branch'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='WorkflowRunTrigger']/@subNodeMappings[name='Branch']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -727,16 +727,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Push Tag" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PushTrigger']/@subNodeMappings[name='Tag']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Tag" referenceName="tags"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Push, PullTarget and Pull Path" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTargetTrigger']/@subNodeMappings[name='Path'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTrigger']/@subNodeMappings[name='Path'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PushTrigger']/@subNodeMappings[name='Path']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Path" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTargetTrigger']/@subNodeMappings[name='Path'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PullTrigger']/@subNodeMappings[name='Path'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PushTrigger']/@subNodeMappings[name='Path']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -745,12 +736,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="WorkflowDispatch and WorkflowCall Input" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='WorkflowCallTrigger']/@subNodeMappings[name='Input'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='WorkflowDispatchTrigger']/@subNodeMappings[name='Input']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Tag" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='PushTrigger']/@subNodeMappings[name='Tag']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Input" referenceName="inputs"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Tag" referenceName="tags"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -772,95 +763,23 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="WorkflowDispatch and WorkflowCall Input" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='WorkflowCallTrigger']/@subNodeMappings[name='Input'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='WorkflowDispatchTrigger']/@subNodeMappings[name='Input']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Input" referenceName="inputs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Job Tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Env" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Env']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Action" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Env" referenceName="envs"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="If" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='If']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::If" referenceName="if"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Runs_On" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Runs_On']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Runs_On" referenceName="runner"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Environment" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Environment']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Environment" referenceName="environment"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Need" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Need']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Need" referenceName="need"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="DefaultSetting" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='DefaultSetting']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::DefaultSetting" referenceName="defaultsetting"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Concurrency" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Concurrency']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Concurrency" referenceName="concurrency"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Permission" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Permission']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Permission" referenceName="permissions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Output" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Output']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Output" referenceName="outputs"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Secret" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Secret']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Secret" referenceName="secrets"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Action" referenceName="actions"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -873,21 +792,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='RestoreCache']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Concurrency" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Concurrency']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::RestoreCache" referenceName="actions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='SaveCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::SaveCache" referenceName="actions"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Concurrency" referenceName="concurrency"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -900,21 +810,120 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="DefaultSetting" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='DefaultSetting']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::DefaultSetting" referenceName="defaultsetting"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Docker" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Docker']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Docker" referenceName="actions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Env" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Env']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Env" referenceName="envs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Environment" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Environment']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Environment" referenceName="environment"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="If" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='If']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::If" referenceName="if"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Need" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Need']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Need" referenceName="need"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Output" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Output']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Output" referenceName="outputs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Permission" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Permission']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Permission" referenceName="permissions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='RestoreCache']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::RestoreCache" referenceName="actions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Runs_On" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Runs_On']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Runs_On" referenceName="runner"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='SaveCache']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::SaveCache" referenceName="actions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Secret" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='Secret']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Secret" referenceName="secrets"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Service" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Service']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Service" referenceName="services"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Strategy" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Strategy']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Strategy" referenceName="strategy"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -927,21 +936,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Action" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Strategy" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Strategy']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Action" referenceName="actions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Docker" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Docker']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Docker" referenceName="actions"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Strategy" referenceName="strategy"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -967,6 +967,15 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Job Service Tools">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Container" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Service']/@subContainerMappings[name='Container']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Container" referenceName="container"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="Credentials" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Service']/@subContainerMappings[name='Container']/@subNodeMappings[name='Credentials']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -985,15 +994,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Container" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Service']/@subContainerMappings[name='Container']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Container" referenceName="container"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
         </toolSections>
         <toolSections name="Job Strategy Tools">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="MatrixConfig" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Strategy']/@subNodeMappings[name='MatrixConfig']">
@@ -1007,84 +1007,12 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Job Step Tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Command" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='Command'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='Command']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Command" referenceName="commands"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Parameter" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='Parameter'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='Parameter']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Parameter" referenceName="parameters"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="If" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='If'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='If']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::If" referenceName="if"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Artifact" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='Artifact'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='Artifact']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Artifact" referenceName="actions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='RestoreCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='RestoreCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::RestoreCache" referenceName="actions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='SaveCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='SaveCache']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::SaveCache" referenceName="actions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Action" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Action" referenceName="actions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Docker" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Docker" referenceName="actions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Docker Env" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker']/@subNodeMappings[name='Env'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker']/@subNodeMappings[name='Env']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Env" referenceName="envs"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1115,8 +1043,98 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Artifact" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='Artifact'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='Artifact']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Artifact" referenceName="actions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Command" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='Command'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='Command']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Command" referenceName="commands"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Docker" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Docker" referenceName="actions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Docker Env" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker']/@subNodeMappings[name='Env'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker']/@subNodeMappings[name='Env']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Env" referenceName="envs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="If" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='If'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='If']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::If" referenceName="if"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Parameter" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='Parameter'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='Parameter']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Parameter" referenceName="parameters"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestoreCache" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='RestoreCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='RestoreCache']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::RestoreCache" referenceName="actions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subNodeMappings[name='SaveCache'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='SaveCache']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::SaveCache" referenceName="actions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Job Action Tools">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Docker" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Docker" referenceName="actions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Docker Env" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker']/@subNodeMappings[name='Env']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Env" referenceName="envs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="InputPair" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subNodeMappings[name='InputPair'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']/@subNodeMappings[name='InputPair']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -1144,21 +1162,30 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Step Action" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Action" referenceName="actions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Step Artifact" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='Artifact']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Artifact" referenceName="actions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="Step Command" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='Command']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Command" referenceName="commands"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Step Parameter" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='Parameter']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Parameter" referenceName="parameters"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1171,12 +1198,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Step Artifact" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='Artifact']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Step Parameter" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subNodeMappings[name='Parameter']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Artifact" referenceName="actions"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Parameter" referenceName="parameters"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1195,33 +1222,6 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::SaveCache" referenceName="actions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Step Action" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Action']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Action" referenceName="actions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Docker" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Docker" referenceName="actions"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Docker Env" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='GHA%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='Action']/@subContainerMappings[name='Step']/@subContainerMappings[name='Docker']/@subNodeMappings[name='Env']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="gHA_metamodel::Env" referenceName="envs"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
