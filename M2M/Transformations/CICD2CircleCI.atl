@@ -102,7 +102,7 @@ lazy rule ScheduleTrigger2Workflow {
     to
         t : CircleCI!Workflow (
             name <- 'build-and-deploy',
-			version <- '2.0',
+			version <- '2.1',
 			triggers <- s.triggers -> collect(trigger | thisModule.ScheduleTrigger2ScheduleTrigger(trigger)),
 			jobworkflow <- s.jobs -> collect(job | thisModule.Job2JobWorkflow(job))
         )
@@ -379,7 +379,7 @@ helper context CICD!Step def: transformStepWithCache() : Sequence(CircleCI!Run) 
         )->flatten()
     in
     if self.cache->notEmpty() then
-        cacheSteps
+        cacheSteps->append(thisModule.Step2SRun(self))
     else
         Sequence{thisModule.Step2SRun(self)}
     endif;
