@@ -378,8 +378,14 @@ helper context CICD!Step def: transformStepWithCache() : Sequence(CircleCI!Run) 
             endif
         )->flatten()
     in
-    if self.cache->notEmpty() then
+    if self.cache->notEmpty() and self.commands->notEmpty() then
         cacheSteps->append(thisModule.Step2SRun(self))
+	else if self.cache->isEmpty() and self.commands->notEmpty() then
+		Sequence{thisModule.Step2SRun(self)}
+	else if self.cache->notEmpty() and self.commands->isEmpty() then
+		cacheSteps
     else
-        Sequence{thisModule.Step2SRun(self)}
-    endif;
+        OclUndefined
+    endif
+	endif
+	endif;

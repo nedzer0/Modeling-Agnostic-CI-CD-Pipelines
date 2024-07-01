@@ -4,20 +4,20 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="CircleCI Diagram" domainClass="circleCI_metamodel::Pipeline" enablePopupBars="true">
       <metamodel href="http://www.example.org/circleCI_metamodel#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="Orb" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:orbs" domainClass="circleCI_metamodel::Orb">
+        <nodeMappings name="Orb" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:orbs" domainClass="circleCI_metamodel::Orb">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Orb.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <containerMappings name="Job" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:jobs" domainClass="circleCI_metamodel::Job">
+        <containerMappings name="Job" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:jobs" domainClass="circleCI_metamodel::Job">
           <subNodeMappings name="Parameter" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameter">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Parameter.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+          <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -78,20 +78,20 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <subContainerMappings name="JobRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::Run">
-            <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
+          <subContainerMappings name="JobRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::Run">
+            <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Command.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
+            <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Parameters.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+            <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -105,7 +105,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="JobWhen_Unless" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editCondition']" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::When_Unless">
+          <subContainerMappings name="JobWhen_Unless" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editCondition']" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::When_Unless">
             <subNodeMappings name="WhenAddSSHKeys" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::AddSSHKeys">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'AddSSHKey' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -214,20 +214,20 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <subContainerMappings name="WhenRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::Run">
-              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
+            <subContainerMappings name="WhenRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::Run">
+              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Command.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
+              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Parameters.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -241,20 +241,20 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
               </style>
             </subContainerMappings>
-            <subContainerMappings name="UnlessRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::Run">
-              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
+            <subContainerMappings name="UnlessRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::Run">
+              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Command.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
+              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Parameters.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -277,19 +277,19 @@
             </style>
           </subContainerMappings>
           <subContainerMappings name="Docker" semanticCandidatesExpression="aql:self.executors->filter(circleCI_metamodel::Docker)" domainClass="circleCI_metamodel::Docker">
-            <subNodeMappings name="DockerAwsAuths" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editDockerAWS']" semanticCandidatesExpression="feature:docker_aws_auth" domainClass="circleCI_metamodel::Docker_Aws_Auths">
+            <subNodeMappings name="DockerAwsAuths" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editDockerAWS']" semanticCandidatesExpression="feature:docker_aws_auth" domainClass="circleCI_metamodel::Docker_Aws_Auths">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:aws_access_key_id" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Docker_Aws_Auths.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="DockerAuths" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editDockerUsername']" semanticCandidatesExpression="feature:docker_auth" domainClass="circleCI_metamodel::Docker_Auth">
+            <subNodeMappings name="DockerAuths" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editDockerUsername']" semanticCandidatesExpression="feature:docker_auth" domainClass="circleCI_metamodel::Docker_Auth">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:username" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Docker_Auths.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+            <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -304,7 +304,7 @@
             </style>
           </subContainerMappings>
           <subContainerMappings name="Machine" semanticCandidatesExpression="aql:self.executors->filter(circleCI_metamodel::Machine)" domainClass="circleCI_metamodel::Machine">
-            <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+            <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -319,7 +319,7 @@
             </style>
           </subContainerMappings>
           <subContainerMappings name="MacOs" semanticCandidatesExpression="aql:self.executors->filter(circleCI_metamodel::MacOs)" domainClass="circleCI_metamodel::MacOs">
-            <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+            <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -341,8 +341,8 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
           </style>
         </containerMappings>
-        <containerMappings name="Command" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:commands" domainClass="circleCI_metamodel::Command">
-          <subNodeMappings name="Parameter" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameter">
+        <containerMappings name="Command" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:commands" domainClass="circleCI_metamodel::Command">
+          <subNodeMappings name="Parameter" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameter">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Parameter.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -402,20 +402,20 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <subContainerMappings name="CommandRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::Run">
-            <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
+          <subContainerMappings name="CommandRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:steps" domainClass="circleCI_metamodel::Run">
+            <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Command.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
+            <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Parameters.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+            <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -429,7 +429,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="CommandWhen_Unless" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editCondition']" semanticCandidatesExpression="feature:eAllContents" domainClass="circleCI_metamodel::When_Unless">
+          <subContainerMappings name="CommandWhen_Unless" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editCondition']" semanticCandidatesExpression="feature:eAllContents" domainClass="circleCI_metamodel::When_Unless">
             <subNodeMappings name="WhenAddSSHKeys" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::AddSSHKeys">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql: if self.name->notEmpty() then self.name else 'AddSSHKey' endif" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -538,20 +538,20 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <subContainerMappings name="WhenRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::Run">
-              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
+            <subContainerMappings name="WhenRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::Run">
+              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Command.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
+              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Parameters.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -565,20 +565,20 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
               </style>
             </subContainerMappings>
-            <subContainerMappings name="UnlessRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::Run">
-              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
+            <subContainerMappings name="UnlessRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::Run">
+              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Command.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
+              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Parameters.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -609,19 +609,19 @@
           </style>
         </containerMappings>
         <containerMappings name="Docker" semanticCandidatesExpression="aql:self.executors->filter(circleCI_metamodel::Docker)" domainClass="circleCI_metamodel::Docker">
-          <subNodeMappings name="DockerAwsAuths" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editDockerAWS']" semanticCandidatesExpression="feature:docker_aws_auth" domainClass="circleCI_metamodel::Docker_Aws_Auths">
+          <subNodeMappings name="DockerAwsAuths" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editDockerAWS']" semanticCandidatesExpression="feature:docker_aws_auth" domainClass="circleCI_metamodel::Docker_Aws_Auths">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:aws_access_key_id" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Docker_Aws_Auths.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="DockerAuths" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editDockerUsername']" semanticCandidatesExpression="feature:docker_auth" domainClass="circleCI_metamodel::Docker_Auth">
+          <subNodeMappings name="DockerAuths" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editDockerUsername']" semanticCandidatesExpression="feature:docker_auth" domainClass="circleCI_metamodel::Docker_Auth">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:username" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Docker_Auths.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+          <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -635,28 +635,28 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
-        <containerMappings name="Workflow" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:workflows" domainClass="circleCI_metamodel::Workflow">
-          <subNodeMappings name="Trigger" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editTrigger']" semanticCandidatesExpression="feature:triggers" domainClass="circleCI_metamodel::Trigger">
+        <containerMappings name="Workflow" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:workflows" domainClass="circleCI_metamodel::Workflow">
+          <subNodeMappings name="Trigger" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editTrigger']" semanticCandidatesExpression="feature:triggers" domainClass="circleCI_metamodel::Trigger">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:cron" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/ScheduleTrigger.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="Branch" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:branches" domainClass="circleCI_metamodel::Branch">
+          <subNodeMappings name="Branch" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:branches" domainClass="circleCI_metamodel::Branch">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Branch.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <subContainerMappings name="JobWorkflow" semanticCandidatesExpression="feature:jobworkflow" domainClass="circleCI_metamodel::JobWorkflow">
-            <subNodeMappings name="Branch" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:branches" domainClass="circleCI_metamodel::Branch">
+            <subNodeMappings name="Branch" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:branches" domainClass="circleCI_metamodel::Branch">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Branch.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subContainerMappings name="Matrix" semanticCandidatesExpression="feature:matrix" domainClass="circleCI_metamodel::Matrix">
-              <subNodeMappings name="MatrixParams" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:eAllContents" domainClass="circleCI_metamodel::MatrixParams">
+              <subNodeMappings name="MatrixParams" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:eAllContents" domainClass="circleCI_metamodel::MatrixParams">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/MatrixConfig.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -678,7 +678,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="WorkflowWhen_Unless" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editCondition']" semanticCandidatesExpression="feature:eAllContents" domainClass="circleCI_metamodel::When_Unless">
+          <subContainerMappings name="WorkflowWhen_Unless" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editCondition']" semanticCandidatesExpression="feature:eAllContents" domainClass="circleCI_metamodel::When_Unless">
             <subNodeMappings name="WhenAddSSHKeys" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::AddSSHKeys">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="service:getLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/SshKey.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -787,20 +787,20 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <subContainerMappings name="WhenRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::Run">
-              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
+            <subContainerMappings name="WhenRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:when_step" domainClass="circleCI_metamodel::Run">
+              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Command.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
+              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Parameters.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -814,20 +814,20 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
               </style>
             </subContainerMappings>
-            <subContainerMappings name="UnlessRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::Run">
-              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
+            <subContainerMappings name="UnlessRun" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:unless_step" domainClass="circleCI_metamodel::Run">
+              <subNodeMappings name="Parameters" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editParameter']" semanticCandidatesExpression="feature:parameters" domainClass="circleCI_metamodel::Parameters">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:parameter" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Parameters.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+              <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
+              <subNodeMappings name="RunCommand" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editName']" semanticCandidatesExpression="feature:run_commands" domainClass="circleCI_metamodel::RunCommand">
                 <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Command.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -858,7 +858,7 @@
           </style>
         </containerMappings>
         <containerMappings name="Machine" semanticCandidatesExpression="aql:self.executors->filter(circleCI_metamodel::Machine)" domainClass="circleCI_metamodel::Machine">
-          <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+          <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -873,7 +873,7 @@
           </style>
         </containerMappings>
         <containerMappings name="MacOs" semanticCandidatesExpression="aql:self.executors->filter(circleCI_metamodel::MacOs)" domainClass="circleCI_metamodel::MacOs">
-          <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
+          <subNodeMappings name="Environment" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@toolSections.7/@ownedTools[name='editKey']" semanticCandidatesExpression="feature:environments" domainClass="circleCI_metamodel::Environment">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:key" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/circleci.design/icons/Environment.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1119,24 +1119,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Run Command" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandRun']/@subNodeMappings[name='RunCommand']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RunCommand" referenceName="run_commands"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Run Parameters" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandRun']/@subNodeMappings[name='Parameters']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Parameters" referenceName="parameters"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subNodeMappings[name='CommandSaveCache']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -1256,24 +1238,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Run Command" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']/@subNodeMappings[name='RunCommand']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RunCommand" referenceName="run_commands"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Run Parameters" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']/@subNodeMappings[name='Parameters']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Parameters" referenceName="parameters"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveCache Step" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subNodeMappings[name='JobSaveCache']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -1347,47 +1311,23 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="Generic">
-          <ownedTools xsi:type="tool:DirectEditLabel" name="editName">
-            <mask mask="{0}"/>
+        <toolSections name="Run Step Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Run Command" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']/@subNodeMappings[name='RunCommand'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandRun']/@subNodeMappings[name='RunCommand']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::RunCommand" referenceName="run_commands"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" name="editKey">
-            <mask mask="{0}"/>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Run Parameters" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Job']/@subContainerMappings[name='JobRun']/@subNodeMappings[name='Parameters'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='CircleCI%20Diagram']/@defaultLayer/@containerMappings[name='Command']/@subContainerMappings[name='CommandRun']/@subNodeMappings[name='Parameters']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:0"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" name="editTrigger">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="cron" valueExpression="var:0"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" name="editCondition">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="condition" valueExpression="var:0"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" name="editParameter">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="parameter" valueExpression="var:0"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" name="editDockerAWS">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="aws_access_key_id" valueExpression="var:0"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" name="editDockerUsername">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="username" valueExpression="var:0"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::Parameters" referenceName="parameters"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -1588,6 +1528,50 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="circleCI_metamodel::StoreTestResults" referenceName="unless_step"/>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Generic">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editName">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editKey">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editTrigger">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="cron" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editCondition">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="condition" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editParameter">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="parameter" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editDockerAWS">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="aws_access_key_id" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editDockerUsername">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="username" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
