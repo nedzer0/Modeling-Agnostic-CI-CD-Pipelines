@@ -1,0 +1,925 @@
+import ecore : 'http://www.eclipse.org/emf/2002/Ecore';
+
+package gHA_metamodel : gHA_metamodel = 'http://www.example.org/gHA_metamodel'
+{
+	enum EVENTS { serializable }
+	{
+		literal BRANCH_PROTECTION_RULE : 'branch_protection_rule';
+		literal CHECK_RUN : 'check_run' = 1;
+		literal CHECK_SUITE : 'check_suite' = 2;
+		literal CREATE : 'create' = 3;
+		literal DELETE : 'delete' = 4;
+		literal DEPLOYMENT : 'deployment' = 5;
+		literal DEPLOYMENT_STATUS : 'deployment_status' = 6;
+		literal DISCUSSION : 'discussion' = 7;
+		literal DISCUSSION_COMMENT : 'discussion_comment' = 8;
+		literal FORK : 'fork' = 9;
+		literal GOLLUM : 'gollum' = 10;
+		literal ISSUE_COMMENT : 'issue_comment' = 11;
+		literal ISSUES : 'issues' = 12;
+		literal LABEL : 'label' = 13;
+		literal MERGE_GROUP : 'merge_group' = 14;
+		literal MILESTONE : 'milestone' = 15;
+		literal PAGE_BUILD : 'page_build' = 16;
+		literal PROJECT : 'project' = 17;
+		literal PROJECT_CARD : 'project_card' = 18;
+		literal PROJECT_COLUMN : 'project_column' = 19;
+		literal PUBLIC : 'public' = 20;
+		literal PULL_REQUEST_REVIEW : 'pull_request_review' = 21;
+		literal PULL_REQUEST_REVIEW_COMMENT : 'pull_request_review_comment' = 22;
+		literal REGISTRY_PACKAGE : 'registry_package' = 23;
+		literal RELEASE : 'release' = 24;
+		literal REPOSITORY_DISPATCH : 'repository_dispatch' = 25;
+		literal STATUS : 'status' = 26;
+		literal WATCH : 'watch' = 27;
+		literal BRANCH_PROTECTION_CONFIGURATION : 'branch_protection_configuration' = 28;
+		literal CODE_SCANNING_ALERT : 'code_scanning_alert' = 29;
+		literal COMMIT_COMMENT : 'commit_comment' = 30;
+		literal CUSTOM_PROPERTY : 'custom_property' = 31;
+		literal CUSTOM_PROPERTY_VALUES : 'custom_property_values' = 32;
+		literal DEPENDABOT_ALERT : 'dependabot_alert' = 33;
+		literal DEPLOY_KEY : 'deploy_key' = 34;
+		literal DEPLOYMENT_PROTECTION_RULE : 'deployment_protection_rule' = 35;
+		literal DEPLOYMENT_REVIEW : 'deployment_review' = 36;
+		literal GITHUB_APP_AUTHORIZATION : 'github_app_authorization' = 38;
+		literal INSTALLATION : 'installation' = 39;
+		literal INSTALLATION_REPOSITORIES : 'installation_repositories' = 40;
+		literal INSTALLATION_TARGET : 'installation_target' = 41;
+		literal MARKETPLACE_PURCHASE : 'marketplace_purchase' = 42;
+		literal MEMBER : 'member' = 43;
+		literal MEMBERSHIP : 'membership' = 44;
+		literal META : 'meta' = 45;
+		literal ORG_BLOCK : 'org_block' = 46;
+		literal ORGANIZATION : 'organization' = 47;
+		literal PACKAGE : 'package' = 48;
+		literal PERSONAL_ACCESS_TOKEN_REQUEST : 'personal_access_token_request' = 50;
+		literal PING : 'ping' = 51;
+		literal PROJECTS_V2 : 'projects_v2' = 52;
+		literal PROJECTS_V2_ITEM : 'projects_v2_item' = 53;
+		literal PULL_REQUEST : 'pull_request' = 54;
+		literal PULL_REQUEST_REVIEW_THREAD : 'pull_request_review_thread' = 55;
+		literal PUSH : 'push' = 56;
+		literal REPOSITORY_ADVISORY : 'repository_advisory' = 57;
+		literal REPOSITORY : 'repository' = 58;
+		literal REPOSITORY_IMPORT : 'repository_import' = 59;
+		literal REPOSITORY_RULESET : 'repository_ruleset' = 60;
+		literal REPOSITORY_VULNERABILITY_ALERT : 'repository_vulnerability_alert' = 61;
+		literal SECRET_SCANNING_ALERT : 'secret_scanning_alert' = 62;
+		literal SECRET_SCANNING_ALERT_LOCATION : 'secret_scanning_alert_location' = 63;
+		literal SECURITY_ADVISORY : 'security_advisory' = 64;
+		literal SECURITY_AND_ANALYSIS : 'security_and_analysis' = 65;
+		literal SPONSORSHIP : 'sponsorship' = 66;
+		literal STAR : 'star' = 67;
+		literal TEAM_ADD : 'team_add' = 68;
+		literal TEAM : 'team' = 69;
+		literal WORKFLOW_JOB : 'workflow_job' = 70;
+	}
+	enum WEBHOOK_ACTIVITY_TYPES { serializable }
+	{
+		literal ASSIGNED : 'assigned';
+		literal AUTO_MERGE_DISABLED : 'auto_merge_disabled' = 1;
+		literal AUTO_MERGE_ENABLED : 'auto_merge_enabled' = 2;
+		literal CLOSED : 'closed' = 4;
+		literal CONVERTED_TO_DRAFT : 'converted_to_draft' = 5;
+		literal EDITED : 'edited' = 6;
+		literal LABELED : 'labeled' = 7;
+		literal LOCKED : 'locked' = 8;
+		literal OPENED : 'opened' = 9;
+		literal READY_FOR_REVIEW : 'ready_for_review' = 10;
+		literal REOPENED : 'reopened' = 11;
+		literal REVIEW_REQUEST_REMOVED : 'review_request_removed' = 12;
+		literal REVIEW_REQUESTED : 'review_requested' = 13;
+		literal SYNCHRONIZE : 'synchronize' = 14;
+		literal UNASSIGNED : 'unassigned' = 15;
+		literal UNLABELED : 'unlabeled' = 16;
+		literal UNLOCKED : 'unlocked' = 17;
+		literal CREATED : 'created' = 18;
+		literal DELETED : 'deleted' = 19;
+		literal NONE : 'none' = 19;
+		literal DISABLED : 'disabled' = 20;
+		literal ENABLED : 'enabled' = 21;
+		literal COMPLETED : 'completed' = 22;
+		literal REQUESTED_ACTION : 'requested_action' = 23;
+		literal REREQUESTED : 'rerequested' = 24;
+		literal REQUESTED : 'requested' = 25;
+		literal APPEARED_IN_BRANCH : 'appeared_in_branch' = 26;
+		literal CLOSED_BY_USER : 'closed_by_user' = 27;
+		literal FIXED : 'fixed' = 28;
+		literal REOPENED_BY_USER : 'reopened_by_user' = 29;
+		literal UPDATED : 'updated' = 30;
+		literal AUTO_DISMISSED : 'auto_dismissed' = 31;
+		literal AUTO_REOPENED : 'auto_reopened' = 32;
+		literal DISMISSED : 'dismissed' = 33;
+		literal REINTRODUCED : 'reintroduced' = 34;
+		literal APPROVED : 'approved' = 35;
+		literal REJECTED : 'rejected' = 36;
+		literal ANSWERED : 'answered' = 37;
+		literal CATEGORY_CHANGED : 'category_changed' = 38;
+		literal PINNED : 'pinned' = 39;
+		literal TRANSFERED : 'transfered' = 40;
+		literal UNANSWERED : 'unanswered' = 41;
+		literal UNPINNED : 'unpinned' = 42;
+		literal NEW_PERMISSIONS_ACCEPTED : 'new_permissions_accepted' = 43;
+		literal SUSPEND_UNSUSPEND : 'suspend_unsuspend' = 44;
+		literal ADDED : 'added' = 45;
+		literal REMOVED : 'removed' = 46;
+		literal DEMILESTONED : 'demilestoned' = 47;
+		literal MILESTONED : 'milestoned' = 48;
+		literal CANCELLED : 'cancelled' = 49;
+		literal CHANGED : 'changed' = 50;
+		literal PENDING_CHANGE : 'pending_change' = 51;
+		literal PENDING_CHANGE_CANCELLED : 'pending_change_cancelled' = 52;
+		literal PURCHASED : 'purchased' = 53;
+		literal DENIED : 'denied' = 54;
+		literal CHECKS_REQUESTED : 'checks_requested' = 55;
+		literal DESTROYED : 'destroyed' = 56;
+		literal BLOCKED : 'blocked' = 57;
+		literal MEMBER_ADDED : 'member_added' = 58;
+		literal MEMBER_INVITED : 'member_invited' = 59;
+		literal MEMBER_REMOVED : 'member_removed' = 60;
+		literal RENAMED : 'renamed' = 61;
+		literal PUBLISHED : 'published' = 62;
+		literal MOVED : 'moved' = 64;
+		literal ARCHIVED : 'archived' = 65;
+		literal CONVERTED : 'converted' = 66;
+		literal REORDERED : 'reordered' = 67;
+		literal RESTORED : 'restored' = 68;
+		literal DEQUEUED : 'dequeued' = 69;
+		literal ENQUEUED : 'enqueued' = 70;
+		literal SUBMITTED : 'submitted' = 71;
+		literal RESOLVED : 'resolved' = 72;
+		literal UNRESOLVED : 'unresolved' = 73;
+		literal PRERELEASED : 'prereleased' = 74;
+		literal RELEASED : 'released' = 75;
+		literal UNPUBLISHED : 'unpublished' = 76;
+		literal REPORTED : 'reported' = 77;
+		literal PRIVATIZED : 'privatized' = 78;
+		literal PUBLICIZED : 'publicized' = 79;
+		literal TRANSFERRED : 'transferred' = 80;
+		literal UNARCHIVED : 'unarchived' = 81;
+		literal DISMISS : 'dismiss' = 82;
+		literal REOPEN : 'reopen' = 83;
+		literal RESOLVE : 'resolve' = 84;
+		literal REVOKED : 'revoked' = 85;
+		literal VALIDATED : 'validated' = 86;
+		literal WITHDRAWN : 'withdrawn' = 87;
+		literal PENDING_CANCELLATION : 'pending_cancellation' = 89;
+		literal PENDING_TIER_CHANGE : 'pending_tier_change' = 90;
+		literal TIER_CHANGED : 'tier_changed' = 91;
+		literal ADDED_TO_REPOSITORY : 'added_to_repository' = 92;
+		literal REMOVED_FROM_REPOSITORY : 'removed_from_repository' = 93;
+		literal UNBLOCKED : 'unblocked' = 94;
+		literal CREATE : 'create' = 95;
+		literal IN_PROGRESS : 'in_progress' = 96;
+		literal QUEUED : 'queued' = 97;
+		literal WAITING : 'waiting' = 98;
+	}
+	enum PERMISSIONS { serializable }
+	{
+		literal READ : 'read';
+		literal WRITE : 'write' = 1;
+		literal NONE : 'none' = 2;
+	}
+	enum PERMISSION_SCOPES { serializable }
+	{
+		literal ACTIONS : 'actions';
+		literal CHECKS : 'checks' = 1;
+		literal CONTENTS : 'contents' = 2;
+		literal DEPLOYMENTS : 'deployments' = 3;
+		literal DISCUSSIONS : 'discussions' = 4;
+		literal ID_TOKEN : 'id-token' = 5;
+		literal ISSUES : 'issues' = 6;
+		literal PACKAGES : 'packages' = 7;
+		literal PAGES : 'pages' = 8;
+		literal PULL_REQUESTS : 'pull_requests' = 9;
+		literal REPOSITORY_PROJECTS : 'repository_projects' = 10;
+		literal SECURITY_EVENTS : 'security_events' = 11;
+		literal STATUSES : 'statuses' = 12;
+	}
+	class Pipeline
+	{
+		property triggers : Trigger[*|1] { ordered composes };
+		property jobs : Job[+|1] { ordered composes };
+		attribute name : String[?] { id };
+		attribute run_name : String[?];
+		property permissions : Permission[*|1] { ordered composes };
+		property concurrency : Concurrency[?] { composes };
+		property envs : Env[*|1] { ordered composes };
+		property defaultsetting : DefaultSetting[?] { composes };
+		invariant
+		UniquePipelinePermissionInstance('Another Pipeline Permission instance already exists with readAll, writeAll, or disableAll set to true'): 
+    		self.permissions->select(p | p.readAll or p.writeAll or p.disableAll)->size() <= 1;
+	}
+	class Job
+	{
+		property steps : Step[+|1] { ordered composes };
+		attribute name : String[1];
+		property _'if' : If[?] { composes };
+		property strategy : Strategy[?] { composes };
+		property concurrency : Concurrency[?] { composes };
+		property environment : Environment[?] { composes };
+		property defaultsetting : DefaultSetting[?] { composes };
+		property permissions : Permission[*|1] { ordered composes };
+		property envs : Env[*|1] { ordered composes };
+		property need : Need[?] { composes };
+		property outputs : Output[*|1] { ordered composes };
+		attribute timeout_minutes : ecore::EInt[1] = '360';
+		attribute continue_on_error : String[?];
+		property services : Service[*|1] { ordered composes };
+		property actions : Action[*|1] { ordered composes };
+		property secrets : Secret[*|1] { ordered composes };
+		property runner : Runs_On[?] { composes };
+		property container : Container[?] { composes };
+		invariant
+		nonDuplicateJobName('Duplicate Job Name. Choose a different name for the job to ensure uniqueness within the pipeline.'): 
+			Pipeline.allInstances().jobs->forAll(j | j <> self implies j.name <> self.name);
+		invariant
+		UniqueJobPermissionInstance('Another Job Permission instance already exists with readAll, writeAll, or disableAll set to true'): 
+    		self.permissions->select(p | p.readAll or p.writeAll or p.disableAll)->size() <= 1;
+	}
+	abstract class Trigger
+	{
+		invariant
+		UniqueTriggerTypes('Only one instance of each trigger type (except ScheduleTrigger) is allowed'): 
+			not self.oclIsTypeOf(ScheduleTrigger) implies
+				Trigger.allInstances()->select(t | t.oclType() = self.oclType())->size() <= 1;
+	}
+	class Step
+	{
+		property commands : Command[+|1] { ordered composes };
+		property parameters : Parameter[*|1] { ordered composes };
+		property actions : Action[*|1] { ordered composes };
+		property envs : Env[*|1] { ordered composes };
+		property _'if' : If[?] { composes };
+		attribute name : String[?];
+		attribute working_directory : String[?];
+		attribute shell : String[?];
+		attribute continue_on_error : Boolean[1];
+		attribute timeout_minutes : ecore::EShort[1];
+	}
+	class Command
+	{
+		attribute name : String[1];
+	}
+	class Parameter
+	{
+		attribute parameter : String[1];
+	}
+	class Environment
+	{
+		attribute name : String[1];
+		attribute url : String[?];
+	}
+	class Action
+	{
+		attribute uses : String[1];
+		property composite_action : Step[*|1] { ordered composes };
+		property with : InputParams[*|1] { ordered composes };
+		property with_inputPair : InputPair[?] { composes };
+	}
+	abstract class EventTrigger extends Trigger
+	{
+		attribute activityType : WEBHOOK_ACTIVITY_TYPES[*|1] { ordered id };
+	}
+	class ScheduleTrigger extends Trigger
+	{
+		attribute cron : String[1];
+		invariant
+		validCronSyntax('Not a valid Cron syntax. Ensure that the pattern follows the format: [minute] [hour] [day of month] [month] [day of week], where each field is separated by a space.'): 
+    		self.cron.matches('(?:[0-9]|1[0-9]|2[0-3]|H|L|\\*|\\?|[0-5]?[0-9]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]) (?:[0-9]|1[0-2]|\\*|L|\\?|\\*/[0-9]+) (?:[0-7]|\\*|L|\\?|#[1-5])');
+	}
+	class PushTrigger extends Trigger
+	{
+		property branches : Branch[*|1] { ordered composes };
+		property tags : Tag[*|1] { ordered composes };
+		property paths : Path[*|1] { ordered composes };
+	}
+	class Runs_On
+	{
+		attribute labels : String[*|1] { ordered };
+		attribute group : String[?];
+		invariant
+		labelsAndGroupNotEmpty('Either labels or group must be defined and not both as empty strings'): 
+			(self.group->notEmpty() or self.labels->notEmpty()) and not (
+        	(self.group->isEmpty() or self.group = '') and 
+        	(self.labels->isEmpty() or self.labels->exists(l | l = ''))
+    	);
+	}
+	class Secret
+	{
+		attribute key : String[1];
+		attribute value : String[1];
+		attribute required : Boolean[1];
+		attribute name : String[1];
+	}
+	class Need
+	{
+		attribute jobs : String[+|1] { ordered };
+		invariant
+		existingJobsNeeded('Referenced jobs do not exist. Reference existing jobs'): 
+			self.jobs->forAll(jobName | Job.allInstances()->exists(j | j.name = jobName));
+	}
+	class Strategy
+	{
+		attribute fail_fast : Boolean[1];
+		attribute max_parallel : ecore::EShort[1];
+		property configs : MatrixConfig[*|1] { ordered composes };
+	}
+	class Artifact extends Action
+	{
+		attribute name : String[?];
+		attribute paths : String[+|1] { ordered };
+		attribute retention_days : String[?];
+		attribute type : ARTIFACT_TYPE[?];
+	}
+	class If
+	{
+		attribute condition : String[1];
+		invariant
+		validCondition('Invalid condition pattern. Condition must be non-empty and if negated, ensure the condition starts and ends with the correct characters ${{...}}, '', "", or ().'): 
+			self.condition <> '' and
+			self.condition->includes('!') implies
+			(self.condition.startsWith('${{') and self.condition.endsWith('}}') or
+            self.condition.startsWith('\'') and self.condition.endsWith('\'') or
+            self.condition.startsWith('"') and self.condition.endsWith('"') or
+            self.condition.startsWith('(') and self.condition.endsWith(')'));
+	}
+	class MatrixConfig
+	{
+		attribute key : String[1];
+		attribute values : String[+|1] { ordered };
+		attribute type : MATRIX_CONFIG_TYPE[?];
+	}
+	class Concurrency
+	{
+		attribute group : String[1];
+		attribute cancel_in_progress : Boolean[1];
+	}
+	class Credentials
+	{
+		attribute username : String[1];
+		attribute password : String[1];
+	}
+	class DefaultSetting
+	{
+		attribute shell : String[1];
+		attribute workingDirectory : String[1];
+	}
+	class Permission
+	{
+		attribute permission : PERMISSIONS[1];
+		attribute scope : PERMISSION_SCOPES[1];
+		attribute readAll : Boolean[1];
+		attribute writeAll : Boolean[1];
+		attribute disableAll : Boolean[1];
+		invariant
+		NoConflictingPermissions('Only one of readAll, writeAll, or disableAll can be set to true at a time'): 
+    		(self.readAll implies (not self.writeAll and not self.disableAll)) and
+    		(self.writeAll implies (not self.readAll and not self.disableAll)) and
+    		(self.disableAll implies (not self.readAll and not self.writeAll));
+	}
+	class Output
+	{
+		attribute name : String[1];
+		attribute value : String[1];
+		attribute description : String[?];
+	}
+	class Env
+	{
+		attribute key : String[1];
+		attribute value : String[1];
+	}
+	class Service
+	{
+		attribute name : String[1];
+		property container : Container[1] { composes };
+	}
+	class InputParams
+	{
+		attribute key : String[1];
+		attribute value : String[1];
+	}
+	abstract class Cache extends Action
+	{
+		attribute key : String[1];
+		attribute paths : String[+|1] { ordered };
+	}
+	class PullTrigger extends EventTrigger
+	{
+		property branches : Branch[*|1] { ordered composes };
+		property paths : Path[*|1] { ordered composes };
+	}
+	class StandardEventTrigger extends EventTrigger
+	{
+		attribute event : EVENTS[1];
+		invariant
+		validEventActivityType('The specified event or activity type combination is not valid. Please check the event and activity types specified in the rule and ensure they match the allowed combinations.'): 
+			if self.event= EVENTS::BRANCH_PROTECTION_CONFIGURATION then
+				self.activityType->forAll(activity |
+            	activity = WEBHOOK_ACTIVITY_TYPES::DISABLED or
+            	activity = WEBHOOK_ACTIVITY_TYPES::ENABLED
+     		)
+     
+			else if self.event = EVENTS::BRANCH_PROTECTION_RULE then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED
+			    )
+		
+			else if self.event = EVENTS::CHECK_RUN then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::COMPLETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REQUESTED_ACTION or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REREQUESTED
+			    )
+			
+			else if self.event = EVENTS::CHECK_SUITE then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::COMPLETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REQUESTED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REREQUESTED
+			    )
+			
+			else if self.event = EVENTS::CODE_SCANNING_ALERT then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::APPEARED_IN_BRANCH or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED_BY_USER or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::FIXED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED_BY_USER
+			    )
+		
+			else if self.event = EVENTS::CUSTOM_PROPERTY then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UPDATED
+			    )
+			
+			else if self.event = EVENTS::DEPENDABOT_ALERT then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::AUTO_DISMISSED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::AUTO_REOPENED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DISMISSED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::FIXED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REINTRODUCED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED
+			    )
+			
+			else if self.event = EVENTS::DEPLOY_KEY then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED
+			    )
+			
+			else if self.event = EVENTS::DEPLOYMENT_REVIEW then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::APPROVED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REJECTED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REQUESTED
+			    )
+			
+			else if self.event = EVENTS::DISCUSSION then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::ANSWERED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CATEGORY_CHANGED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::LABELED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::PINNED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::TRANSFERRED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNANSWERED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNLABELED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNLOCKED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNPINNED
+			    )
+			
+			else if self.event = EVENTS::DISCUSSION_COMMENT then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED
+			    )
+			
+			else if self.event = EVENTS::INSTALLATION then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::NEW_PERMISSIONS_ACCEPTED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::SUSPEND_UNSUSPEND
+			    )
+			
+			else if self.event = EVENTS::INSTALLATION_REPOSITORIES then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::ADDED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REMOVED
+			    )
+		    else if self.event = EVENTS::ISSUE_COMMENT then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED
+		    )
+			
+			else if self.event = EVENTS::ISSUES then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::ASSIGNED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DEMILESTONED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::LABELED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::LOCKED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::MILESTONED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::OPENED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::PINNED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::TRANSFERRED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNASSIGNED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNLABELED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNLOCKED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNPINNED
+			    )
+			
+			else if self.event = EVENTS::LABEL then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED
+			    )
+			
+			else if self.event = EVENTS::MARKETPLACE_PURCHASE then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CANCELLED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CHANGED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::PENDING_CHANGE or
+			        activity = WEBHOOK_ACTIVITY_TYPES::PENDING_CHANGE_CANCELLED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::PURCHASED
+			    )
+			
+			else if self.event = EVENTS::MEMBER then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::ADDED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REMOVED
+			    )
+			
+			else if self.event = EVENTS::MEMBERSHIP then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::ADDED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REMOVED
+			    )
+			
+			else if self.event = EVENTS::MERGE_GROUP then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CHECKS_REQUESTED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DESTROYED
+			    )
+			
+			else if self.event = EVENTS::MILESTONE then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::OPENED
+			    )
+			
+			else if self.event = EVENTS::ORG_BLOCK then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::BLOCKED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNBLOCKED
+			    )
+			
+			else if self.event = EVENTS::ORGANIZATION then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::MEMBER_ADDED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::MEMBER_INVITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::MEMBER_REMOVED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::RENAMED
+			    )
+			
+			else if self.event = EVENTS::PACKAGE then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::PUBLISHED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UPDATED
+			    )
+			
+			else if self.event = EVENTS::PERSONAL_ACCESS_TOKEN_REQUEST then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::APPROVED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CANCELLED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DENIED
+			    )
+
+			else if self.event = EVENTS::PROJECT_CARD then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CONVERTED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::MOVED
+			    )
+			
+			else if self.event = EVENTS::PROJECT then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED
+			    )
+			
+			else if self.event = EVENTS::PROJECT_COLUMN then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::MOVED
+			    )
+			
+			else if self.event = EVENTS::PROJECTS_V2 then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED
+			    )
+			
+			else if self.event = EVENTS::PROJECTS_V2_ITEM then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::ARCHIVED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CONVERTED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REORDERED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::RESTORED
+			    )
+			
+			else if self.event = EVENTS::PULL_REQUEST then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::ASSIGNED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::AUTO_MERGE_DISABLED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::AUTO_MERGE_ENABLED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CLOSED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CONVERTED_TO_DRAFT or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DEMILESTONED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DEQUEUED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::ENQUEUED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::LABELED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::LOCKED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::MILESTONED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::OPENED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::READY_FOR_REVIEW or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REVIEW_REQUEST_REMOVED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REVIEW_REQUESTED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::SYNCHRONIZE or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNASSIGNED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNLABELED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNLOCKED
+			    )
+			
+			else if self.event = EVENTS::PULL_REQUEST_REVIEW_COMMENT then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED
+			    )
+			
+			else if self.event = EVENTS::PULL_REQUEST_REVIEW then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::DISMISSED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::SUBMITTED
+			    )
+			
+			else if self.event = EVENTS::PULL_REQUEST_REVIEW_THREAD then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::RESOLVED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNRESOLVED
+			    )
+
+			else if self.event = EVENTS::REGISTRY_PACKAGE then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::PUBLISHED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UPDATED
+			    )
+			
+			else if self.event = EVENTS::RELEASE then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::PRERELEASED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::PUBLISHED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::RELEASED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNPUBLISHED
+			    )
+			
+			else if self.event = EVENTS::REPOSITORY_ADVISORY then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::PUBLISHED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REPORTED
+			    )
+			
+			else if self.event = EVENTS::REPOSITORY then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::ARCHIVED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::PRIVATIZED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::PUBLICIZED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::RENAMED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::TRANSFERRED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UNARCHIVED
+			    )
+			
+			else if self.event = EVENTS::REPOSITORY_RULESET then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED
+			    )
+			
+			else if self.event = EVENTS::REPOSITORY_VULNERABILITY_ALERT then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATE or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DISMISS or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REOPEN or
+			        activity = WEBHOOK_ACTIVITY_TYPES::RESOLVE
+			    )
+			
+			else if self.event = EVENTS::SECRET_SCANNING_ALERT then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REOPENED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::RESOLVED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REVOKED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::VALIDATED
+			    )
+
+			else if self.event = EVENTS::SECURITY_ADVISORY then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::PUBLISHED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::UPDATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::WITHDRAWN
+			    )
+
+			else if self.event = EVENTS::SPONSORSHIP then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CANCELLED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::PENDING_CANCELLATION or
+			        activity = WEBHOOK_ACTIVITY_TYPES::PENDING_TIER_CHANGE or
+			        activity = WEBHOOK_ACTIVITY_TYPES::TIER_CHANGED
+			    )
+			
+			else if self.event = EVENTS::STAR then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED
+			    )
+			
+			else if self.event = EVENTS::TEAM then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::ADDED_TO_REPOSITORY or
+			        activity = WEBHOOK_ACTIVITY_TYPES::CREATED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::DELETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::EDITED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::REMOVED_FROM_REPOSITORY
+			    )
+			
+			else if self.event = EVENTS::WORKFLOW_JOB then
+			    self.activityType->forAll(activity |
+			        activity = WEBHOOK_ACTIVITY_TYPES::COMPLETED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::IN_PROGRESS or
+			        activity = WEBHOOK_ACTIVITY_TYPES::QUEUED or
+			        activity = WEBHOOK_ACTIVITY_TYPES::WAITING
+			    )
+	     	else
+	     		self.activityType->forAll(activity |
+	        		activity = WEBHOOK_ACTIVITY_TYPES::NONE 
+	    		)
+	    	endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif endif 
+	    	endif endif endif endif endif endif endif endif endif endif endif endif endif endif
+    	;
+	}
+	class Docker extends Action
+	{
+		attribute image : String[1];
+		attribute pre_entrypoint : String[?];
+		property envs : Env[*|1] { ordered composes };
+		attribute entrypoint : String[?];
+		attribute post_entrypoint : String[?];
+		attribute args : String[*|1] { ordered };
+	}
+	abstract class InputTrigger extends Trigger
+	{
+		property inputs : Input[*|1] { ordered composes };
+	}
+	class WorkflowCallTrigger extends InputTrigger
+	{
+		property outputs : Output[*|1] { ordered composes };
+		property secrets : Secret[*|1] { ordered composes };
+	}
+	class Input
+	{
+		attribute type : INPUT_TYPES[?];
+		attribute isRequired : Boolean[1];
+		attribute options : String[*|1] { ordered };
+		attribute name : String[1];
+		attribute description : String[?];
+		attribute default : String[?];
+	}
+	enum INPUT_TYPES { serializable }
+	{
+		literal STRING : 'string';
+		literal NUMBER : 'number' = 1;
+		literal BOOLEAN : 'boolean' = 2;
+		literal ENVIRONMENT : 'environment' = 3;
+		literal CHOICE : 'choice' = 5;
+	}
+	class Container
+	{
+		attribute image : String[1];
+		attribute ports : String[*|1] { ordered };
+		attribute volumes : String[*|1] { ordered };
+		attribute options : String[?];
+		property credential : Credentials[?] { composes };
+		property envs : Env[*|1] { ordered composes };
+	}
+	class WorkflowDispatchTrigger extends InputTrigger;
+	class WorkflowRunTrigger extends Trigger
+	{
+		attribute workflow : String[1];
+		attribute type : String[1];
+		property branches : Branch[*|1] { ordered composes };
+	}
+	class Branch
+	{
+		attribute name : String[1];
+		attribute ignore : Boolean[1] = 'false';
+	}
+	class Tag
+	{
+		attribute name : String[1];
+		attribute ignore : Boolean[1] = 'false';
+	}
+	class Path
+	{
+		attribute name : String[1];
+		attribute ignore : Boolean[1] = 'false';
+	}
+	class PullTargetTrigger extends EventTrigger
+	{
+		property branches : Branch[*|1] { ordered composes };
+		property paths : Path[*|1] { ordered composes };
+	}
+	class RestoreCache extends Cache
+	{
+		attribute restore_keys : String[*|1] { ordered };
+		attribute lookup_only : Boolean[1] = 'false';
+		attribute fail_on_cache_miss : Boolean[1] = 'false';
+	}
+	class SaveCache extends Cache
+	{
+		attribute upload_chunk_size : String[?];
+	}
+	class InputPair
+	{
+		attribute args : String[?];
+		attribute entrypoint : String[?];
+		invariant
+		argsAndEntrypointNotEmpty('Either args or entrypoint must be defined and not both as empty strings'): 
+			(self.args->notEmpty() or self.entrypoint->notEmpty()) and not (
+        	(self.args->isEmpty() or self.args = '') and 
+        	(self.entrypoint->isEmpty() or self.entrypoint->exists(l | l = ''))
+    	);
+	}
+	enum ARTIFACT_TYPE { serializable }
+	{
+		literal UPLOAD : 'upload';
+		literal DOWNLOAD : 'download' = 1;
+	}
+	enum MATRIX_CONFIG_TYPE { serializable }
+	{
+		literal DEFAULT;
+		literal INCLUDE = 1;
+		literal EXCLUDE = 2;
+	}
+}

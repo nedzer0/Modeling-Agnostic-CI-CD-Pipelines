@@ -1,0 +1,158 @@
+package cICD_metamodel : cICD_metamodel = 'http://www.example.org/cICD_metamodel'
+{
+	class Command
+	{
+		attribute name : String[1];
+	}
+	class Environment
+	{
+		attribute key : String[1];
+		attribute value : String[1];
+	}
+	class Step
+	{
+		property commands : Command[*|1] { ordered composes };
+		property parameters : Parameters[*|1] { ordered composes };
+		property cache : Cache[*|1] { ordered composes };
+		property environments : Environment[*|1] { ordered composes };
+		property IfStep : IfStep[?] { composes };
+	}
+	class IfStep
+	{
+		property if_steps : Step[*|1] { ordered composes };
+		property else_steps : Step[*|1] { ordered composes };
+		attribute condition : String[1];
+		invariant
+		validCondition('Invalid condition pattern. Condition must be non-empty and if negated, ensure the condition starts and ends with the correct characters: ${{...}}, '', "", or ().'): 
+			self.condition <> '' and
+			self.condition->includes('!') implies
+			(self.condition.startsWith('${{') and self.condition.endsWith('}}') or
+            self.condition.startsWith('\'') and self.condition.endsWith('\'') or
+            self.condition.startsWith('"') and self.condition.endsWith('"') or
+            self.condition.startsWith('(') and self.condition.endsWith(')'));
+	}
+	class ScheduleTrigger
+	{
+		attribute timer : String[1];
+		invariant
+		validCronSyntax('Not a valid Cron syntax. Ensure that the pattern follows the format: [minute] [hour] [day of month] [month] [day of week], where each field is separated by a space.'): 
+    		self.timer.matches('(?:[0-9]|1[0-9]|2[0-3]|H|L|\\*|\\?|[0-5]?[0-9]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]) (?:[0-9]|1[0-2]|\\*|L|\\?|\\*/[0-9]+) (?:[0-7]|\\*|L|\\?|#[1-5])');
+	}
+	class Agent
+	{
+		property container : DockerContainer[?] { composes };
+		attribute labels : String[*|1] { ordered };
+	}
+	enum CACHE_MODE { serializable }
+	{
+		literal STORE;
+		literal LOAD = 1;
+		literal BOTH = 2;
+	}
+	class MatrixConfig
+	{
+		attribute name : String[1];
+		attribute values : String[+|1] { ordered };
+		attribute type : MATRIX_CONFIG_TYPE[1];
+	}
+	class Parameters
+	{
+		attribute parameter : String[1];
+	}
+	class Job
+	{
+		property steps : Step[*|1] { ordered composes };
+		property IfStep : IfStep[*|1] { ordered composes };
+		property artifacts : Artifact[*|1] { ordered composes };
+		property environments : Environment[*|1] { ordered composes };
+		property jobs : Job[*|1] { ordered composes };
+		property matrix : Matrix[?] { composes };
+		attribute name : String[1];
+		attribute allowFaillure : Boolean[?];
+		attribute parallel : String[?];
+		property agents : Agent[*|1] { ordered composes };
+		property output : Output[*|1] { ordered composes };
+		attribute requireJobs : String[*|1] { ordered };
+		invariant
+		existingRequireJob('Required Job does not exist. Select an existing pipeline Job'): 
+			self.requireJobs->notEmpty() implies self.requireJobs->forAll(rj | Pipeline.allInstances().jobs->exists(j | j.name = rj));
+		invariant
+		nonDuplicateJobName('Duplicate Job Name. Choose a different name for the job to ensure uniqueness within the pipeline.'): 
+			Pipeline.allInstances().jobs->forAll(j | j <> self implies j.name <> self.name);
+	}
+	class Pipeline
+	{
+		property jobs : Job[+|1] { ordered composes };
+		property pipeline_environment : Environment[*|1] { ordered composes };
+		property triggers : ScheduleTrigger[*|1] { ordered composes };
+		property agents : Agent[*|1] { ordered composes };
+		attribute name : String[?];
+		property inputs : Input[*|1] { ordered composes };
+		property output : Output[*|1] { ordered composes };
+	}
+	class Matrix
+	{
+		property steps : Step[*|1] { ordered composes };
+		attribute name : String[?];
+		property configs : MatrixConfig[+|1] { ordered composes };
+		property jobs : Job[*|1] { ordered composes };
+	}
+	class Cache
+	{
+		attribute mode : CACHE_MODE[1];
+		attribute paths : String[*|1] { ordered };
+		attribute key : String[?];
+		attribute keys : String[*|1] { ordered };
+	}
+	class Artifact
+	{
+		attribute name : String[?];
+		attribute message : String[?];
+		attribute path : String[*|1] { ordered };
+		attribute type : ARTIFACT_TYPE[?];
+	}
+	enum INPUT_TYPE { serializable }
+	{
+		literal STRING;
+		literal NUMBER = 1;
+		literal BOOLEAN = 2;
+		literal SECRET = 4;
+		literal CHOICE : 'CHOICE' = 5;
+		literal PASSWORD : 'PASSWORD' = 6;
+		literal TEXT : 'TEXT' = 7;
+	}
+	class Input
+	{
+		attribute type : INPUT_TYPE[1];
+		attribute name : String[1];
+		attribute default : String[?];
+		attribute description : String[?];
+		attribute values : String[*|1] { ordered };
+		invariant
+		DefaultBooleanValue('Boolean type must have default value set to "true" or "false"'): 
+			self.type = INPUT_TYPE::BOOLEAN implies (self.default = 'true' or self.default = 'false');
+	}
+	class Output
+	{
+		attribute name : String[1];
+		attribute value : String[1];
+	}
+	class DockerContainer
+	{
+		attribute image : String[1];
+		property environments : Environment[*|1] { ordered composes };
+		attribute username : String[?];
+		attribute password : String[?];
+	}
+	enum ARTIFACT_TYPE { serializable }
+	{
+		literal UPLOAD;
+		literal DOWNLOAD = 2;
+	}
+	enum MATRIX_CONFIG_TYPE { serializable }
+	{
+		literal DEFAULT;
+		literal INCLUDE = 1;
+		literal EXCLUDE = 2;
+	}
+}

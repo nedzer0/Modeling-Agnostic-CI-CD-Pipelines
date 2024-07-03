@@ -1,0 +1,311 @@
+import ecore : 'http://www.eclipse.org/emf/2002/Ecore';
+
+package circleCI_metamodel : circleCI_metamodel = 'http://www.example.org/circleCI_metamodel'
+{
+	abstract class Step
+	{
+		attribute name : String[?];
+	}
+	class Run extends Step
+	{
+		attribute when : WHEN_TYPE[?];
+		attribute background : Boolean[1];
+		attribute working_directory : String[?] = '.';
+		property environments : Environment[*|1] { ordered composes };
+		attribute no_output_timeout : String[?] = '10m';
+		attribute shell : String[?];
+		property run_commands : RunCommand[+|1] { ordered composes };
+		property parameters : Parameters[*|1] { ordered composes };
+	}
+	class Docker_Auth
+	{
+		attribute username : String[1];
+		attribute password : String[1];
+	}
+	class RestoreCache extends Step
+	{
+		attribute key : String[?];
+		attribute keys : String[*|1] { ordered };
+		invariant
+		validRestoreCacheDefinition('Invalid RestoreCache definition. Define key or keys or both'): 
+			self.key <> null or self.keys->notEmpty();
+	}
+	class Docker_Aws_Auths
+	{
+		attribute aws_access_key_id : String[1];
+		attribute aws_secret_access_key : String[1];
+	}
+	class Job
+	{
+		property environments : Environment[*|1] { ordered composes };
+		property steps : Step[+|1] { ordered composes };
+		property parameters : Parameter[*|1] { ordered composes };
+		attribute name : String[1];
+		attribute parallelism : ecore::EShort[1];
+		attribute reuseExecutor : String[?];
+		property executors : Executor[*|1] { ordered composes };
+		attribute reuseCommand : String[?];
+		invariant
+		nonDuplicateJobName('Duplicate Job Name. Choose a different job name to ensure uniqueness within the pipeline.'): 
+			Pipeline.allInstances().jobs->forAll(j | j <> self implies j.name <> self.name);
+		invariant
+		hasOneExecutorType('Each job should only specify one executor type. Please ensure that each job has a unique executor type assigned.'): 
+				self.executors->collect(e | e.oclType())->asSet()->size() <= 1;
+		invariant
+		ExecutorExistsInJobs('Ensure that the executor name matches one of the defined executors in the Pipeline\'s configuration'): 
+		    	(self.reuseExecutor <> null and self.reuseExecutor->notEmpty()) implies
+		        		Pipeline.allInstances().executors->exists(ex | ex.name = self.reuseExecutor);
+		invariant
+		validExecutorJob('Ensure to define an Executor inside the Job or reuse a global one'): 
+		    	self.reuseExecutor <> null and self.reuseExecutor->notEmpty() or self.executors->notEmpty();
+		invariant
+		CommandExistsInJobs('Ensure that the command name matches one of the defined commands in the Pipeline\'s configuration'): 
+		    	(self.reuseCommand <> null and self.reuseCommand->notEmpty()) implies
+		        		Pipeline.allInstances().commands->exists(com | com.name = self.reuseCommand);
+	}
+	class Machine extends Executor
+	{
+		attribute image : String[1];
+		attribute docker_layer_caching : Boolean[1];
+		attribute resourceClass : MACHINE_RESOURCE_TYPE[1];
+	}
+	enum PARAMETER_TYPES { serializable }
+	{
+		literal STRING : 'string';
+		literal BOOLEAN : 'boolean' = 1;
+		literal INTEGER : 'integer' = 2;
+		literal ENUM : 'enum' = 3;
+		literal EXECUTOR : 'executor' = 4;
+		literal STEPS : 'steps' = 5;
+		literal ENVIRONMENT_VARIABLE_NAME : 'environment_variable_name' = 6;
+	}
+	enum BRANCH_TYPE { serializable }
+	{
+		literal only;
+		literal ignore = 1;
+	}
+	class PersistToWorkspace extends Step
+	{
+		attribute root : String[1];
+		attribute paths : String[+|1] { ordered };
+	}
+	class StoreArtifact extends Step
+	{
+		attribute path : String[1];
+		attribute destination : String[?];
+	}
+	class StoreTestResults extends Step
+	{
+		attribute path : String[1];
+	}
+	class SetupRemoteDocker extends Step
+	{
+		attribute docker_layer_caching : Boolean[1];
+		attribute version : String[?];
+	}
+	class Parameters
+	{
+		attribute parameter : String[1];
+	}
+	class Parameter
+	{
+		attribute name : String[1];
+		attribute type : PARAMETER_TYPES[1];
+		attribute default : String[?];
+		attribute description : String[?];
+		attribute enumValues : String[*|1] { ordered };
+		invariant
+		EnumValuesNotEmpty('Enum parameter must have non-empty enum values'): 
+    		self.type = PARAMETER_TYPES::ENUM implies
+        		not self.enumValues->isEmpty() and self.enumValues->notEmpty();
+		invariant
+		EnumValuesEmptyForNonEnum('Non-enum parameter must not have enum values. Remove enumValues entry'): 
+    		self.type <> PARAMETER_TYPES::ENUM implies
+        		self.enumValues->isEmpty() and self.enumValues->isEmpty();
+		invariant
+		CheckValidBooleanDefaultValue('Boolean parameter must have default value as "true" or "false"'): 
+		    self.type = PARAMETER_TYPES::BOOLEAN implies
+		        (self.default = 'true' or self.default = 'false');
+		invariant
+		validParameterTypes('Invalid parameter type. Pipeline parameters can only have types: string, boolean, integer, or enum.'): 
+		        self.type = PARAMETER_TYPES::STRING or
+		        self.type = PARAMETER_TYPES::BOOLEAN or
+		        self.type = PARAMETER_TYPES::INTEGER or
+		        self.type = PARAMETER_TYPES::ENUM;
+		invariant
+		nonDuplicateParameterName('Duplicate Parameter Name. Choose a different Parameter name to ensure uniqueness within the pipeline.'): 
+			Pipeline.allInstances().jobs.parameters->union(Pipeline.allInstances().commands.parameters)->forAll(p | p <> self implies p.name <> self.name);
+	}
+	class MacOs extends Executor
+	{
+		attribute xcode : String[1];
+		attribute resourceClass : MACOS_RESOURCE_TYPE[1];
+	}
+	class Workflow
+	{
+		property triggers : Trigger[*|1] { ordered composes };
+		property branches : Branch[*|1] { ordered composes };
+		property when_unless : When_Unless[?] { composes };
+		attribute name : String[1];
+		attribute version : String[1];
+		property jobworkflow : JobWorkflow[+|1] { ordered composes };
+	}
+	class Environment
+	{
+		attribute key : String[1];
+		attribute value : String[1];
+	}
+	enum WHEN_TYPE { serializable }
+	{
+		literal on_success;
+		literal always = 1;
+		literal on_fail;
+	}
+	class Docker extends Executor
+	{
+		property docker_auth : Docker_Auth[?] { composes };
+		property docker_aws_auth : Docker_Aws_Auths[?] { composes };
+		attribute image : String[1];
+		attribute entrypoint : String[*|1] { ordered };
+		attribute command : String[*|1] { ordered };
+		attribute user : String[?];
+		attribute resourceClass : DOCKER_RESOURCE_TYPE[1];
+	}
+	class AddSSHKeys extends Step
+	{
+		attribute fingerprints : String[*|1] { ordered };
+	}
+	class SaveCache extends Step
+	{
+		attribute paths : String[+|1] { ordered };
+		attribute key : String[1];
+		attribute when : WHEN_TYPE[?];
+	}
+	class AttachWorkspace extends Step
+	{
+		attribute at : String[1];
+	}
+	class When_Unless extends Step
+	{
+		property when_step : Step[+|1] { ordered composes };
+		property unless_step : Step[*|1] { ordered composes };
+		attribute condition : String[1];
+	}
+	class Branch
+	{
+		attribute name : String[1];
+		attribute branch : BRANCH_TYPE[1];
+	}
+	class RunCommand
+	{
+		attribute name : String[1];
+	}
+	class Trigger
+	{
+		attribute cron : String[1];
+		invariant
+		validCronSyntax('Not a valid Cron syntax. Ensure that the pattern follows the format: [minute] [hour] [day of month] [month] [day of week], where each field is separated by a space.'): 
+    		self.cron.matches('(?:[0-9]|1[0-9]|2[0-3]|H|L|\\*|\\?|[0-5]?[0-9]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]) (?:[0-9]|1[0-2]|\\*|L|\\?|\\*/[0-9]+) (?:[0-7]|\\*|L|\\?|#[1-5])');
+	}
+	class Checkout extends Step
+	{
+		attribute path : String[?];
+	}
+	abstract class Executor
+	{
+		attribute name : String[?];
+		attribute shell : String[?];
+		attribute working_directory : String[?] = '';
+		property environments : Environment[*|1] { ordered composes };
+		invariant
+		nonDuplicateExecutorName('Duplicate Executor Name. Choose a different Executor name to ensure uniqueness within the pipeline.'): 
+			Pipeline.allInstances().jobs.executors->union(Pipeline.allInstances().executors)->forAll(p | p <> self implies p.name <> self.name);
+		invariant
+		mandatoryPipelineExecutorName('Pipeline Executor Name is empty. Define Executor name.'): 
+			Pipeline.allInstances().executors->forAll(p | p.name->notEmpty() and p.name <> null);
+	}
+	class Pipeline
+	{
+		property orbs : Orb[*|1] { ordered composes };
+		property commands : Command[*|1] { ordered composes };
+		property workflows : Workflow[*|1] { ordered composes };
+		property jobs : Job[+|1] { ordered composes };
+		property executors : Executor[*|1] { ordered composes };
+		attribute version : String[1];
+		attribute setup : Boolean[1];
+	}
+	class Orb
+	{
+		attribute key : String[1];
+		attribute value : String[1];
+	}
+	class Command
+	{
+		property steps : Step[+|1] { ordered composes };
+		property parameters : Parameter[*|1] { ordered composes };
+		attribute name : String[1];
+		attribute description : String[?];
+		invariant
+		nonDuplicateCommandName('Duplicate Command Name. Choose a different Command name to ensure uniqueness within the pipeline.'): 
+			Pipeline.allInstances().commands->forAll(p | p <> self implies p.name <> self.name);
+	}
+	class Matrix
+	{
+		attribute alias : String[?];
+		property matrix_exclude : MatrixParams[*|1] { ordered composes };
+		property matrix_params : MatrixParams[+|1] { ordered composes };
+	}
+	class JobWorkflow
+	{
+		attribute name : String[1];
+		attribute requires : String[*|1] { ordered };
+		attribute context : String[*|1] { ordered };
+		attribute approvalJob : Boolean[1];
+		property branches : Branch[*|1] { ordered composes };
+		property matrix : Matrix[?] { composes };
+		invariant
+		requiredJobExists('Required Job does not exist. Select an existing pipeline Job'): 
+			self.requires->notEmpty() implies self.requires->forAll(rj | Job.allInstances()->exists(j | j.name = rj));
+		invariant
+		WorkflowJobExists('Ensure that jobs referenced in the workflow exist in Job\'s configuration'): 
+			Pipeline.allInstances().jobs->exists(job | job.name = self.name);
+		invariant
+		nonDuplicateJobWorkflowName('Duplicate JobWorkflow Name. Choose a different jobWorkflow name to ensure uniqueness within the pipeline.'): 
+			Workflow.allInstances()->exists(w | w.jobworkflow->includes(self) and 
+    			w.jobworkflow->forAll(jw | jw <> self implies jw.name <> self.name));
+	}
+	class MatrixParams
+	{
+		attribute key : String[1];
+		attribute values : String[+|1] { ordered };
+		invariant
+		validKeyMatchesParameterName('MatrixParams key must match a Parameter name inside the Job'): 
+			let jobWorkflow : JobWorkflow = Workflow.allInstances()->collect(wf | wf.jobworkflow)->flatten()->any(jw | jw.matrix.matrix_params->includes(self)) in
+		        let job : Job = Pipeline.allInstances().jobs->any(j | j.name = jobWorkflow.name) in
+		    		job.parameters->exists(p | p.name = self.key);
+	}
+	enum DOCKER_RESOURCE_TYPE { serializable }
+	{
+		literal SMALL : 'small';
+		literal MEDIUM : 'medium' = 1;
+		literal MEDIUM_PLUS : 'medium_plus' = 2;
+		literal LARGE : 'large' = 3;
+		literal XLARGE : 'xlarge' = 4;
+		literal TWO_XLARGE : 'two_xlarge' = 5;
+		literal TWO_XLARGE_PLUS : 'two_xlarge_plus' = 6;
+	}
+	enum MACOS_RESOURCE_TYPE { serializable }
+	{
+		literal MACOS_X86_MEDIUM_GEN2 : 'macos.x86.medium.gen2';
+		literal MACOS_M1_MEDIUM_GEN : 'macos.m1.medium.gen1' = 1;
+		literal MACOS_M1_LARGE_GEN1 : 'macos.m1.large.gen1' = 2;
+	}
+	enum MACHINE_RESOURCE_TYPE { serializable }
+	{
+		literal MEDIUM : 'medium';
+		literal LARGE : 'large' = 1;
+		literal XLARGE : 'xlarge' = 2;
+		literal TWO_XLARGE : 'two_xlarge' = 3;
+		literal TWO_XLARGE_PLUS : 'two_xlarge_plus' = 4;
+	}
+}

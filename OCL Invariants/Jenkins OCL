@@ -1,0 +1,328 @@
+import ecore : 'http://www.eclipse.org/emf/2002/Ecore';
+
+package jenkins_metamodel : jenkins_metamodel = 'http://www.example.org/jenkins_metamodel'
+{
+	class BuildingTag extends When;
+	class Command
+	{
+		attribute name : String[1];
+	}
+	class Node extends Agent
+	{
+		attribute label : String[1];
+		attribute customWorkspace : String[?];
+	}
+	abstract class Trigger;
+	class Any extends Agent;
+	class Branch extends When
+	{
+		attribute pattern : String[1];
+		attribute comparator : COMPARATOR_TYPE[?];
+	}
+	class Changelog extends When
+	{
+		attribute expression : String[1];
+	}
+	class TriggeredBy extends When
+	{
+		attribute parameter : String[1];
+	}
+	class Expression extends When
+	{
+		attribute expression : String[1];
+	}
+	class Step_Parameter
+	{
+		attribute parameter : String[1];
+	}
+	class ChangeSet extends When
+	{
+		attribute pattern : String[1];
+		attribute comparator : COMPARATOR_TYPE[?];
+	}
+	class Not extends When
+	{
+		property when : When[+|1] { ordered composes };
+	}
+	class Step
+	{
+		property commands : Command[1] { composes };
+		property step_parameters : Step_Parameter[*|1] { ordered composes };
+	}
+	class Post
+	{
+		attribute condition : POST_TYPE[1];
+		property steps : Step[+|1] { ordered composes };
+	}
+	class AnyOf extends When
+	{
+		property when : When[+|1] { ordered composes };
+	}
+	class Pipeline
+	{
+		property environments : Environment[*|1] { ordered composes };
+		property stages : Stage[+|1] { ordered composes };
+		property post : Post[*|1] { ordered composes };
+		property parameter_directives : Parameter_Directive[*|1] { ordered composes };
+		property tools : Tool[*|1] { ordered composes };
+		property agents : Agent[+|1] { ordered composes };
+		property triggers : Trigger[*|1] { ordered composes };
+		property options : Option[*|1] { ordered composes };
+	}
+	class Tag extends When
+	{
+		attribute pattern : String[1];
+		attribute comparator : COMPARATOR_TYPE[?];
+	}
+	class When_Env extends When
+	{
+		attribute name : String[1];
+		attribute value : String[1];
+	}
+	abstract class Parameter_Directive
+	{
+		attribute description : String[?];
+		attribute name : String[1];
+	}
+	class AllOf extends When
+	{
+		property when : When[+|1] { ordered composes };
+	}
+	class Equals extends When
+	{
+		attribute expected_val : String[1];
+		attribute actual_val : String[1];
+	}
+	class None extends Agent;
+	class ChangeRequest extends When
+	{
+		attribute attribute : ATTRIBUTE_TYPE[1];
+		attribute value : String[1];
+		attribute comparator : COMPARATOR_TYPE[?];
+	}
+	class Dockerfile extends Agent
+	{
+		attribute dir : String[?];
+		attribute additionalBuildArgs : String[?];
+		attribute registryUrl : String[?];
+		attribute registryCredentialsId : String[?];
+		attribute label : String[?];
+		attribute customWorkspace : String[?];
+		attribute reuseNode : String[?];
+		attribute args : String[?];
+		attribute filename : String[1];
+	}
+	class Docker extends Agent
+	{
+		attribute registryUrl : String[?];
+		attribute registryCredentialsId : String[?];
+		attribute label : String[?];
+		attribute alwaysPull : Boolean[1];
+		attribute customWorkspace : String[?];
+		attribute reuseNode : String[?];
+		attribute args : String[?];
+		attribute image : String[1];
+	}
+	class Stage
+	{
+		property stages : Stage[*|1] { ordered composes };
+		property agents : Agent[*|1] { ordered composes };
+		property steps : Step[*|1] { ordered composes };
+		property environments : Environment[*|1] { ordered composes };
+		property inputs : Input[*|1] { ordered composes };
+		property when : When[*|1] { ordered composes };
+		attribute name : String[1];
+		attribute failFast : Boolean[1];
+		attribute parallel : Boolean[1];
+		property stage_options : StageOption[*|1] { ordered composes };
+		property matrix : Matrix[?] { composes };
+		invariant
+		validStageDefinition('A stage must have one and only one of steps, stages, parallel, or matrix.'): 
+			self.stages->notEmpty() or self.steps->notEmpty() or self.matrix <> null;
+		invariant
+		nonDuplicateStageName('Duplicate Stage Name. Choose a different name for the Stage to ensure uniqueness within the pipeline.'): 
+			Pipeline.allInstances().stages->forAll(s |
+		        s <> self implies 
+		            s.name <> self.name and 
+		            s.stages->forAll(subs | 
+		                subs <> self implies 
+		                    subs.name <> self.name and  
+		                    s.stages->excluding(subs)->forAll(other | other.name <> subs.name)  
+		            )
+		    );
+		invariant
+		NotParallelWhenNoSubstage('Parallel execution is only allowed if sub-stages are defined.'): 
+        	Pipeline.allInstances().stages->forAll(pipelineStage | not pipelineStage.parallel);
+		invariant
+		ParallelStages('If stages are not empty, then all sub-stages must have parallel set to true'): 
+    		self.stages->notEmpty() implies self.stages->forAll(stage | stage.parallel);
+	}
+	abstract class When;
+	class Tool
+	{
+		attribute tool : TOOL_TYPE[1];
+		attribute tool_name : String[1];
+	}
+	enum POST_TYPE { serializable }
+	{
+		literal always = 1;
+		literal changed;
+		literal fixed;
+		literal regression;
+		literal aborted;
+		literal failure;
+		literal success;
+		literal unstable;
+		literal unsuccessful;
+		literal cleanup;
+	}
+	class Environment
+	{
+		attribute key : String[1];
+		attribute value : String[1];
+	}
+	class Input
+	{
+		property parameter_directives : Parameter_Directive[*|1] { ordered composes };
+		attribute message : String[1];
+		attribute id : String[?];
+		attribute ok : String[?];
+		attribute submitter : String[?];
+		attribute submitterParameter : String[?];
+	}
+	abstract class Agent;
+	class Cron extends Trigger
+	{
+		attribute timer : String[1];
+		invariant
+		validCronSyntax('Not a valid Cron syntax. Ensure that the pattern follows the format: [minute] [hour] [day of month] [month] [day of week], where each field is separated by a space.'): 
+    		self.timer.matches('(?:[0-9]|1[0-9]|2[0-3]|H|L|\\*|\\?|[0-5]?[0-9]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]) (?:[0-9]|1[0-2]|\\*|L|\\?|\\*/[0-9]+) (?:[0-7]|\\*|L|\\?|#[1-5])');
+	}
+	class PollSCM extends Trigger
+	{
+		attribute timer : String[1];
+		invariant
+		validCronSyntax('Not a valid Cron syntax. Ensure that the pattern follows the format: [minute] [hour] [day of month] [month] [day of week], where each field is separated by a space.'): 
+    		self.timer.matches('(?:[0-9]|1[0-9]|2[0-3]|H|L|\\*|\\?|[0-5]?[0-9]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]|\\*/[0-9]+) (?:[0-9]|1[0-9]|2[0-3]|\\*|L|\\?|[01]?[0-9]|2[0-9]|3[01]|W|L\\-?[0-6]|#[1-5]) (?:[0-9]|1[0-2]|\\*|L|\\?|\\*/[0-9]+) (?:[0-7]|\\*|L|\\?|#[1-5])');
+	}
+	class Upstream extends Trigger
+	{
+		attribute jobs : String[+|1] { ordered };
+		attribute threshold : String[1];
+		invariant
+		existingJobs('Referenced jobs do not exist. Reference existing jobs'): 
+			self.jobs->forAll(jobName | Stage.allInstances()->exists(s | s.name = jobName));
+	}
+	abstract class Option;
+	class BuildDiscarder extends Option
+	{
+		attribute numToKeepStr : ecore::EShort[1];
+	}
+	class CheckoutToSubdirectory extends Option
+	{
+		attribute directory : String[1];
+	}
+	class SkipStagesAfterUnstable extends Option;
+	class SkipDefaultCheckout extends Option,StageOption;
+	class Retry extends Option,StageOption
+	{
+		attribute retries : ecore::EShort[1];
+	}
+	class QuietPeriod extends Option
+	{
+		attribute period : ecore::EShort[1];
+	}
+	class PreserveStashes extends Option
+	{
+		attribute buildCount : String[?];
+	}
+	class Timeout extends Option,StageOption
+	{
+		attribute time : ecore::EShort[1];
+		attribute unit : String[1];
+	}
+	class ParallelsAlwaysFailFast extends Option;
+	class Timestamps extends Option,StageOption;
+	class DisableRestartFromStage extends Option;
+	class DisableResume extends Option;
+	class OverrideIndexTriggers extends Option
+	{
+		attribute override : Boolean[1];
+	}
+	class NewContainerPerStage extends Option;
+	class DisableConcurrentBuilds extends Option
+	{
+		attribute abort : Boolean[1];
+	}
+	abstract class StageOption;
+	class StringParam extends Parameter_Directive
+	{
+		attribute defaultValue : String[1];
+	}
+	class TextParam extends Parameter_Directive
+	{
+		attribute defaultValue : String[1];
+	}
+	class ChoiceParam extends Parameter_Directive
+	{
+		attribute choices : String[+|1] { ordered };
+	}
+	class PasswordParam extends Parameter_Directive
+	{
+		attribute defaultValue : String[1];
+	}
+	class BooleanParam extends Parameter_Directive
+	{
+		attribute defaultValue : Boolean[1];
+	}
+	enum TOOL_TYPE { serializable }
+	{
+		literal maven = 1;
+		literal jdk;
+		literal gradle;
+	}
+	enum COMPARATOR_TYPE { serializable }
+	{
+		literal none = 1;
+		literal glob;
+		literal regexp;
+		literal equals = 1;
+	}
+	enum ATTRIBUTE_TYPE { serializable }
+	{
+		literal target;
+		literal branch;
+		literal fork = 1;
+		literal url = 1;
+		literal title = 1;
+		literal author = 1;
+		literal authorDisplayName = 1;
+		literal authorEmail = 1;
+		literal id = 1;
+	}
+	class Matrix
+	{
+		property axis : Axis[+|1] { ordered composes };
+		property stages : Stage[+|1] { ordered composes };
+		property inputs : Input[*|1] { ordered composes };
+		property when : When[*|1] { ordered composes };
+		property environments : Environment[*|1] { ordered composes };
+		property agents : Agent[*|1] { ordered composes };
+		property tools : Tool[*|1] { ordered composes };
+		property post : Post[*|1] { ordered composes };
+		property stage_options : StageOption[*|1] { ordered composes };
+		invariant
+		atLeastOneAxis('At least one axis must have exclude set to false'): 
+			self.axis->exists(a | not a.exclude);
+	}
+	class Axis
+	{
+		attribute name : String[1];
+		attribute values : String[+|1] { ordered };
+		attribute exclude : Boolean[1];
+	}
+	class Label extends Agent
+	{
+		attribute label : String[1];
+	}
+}
