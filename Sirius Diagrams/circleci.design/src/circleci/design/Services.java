@@ -424,7 +424,7 @@ public class Services {
 
     
     public boolean checkValidBooleanDefaultValue(Parameter parameter) {
-        if (parameter.getType() == PARAMETER_TYPES.BOOLEAN && !parameter.getDefault().equals("false") && !parameter.getDefault().equals("true")) {
+        if (parameter.getType() == PARAMETER_TYPES.BOOLEAN && parameter.getDefault() != null && !parameter.getDefault().equals("false") && !parameter.getDefault().equals("true")) {
         	return false;
         }
         return true;

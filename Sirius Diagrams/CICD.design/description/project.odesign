@@ -923,7 +923,7 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:ListDescription" labelExpression="requireJobs" helpExpression="A list of jobs that must succeed for the job to start" valueExpression="feature:requireJobs" displayExpression="var:value">
+        <controls xsi:type="properties:ListDescription" labelExpression="RequireJobs List" helpExpression="A list of jobs that must succeed for the job to start" valueExpression="feature:requireJobs" displayExpression="var:value">
           <actions labelExpression="Remove job">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -997,7 +997,7 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:ListDescription" labelExpression="path" helpExpression="Directory in the primary container to save as job artifacts" valueExpression="feature:path" displayExpression="var:value">
+        <controls xsi:type="properties:ListDescription" labelExpression="Paths List" helpExpression="Directory in the primary container to save as job artifacts" valueExpression="feature:path" displayExpression="var:value">
           <actions labelExpression="Remove path">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -1053,7 +1053,7 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:ListDescription" labelExpression="labels" valueExpression="feature:labels" displayExpression="var:value">
+        <controls xsi:type="properties:ListDescription" labelExpression="Labels List" valueExpression="feature:labels" displayExpression="var:value">
           <actions labelExpression="Remove label">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -1092,7 +1092,7 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:ListDescription" labelExpression="values" helpExpression="Matrix parameter values" valueExpression="feature:values" displayExpression="var:value">
+        <controls xsi:type="properties:ListDescription" labelExpression="Values List" helpExpression="Matrix parameter values" valueExpression="feature:values" displayExpression="var:value">
           <actions labelExpression="Remove value">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -1148,7 +1148,7 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:ListDescription" name="PathsList" labelExpression="paths" helpExpression="List of directories which should be added to the cache" valueExpression="feature:paths" displayExpression="var:value">
+        <controls xsi:type="properties:ListDescription" name="PathsList" labelExpression="Paths List" helpExpression="List of directories which should be added to the cache" valueExpression="feature:paths" displayExpression="var:value">
           <actions labelExpression="Remove path">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -1185,7 +1185,7 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:ListDescription" labelExpression="keys" helpExpression="List of cache keys to lookup for a cache to restore. Only first existing key will be restored." valueExpression="feature:keys" displayExpression="var:value">
+        <controls xsi:type="properties:ListDescription" labelExpression="Keys List" helpExpression="List of cache keys to lookup for a cache to restore. Only first existing key will be restored." valueExpression="feature:keys" displayExpression="var:value">
           <actions labelExpression="Remove key">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -1238,7 +1238,7 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:ListDescription" labelExpression="values" valueExpression="feature:values" displayExpression="var:value">
+        <controls xsi:type="properties:ListDescription" labelExpression="Values List" valueExpression="feature:values" displayExpression="var:value">
           <actions labelExpression="Remove value">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
