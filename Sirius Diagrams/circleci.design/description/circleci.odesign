@@ -1637,10 +1637,10 @@
           </initialOperation>
         </controls>
         <validationSet>
-          <semanticValidationRules name="ExecutorType" level="ERROR" message="Each job should only specify one executor type. Please ensure that each job has a unique executor type assigned" targetClass="circleCI_metamodel::Job">
+          <semanticValidationRules name="ExecutorType" level="ERROR" message="Each job should only specify one executor type (Docker, Machine or MacOs)" targetClass="circleCI_metamodel::Job">
             <audits auditExpression="service:checkExecutorType()"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Valid Eexecutor Job" level="ERROR" message="Ensure to define an Executor inside the Job or reuse a global one" targetClass="circleCI_metamodel::Job">
+          <semanticValidationRules name="Valid Executor Job" level="ERROR" message="Ensure to define a new Executor inside the Job or reuse a global one" targetClass="circleCI_metamodel::Job">
             <audits auditExpression="service:checkValidJobExecutor()"/>
           </semanticValidationRules>
           <propertyValidationRules name="JobNameNotEmpty" label="name" level="ERROR" message="Job name should not be empty" targets="//@extensions.0/@categories.0/@groups.1/@controls.0">
@@ -2087,7 +2087,7 @@
           <propertyValidationRules name="WorkflowJobNotEmpty" label="name" level="ERROR" message="JobWorkflow name should not be empty" targets="//@extensions.0/@categories.0/@groups.14/@controls.0">
             <audits auditExpression="service:checkJobWorkflowNameNotEmpty()"/>
           </propertyValidationRules>
-          <propertyValidationRules name="WorkflowJobExists" label="name" level="ERROR" message="aql: 'Job referenced in the workflow with name &quot;' + self.name + '&quot; does not exist'" targets="//@extensions.0/@categories.0/@groups.14/@controls.0">
+          <propertyValidationRules name="WorkflowJobExists" label="name" level="ERROR" message="aql: 'Job with name &quot;' + self.name + '&quot; referenced in the workflow does not exist'" targets="//@extensions.0/@categories.0/@groups.14/@controls.0">
             <audits auditExpression="service:checkWorkflowJobExists()"/>
           </propertyValidationRules>
           <propertyValidationRules name="RequiredJobExists" label="name" level="ERROR" message="aql: 'Required Job: ' + self.name ' does not exist. Select an existing pipeline Job'" targets="//@extensions.0/@categories.0/@groups.14/@controls.1">
